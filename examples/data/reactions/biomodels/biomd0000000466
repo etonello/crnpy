@@ -1,0 +1,34 @@
+re102: FAK ->(re102_normal*re102_unity*((Time + re102_tiny_num)/re102_unimol)**(-0.65)*exp(re102_unity)*exp(-(Time/re102_tf)**0.35)/FAK) p_FAK
+re102_rev: p_FAK ->(re102_normal*(Time/re102_tf)**0.35*((Time + re102_tiny_num)/re102_unimol)**(-0.65)*exp(re102_unity)*exp(-(Time/re102_tf)**0.35)/p_FAK) FAK
+re103: Src ->(re103_normal*re103_unity*(Time/re103_unimol)**0.3*exp(re103_unity)*exp(-(Time/re103_tf)**1.3)/Src) p_Src
+re103_rev: p_Src ->(re103_normal*(Time/re103_tf)**1.3*(Time/re103_unimol)**0.3*exp(re103_unity)*exp(-(Time/re103_tf)**1.3)/p_Src) Src
+re104: Shc + p_FAK ->(re104_k3) p_FAK_Shc
+re104_rev: p_FAK_Shc ->(re104_kr3) Shc + p_FAK
+re105: p_FAK_Shc ->(p_Src*re105_k4) p_FAK_p_Shc
+re105_rev: p_FAK_p_Shc ->(re105_kr4) p_FAK_Shc
+re106: Grb2_Sos + p_FAK_p_Shc ->(re106_k5) p_FAK_p_Shc_Grb2_Sos
+re106_rev: p_FAK_p_Shc_Grb2_Sos ->(re106_kr5) Grb2_Sos + p_FAK_p_Shc
+re107: p_FAK_p_Shc_Grb2_Sos ->(re107_k6) p_FAK + p_Shc_Grb2_Sos
+re107_rev: p_FAK + p_Shc_Grb2_Sos ->(re107_kr6) p_FAK_p_Shc_Grb2_Sos
+re108: p_Shc ->(re108_V8/(p_Shc + re108_Km8)) Shc
+re109: p_Shc_Grb2_Sos ->(re109_k7) Grb2_Sos + p_Shc
+re110: eNOS ->(re110_k25) eNOS
+re111: eNOS ->((KLF2*re111_k24t2 + aAP_1*re111_k24t1)/eNOS) eNOS
+re112: Ras_GDP ->(p_Shc_Grb2_Sos*re112_k9/(Ras_GDP + re112_Km9)) Ras_GTP
+re113: Ras_GTP ->(re113_V10/(Ras_GTP + re113_Km10)) Ras_GDP
+re114: MEKK1 ->(Ras_GTP*re114_k11/(MEKK1 + re114_Km11)) p_MEKK1
+re115: p_MEKK1 ->(re115_V12/(p_MEKK1 + re115_Km12)) MEKK1
+re116: JNKK ->(p_MEKK1*re116_k13/(JNKK + re116_Km13)) p_JNKK
+re117: p_JNKK ->(re117_V14/(p_JNKK + re117_Km14)) JNKK
+re118: JNK ->(pp_JNKK*re118_k17/(JNK + re118_Km17)) p_JNK
+re119: p_JNK ->(re119_V18/(p_JNK + re119_Km18)) JNK
+re120: eNOS ->(re120_k26) s35
+re121: s37 ->(eNOS*re121_V27/(s37*(eNOS + re121_Km27))) eNOS_Cav_1
+re122: pre_time ->(re122_unitime/pre_time) Time
+re123: pp_JNKK ->(re123_V16/(pp_JNKK + re123_Km16)) p_JNKK
+re124: p_JNKK ->(p_MEKK1*re124_k15/(p_JNKK + re124_Km15)) pp_JNKK
+re125: pp_JNK ->(re125_V20/(pp_JNK + re125_Km20)) p_JNK
+re126: p_JNK ->(pp_JNKK*re126_k19/(p_JNK + re126_Km19)) pp_JNK
+re127: AP_1 ->(pp_JNK*re127_k21/(AP_1 + re127_Km21)) aAP_1
+re128: aAP_1 ->(re128_V22/(aAP_1 + re128_Km22)) AP_1
+re129: KLF2 ->(29.256*exp(re129_tau*(-Time/re129_tc + re129_delay))/(KLF2*re129_uc*(exp(2*re129_tau*(-Time/re129_tc + re129_delay)) + 2*exp(re129_tau*(-Time/re129_tc + re129_delay)) + 1))) KLF2

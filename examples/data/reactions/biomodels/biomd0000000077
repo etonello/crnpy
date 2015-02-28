@@ -1,0 +1,8 @@
+H_binding_to__R: H + R ->(cell*reaction_0_k1) HR
+H_binding_to__R_rev: HR ->(cell*reaction_0_k2) H + R
+HR_forming_HRRH: 2HR ->(cell*reaction_1_k1) HRRH
+HR_forming_HRRH_rev: HRRH ->(cell*reaction_1_k2) 2HR
+G_protein_react_with_dimer_producing_E: GQ + HRRH ->(cell*reaction_2_k1) E
+G_protein_react_with_dimer_producing_E_rev: E ->(cell*reaction_2_k2) GQ + HRRH
+IP3_converted_into_inactive_metabolites: IP3 ->(cell*reaction_3_k1) 
+Production_of_IP3:  ->(E*cell*reaction_4_k) IP3

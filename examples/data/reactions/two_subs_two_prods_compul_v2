@@ -1,0 +1,9 @@
+# From "Graphical reduction of reaction networks by linear elimination of species"
+# Sáez, M. and Wiuf, C. and Feliu, E., Journal of Mathematical Biology, 2016, Springer
+# Example 12
+
+E + A (k2)<->(k1) EA
+EA + B (k4)<->(k3) EAB
+EAB (k6)<->(k5) EPQ
+EPQ (k8)<->(k7) EQ + P
+EQ (k10)<->(k9) E + Q

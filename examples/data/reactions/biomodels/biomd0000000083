@@ -1,0 +1,62 @@
+Mb_synthesized:  ->(Kib**m*cell*vsb/(Kib**m + Rn**m)) Mb
+Mb_translated_into_protein:  ->(Mb*cell*ksb) Bc
+Mb_nonspecific_degradation: Mb ->(cell*kdmb) 
+Bc_phosphorylation: Bc ->(V1b*cell/(Bc + Kp)) Bcp
+Bc_transfered_from_cytosolic_to_nuclear: Bc ->(cell*k5) Bn
+Bc_transfered_from_cytosolic_to_nuclear_rev: Bn ->(cell*k6) Bc
+Mc_translated_into_protein:  ->(Mc*cell*ksc) Cc
+Mc_nonspecific_degradation: Mc ->(cell*kdmc) 
+Cc_phosphorylation: Cc ->(V1c*cell/(Cc + Kp)) Ccp
+Ccp_specific_degradation: Ccp ->(cell*vdcc/(Ccp + Kd)) 
+Mp_synthesis:  ->(Bn**reaction_9_n*cell*vsp/(Bn**reaction_9_n + Kap**reaction_9_n)) Mp
+Mp_translated_into_protein:  ->(Mp*cell*ksp) Pc
+Pcp_specific_degradation: Pcp ->(cell*vdpc/(Kd + Pcp)) 
+Pc_phospholation: Pc ->(V1p*cell/(Kp + Pc)) Pcp
+Cc_and_Pc_produce_PCc: Cc + Pc ->(cell*k3) PCc
+Cc_and_Pc_produce_PCc_rev: PCc ->(cell*k4) Cc + Pc
+PCc_phospholation: PCc ->(V1pc*cell/(Kp + PCc)) PCcp
+PCcp_specific_degradation: PCcp ->(cell*vdpcc/(Kd + PCcp)) 
+PCc_transfered_into_nuclear: PCc ->(cell*k1) PCn
+PCc_transfered_into_nuclear_rev: PCn ->(cell*k2) PCc
+PCnp_nonspecific_degradation: PCnp ->(cell*kdn) 
+Bcp_nonspecific_degradation: Bcp ->(cell*kdn) 
+Bnp_nonspecific_degradation: Bnp ->(cell*kdn) 
+Mc_synthesis:  ->(Bn**reaction_20_n*cell*vsc/(Bn**reaction_20_n + Kac**reaction_20_n)) Mc
+PCn_phospholation: PCn ->(V3pc*cell/(Kp + PCn)) PCnp
+Mp_nonspecific_degradation: Mp ->(cell*kdmp) 
+Per_Cry_and_Clock_Bmal_form_inactive_complex: Bn + PCn ->(cell*k7) In
+Per_Cry_and_Clock_Bmal_form_inactive_complex_rev: In ->(cell*k8) Bn + PCn
+Mb_specific_degradation: Mb ->(cell*vmb/(Kmb + Mb)) 
+Mc_specific_degradation: Mc ->(cell*vmc/(Kmc + Mc)) 
+Mp_specific_degradation: Mp ->(cell*vmp/(Kmp + Mp)) 
+Pc_nonspecific_degradation: Pc ->(cell*kdn) 
+Cc_nonspecific_degradation: Cc ->(cell*kdnc) 
+Pcp_nonspecific_degradation: Pcp ->(cell*kdn) 
+Ccp_nonspecific_degradation: Ccp ->(cell*kdn) 
+PCcp_nonspecific_degradation: PCcp ->(cell*kdn) 
+PCc_nonspecific_degradation: PCc ->(cell*kdn) 
+PCnp_specific_degradation: PCnp ->(cell*vdpcn/(Kd + PCnp)) 
+Bc_nonspecific_degradation: Bc ->(cell*kdn) 
+Bcp_specific_degradation: Bcp ->(cell*vdbc/(Bcp + Kd)) 
+Bn_phospholation: Bn ->(V3b*cell/(Bn + Kp)) Bnp
+Bnp_specific_degradation: Bnp ->(cell*vdbn/(Bnp + Kd)) 
+In_nonspecific_degration: In ->(cell*kdn) 
+In_specific_degradation: In ->(cell*vdin/(In + Kd)) 
+Bn_nonspecific_degradation: Bn ->(cell*kdn) 
+Bcp_dephospholation: Bcp ->(V2b*cell/(Bcp + Kdp)) Bc
+Bnp_dephospholation: Bnp ->(V4b*cell/(Bnp + Kdp)) Bn
+Ccp_dephospholation: Ccp ->(V2c*cell/(Ccp + Kdp)) Cc
+Pcp_dephospholation: Pcp ->(V2p*cell/(Kdp + Pcp)) Pc
+PCnp_dephospholation: PCnp ->(V4pc*cell/(Kdp + PCnp)) PCn
+PCn_nonspecific_degradation: PCn ->(cell*kdn) 
+PCcp_dephospholation: PCcp ->(V2pc*cell/(Kdp + PCcp)) PCc
+Mr_synthesized:  ->(Bn**reaction_48_n*cell*vsr/(Bn**reaction_48_n + Kar**reaction_48_n)) Mr
+Mr_nonspecific_degradation: Mr ->(cell*kdmr) 
+Mr_specific_degradation: Mr ->(cell*vmr/(Kmr + Mr)) 
+Mr_translated_into_protein:  ->(Mr*cell*ksr) Rc
+Rc_transfered_into_nuclear: Rc ->(cell*k9) Rn
+Rc_transfered_into_nuclear_rev: Rn ->(cell*k10) Rc
+Rc_specific_degradation: Rc ->(cell*vdrc/(Kd + Rc)) 
+Rc_nonspecific_degradation: Rc ->(cell*kdn) 
+Rn_specific_degradation: Rn ->(cell*vdrn/(Kd + Rn)) 
+Rn_nonspecific_degradation: Rn ->(cell*kdn) 

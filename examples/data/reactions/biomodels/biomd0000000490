@@ -1,0 +1,66 @@
+v1:  ->(Default*(-AA_b*V_CoA/(AA_b + Km_CoA_AA) + PL*PLA2_Ca*Vmax_PLA2/(Km_PLA2_APC + PL))) AA_b
+v2: AA_b ->(Default*FLO3t_b*k_lo/K_AA) 
+v3:  ->(Default*(AA_b/Ki_AA + 1.0)*(-FLO3t_b*HPETE_b*k3 + FLO5HP_b*k_3)) HPETE_b
+v4: HPETE_b ->(Default*r1*(FLO2_b*HPETE_b - FLO3_b*HETE_b/Ke_ox)/HPETE_b) HETE_b
+v5: HPETE_b ->(B_b*Default*GPx/(A_b*HPETE_b)) HETE_b
+v6:  ->(Default*FLO5HP_b*k_lta_syn) LTA4_b
+v7: LTA4_b ->(Default*nom_LTCs_b/(LTA4_b*den_LTCs_b)) LTC4_b
+v8: HETE_b ->(B_hedh_b*Default*HEDH5/(A_hedh_b*HETE_b)) 
+v9: LTA4_b ->(Default*Kd12) 
+v10in: LTC4_b ->(Default*Kd50) 
+v10out:  ->(1000000.0*Default*Kd50*LTC4_b*V_LTC_CB) LTC4_b_out
+v11: LTC4_b_out ->(Vd_LTC*fup_LT*k_ggt) LTD4_b
+v12: LTD4_b ->(Vd_LTD*fup_LT*k_dp) LTE4_b
+v13: LTC4_b_out ->(Vd_LTC*fup_LT*k_ltc_ltd_el) 
+v14: LTD4_b ->(Vd_LTD*fup_LT*k_ltc_ltd_el) 
+v15: LTE4_b ->(Vd_LTE*fup_LT*(k_acet + k_lte_el)) 
+v16: EO_b ->(OL_b**h_act*V_B*ca*ka/(EC50_act**h_act + OL_b**h_act)) EO_i_b
+v17: EO_i_b ->(V_B*ca*k_EO_m) EO_a_b
+v18: EO_a_b ->(V_B*ca*kia) EO_b
+v19: EO_b ->(V_B*k_EO_d) 
+v20: EO_a_b ->(V_B*k_EO_a_d) 
+v21: EO_i_b ->(Rec_occup_migr**h_migr*V_B*k_EO_t_baw/(EC50_migr**h_migr + Rec_occup_migr**h_migr)) EO_i_aw
+v22: EO_a_b ->(Rec_occup_migr**h_migr*V_B*k_EO_t_baw/(EC50_migr**h_migr + Rec_occup_migr**h_migr)) EO_a_aw
+v23: EO_b ->(Rec_occup_migr**h_migr*V_B*k_EO_t_baw/(EC50_migr**h_migr + Rec_occup_migr**h_migr)) EO_aw
+v24:  ->(V_B*k_Hn_p*(EO_a_b + EO_b + EO_i_b)) Hn_b
+v25: Hn_b ->(Vd_Hn*fup_Hn*k_Hn_d) 
+v26:  ->(EO_a_b*V_B*k_IL_p) IL_b
+v27: IL_b ->(Vd_IL5*k_IL_d) 
+v28: IL_b ->((-IL_bm*J_BM_lymfl + k_IL_t_bbm*(IL_b - IL_bm))/IL_b) IL_bm
+v29:  ->(V_BM*(IL_bm**h_matur*k1/(IL_bm**h_matur + Km_1**h_matur) + k1_min)) EO_bm
+v30: EO_bm ->(V_BM*ca*k_EO_t_bmb) EO_b
+v31:  ->(Default*(-AA_aw*V_CoA/(AA_aw + Km_CoA_AA) + PL*PLA2_Ca*Vmax_PLA2/(Km_PLA2_APC + PL))) AA_aw
+v32: AA_aw ->(Default*FLO3t_aw*k_lo/K_AA) 
+v33:  ->(Default*(AA_aw/Ki_AA + 1.0)*(-FLO3t_aw*HPETE_aw*k3 + FLO5HP_aw*k_3)) HPETE_aw
+v34: HPETE_aw ->(Default*r1*(FLO2_aw*HPETE_aw - FLO3_aw*HETE_aw/Ke_ox)/HPETE_aw) HETE_aw
+v35: HPETE_aw ->(B_aw*Default*GPx/(A_aw*HPETE_aw)) HETE_aw
+v36:  ->(Default*FLO5HP_aw*k_lta_syn) LTA4_aw
+v37: LTA4_aw ->(Default*nom_LTCs_aw/(LTA4_aw*den_LTCs_aw)) LTC4_aw
+v38: HETE_aw ->(B_hedh_aw*Default*HEDH5/(A_hedh_aw*HETE_aw)) 
+v39: LTA4_aw ->(Default*Kd12) 
+v40in: LTC4_aw ->(Default*Kd50) 
+v40out:  ->(1000000.0*Default*Kd50*LTC4_aw*V_LTC_CAW) LTC4_aw_out
+v41: LTC4_aw_out ->(Vd_AW_LTC*k_ggt) LTD4_aw
+v42: LTD4_aw ->(Vd_AW_LTD*k_dp) LTE4_aw
+v43: LTE4_aw ->(Q_AW_blf*R_LTE_B*(-LTE4_b + LTE4_aw*R_LTE_AW/Kp_LTE_AW)/LTE4_aw) LTE4_b
+v44: LTD4_aw ->(Q_AW_blf*R_LTD_B*(-LTD4_b + LTD4_aw*R_LTD_AW/Kp_LTD_AW)/LTD4_aw) LTD4_b
+v45: LTC4_aw_out ->(Q_AW_blf*R_LTC_B*(-LTC4_b_out + LTC4_aw_out*R_LTC_AW/Kp_LTC_AW)/LTC4_aw_out) LTC4_b_out
+v46: EO_aw ->(OL_aw**h_act*V_AW*ca*ka/(EC50_act**h_act + OL_aw**h_act)) EO_i_aw
+v47: EO_i_aw ->(V_AW*ca*k_EO_m) EO_a_aw
+v48: EO_a_aw ->(V_AW*ca*kia) EO_aw
+v49: EO_aw ->(V_AW*k_EO_d) 
+v50: EO_a_aw ->(V_AW*k_EO_a_d) 
+v51:  ->(V_AW*k_Hn_p*(EO_a_aw + EO_aw + EO_i_aw)) Hn_aw
+v52: Hn_aw ->(Q_AW_blf*R_Hn_B*(Hn_aw*R_Hn_AW/Kp_Hn_AW - Hn_b)/Hn_aw) Hn_b
+v53:  ->(EO_a_aw*V_AW*k_IL_p) IL_aw
+v54: IL_aw ->((IL_aw*J_AW_lymfl + k_IL_t_awb*(IL_aw - IL_b))/IL_aw) IL_b
+v55: LTE4_aw ->(Vd_AW_LTE*(k_acet + k_lte_el)) 
+v56: LTD4_aw ->(Vd_AW_LTD*k_ltc_ltd_el) 
+v57: LTC4_aw_out ->(Vd_AW_LTC*k_ltc_ltd_el) 
+v58: IL_aw ->(V_AW*k_IL_d) 
+v59: Hn_aw ->(Vd_AW_Hn*k_Hn_d) 
+v60: ZF_intes ->(Default*k_abs_zf*(1000.0*DOSE_zf*F_zf*oral*(a*ft_zf - a + 1.0)/M_ZF + ZF_intes)/ZF_intes) ZF_blood
+v61: ZF_blood ->(Q_AW_blf*R_ZF_B*(ZF_blood - R_ZF_AW*ZF_airways/Kp_ZF_AW)/ZF_blood) ZF_airways
+v62: ZF_blood ->(Vd_ZF*k_elim_zf) 
+v63: ML_intes ->(Default*k_abs_ml*(1000000000.0*DOSE_ml*F_ml*oral*(a*ft_ml - a + 1.0)/M_ML + ML_intes)/ML_intes) ML_blood
+v64: ML_blood ->(Vd_ML*k_elim_ml) 

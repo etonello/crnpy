@@ -1,0 +1,3 @@
+e + a (k_1)<->(k1) ea
+ea + b (k_2)<->(k2) eab
+eab ->(k3) e + p + q

@@ -1,0 +1,17 @@
+r1:  ->(Dex) M
+r2:  ->(TF**n*kms/(J**n + TF**n)) M
+r3: M ->(kmd*system) 
+r4:  ->(M*kcps*system) CP
+r5: CP ->(kcpd*system) 
+r6: 2CP ->(ka*system) CP2
+r7: CP2 ->(kd*system) 2CP
+r8: CP ->(kp1/(CP + 2*CP2 + 2*IC + Jp)) 
+r9: CP ->(chk2*system) 
+r10: IC ->(kicd*system) CP2 + TF
+r11: CP2 ->(kcp2d*system) 
+r12: CP2 + TF ->(kica*system) IC
+r13: CP2 ->(kp2/(CP + 2*CP2 + 2*IC + Jp)) 
+r14: CP2 ->(chk2*system) 
+r15: IC ->(kcp2d*system) TF
+r16: IC ->(chk2c*system) TF
+r17: IC ->(kp2/(CP + 2*CP2 + 2*IC + Jp)) TF

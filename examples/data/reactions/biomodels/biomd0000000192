@@ -1,0 +1,18 @@
+RCC1_binding: RCC1 + RanGDP_nuc ->(nucleus*r1) RCC1_RanGDP
+RCC1_binding_rev: RCC1_RanGDP ->(nucleus*r8) RCC1 + RanGDP_nuc
+GDP_dissociation: RCC1_RanGDP ->(nucleus*r2) GDP + RCC1_Ran
+GDP_dissociation_rev: GDP + RCC1_Ran ->(nucleus*r7) RCC1_RanGDP
+GTP_binding: GTP + RCC1_Ran ->(nucleus*r3) RCC1_RanGTP
+GTP_binding_rev: RCC1_RanGTP ->(nucleus*r6) GTP + RCC1_Ran
+RanGTP_release: RCC1_RanGTP ->(nucleus*r4) RCC1 + RanGTP_nuc
+RanGTP_release_rev: RCC1 + RanGTP_nuc ->(nucleus*r5) RCC1_RanGTP
+Cytoplasmic_transfer: RanGTP_nuc ->(kpermRanGTP*nucleus) RanGTP_cy
+Cytoplasmic_transfer_rev: RanGTP_cy ->(kpermRanGTP*nucleus) RanGTP_nuc
+Nucleoplasmic_transfer: RanGDP_nuc ->(kpermRanGDP*nucleus) RanGDP_cy
+Nucleoplasmic_transfer_rev: RanGDP_cy ->(kpermRanGDP*nucleus) RanGDP_nuc
+RanGTP_binding: RanBP1 + RanGTP_cy ->(cytoplasm*kon) RanGTP_RanBP1
+RanGTP_binding_rev: RanGTP_RanBP1 ->(cytoplasm*koff) RanBP1 + RanGTP_cy
+RanBP1_RanGDP: RanGTP_RanBP1 ->(RanGAP*cytoplasm*kcat/(Km + RanGTP_RanBP1)) RanBP1 + RanGDP_cy
+RanBP1_RanGDP_rev: RanBP1 + RanGDP_cy ->(0) RanGTP_RanBP1
+RanGAP_RanGDP: RanGTP_cy ->(RanGAP*cytoplasm*kcat/(Km + RanGTP_cy)) RanGDP_cy
+RanGAP_RanGDP_rev: RanGDP_cy ->(0) RanGTP_cy

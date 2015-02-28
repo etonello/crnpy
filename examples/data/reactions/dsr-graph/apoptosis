@@ -1,0 +1,19 @@
+# Apoptosis example in
+# Feliu, E., & Wiuf, C. (2015).
+# Finding the positive feedback loops underlying multi-stationarity.
+# BMC systems biology, 9(1), 1
+#
+r1: C8s + C3 -> C8s + C3s
+r2: C8 + C3s -> C8s + C3s
+r3: C3s + IAP -> Y
+r4: Y ->
+r5: C3s + IAP -> C3s
+r6: C8 ->
+r7: -> C8
+r8: C3 ->
+r9: -> C3
+r10: IAP ->
+r11: -> IAP
+r12: C8s ->
+r13: C3s ->
+r14: Y -> C3s + IAP

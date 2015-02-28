@@ -1,0 +1,20 @@
+Myeloperoxidase_reaction: Ferric_peroxidase + H2O2 ->(phagosome*(Ferric_peroxidase*H2O2*k1 - compound_I*kminus1)/(Ferric_peroxidase*H2O2)) compound_I
+Melatonin_compound_I_reaction: Melatonin + compound_I ->(k2*phagosome) Melatonin_free_radical + compound_II
+Melatonin_compound_II_reaction: Melatonin + compound_II ->(k3*phagosome) Ferric_peroxidase + Melatonin_free_radical
+compound_III_formation: Ferric_peroxidase + Superoxide ->(k4*phagosome) compound_III
+H2O2_formation: 2Hydrogen + 2Superoxide ->(k5*phagosome/Hydrogen**2) H2O2 + Oxygen
+compound_III_superoxide_reaction: Superoxide + compound_III ->(k6*phagosome) Oxygen + compound_I
+NADPH_autooxidation: NADPH + Oxygen ->(cytoplasm*k7) H2O2 + NADP
+NADP_radical_Oxygen_reaction: NADP + Oxygen ->(cytoplasm*k8) NADP + Superoxide
+H2O2_formation: 2Hydrogen + 2Superoxide ->(cytoplasm*k9/Hydrogen**2) H2O2 + Oxygen
+NADP_free_radical_formation: Melatonin_free_radical + NADPH ->(cytoplasm*k10) Melatonin + NADP
+NADP_dimer_formation: 2NADP ->(cytoplasm*k11) NADP2
+NADPH_synthesis:  ->(cytoplasm*k12) NADPH
+Oxygen_diffusion:  ->(cytoplasm*k13) Oxygen
+Oxygen_diffusion: Oxygen ->(cytoplasm*kminus13) 
+Oxygen_diffusion__phagosome_cytoplasm: Oxygen ->(0) Oxygen
+H2O2_diffusion_phagosome_cytoplasm: H2O2 ->(0) H2O2
+Melatonin__diffusion_phagosome_cytoplasm: Melatonin ->(0) Melatonin
+Melatonin_free_radical__diffusion_phagosome_cytoplasm: Melatonin_free_radical ->(0) Melatonin_free_radical
+Superoxide__diffusion_phagosome_cytoplasm: Superoxide ->(0) Superoxide
+NADPH_oxidase_activity: NADPH + 2Oxygen ->(V*phagosome*(1 + NADPH/Knadph)/(Knadph*Oxygen*(Ko + Oxygen)*(L + (1 + NADPH/Knadph)**2))) NADP + 2Superoxide

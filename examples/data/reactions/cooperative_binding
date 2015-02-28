@@ -1,0 +1,8 @@
+s + s ->(4*k1) ps1
+ps1 ->(k_1) s + s
+ps1 + s ->(3*k2) ps2
+ps2 ->(2*k_2) ps1 + s
+ps2 + s ->(2*k3) ps3
+ps3 ->(3*k_3) ps2 + s
+ps3 + s ->(k4) p
+p ->(4*k_4) ps3 + s

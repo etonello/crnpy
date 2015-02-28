@@ -1,0 +1,15 @@
+v1: NADH + O2 ->(compartment*v1_k1) H2O2 + NAD
+v2: H2O2 + per3 ->(compartment*v2_k2) coI
+v3: ArH + coI ->(compartment*v3_k3) Ar + coII
+v4: ArH + coII ->(compartment*v4_k4) Ar + per3
+v5: NADrad + O2 ->(compartment*v5_k5) NAD + super
+v6: per3 + super ->(compartment*v6_k6) coIII
+v7: 2super ->(compartment*v7_k7) H2O2 + O2
+v8: NADrad + coIII ->(compartment*v8_k8) NAD + coI
+v9: 2NADrad ->(compartment*v9_k9) NAD2
+v10: NADrad + per3 ->(compartment*v10_k10) NAD + per2
+v11: O2 + per2 ->(compartment*v11_k11) coIII
+v12: NADHres ->(compartment*v12_k12/NADHres) NADH
+v131: O2g ->(compartment*v131_k13f) O2
+v132: O2 ->(compartment*v132_k13b) O2g
+v14: Ar + NADH ->(compartment*v14_k14) ArH + NADrad

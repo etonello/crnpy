@@ -1,0 +1,13 @@
+# Non-competitive inhibition.
+# Segel, Irwin H. "Enzyme kinetics". Vol. 957. Wiley, New York, 1975.
+# 3.B
+
+s + e ->(k1) es
+es ->(k_1) s + e
+es ->(k2) e + p
+i + e ->(k3) ei
+ei ->(k_3) i + e
+i + es ->(k3) esi
+esi ->(k_3) i + es
+s + ei ->(k1) esi
+esi ->(k_1) s + ei

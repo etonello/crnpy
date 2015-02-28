@@ -1,0 +1,117 @@
+CaspaseActivation: Bax + Caspase_I ->(kactCasp) Bax + Caspase_A
+CaspaseActivationByBeclin_I: Beclin_I + Caspase_I ->(kactCaspBecI) Beclin_I + Caspase_A
+CaspaseActivationBy_p38: Caspase_I + p38_P ->(kactCaspp38) Caspase_A + p38_P
+CaspaseInactivation1: Caspase_A ->(kinactCasp) Caspase_I
+InhibitCaspase2: Bcl2_Beclin + Caspase_A ->(kinactCaspBcl2) Bcl2_Beclin + Caspase_I
+InhibitCaspase3: Bcl2 + Caspase_A ->(kinactCaspBcl2) Bcl2 + Caspase_I
+ActivateLysosome: Beclin + Lys_I ->(kactLys) Beclin + Lys_A
+InhibitLysosome: Lys_A ->(kinhibLys) Lys_I
+Bcl2Synthesis: Source ->(ksynBcl2) Bcl2
+Bcl2Degradation: Bcl2 ->(kdegBcl2) Sink
+Bcl2DegradationStressInduced: Bcl2 + ROS ->(kdegBcl2ROS) ROS + Sink
+Bcl2DegradationCaspaseInduced: Bcl2 + Caspase_A ->(kdegBcl2Casp) Caspase_A + Sink
+Bax_Bcl2Binding: Bax + Bcl2 ->(kbinBaxBcl2) Bax_Bcl2
+Bax_Bcl2Release: Bax_Bcl2 ->(krelBaxBcl2) Bax + Bcl2
+Bcl2_BeclinBinding: Bcl2 + Beclin ->(kbinBcl2Beclin) Bcl2_Beclin
+Bcl2_BeclinRelease: Bcl2_Beclin ->(krelBcl2Beclin) Bcl2 + Beclin
+Bcl2_Beclin_I_Binding: Bcl2 + Beclin_I ->(kbinBcl2Beclin) Bcl2_Beclin_I
+Bcl2_Beclin_I_Release: Bcl2_Beclin_I ->(krelBcl2Beclin) Bcl2 + Beclin_I
+BeclinInactivation: Beclin ->(kinactBec) Beclin_I
+BeclinInactivationByCaspase: Beclin + Caspase_A ->(kinactBecCasp) Beclin_I + Caspase_A
+BeclinBindingToBax_Bcl2: Bax_Bcl2 + Beclin ->(kbinBecToBaxBcl2) Bax_Bcl2_Beclin
+BeclinIBindingToBax_Bcl2: Bax_Bcl2 + Beclin_I ->(kbinBecToBaxBcl2) Bax_Bcl2_Beclin_I
+BaxBindingToBcl2_Beclin: Bax + Bcl2_Beclin ->(kbinBaxToBcl2Bec) Bax_Bcl2_Beclin
+BaxBindingToBcl2_BeclinI: Bax + Bcl2_Beclin_I ->(kbinBaxToBcl2Bec) Bax_Bcl2_Beclin_I
+BaxDissociation_Bax_Bcl2_Beclin: Bax_Bcl2_Beclin ->(krelBaxBcl2Bec) Bax + Bcl2_Beclin
+BaxDissociation_Bax_Bcl2_Beclin_I: Bax_Bcl2_Beclin_I ->(krelBaxBcl2Bec) Bax + Bcl2_Beclin_I
+BeclinDissociation_Bax_Bcl2_Beclin: Bax_Bcl2_Beclin ->(krelBecBaxBcl2) Bax_Bcl2 + Beclin
+Beclin_I_Dissociation_Bax_Bcl2_Beclin: Bax_Bcl2_Beclin_I ->(krelBecBaxBcl2) Bax_Bcl2 + Beclin_I
+ROS_generation: Source ->(kgenROS) ROS
+ROS_removal: ROS ->(kremROS) Sink
+Protein_Damage_by_ROS: NatP + ROS ->(kdamNatP/(ROS + 10)) DamP + ROS
+Removal_DamP_by_Autophagy: DamP + Lys_A ->(kdegDamP) Lys_A
+Production_of_AGEproducts: Source ->(kprodAGE) AGEprod
+RAGE_activation: AGEprod ->(kactRAGE) AGEprod + RAGE
+ROS_production_by_RAGE: RAGE ->(kgenROSbyRAGE) RAGE + ROS
+IkB_degradation_via_ROS: IkB_NFkB + ROS ->(kdegIkB) NFkB + ROS
+IkB_degradation_via_IL1: IL1 + IkB_NFkB ->(kdegIkB) IL1 + NFkB
+NFkB_inactivation: IkB + NFkB ->(kinactNFkB) IkB_NFkB
+RAGE_inactivation: RAGE ->(kinactRAGE) Sink
+RAGE_upregulation_byNFkB: NFkB_P ->(ksynRAGE) NFkB_P + RAGE
+IL1_production: NFkB_P ->(ksynIL1) IL1 + NFkB_P
+IL1_degradation: IL1 ->(kdegIL1) Sink
+IkB_production: NFkB_P ->(ksynIkB) IkB + NFkB_P
+MMP13_production: IL1 ->(ksynMMP13) IL1 + proMMP13
+MMP13_removal: MMP13 ->(kdegMMP13) Sink
+MMP2_production: IL1 ->(ksynMMP2) IL1 + proMMP2
+MMP_activation: proMMP2 ->(kactMMP2) MMP2
+MMP2_degradation: MMP2 ->(kdegMMP2) Sink
+ADAMTS5_production: IL1 ->(ksynADAMTS5) ADAMTS5 + IL1
+ADAMTS5_removal: ADAMTS5 ->(kdegADAMTS5) Sink
+Aggrecan_degradation: ADAMTS5 + Aggrecan_Collagen2 ->(kdegAggrecan) ADAMTS5 + AggFrag + Collagen2
+Collagen_degradation: Collagen2 + MMP13 ->(kdegCollagen) ColFrag + MMP13
+ROS_production_by_DamP: DamP ->(kgenROSbyDamP) DamP + ROS
+Protein_synthesis: Source ->(ksynNatP) NatP
+SOD_synthesis: NFkB_P ->(ksynSOD) NFkB_P + SOD
+SOD_degradation: SOD ->(kdegSOD) Sink
+ROS_removal_by_SOD: ROS + SOD ->(kremROSbySOD) SOD
+p38_phosphorylation: IL1 + p38 ->(kphosp38) IL1 + p38_P
+p38_phosphorylation_via_ROS: ROS + p38 ->(kphosp38ROS) ROS + p38_P
+p38_dephosphorylation: p38_P ->(kdephosp38) p38
+NFkB_activation: NFkB + p38_P ->(kphosNFkB) NFkB_P + p38_P
+NFkB_dephosphorylation: NFkB_P ->(kdephosNFkB) NFkB
+ROS_production_by_p38_P: p38_P ->(kgenROSbyp38) ROS + p38_P
+Lysosome_damage_by_ROS: Lys_A + ROS ->(kdamLys/(ROS + 10)) Lys_I + ROS
+IntegrinActivationByMechanicalStress: Source ->(kactIntegrin) Integrin + IntegrinCount
+IntegrinInactivation: Integrin ->(kinactIntegrin) Sink
+Alk5Synthesis: Source ->(ksynAlk5) Alk5
+TgfbActivationByIntegrin: Integrin + Tgfb_I ->(kactTgfbIntegrin) Integrin + Tgfb_A
+TgfbActivationByMMP2: MMP2 + Tgfb_I ->(kactTgfbMMP2) MMP2 + Tgfb_A
+TgfbInactivation: Tgfb_A ->(kinactTgfb) Tgfb_I
+Alk5Dimerisation: 2Alk5 ->(0.5*kdimerAlk5*(Alk5 - 1)/Alk5) Alk5_dimer
+Alk5Dedimerisation: Alk5_dimer ->(kdedimerAlk5) 2Alk5
+Alk1Alk5Binding: Alk1 + Alk5 ->(kbinAlk1Alk5) Alk1_Alk5
+Alk1Alk5Release: Alk1_Alk5 ->(krelAlk1Alk5) Alk1 + Alk5
+TgfbReceptorBindingAlk5: Alk5_dimer + Tgfb_A ->(kbinTgfbAlk5) Tgfb_Alk5_dimer
+TgfbReceptorRelease: Tgfb_Alk5_dimer ->(krelTgfbAlk5) Alk5_dimer + Tgfb_A
+Tgfb_Alk5_BindingSmad7: Smad7 + Tgfb_Alk5_dimer ->(kbinSmad7Alk5) Tgfb_Alk5_dimer_Smad7
+Tgfb_Alk5_Smad7Release: Tgfb_Alk5_dimer_Smad7 ->(krelSmad7Alk5) Smad7 + Tgfb_Alk5_dimer
+Alk5_Smad7Degradation: Tgfb_Alk5_dimer_Smad7 ->(kdegSmad7Alk5) Tgfb_I
+TgfbReceptorBindingAlk1: Alk1_Alk5 + Tgfb_A ->(kbinTgfbAlk1) Tgfb_Alk1_Alk5
+TgfbAlk1Release: Tgfb_Alk1_Alk5 ->(krelTgfbAlk1) Alk1_Alk5 + Tgfb_A
+Smad2Phosphorylation: Smad2 + Tgfb_Alk5_dimer ->(kphosSmad2) Smad2_P + Tgfb_Alk5_dimer
+Smad2Smad4Binding: Smad2_P + Smad4 ->(kbinSmad2Smad4) Smad2_P_Smad4
+Smad2PSmad4Release: Smad2_P_Smad4 ->(krelSmad2Smad4) Smad2_P + Smad4
+Smad2DephosphorylationNuc: Smad2_P ->(kdephosSmad2) Smad2
+Smad7Synthesis: Smad2_P_Smad4 ->(ksynSmad7) Smad2_P_Smad4 + Smad7
+Sox9Activation: Smad2_P_Smad4 + Sox9 ->(kactSox9) Smad2_P_Smad4 + Sox9_A
+Sox9Inactivation: Sox9_A ->(kinactSox9) Sox9
+Sox9BasalTranscription: Source ->(ksynSox9mRNA) Sox9mRNA
+Sox9EnhancedTranscription: Sox9_A ->(ksynSox9mRNASox9A) Sox9_A + Sox9mRNA
+Sox9mRNA_Degradation: Sox9mRNA ->(kdegSox9mRNA) Sink
+Sox9Translation: Sox9mRNA ->(ksynSox9) Sox9 + Sox9mRNA
+Sox9Degradation: Sox9 ->(kdegSox9) Sink
+Collagen2EnhancedTranscriptionBySox9: Sox9_A ->(ksynCol2mRNASox9A) Col2mRNA + Sox9_A
+Collagen2TranscriptionBySmad2Smad4: Smad2_P_Smad4 ->(ksynCol2mRNASmad) Col2mRNA + Smad2_P_Smad4
+Col2mRNA_Degradation: Col2mRNA ->(kdegCol2mRNA) Sink
+Collagen2Translation: Col2mRNA ->(ksynCol2) Col2mRNA + Collagen2
+AggrecanEnhancedTranscription: Sox9_A ->(ksynAcanmRNASox9A) AcanmRNA + Sox9_A
+AcanmRNA_Degradation: AcanmRNA ->(kdegAcanmRNA) Sink
+AggrecanTranslation: AcanmRNA ->(ksynAggrecan) AcanmRNA + Aggrecan
+AggrecanCollagen2Binding: Aggrecan + Collagen2 ->(kbinAggrecanCollagen2) Aggrecan_Collagen2
+Runx2_InhibitionBySmad2: Runx2_A + Smad2_P_Smad4 ->(kinactRunx2) Runx2_I + Smad2_P_Smad4
+Alk5Degradation: Alk5 ->(kdegAlk5) Sink
+Smad1Activation: Smad1 + Tgfb_Alk1_Alk5 ->(kphosSmad1) Smad1_P + Tgfb_Alk1_Alk5
+Smad1Dephosphorylation: Smad1_P ->(kdephosSmad1) Smad1
+Smad1DephosphorylationViaSmad7: Smad1_P + Smad7 ->(kdephosSmad1Smad7) Smad1 + Smad7
+Smad1Smad4Binding: Smad1_P + Smad4 ->(kbinSmad1Smad4) Smad1_P_Smad4
+Smad1Smad4Release: Smad1_P_Smad4 ->(krelSmad1Smad4) Smad1_P + Smad4
+Runx2ActivationBySmad1: Runx2_I + Smad1_P_Smad4 ->(kactRunx2) Runx2_A + Smad1_P_Smad4
+MMP13InductionByRunx2: Runx2_A ->(ksynMMP13Runx2) Runx2_A + proMMP13
+Alk1Synthesis: Source ->(ksynAlk1) Alk1
+Alk1Degradation: Alk1 ->(kdegAlk1) Sink
+MMP13Activation: proMMP13 ->(kactMMP13) MMP13
+Tgfb_Alk1_Alk5_BindingSmad7: Smad7 + Tgfb_Alk1_Alk5 ->(kbinSmad7Alk1) Tgfb_Alk1_Alk5_Smad7
+Tgfb_Alk1_Alk5_Smad7Release: Tgfb_Alk1_Alk5_Smad7 ->(krelSmad7Alk1) Smad7 + Tgfb_Alk1_Alk5
+Alk1_Smad7Degradation: Tgfb_Alk1_Alk5_Smad7 ->(kdegSmad7Alk1) Tgfb_I
+Smad7Degradation: Smad7 ->(kdegSmad7) Sink

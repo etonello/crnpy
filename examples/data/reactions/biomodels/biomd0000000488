@@ -1,0 +1,112 @@
+p53mRNASynthesis: Source ->(ksynp53mRNA) p53_mRNA
+p53mRNADegradation: p53_mRNA ->(kdegp53mRNA) Sink
+Mdm2Synthesis: Mdm2_mRNA ->(ksynMdm2) Mdm2 + Mdm2_mRNA
+Mdm2mRNASynthesis1: p53 ->(ksynMdm2mRNA) Mdm2_mRNA + p53
+Mdm2mRNASynthesis2: p53_P ->(ksynMdm2mRNA) Mdm2_mRNA + p53_P
+Mdm2mRNASynthesis3: GSK3b_p53 ->(ksynMdm2mRNAGSK3bp53) GSK3b_p53 + Mdm2_mRNA
+Mdm2mRNASynthesis4: GSK3b_p53_P ->(ksynMdm2mRNAGSK3bp53) GSK3b_p53_P + Mdm2_mRNA
+Mdm2mRNADegradation: Mdm2_mRNA ->(kdegMdm2mRNA) Sink
+P53Mdm2Binding: Mdm2 + p53 ->(kbinMdm2p53) Mdm2_p53
+P53Mdm2Release: Mdm2_p53 ->(krelMdm2p53) Mdm2 + p53
+GSK3p53Binding: GSK3b + p53 ->(kbinGSK3bp53) GSK3b_p53
+GSK3p53Release: GSK3b_p53 ->(krelGSK3bp53) GSK3b + p53
+GSK3p53PBinding: GSK3b + p53_P ->(kbinGSK3bp53) GSK3b_p53_P
+GSK3_p53PRelease: GSK3b_p53_P ->(krelGSK3bp53) GSK3b + p53_P
+E1UbBinding: ATP + Ub + _E1 ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E2_Ub + _E1
+Mdm2Ubiquitination: E2_Ub + Mdm2 ->(kMdm2Ub) E2 + Mdm2_Ub
+Mdm2polyUbiquitination1: E2_Ub + Mdm2_Ub ->(kMdm2PolyUb) E2 + Mdm2_Ub2
+Mdm2polyUbiquitination2: E2_Ub + Mdm2_Ub2 ->(kMdm2PolyUb) E2 + Mdm2_Ub3
+Mdm2polyUbiquitination3: E2_Ub + Mdm2_Ub3 ->(kMdm2PolyUb) E2 + Mdm2_Ub4
+Mdm2Deubiquitination4: Mdm2DUB + Mdm2_Ub4 ->(kactDUBMdm2) Mdm2DUB + Mdm2_Ub3 + Ub
+Mdm2Deubiquitination3: Mdm2DUB + Mdm2_Ub3 ->(kactDUBMdm2) Mdm2DUB + Mdm2_Ub2 + Ub
+Mdm2Deubiquitination2: Mdm2DUB + Mdm2_Ub2 ->(kactDUBMdm2) Mdm2DUB + Mdm2_Ub + Ub
+Mdm2Deubiquitination1: Mdm2DUB + Mdm2_Ub ->(kactDUBMdm2) Mdm2 + Mdm2DUB + Ub
+Mdm2ProteasomeBinding1: Mdm2_Ub4 + Proteasome ->(kbinProt) Mdm2_Ub4_Proteasome
+Mdm2Degradation: Mdm2_Ub4_Proteasome ->(kdegMdm2*kproteff) Proteasome + 4Ub
+p53Synthesis: p53_mRNA ->(ksynp53) p53 + p53_mRNA
+p53Monoubiquitination: E2_Ub + Mdm2_p53 ->(kp53Ub) E2 + Mdm2_p53_Ub
+p53Polyubiquitination1: E2_Ub + Mdm2_p53_Ub ->(kp53PolyUb) E2 + Mdm2_p53_Ub2
+p53Polyubiquitination2: E2_Ub + Mdm2_p53_Ub2 ->(kp53PolyUb) E2 + Mdm2_p53_Ub3
+p53Polyubiquitination3: E2_Ub + Mdm2_p53_Ub3 ->(kp53PolyUb) E2 + Mdm2_p53_Ub4
+p53Deubiqutination4: Mdm2_p53_Ub4 + p53DUB ->(kactDUBp53) Mdm2_p53_Ub3 + Ub + p53DUB
+p53Deubiquitination3: Mdm2_p53_Ub3 + p53DUB ->(kactDUBp53) Mdm2_p53_Ub2 + Ub + p53DUB
+p53Deubiquitination2: Mdm2_p53_Ub2 + p53DUB ->(kactDUBp53) Mdm2_p53_Ub + Ub + p53DUB
+p53Deubiquitination1: Mdm2_p53_Ub + p53DUB ->(kactDUBp53) Mdm2_p53 + Ub + p53DUB
+Mdm2GSK3phosphorylation1: GSK3b + Mdm2_p53_Ub4 ->(kphosMdm2GSK3b) GSK3b + Mdm2_P1_p53_Ub4
+Mdm2GSK3phosphorylation2: GSK3b_p53 + Mdm2_p53_Ub4 ->(kphosMdm2GSK3bp53) GSK3b_p53 + Mdm2_P1_p53_Ub4
+Mdm2GSK3phosphorylation3: GSK3b_p53_P + Mdm2_p53_Ub4 ->(kphosMdm2GSK3bp53) GSK3b_p53_P + Mdm2_P1_p53_Ub4
+p53ProteasomeBinding1: Mdm2_P1_p53_Ub4 + Proteasome ->(kbinProt) Mdm2 + p53_Ub4_Proteasome
+Degradationp53_Ub4: ATP + p53_Ub4_Proteasome ->(kdegp53*kproteff/(ATP + 5000)) ADP + Proteasome + 4Ub
+TauMTbinding: Tau ->(kbinMTTau) MT_Tau
+TauMTrelease: MT_Tau ->(krelMTTau) Tau
+Tauphosphorylation1: GSK3b_p53 + Tau ->(kphospTauGSK3bp53) GSK3b_p53 + Tau_P1
+Tauphosphorylation2: GSK3b_p53 + Tau_P1 ->(kphospTauGSK3bp53) GSK3b_p53 + Tau_P2
+Tauphosphorylation3: GSK3b_p53_P + Tau ->(kphospTauGSK3bp53) GSK3b_p53_P + Tau_P1
+Tauphosphorylation4: GSK3b_p53_P + Tau_P1 ->(kphospTauGSK3bp53) GSK3b_p53_P + Tau_P2
+Tauphosphorylation5: GSK3b + Tau ->(kphospTauGSK3b) GSK3b + Tau_P1
+Tauphosphorylation6: GSK3b + Tau_P1 ->(kphospTauGSK3b) GSK3b + Tau_P2
+Taudephosphorylation1: PP1 + Tau_P2 ->(kdephospTau) PP1 + Tau_P1
+Taudephosphorylation2: PP1 + Tau_P1 ->(kdephospTau) PP1 + Tau
+TauP1Aggregation1: 2Tau_P1 ->(0.5*kaggTauP1) 2AggTau
+TauP1Aggregation2: AggTau + Tau_P1 ->(kaggTauP1) 2AggTau
+TauP2Aggregation1: 2Tau_P2 ->(0.5*kaggTauP2) 2AggTau
+TauP2Aggregation2: AggTau + Tau_P2 ->(kaggTauP2) 2AggTau
+TauAggregation1: 2Tau ->(0.5*kaggTau) 2AggTau
+TauAggregation2: AggTau + Tau ->(kaggTau) 2AggTau
+TangleFormation1: 2AggTau ->(0.5*ktangfor) 2NFT
+TangleFormation2: AggTau + NFT ->(ktangfor) 2NFT
+ProteasomeInhibitionAggTau: AggTau + Proteasome ->(kinhibprot) AggTau_Proteasome
+Abetaproduction1: Source ->(kprodAbeta) Abeta
+Abetaproduction2: GSK3b_p53 ->(kprodAbeta2) Abeta + GSK3b_p53
+Abetaproduction3: GSK3b_p53_P ->(kprodAbeta2) Abeta + GSK3b_p53_P
+ProteasomeInhibitionAbeta: AbetaDimer + Proteasome ->(kinhibprot) AggAbeta_Proteasome
+AbetaDegradation: Abeta ->(kdegAbeta) Sink
+p53transcriptionViaAbeta: Abeta ->(ksynp53mRNAAbeta) Abeta + p53_mRNA
+DNAdamage: IR ->(kdam) IR + damDNA
+DNArepair: damDNA ->(krepair) Sink
+ATMactivation: ATMI + damDNA ->(kactATM) ATMA + damDNA
+p53phosphorylation: ATMA + p53 ->(kphosp53) ATMA + p53_P
+p53dephosphorylation: p53_P ->(kdephosp53) p53
+Mdm2phosphorylation: ATMA + Mdm2 ->(kphosMdm2) ATMA + Mdm2_P
+Mdm2dephosphorylation: Mdm2_P ->(kdephosMdm2) Mdm2
+Mdm2PUbiquitination: E2_Ub + Mdm2_P ->(kMdm2PUb) E2 + Mdm2_P_Ub
+Mdm2PpolyUbiquitination1: E2_Ub + Mdm2_P_Ub ->(kMdm2PolyUb) E2 + Mdm2_P_Ub2
+Mdm2PpolyUbiquitination2: E2_Ub + Mdm2_P_Ub2 ->(kMdm2PolyUb) E2 + Mdm2_P_Ub3
+Mdm2PpolyUbiquitination3: E2_Ub + Mdm2_P_Ub3 ->(kMdm2PolyUb) E2 + Mdm2_P_Ub4
+Mdm2PDeubiquitination4: Mdm2DUB + Mdm2_P_Ub4 ->(kactDUBMdm2) Mdm2DUB + Mdm2_P_Ub3 + Ub
+Mdm2PDeubiquitination3: Mdm2DUB + Mdm2_P_Ub3 ->(kactDUBMdm2) Mdm2DUB + Mdm2_P_Ub2 + Ub
+Mdm2PDeubiquitination2: Mdm2DUB + Mdm2_P_Ub2 ->(kactDUBMdm2) Mdm2DUB + Mdm2_P_Ub + Ub
+Mdm2PDeubiquitination1: Mdm2DUB + Mdm2_P_Ub ->(kactDUBMdm2) Mdm2DUB + Mdm2_P + Ub
+Mdm2PProteasomeBinding1: Mdm2_P_Ub4 + Proteasome ->(kbinProt) Mdm2_P_Ub4_Proteasome
+Mdm2PDegradation: Mdm2_P_Ub4_Proteasome ->(kdegMdm2*kproteff) Proteasome + 4Ub
+ATMInactivation: ATMA ->(kinactATM) ATMI
+AbetaROSproduction1: Abeta ->(kgenROSAbeta) Abeta + ROS
+PlaqueROSproduction: AbetaPlaque ->(kgenROSPlaque) AbetaPlaque + ROS
+AggAbetaROSproduction2: AggAbeta_Proteasome ->(kgenROSAbeta) AggAbeta_Proteasome + ROS
+ROSDNAdamage: ROS ->(kdamROS) ROS + damDNA
+TauSynthesis: Source ->(ksynTau) Tau
+TauProteasomeBinding: Proteasome + Tau ->(kbinTauProt) Proteasome_Tau
+Tau20SProteasomeDegradation: Proteasome_Tau ->(kdegTau20SProt) Proteasome
+AbetaAggregation1: 2Abeta ->(0.5*kaggAbeta) AbetaDimer
+AbetaPlaqueFormation1: 2AbetaDimer ->(0.5*kpf) AbetaPlaque
+AbetaPlaqueGrowth: AbetaDimer + AbetaPlaque ->(AbetaPlaque*kpg/(AbetaPlaque**2 + kpghalf**2)) 2AbetaPlaque
+AbetaDisaggregation1: AbetaDimer ->(kdisaggAbeta) 2Abeta
+AbetaDisaggregation3: AbetaPlaque ->(kdisaggAbeta1) AbetaDimer + disaggPlaque1
+AbetaDisaggregation4: AbetaPlaque + antiAb ->(kdisaggAbeta2) AbetaDimer + antiAb + disaggPlaque2
+Abeta_antiAbBinding: Abeta + antiAb ->(kbinAbantiAb) Abeta_antiAb
+AbetaDimer_antiAbBinding: AbetaDimer + antiAb ->(kbinAbantiAb) AbetaDimer_antiAb
+Abeta_antiAbDegredation: Abeta_antiAb ->(10*kdegAbeta) antiAb
+AbetaDimer_antiAbDegredation: AbetaDimer_antiAb ->(10*kdegAbeta) antiAb
+GliaActivationStep1: AbetaPlaque + GliaI ->(kactglia1) AbetaPlaque + GliaM1
+GliaActivationStep2: AbetaPlaque + GliaM1 ->(kactglia1) AbetaPlaque + GliaM2
+GliaActivationStep3: GliaM2 + antiAb ->(kactglia2) GliaA + antiAb
+GliaInactivationStep1: GliaA ->(kinactglia1) GliaM2
+GliaInactivationStep2: GliaM2 ->(kinactglia2) GliaM1
+GliaInactivationStep3: GliaM1 ->(kinactglia2) GliaI
+AbetaBindingToGlia: AbetaPlaque + GliaA ->(kbinAbetaGlia) AbetaPlaque_GliaA
+AbetaReleaseFromGlia: AbetaPlaque_GliaA ->(krelAbetaGlia) AbetaPlaque + GliaA
+AbetaPlaqueClearanceByGlia: AbetaPlaque_GliaA ->(kdegAbetaGlia) GliaA + degAbetaGlia
+ROSgenerationByGlia: AbetaPlaque_GliaA ->(kgenROSGlia) AbetaPlaque_GliaA + ROS
+antiAbRemoval: antiAb ->(kdegAntiAb) Sink
+ROSremoval: ROS ->(kremROS) Sink

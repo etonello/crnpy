@@ -1,0 +1,62 @@
+re2:  ->(ktrUFP*mUFPT*piecewise(eIF2a/eIF2aT, False, 1)) UFPT
+re3: UFPT ->(kdUFP) 
+re4: UFPT ->(BiUFP*kbu) 
+reu1:  ->(BiP*UFP*kf*tmr) BiUFP
+reu2: BiUFP ->(kr*tmr) 
+reu3:  ->(BiP*IRE1*kf*tmr) BiRE1
+reu4: BiRE1 ->(kr*tmr) 
+reu5:  ->(ATF6*BiP*kf*tmr) BiATF
+reu6: BiATF ->(kr*tmr) 
+reu7:  ->(BiP*PERK*kf*tmr) BiPER
+reu8: BiPER ->(kr*tmr) 
+reu9:  ->(IRE1**n*kff*tmr) IRE1A
+reu10: IRE1A ->(kr*tmr) 
+reu11:  ->(PERK**n*kff*tmr*piecewise(UFP, False, 1)) PERKA
+reu12: PERKA ->(kr*tmr/(UFP*extPERK + 1)) 
+re5:  ->(ktrATF6*mATF6T) ATF6T
+re6: ATF6T ->(kdATF6) 
+re8: ATF6T ->(ATF6*ktrans/ATF6T) ATF6GB
+rew1: ATF6T ->(WFS1*kdeAW) 
+re9: ATF6GB ->(kdATF6GB) 
+re10: ATF6GB ->(kcleave) ATF6p50
+re11: ATF6p50 ->(kdATF6p50) 
+rew2:  ->(ATF6p50*trcWFS/(ATF6p50 + krcWFS)) mWFS1
+rew3: mWFS1 ->(kdmWFS) 
+rew4:  ->(ktrWFS*mWFS1) WFS1
+rew5: WFS1 ->(kdWFS) 
+re12:  ->(trcXU*(ATF6p50*kmAtfsXBP + basalXBP)/(ATF6p50*kmAtfsXBP + basalXBP + krcXU)) mXbp1u
+re13: mXbp1u ->(kdmXU) 
+re14: mXbp1u ->(spliceRate/mXbp1u) mXbp1s
+re15: mXbp1s ->(kdmXS) 
+re16:  ->(ktrXS*mXbp1s) Xbp1s
+re17: Xbp1s ->(kdXS) 
+re18:  ->(trcBiP*(ATF6p50*kmAtfsBiP + Xbp1s*kmXbp + basalBiP)/(ATF6p50*kmAtfsBiP + Xbp1s*kmXbp + basalBiP + krcBiP)) mBiPT
+re19: mBiPT ->(kdmBiP) 
+re20:  ->(ktrBiP*mBiPT) BiPT
+re21: BiPT ->(kdBiP) 
+re23:  ->(ktrATF4*mATF4/((eIF2a/kATF4)**nh + 1)) ATF4
+re24: ATF4 ->(kdATF4) 
+re25:  ->(trcCHOP*(ATF4*kmAtff + ATF6p50*kmAtfs)/(ATF4*kmAtff + ATF6p50*kmAtfs + krcCHOP)) mCHOP
+re26: mCHOP ->(kdmCHOP) 
+re27:  ->(ktrCHOP*mCHOP) CHOP
+re28: CHOP ->(kdCHOP) 
+re29:  ->(CHOP*kmChop*trcGADD34/(CHOP*kmChop + krcGADD34)) mGADD34
+re30: mGADD34 ->(kdmGADD34) 
+re31:  ->(ktrGADD34*mGADD34) GADD34
+re32: GADD34 ->(kdGADD34) 
+rea1:  ->(kfbc/(CHOP*kmbc + 1)) BCL2T
+rea2: BCL2T ->(kdbc) 
+rea3:  ->(BAXT*kfx) BAXmT
+rea4:  ->(BAXT*BH3*kfxp) BAXmT
+rea5: BAXmT ->(kfx) 
+rea6: BAXmT ->(BH3*kfxp) 
+rea7: BAXmT ->(kbx) 
+rea8:  ->(ks3) BH3T
+rea9:  ->(CHOP*ks3p*kstr) BH3T
+rea10: BH3T ->(kd3) 
+rea11:  ->(BAXm*BCL2*kasx) BAXmBCL2
+rea12: BAXmBCL2 ->(kdsx) 
+rea13: BAXmBCL2 ->(kbx) 
+rea14:  ->(BCL2*BH3*kas3) BH3BCL2
+rea15: BH3BCL2 ->(kds3) 
+rea16: BH3BCL2 ->(kd3) 

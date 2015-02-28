@@ -1,0 +1,186 @@
+r1: EGF + EGFR ->(k1) EGF_EGFR
+r1_rev: EGF_EGFR ->(k1r) EGF + EGFR
+r2: EGF_EGFR ->(EGF_EGFR*k2) EGF_EGFR2
+r2_rev: EGF_EGFR2 ->(k2r) EGF_EGFR
+r3: EGF_EGFR2 ->(vmax/(EGF_EGFR2 + km)) pEGF_EGFR2
+r8: Shc + pEGF_EGFR2 ->(k8) pEGF_EGFR2_Shc
+r8_rev: pEGF_EGFR2_Shc ->(k8r) Shc + pEGF_EGFR2
+r6: SHP + pEGF_EGFR2 ->(k6) pEGF_EGFR2_SHP2
+r6_rev: pEGF_EGFR2_SHP2 ->(k6r) SHP + pEGF_EGFR2
+r9: pEGF_EGFR2_Shc ->(k9) pEGF_EGFR2_pShc
+r7: pEGF_EGFR2_SHP2 ->(k7) EGF_EGFR2 + SHP
+r10: pEGF_EGFR2_pShc ->(k10) pEGF_EGFR2 + pShc
+r10_rev: pEGF_EGFR2 + pShc ->(k10r) pEGF_EGFR2_pShc
+r11: SHP + pShc ->(k11) pShc_SHP2
+r11_rev: pShc_SHP2 ->(k11r) SHP + pShc
+r12: pShc_SHP2 ->(k12) SHP + Shc
+r13: pShc ->(k13) Shc
+r18: Grb2 + pEGF_EGFR2_pShc ->(k18) pEGF_EGFR2_pShc_Grb2
+r18_rev: pEGF_EGFR2_pShc_Grb2 ->(kr18) Grb2 + pEGF_EGFR2_pShc
+r19: SHP + pEGF_EGFR2_pShc_Grb2 ->(k19) pEGF_EGFR2_pShc_Grb2_SHP2
+r19_rev: pEGF_EGFR2_pShc_Grb2_SHP2 ->(kr19) SHP + pEGF_EGFR2_pShc_Grb2
+r20: pEGF_EGFR2_pShc_Grb2_SHP2 ->(k20) EGF_EGFR2 + Grb2 + SHP + pShc
+r23: SOS + pEGF_EGFR2_pShc_Grb2 ->(k23) pEGF_EGFR2_pShc_Grb2_SOS
+r23_rev: pEGF_EGFR2_pShc_Grb2_SOS ->(kr23) SOS + pEGF_EGFR2_pShc_Grb2
+r26: Grb2 + SOS ->(k26) Grb2_SOS
+r26_rev: Grb2_SOS ->(kr26) Grb2 + SOS
+r27: Grb2_SOS + pEGF_EGFR2_pShc ->(k27) pEGF_EGFR2_pShc_Grb2_SOS
+r27_rev: pEGF_EGFR2_pShc_Grb2_SOS ->(kr27) Grb2_SOS + pEGF_EGFR2_pShc
+r28: Grb2 + pEGF_EGFR2 ->(k28) pEGF_EGFR2_Grb2
+r28_rev: pEGF_EGFR2_Grb2 ->(kr28) Grb2 + pEGF_EGFR2
+r29: SHP + pEGF_EGFR2_Grb2 ->(k29) pEGF_EGFR2_Grb2_SHP2
+r29_rev: pEGF_EGFR2_Grb2_SHP2 ->(kr29) SHP + pEGF_EGFR2_Grb2
+r30: pEGF_EGFR2_Grb2_SHP2 ->(k30) EGF_EGFR2 + Grb2 + SHP
+r31: SOS + pEGF_EGFR2_Grb2 ->(k31) pEGF_EGFR2_Grb2_SOS
+r31_rev: pEGF_EGFR2_Grb2_SOS ->(kr31) SOS + pEGF_EGFR2_Grb2
+r32: Grb2_SOS + pEGF_EGFR2 ->(k32) pEGF_EGFR2_Grb2_SOS
+r32_rev: pEGF_EGFR2_Grb2_SOS ->(kr32) Grb2_SOS + pEGF_EGFR2
+r35: Ras_GDP + pEGF_EGFR2_pShc_Grb2_SOS ->(k35) pEGF_EGFR2_pShc_Grb2_SOS_Ras_GDP
+r35_rev: pEGF_EGFR2_pShc_Grb2_SOS_Ras_GDP ->(kr35) Ras_GDP + pEGF_EGFR2_pShc_Grb2_SOS
+r39: Ras_GTP ->(k39) Ras_GDP
+r36: pEGF_EGFR2_pShc_Grb2_SOS_Ras_GDP ->(k36) Ras_GTP + pEGF_EGFR2_pShc_Grb2_SOS
+r38: pEGF_EGFR2_Grb2_SOS_Ras_GDP ->(k38) Ras_GTP + pEGF_EGFR2_Grb2_SOS
+r37: Ras_GDP + pEGF_EGFR2_Grb2_SOS ->(k37) pEGF_EGFR2_Grb2_SOS_Ras_GDP
+r37_rev: pEGF_EGFR2_Grb2_SOS_Ras_GDP ->(kr37) Ras_GDP + pEGF_EGFR2_Grb2_SOS
+r40: Ras_GAP + Ras_GTP ->(k40) Ras_GTP_Ras_GAP
+r40_rev: Ras_GTP_Ras_GAP ->(kr40) Ras_GAP + Ras_GTP
+r41: Ras_GTP_Ras_GAP ->(k41) Ras_GAP + Ras_GDP
+r42: Ras_GAP + pEGF_EGFR2 ->(k42) pEGF_EGFR2_Ras_GAP
+r42_rev: pEGF_EGFR2_Ras_GAP ->(kr42) Ras_GAP + pEGF_EGFR2
+r43: Ras_GTP + pEGF_EGFR2_Ras_GAP ->(k43) pEGF_EGFR2_Ras_GAP_Ras_GTP
+r43_rev: pEGF_EGFR2_Ras_GAP_Ras_GTP ->(kr43) Ras_GTP + pEGF_EGFR2_Ras_GAP
+r44: pEGF_EGFR2_Ras_GAP_Ras_GTP ->(k44) Ras_GDP + pEGF_EGFR2_Ras_GAP
+r45: SHP + pEGF_EGFR2_Ras_GAP ->(k45) pEGF_EGFR2_Ras_GAP_SHP2
+r45_rev: pEGF_EGFR2_Ras_GAP_SHP2 ->(kr45) SHP + pEGF_EGFR2_Ras_GAP
+r46: pEGF_EGFR2_Ras_GAP_SHP2 ->(k46) EGF_EGFR2 + Ras_GAP + SHP
+r47: Raf1 + Ras_GTP ->(k47) Raf1_Ras_GTP
+r47_rev: Raf1_Ras_GTP ->(kr47) Raf1 + Ras_GTP
+r48: Raf1_Ras_GTP ->(k48) Raf1active + Ras_GTP
+r49: MEK + Raf1active ->(k49) Raf1active_MEK
+r49_rev: Raf1active_MEK ->(kr49) MEK + Raf1active
+r50: Raf1active_MEK ->(k50) Raf1active + pMEK
+r51: Raf1active + pMEK ->(k51) Raf1active_pMEK
+r51_rev: Raf1active_pMEK ->(kr51) Raf1active + pMEK
+r52: Raf1active_pMEK ->(k52) Raf1active + ppMEK
+r53: ERK + ppMEK ->(k53) ppMEK_ERK
+r53_rev: ppMEK_ERK ->(kr53) ERK + ppMEK
+r54: ppMEK_ERK ->(k54) pERK + ppMEK
+r55: pERK + ppMEK ->(k55) ppMEK_pERK
+r55_rev: ppMEK_pERK ->(kr55) pERK + ppMEK
+r56: ppMEK_pERK ->(k56) ppERK + ppMEK
+r57: Pase + Raf1active ->(k57) Raf1active_Pase
+r57_rev: Raf1active_Pase ->(kr57) Pase + Raf1active
+r58: Raf1active_Pase ->(k58) Pase + Raf1
+r59: Pase2 + ppMEK ->(k59) ppMEK_Pase2
+r59_rev: ppMEK_Pase2 ->(kr59) Pase2 + ppMEK
+r60: ppMEK_Pase2 ->(k60) Pase2 + pMEK
+r61: Pase2 + pMEK ->(k61) pMEK_Pase2
+r61_rev: pMEK_Pase2 ->(kr61) Pase2 + pMEK
+r62: pMEK_Pase2 ->(k62) MEK + Pase2
+r63: Pase3 + ppERK ->(k63) ppERK_Pase3
+r63_rev: ppERK_Pase3 ->(kr63) Pase3 + ppERK
+r64: ppERK_Pase3 ->(k64) Pase3 + pERK
+r66: pERK_Pase3 ->(k66) ERK + Pase3
+r65: Pase3 + pERK ->(k65) pERK_Pase3
+r65_rev: pERK_Pase3 ->(kr65) Pase3 + pERK
+r67: pEGF_EGFR2_pShc_Grb2_SOS + ppERK ->(k67) ppERK_pEGF_EGFR2_pShc_Grb2_SOS
+r67_rev: ppERK_pEGF_EGFR2_pShc_Grb2_SOS ->(kr67) pEGF_EGFR2_pShc_Grb2_SOS + ppERK
+r68: ppERK_pEGF_EGFR2_pShc_Grb2_SOS ->(k68) Grb2 + pEGF_EGFR2 + pSOS + pShc + ppERK
+r69: pEGF_EGFR2_Grb2_SOS + ppERK ->(k69) ppERK_pEGF_EGFR2_Grb2_SOS
+r69_rev: ppERK_pEGF_EGFR2_Grb2_SOS ->(kr69) pEGF_EGFR2_Grb2_SOS + ppERK
+r70: ppERK_pEGF_EGFR2_Grb2_SOS ->(k70) Grb2 + pEGF_EGFR2 + pSOS + ppERK
+r71: pSOS ->(k71) SOS
+r72: ProEGFR ->(k72) EGFR
+r73: cbl + pEGF_EGFR2_pShc_Grb2_SOS ->(k73) pEGF_EGFR2_pShc_Grb2_SOS_cbl
+r73_rev: pEGF_EGFR2_pShc_Grb2_SOS_cbl ->(k73r) cbl + pEGF_EGFR2_pShc_Grb2_SOS
+r74: EPn + pEGF_EGFR2_pShc_Grb2_SOS_cbl ->(k74) pEGF_EGFR2_pShc_Grb2_SOS_cbl_EPn
+r74_rev: pEGF_EGFR2_pShc_Grb2_SOS_cbl_EPn ->(k74r) EPn + pEGF_EGFR2_pShc_Grb2_SOS_cbl
+r75: pEGF_EGFR2_pShc_Grb2_SOS_cbl_EPn ->(k75) EPn + Grb2_SOS + cbl + pShc
+r76: cbl + pEGF_EGFR2_Grb2_SOS ->(k76) pEGF_EGFR2_Grb2_SOS_cbl
+r76_rev: pEGF_EGFR2_Grb2_SOS_cbl ->(k76r) cbl + pEGF_EGFR2_Grb2_SOS
+r77: EPn + pEGF_EGFR2_Grb2_SOS_cbl ->(k77) pEGF_EGFR2_Grb2_SOS_cbl_EPn
+r77_rev: pEGF_EGFR2_Grb2_SOS_cbl_EPn ->(k77r) EPn + pEGF_EGFR2_Grb2_SOS_cbl
+r78: pEGF_EGFR2_Grb2_SOS_cbl_EPn ->(k78) EPn + Grb2_SOS + cbl
+r79: cbl + pEGF_EGFR2 ->(k79) pEGF_EGFR2_cbl
+r79_rev: pEGF_EGFR2_cbl ->(k79r) cbl + pEGF_EGFR2
+r80: EPn + pEGF_EGFR2_cbl ->(k80) pEGF_EGFR2_cbl_EPn
+r80_rev: pEGF_EGFR2_cbl_EPn ->(kr80) EPn + pEGF_EGFR2_cbl
+r81: pEGF_EGFR2_cbl_EPn ->(k81) EPn + cbl
+r82: PI3K + pEGF_EGFR2 ->(k82) pEGF_EGFR2_PI3K
+r82_rev: pEGF_EGFR2_PI3K ->(kr82) PI3K + pEGF_EGFR2
+r83: pEGF_EGFR2_PI3K ->(k83) pEGF_EGFR2_pPI3K
+r83_rev: pEGF_EGFR2_pPI3K ->(kr83) pEGF_EGFR2_PI3K
+r84: pEGF_EGFR2_PI3K ->(k84) pEGF_EGFR2 + pPI3K
+r84_rev: pEGF_EGFR2 + pPI3K ->(kr84) pEGF_EGFR2_PI3K
+r85: TP4 + pPI3K ->(k85) TP4_pPI3K
+r85_rev: TP4_pPI3K ->(kr85) TP4 + pPI3K
+r86: TP4_pPI3K ->(k86) TP4_PI3K
+r87: TP4_PI3K ->(k87) PI3K + TP4
+r87_rev: PI3K + TP4 ->(kr87) TP4_PI3K
+r88: PIP2 + pPI3K ->(k88) pPI3K_PIP2
+r88_rev: pPI3K_PIP2 ->(kr88) PIP2 + pPI3K
+r89: pPI3K_PIP2 ->(k89) PIP3 + pPI3K
+r90: Akt + PIP3 ->(k90) Aktm
+r90_rev: Aktm ->(kr90) Akt + PIP3
+r91: Aktm + PDK1 ->(k91) Aktm_PDK1
+r91_rev: Aktm_PDK1 ->(kr91) Aktm + PDK1
+r92: Aktm_PDK1 ->(k92) pAktm_PDK1
+r93: pAktm_PDK1 ->(k93) PDK1 + pAktm
+r93_rev: PDK1 + pAktm ->(kr93) pAktm_PDK1
+r94: pAktm ->(k94) PIP3 + pAkt
+r94_rev: PIP3 + pAkt ->(kr94) pAktm
+r95: pAkt_Takt ->(k95) Akt_Takt
+r96: Akt_Takt ->(k96) Akt + Takt
+r96_rev: Akt + Takt ->(kr96) Akt_Takt
+r97: Takt + pAkt ->(k97) pAkt_Takt
+r97_rev: pAkt_Takt ->(kr97) Takt + pAkt
+r98: Takt + pAktm ->(k98) pAktm_Takt
+r98_rev: pAktm_Takt ->(kr98) Takt + pAktm
+r99: pAktm_Takt ->(k99) Aktm_Takt
+r100: Aktm_Takt ->(k100) Aktm + Takt
+r100_rev: Aktm + Takt ->(kr100) Aktm_Takt
+r101: Takt + pAktm_PDK1 ->(k101) pAktm_PDK1_Takt
+r101_rev: pAktm_PDK1_Takt ->(kr101) Takt + pAktm_PDK1
+r102: pAktm_PDK1_Takt ->(k102) Aktm_PDK1_Takt
+r103: Aktm_PDK1_Takt ->(k103) Aktm_PDK1 + Takt
+r103_rev: Aktm_PDK1 + Takt ->(kr103) Aktm_PDK1_Takt
+r104: Raf1active ->(Kon*pAkt_total/(Km + Raf1active)) pRaf1active
+r105: pRaf1active ->(k105) Raf1active
+r106: STAT3c + pEGF_EGFR2 ->(k106) pEGF_EGFR2_STAT3c
+r106_rev: pEGF_EGFR2_STAT3c ->(k106r) STAT3c + pEGF_EGFR2
+r107: pEGF_EGFR2_STAT3c ->(K107) pEGF_EGFR2 + pSTAT3c
+r108: pEGF_EGFR2 + pSTAT3c ->(K108) pEGF_EGFR2_pSTAT3c
+r108_rev: pEGF_EGFR2_pSTAT3c ->(K108r) pEGF_EGFR2 + pSTAT3c
+r109: PP1 + pSTAT3c ->(k109) pSTAT3c_PP1
+r109_rev: pSTAT3c_PP1 ->(k109r) PP1 + pSTAT3c
+r110: pSTAT3c_PP1 ->(k110) PP1 + STAT3c
+r111: pSTAT3c ->(k111*pSTAT3c) pSTAT3c_pSTAT3c
+r111_rev: pSTAT3c_pSTAT3c ->(k111r) pSTAT3c
+r112: PP1 + pSTAT3c_pSTAT3c ->(k112) pSTAT3c_pSTAT3c_PP1
+r112_rev: pSTAT3c_pSTAT3c_PP1 ->(k112r) PP1 + pSTAT3c_pSTAT3c
+r113: pSTAT3c_pSTAT3c_PP1 ->(k113) PP1 + STAT3c_pSTAT3c
+r114: STAT3c + pSTAT3c ->(k114) STAT3c_pSTAT3c
+r114_rev: STAT3c_pSTAT3c ->(k114r) STAT3c + pSTAT3c
+r115: pSTAT3c_pSTAT3c ->(k115) pSTAT3n_pSTAT3n
+r116: pSTAT3n ->(k116*pSTAT3n) pSTAT3n_pSTAT3n
+r116_rev: pSTAT3n_pSTAT3n ->(k116r) pSTAT3n
+r117: PP2 + pSTAT3n_pSTAT3n ->(k117) pSTAT3n_pSTAT3n_PP2
+r117_rev: pSTAT3n_pSTAT3n_PP2 ->(k117r) PP2 + pSTAT3n_pSTAT3n
+r118: pSTAT3n_pSTAT3n_PP2 ->(k118) PP2 + STAT3n_pSTAT3n
+r119: STAT3n + pSTAT3n ->(k119) STAT3n_pSTAT3n
+r119_rev: STAT3n_pSTAT3n ->(k119r) STAT3n + pSTAT3n
+r120: PP2 + pSTAT3n ->(k120) pSTAT3n_PP2
+r120_rev: pSTAT3n_PP2 ->(k120r) PP2 + pSTAT3n
+r121: pSTAT3n_PP2 ->(k121) PP2 + STAT3n
+r122: STAT3n ->(k122) STAT3c
+r123: PIP3 ->(k123) PIP2
+r124: cbl + pEGF_EGFR2_STAT3c ->(k124) pEGF_EGFR2_STAT3c_cbl
+r124_rev: pEGF_EGFR2_STAT3c_cbl ->(kr124) cbl + pEGF_EGFR2_STAT3c
+r125: EPn + pEGF_EGFR2_STAT3c_cbl ->(k125) pEGF_EGFR2_STAT3c_cbl_EPn
+r125_rev: pEGF_EGFR2_STAT3c_cbl_EPn ->(kr125) EPn + pEGF_EGFR2_STAT3c_cbl
+r126: pEGF_EGFR2_STAT3c_cbl_EPn ->(k126) EPn + STAT3c + cbl
+r127: cbl + pEGF_EGFR2_PI3K ->(k127) pEGF_EGFR2_PI3K_cbl
+r127_rev: pEGF_EGFR2_PI3K_cbl ->(kr127) cbl + pEGF_EGFR2_PI3K
+r128: EPn + pEGF_EGFR2_PI3K_cbl ->(k128) pEGF_EGFR2_PI3K_cbl_EPn
+r128_rev: pEGF_EGFR2_PI3K_cbl_EPn ->(kr128) EPn + pEGF_EGFR2_PI3K_cbl
+r129: pEGF_EGFR2_PI3K_cbl_EPn ->(k129) EPn + PI3K

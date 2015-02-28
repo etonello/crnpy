@@ -1,0 +1,17 @@
+# Three-substrate mechanism
+# Cornish-Bowden, Athel. "Fundamentals of enzyme kinetics". Elsevier, 2014.
+# 6.8
+# Irreversible version.
+
+a + e ->(k1) ea
+ea ->(k_1) a + e
+ea + b ->(k2) eab    # e1p
+eab ->(k_2) ea + b
+eab ->(k3) p + e1
+#p + e1 ->(k_3) eab
+e1 + c ->(k4) eqr    # e1c
+eqr ->(k_4) e1 + c
+eqr ->(k5) er + q
+#er + q ->(k_5) eqr
+er ->(k6) e + r
+#e + r ->(k_6) er

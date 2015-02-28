@@ -1,0 +1,8 @@
+re2: ESA ->(Da*default*sa/ESA) Pa
+re1: ESB ->(Db*default*sb/ESB) Pb
+re12: Pa ->(da*default) ESA
+re11: Pb ->(db*default) ESB
+re13: Db + 2Pa ->(bb*default*(Pa - 1)/(2*Pa)) BDb
+re5: Da + 2Pb ->(ba*default*(Pb - 1)/(2*Pb)) BDa
+re7: BDa ->(default*ua) Da + 2Pb
+re14: BDb ->(default*ub) Db + 2Pa

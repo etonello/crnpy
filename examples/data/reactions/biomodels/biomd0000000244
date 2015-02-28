@@ -1,0 +1,115 @@
+bm_ACoA: ACoA ->(k_bm_ACoA) 
+bm_AKG: AKG ->(k_bm_AKG) 
+bm_G6P: G6P ->(k_bm_G6P) 
+bm_OAA: OAA ->(k_bm_OAA) 
+bm_PEP: PEP ->(k_bm_PEP) 
+bm_PG3: PG3 ->(k_bm_PG3) 
+bm_PYR: PYR ->(k_bm_PYR) 
+pts_r1: EIIA + PEP ->(pts_k1) EIIA_P + PYR
+pts_r1_rev: EIIA_P + PYR ->(pts_km1) EIIA + PEP
+pts_r4: EIIA_P ->(EIICB*GLC*pts_k4/((EIIA_P + pts_KEIIA)*(GLC + pts_Kglc))) EIIA + G6P
+e_AceK_Ki: Icd ->(AceK*e_AceK_kcat_ki*(Icd/e_AceK_Kicd + 1)**(e_AceK_n - 1)/(e_AceK_Kicd*(e_AceK_L*(AKG/e_AceK_Kakg + GLX/e_AceK_Kglx + ICT/e_AceK_Kict + OAA/e_AceK_Koaa + PEP/e_AceK_Kpep + PG3/e_AceK_Kpg3 + PYR/e_AceK_Kpyr + 1)**e_AceK_n + (Icd/e_AceK_Kicd + 1)**e_AceK_n))) Icd_P
+e_AceK_Ph: Icd_P ->(AceK*e_AceK_kcat_ph*(Icd_P/e_AceK_Kicd_P + 1)**(e_AceK_n - 1)/(e_AceK_Kicd_P*(e_AceK_L*(AKG/e_AceK_Kakg + OAA/e_AceK_Koaa + PEP/e_AceK_Kpep + PG3/e_AceK_Kpg3 + PYR/e_AceK_Kpyr + 1)**(-e_AceK_n) + (Icd_P/e_AceK_Kicd_P + 1)**e_AceK_n))) Icd
+tf_Cra: Cra ->(FBP**tf_Cra_n*tf_Cra_scale/(FBP**tf_Cra_n + tf_Cra_kfbp**tf_Cra_n)) CraFBP
+tf_Cra_rev: CraFBP ->(tf_Cra_kfbp**tf_Cra_n*tf_Cra_scale/(FBP**tf_Cra_n + tf_Cra_kfbp**tf_Cra_n)) Cra
+tf_Crp: Crp ->(cAMP**tf_Crp_n*tf_Crp_scale/(cAMP**tf_Crp_n + tf_Crp_kcamp**tf_Crp_n)) CrpcAMP
+tf_Crp_rev: CrpcAMP ->(tf_Crp_kcamp**tf_Crp_n*tf_Crp_scale/(cAMP**tf_Crp_n + tf_Crp_kcamp**tf_Crp_n)) Crp
+tf_PdhR: PdhR ->(PYR**tf_PdhR_n*tf_PdhR_scale/(PYR**tf_PdhR_n + tf_PdhR_kpyr**tf_PdhR_n)) PdhRPYR
+tf_PdhR_rev: PdhRPYR ->(tf_PdhR_kpyr**tf_PdhR_n*tf_PdhR_scale/(PYR**tf_PdhR_n + tf_PdhR_kpyr**tf_PdhR_n)) PdhR
+e_AceA: ICT ->(AceA*e_AceA_kcat*(ICT/e_AceA_Kict + 1)**(e_AceA_n - 1)/(e_AceA_Kict*(e_AceA_L*(AKG/e_AceA_Kakg + PEP/e_AceA_Kpep + PG3/e_AceA_Kpg3 + 1)**e_AceA_n + (ICT/e_AceA_Kict + 1)**e_AceA_n))) AKG + GLX
+e_AceB: ACoA + GLX ->(AceB*e_AceB_kcat/(ACoA*GLX + ACoA*e_AceB_Kglx + GLX*e_AceB_Kacoa + e_AceB_Kacoa*e_AceB_Kglxacoa)) MAL
+e_Acoa2act: ACoA ->(Acoa2act*e_Acoa2act_kcat*(ACoA/e_Acoa2act_Kacoa + 1)**(e_Acoa2act_n - 1)/(e_Acoa2act_Kacoa*(e_Acoa2act_L*(PYR/e_Acoa2act_Kpyr + 1)**(-e_Acoa2act_n) + (ACoA/e_Acoa2act_Kacoa + 1)**e_Acoa2act_n))) 
+e_Acs:  ->(ACT*Acs*e_Acs_kcat/(ACT + e_Acs_Kact)) ACoA
+e_Akg2mal: AKG ->(Akg2mal*e_Akg2mal_kcat/(AKG + e_Akg2mal_Kakg)) MAL
+e_CAMPdegr: cAMP ->(CAMPdegr*e_CAMPdegr_kcat/(cAMP + e_CAMPdegr_KcAMP)) 
+e_Cya:  ->(Cya*EIIA_P*e_Cya_kcat/(EIIA_P + e_Cya_KEIIA)) cAMP
+e_Emp: 0FBP ->(Emp*FBP*e_Emp_Kpg3*e_Emp_kcat_f/(FBP*e_Emp_Kpg3 + PG3*e_Emp_Kfbp + e_Emp_Kfbp*e_Emp_Kpg3)) PG3
+e_Emp_rev: PG3 ->(Emp*e_Emp_Kfbp*e_Emp_kcat_r/(FBP*e_Emp_Kpg3 + PG3*e_Emp_Kfbp + e_Emp_Kfbp*e_Emp_Kpg3)) 0FBP
+e_Eno: PG3 ->(Eno*e_Eno_Kpep*e_Eno_kcatf/(PEP*e_Eno_Kpg3 + PG3*e_Eno_Kpep + e_Eno_Kpep*e_Eno_Kpg3)) PEP
+e_Eno_rev: PEP ->(Eno*e_Eno_Kpg3*e_Eno_kcatr/(PEP*e_Eno_Kpg3 + PG3*e_Eno_Kpep + e_Eno_Kpep*e_Eno_Kpg3)) PG3
+e_Fdp: FBP ->(Fdp*e_Fdp_kcat*(FBP/e_Fdp_Kfbp + 1)**(e_Fdp_n - 1)/(e_Fdp_Kfbp*(e_Fdp_L*(PEP/e_Fdp_Kpep + 1)**(-e_Fdp_n) + (FBP/e_Fdp_Kfbp + 1)**e_Fdp_n))) G6P
+e_GltA: ACoA + OAA ->(GltA*e_GltA_kcat/(ACoA*OAA + ACoA*e_GltA_Koaa*(AKG/e_GltA_Kakg + 1) + OAA*e_GltA_Kacoa + e_GltA_Kacoa*e_GltA_Koaaacoa*(AKG/e_GltA_Kakg + 1))) ICT
+e_Icd: ICT ->(Icd*e_Icd_kcat*(ICT/e_Icd_Kict + 1)**(e_Icd_n - 1)/(e_Icd_Kict*(e_Icd_L*(PEP/e_Icd_Kpep + 1)**e_Icd_n + (ICT/e_Icd_Kict + 1)**e_Icd_n))) AKG
+e_Mdh: MAL ->(MAL**e_Mdh_n*Mdh*e_Mdh_kcat/(MAL*(MAL**e_Mdh_n + e_Mdh_Kmal**e_Mdh_n))) OAA
+e_Me: MAL ->(Me*e_Me_kcat*(MAL/e_Me_Kmal + 1)**(e_Me_n - 1)/(e_Me_Kmal*(e_Me_L*(ACoA/e_Me_Kacoa + cAMP/e_Me_Kcamp + 1)**e_Me_n + (MAL/e_Me_Kmal + 1)**e_Me_n))) PYR
+e_PckA: OAA ->(PckA*e_PckA_kcat/(OAA + e_PckA_Koaa*(PEP/e_PckA_Kpep + 1))) PEP
+e_Pdh: PYR ->(Pdh*e_Pdh_kcat*(PYR/e_Pdh_Kpyr + 1)**(e_Pdh_n - 1)/(e_Pdh_Kpyr*(e_Pdh_L*(GLX/e_Pdh_Kglx + PYR/e_Pdh_KpyrI + 1)**e_Pdh_n + (PYR/e_Pdh_Kpyr + 1)**e_Pdh_n))) ACoA
+e_PfkA: G6P ->(PfkA*e_PfkA_kcat*(G6P/e_PfkA_Kg6p + 1)**(e_PfkA_n - 1)/(e_PfkA_Kg6p*(e_PfkA_L*(PEP/e_PfkA_Kpep + 1)**e_PfkA_n + (G6P/e_PfkA_Kg6p + 1)**e_PfkA_n))) FBP
+e_Ppc: PEP ->(Ppc*e_Ppc_kcat*(PEP/e_Ppc_Kpep + 1)**(e_Ppc_n - 1)/(e_Ppc_Kpep*(e_Ppc_L*(FBP/e_Ppc_Kfbp + 1)**(-e_Ppc_n) + (PEP/e_Ppc_Kpep + 1)**e_Ppc_n))) OAA
+e_PpsA: PYR ->(PpsA*e_PpsA_kcat*(PYR/e_PpsA_Kpyr + 1)**(e_PpsA_n - 1)/(e_PpsA_Kpyr*(e_PpsA_L*(PEP/e_PpsA_Kpep + 1)**e_PpsA_n + (PYR/e_PpsA_Kpyr + 1)**e_PpsA_n))) PEP
+e_PykF: PEP ->(PykF*e_PykF_kcat*(PEP/e_PykF_Kpep + 1)**(e_PykF_n - 1)/(e_PykF_Kpep*(e_PykF_L*(FBP/e_PykF_Kfbp + 1)**(-e_PykF_n) + (PEP/e_PykF_Kpep + 1)**e_PykF_n))) PYR
+g_aceA:  ->(bm_k_expr*mu*(Cra*g_aceBAK_vcra_bound/(Cra + g_aceBAK_Kcra) + CrpcAMP*g_aceBAK_vcrp_bound/(CrpcAMP + g_aceBAK_Kcrp) + IclR*g_aceBAK_kcat_iclr*(-g_aceBAK_DNA*(PYR/g_aceBAK_KPprime + 1)/(g_aceBAK_KDNA*(GLX*(GLX/g_aceBAK_KG + 1)/(g_aceBAK_KG*g_aceBAK_L) + PYR*g_aceBAK_DNA/(g_aceBAK_KDNA*g_aceBAK_KPprime) + PYR/g_aceBAK_KP + g_aceBAK_DNA/g_aceBAK_KDNA + 1)) + 1) + g_aceBAK_vcra_unbound*(-Cra/(Cra + g_aceBAK_Kcra) + 1) + g_aceBAK_vcrp_unbound*(-CrpcAMP/(CrpcAMP + g_aceBAK_Kcrp) + 1))) AceA
+g_aceB:  ->(bm_k_expr*g_aceBAK_aceBfactor*mu*(Cra*g_aceBAK_vcra_bound/(Cra + g_aceBAK_Kcra) + CrpcAMP*g_aceBAK_vcrp_bound/(CrpcAMP + g_aceBAK_Kcrp) + IclR*g_aceBAK_kcat_iclr*(-g_aceBAK_DNA*(PYR/g_aceBAK_KPprime + 1)/(g_aceBAK_KDNA*(GLX*(GLX/g_aceBAK_KG + 1)/(g_aceBAK_KG*g_aceBAK_L) + PYR*g_aceBAK_DNA/(g_aceBAK_KDNA*g_aceBAK_KPprime) + PYR/g_aceBAK_KP + g_aceBAK_DNA/g_aceBAK_KDNA + 1)) + 1) + g_aceBAK_vcra_unbound*(-Cra/(Cra + g_aceBAK_Kcra) + 1) + g_aceBAK_vcrp_unbound*(-CrpcAMP/(CrpcAMP + g_aceBAK_Kcrp) + 1))) AceB
+g_aceK:  ->(bm_k_expr*g_aceBAK_aceKfactor*mu*(Cra*g_aceBAK_vcra_bound/(Cra + g_aceBAK_Kcra) + CrpcAMP*g_aceBAK_vcrp_bound/(CrpcAMP + g_aceBAK_Kcrp) + IclR*g_aceBAK_kcat_iclr*(-g_aceBAK_DNA*(PYR/g_aceBAK_KPprime + 1)/(g_aceBAK_KDNA*(GLX*(GLX/g_aceBAK_KG + 1)/(g_aceBAK_KG*g_aceBAK_L) + PYR*g_aceBAK_DNA/(g_aceBAK_KDNA*g_aceBAK_KPprime) + PYR/g_aceBAK_KP + g_aceBAK_DNA/g_aceBAK_KDNA + 1)) + 1) + g_aceBAK_vcra_unbound*(-Cra/(Cra + g_aceBAK_Kcra) + 1) + g_aceBAK_vcrp_unbound*(-CrpcAMP/(CrpcAMP + g_aceBAK_Kcrp) + 1))) AceK
+g_acoa2act:  ->(0) Acoa2act
+g_acs:  ->(bm_k_expr*mu*(CrpcAMP**g_acs_n*g_acs_vcrp_bound/(CrpcAMP**g_acs_n + g_acs_Kcrp**g_acs_n) + g_acs_vcrp_unbound*(-CrpcAMP**g_acs_n/(CrpcAMP**g_acs_n + g_acs_Kcrp**g_acs_n) + 1))) Acs
+g_akg2mal:  ->(bm_k_expr*mu*(CrpcAMP**g_akg2mal_n*g_akg2mal_vcrp_bound/(CrpcAMP**g_akg2mal_n + g_akg2mal_Kcrp**g_akg2mal_n) + g_akg2mal_vcrp_unbound*(-CrpcAMP**g_akg2mal_n/(CrpcAMP**g_akg2mal_n + g_akg2mal_Kcrp**g_akg2mal_n) + 1))) Akg2mal
+g_cAMPdegr:  ->(0) CAMPdegr
+g_cra:  ->(0) Cra
+g_crp:  ->(0) Crp
+g_cya:  ->(0) Cya
+g_emp:  ->(bm_k_expr*mu*(Cra*g_emp_vcra_bound/(Cra + g_emp_Kcra) + CrpcAMP*g_emp_vcrp_bound/(CrpcAMP + g_emp_Kcrp) + g_emp_vcra_unbound*(-Cra/(Cra + g_emp_Kcra) + 1) + g_emp_vcrp_unbound*(-CrpcAMP/(CrpcAMP + g_emp_Kcrp) + 1))) Emp
+g_eno:  ->(bm_k_expr*mu*(Cra*g_eno_vcra_bound/(Cra + g_eno_Kcra) + g_eno_vcra_unbound*(-Cra/(Cra + g_eno_Kcra) + 1))) Eno
+g_fdp:  ->(bm_k_expr*mu*(Cra*g_fdp_vcra_bound/(Cra + g_fdp_Kcra) + g_fdp_vcra_unbound*(-Cra/(Cra + g_fdp_Kcra) + 1))) Fdp
+g_gltA:  ->(bm_k_expr*mu*(CrpcAMP**g_gltA_n*g_gltA_vcrp_bound/(CrpcAMP**g_gltA_n + g_gltA_Kcrp**g_gltA_n) + g_gltA_vcrp_unbound*(-CrpcAMP**g_gltA_n/(CrpcAMP**g_gltA_n + g_gltA_Kcrp**g_gltA_n) + 1))) GltA
+g_icd:  ->(bm_k_expr*mu*(Cra*g_icd_vcra_bound/(Cra + g_icd_Kcra) + g_icd_vcra_unbound*(-Cra/(Cra + g_icd_Kcra) + 1))) Icd
+g_iclr:  ->(0) IclR
+g_mdh:  ->(bm_k_expr*mu*(CrpcAMP*g_mdh_vcrp_bound/(CrpcAMP + g_mdh_Kcrp) + g_mdh_vcrp_unbound*(-CrpcAMP/(CrpcAMP + g_mdh_Kcrp) + 1))) Mdh
+g_me:  ->(SS_Me*(d_k_degr + mu)) Me
+g_pckA:  ->(bm_k_expr*mu*(Cra*g_pckA_vcra_bound/(Cra + g_pckA_Kcra) + g_pckA_vcra_unbound*(-Cra/(Cra + g_pckA_Kcra) + 1))) PckA
+g_pdh:  ->(bm_k_expr*mu*(PdhR*g_pdh_vpdhr_bound/(PdhR + g_pdh_Kpdhr) + g_pdh_vpdhr_unbound*(-PdhR/(PdhR + g_pdh_Kpdhr) + 1))) Pdh
+g_pdhr:  ->(0) PdhR
+g_pfkA:  ->(bm_k_expr*mu*(Cra*g_pfkA_vcra_bound/(Cra + g_pfkA_Kcra) + g_pfkA_vcra_unbound*(-Cra/(Cra + g_pfkA_Kcra) + 1))) PfkA
+g_ppc:  ->(SS_Ppc*(d_k_degr + mu)) Ppc
+g_ppsA:  ->(bm_k_expr*mu*(Cra*g_ppsA_vcra_bound/(Cra + g_ppsA_Kcra) + g_ppsA_vcra_unbound*(-Cra/(Cra + g_ppsA_Kcra) + 1))) PpsA
+g_pykF:  ->(bm_k_expr*mu*(Cra*g_pykF_vcra_bound/(Cra + g_pykF_Kcra) + g_pykF_vcra_unbound*(-Cra/(Cra + g_pykF_Kcra) + 1))) PykF
+g_EIIA:  ->(0) EIIA
+g_EIICB:  ->(0) EIICB
+d_AceA: AceA ->(d_k_degr + mu) 
+d_AceB: AceB ->(d_k_degr + mu) 
+d_AceK: AceK ->(d_k_degr + mu) 
+d_Acoa2act: Acoa2act ->(0) 
+d_Acs: Acs ->(d_k_degr + mu) 
+d_Akg2mal: Akg2mal ->(d_k_degr + mu) 
+d_CAMPdegr: CAMPdegr ->(0) 
+d_Cra: Cra ->(0) 
+d_CraFBP: CraFBP ->(0) 
+d_Crp: Crp ->(0) 
+d_CrpcAMP: CrpcAMP ->(0) 
+d_Cya: Cya ->(0) 
+d_Emp: Emp ->(d_k_degr + mu) 
+d_Eno: Eno ->(d_k_degr + mu) 
+d_Fdp: Fdp ->(d_k_degr + mu) 
+d_GltA: GltA ->(d_k_degr + mu) 
+d_Icd: Icd ->(d_k_degr + mu) 
+d_Icd_P: Icd_P ->(d_k_degr + mu) 
+d_IclR: IclR ->(0) 
+d_Mdh: Mdh ->(d_k_degr + mu) 
+d_Me: Me ->(d_k_degr + mu) 
+d_PckA: PckA ->(d_k_degr + mu) 
+d_Pdh: Pdh ->(d_k_degr + mu) 
+d_PdhR: PdhR ->(0) 
+d_PdhRPYR: PdhRPYR ->(0) 
+d_PfkA: PfkA ->(d_k_degr + mu) 
+d_Ppc: Ppc ->(d_k_degr + mu) 
+d_PpsA: PpsA ->(d_k_degr + mu) 
+d_PykF: PykF ->(d_k_degr + mu) 
+d_EIIA: EIIA ->(0) 
+d_EIIA_P: EIIA_P ->(0) 
+d_EIICB: EIICB ->(0) 
+d_ACoA: ACoA ->(mu) 
+d_AKG: AKG ->(mu) 
+d_cAMP: cAMP ->(mu) 
+d_FBP: FBP ->(mu) 
+d_G6P: G6P ->(mu) 
+d_GLX: GLX ->(mu) 
+d_ICT: ICT ->(mu) 
+d_MAL: MAL ->(mu) 
+d_OAA: OAA ->(mu) 
+d_PEP: PEP ->(mu) 
+d_PG3: PG3 ->(mu) 
+d_PYR: PYR ->(mu) 
+env_growth:  ->(BM*mu) BM
+env_GLCup: GLC ->(BM*EIIA_P*EIICB*env_M_GLC*env_uc*pts_k4/((EIIA_P + pts_KEIIA)*(GLC + pts_Kglc))) 
+env_ACTup: ACT ->(Acs*BM*e_Acs_kcat*env_M_ACT*env_uc/(ACT + e_Acs_Kact)) 
+env_ACTex:  ->(ACoA*Acoa2act*BM*e_Acoa2act_kcat*env_M_ACT*env_uc*(ACoA/e_Acoa2act_Kacoa + 1)**(e_Acoa2act_n - 1)/(e_Acoa2act_Kacoa*(e_Acoa2act_L*(PYR/e_Acoa2act_Kpyr + 1)**(-e_Acoa2act_n) + (ACoA/e_Acoa2act_Kacoa + 1)**e_Acoa2act_n))) ACT

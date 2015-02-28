@@ -1,0 +1,22 @@
+Per_production:  ->(compartment_0000002*(OPper*Vper + Rpbas)) P0cyt
+Vri_production:  ->(compartment_0000001*(OPvri*Vvri + Rvbas)) VRI
+Pdp_production:  ->(compartment_0000001*delay(OPpdp*Vpdp + Rpdbas, Tdelay)) PDP
+Clk_production:  ->(compartment_0000001*(Kvc**2*PDP**2*Vclk/((Kpdc**2 + PDP**2)*(Kvc**2 + VRI**2)) + Rcbas)) CLK
+Clk_specific_degradation: CLK ->(Vdclk*compartment_0000001) 
+Pdp_specific_degradation: PDP ->(compartment_0000001*vdpdp) 
+Vri_specific_degradation: VRI ->(compartment_0000001*vdvri) 
+first_cytoplasmic_Per_phosphorylation: P0cyt ->(Vpcyt*compartment_0000002/(Kpcyt + P0cyt)) P1cyt
+second_cytoplasmic_Per_phosphorylation: P1cyt ->(Vpcyt*compartment_0000002/(Kpcyt + P1cyt)) P2cyt
+Per_nuclear_transport: P2cyt ->(Vtrans*compartment_0000002/(Ktrans + P2cyt)) P0nuc
+first_nuclear_Per_phosphorylation: P0nuc ->(Vpnuc*compartment_0000001/(Kpnuc + P0nuc)) P1nuc
+second_nuclear_Rer_phosphorylation: P1nuc ->(Vpnuc*compartment_0000001/(Kpnuc + P1nuc)) P2nuc
+Per_specific_degradation: P2nuc ->(Vdegp*compartment_0000001/(Kdegp + P2nuc)) 
+Clk_aspecific_degradation: CLK ->(compartment_0000001*kd) 
+Pdp_aspecific_degradation: PDP ->(compartment_0000001*kd) 
+Vri_aspecific_degradation: VRI ->(compartment_0000001*kd) 
+Per_cyt_aspecific_degradation: P0cyt ->(compartment_0000002*kd) 
+Per_P_cyt_aspecific_degradation: P1cyt ->(compartment_0000002*kd) 
+Per_PP_cyt_aspecific_degradation: P2cyt ->(compartment_0000002*kd) 
+Per_nuc_aspecific_degradation: P0nuc ->(compartment_0000001*kd) 
+Per_P_nuc_aspecific_degradation: P1nuc ->(compartment_0000001*kd) 
+Per_PP_nuc_aspecific_degradation: P2nuc ->(compartment_0000001*kd) 

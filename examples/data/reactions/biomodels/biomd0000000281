@@ -1,0 +1,22 @@
+reaction_1: _ENZ__hexokinase + _GLU__glucose ->(1.0e-6*cell*r_1_k) _ENG__hexokinase_glucose_intermediate
+reaction_2: _ENG__hexokinase_glucose_intermediate + _TP1__adenosine_triphosphate_in_store_1__cytoplasm_ ->(1.0e-6*cell*r_2_k) _ADP__adenosine_diphosphate + _ENZ__hexokinase + _GLP__glucose_6_phosphate
+reaction_3: _ETZ__phosphofructokinase + _GLP__glucose_6_phosphate ->(1.0e-6*cell*r_3_k) _ETG__phosphofructokinase_intermediate
+reaction_4: _ETG__phosphofructokinase_intermediate + _TP1__adenosine_triphosphate_in_store_1__cytoplasm_ ->(1.0e-6*cell*r_4_k) _ADP__adenosine_diphosphate + _ETZ__phosphofructokinase + _GPP__hexose_diphosphate
+reaction_5: _GPP__hexose_diphosphate ->(1.0e-6*cell*r_5_k) _DHA__dihydroxacetone_phosphate + _GAP__glyceraldehyde_3_phosphate
+reaction_6: _DHA__dihydroxacetone_phosphate + _DPH__extramitochondrial_reduced_diphospyridine_nucleotide ->(1.0e-6*cell*r_6_k) _AGP__alpha_glycerophosphate + _DPN__extramitochondrial_diphospyridine_nucleotide
+reaction_7: _AGP__alpha_glycerophosphate + _DPN__extramitochondrial_diphospyridine_nucleotide ->(1.0e-6*cell*r_7_k) _DHA__dihydroxacetone_phosphate + _DPH__extramitochondrial_reduced_diphospyridine_nucleotide
+reaction_8: _GAP__glyceraldehyde_3_phosphate + _MOD__glyceraldehyde_3_phoshphate_dehydrogenase_DPN_complex ->(1.0e-6*cell*r_8_k) _DPH__extramitochondrial_reduced_diphospyridine_nucleotide + _MOB__acyl_enzyme_intermediate_of_glyceraldehyde_3_phoshphate_dehydrogenase
+reaction_9: _MOB__acyl_enzyme_intermediate_of_glyceraldehyde_3_phoshphate_dehydrogenase + _PID__inorganic_phosphate ->(1.0e-6*cell*r_9_k) _DGA__1_3_diphosphoglycerate + _MOX__glyceraldehyde_3_phoshphate_dehydrogenase
+reaction_10: _DPN__extramitochondrial_diphospyridine_nucleotide + _MOX__glyceraldehyde_3_phoshphate_dehydrogenase ->(1.0e-6*cell*r_10_k) _MOD__glyceraldehyde_3_phoshphate_dehydrogenase_DPN_complex
+reaction_11: _ADP__adenosine_diphosphate + _DGA__1_3_diphosphoglycerate ->(1.0e-6*cell*r_11_k) _PGA__3_phosphoglycerate + _TP1__adenosine_triphosphate_in_store_1__cytoplasm_
+reaction_12: _ADP__adenosine_diphosphate + _PGA__3_phosphoglycerate ->(1.0e-6*cell*r_12_k) _PYR__pyruvate + _TP1__adenosine_triphosphate_in_store_1__cytoplasm_
+reaction_13: _DPH__extramitochondrial_reduced_diphospyridine_nucleotide + _PYR__pyruvate ->(1.0e-6*cell*r_13_k) _DPN__extramitochondrial_diphospyridine_nucleotide + _LAC__lactate
+reaction_14: _DPN__extramitochondrial_diphospyridine_nucleotide + _LAC__lactate ->(1.0e-6*cell*r_14_k) _DPH__extramitochondrial_reduced_diphospyridine_nucleotide + _PYR__pyruvate
+reaction_15: 4_DIN__intramitochondrial_diphospyridine_nucleotide + _PYR__pyruvate ->(1.0e-6*cell*r_15_k/_DIN__intramitochondrial_diphospyridine_nucleotide**3) 4_DIH__intramitochondrial_reduced_diphospyridine_nucleotide
+reaction_16: _DIH__intramitochondrial_reduced_diphospyridine_nucleotide + _OXY__oxygen + 3_XI__low_energy_intermediate_in_oxidative_phosphorylation ->(1.0e-6*cell*r_16_k/_XI__low_energy_intermediate_in_oxidative_phosphorylation**2) _DIN__intramitochondrial_diphospyridine_nucleotide + 3_XSI__high_energy_intermediate_in_oxidative_phosphorylation
+reaction_17: _PID__inorganic_phosphate + _XSI__high_energy_intermediate_in_oxidative_phosphorylation ->(1.0e-6*cell*r_17_k) _XSP__phosphorylated_intermediate_in_oxidative_phosphorylation
+reaction_18: _ADP__adenosine_diphosphate + _XSP__phosphorylated_intermediate_in_oxidative_phosphorylation ->(1.0e-6*cell*r_18_k) _TP2__adenosine_triphosphate_in_store_2__mitochondria_ + _XI__low_energy_intermediate_in_oxidative_phosphorylation
+reaction_19: _XSI__high_energy_intermediate_in_oxidative_phosphorylation ->(1.0e-6*_DBP__dibromophenol*cell*r_19_k) _XI__low_energy_intermediate_in_oxidative_phosphorylation
+reaction_20: _TP2__adenosine_triphosphate_in_store_2__mitochondria_ ->(1.0e-6*_DBP__dibromophenol*cell*r_20_k) _TP1__adenosine_triphosphate_in_store_1__cytoplasm_
+reaction_21: _PUE__enzyme_concerned_in_ATP_utilization + _TP1__adenosine_triphosphate_in_store_1__cytoplasm_ ->(1.0e-6*cell*r_21_k) _PPP__enzyme_intermediate_concerned_in_ATP_utilization
+reaction_22: _PPP__enzyme_intermediate_concerned_in_ATP_utilization ->(1.0e-6*cell*r_22_k) _ADP__adenosine_diphosphate + _PID__inorganic_phosphate + _PUE__enzyme_concerned_in_ATP_utilization

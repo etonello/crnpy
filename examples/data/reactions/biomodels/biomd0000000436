@@ -1,0 +1,22 @@
+r2: FA ->(k2) Arachidonic_acid
+r3: DG ->(DGactivity*DGperDNA*DNA*k3/DG) Arachidonic_acid
+r7: GPCho ->(GPChoratio*k7) Arachidonic_acid
+r5: GPCho ->(DGactivity*GPChoratio*k5/DNA) Arachidonic_acid
+r11: Arachidonic_acid ->(k11) PGH2
+r10: Arachidonic_acid ->(DGactivity*k10/DNA) PGH2
+r8: Arachidonic_acid ->(k8) HETE
+r4: Arachidonic_acid ->(k4) 
+r9: HETE ->(k9) 
+r13: PGH2 ->(k13) PGE2
+r14: PGE2 ->(k14) 
+r15: PGH2 ->(k15) PGF2a
+r16: PGF2a ->(k16) 
+r17: PGH2 ->(k17) PGD2
+r18: PGD2 ->(k18) PGJ2
+r19: PGD2 ->(k19) dPGD2
+r20: dPGD2 ->(k20) 
+r21: PGJ2 ->(k21) dPGJ2
+r22: dPGJ2 ->(k22) 
+r1: FA ->(LPSactivity*k1*onepmol/FA) Arachidonic_acid
+r6: GPCho ->(GPChoratio*LPSactivity*k6) Arachidonic_acid
+r12: Arachidonic_acid ->(LPSactivity*k12) PGH2

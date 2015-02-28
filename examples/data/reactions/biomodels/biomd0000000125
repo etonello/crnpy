@@ -1,0 +1,7 @@
+x0_activates_x1:  ->(a1*compartment_0000001*x0) x1
+y0_activates_x1:  ->(b1*compartment_0000001*y0) x1
+x1_activates_x2:  ->(a2*compartment_0000001*x1) x2
+x1_activates_y2:  ->(b2*compartment_0000001*x1) y2
+x1_deactivation: x1 ->(compartment_0000001*d1) 
+x2_deactivation: x2 ->(compartment_0000001*d2x) 
+y2_deactivation: y2 ->(compartment_0000001*d2y) 

@@ -1,0 +1,7 @@
+vin:  ->(compartment*vin) Cytoplasmic_Calcium
+Calcium_export_from_cell: Cytoplasmic_Calcium ->(compartment*kout) 
+CICR: Calcium_in_ER ->(4*Cytoplasmic_Calcium**n*ER*IP3**m*k_CaA**n*vM3*(Calcium_in_ER - Cytoplasmic_Calcium)/(Calcium_in_ER*(Cytoplasmic_Calcium**n + k_CaA**n)*(Cytoplasmic_Calcium**n + k_CaI**n)*(IP3**m + kip3**m))) Cytoplasmic_Calcium
+serca: Cytoplasmic_Calcium ->(Cytoplasmic_Calcium*compartment*vM2/(Cytoplasmic_Calcium**2 + k2**2)) Calcium_in_ER
+Leak_flux: Calcium_in_ER ->(ER*kf*(Calcium_in_ER - Cytoplasmic_Calcium)/Calcium_in_ER) Cytoplasmic_Calcium
+PLC:  ->(Cytoplasmic_Calcium**2*compartment*vp/(Cytoplasmic_Calcium**2 + kp**2)) IP3
+IP3_degradation: IP3 ->(compartment*kdeg) 

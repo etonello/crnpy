@@ -1,0 +1,94 @@
+ProteinSynthesis: Source ->(k1) NatP
+Misfolding: NatP + ROS ->(k2) MisP + ROS + totMisP
+Refolding: MisP ->(k3) NatP + refNatP
+MisPE3Binding: E3 + MisP ->(k61) E3_MisP
+MisPE3Release: E3_MisP ->(k61r) E3 + MisP
+E1UbBinding: ATP + Ub + _E1 ->(k62/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(k63) E2_Ub + _E1
+Monoubiquitination: E2_Ub + E3_MisP ->(k64) E2 + E3 + MisP_Ub
+Polyubiquitination1: E2_Ub + MisP_Ub ->(k65) E2 + MisP_Ub2
+Polyubiquitination2: E2_Ub + MisP_Ub2 ->(k65) E2 + MisP_Ub3
+Polyubiquitination3: E2_Ub + MisP_Ub3 ->(k65) E2 + MisP_Ub4
+Polyubiquitination4: E2_Ub + MisP_Ub4 ->(k65) E2 + MisP_Ub5
+Polyubiquitination5: E2_Ub + MisP_Ub5 ->(k65) E2 + MisP_Ub6
+Polyubiquitination6: E2_Ub + MisP_Ub6 ->(k65) E2 + MisP_Ub7
+Polyubiquitination7: E2_Ub + MisP_Ub7 ->(k65) E2 + MisP_Ub8
+Deubiqutination1: DUB + MisP_Ub8 ->(k66) DUB + MisP_Ub7 + Ub
+Deubiqutination2: DUB + MisP_Ub7 ->(k66) DUB + MisP_Ub6 + Ub
+Deubiqutination3: DUB + MisP_Ub6 ->(k66) DUB + MisP_Ub5 + Ub
+Deubiqutination4: DUB + MisP_Ub5 ->(k66) DUB + MisP_Ub4 + Ub
+Deubiqutination5: DUB + MisP_Ub4 ->(k66) DUB + MisP_Ub3 + Ub
+Deubiqutination6: DUB + MisP_Ub3 ->(k66) DUB + MisP_Ub2 + Ub
+Deubiqutination7: DUB + MisP_Ub2 ->(k66) DUB + MisP_Ub + Ub
+Deubiqutination8: DUB + MisP_Ub ->(k66) DUB + MisP + Ub
+ProteasomeBinding1: MisP_Ub4 + Proteasome ->(k67) MisP_Ub4_Proteasome
+ProteasomeBinding2: MisP_Ub5 + Proteasome ->(k67) MisP_Ub5_Proteasome
+ProteasomeBinding3: MisP_Ub6 + Proteasome ->(k67) MisP_Ub6_Proteasome
+ProteasomeBinding4: MisP_Ub7 + Proteasome ->(k67) MisP_Ub7_Proteasome
+ProteasomeBinding5: MisP_Ub8 + Proteasome ->(k67) MisP_Ub8_Proteasome
+DeubiquitinationBoundMisP5: DUB + MisP_Ub8_Proteasome ->(k68) DUB + MisP_Ub7_Proteasome + Ub
+DeubiquitinationBoundMisP4: DUB + MisP_Ub7_Proteasome ->(k68) DUB + MisP_Ub6_Proteasome + Ub
+DeubiquitinationBoundMisP3: DUB + MisP_Ub6_Proteasome ->(k68) DUB + MisP_Ub5_Proteasome + Ub
+DeubiquitinationBoundMisP2: DUB + MisP_Ub5_Proteasome ->(k68) DUB + MisP_Ub4_Proteasome + Ub
+DeubiquitinationBoundMisP1: DUB + MisP_Ub4_Proteasome ->(k68) DUB + MisP_Ub3 + Proteasome + Ub
+ProteasomeActivity1: ATP + MisP_Ub4_Proteasome ->(k69/(ATP + 5000)) ADP + Proteasome + 4Ub + degUb4
+ProteasomeActivity2: ATP + MisP_Ub5_Proteasome ->(k69/(ATP + 5000)) ADP + Proteasome + 5Ub + degUb5
+ProteasomeActivity3: ATP + MisP_Ub6_Proteasome ->(k69/(ATP + 5000)) ADP + Proteasome + 6Ub + degUb6
+ProteasomeActivity4: ATP + MisP_Ub7_Proteasome ->(k69/(ATP + 5000)) ADP + Proteasome + 7Ub + degUb7
+ProteasomeActivity5: ATP + MisP_Ub8_Proteasome ->(k69/(ATP + 5000)) ADP + Proteasome + 8Ub + degUb8
+Aggregation1: 2MisP ->(0.5*k71*(MisP - 1)/MisP) AggP
+Aggregation2: AggP + MisP ->(k71) 2AggP
+Aggregation3: 2MisP_Ub ->(0.5*k72*(MisP_Ub - 1)/MisP_Ub) AggP
+Aggregation4: 2MisP_Ub2 ->(0.5*k72*(MisP_Ub2 - 1)/MisP_Ub2) AggP
+Aggregation5: 2MisP_Ub3 ->(0.5*k72*(MisP_Ub3 - 1)/MisP_Ub3) AggP
+Aggregation6: 2MisP_Ub4 ->(0.5*k72*(MisP_Ub4 - 1)/MisP_Ub4) AggP
+Aggregation7: 2MisP_Ub5 ->(0.5*k72*(MisP_Ub5 - 1)/MisP_Ub5) AggP
+Aggregation8: 2MisP_Ub6 ->(0.5*k72*(MisP_Ub6 - 1)/MisP_Ub6) AggP
+Aggregation9: 2MisP_Ub7 ->(0.5*k72*(MisP_Ub7 - 1)/MisP_Ub7) AggP
+Aggregation10: 2MisP_Ub8 ->(0.5*k72*(MisP_Ub8 - 1)/MisP_Ub8) AggP
+Aggregation11: MisP + MisP_Ub ->(k72) AggP
+Aggregation12: MisP + MisP_Ub2 ->(k72) AggP
+Aggregation13: MisP + MisP_Ub3 ->(k72) AggP
+Aggregation14: MisP + MisP_Ub4 ->(k72) AggP
+Aggregation15: MisP + MisP_Ub5 ->(k72) AggP
+Aggregation16: MisP + MisP_Ub6 ->(k72) AggP
+Aggregation17: MisP + MisP_Ub7 ->(k72) AggP
+Aggregation18: MisP + MisP_Ub8 ->(k72) AggP
+Aggregation19: AggP + MisP_Ub ->(k72) 2AggP
+Aggregation20: AggP + MisP_Ub2 ->(k72) 2AggP
+Aggregation21: AggP + MisP_Ub3 ->(k72) 2AggP
+Aggregation22: AggP + MisP_Ub4 ->(k72) 2AggP
+Aggregation23: AggP + MisP_Ub5 ->(k72) 2AggP
+Aggregation24: AggP + MisP_Ub6 ->(k72) 2AggP
+Aggregation25: AggP + MisP_Ub7 ->(k72) 2AggP
+Aggregation26: AggP + MisP_Ub8 ->(k72) 2AggP
+Aggregation27: MisP_Ub + MisP_Ub2 ->(k72) AggP
+Aggregation28: MisP_Ub + MisP_Ub3 ->(k72) AggP
+Aggregation29: MisP_Ub + MisP_Ub4 ->(k72) AggP
+Aggregation30: MisP_Ub + MisP_Ub5 ->(k72) AggP
+Aggregation31: MisP_Ub + MisP_Ub6 ->(k72) AggP
+Aggregation32: MisP_Ub + MisP_Ub7 ->(k72) AggP
+Aggregation33: MisP_Ub + MisP_Ub8 ->(k72) AggP
+Aggregation34: MisP_Ub2 + MisP_Ub3 ->(k72) AggP
+Aggregation35: MisP_Ub2 + MisP_Ub4 ->(k72) AggP
+Aggregation36: MisP_Ub2 + MisP_Ub5 ->(k72) AggP
+Aggregation37: MisP_Ub2 + MisP_Ub6 ->(k72) AggP
+Aggregation38: MisP_Ub2 + MisP_Ub7 ->(k72) AggP
+Aggregation39: MisP_Ub2 + MisP_Ub8 ->(k72) AggP
+Aggregation40: MisP_Ub3 + MisP_Ub4 ->(k72) AggP
+Aggregation41: MisP_Ub3 + MisP_Ub5 ->(k72) AggP
+Aggregation42: MisP_Ub3 + MisP_Ub6 ->(k72) AggP
+Aggregation43: MisP_Ub3 + MisP_Ub7 ->(k72) AggP
+Aggregation44: MisP_Ub3 + MisP_Ub8 ->(k72) AggP
+Aggregation45: MisP_Ub4 + MisP_Ub5 ->(k72) AggP
+Aggregation46: MisP_Ub4 + MisP_Ub6 ->(k72) AggP
+Aggregation47: MisP_Ub4 + MisP_Ub7 ->(k72) AggP
+Aggregation48: MisP_Ub4 + MisP_Ub8 ->(k72) AggP
+Aggregation49: MisP_Ub5 + MisP_Ub6 ->(k72) AggP
+Aggregation50: MisP_Ub5 + MisP_Ub7 ->(k72) AggP
+Aggregation51: MisP_Ub5 + MisP_Ub8 ->(k72) AggP
+Aggregation52: MisP_Ub6 + MisP_Ub7 ->(k72) AggP
+Aggregation53: MisP_Ub6 + MisP_Ub8 ->(k72) AggP
+Aggregation54: MisP_Ub7 + MisP_Ub8 ->(k72) AggP
+SequesteringOfAggregates: AggP ->(k73) SeqAggP
+ProteasomeInhibtion: AggP + Proteasome ->(k74) AggP_Proteasome

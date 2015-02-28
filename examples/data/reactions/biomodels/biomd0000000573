@@ -1,0 +1,7 @@
+Kb:  ->(compartment*v) V
+Kv: V ->(Vmax*compartment/(Km + V)) 2V
+Kvc: C + V ->(compartment*k1) C
+Kdv: V ->(compartment*k1) 
+Kc:  ->(compartment*v) C
+Kcv: C + V ->(compartment*k1) V
+Kdc: C ->(compartment*k1) 

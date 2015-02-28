@@ -1,0 +1,32 @@
+re30: F6P_proxy ->(F2_6BP*K_PFKL_akg*K_PFKL_cit*K_PFKL_icit*K_PFKL_mal*K_PFKL_pep*Vf_PFKL*pPFKL/((Citrate + K_PFKL_cit)*(F2_6BP + K_PFKL_f26bp)*(F6P_proxy + K_PFKL_f6p)*(Isocitrate + K_PFKL_icit)*(K_PFKL_PHOS_S775 + pPFKL)*(K_PFKL_akg + _2_oxoglutarate)*(K_PFKL_mal + Malate)*(K_PFKL_pep + PEP))) F1_6BP
+re31: F1_6BP ->(Citrate*K_FBPase_f26bp*Vf_FBPase/((Citrate + K_FBPase_cit)*(F1_6BP + K_FBPase_f16bp)*(F2_6BP + K_FBPase_f26bp))) F6P_proxy
+re32: F1_6BP ->(k_ALDO) sa4_degraded
+re33: Malate ->(-k_mal/Malate) sa8_degraded
+re34: _2_oxoglutarate ->(-k_akg/_2_oxoglutarate) sa7_degraded
+re35: PEP ->(-k_pep/PEP) sa5_degraded
+re36: Isocitrate ->(-k_icit/Isocitrate) sa6_degraded
+re37: F2_6BP ->(-k_f26bp/F2_6BP) sa9_degraded
+re38: Citrate ->(-k_cit/Citrate) sa10_degraded
+re39: F6P ->(-k_f6p/F6P) sa3_degraded
+re40: pro_IR_complex ->(k1*(-IR_complex + pro_IR_complex)/pro_IR_complex) IR_complex
+re41: IR_complex ->(insulin*k1) p1IR_complex
+re41_rev: p1IR_complex ->(k2) IR_complex
+re42: IR_complex ->(k1*pmTOR) p2IR_complex
+re43: p2IR_complex ->(insulin*k1) p1p2IRcomplex
+re43_rev: p1p2IRcomplex ->(k2) p2IR_complex
+re44: p1IR_complex ->(k1*pmTOR) p1p2IRcomplex
+re45: p1p2IRcomplex ->(k1) p1IR_complex
+re46: p2IR_complex ->(k1) IR_complex
+re47: p1p2IRcomplex ->(k1) sa28_degraded
+re48: AKT ->(k1*p1IR_complex*(AKT - pAKT)/AKT) pAKT
+re49: pAKT ->(k1) AKT
+re50: p2IR_complex ->(k1) sa27_degraded
+re51: p1IR_complex ->(k1) sa26_degraded
+re52: mTOR ->(k1*pAKT*(mTOR - pmTOR)/mTOR) pmTOR
+re53: pmTOR ->(k1) mTOR
+re54: S6K ->(k1*pmTOR*(S6K - pS6K)/S6K) pS6K
+re55: pS6K ->(k1*pX) S6K
+re56: X ->(k1*pmTOR*(X - pX)/X) pX
+re57: pX ->(k1) X
+re58: PFKL ->(k1*pS6K*(PFKL - pPFKL)/PFKL) pPFKL
+re59: pPFKL ->(k1) PFKL

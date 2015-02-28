@@ -1,0 +1,18 @@
+Jsyn: ADPi + P_ii ->(Kadp*Kpi*Vmaxsyn/(ADPi*Kadp*Kpi**2 + ADPi*Kadp*Kpi*P_ii + Kadp**2*Kpi**2 + Kadp**2*Kpi*P_ii)) ATPi
+Jsyn_rev: ATPi ->(0) ADPi + P_ii
+J_CK_Mi: ATPi + Cri ->(j_ck_mi/(ATPi*Cri)) ADPi + PCri
+J_CK_Mi_rev: ADPi + PCri ->(0) ATPi + Cri
+J_CK_MM: ATP + Cr ->(j_ck_mm/(ATP*Cr)) ADP + PCr
+J_CK_MM_rev: ADP + PCr ->(0) ATP + Cr
+Jhyd_reaction: ATP ->(Jhyd/ATP) ADP + P_i
+Jhyd_reaction_rev: ADP + P_i ->(0) ATP
+J_diff_Pi: P_ii ->(j_diff_pi/P_ii) P_i
+J_diff_Pi_rev: P_i ->(0) P_ii
+J_diff_Cr: Cri ->(j_diff_cr/Cri) Cr
+J_diff_Cr_rev: Cr ->(0) Cri
+J_diff_ADP: ADPi ->(j_diff_adp/ADPi) ADP
+J_diff_ADP_rev: ADP ->(0) ADPi
+J_diff_PCr: PCri ->(j_diff_pcr/PCri) PCr
+J_diff_PCr_rev: PCr ->(0) PCri
+J_diff_ATP: ATPi ->(j_diff_atp/ATPi) ATP
+J_diff_ATP_rev: ATP ->(0) ATPi

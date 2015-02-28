@@ -1,0 +1,22 @@
+# Two-substrate, two-product random order mechanism.
+# Cornish-Bowden, Athel. "Fundamentals of enzyme kinetics". Elsevier, 2014.
+# 6.1
+
+e + a ->(k1) ea       # bi-bi random mechanism
+ea ->(k_1) e + a
+e + b ->(k2) eb
+eb ->(k_2) e + b
+ea + b ->(k3) eab
+eab ->(k_3) ea + b
+eb + a ->(k4) eab
+eab ->(k_4) eb + a
+eab ->(k9) epq
+epq ->(k_9) eab
+epq ->(k5) eq + p
+eq + p ->(k_5) epq
+epq ->(k6) ep + q
+ep + q ->(k_6) epq
+ep ->(k7) e + p
+e + p ->(k_7) ep
+eq ->(k8) e + q
+e + q ->(k_8) eq

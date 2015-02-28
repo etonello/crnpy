@@ -1,0 +1,102 @@
+reaction_1: IL6 + sR ->(kRLOn) sR_IL6
+reaction_1_rev: sR_IL6 ->(kRLOff) IL6 + sR
+reaction_2: sR_IL6 + sgp130 ->(kgp130On) sR_IL6_sgp130
+reaction_2_rev: sR_IL6_sgp130 ->(kgp130Off) sR_IL6 + sgp130
+reaction_3:  ->(ksynthIL6) IL6
+reaction_4: IL6 ->(kdegIL6) 
+reaction_5: CRP ->(kdegCRP) 
+reaction_6: gp130 + sR_IL6 ->(kgp130On) R_IL6_gp130
+reaction_6_rev: R_IL6_gp130 ->(kgp130Off) gp130 + sR_IL6
+reaction_7: IL6 + R ->(kRLOn) R_IL6
+reaction_7_rev: R_IL6 ->(kRLOff) IL6 + R
+reaction_8: R_IL6 + gp130 ->(kgp130On) R_IL6_gp130
+reaction_8_rev: R_IL6_gp130 ->(kgp130Off) R_IL6 + gp130
+reaction_16: R_IL6_gp130 ->(kRAct) Ractive
+reaction_9: Ractive + STAT3 ->(kcatSTATPhos/(KmSTATPhos + STAT3)) Ractive + pSTAT3
+reaction_10: pSTAT3 ->(VmSTATDephos/(KmSTATDephos + pSTAT3)) STAT3
+reaction_15: R ->(kRintBasal) 
+reaction_11: R_IL6 ->(kRint) 
+reaction_12: R_IL6_gp130 ->(kRint) 
+reaction_13: Ractive ->(kintActiveR) 
+reaction_14:  ->(kRsynth) R
+reaction_41: gp130 + sR_IL6 ->(kgp130On) R_IL6_gp130
+reaction_41_rev: R_IL6_gp130 ->(kgp130Off) gp130 + sR_IL6
+reaction_46: R_IL6_gp130 ->(kRAct) Ractive
+reaction_42: Ractive + STAT3 ->(kcatSTATPhos/(KmSTATPhos + STAT3)) Ractive + pSTAT3
+reaction_43: pSTAT3 ->(VmSTATDephos/(KmSTATDephos + pSTAT3)) STAT3
+reaction_44: R_IL6_gp130 ->(kRint) 
+reaction_45: Ractive ->(kintActiveR) 
+mwb675e13a_26c0_4b18_a8c3_0f5a62090ba4: Ractive ->(VmRDephos/(KmRDephos + Ractive)) R_IL6_gp130
+mw64df7c9e_35da_4c7f_be56_c5dabfb060b6: Ractive ->(VmRDephos/(KmRDephos + Ractive)) R_IL6_gp130
+mw391f3b8e_5649_4851_b2e2_782cb3e015b6:  ->(kRsynth) gp130
+mw4a00a3a4_778f_4952_8100_2dc3cc2b7046: gp130 ->(kRintBasal) 
+mw6db30657_4e56_4c3a_8575_9c67393dde4f:  ->(kRsynth) gp130
+mw6f470e13_f0e4_4294_83d8_59dd5670d10c: gp130 ->(kRintBasal) 
+mwfb35eca9_7afc_4ba8_a46c_738cab57eb9f: sR ->(kdistSerumToTissue) sR
+mwfb35eca9_7afc_4ba8_a46c_738cab57eb9f_rev: sR ->(kdistTissueToSerum) sR
+mw61d2af92_6da5_41ce_b90e_aa6f430e6ba1: IL6 ->(kdistSerumToTissue) IL6
+mw61d2af92_6da5_41ce_b90e_aa6f430e6ba1_rev: IL6 ->(kdistTissueToSerum) IL6
+mw4c099d5c_200f_474e_8ec1_59e9223a8afd: IL6 + sR ->(kRLOn) sR_IL6
+mw4c099d5c_200f_474e_8ec1_59e9223a8afd_rev: sR_IL6 ->(kRLOff) IL6 + sR
+mwbe8567ce_3349_4442_8b12_53cd9bc168e7: sR_IL6 ->(kdistSerumToTissue) sR_IL6
+mwbe8567ce_3349_4442_8b12_53cd9bc168e7_rev: sR_IL6 ->(kdistTissueToSerum) sR_IL6
+mw12a9fa7e_a273_4c1e_b970_ed33f3a9a705: sR ->(kdistSerumToTissue) sR
+mw12a9fa7e_a273_4c1e_b970_ed33f3a9a705_rev: sR ->(kdistTissueToSerum) sR
+mw1046000b_e1e8_4f6f_82a1_532d2aa793bb: IL6 ->(kdistSerumToTissue) IL6
+mw1046000b_e1e8_4f6f_82a1_532d2aa793bb_rev: IL6 ->(kdistTissueToSerum) IL6
+mw8e8b65a8_6830_4091_9a40_19645e8fe554: sR_IL6 ->(kdistSerumToTissue) sR_IL6
+mw8e8b65a8_6830_4091_9a40_19645e8fe554_rev: sR_IL6 ->(kdistTissueToSerum) sR_IL6
+mwa812f08f_1035_42bd_82d2_72d691308f88: IL6 + sR ->(kRLOn) sR_IL6
+mwa812f08f_1035_42bd_82d2_72d691308f88_rev: sR_IL6 ->(kRLOff) IL6 + sR
+mwab0012ac_e5f2_4904_9893_820fd210402e: CRP ->(kCRPSecretion) CRPExtracellular
+mwcdc24bd4_d9e4_47fe_8300_d222d853111c: CRP ->(kdistSerumToTissue) CRPExtracellular
+mwcdc24bd4_d9e4_47fe_8300_d222d853111c_rev: CRPExtracellular ->(kdistTissueToSerum) CRP
+mwff2ebcf1_dcf1_47b9_9cac_7306fc6f7f76:  ->(ksynthCRP) CRP
+mw1c5a5ff7_5130_490f_a740_6a744ccf8a94: sgp130 ->(kdistSerumToTissue) sgp130
+mw1c5a5ff7_5130_490f_a740_6a744ccf8a94_rev: sgp130 ->(kdistTissueToSerum) sgp130
+mw7b56053c_7256_4703_a8c3_4fd46b2c23d0: sgp130 ->(kdistSerumToTissue) sgp130
+mw7b56053c_7256_4703_a8c3_4fd46b2c23d0_rev: sgp130 ->(kdistTissueToSerum) sgp130
+mw8be158f1_ea81_45bf_80d4_6e31cd83fe6c: sR_IL6 + sgp130 ->(kgp130On) sR_IL6_sgp130
+mw8be158f1_ea81_45bf_80d4_6e31cd83fe6c_rev: sR_IL6_sgp130 ->(kgp130Off) sR_IL6 + sgp130
+mwd77df15b_fed7_41a8_a3d6_b0f6c590c5f6: sR_IL6 + sgp130 ->(kgp130On) sR_IL6_sgp130
+mwd77df15b_fed7_41a8_a3d6_b0f6c590c5f6_rev: sR_IL6_sgp130 ->(kgp130Off) sR_IL6 + sgp130
+mw01babcdf_0f03_46b0_81b1_201cc846e361: sR_IL6_sgp130 ->(kdistSerumToTissue) sR_IL6_sgp130
+mw01babcdf_0f03_46b0_81b1_201cc846e361_rev: sR_IL6_sgp130 ->(kdistTissueToSerum) sR_IL6_sgp130
+mwae5dbb44_7de5_46ab_8c20_ac4f8956b0f0: sR_IL6_sgp130 ->(kdistSerumToTissue) sR_IL6_sgp130
+mwae5dbb44_7de5_46ab_8c20_ac4f8956b0f0_rev: sR_IL6_sgp130 ->(kdistTissueToSerum) sR_IL6_sgp130
+mw432fde6e_59ab_47f0_9fb1_086433a602e3:  ->(ksynthsR) sR
+mw41c27823_d7ee_4554_9eac_3d5beec8e854: sR ->(kdegsR) 
+mw50c6744c_e883_4612_8663_e38750cbad1b:  ->(ksynthsgp130) sgp130
+mwb6a99eb5_ea4c_4733_98dd_1daf5ec6b0db: sgp130 ->(kdegsgp130) 
+mw1ce0c484_681f_4d85_8ffe_392d0c100cfa:  ->(ksynthIL6Gut) IL6
+mwf913ea0b_785a_4701_ac91_b18ab5dd5a89: IL6 ->(kdegIL6Gut) 
+mw71d90b81_8211_4039_8807_12a7fe03206c: CRP ->(kRShedding) CRP + sR
+mwdf4ba845_7271_4ada_b43f_fdac83df3b5c: Ab ->(kAbSerumToPeriph) Ab
+mwdf4ba845_7271_4ada_b43f_fdac83df3b5c_rev: Ab ->(kAbPeriphToSerum) Ab
+mwb1879013_5fcd_490c_8b01_eaf84df15b9a: Ab + IL6 ->(kIL6AbBind) Ab_IL6
+mwb1879013_5fcd_490c_8b01_eaf84df15b9a_rev: Ab_IL6 ->(kIL6AbUnbind) Ab + IL6
+mw30abb016_4300_4f40_a1b3_f865d0a45707: Ab_IL6 ->(kdegAb) 
+mw14d351b9_623a_48e8_a21c_854411039120: Ab_sR_IL6 ->(kdegAb) 
+mwba7f4605_8571_439b_b3ab_eb0b43808db8: Ab ->(kdegAb) 
+mw5be6711a_526a_4a58_80c6_d353dcabdf87: Ab_sR_IL6 ->(kdegAb) 
+mw8b4e96ed_0bcc_4ad6_b560_366e173a6e6b: Ab_IL6 ->(kdegAb) 
+mwa3cb4a9b_d628_4807_8847_bdcd9b40c7f1: Ab + IL6 ->(kIL6AbBind) Ab_IL6
+mwa3cb4a9b_d628_4807_8847_bdcd9b40c7f1_rev: Ab_IL6 ->(kIL6AbUnbind) Ab + IL6
+mw8fb6c0a7_b05d_4c2a_8866_77eb81f063d1: Ab + IL6 ->(kIL6AbBind) Ab_IL6
+mw8fb6c0a7_b05d_4c2a_8866_77eb81f063d1_rev: Ab_IL6 ->(kIL6AbUnbind) Ab + IL6
+mw3e76b10b_5420_4828_8c70_b91b767132d0: Ab_IL6 ->(kdegAb) 
+mw5d9fcd0c_ca08_4444_b509_2ea4777e0025: Ab_sR_IL6 ->(kdegAb) 
+mw131e3c9d_e77d_48c0_bdbb_77b2c10aaf3d: Ab ->(kAbSerumToLiver) Ab
+mw131e3c9d_e77d_48c0_bdbb_77b2c10aaf3d_rev: Ab ->(kAbLiverToSerum) Ab
+mw14940d1f_6a1f_47cb_8170_801ba645f4c1: Ab ->(kAbSerumToGut) Ab
+mw14940d1f_6a1f_47cb_8170_801ba645f4c1_rev: Ab ->(kAbGutToSerum) Ab
+mwa2f4d966_ae2c_4ed2_b522_12755f12ff15: Ab_IL6 ->(kAbSerumToLiver) Ab_IL6
+mwa2f4d966_ae2c_4ed2_b522_12755f12ff15_rev: Ab_IL6 ->(kAbLiverToSerum) Ab_IL6
+mwb62106e7_e959_4a1d_9a00_b36d4e19a48f: Ab_sR_IL6 ->(kAbSerumToLiver) Ab_sR_IL6
+mwb62106e7_e959_4a1d_9a00_b36d4e19a48f_rev: Ab_sR_IL6 ->(kAbLiverToSerum) Ab_sR_IL6
+mw700e677e_d3b6_4a97_991f_279605a9abeb: Ab_IL6 ->(kAbSerumToGut) Ab_IL6
+mw700e677e_d3b6_4a97_991f_279605a9abeb_rev: Ab_IL6 ->(kAbGutToSerum) Ab_IL6
+mwad648b6c_45ca_4f41_9747_06db1f6060fc: Ab_sR_IL6 ->(kAbSerumToGut) Ab_sR_IL6
+mwad648b6c_45ca_4f41_9747_06db1f6060fc_rev: Ab_sR_IL6 ->(kAbGutToSerum) Ab_sR_IL6
+mw2ae288ab_7d03_4a84_a024_c711ad2b77e6: Ab ->(kdegAb) 
+mw9629d028_fcc0_4886_9e4d_36eecdb0381d: Ab ->(kdegAb) 

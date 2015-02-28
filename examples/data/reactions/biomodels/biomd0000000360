@@ -1,0 +1,15 @@
+reaction_1: VIIa_TF + X ->(compartment*k1) VIIa_TF_X
+reaction_1_rev: VIIa_TF_X ->(compartment*k2) VIIa_TF + X
+reaction_2: VIIa_TF_X ->(compartment*k1) VIIa_TF_Xa
+reaction_3: VIIa_TF_Xa ->(compartment*k1) VIIa_TF + Xa
+reaction_3_rev: VIIa_TF + Xa ->(compartment*k2) VIIa_TF_Xa
+reaction_4: TFPI + Xa ->(compartment*k1) Xa_TFPI
+reaction_4_rev: Xa_TFPI ->(compartment*k2) TFPI + Xa
+reaction_5: VIIa_TF + Xa_TFPI ->(compartment*k1) Xa_TFPI_VIIa_TF
+reaction_5_rev: Xa_TFPI_VIIa_TF ->(compartment*k2) VIIa_TF + Xa_TFPI
+reaction_6: TFPI + VIIa_TF_Xa ->(compartment*k1) VIIa_TF_Xa_TFPI
+reaction_6_rev: VIIa_TF_Xa_TFPI ->(compartment*k2) TFPI + VIIa_TF_Xa
+reaction_7: VIIa_TF_Xa_TFPI ->(compartment*k1) VIIa_TF + Xa_TFPI
+reaction_7_rev: VIIa_TF + Xa_TFPI ->(compartment*k2) VIIa_TF_Xa_TFPI
+reaction_8: VIIa_TF_Xa_TFPI ->(compartment*k1) Xa_TFPI_VIIa_TF
+reaction_8_rev: Xa_TFPI_VIIa_TF ->(compartment*k2) VIIa_TF_Xa_TFPI

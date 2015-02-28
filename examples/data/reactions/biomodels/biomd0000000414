@@ -1,0 +1,3 @@
+VENUSproduction:  ->(p2) VENUS
+VENUSdecayduetophotobleaching: VENUS ->(lambda_star*p2) 
+VENUSdecayduetoauxin: VENUS ->(p2/(VENUS*p1_star + qj_star)) 

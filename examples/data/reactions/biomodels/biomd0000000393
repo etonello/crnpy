@@ -1,0 +1,54 @@
+RuBisCO___CO2: RuBP ->(Wc_min*chloroplast/(K*(FBP/KR2 + 1 + NADPH/KR5 + R4/KR4 + SBP/KR3 + PGA/KR1) + RuBP)) 2PGA
+PGA_kinase: ATP + PGA ->(Vm*chloroplast/((ATP + Ks2*(ADP/Kr1 + 1))*(Ks1 + PGA))) ADP + DPGA
+GAP_dehydrogenase: DPGA + NADPH ->(Vm*chloroplast/((DPGA + K1)*(K2 + NADPH))) NADP + TP
+FBP_aldolase: 2TP ->(DHAP*GAP*Kp1*Vm*chloroplast/(TP**2*(FBP*Ks1*Ks2 + Kp1*(DHAP + Ks2)*(GAP + Ks1)))) FBP
+FBP_aldolase_rev: FBP ->(Kp1*Vm*chloroplast/(q*(FBP*Ks1*Ks2 + Kp1*(DHAP + Ks2)*(GAP + Ks1)))) 2TP
+FBPase: FBP ->(Kr1*Kr2*Vm*chloroplast/(FBP*Kr1*Kr2 + Ks1*(F6P*Kr2 + Kr1*Kr2 + Kr1*r2))) HeP + Pi
+FBPase_rev: HeP + Pi ->(F6P*Kr1*Kr2*Vm*chloroplast*p2/(HeP*Pi*q*(FBP*Kr1*Kr2 + Ks1*(F6P*Kr2 + Kr1*Kr2 + Kr1*r2)))) FBP
+F6P_transketolase: HeP + TP ->(F6P*GAP*Kr1*Kr2*Vm*chloroplast/(HeP*TP*(GAP + Ks2)*(F6P*Kr1*Kr2 + Ks1*(E4P*Kr1 + Kr1*Kr2 + Kr2*X5P)))) E4P + PeP
+F6P_transketolase_rev: E4P + PeP ->(Kr1*Kr2*Vm*X5P*chloroplast/(PeP*q*(GAP + Ks2)*(F6P*Kr1*Kr2 + Ks1*(E4P*Kr1 + Kr1*Kr2 + Kr2*X5P)))) HeP + TP
+SBP_aldolase: E4P + TP ->(DHAP*Vm*chloroplast/(TP*(DHAP + Ks1)*(E4P + Ks2))) SBP
+SBP_aldolase_rev: SBP ->(Vm*chloroplast/(q*(DHAP + Ks1)*(E4P + Ks2))) E4P + TP
+SBPase: SBP ->(Kr1*Vm*chloroplast/(Kr1*SBP + Ks1*(Kr1 + r1))) Pi + S7P
+SBPase_rev: Pi + S7P ->(Kr1*Vm*chloroplast*p2/(Pi*q*(Kr1*SBP + Ks1*(Kr1 + r1)))) SBP
+S7P_transketolase: S7P + TP ->(GAP*Kr1*Kr2*Vm*chloroplast/(TP*(Ks2 + S7P)*(GAP*Kr1*Kr2 + Ks1*(Kr1*Kr2 + Kr1*R5P + Kr2*X5P)))) 2PeP
+S7P_transketolase_rev: 2PeP ->(Kr1*Kr2*R5P*Vm*X5P*chloroplast/(PeP**2*q*(Ks2 + S7P)*(GAP*Kr1*Kr2 + Ks1*(Kr1*Kr2 + Kr1*R5P + Kr2*X5P)))) S7P + TP
+Ru5P_kinase: ATP + PeP ->(Kr1*Kr2*Kr3*Kr41*Kr42*Ru5P*Vm*chloroplast/(PeP*(ATP*Kr42*(ADP + Kr41) + Kr41*Ks2*(ADP + Kr42))*(Kr1*Kr2*Kr3*Ru5P + Ks1*(Kr1*Kr2*Kr3 + Kr1*Kr2*r3 + Kr1*Kr3*RuBP + Kr2*Kr3*PGA)))) ADP + RuBP
+Ru5P_kinase_rev: ADP + RuBP ->(Kr1*Kr2*Kr3*Kr41*Kr42*Vm*chloroplast/(q*(ATP*Kr42*(ADP + Kr41) + Kr41*Ks2*(ADP + Kr42))*(Kr1*Kr2*Kr3*Ru5P + Ks1*(Kr1*Kr2*Kr3 + Kr1*Kr2*r3 + Kr1*Kr3*RuBP + Kr2*Kr3*PGA)))) ATP + PeP
+ATP_synthetase: ADP + Pi ->(Kp1*Vm*chloroplast*s2/(Pi*(ATP*Ks1*Ks2 + Kp1*(ADP + Ks1)*(Ks2 + s2)))) ATP
+ATP_synthetase_rev: ATP ->(Kp1*Vm*chloroplast/(q*(ATP*Ks1*Ks2 + Kp1*(ADP + Ks1)*(Ks2 + s2)))) ADP + Pi
+AGPase: ATP + HeP ->(G1P*Vm*chloroplast/(HeP*(ATP + K2*(K2*R2/(F6P*KA2 + FBP*KA3 + KA1*PGA) + 1))*(G1P + K1)*(ADP/KR1 + 1))) 
+TPT___PGA: PGA ->(Vm/(K*((KA/Pic + 1)*(DHAP/KR3 + GAP/KR2 + R1/KR1) + 1) + PGA*(KA/Pic + 1))) PGAc
+TPT___GAP: TP ->(GAP*Vm/(TP*(GAP*(KA/Pic + 1) + K*((KA/Pic + 1)*(DHAP/KR3 + PGA/KR2 + R1/KR1) + 1)))) TPc
+TPT___DHAP: TP ->(DHAP*Vm/(TP*(DHAP*(KA/Pic + 1) + K*((KA/Pic + 1)*(GAP/KR3 + PGA/KR2 + R1/KR1) + 1)))) TPc
+FBPc_aldolase: 2TPc ->(DHAPc*GAPc*Kp1*Vm*cytosol/(TPc**2*(FBPc*Ks1*Ks2 + Kp1*(DHAPc + Ks2)*(GAPc + Ks1)))) FBPc
+FBPc_aldolase_rev: FBPc ->(Kp1*Vm*cytosol/(q*(FBPc*Ks1*Ks2 + Kp1*(DHAPc + Ks2)*(GAPc + Ks1)))) 2TPc
+FBPcase: FBPc ->(Kp1*Kp2*Vm*cytosol/(FBPc*Kp1*Kp2 + K52a*(F6Pc + Kp1)*(Kp2 + Pic))) HePc + Pic
+FBPcase_rev: HePc + Pic ->(F6Pc*Kp1*Kp2*Vm*cytosol/(HePc*q*(FBPc*Kp1*Kp2 + K52a*(F6Pc + Kp1)*(Kp2 + Pic)))) FBPc
+UGPase: HePc + UTPc ->(G1Pc*Kp1*Kp2*Vm*cytosol/(HePc*(-Kp1*Kp2*Ks1*Ks2 + Kp1*Kp2*(G1Pc + Ks1)*(Ks2 + UTPc) + Ks1*Ks2*(Kp1 + UDPGc)*(Kp2 + PiPic)))) PiPic + UDPGc
+UGPase_rev: PiPic + UDPGc ->(Kp1*Kp2*Vm*cytosol/(q*(-Kp1*Kp2*Ks1*Ks2 + Kp1*Kp2*(G1Pc + Ks1)*(Ks2 + UTPc) + Ks1*Ks2*(Kp1 + UDPGc)*(Kp2 + PiPic)))) HePc + UTPc
+SucPc_synthase: HePc + UDPGc ->(F6Pc*Kr1*Kr2*Kr3*Kr4*Kr5*Vm*cytosol/(HePc*(F6Pc*Kr1 + Ks1*(FBPc + Kr1))*(Kr2*Kr3*Kr4*Kr5*UDPGc + Ks2*(Kr2 + UDPc)*(Kr3 + SucPc)*(Kr4 + Succ)*(Kr5 + Pic)))) SucPc + UDPc
+SucPc_synthase_rev: SucPc + UDPc ->(Kr1*Kr2*Kr3*Kr4*Kr5*Vm*cytosol/(q*(F6Pc*Kr1 + Ks1*(FBPc + Kr1))*(Kr2*Kr3*Kr4*Kr5*UDPGc + Ks2*(Kr2 + UDPc)*(Kr3 + SucPc)*(Kr4 + Succ)*(Kr5 + Pic)))) HePc + UDPGc
+SucPc_phosphatase: SucPc ->(Kr1*Vm*cytosol/(Kr1*SucPc + Ks1*(Kr1 + Succ))) Pic + Succ
+SucPc_phosphatase_rev: Pic + Succ ->(Kr1*Vm*cytosol/(q*(Kr1*SucPc + Ks1*(Kr1 + Succ)))) SucPc
+F6Pc_kinase: ATPc + HePc ->(F6Pc*Kr1*Kr2*Kr3*Vm*cytosol/(HePc*(ATPc*Kr3 + Ks2*(ADPc + Kr3))*(F6Pc*Kr1*Kr2 + Ks1*(DHAPc + Kr2)*(F26BPc + Kr1)))) ADPc + F26BPc
+F6Pc_kinase_rev: ADPc + F26BPc ->(Kr1*Kr2*Kr3*Vm*cytosol/(q*(ATPc*Kr3 + Ks2*(ADPc + Kr3))*(F6Pc*Kr1*Kr2 + Ks1*(DHAPc + Kr2)*(F26BPc + Kr1)))) ATPc + HePc
+F26BPc_phosphatase: F26BPc ->(Vm*cytosol/((1 + Pic/Kr1)*(F26BPc + Ks1)*(F6Pc/Kr2 + 1))) HePc + Pic
+Succ_degradation: Succ ->(V*cytosol/(Km + Succ)) 
+PGAc_degradation: PGAc ->(V*cytosol/(Km + PGAc)) 
+GPT___GCEAc: GCEAc ->(V/(GCAc*Km/Ki + GCEAc + Km)) GCEA
+GPT___GCEA: GCEA ->(V/(GCA*Km/Ki + GCEA + Km)) GCEAc
+GPT___GCA: GCA ->(V/(GCA + GCEA*Km/Ki + Km)) GCAc
+GPT___GCAc: GCAc ->(V/(GCAc + GCEAc*Km/Ki + Km)) GCA
+RuBisC0___O2: RuBP ->(Wo_min*chloroplast/(K*(FBP/KR2 + 1 + NADPH/KR5 + R4/KR4 + SBP/KR3 + PGA/KR1) + RuBP)) PGA + PGCA
+PGCA_phosphatase: PGCA ->(Vm*chloroplast/(Ks1*(1 + r2/Kr2)*(GCA/Kr1 + 1) + PGCA)) GCA
+GCEA_kinase: ATP + GCEA ->(Kr1*Vm*chloroplast/((GCEA + Ks2)*(ATP*Kr1 + Ks1*(Kr1 + PGA)))) ADP + PGA
+GCEA_kinase_rev: ADP + PGA ->(Kr1*Vm*chloroplast/(q*(GCEA + Ks2)*(ATP*Kr1 + Ks1*(Kr1 + PGA)))) ATP + GCEA
+GCAc_oxidase: GCAc ->(V*cytosol/(GCAc + Km)) GOAc
+SERc_GOAc_aminotransferase: GOAc + SERc ->(Kr1*Vm/((GOAc + Ks2)*(Kr1*SERc + Ks1*(GLYc + Kr1)))) GLYc + HPRc
+SERc_GOAc_aminotransferase_rev: GLYc + HPRc ->(Kr1*Vm/(q*(GOAc + Ks2)*(Kr1*SERc + Ks1*(GLYc + Kr1)))) GOAc + SERc
+GCEA_dehydrogenase: HPRc + NADH ->(Kr1*Vm/(HPRc*Kr1 + Ks1*(HPRc + Kr1))) GCEAc + NAD
+GCEA_dehydrogenase_rev: GCEAc + NAD ->(Kr1*Vm/(q*(HPRc*Kr1 + Ks1*(HPRc + Kr1)))) HPRc + NADH
+GLUc_GOAc_aminotransferase: GLUc + GOAc ->(Kr1*Vm*cytosol/((GOAc + Ks2)*(GLUc*Kr1 + Ks1*(GLYc + Kr1)))) GLYc + KGc
+GLUc_GOAc_aminotransferase_rev: GLYc + KGc ->(Kr1*Vm*cytosol/(q*(GOAc + Ks2)*(GLUc*Kr1 + Ks1*(GLYc + Kr1)))) GLUc + GOAc
+GLYc_decarboxylase: 2GLYc ->(Vm*cytosol/(GLYc*(GLYc + Ks1*(1 + SERc/Kr1)))) SERc

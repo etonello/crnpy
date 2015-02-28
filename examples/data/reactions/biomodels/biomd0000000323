@@ -1,0 +1,6 @@
+reaction1: x1 ->(alpha*compartment_1/(x1*(Shalve**n + x1**n))) x1 + x3
+reaction2: x2 ->(alpha*compartment_1/(x2*(Shalve**n + x2**n))) x1 + x2
+reaction3: x3 ->(alpha*compartment_1/(x3*(Shalve**n + x3**n))) x2 + x3
+reaction4: x1 ->(compartment_1/(beta*(1 + x1/beta))) 
+reaction5: x2 ->(compartment_1/(beta*(1 + x2/beta))) 
+reaction6: x3 ->(compartment_1/(beta*(1 + x3/beta))) 

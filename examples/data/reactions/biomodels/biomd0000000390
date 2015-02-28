@@ -1,0 +1,8 @@
+RuBisCO: RuBP + totRuBP ->(chloroplast*k*(K + RuBisCo + totRuBP - sqrt(-4*RuBisCo*totRuBP + (K + RuBisCo + totRuBP)**2))/(2*RuBP*totRuBP)) 2PGA
+PGA_reduction: ATP + PGA ->(K2*Vm*chloroplast*k/(ADP*K2*P3*TP + ATP*K1*PGA*k + K1*K2*k)) ADP + Pi + TP
+PGA_reduction_rev: ADP + Pi + TP ->(K2*P3*Vm*chloroplast/(Pi*(ADP*K2*P3*TP + ATP*K1*PGA*k + K1*K2*k))) ATP + PGA
+TP_reduction: 5TP ->(Vm*chloroplast/(TP**4*(K + TP))) 2Pi + 3Ru5P
+RuBP_regeneration: ATP + Ru5P ->(Vm*chloroplast/(ATP*K2 + ATP*Ru5P + K1*K2 + K3*R)) ADP + RuBP
+TP_translocator: Pic + TP ->(K1**2*K2**2*Vm/(K1**2*K2**2*(K1*(P2 + Pic) + K2*(TP + TPc)) + K1*K2*(K1*P2 + K2*TP)*(K1*Pic + K2*TPc))) Pi + TPc
+TP_translocator_rev: Pi + TPc ->(K1**2*K2**2*P2*Vm/(Pi*(K1**2*K2**2*(K1*(P2 + Pic) + K2*(TP + TPc)) + K1*K2*(K1*P2 + K2*TP)*(K1*Pic + K2*TPc)))) Pic + TP
+ATP_synthesis: ADP + Pi ->(V6*chloroplast*s2/(Pi*(ADP + K1)*(K2 + s2))) ATP

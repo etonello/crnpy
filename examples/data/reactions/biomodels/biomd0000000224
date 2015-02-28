@@ -1,0 +1,6 @@
+JChannel: CaS ->((-g + 1)*(0.0625*A*IP3**4/(0.5*IP3 + k1)**4 + L)) CaI
+JPump: CaI ->(0.0001*B*CaI/(0.0001*CaI**2 + k2**2)) CaS
+kPLC:  ->(C*(-k3/((0.01*CaI + k3)*(R + 1)) + 1)) IP3
+kPhosphatase: IP3 ->(0.5*D) 
+inhibition_parameter1:  ->(1.0e-8*CaI**4*E*(-g + 1)) g
+inhibition_parameter2: g ->(F/g) 

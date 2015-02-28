@@ -1,0 +1,10 @@
+Htot_synthesis:  ->(compartment_1*ksyn_H) Htot
+Htot_basal_degradation: Htot ->(compartment_1*kdeg_H) 
+Htot_induced_degradation: Htot ->(O2*Ptot*compartment_1*kcatPH/((O2 + 1)*(HP + KdPH + Ptot))) 
+H_synthesis:  ->(compartment_1*ksyn_H) H
+H_basal_degardation: H ->(compartment_1*kdeg_H) 
+H_induced_degradation: H ->(O2*Ptot*compartment_1*kcatPH/((O2 + 1)*(HP + KdPH + Ptot))) 
+H_hydroxylation: H ->(Ftot*O2*compartment_1*kcatFH/((O2 + alpha)*(Ftot + HF + KiFH))) 
+A_synthesis:  ->(compartment_1*ksyn_A) A
+A_degradation: A ->(compartment_1*kdeg_A) 
+A_hydroxylation: A ->(Ftot*O2*compartment_1*kcatFH/((O2 + alpha)*(A + KiFA + gamma*(-A + Atot)))) 

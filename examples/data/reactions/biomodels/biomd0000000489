@@ -1,0 +1,84 @@
+MYD881__Receptor_Complex_Formation: CD14 + IRAK4 + LBP + LPS + MyD88 + TIRAP + TLR4 ->(compartment_1*k1) LPS_LBP_CD14_TLR4_TIRAP_MyD88_IRAK4
+MYD881__Receptor_Complex_Formation_rev: LPS_LBP_CD14_TLR4_TIRAP_MyD88_IRAK4 ->(compartment_1*k2) CD14 + IRAK4 + LBP + LPS + MyD88 + TIRAP + TLR4
+MYD882__IRAK1_and_TRAF6_Phosphorylation: IRAK1 + TRAF6 ->(LPS_LBP_CD14_TLR4_TIRAP_MyD88_IRAK4*compartment_1*k1) TRAF6_IRAK1_P_
+MYD882__IRAK1_and_TRAF6_Phosphorylation_rev: TRAF6_IRAK1_P_ ->(compartment_1*k2) IRAK1 + TRAF6
+MYD883__TAK_TAB_Binds_to_TRAF6: TAK1_TAB1_TAB2 + TRAF6_IRAK1_P_ ->(compartment_1*k1) TAK1_TAB1_TAB2_TRAF6
+MYD883__TAK_TAB_Binds_to_TRAF6_rev: TAK1_TAB1_TAB2_TRAF6 ->(compartment_1*k2) TAK1_TAB1_TAB2 + TRAF6_IRAK1_P_
+MYD884__IKK_Phosphorylation_by_TAK1: IKK ->(TAK1_TAB1_TAB2_TRAF6*compartment_1*k/(IKK + Km)) IKK_P_
+MYD885__IKK_P__Dephosphorylation: IKK_P_ ->(compartment_1*k1) IKK
+TRIF01__Receptor_Complex_Formation: CD14 + LBP + LPS + RIP1 + TBK1_IKKe + TLR4 + TRAM + TRIF ->(compartment_1*k1) LPS_LBP_CD14_TLR4_RIP1_TRAM_TRIF_TBK_IKKe
+TRIF01__Receptor_Complex_Formation_rev: LPS_LBP_CD14_TLR4_RIP1_TRAM_TRIF_TBK_IKKe ->(compartment_1*k2) CD14 + LBP + LPS + RIP1 + TBK1_IKKe + TLR4 + TRAM + TRIF
+TRIF02__IRF3_Phosphorylation: IRF3 ->(LPS_LBP_CD14_TLR4_RIP1_TRAM_TRIF_TBK_IKKe*compartment_1*k/(IRF3 + Km)) IRF3_P_
+TRIF03__IRF3_Dephosphorylation: IRF3_P_ ->(compartment_1*k1) IRF3
+TRIF04__IRF3_Nuclear_Import_Export: IRF3_P_ ->(compartment_1*k1) IRF3_P__nuc_
+TRIF04__IRF3_Nuclear_Import_Export_rev: IRF3_P__nuc_ ->(compartment_1*k2) IRF3_P_
+TRIF05__Inducible_TNFa_Synthesis: 2IRF3_P__nuc_ ->(compartment_1*k1) 2IRF3_P__nuc_ + TNFa
+TRIF06__Constitutive_TNFa_Synthesis: _source ->(compartment_1*k1) TNFa
+TRIF09__TNFa_Degradation: TNFa ->(compartment_1*k1) sink
+TRIF10__TNFa_Receptor_Complex_Formation: RIP1 + TNFR1 + TNFa + TRADD + TRAF2 ->(compartment_1*k1) TNFa_TNFR1_TRAF2_TRADD_RIP1
+TRIF10__TNFa_Receptor_Complex_Formation_rev: TNFa_TNFR1_TRAF2_TRADD_RIP1 ->(compartment_1*k2) RIP1 + TNFR1 + TNFa + TRADD + TRAF2
+TRIF11__IKK_Phosphorylation_by_RIP1: IKK ->(TNFa_TNFR1_TRAF2_TRADD_RIP1*compartment_1*k/(IKK + Km)) IKK_P_
+NFkB01__IkBa_NFkB_Binding_: IkBa + NFkB ->(compartment_1*k1) IkBa_NFkB
+NFkB01__IkBa_NFkB_Binding__rev: IkBa_NFkB ->(compartment_1*k2) IkBa + NFkB
+NFkB02__IKK_IkBa_NFkB_Binding__1_: IKK_P_ + IkBa_NFkB ->(compartment_1*k1) IKK_P__IkBa_NFkB
+NFkB02__IKK_IkBa_NFkB_Binding__1__rev: IKK_P__IkBa_NFkB ->(compartment_1*k2) IKK_P_ + IkBa_NFkB
+NFkB03__IkBb_NFkB_Binding: IkBb + NFkB ->(compartment_1*k1) IkBb_NFkB
+NFkB03__IkBb_NFkB_Binding_rev: IkBb_NFkB ->(compartment_1*k2) IkBb + NFkB
+NFkB04__IKK_IkBb_NFkB_Binding__1_: IKK_P_ + IkBb_NFkB ->(compartment_1*k1) IKK_P__IkBb_NFkB
+NFkB04__IKK_IkBb_NFkB_Binding__1__rev: IKK_P__IkBb_NFkB ->(compartment_1*k2) IKK_P_ + IkBb_NFkB
+NFkB05__IkBe_NFkB_Binding: IkBe + NFkB ->(compartment_1*k1) IkBe_NFkB
+NFkB05__IkBe_NFkB_Binding_rev: IkBe_NFkB ->(compartment_1*k2) IkBe + NFkB
+NFkB06__IKK_IkBe_NFkB_Binding__1_: IKK_P_ + IkBe_NFkB ->(compartment_1*k1) IKK_P__IkBe_NFkB
+NFkB06__IKK_IkBe_NFkB_Binding__1__rev: IKK_P__IkBe_NFkB ->(compartment_1*k2) IKK_P_ + IkBe_NFkB
+NFkB07__IKK_IkBa_NFkB_Catalysis: IKK_P__IkBa_NFkB ->(compartment_1*k1) IKK_P_ + NFkB
+NFkB08__IKK_IkBb_NFkB_Catalysis: IKK_P__IkBb_NFkB ->(compartment_1*k1) IKK_P_ + NFkB
+NFkB09__IKK_IkBe_NFkB_Catalysis: IKK_P__IkBe_NFkB ->(compartment_1*k1) IKK_P_ + NFkB
+NFkB10__IkBa_NFkB_Constitutive_Degradation: IkBa_NFkB ->(compartment_1*k1) NFkB
+NFkB11__IkBb_NFkB_Constitutive_Degradation: IkBb_NFkB ->(compartment_1*k1) NFkB
+NFkB12__IkBe_NFkB_Constitutive_Degradation: IkBe_NFkB ->(compartment_1*k1) NFkB
+NFkB13__NFkB_Nuclear_Import_Export: NFkB ->(compartment_1*k1) NFkB_nuc_
+NFkB13__NFkB_Nuclear_Import_Export_rev: NFkB_nuc_ ->(compartment_1*k2) NFkB
+NFkB14__Nuclear_IkBa_NFkB_Binding: IkBa_nuc_ + NFkB_nuc_ ->(compartment_1*k1) IkBa_NFkB_nuc_
+NFkB14__Nuclear_IkBa_NFkB_Binding_rev: IkBa_NFkB_nuc_ ->(compartment_1*k2) IkBa_nuc_ + NFkB_nuc_
+NFkB15__Nuclear_IkBb_NFkB_Binding: IkBb_nuc_ + NFkB_nuc_ ->(compartment_1*k1) IkBb_NFkB_nuc_
+NFkB15__Nuclear_IkBb_NFkB_Binding_rev: IkBb_NFkB_nuc_ ->(compartment_1*k2) IkBb_nuc_ + NFkB_nuc_
+NFkB16__Nuclear_IkBe_NFkB_Binding: IkBe_nuc_ + NFkB_nuc_ ->(compartment_1*k1) IkBe_NFkB_nuc_
+NFkB16__Nuclear_IkBe_NFkB_Binding_rev: IkBe_NFkB_nuc_ ->(compartment_1*k2) IkBe_nuc_ + NFkB_nuc_
+NFkB17__Constitutive_IkBa_mRNA_Synthesis: _source ->(compartment_1*k1) IkBa_mRNA
+NFkB18__Inducible_IkBa_mRNA_Synthesis: 2NFkB_nuc_ ->(compartment_1*k1) IkBa_mRNA + 2NFkB_nuc_
+NFkB19__IkBa_mRNA_degradation: IkBa_mRNA ->(compartment_1*k1) sink
+NFkB20__Constitutive_IkBb_mRNA_Synthesis: _source ->(compartment_1*k1) IkBb_mRNA
+NFkB21__IkBb_mRNA_degradation: IkBb_mRNA ->(compartment_1*k1) sink
+NFkB22__Constitutive_IkBe_mRNA_Synthesis: _source ->(compartment_1*k1) IkBe_mRNA
+NFkB23__IkBe_mRNA_degradation: IkBe_mRNA ->(compartment_1*k1) sink
+NFkB24__IKK_IkBa_Binding: IKK_P_ + IkBa ->(compartment_1*k1) IKK_P__IkBa
+NFkB24__IKK_IkBa_Binding_rev: IKK_P__IkBa ->(compartment_1*k2) IKK_P_ + IkBa
+NFkB25__IkBa_Translation: IkBa_mRNA ->(compartment_1*k1) IkBa + IkBa_mRNA
+NFkB26__IkBa_Degradation: IkBa ->(compartment_1*k1) sink
+NFkB27__IkBa_Nuclear_Import_Export: IkBa ->(compartment_1*k1) IkBa_nuc_
+NFkB27__IkBa_Nuclear_Import_Export_rev: IkBa_nuc_ ->(compartment_1*k2) IkBa
+NFkB28__IKK_IkBb_Binding: IKK_P_ + IkBb ->(compartment_1*k1) IKK_P__IkBb
+NFkB28__IKK_IkBb_Binding_rev: IKK_P__IkBb ->(compartment_1*k2) IKK_P_ + IkBb
+NFkB29__IkBb_Translation: IkBb_mRNA ->(compartment_1*k1) IkBb + IkBb_mRNA
+NFkB30__IkBb_Degradation: IkBb ->(compartment_1*k1) sink
+NFkB31__IkBb_Nuclear_Import_Export: IkBb ->(compartment_1*k1) IkBb_nuc_
+NFkB31__IkBb_Nuclear_Import_Export_rev: IkBb_nuc_ ->(compartment_1*k2) IkBb
+NFkB32__IKK_IkBe_Binding: IKK_P_ + IkBe ->(compartment_1*k1) IKK_P__IkBe
+NFkB32__IKK_IkBe_Binding_rev: IKK_P__IkBe ->(compartment_1*k2) IKK_P_ + IkBe
+NFkB33__IkBe_Translation: IkBe_mRNA ->(compartment_1*k1) IkBe + IkBe_mRNA
+NFkB34__IkBe_Degradation: IkBe ->(compartment_1*k1) sink
+NFkB35__IkBe_Nuclear_Import_Export: IkBe ->(compartment_1*k1) IkBe_nuc_
+NFkB35__IkBe_Nuclear_Import_Export_rev: IkBe_nuc_ ->(compartment_1*k2) IkBe
+NFkB36__IKK_IkBa_NFkB_Binding__2_: IKK_P__IkBa + NFkB ->(compartment_1*k1) IKK_P__IkBa_NFkB
+NFkB36__IKK_IkBa_NFkB_Binding__2__rev: IKK_P__IkBa_NFkB ->(compartment_1*k2) IKK_P__IkBa + NFkB
+NFkB37__IkBa_NFkB_Nuclear_Export: IkBa_NFkB_nuc_ ->(compartment_1*k1) IkBa_NFkB
+NFkB38__IKK_IkBb_NFkB_Binding__2_: IKK_P__IkBb + NFkB ->(compartment_1*k1) IKK_P__IkBb_NFkB
+NFkB38__IKK_IkBb_NFkB_Binding__2__rev: IKK_P__IkBb_NFkB ->(compartment_1*k2) IKK_P__IkBb + NFkB
+NFkB39__IkBb_NFkB_Nuclear_Export: IkBb_NFkB_nuc_ ->(compartment_1*k1) IkBb_NFkB
+NFkB40__IKK_IkBe_NFkB_Binding__2_: IKK_P__IkBe + NFkB ->(compartment_1*k1) IKK_P__IkBe_NFkB
+NFkB40__IKK_IkBe_NFkB_Binding__2__rev: IKK_P__IkBe_NFkB ->(compartment_1*k2) IKK_P__IkBe + NFkB
+NFkB41__IkBe_NFkB_Nuclear_Export: IkBe_NFkB_nuc_ ->(compartment_1*k1) IkBe_NFkB
+NFkB42__IKK_IkBa_Catalysis: IKK_P__IkBa ->(compartment_1*k1) IKK_P_
+NFkB43__IKK_IkBb_Catalysis: IKK_P__IkBb ->(compartment_1*k1) IKK_P_
+NFkB44__IKK_IkBe_Catalysis: IKK_P__IkBe ->(compartment_1*k1) IKK_P_
+TRIF06a_Inducible_TNFa_Synthesis_by_NFkB: 2NFkB_nuc_ ->(compartment_1*k1) 2NFkB_nuc_ + TNFa

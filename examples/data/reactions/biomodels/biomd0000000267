@@ -1,0 +1,3 @@
+endocytosis: bound_BoNT_A ->(endocytosis_kT*extracellular) transloc_BoNT_A
+translocation: transloc_BoNT_A ->(endosome*translocation_kL) lytic_BoNT_A
+binding: free_BoNT_A ->(binding_kB*extracellular) bound_BoNT_A

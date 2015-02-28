@@ -1,0 +1,4 @@
+Loss_of_intracellular_choline: a ->(Brain*b*k1) 
+Abeta_formation_from_APP:  ->(Brain*k2) b
+Effect_of_extracellular_ACh: b ->(Brain*a*k3/b) 
+Decrease_in_the_extracellular_concentration_of_beta_amyloid: b ->(Brain*k4) 

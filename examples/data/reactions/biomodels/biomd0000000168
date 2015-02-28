@@ -1,0 +1,10 @@
+cycD_CDK4_synthesis:  ->(_GF*aD*k/(_GF*k + 1)) D
+cycD_CDK4_degradation: D ->(E*dD) 
+cycE_CDK2_synthesis:  ->(aE*(E2F*af + 1)) E
+cycE_CDK2_degradation: E ->(X*dE) 
+pRB_p_dephosphorilation:  ->(RP*X*pX/(RP + X + qX)) R
+pRB_E2F_complex_association: R ->(E2F*pS) RS
+pRB_E2F_complex_deassociation_via_cycD_CDK4: RS ->(D*pD/(D + RS + qD)) 
+pRB_E2F_complex_deassociation_via_cycE_CDK2: RS ->(E*pE/(E + RS + qE)) 
+cycle_progression:  ->(E*X**2*g + E*aX + E2F*f) X
+cycle_break: X ->(dX) 

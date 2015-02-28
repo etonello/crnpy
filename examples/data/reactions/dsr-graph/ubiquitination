@@ -1,0 +1,30 @@
+# Example Ring1B/Bmi1 ubiquitination system from
+# Feliu, E., & Wiuf, C. (2015).
+# Finding the positive feedback loops underlying multi-stationarity.
+# BMC systems biology, 9(1), 1
+#
+# x1 = b
+# x2 = b_dub
+# x3 = r
+# x4 = r_dub
+# x5 = r_ub
+# x6 = r_aub
+# x7 = z
+# x8 = z_ub
+# x9 = h
+# x10 = h_ub
+r1: x1 ->(k1) x2
+r2: x2 ->(k2) x1
+r3: x3 ->(k3) x4
+r4: x4 ->(k4) x3
+r5: x1 + x3 ->(k5) x7
+r6: x7 ->(k6) x1 + x3
+r7: x7 ->(k7*x7 + k8*x8) x8
+r8: x8 ->(k9/(k10 + x8)) x7
+r9: x8 ->(k11) x1 + x6
+r10: x1 + x6 ->(k12) x8
+r11: x3 ->(k13*x3 + k14*x5) x5
+r12: x5 ->(k14) x3
+r13: x6 ->(k15) x3
+r14: x9 ->(k16*x5 + k17*x8 + k18 * x6) x10
+r15: x10 ->(k19) x9

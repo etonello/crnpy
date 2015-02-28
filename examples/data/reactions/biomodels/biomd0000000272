@@ -1,0 +1,8 @@
+reaction_1:  ->(Bmax_SAv*cell*kt) EpoR
+reaction_2: EpoR ->(cell*kt) 
+reaction_3: EpoR + SAv ->(cell*kon_SAv) SAv_EpoR
+reaction_4: SAv_EpoR ->(cell*koff_SAv) EpoR + SAv
+reaction_5: SAv_EpoR ->(cell*kt) SAv_EpoRi
+reaction_6: SAv_EpoRi ->(cell*kex_SAv) SAv
+reaction_7: SAv_EpoRi ->(cell*kdi) dSAvi
+reaction_8: SAv_EpoRi ->(cell*kde) dSAve

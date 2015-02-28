@@ -1,0 +1,11 @@
+G6P_isomerase: glucose_6_phosphate ->(cell*pgi_Kf6p*pgi_Vmax*pgi_shock**heat/(fructose_6_phosphate*pgi_Kg6p + glucose_6_phosphate*pgi_Kf6p + pgi_Kf6p*pgi_Kg6p)) fructose_6_phosphate
+G6P_isomerase_rev: fructose_6_phosphate ->(cell*pgi_Kf6p*pgi_Vmax*pgi_shock**heat/(pgi_Keq*(fructose_6_phosphate*pgi_Kg6p + glucose_6_phosphate*pgi_Kf6p + pgi_Kf6p*pgi_Kg6p))) glucose_6_phosphate
+glucose_transport: glucose ->(0) glucose
+glucose_transport_rev: glucose ->(0) glucose
+hexokinase: ATP + glucose ->(cell*hxk_Vmax*hxk_shock**heat*(-ADP*glucose_6_phosphate/hxk_Keq + ATP*glucose)/(ATP*glucose*hxk_Katp*hxk_Kglc*(ADP/hxk_Kadp + ATP/hxk_Katp + 1)*(glucose/hxk_Kglc + glucose_6_phosphate/hxk_Kg6p + 1 + trehalose_6_phosphate/hxk_Kit6p))) ADP + H_ + glucose_6_phosphate
+phosphoglucomutase: glucose_6_phosphate ->(cell*pgm_Kg1p*pgm_Vmax*pgm_shock**heat/(glucose_1_phosphate*pgm_Kg6p + glucose_6_phosphate*pgm_Kg1p + pgm_Kg1p*pgm_Kg6p)) glucose_1_phosphate
+phosphoglucomutase_rev: glucose_1_phosphate ->(cell*pgm_Kg1p*pgm_Vmax*pgm_shock**heat/(pgm_Keq*(glucose_1_phosphate*pgm_Kg6p + glucose_6_phosphate*pgm_Kg1p + pgm_Kg1p*pgm_Kg6p))) glucose_6_phosphate
+T6P_phosphatase: trehalose_6_phosphate + water ->(cell*tpp_Vmax*tpp_shock**heat/(tpp_Kt6p*water*(1 + trehalose_6_phosphate/tpp_Kt6p))) phosphate + trehalose
+T6P_synthase: UDP_glucose + glucose_6_phosphate ->(cell*tps_Vmax*tps_activity*tps_shock**heat/(tps_Kg6p*tps_Kudg*(UDP_glucose/tps_Kudg + 1)*(glucose_6_phosphate/tps_Kg6p + 1))) H_ + UDP + trehalose_6_phosphate
+trehalase: trehalose + water ->(cell*nth_Vmax*nth_shock**heat/(nth_Ktrh*water*(1 + trehalose/nth_Ktrh))) 2glucose
+UDP_glucose_phosphorylase: H_ + UTP + glucose_1_phosphate ->(cell*ugp_Vmax*ugp_shock**heat/(H_*ugp_Kg1p*ugp_Kutp*(UDP_glucose*glucose_1_phosphate/(ugp_Kg1p*ugp_Kiudg) + UDP_glucose*ugp_Kiutp/(ugp_Kiudg*ugp_Kutp) + UTP*glucose_1_phosphate/(ugp_Kg1p*ugp_Kutp) + UTP/ugp_Kutp + glucose_1_phosphate/ugp_Kg1p + ugp_Kiutp/ugp_Kutp))) UDP_glucose + diphosphate

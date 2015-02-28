@@ -1,0 +1,44 @@
+_15: MK + MKK_PP ->(compartment_1*k1) MK_MKK_PP
+_15_rev: MK_MKK_PP ->(compartment_1*k2) MK + MKK_PP
+_16: MK_MKK_PP ->(compartment_1*k1) MKK_PP + MK_P
+_17: MKK_PP + MK_P ->(compartment_1*k1) MK_P_MKK_PP
+_17_rev: MK_P_MKK_PP ->(compartment_1*k2) MKK_PP + MK_P
+_18: MK_P_MKK_PP ->(compartment_1*k1) MKK_PP + MK_PP
+_19: MK_PP + P2 ->(compartment_1*k1) MK_PP_P2
+_19_rev: MK_PP_P2 ->(compartment_1*k2) MK_PP + P2
+_20: MK_PP_P2 ->(compartment_1*k1) MK_P + P2
+_21: MK_P + P2 ->(compartment_1*k1) MK_P_P2
+_21_rev: MK_P_P2 ->(compartment_1*k2) MK_P + P2
+_22: MK_P_P2 ->(compartment_1*k1) MK_P2
+_23: MK_P2 ->(compartment_1*k1) MK + P2
+_23_rev: MK + P2 ->(compartment_1*k2) MK_P2
+_6: MKK + MKKK_P ->(compartment_1*k1) MKK_MKKK_P
+_6_rev: MKK_MKKK_P ->(compartment_1*k2) MKK + MKKK_P
+_7: MKK_MKKK_P ->(compartment_1*k1) MKKK_P + MKK_P
+_8: MKKK_P + MKK_P ->(compartment_1*k1) MKK_P_MKKK_P
+_8_rev: MKK_P_MKKK_P ->(compartment_1*k2) MKKK_P + MKK_P
+_9: MKK_P_MKKK_P ->(compartment_1*k1) MKKK_P + MKK_PP
+_10_P2: MKK_PP + P2 ->(compartment_1*k1) MKK_PP_P2
+_10_P2_rev: MKK_PP_P2 ->(compartment_1*k2) MKK_PP + P2
+_11_P2: MKK_PP_P2 ->(compartment_1*k1) MKK_P + P2
+_12_P2: MKK_P + P2 ->(compartment_1*k1) MKK_P_P2
+_12_P2_rev: MKK_P_P2 ->(compartment_1*k2) MKK_P + P2
+_13_P2: MKK_P_P2 ->(compartment_1*k1) MKK_P2
+_14_P2: MKK_P2 ->(compartment_1*k1) MKK + P2
+_14_P2_rev: MKK + P2 ->(compartment_1*k2) MKK_P2
+_1: MKKK + Sig ->(compartment_1*k1) MKKK_Sig
+_1_rev: MKKK_Sig ->(compartment_1*k2) MKKK + Sig
+_2: MKKK_Sig ->(compartment_1*k1) MKKK_P + Sig
+_3: MKKK_P + P1 ->(compartment_1*k1) MKKK_P_P1
+_3_rev: MKKK_P_P1 ->(compartment_1*k2) MKKK_P + P1
+_4: MKKK_P_P1 ->(compartment_1*k1) MKKK_P1
+_10_P1: MKK_PP + P1 ->(compartment_1*k1) MKK_PP_P1
+_10_P1_rev: MKK_PP_P1 ->(compartment_1*k2) MKK_PP + P1
+_11_P1: MKK_PP_P1 ->(compartment_1*k1) MKK_P + P1
+_12_P1: MKK_P + P1 ->(compartment_1*k1) MKK_P_P1
+_12_P1_rev: MKK_P_P1 ->(compartment_1*k2) MKK_P + P1
+_13_P1: MKK_P_P1 ->(compartment_1*k1) MKK_P1
+_14_P1: MKK_P1 ->(compartment_1*k1) MKK + P1
+_14_P1_rev: MKK + P1 ->(compartment_1*k2) MKK_P1
+_5: MKKK_P1 ->(compartment_1*k1) MKKK + P1
+_5_rev: MKKK + P1 ->(compartment_1*k2) MKKK_P1

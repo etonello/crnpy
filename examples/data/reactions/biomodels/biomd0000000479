@@ -1,0 +1,44 @@
+Receptor_Ligand_association: L + R ->(compartment*k1) LR
+Receptor_Gprotein_association: Gabg + R ->(compartment*k2) RGabg
+LR_Gprotein_association: Gabg + LR ->(compartment*k3) LRGabg
+Ligand_RGabg_association: L + RGabg ->(compartment*k4) LRGabg
+Ligand_RRGSm_association: L + RRGSm ->(compartment*k5) LRRGSm
+RRGSm_Gprotein_association: Gabg + RRGSm ->(compartment*k6) RRGSmGabg
+LRRGSm_Gprotein_association: Gabg + LRRGSm ->(compartment*k7) LRRGSmGabg
+Ligand_RRGSmGabg_association: L + RRGSmGabg ->(compartment*k8) LRRGSmGabg
+Gprotein_activation_by_LR: LRGabg ->(compartment*k9) GaGTP + Gbg + LR
+Gprotein_spontaneous_activation: Gabg ->(compartment*k10) GaGTP + Gbg
+Gprotein_activation_by_LRRGSm: LRRGSmGabg ->(compartment*k11) GaGTP + Gbg + LRRGSm
+Effector_GaGTP_association: Effector + GaGTP ->(compartment*k12) GaGTPEffector
+RGS_in_cytosol_moves_to_membrane: RGSc ->(compartment*k13) RGSm
+RGS_in_membrane_moves_to_cytosol: RGSm ->(compartment*k14) RGSc
+Receptor_recruits_RGSc_to_membrane: R + RGSc ->(compartment*k15) RRGSm
+R_RGSm_dissociation: RRGSm ->(compartment*k16) R + RGSm
+LR_recruits_RGSc_to_membrane: LR + RGSc ->(compartment*k17) LRRGSm
+LR_RGSm_dissociation: LRRGSm ->(compartment*k18) LR + RGSm
+RGabg_recruits_RGSc_to_membrane: RGSc + RGabg ->(compartment*k19) RRGSmGabg
+RRGSmGabg_dissociation: RRGSmGabg ->(compartment*k20) RGSm + RGabg
+LRGabg_recruits_RGSc_to_membrane: LRGabg + RGSc ->(compartment*k21) LRRGSmGabg
+GaGTP_recruits_RGSc_to_membrane: GaGTP + RGSc ->(compartment*k22) RGSmGaGTP
+RGSmGaGTP_dissociation: RGSmGaGTP ->(compartment*k23) GaGTP + RGSc
+GaGTPEffectorOFF_recruits_RGS_from_cytosol: GaGTPEffectorOFF + RGSc ->(compartment*k24) RGSmGaGTPEffectorOFF
+Effector_turns_off: GaGTPEffector ->(compartment*k25) GaGTPEffectorOFF
+GaGTP_hydrolyzes_GTP: GaGTP ->(compartment*k26) GaGDPP
+GaGTP_RGSm_association: GaGTP + RGSm ->(compartment*k27) RGSmGaGTP
+RGSmGaGTP_hydrolyzes_GTP: RGSmGaGTP ->(compartment*k28) GaGDPP + RGSc
+GaGTP_LRRGSm_association: GaGTP + LRRGSm ->(compartment*k29) LRRGSmGaGTP
+LRRGSmGaGTP_hydrolyzes_GTP: LRRGSmGaGTP ->(compartment*k30) GaGDPP + LRRGSm
+GaGTP_RRGSm_association: GaGTP + RRGSm ->(compartment*k31) RRGSmGaGTP
+RRGSmGaGTP_hydrolyzes_GTP: RRGSmGaGTP ->(compartment*k32) GaGDPP + RRGSm
+GaGTPEffectorOFF_hydrolyzes_GTP: GaGTPEffectorOFF ->(compartment*k33) Effector + GaGDPP
+GaGTPEffectorOFF_RGSm_association: GaGTPEffectorOFF + RGSm ->(compartment*k34) RGSmGaGTPEffectorOFF
+RGSmGaGTPEffectorOFF_hydrolyzes_GTP: RGSmGaGTPEffectorOFF ->(compartment*k35) Effector + GaGDPP + RGSc
+GaGTPEffectorOFF_LRRGSm_association: GaGTPEffectorOFF + LRRGSm ->(compartment*k36) LRRGSmGaGTPEffectorOFF
+LRRGSmGaGTPEffectorOFF_hydrolyzes_GTP: LRRGSmGaGTPEffectorOFF ->(compartment*k37) Effector + GaGDPP + LRRGSm
+Phosphate_release: GaGDPP ->(compartment*k38) GaGDP + P
+Gprotein_subunits_association: GaGDP + Gbg ->(compartment*k39) Gabg
+Phosphate_degradation: P ->(compartment*k40) 
+Delay_1:  ->(GaGTPEffector*compartment*ka) z1
+Delay_2: z1 ->(compartment*ka) z2
+Delay_3: z2 ->(compartment*ka) z3
+Final_output: z3 ->(compartment*ka) 

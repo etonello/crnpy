@@ -1,0 +1,4 @@
+reaction_1:  ->(alpha) ribosome_concentration
+reaction_3: ribosome_concentration ->(kd) 
+reaction_2:  ->(ribosome_concentration/(kappa + ribosome_concentration)) ribosome_concentration
+reaction_4: ribosome_concentration ->(phi/(delta + gamma*ribosome_concentration)) 

@@ -1,0 +1,8 @@
+a ->(k1) b + i
+b + i ->(k2) c
+d ->(k3) i
+i ->(k4) e
+f ->(k5) g + j
+g + j ->(k6) h
+d + i ->(k7) j
+j ->(k8) l

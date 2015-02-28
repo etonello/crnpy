@@ -1,0 +1,18 @@
+R1: SerE ->(Vm1/(SerE + km1)) Ser
+R2: Ser ->(Vm2/(Ser + km2)) PS
+R3: Ser ->(Vm3/(Ser + km3)) Etn
+R4: Etn ->(Vm4/(Etn + km4)) PEtn
+R5: PEtn ->(Vm5/(PEtn + km5)) PCho
+R6: PS ->(Vm6/(PS + km6)) PE
+R7: PEtn ->(Vm7/(PEtn + km7)) PE
+R8: PCho ->(Vm8/(PCho + km8)) PC
+R9: PE ->(Vm9/(PE + km9)) PC
+R10: PC ->(Vm10/(PC + km10)) PS
+R11: PE ->(Vm11/(PE + km11)) PS
+R12: PC ->(Vm12/(PC + km12)) 
+R13: PS ->(Vm13/(PS + km13)) 
+R14: PE ->(PS*Vm14/(PE*(PS + km14))) 
+R15: ChoE ->(Vm15/(ChoE + km15)) Cho
+R16: Cho ->(Vm16/(Cho + km16)) PCho
+R17: EtnE ->(kf17) Etn
+R17_rev: Etn ->(kb17) EtnE

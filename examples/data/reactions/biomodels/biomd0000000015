@@ -1,0 +1,37 @@
+ada: ATP_ADP_AMP_Ado ->(ATP_ADP_AMP_Ado**ada_fada4*ada_aada/ATP_ADP_AMP_Ado) dIno_Ino_HX
+ade: adenine ->(ade_aade*adenine**ade_fade6/adenine) 
+adna: dATP_dADP_dAMP_dAdo ->(adna_aadna*dATP_dADP_dAMP_dAdo**adna_fdnap9*dGTP_dGDP_dGMP**adna_fdnap10/dATP_dADP_dAMP_dAdo) DNA
+adrnr: ATP_ADP_AMP_Ado ->(ATP_ADP_AMP_Ado**adrnr_fadrnr4*adrnr_aadrnr*dATP_dADP_dAMP_dAdo**adrnr_fadrnr9*dGTP_dGDP_dGMP**adrnr_fadrnr10/ATP_ADP_AMP_Ado) dATP_dADP_dAMP_dAdo
+ampd: ATP_ADP_AMP_Ado ->(ATP_ADP_AMP_Ado**ampd_fampd4*GTP_GDP_GMP**ampd_fampd8*ampd_aampd*phosphate**ampd_fampd18/ATP_ADP_AMP_Ado) inosine_monophosphate
+aprt: adenine + phosphoribosylpyrophosphate ->(ATP_ADP_AMP_Ado**aprt_faprt4*adenine**aprt_faprt6*aprt_aaprt*phosphoribosylpyrophosphate**aprt_faprt1/(adenine*phosphoribosylpyrophosphate)) ATP_ADP_AMP_Ado
+arna: ATP_ADP_AMP_Ado ->(ATP_ADP_AMP_Ado**arna_frnap4*GTP_GDP_GMP**arna_frnap8*arna_aarna/ATP_ADP_AMP_Ado) RNA
+asuc: inosine_monophosphate ->(ATP_ADP_AMP_Ado**asuc_fasuc4*GTP_GDP_GMP**asuc_fasuc8*asuc_aasuc*inosine_monophosphate**asuc_fasuc2*phosphate**asuc_fasuc18/inosine_monophosphate) adenylosuccinate
+asli: adenylosuccinate ->(ATP_ADP_AMP_Ado**asli_fasli4*adenylosuccinate**asli_fasli3*asli_aasli/adenylosuccinate) ATP_ADP_AMP_Ado
+dada: dATP_dADP_dAMP_dAdo ->(dATP_dADP_dAMP_dAdo**dada_fdada9*dada_adada/dATP_dADP_dAMP_dAdo) dIno_Ino_HX
+den: phosphoribosylpyrophosphate ->(ATP_ADP_AMP_Ado**den_fden4*GTP_GDP_GMP**den_fden8*den_aden*inosine_monophosphate**den_fden2*phosphate**den_fden18*phosphoribosylpyrophosphate**den_fden1/phosphoribosylpyrophosphate) inosine_monophosphate
+dgnuc: dGTP_dGDP_dGMP ->(dGTP_dGDP_dGMP**dgnuc_fdgnuc10*dgnuc_adgnuc/dGTP_dGDP_dGMP) guanine
+dnaa: DNA ->(DNA**dnaa_fdnan12*dnaa_adnaa/DNA) dATP_dADP_dAMP_dAdo
+dnag: DNA ->(DNA**dnag_fdnan12*dnag_adnag/DNA) dGTP_dGDP_dGMP
+gdna: dGTP_dGDP_dGMP ->(dATP_dADP_dAMP_dAdo**gdna_fdnap9*dGTP_dGDP_dGMP**gdna_fdnap10*gdna_agdna/dGTP_dGDP_dGMP) DNA
+gdrnr: GTP_GDP_GMP ->(GTP_GDP_GMP**gdrnr_fgdrnr8*dATP_dADP_dAMP_dAdo**gdrnr_fgdrnr9*dGTP_dGDP_dGMP**gdrnr_fgdrnr10*gdrnr_agdrnr/GTP_GDP_GMP) dGTP_dGDP_dGMP
+gmpr: GTP_GDP_GMP ->(ATP_ADP_AMP_Ado**gmpr_fgmpr4*GTP_GDP_GMP**gmpr_fgmpr8*gmpr_agmpr*inosine_monophosphate**gmpr_fgmpr2*xanthosine_monophosphate**gmpr_fgmpr7/GTP_GDP_GMP) inosine_monophosphate
+gmps: xanthosine_monophosphate ->(ATP_ADP_AMP_Ado**gmps_fgmps4*gmps_agmps*xanthosine_monophosphate**gmps_fgmps7/xanthosine_monophosphate) GTP_GDP_GMP
+gnuc: GTP_GDP_GMP ->(GTP_GDP_GMP**gnuc_fgnuc8*gnuc_agnuc*phosphate**gnuc_fgnuc18/GTP_GDP_GMP) guanine
+gprt: guanine + phosphoribosylpyrophosphate ->(GTP_GDP_GMP**gprt_fgprt8*gprt_agprt*guanine**gprt_fgprt15*phosphoribosylpyrophosphate**gprt_fgprt1/(guanine*phosphoribosylpyrophosphate)) GTP_GDP_GMP
+grna: GTP_GDP_GMP ->(ATP_ADP_AMP_Ado**grna_frnap4*GTP_GDP_GMP**grna_frnap8*grna_agrna/GTP_GDP_GMP) RNA
+gua: guanine ->(gua_agua*guanine**gua_fgua15/guanine) xanthine
+hprt: dIno_Ino_HX + phosphoribosylpyrophosphate ->(dIno_Ino_HX**hprt_fhprt13*hprt_ahprt*inosine_monophosphate**hprt_fhprt2*phosphoribosylpyrophosphate**hprt_fhprt1/(dIno_Ino_HX*phosphoribosylpyrophosphate)) inosine_monophosphate
+hx: dIno_Ino_HX ->(dIno_Ino_HX**hx_fhx13*hx_ahx/dIno_Ino_HX) 
+hxd: dIno_Ino_HX ->(dIno_Ino_HX**hxd_fhxd13*hxd_ahxd/dIno_Ino_HX) xanthine
+impd: inosine_monophosphate ->(GTP_GDP_GMP**impd_fimpd8*impd_aimpd*inosine_monophosphate**impd_fimpd2*xanthosine_monophosphate**impd_fimpd7/inosine_monophosphate) xanthosine_monophosphate
+inuc: inosine_monophosphate ->(inosine_monophosphate**inuc_finuc2*inuc_ainuc*phosphate**inuc_finuc18/inosine_monophosphate) dIno_Ino_HX
+mat: ATP_ADP_AMP_Ado ->(ATP_ADP_AMP_Ado**mat_fmat4*mat_amat*s_adenosyl_L_methionine**mat_fmat5/ATP_ADP_AMP_Ado) s_adenosyl_L_methionine
+polyam: s_adenosyl_L_methionine ->(polyam_apolyam*s_adenosyl_L_methionine**polyam_fpolyam5/s_adenosyl_L_methionine) adenine
+prpps: ribose_5_phosphate ->(ATP_ADP_AMP_Ado**prpps_fprpps4*GTP_GDP_GMP**prpps_fprpps8*phosphate**prpps_fprpps18*phosphoribosylpyrophosphate**prpps_fprpps1*prpps_aprpps*ribose_5_phosphate**prpps_fprpps17/ribose_5_phosphate) phosphoribosylpyrophosphate
+pyr: phosphoribosylpyrophosphate ->(phosphoribosylpyrophosphate**pyr_fpyr1*pyr_apyr/phosphoribosylpyrophosphate) 
+rnaa: RNA ->(RNA**rnaa_frnan11*rnaa_arnaa/RNA) ATP_ADP_AMP_Ado
+rnag: RNA ->(RNA**rnag_frnan11*rnag_arnag/RNA) GTP_GDP_GMP
+trans: s_adenosyl_L_methionine ->(s_adenosyl_L_methionine**trans_ftrans5*trans_atrans/s_adenosyl_L_methionine) ATP_ADP_AMP_Ado
+ua: uric_acid ->(ua_aua*uric_acid**ua_fua16/uric_acid) 
+x: xanthine ->(x_ax*xanthine**x_fx14/xanthine) 
+xd: xanthine ->(xanthine**xd_fxd14*xd_axd/xanthine) uric_acid

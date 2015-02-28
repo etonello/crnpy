@@ -1,0 +1,36 @@
+Notch_synthesis:  ->(cytosol*epsilon*vsN) Notch_protein
+N_degradation: Notch_protein ->(cytosol*epsilon*vdN/(KdN + Notch_protein)) 
+Notch_activation: Notch_protein ->(KIF**j*cytosol*epsilon*kc/(KIF**j + Lunatic_Fringe_protein**j)) cytosolic_NicD
+Na_degradation: cytosolic_NicD ->(VdNa*cytosol*epsilon/(KdNa + cytosolic_NicD)) 
+Na_transport: cytosolic_NicD ->(cytosol*epsilon*kt1) nuclear_NicD
+Na_transport_rev: nuclear_NicD ->(NaN*cytosol*epsilon*kt2/nuclear_NicD) cytosolic_NicD
+Nan_degradation: nuclear_NicD ->(NaN*VdNan*cytosol*epsilon/(nuclear_NicD*(KdNan + NaN))) 
+MF_transkription:  ->(NaN**p*cytosol*epsilon*vsFK/(KA**p + NaN**p)) Lunatic_fringe_mRNA
+MF_degradation: Lunatic_fringe_mRNA ->(cytosol*epsilon*vmF/(KdMF + Lunatic_fringe_mRNA)) 
+F_translation:  ->(Lunatic_fringe_mRNA*cytosol*epsilon*ksF) Lunatic_Fringe_protein
+F_degradation: Lunatic_Fringe_protein ->(cytosol*epsilon*vdF/(KdF + Lunatic_Fringe_protein)) 
+AK_dissoc: Axin2_Gsk3_destruction_complex ->(cytosol*d1*theta) Axin2_protein + Gsk3
+AK_dissoc_rev: Axin2_protein + Gsk3 ->(a1*cytosol*theta) Axin2_Gsk3_destruction_complex
+B_synth:  ->(cytosol*theta*vsB) beta_catenin
+B_degradation: beta_catenin ->(cytosol*kd1*theta) 
+B_phosphorylation: beta_catenin ->(Axin2_Gsk3_destruction_complex*KID*VMK*cytosol*theta/(Kt*(Dsh_protein + KID)*(K1 + beta_catenin))) phosph__beta_catenin
+BP_dephosphorylation: phosph__beta_catenin ->(VMP*cytosol*theta/(K2 + phosph__beta_catenin)) beta_catenin
+B_shuttling: nuclear_beta_catenin ->(cytosol*kt4*theta) beta_catenin
+B_shuttling_rev: beta_catenin ->(cytosol*kt3*theta) nuclear_beta_catenin
+Bp_degradation: phosph__beta_catenin ->(cytosol*kd2*theta) 
+MAx_trans_basal:  ->(cytosol*theta*v0) Axin2_mRNA
+MAx_trans_BN:  ->(cytosol*nuclear_beta_catenin**n*theta*vMB/(KaB**n + nuclear_beta_catenin**n)) Axin2_mRNA
+MAx_trans_Xa:  ->(active_TF_X**m*cytosol*theta*vMXa/(KaXa**m + active_TF_X**m)) Axin2_mRNA
+MAx_degradation: Axin2_mRNA ->(cytosol*theta*vmd/(Axin2_mRNA + Kmd)) 
+A_translation:  ->(Axin2_mRNA*cytosol*ksAx*theta) Axin2_protein
+A_degradation: Axin2_protein ->(cytosol*theta*vdAx/(Axin2_protein + KdAx)) 
+Ras_activation:  ->(Fgf**r*VMaRas*cytosol*eta*inactive_Ras/((Fgf**r + KaFgf**r)*(KaRas + inactive_Ras))) active_Ras
+Ras_inactivation: active_Ras ->(VMdRas*cytosol*eta/(KdRas + active_Ras)) 
+Erk_activation:  ->(VMaErk*active_Ras*cytosol*eta*inactive_ERK/(Ras_total*(KaErk + inactive_ERK))) active_ERK
+Erk_inactivation: active_ERK ->(Dusp6_protein*cytosol*eta*kcDusp/(KdErk + active_ERK)) 
+X_activation:  ->(VMaX*active_ERK*cytosol*eta*inactive_TF_X/(ERK_total*(KaX + inactive_TF_X))) active_TF_X
+X_inactivation: active_TF_X ->(VMdX*cytosol*eta/(KdX + active_TF_X)) 
+MDusp_transkription:  ->(VMsMDusp*active_TF_X**q*cytosol*eta/(KaMDusp**q + active_TF_X**q)) Dusp6_mRNA
+MDusp_degradation: Dusp6_mRNA ->(VMdMDusp*cytosol*eta/(Dusp6_mRNA + KdMDusp)) 
+Dusp_translation:  ->(Dusp6_mRNA*cytosol*eta*ksDusp) Dusp6_protein
+Dusp_degradation: Dusp6_protein ->(cytosol*eta*vdDusp/(Dusp6_protein + KdDusp)) 

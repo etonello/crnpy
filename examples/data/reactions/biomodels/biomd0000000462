@@ -1,0 +1,8 @@
+Abetaproduction: Source ->(kprod) AbetaMonomer
+AbetaDegradation: AbetaMonomer + Neprilysin ->(0.001*kdeg) Neprilysin + Sink
+AbetaDimerisation: 2AbetaMonomer ->(0.5*kdimer*(AbetaMonomer - 1)/AbetaMonomer) AbetaDimer
+AbetaDedimerisation: AbetaDimer ->(kdedimer) 2AbetaMonomer
+AbetaPlaqueFormation: 2AbetaDimer ->(0.5*kpf*(AbetaDimer - 1)/AbetaDimer) 4AbetaPlaque
+AbetaPlaqueGrowth: AbetaMonomer + AbetaPlaque ->(AbetaPlaque*kpg/(AbetaPlaque**2 + kpghalf**2)) 2AbetaPlaque
+AbetaDisaggregation: AbetaPlaque ->(kdisagg) AbetaMonomer
+NepDegradation: Neprilysin ->(kdegNep) Sink

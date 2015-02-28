@@ -1,0 +1,4 @@
+Fw_1st_step: ATP + S0 ->(k_1*exp(-Force*d*th_1/kT)) Pi_ + S1 + fwd_step1
+Fw_2nd_step: S1 ->(k_2*exp(-Force*d*th_2/kT)) ADP + S0 + fwd_step2
+Bw_1st_step: ATP + S0 ->(k_3*exp(Force*d*th_3/kT)) Pi_ + S1 + back_step1
+Bw_2nd_step: S1 ->(k_4*exp(Force*d*th_4/kT)) ADP + S0 + back_step2

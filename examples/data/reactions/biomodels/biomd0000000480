@@ -1,0 +1,89 @@
+re055: E ->(HP*c4*kEB) Ep
+re066: HP ->(Edead*kEB) HP
+re059: Ep ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
+re105: HP + iDC ->(c2*iDCtoeDC_LP) eDC
+re074: emT ->(c2*(M2*Stim_emT_iTreg + Stim_emT_iTreg*tDC)) iTreg
+re063: HP + iDC ->(iDCtoeDC_Lumen) eDC
+re058: E ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
+re070: M0 ->(c2*vm*(Ep**n/(Bc2**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) M1
+re073: M0 ->(c2*vm*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) M2
+re072: M2 ->(c2*v21*(Ep**n/(Bc**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) M1
+re077: HP + iDC ->(c2*iDCtotDC_LP) tDC
+re078: eDC ->(_eEI) eDC
+re079: tDC ->(_eEI) tDC
+re080: nT ->(c3*(Stim_t_Th17*eDC + Stim_t_Th17LB*eDCLB)) Th17
+re081: nT ->(c3*(Stim_t_Th1*eDC + Stim_t_Th1LB*eDC)) Th1
+re082: nT ->(Stim_t_iTreg*c3*tDC) iTreg
+re083: cmT ->(c3*(Stim_cmT_Th17*eDC + Stim_cmT_Th17LB*eDCLB)) Th17
+re084: cmT ->(c3*(Stim_cmT_Th1*eDC + Stim_cmT_Th1LB*eDCLB)) Th1
+re085: cmT ->(Stim_cmT_iTreg*c3*tDC) iTreg
+re087: Th17 ->(_eIE) Th17
+re088: Th1 ->(_eIE) Th1
+re089: iTreg ->(_eIE) iTreg
+re091: iTreg ->(K_r17*c3*(Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Th17
+re093: iTreg ->(K_r17*c2*(Ep**n/(Bc**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Th17
+re095: Th17 ->(c2*toemT) emT
+re096: Th1 ->(c2*toemT) emT
+re097: iTreg ->(c2*toemT) emT
+re098: Th17 ->(tcmT) cmT
+re099: Th1 ->(tcmT) cmT
+re100: iTreg ->(tcmT) cmT
+re060: Ep ->(_uE*c4) E
+re057: Edead ->(_uE*c4) E
+re102: HP ->(c2*lHP/(HP + phi_HP)) 2HP
+re101: HP ->(c2*uHP) 
+re052: HP ->(c1*lHP/(HP + phi_HP)) 2HP
+re065: HP ->(c1*uHP) 
+re103: emT ->(c2*(M1*Stim_emT_Th1 + Stim_emT_Th1*eDC + Stim_emT_Th1LB*eDCLB)) Th1
+re104: emT ->(c2*(M1*Stim_emT_Th17 + Stim_emT_Th17*eDC + Stim_emT_Th17LB*eDCLB)) Th17
+re119: Th17 ->(T_deactivation*c2) 
+re106:  ->(c3*(_et*eDC**n/(eDC**n + et_i**n) + _lt)) nT
+re107: nT ->(_ut*c3) 
+re061: HP ->(Ep*cyto_change) HP
+re062: HP + iDC ->(iDCtotDC_Lumen) tDC
+re067: HP ->(c2*k_LP*(Bd*Ep + M1*uM1)) 
+re053: HP ->(Ep*HP_Ep_Lumen*c1) 
+re068:  ->(c2*(er*(Ep**n/(Br**n + Ep**n) + M1**n/(M1**n + er_i**n) + eDC**n/(eDC**n + er_i**n)) + ld)) iDC
+re069:  ->(c2*(er*(Ep**n/(Br**n + Ep**n) + M1**n/(M1**n + er_i**n) + eDC**n/(eDC**n + er_i**n)) + lm)) M0
+re111: iDC ->(c2*udi_LP) 
+re112: M0 ->(c2*um) 
+re117: M1 ->(c2*uMA) 
+re118: M2 ->(c2*uMA) 
+re120: Th1 ->(T_deactivation*c2) 
+re121: iTreg ->(T_deactivation*c2) 
+re071: M1 ->(c2*v12*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) M2
+re094: Th17 ->(K_17r*c2*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) iTreg
+re092: Th17 ->(K_17r*c3*(iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) iTreg
+re122: HP + M0 ->(M0toM1_LP*c2) M1
+re123: HP + M0 ->(M0toM2_LP*c2) M2
+re116: eDC ->(_ud*c3) 
+re124: tDC ->(_ud*c3) 
+re127: iDC ->(V) iDC
+re127_rev: iDC ->(V*k) iDC
+re128: iDC ->(LB*iDCtotDC_LB) tDC
+re129: iDC ->(LB*iDCtoeDC_LB) eDC
+re130: LB ->(c1*uLB) 
+re131:  ->(c2*new_emT_iTreg) iTreg
+re132:  ->(c2*new_emT_Th1) Th1
+re133:  ->(c2*new_emT_Th17) Th17
+re134:  ->(c3*new_iTreg_GLN) iTreg
+re135:  ->(c3*new_Th1_GLN) Th1
+re136:  ->(c3*new_Th17_GLN) Th17
+re137: eDCLB ->(_eEI) eDCLB
+re138: eDCLB ->(_ud*c3) 
+re139: E ->(c4*vEC*(Ep**n/(Bc2**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Ep
+re140: eDCLB ->(_ud*c3) 
+nTh1_creation: nT ->(k1) nTh1
+nTh1_trans: nTh1 ->(c1*k1) nTh1_LP
+nTh1_LP_deg: nTh1_LP ->(c1*k1) 
+nTh1_LP_expansion: nTh1_LP ->(c1*k1) 2nTh1_LP
+nTh1_deg: nTh1 ->(c1*k1) 
+nTh17_creation: nT ->(k1) nTh17
+nTh17_trans: nTh17 ->(c1*k1) nTh17_LP
+nTh17_LP_deg: nTh17_LP ->(c1*k1) 
+nTh17_deg: nTh17 ->(c1*k1) 
+nTreg_creation: nT ->(k1) nTreg
+nTreg_trans: nTreg ->(c1*k1) nTreg_LP
+nTreg_LP_deg: nTreg_LP ->(c1*k1) 
+nTreg_deg: nTreg ->(c1*k1) 
+Th17_to_Treg: nTh17_LP ->(c1*k1) nTreg_LP

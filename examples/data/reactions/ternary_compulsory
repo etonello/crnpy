@@ -1,0 +1,18 @@
+# compulsory-order ternary-complex mechanism
+# Cornish-Bowden, Athel. "Fundamentals of enzyme kinetics". Elsevier, 2014.
+# 6.8
+
+a + e ->(k1) ea
+ea ->(k_1) a + e
+ea + b ->(k2) eab       # epq
+eab ->(k_2) ea + b
+eab ->(k3) eq + p
+eq + p ->(k_3) eab
+eq ->(k4) q + e
+q + e ->(k_4) eq
+a_s + e ->(k1) ea_s
+ea_s ->(k_1) a_s + e
+ea_s + b ->(k2) ea_sb     # ep_sq
+ea_sb ->(k_2) ea_s + b
+ea_sb ->(k3) eq + p_s
+eq + p_s ->(k_3) ea_sb

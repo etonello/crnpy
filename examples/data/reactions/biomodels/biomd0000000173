@@ -1,0 +1,42 @@
+Reaction__7_Shuttling_S4: Smad4_c ->(kin__import_rate_for_monomeric_Smads_) Smad4_n
+Reaction__7_Shuttling_S4_rev: Smad4_n ->(kin__import_rate_for_monomeric_Smads_) Smad4_c
+Reaction__5A_Shuttling_S2: Smad2_c ->(kin__import_rate_for_monomeric_Smads_) Smad2_n
+Reaction__5A_Shuttling_S2_rev: Smad2_n ->(kex__export_rate_for_monomeric_Smads_) Smad2_c
+Reaction__6A_Shuttling_pS2: pSmad2_c ->(kin__import_rate_for_monomeric_Smads_) pSmad2_n
+Reaction__6A_Shuttling_pS2_rev: pSmad2_n ->(kex__export_rate_for_monomeric_Smads_) pSmad2_c
+Reaction__2A_Phosphorylation_S2: R_act + Smad2_c ->(cytosol*kphos__phosphorylation_rate_) R_act + pSmad2_c
+Reaction__3A_Formation_S24_C: Smad4_c + pSmad2_c ->(cytosol*kon__Smad_complex_on_rate_) pSmad2_Smad4_c
+Reaction__3A_Formation_S24_C_rev: pSmad2_Smad4_c ->(cytosol*koff__Smad_complex_off_rate_) Smad4_c + pSmad2_c
+Reaction__3B_Formation_S24_N: Smad4_n + pSmad2_n ->(kon__Smad_complex_on_rate_*nucleus) pSmad2_Smad4_n
+Reaction__3B_Formation_S24_N_rev: pSmad2_Smad4_n ->(koff__Smad_complex_off_rate_*nucleus) Smad4_n + pSmad2_n
+Reaction__8A_Import_S24: pSmad2_Smad4_c ->(kin_CIF__Complex_import_rate_) pSmad2_Smad4_n
+Reaction__9A_Import_S22: pSmad2_pSmad2_c ->(kin_CIF__Complex_import_rate_) pSmad2_pSmad2_n
+Reaction__4A_Formation_S22_C: 2pSmad2_c ->(cytosol*kon__Smad_complex_on_rate_) pSmad2_pSmad2_c
+Reaction__4A_Formation_S22_C_rev: pSmad2_pSmad2_c ->(cytosol*koff__Smad_complex_off_rate_) 2pSmad2_c
+Reaction__4B_Formation_S22_N: 2pSmad2_n ->(kon__Smad_complex_on_rate_*nucleus) pSmad2_pSmad2_n
+Reaction__4B_Formation_S22_N_rev: pSmad2_pSmad2_n ->(koff__Smad_complex_off_rate_*nucleus) 2pSmad2_n
+Reaction_10A_Dephos_pS2_Nuc: PPase + pSmad2_n ->(kdephos__dephosphorylation_rate_*nucleus) PPase + Smad2_n
+Reaction__1_TGFb_Binding: R + TGFb_c ->(cytosol*k_TGFb__rate_of_TGFb_binding_to_receptors_) R_act
+Reaction_11_Receptor_Inhibition: R_act + SB_431542 ->(cytosol*kon_SB__on_rate_of_the_SB_receptor_interaction_) R_inact
+Reaction_11_Receptor_Inhibition_rev: R_inact ->(cytosol*koff_SB__off_rate_of_the_SB_receptor_interaction_) R_act + SB_431542
+Reaction__2B_Phosphorylation_GS2: GFP_Smad2_c + R_act ->(cytosol*kphos__phosphorylation_rate_) R_act + pGFP_Smad2_c
+Reaction_10B_Dephos_pG_Nuc: PPase + pGFP_Smad2_n ->(kdephos__dephosphorylation_rate_*nucleus) GFP_Smad2_n + PPase
+Reaction__5B_Shuttling_G: GFP_Smad2_c ->(kin__import_rate_for_monomeric_Smads_) GFP_Smad2_n
+Reaction__5B_Shuttling_G_rev: GFP_Smad2_n ->(kex__export_rate_for_monomeric_Smads_) GFP_Smad2_c
+Reaction__6B_Shuttling_pG: pGFP_Smad2_c ->(kin__import_rate_for_monomeric_Smads_) pGFP_Smad2_n
+Reaction__6B_Shuttling_pG_rev: pGFP_Smad2_n ->(kex__export_rate_for_monomeric_Smads_) pGFP_Smad2_c
+Reaction__4E_Formation_GG_C: 2pGFP_Smad2_c ->(cytosol*kon__Smad_complex_on_rate_) pGFP_Smad2_pGFP_Smad2_c
+Reaction__4E_Formation_GG_C_rev: pGFP_Smad2_pGFP_Smad2_c ->(cytosol*koff__Smad_complex_off_rate_) 2pGFP_Smad2_c
+Reaction__4F_Formation_GG_N: 2pGFP_Smad2_n ->(kon__Smad_complex_on_rate_*nucleus) pGFP_Smad2_pGFP_Smad2_n
+Reaction__4F_Formation_GG_N_rev: pGFP_Smad2_pGFP_Smad2_n ->(koff__Smad_complex_off_rate_*nucleus) 2pGFP_Smad2_n
+Reaction__4C_Formation_G2_C: pGFP_Smad2_c + pSmad2_c ->(cytosol*kon__Smad_complex_on_rate_) pGFP_Smad2_pSmad2_c
+Reaction__4C_Formation_G2_C_rev: pGFP_Smad2_pSmad2_c ->(cytosol*koff__Smad_complex_off_rate_) pGFP_Smad2_c + pSmad2_c
+Reaction__4D_Formation_G2_N: pGFP_Smad2_n + pSmad2_n ->(kon__Smad_complex_on_rate_*nucleus) pGFP_Smad2_pSmad2_n
+Reaction__4D_Formation_G2_N_rev: pGFP_Smad2_pSmad2_n ->(koff__Smad_complex_off_rate_*nucleus) pGFP_Smad2_n + pSmad2_n
+Reaction__3C_Formation_G4_C: Smad4_c + pGFP_Smad2_c ->(cytosol*kon__Smad_complex_on_rate_) pGFP_Smad2_Smad4_c
+Reaction__3C_Formation_G4_C_rev: pGFP_Smad2_Smad4_c ->(cytosol*koff__Smad_complex_off_rate_) Smad4_c + pGFP_Smad2_c
+Reaction__3D_Formation_G4_N: Smad4_n + pGFP_Smad2_n ->(kon__Smad_complex_on_rate_*nucleus) pGFP_Smad2_Smad4_n
+Reaction__3D_Formation_G4_N_rev: pGFP_Smad2_Smad4_n ->(koff__Smad_complex_off_rate_*nucleus) Smad4_n + pGFP_Smad2_n
+Reaction__9C_Import_GG: pGFP_Smad2_pGFP_Smad2_c ->(kin_CIF__Complex_import_rate_) pGFP_Smad2_pGFP_Smad2_n
+Reaction__9B_Import_G2: pGFP_Smad2_pSmad2_c ->(kin_CIF__Complex_import_rate_) pGFP_Smad2_pSmad2_n
+Reaction__8B_Import_G4: pGFP_Smad2_Smad4_c ->(kin_CIF__Complex_import_rate_) pGFP_Smad2_Smad4_n

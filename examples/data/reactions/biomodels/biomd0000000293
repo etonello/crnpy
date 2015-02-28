@@ -1,0 +1,316 @@
+UbSynthesis: Source ->(kubs) Ub
+UbDegradation: Proteasome + Ub ->(kproteff*kubd) Proteasome
+UbUpregulation: MisP ->(MisP**5*kubss/(MisP**6 + 11390625000000000000)) MisP + 3Ub + 3upregUb
+ProteinSynthesis: Source ->(ksynNatP) NatP
+Misfolding: NatP + ROS ->(kmisfold) MisP + ROS
+Refolding: MisP ->(krefold) NatP
+MisPE3Binding: E3 + MisP ->(kbinMisPE3) E3_MisP
+MisPE3Release: E3_MisP ->(krelMisPE3) E3 + MisP
+E1UbBinding: ATP + Ub + _E1 ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E2_Ub + _E1
+Monoubiquitination: E2_Ub + E3_MisP ->(kmonoUb) E2 + E3_MisP_Ub
+Polyubiquitination1: E2_Ub + E3_MisP_Ub ->(kpolyUb) E2 + E3_MisP_Ub2
+Polyubiquitination2: E2_Ub + E3_MisP_Ub2 ->(kpolyUb) E2 + E3_MisP_Ub3
+Polyubiquitination3: E2_Ub + E3_MisP_Ub3 ->(kpolyUb) E2 + E3_MisP_Ub4
+Polyubiquitination4: E2_Ub + E3_MisP_Ub4 ->(kpolyUb) E2 + E3_MisP_Ub5
+Polyubiquitination5: E2_Ub + E3_MisP_Ub5 ->(kpolyUb) E2 + E3_MisP_Ub6
+Polyubiquitination6: E2_Ub + E3_MisP_Ub6 ->(kpolyUb) E2 + E3_MisP_Ub7
+Polyubiquitination7: E2_Ub + E3_MisP_Ub7 ->(kpolyUb) E2 + E3_MisP_Ub8
+MisPDUBbinding1: DUB + E3_MisP_Ub ->(kbinMisPDUB) E3_MisP_Ub_DUB
+MisPDUBbinding2: DUB + E3_MisP_Ub2 ->(kbinMisPDUB) E3_MisP_Ub2_DUB
+MisPDUBbinding3: DUB + E3_MisP_Ub3 ->(kbinMisPDUB) E3_MisP_Ub3_DUB
+MisPDUBbinding4: DUB + E3_MisP_Ub4 ->(kbinMisPDUB) E3_MisP_Ub4_DUB
+MisPDUBbinding5: DUB + E3_MisP_Ub5 ->(kbinMisPDUB) E3_MisP_Ub5_DUB
+MisPDUBbinding6: DUB + E3_MisP_Ub6 ->(kbinMisPDUB) E3_MisP_Ub6_DUB
+MisPDUBbinding7: DUB + E3_MisP_Ub7 ->(kbinMisPDUB) E3_MisP_Ub7_DUB
+MisPDUBbinding8: DUB + E3_MisP_Ub8 ->(kbinMisPDUB) E3_MisP_Ub8_DUB
+Deubiquitination8: E3_MisP_Ub8_DUB ->(kactDUB) E3_MisP_Ub7_DUB + Ub
+Deubiquitination7: E3_MisP_Ub7_DUB ->(kactDUB) E3_MisP_Ub6_DUB + Ub
+Deubiquitination6: E3_MisP_Ub6_DUB ->(kactDUB) E3_MisP_Ub5_DUB + Ub
+Deubiquitination5: E3_MisP_Ub5_DUB ->(kactDUB) E3_MisP_Ub4_DUB + Ub
+Deubiquitination4: E3_MisP_Ub4_DUB ->(kactDUB) E3_MisP_Ub3_DUB + Ub
+Deubiquitination3: E3_MisP_Ub3_DUB ->(kactDUB) E3_MisP_Ub2_DUB + Ub
+Deubiquitination2: E3_MisP_Ub2_DUB ->(kactDUB) E3_MisP_Ub_DUB + Ub
+Deubiquitination1: E3_MisP_Ub_DUB ->(kactDUB) DUB + E3_MisP + Ub
+ProteasomeBindingUb4: E3_MisP_Ub4 + Proteasome ->(kbinProt) E3 + MisP_Ub4_Proteasome
+ProteasomeBindingUb5: E3_MisP_Ub5 + Proteasome ->(kbinProt) E3 + MisP_Ub5_Proteasome
+ProteasomeBindingUb6: E3_MisP_Ub6 + Proteasome ->(kbinProt) E3 + MisP_Ub6_Proteasome
+ProteasomeBindingUb7: E3_MisP_Ub7 + Proteasome ->(kbinProt) E3 + MisP_Ub7_Proteasome
+ProteasomeBindingUb8: E3_MisP_Ub8 + Proteasome ->(kbinProt) E3 + MisP_Ub8_Proteasome
+DeubiquitinationBoundMisP5: DUB + MisP_Ub8_Proteasome ->(kactDUBProt) DUB + MisP_Ub7_Proteasome + Ub
+DeubiquitinationBoundMisP4: DUB + MisP_Ub7_Proteasome ->(kactDUBProt) DUB + MisP_Ub6_Proteasome + Ub
+DeubiquitinationBoundMisP3: DUB + MisP_Ub6_Proteasome ->(kactDUBProt) DUB + MisP_Ub5_Proteasome + Ub
+DeubiquitinationBoundMisP2: DUB + MisP_Ub5_Proteasome ->(kactDUBProt) DUB + MisP_Ub4_Proteasome + Ub
+DeubiquitinationBoundMisP1: DUB + MisP_Ub4_Proteasome ->(kactDUBProt) DUB + MisP + Proteasome + 4Ub
+ProteasomeActivity1: ATP + MisP_Ub4_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 4Ub
+ProteasomeActivity2: ATP + MisP_Ub5_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 5Ub
+ProteasomeActivity3: ATP + MisP_Ub6_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 6Ub
+ProteasomeActivity4: ATP + MisP_Ub7_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 7Ub
+ProteasomeActivity5: ATP + MisP_Ub8_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 8Ub
+Aggregation1: 2MisP ->(0.5*kagg1*(MisP - 1)/MisP) AggP1
+Aggregation2: AggP1 + MisP ->(kagg2) AggP2
+Aggregation3: AggP2 + MisP ->(kagg2) AggP3
+Aggregation4: AggP3 + MisP ->(kagg2) AggP4
+Aggregation5: AggP4 + MisP ->(kagg2) AggP5
+Disaggregation1: AggP5 ->(kdisagg5) AggP4 + MisP
+Disaggregation2: AggP4 ->(kdisagg4) AggP3 + MisP
+Disaggregation3: AggP3 ->(kdisagg3) AggP2 + MisP
+Disaggregation4: AggP2 ->(kdisagg2) AggP1 + MisP
+Disaggregation5: AggP1 ->(kdisagg1) 2MisP
+InclusionFormation: AggP5 + MisP ->(kagg2) SeqAggP + 7aggMisP
+InclusionGrowth1: MisP + SeqAggP ->(kigrowth1) 2SeqAggP + aggMisP
+InclusionGrowth2: E3_MisP + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP
+InclusionGrowth3: E3_MisP_Ub + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + aggUb
+InclusionGrowth4: E3_MisP_Ub2 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 2aggUb
+InclusionGrowth5: E3_MisP_Ub3 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 3aggUb
+InclusionGrowth6: E3_MisP_Ub4 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 4aggUb
+InclusionGrowth7: E3_MisP_Ub5 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 5aggUb
+InclusionGrowth8: E3_MisP_Ub6 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 6aggUb
+InclusionGrowth9: E3_MisP_Ub7 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + aggMisP + 7aggUb
+InclusionGrowth10: E3_MisP_Ub8 + SeqAggP ->(kigrowth2) 2SeqAggP + aggE3 + 8aggUb
+InclusionGrowth11: E3_MisP_Ub_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + aggUb
+InclusionGrowth12: E3_MisP_Ub2_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 2aggUb
+InclusionGrowth13: E3_MisP_Ub3_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 3aggUb
+InclusionGrowth14: E3_MisP_Ub4_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 4aggUb
+InclusionGrowth15: E3_MisP_Ub5_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 5aggUb
+InclusionGrowth16: E3_MisP_Ub6_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 6aggUb
+InclusionGrowth17: E3_MisP_Ub7_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 7aggUb
+InclusionGrowth18: E3_MisP_Ub8_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggDUB + aggE3 + aggMisP + 8aggUb
+ProteasomeInhibition1: AggP1 + Proteasome ->(kbinAggProt) AggP_Proteasome
+ProteasomeInhibition2: AggP2 + Proteasome ->(kbinAggProt) AggP_Proteasome
+ProteasomeInhibition3: AggP3 + Proteasome ->(kbinAggProt) AggP_Proteasome
+ProteasomeInhibition4: AggP4 + Proteasome ->(kbinAggProt) AggP_Proteasome
+ProteasomeInhibition5: AggP5 + Proteasome ->(kbinAggProt) AggP_Proteasome
+ROSgenerationSmallAggP1: AggP1 ->(kgenROSAggP) AggP1 + ROS
+ROSgenerationSmallAggP2: AggP2 ->(kgenROSAggP) AggP2 + ROS
+ROSgenerationSmallAggP3: AggP3 ->(kgenROSAggP) AggP3 + ROS
+ROSgenerationSmallAggP4: AggP4 ->(kgenROSAggP) AggP4 + ROS
+ROSgenerationSmallAggP5: AggP5 ->(kgenROSAggP) AggP5 + ROS
+UCHL1Synthesis: Source ->(ksynUCHL1) UCHL1
+UCHL1ProteasomeBinding: Proteasome + UCHL1 ->(kbinUCHL1Prot) UCHL1_Proteasome
+UCHL1ProteasomeDegradation: UCHL1_Proteasome ->(kdegProtUCHL1*kproteff) Proteasome
+UCHL1LysosomalDegradation: Lysosome + UCHL1 ->(kdegLysUCHL1) Lysosome
+UCHL1damage: ROS + UCHL1 ->(kdamUCHL1) ROS + UCHL1_damaged
+UCHL1DamgedProteasomeBinding: Proteasome + UCHL1_damaged ->(kbinUCHL1Prot) UCHL1_damaged_Proteasome
+UCHL1DamagedProteasomeDegradation: UCHL1_damaged_Proteasome ->(kdegProtUCHL1*kproteff) Proteasome
+UCHL1DamagedLysosomalDegradation: Lysosome + UCHL1_damaged ->(kdegLysUCHL1dam) Lysosome
+UCHL1Lamp2abinding: Lamp2a + UCHL1_damaged ->(kbinLamp2aUCHL1dam) Lamp2a_UCHL1_damaged
+UCHL1Lamp2aRelease: Lamp2a_UCHL1_damaged ->(krelLamp2aUCHL1dam) Lamp2a + UCHL1_damaged
+UbUCHL1binding: UCHL1 + Ub ->(kbinUbUCHL1) Ub_UCHL1
+UbUCHL1release: Ub_UCHL1 ->(krelUbUCHL1) UCHL1 + Ub
+SUBsynthesis: Source ->(ksynSUB) SUB
+SUBmisfolding: ROS + SUB ->(kmisfoldSUB) ROS + SUB_misfolded
+SUBRefolding: SUB_misfolded ->(krefoldSUB) SUB
+E3SUBBinding: E3SUB + SUB_misfolded ->(kbinE3SUB) E3SUB_SUB_misfolded
+E3SUBRelease: E3SUB_SUB_misfolded ->(krelE3SUB) E3SUB + SUB_misfolded
+SUBMonoubiquitination: E2_Ub + E3SUB_SUB_misfolded ->(kmonoUb) E2 + E3SUB_SUB_misfolded_Ub
+SUBPolyubiquitination1: E2_Ub + E3SUB_SUB_misfolded_Ub ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub2
+SUBPolyubiquitination2: E2_Ub + E3SUB_SUB_misfolded_Ub2 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub3
+SUBPolyubiquitination3: E2_Ub + E3SUB_SUB_misfolded_Ub3 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub4
+SUBPolyubiquitination4: E2_Ub + E3SUB_SUB_misfolded_Ub4 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub5
+SUBPolyubiquitination5: E2_Ub + E3SUB_SUB_misfolded_Ub5 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub6
+SUBPolyubiquitination6: E2_Ub + E3SUB_SUB_misfolded_Ub6 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub7
+SUBPolyubiquitination7: E2_Ub + E3SUB_SUB_misfolded_Ub7 ->(kpolyUb) E2 + E3SUB_SUB_misfolded_Ub8
+SUBUCHL1binding1: E3SUB_SUB_misfolded_Ub + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub_UCHL1
+SUBUCHL1binding2: E3SUB_SUB_misfolded_Ub2 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub2_UCHL1
+SUBUCHL1binding3: E3SUB_SUB_misfolded_Ub3 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub3_UCHL1
+SUBUCHL1binding4: E3SUB_SUB_misfolded_Ub4 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub4_UCHL1
+SUBUCHL1binding5Ub_UCHL1: E3SUB_SUB_misfolded_Ub5 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub5_UCHL1
+SUBUCHL1binding6: E3SUB_SUB_misfolded_Ub6 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub6_UCHL1
+SUBUCHL1binding7: E3SUB_SUB_misfolded_Ub7 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub7_UCHL1
+SUBUCHL1binding8: E3SUB_SUB_misfolded_Ub8 + UCHL1 ->(kbinSUBUCHL1) E3SUB_SUB_misfolded_Ub8_UCHL1
+SUBDeubiquitination8: E3SUB_SUB_misfolded_Ub8_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub7_UCHL1 + Ub
+SUBDeubiquitination7: E3SUB_SUB_misfolded_Ub7_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub6_UCHL1 + Ub
+SUBDeubiquitination6: E3SUB_SUB_misfolded_Ub6_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub5_UCHL1 + Ub
+SUBDeubiquitination5: E3SUB_SUB_misfolded_Ub5_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub4_UCHL1 + Ub
+SUBDeubiquitination4: E3SUB_SUB_misfolded_Ub4_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub3_UCHL1 + Ub
+SUBDeubiquitination3: E3SUB_SUB_misfolded_Ub3_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub2_UCHL1 + Ub
+SUBDeubiquitination2: E3SUB_SUB_misfolded_Ub2_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded_Ub_UCHL1 + Ub
+SUBDeubiquitination1: E3SUB_SUB_misfolded_Ub_UCHL1 ->(kactUchl1) E3SUB_SUB_misfolded + UCHL1 + Ub
+SUBProteasomeBindingUb4: E3SUB_SUB_misfolded_Ub4 + Proteasome ->(kbinProt) E3SUB + SUB_misfolded_Ub4_Proteasome
+SUBProteasomeBindingUb5: E3SUB_SUB_misfolded_Ub5 + Proteasome ->(kbinProt) E3SUB + SUB_misfolded_Ub5_Proteasome
+SUBProteasomeBindingUb6: E3SUB_SUB_misfolded_Ub6 + Proteasome ->(kbinProt) E3SUB + SUB_misfolded_Ub6_Proteasome
+SUBProteasomeBindingUb7: E3SUB_SUB_misfolded_Ub7 + Proteasome ->(kbinProt) E3SUB + SUB_misfolded_Ub7_Proteasome
+SUBProteasomeBindingUb8: E3SUB_SUB_misfolded_Ub8 + Proteasome ->(kbinProt) E3SUB + SUB_misfolded_Ub8_Proteasome
+DeubiquitinationBoundSUB8: DUB + SUB_misfolded_Ub8_Proteasome ->(kactDUBProt) DUB + SUB_misfolded_Ub7_Proteasome + Ub
+DeubiquitinationBoundSUB7: DUB + SUB_misfolded_Ub7_Proteasome ->(kactDUBProt) DUB + SUB_misfolded_Ub6_Proteasome + Ub
+DeubiquitinationBoundSUB6: DUB + SUB_misfolded_Ub6_Proteasome ->(kactDUBProt) DUB + SUB_misfolded_Ub5_Proteasome + Ub
+DeubiquitinationBoundSUB5: DUB + SUB_misfolded_Ub5_Proteasome ->(kactDUBProt) DUB + SUB_misfolded_Ub4_Proteasome + Ub
+DeubiquitinationBoundSUB4: DUB + SUB_misfolded_Ub4_Proteasome ->(kactDUBProt) DUB + Proteasome + SUB_misfolded + 4Ub
+SUBDegradationUb4: ATP + SUB_misfolded_Ub4_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 4Ub
+SUBDegradationUb5: ATP + SUB_misfolded_Ub5_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 5Ub
+SUBDegradationUb6: ATP + SUB_misfolded_Ub6_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 6Ub
+SUBDegradationUb7: ATP + SUB_misfolded_Ub7_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 7Ub
+SUBDegradationUb8: ATP + SUB_misfolded_Ub8_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 8Ub
+asynSynthesis1: Source ->(ksynasyn) asyn
+asynProt20Sbinding: Proteasome + asyn ->(kbinasynProt) asyn_Proteasome
+asynProt20Sdegradation: asyn_Proteasome ->(kdegasynProt*kproteff) Proteasome
+asynLamp2aBinding: Lamp2a + asyn ->(kbinasynLamp2a) asyn_Lamp2a
+asynCMAdegradation: asyn_Lamp2a ->(kCMAasyn) Lamp2a
+asynDamage: ROS + asyn ->(kdamasyn) ROS + asyn_dam
+asyn_damParkinBinding: Parkin + asyn_dam ->(kbinasynParkin) Parkin_asyn_dam
+asyn_damParkinRelease: Parkin_asyn_dam ->(krelasynParkin) Parkin + asyn_dam
+AsynMonoubiquitination: E2_Ub + Parkin_asyn_dam ->(kmonoUb) E2 + Parkin_asyn_dam_Ub
+AsynPolyubiquitination1: E2_Ub + Parkin_asyn_dam_Ub ->(kpolyUb) E2 + Parkin_asyn_dam_Ub2
+AsynPolyubiquitination2: E2_Ub + Parkin_asyn_dam_Ub2 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub3
+AsynPolyubiquitination3: E2_Ub + Parkin_asyn_dam_Ub3 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub4
+AsynPolyubiquitination4: E2_Ub + Parkin_asyn_dam_Ub4 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub5
+AsynPolyubiquitination5: E2_Ub + Parkin_asyn_dam_Ub5 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub6
+AsynPolyubiquitination6: E2_Ub + Parkin_asyn_dam_Ub6 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub7
+AsynPolyubiquitination7: E2_Ub + Parkin_asyn_dam_Ub7 ->(kpolyUb) E2 + Parkin_asyn_dam_Ub8
+AsynDUBbindingUb8: DUB + Parkin_asyn_dam_Ub8 ->(kbinasynDUB) Parkin_asyn_dam_Ub8_DUB
+AsynDUBbindingUb7: DUB + Parkin_asyn_dam_Ub7 ->(kbinasynDUB) Parkin_asyn_dam_Ub7_DUB
+AsynDUBbindingUb6: DUB + Parkin_asyn_dam_Ub6 ->(kbinasynDUB) Parkin_asyn_dam_Ub6_DUB
+AsynDUBbindingUb5: DUB + Parkin_asyn_dam_Ub5 ->(kbinasynDUB) Parkin_asyn_dam_Ub5_DUB
+AsynDUBbindingUb4: DUB + Parkin_asyn_dam_Ub4 ->(kbinasynDUB) Parkin_asyn_dam_Ub4_DUB
+AsynDUBbindingUb3: DUB + Parkin_asyn_dam_Ub3 ->(kbinasynDUB) Parkin_asyn_dam_Ub3_DUB
+AsynDUBbindingUb2: DUB + Parkin_asyn_dam_Ub2 ->(kbinasynDUB) Parkin_asyn_dam_Ub2_DUB
+AsynDUBbindingUb1: DUB + Parkin_asyn_dam_Ub ->(kbinasynDUB) Parkin_asyn_dam_Ub_DUB
+AsynDeubiquitinationUb8: Parkin_asyn_dam_Ub8_DUB ->(kactDUB) Parkin_asyn_dam_Ub7_DUB + Ub
+AsynDeubiquitinationUb7: Parkin_asyn_dam_Ub7_DUB ->(kactDUB) Parkin_asyn_dam_Ub6_DUB + Ub
+AsynDeubiquitinationUb6: Parkin_asyn_dam_Ub6_DUB ->(kactDUB) Parkin_asyn_dam_Ub5_DUB + Ub
+AsynDeubiquitinationUb5: Parkin_asyn_dam_Ub5_DUB ->(kactDUB) Parkin_asyn_dam_Ub4_DUB + Ub
+AsynDeubiquitinationUb4: Parkin_asyn_dam_Ub4_DUB ->(kactDUB) Parkin_asyn_dam_Ub3_DUB + Ub
+AsynDeubiquitinationUb3: Parkin_asyn_dam_Ub3_DUB ->(kactDUB) Parkin_asyn_dam_Ub2_DUB + Ub
+AsynDeubiquitinationUb2: Parkin_asyn_dam_Ub2_DUB ->(kactDUB) Parkin_asyn_dam_Ub_DUB + Ub
+AsynDeubiquitinationUb1: Parkin_asyn_dam_Ub_DUB ->(kactDUB) DUB + Parkin_asyn_dam + Ub
+AsynProteasomeBindingUb4: Parkin_asyn_dam_Ub4 + Proteasome ->(kbinProt) Parkin + asyn_dam_Ub4_Proteasome
+AsynProteasomeBindingUb5: Parkin_asyn_dam_Ub5 + Proteasome ->(kbinProt) Parkin + asyn_dam_Ub5_Proteasome
+AsynProteasomeBindingUb6: Parkin_asyn_dam_Ub6 + Proteasome ->(kbinProt) Parkin + asyn_dam_Ub6_Proteasome
+AsynProteasomeBindingUb7: Parkin_asyn_dam_Ub7 + Proteasome ->(kbinProt) Parkin + asyn_dam_Ub7_Proteasome
+AsynProteasomeBindingUb8: Parkin_asyn_dam_Ub8 + Proteasome ->(kbinProt) Parkin + asyn_dam_Ub8_Proteasome
+DeubiquitinationBoundasyn_damUb8: DUB + asyn_dam_Ub8_Proteasome ->(kactDUBProt) DUB + Ub + asyn_dam_Ub7_Proteasome
+DeubiquitinationBoundasynDamUb7: DUB + asyn_dam_Ub7_Proteasome ->(kactDUBProt) DUB + Ub + asyn_dam_Ub6_Proteasome
+DeubiquitinationBoundasynDamUb6: DUB + asyn_dam_Ub6_Proteasome ->(kactDUBProt) DUB + Ub + asyn_dam_Ub5_Proteasome
+DeubiquitinationBoundasynDamUb5: DUB + asyn_dam_Ub5_Proteasome ->(kactDUBProt) DUB + Ub + asyn_dam_Ub4_Proteasome
+DeubiquitinationBoundasynDamUb4: DUB + asyn_dam_Ub4_Proteasome ->(kactDUBProt) DUB + Proteasome + 4Ub + asyn_dam
+AsynProteasomeActivityUb4: ATP + asyn_dam_Ub4_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 4Ub
+AsynDegradationUb5: ATP + asyn_dam_Ub5_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 5Ub
+AsynDegradationUb6: ATP + asyn_dam_Ub6_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 6Ub
+AsynDegradationUb7: ATP + asyn_dam_Ub7_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 7Ub
+AsynDegradationUb8: ATP + asyn_dam_Ub8_Proteasome ->(kactProt*kproteff/(ATP + 5000)) ADP + Proteasome + 8Ub
+Aggregationasyn1: 2asyn ->(0.5*kaggasyn1*(asyn - 1)/asyn) AggA1
+Aggregationasyn2: AggA1 + asyn ->(kaggasyn2) AggA2
+Aggregationasyn3: AggA2 + asyn ->(kaggasyn2) AggA3
+Aggregationasyn4: AggA3 + asyn ->(kaggasyn2) AggA4
+Aggregationasyn5: AggA4 + asyn ->(kaggasyn2) AggA5
+DisAggregationasyn1: AggA5 ->(kdisaggasyn5) AggA4 + asyn
+DisAggregationasyn2: AggA4 ->(kdisaggasyn4) AggA3 + asyn
+DisAggregationasyn3: AggA3 ->(kdisaggasyn3) AggA2 + asyn
+DisAggregationasyn4: AggA2 ->(kdisaggasyn2) AggA1 + asyn
+DisAggregationasyn5: AggA1 ->(kdisaggasyn1) 2asyn
+AggA1ProteasomeInhibition: AggA1 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggA2ProteasomeInhibition: AggA2 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggA3ProteasomeInhibition: AggA3 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggA4ProteasomeInhibition: AggA4 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggA5ProteasomeInhibition: AggA5 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AsynInclusionFormation: AggA5 + asyn ->(kaggasyn2) SeqAggP + 7aggasyn
+AsynInclusionGrowth: SeqAggP + asyn ->(kigrowth1) 2SeqAggP + aggasyn
+ROSgenerationSmallAggA1: AggA1 ->(kgenROSAggP) AggA1 + ROS
+ROSgenerationSmallAggA2: AggA2 ->(kgenROSAggP) AggA2 + ROS
+ROSgenerationSmallAggA3: AggA3 ->(kgenROSAggP) AggA3 + ROS
+ROSgenerationSmallAggA4: AggA4 ->(kgenROSAggP) AggA4 + ROS
+ROSgenerationSmallAggA5: AggA5 ->(kgenROSAggP) AggA5 + ROS
+AggregationAsynDam1: 2asyn_dam ->(0.5*kagg1dam*(asyn_dam - 1)/asyn_dam) AggD1
+AggregationAsynDam2: AggD1 + asyn_dam ->(kagg2dam) AggD2
+AggregationAsynDam3: AggD2 + asyn_dam ->(kagg2dam) AggD3
+AggregationAsynDam4: AggD3 + asyn_dam ->(kagg2dam) AggD4
+AggregationAsynDam5: AggD4 + asyn_dam ->(kagg2dam) AggD5
+DisaggregationAsynDam1: AggD5 ->(kdisaggasyndam5) AggD4 + asyn_dam
+DisaggregationAsynDam2: AggD4 ->(kdisaggasyndam4) AggD3 + asyn_dam
+DisaggregationAsynDam3: AggD3 ->(kdisaggasyndam3) AggD2 + asyn_dam
+DisaggregationAsynDam4: AggD2 ->(kdisaggasyndam2) AggD1 + asyn_dam
+DisaggregationAsynDam5: AggD1 ->(kdisaggasyndam1) 2asyn_dam
+AggD1ProteasomeInhibition: AggD1 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggD2ProteasomeInhibition: AggD2 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggD3ProteasomeInhibition: AggD3 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggD4ProteasomeInhibition: AggD4 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggD5ProteasomeInhibition: AggD5 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AsynDamInclusionFormation: AggD5 + asyn_dam ->(kagg2dam) SeqAggP + 7aggasyndam
+AsynDamInclusionGrowth1: SeqAggP + asyn_dam ->(kigrowth1) 2SeqAggP + aggasyndam
+AsynDamInclusionGrowth2: Parkin_asyn_dam + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + aggasyndam
+AsynDamInclusionGrowth3: Parkin_asyn_dam_Ub + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + aggUb + aggasyndam
+AsynDamInclusionGrowth4: Parkin_asyn_dam_Ub2 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 2aggUb + aggasyndam
+AsynDamInclusionGrowth5: Parkin_asyn_dam_Ub3 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 3aggUb + aggasyndam
+AsynDamInclusionGrowth6: Parkin_asyn_dam_Ub4 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 4aggUb + aggasyndam
+AsynDamInclusionGrowth7: Parkin_asyn_dam_Ub5 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 5aggUb + aggasyndam
+AsynDamInclusionGrowth8: Parkin_asyn_dam_Ub6 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 6aggUb + aggasyndam
+AsynDamInclusionGrowth9: Parkin_asyn_dam_Ub7 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 7aggUb + aggasyndam
+AsynDamInclusionGrowth10: Parkin_asyn_dam_Ub8 + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 8aggUb + aggasyndam
+AsynDamInclusionGrowth11: Parkin_asyn_dam_Ub_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + aggUb + aggasyndam
+AsynDamInclusionGrowth12: Parkin_asyn_dam_Ub2_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 2aggUb + aggasyndam
+AsynDamInclusionGrowth13: Parkin_asyn_dam_Ub3_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 3aggUb + aggasyndam
+AsynDamInclusionGrowth14: Parkin_asyn_dam_Ub4_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 4aggUb + aggasyndam
+AsynDamInclusionGrowth15: Parkin_asyn_dam_Ub5_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 5aggUb + aggasyndam
+AsynDamInclusionGrowth16: Parkin_asyn_dam_Ub6_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 6aggUb + aggasyndam
+AsynDamInclusionGrowth17: Parkin_asyn_dam_Ub7_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 7aggUb + aggasyndam
+AsynDamInclusionGrowth18: Parkin_asyn_dam_Ub8_DUB + SeqAggP ->(kigrowth2) 2SeqAggP + aggParkin + 8aggUb + aggasyndam
+ROSgenerationSmallAggD1: AggD1 ->(kgenROSAggP) AggD1 + ROS
+ROSgenerationSmallAggD2: AggD2 ->(kgenROSAggP) AggD2 + ROS
+ROSgenerationSmallAggD3: AggD3 ->(kgenROSAggP) AggD3 + ROS
+ROSgenerationSmallAggD4: AggD4 ->(kgenROSAggP) AggD4 + ROS
+ROSgenerationSmallAggD5: AggD5 ->(kgenROSAggP) AggD5 + ROS
+AggregationUCHL1Dam1: 2UCHL1_damaged ->(0.5*kagg1dam*(UCHL1_damaged - 1)/UCHL1_damaged) AggU1
+AggregationUCHL1Dam2: AggU1 + UCHL1_damaged ->(kagg2dam) AggU2
+AggregationUCHL1Dam3: AggU2 + UCHL1_damaged ->(kagg2dam) AggU3
+AggregationUCHL1Dam4: AggU3 + UCHL1_damaged ->(kagg2dam) AggU4
+AggregationUCHL1Dam5: AggU4 + UCHL1_damaged ->(kagg2dam) AggU5
+DisaggregationUCHL1Dam1: AggU5 ->(kdisagguchl1dam5) AggU4 + UCHL1_damaged
+DisaggregationUCHL1Dam2: AggU4 ->(kdisagguchl1dam4) AggU3 + UCHL1_damaged
+DisaggregationUCHL1Dam3: AggU3 ->(kdisagguchl1dam3) AggU2 + UCHL1_damaged
+DisaggregationUCHL1Dam4: AggU2 ->(kdisagguchl1dam2) AggU1 + UCHL1_damaged
+DisaggregationUCHL1Dam5: AggU1 ->(kdisagguchl1dam1) 2UCHL1_damaged
+AggU1ProteasomeInhibition: AggU1 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggU2ProteasomeInhibition: AggU2 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggU3ProteasomeInhibition: AggU3 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggU4ProteasomeInhibition: AggU4 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggU5ProteasomeInhibition: AggU5 + Proteasome ->(kbinAggProt) AggP_Proteasome
+UCHL1DamInclusionFormation: AggU5 + UCHL1_damaged ->(kagg2dam) SeqAggP + 7aggUchl1dam
+UCHL1DamagedSequestering: SeqAggP + UCHL1_damaged ->(kigrowth1) 2SeqAggP + aggUchl1dam
+UCHL1DamagedLamp2aSequestering: Lamp2a_UCHL1_damaged + SeqAggP ->(kigrowth1) 2SeqAggP + aggUchl1dam
+ROSgenerationSmallAggU1: AggU1 ->(kgenROSAggP) AggU1 + ROS
+ROSgenerationSmallAggU2: AggU2 ->(kgenROSAggP) AggU2 + ROS
+ROSgenerationSmallAggU3: AggU3 ->(kgenROSAggP) AggU3 + ROS
+ROSgenerationSmallAggU4: AggU4 ->(kgenROSAggP) AggU4 + ROS
+ROSgenerationSmallAggU5: AggU5 ->(kgenROSAggP) AggU5 + ROS
+SUBAggregation1: 2SUB_misfolded ->(0.5*kaggSUB1*(SUB_misfolded - 1)/SUB_misfolded) AggS1
+SUBAggregation2: AggS1 + SUB_misfolded ->(kaggSUB2) AggS2
+SUBAggregation3: AggS2 + SUB_misfolded ->(kaggSUB2) AggS3
+SUBAggregation4: AggS3 + SUB_misfolded ->(kaggSUB2) AggS4
+SUBAggregation5: AggS4 + SUB_misfolded ->(kaggSUB2) AggS5
+SUBDisaggregation1: AggS5 ->(kdisaggSUB5) AggS4 + SUB_misfolded
+SUBDisaggregation2: AggS4 ->(kdisaggSUB4) AggS3 + SUB_misfolded
+SUBDisaggregation3: AggS3 ->(kdisaggSUB3) AggS2 + SUB_misfolded
+SUBDisaggregation4: AggS2 ->(kdisaggSUB2) AggS1 + SUB_misfolded
+SUBDisaggregation5: AggS1 ->(kdisaggSUB1) 2SUB_misfolded
+AggS1ProteasomeInhibition: AggS1 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggS2ProteasomeInhibition: AggS2 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggS3ProteasomeInhibition: AggS3 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggS4ProteasomeInhibition: AggS4 + Proteasome ->(kbinAggProt) AggP_Proteasome
+AggS5ProteasomeInhibition: AggS5 + Proteasome ->(kbinAggProt) AggP_Proteasome
+SUBInclusionFormation: AggS5 + SUB_misfolded ->(kaggSUB2) SeqAggP + 7aggSUB
+SUBInclusionGrowth0: SUB_misfolded + SeqAggP ->(kigrowth1) 2SeqAggP + aggSUB
+SUBInclusionGrowth1: E3SUB_SUB_misfolded + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB
+SUBInclusionGrowth2: E3SUB_SUB_misfolded_Ub + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + aggUb
+SUBInclusionGrowth3: E3SUB_SUB_misfolded_Ub2 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 2aggUb
+SUBInclusionGrowth4: E3SUB_SUB_misfolded_Ub3 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 3aggUb
+SUBInclusionGrowth5: E3SUB_SUB_misfolded_Ub4 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 4aggUb
+SUBInclusionGrowth6: E3SUB_SUB_misfolded_Ub5 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 5aggUb
+SUBInclusionGrowth7: E3SUB_SUB_misfolded_Ub6 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 6aggUb
+SUBInclusionGrowth8: E3SUB_SUB_misfolded_Ub7 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 7aggUb
+SUBInclusionGrowth9: E3SUB_SUB_misfolded_Ub8 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 8aggUb
+SUBInclusionGrowth10: E3SUB_SUB_misfolded_Ub_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + aggUb + aggUchl1
+SUBInclusionGrowth11: E3SUB_SUB_misfolded_Ub2_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 2aggUb + aggUchl1
+SUBInclusionGrowth12: E3SUB_SUB_misfolded_Ub3_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 3aggUb + aggUchl1
+SUBInclusionGrowth13: E3SUB_SUB_misfolded_Ub4_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 4aggUb + aggUchl1
+SUBInclusionGrowth14: E3SUB_SUB_misfolded_Ub5_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 5aggUb + aggUchl1
+SUBInclusionGrowth15: E3SUB_SUB_misfolded_Ub6_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 6aggUb + aggUchl1
+SUBInclusionGrowth16: E3SUB_SUB_misfolded_Ub7_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 7aggUb + aggUchl1
+SUBInclusionGrowth17: E3SUB_SUB_misfolded_Ub8_UCHL1 + SeqAggP ->(kigrowth2) 2SeqAggP + aggSUB + 8aggUb + aggUchl1
+ROSgenerationSmallAggS1: AggS1 ->(kgenROSAggP) AggS1 + ROS
+ROSgenerationSmallAggS2: AggS2 ->(kgenROSAggP) AggS2 + ROS
+ROSgenerationSmallAggS3: AggS3 ->(kgenROSAggP) AggS3 + ROS
+ROSgenerationSmallAggS4: AggS4 ->(kgenROSAggP) AggS4 + ROS
+ROSgenerationSmallAggS5: AggS5 ->(kgenROSAggP) AggS5 + ROS
+radicalFormation: Source ->(kgenROS) ROS
+radicalScavenging: ROS ->(kremROS) Sink

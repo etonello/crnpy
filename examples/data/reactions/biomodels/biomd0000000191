@@ -1,0 +1,5 @@
+Arginase: Arginine_in ->(Arginase_Vmaxarg*cytosol/(Arginase_Kmarg*(1 + Ornithine/Arginase_Kioarg) + Arginine_in)) Ornithine
+Arginine_transport: Arginine_ex ->(extracellular*(Arginine_ex*Arginine_transport_Vmaxhat/((Arginine_ex + Arginine_transport_Kmhat)*(Arginine_in/Arginine_transport_Kmhat + 1 + Ornithine/Arginine_transport_Kiornhat)) + Arginine_ex*Arginine_transport_Vmaxlat/((Arginine_ex + Arginine_transport_Kmlat)*(Arginine_in/Arginine_transport_Kmlat + 1 + Ornithine/Arginine_transport_Kiornhat)))/Arginine_ex) Arginine_in
+Ornithine_efflux: Ornithine ->(cytosol*(Ornithine*Ornithine_efflux_Vmaxefflhat/((Ornithine + Ornithine_efflux_Kiornhat*(Arginine_in/Ornithine_efflux_Kmhat + 1))*(Arginine_ex/Ornithine_efflux_Kmhat + 1)) + Ornithine*Ornithine_efflux_Vmaxeffllat/((Ornithine + Ornithine_efflux_Kmeffllat*(Arginine_in/Ornithine_efflux_Kmlat + 1))*(Arginine_ex/Ornithine_efflux_Kmlat + 1)))/Ornithine) 
+Nitric_oxide_synthase: Arginine_in ->(NOS_Vmaxnos1*cytosol/(Arginine_in + NOS_Kmnos1)) 
+Ornithine_decarboxylase: Ornithine ->(ODC_Vmaxodc*cytosol/(ODC_Kmodc + Ornithine)) 

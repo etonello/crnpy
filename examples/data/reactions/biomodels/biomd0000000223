@@ -1,0 +1,152 @@
+reaction_1: EGF + R ->(cell*k1) RE
+reaction_1_rev: RE ->(cell*k_1) EGF + R
+reaction_2: 2RE ->(cell*k2) Rd
+reaction_2_rev: Rd ->(cell*k_2) 2RE
+reaction_3: Rd ->(cell*k3) Rp
+reaction_4: GS + Rp ->(cell*k4) Rp_GS
+reaction_4_rev: Rp_GS ->(cell*k_4) GS + Rp
+reaction_5: Rp + Shc ->(cell*k5) Rp_Shc
+reaction_5_rev: Rp_Shc ->(cell*k_5) Rp + Shc
+reaction_6: Rp_Shc ->(cell*k6) Rp_pShc
+reaction_7: Rp_pShc ->(cell*k_7) Rp + pShc
+reaction_7_rev: Rp + pShc ->(cell*k7) Rp_pShc
+reaction_8: pShc ->(V8*cell/(Km8 + pShc)) Shc
+reaction_9: GS + Rp_pShc ->(cell*k9) Rp_pShc_GS
+reaction_9_rev: Rp_pShc_GS ->(cell*k_9) GS + Rp_pShc
+reaction_10: Rp_pShc_GS ->(cell*k_10) Rp + pShc_GS
+reaction_10_rev: Rp + pShc_GS ->(cell*k10) Rp_pShc_GS
+reaction_11: pShc_GS ->(cell*k_11) GS + pShc
+reaction_11_rev: GS + pShc ->(cell*k11) pShc_GS
+reaction_12: PI3K + Rp ->(cell*k12) Rp_PI3K
+reaction_12_rev: Rp_PI3K ->(cell*k_12) PI3K + Rp
+reaction_13: RasGAP + Rp ->(cell*k13) Rp_RasGAP
+reaction_13_rev: Rp_RasGAP ->(cell*k_13) RasGAP + Rp
+reaction_17: Rp ->(cell*k17) Null
+reaction_18: Rp_GS ->(cell*k17) GS
+reaction_19: Rp_Shc ->(cell*k17) Shc
+reaction_20: Rp_pShc ->(cell*k17) pShc
+reaction_21: Rp_pShc_GS ->(cell*k17) pShc_GS
+reaction_22: Rp_PI3K ->(cell*k17) PI3K
+reaction_23: Rp_RasGAP ->(cell*k17) RasGAP
+reaction_24: I + IR ->(cell*k24) IRL
+reaction_24_rev: IRL ->(cell*k_24) I + IR
+reaction_25: IRL ->(cell*k25) IRp
+reaction_26: IRp + PI3K ->(cell*k26) IRp_PI3K
+reaction_26_rev: IRp_PI3K ->(cell*k_26) IRp + PI3K
+reaction_27: IRp + RasGAP ->(cell*k27) IRp_RasGAP
+reaction_27_rev: IRp_RasGAP ->(cell*k_27) IRp + RasGAP
+reaction_28: IRS + IRp ->(cell*k28) IRp_IRS
+reaction_28_rev: IRp_IRS ->(cell*k_28) IRS + IRp
+reaction_29: IRp_IRS ->(cell*k29) IRp_IRSp
+reaction_30: IRp_IRSp ->(cell*k_30) IRSp + IRp
+reaction_30_rev: IRSp + IRp ->(cell*k30) IRp_IRSp
+reaction_31: IRSp ->(V31*cell/(IRSp + Km31)) IRS
+reaction_34: IRp ->(cell*k17) Null
+reaction_35: IRp_PI3K ->(cell*k17) PI3K
+reaction_36: IRp_RasGAP ->(cell*k17) RasGAP
+reaction_37: IRp_IRS ->(cell*k17) IRS
+reaction_38: IRp_IRSp ->(cell*k17) IRSp
+reaction_40: iSrc ->(cell*kcat40*(IRp*alpha40 + Rp)/(Km40 + iSrc)) aSrc
+reaction_41: aSrc ->(V41*cell/(Km41 + aSrc)) iSrc
+reaction_42: IRS + PIP3 ->(cell*k42) mIRS
+reaction_42_rev: mIRS ->(cell*k_42) IRS + PIP3
+reaction_43: mIRS ->(cell*kcat43*(IRp + Rp*alpha43)/(Km43 + mIRS)) mIRSp
+reaction_44: mIRSp ->(V31*cell/(Km31 + mIRSp)) mIRS
+reaction_45: GS + mIRSp ->(cell*k45) mIRSp_GS
+reaction_45_rev: mIRSp_GS ->(cell*k_45) GS + mIRSp
+reaction_46: PI3K + mIRSp ->(cell*k46) mIRSp_PI3K
+reaction_46_rev: mIRSp_PI3K ->(cell*k_46) PI3K + mIRSp
+reaction_47: SHP2 + mIRSp ->(cell*k47) mIRSp_SHP2
+reaction_47_rev: mIRSp_SHP2 ->(cell*k_47) SHP2 + mIRSp
+reaction_48: mIRSp_SHP2 ->(cell*k48) SHP2 + mIRS
+reaction_49: GAB + PIP3 ->(cell*k49) mGAB
+reaction_49_rev: mGAB ->(cell*k_49) GAB + PIP3
+reaction_50: mGAB ->(cell*kcat50*(Rp + aSrc*alpha50)/(Km50 + mGAB)) mGABp
+reaction_51: mGABp ->(V51*cell/(Km51 + mGABp)) mGAB
+reaction_52: GS + mGABp ->(cell*k52) mGABp_GS
+reaction_52_rev: mGABp_GS ->(cell*k_52) GS + mGABp
+reaction_53: PI3K + mGABp ->(cell*k53) mGABp_PI3K
+reaction_53_rev: mGABp_PI3K ->(cell*k_53) PI3K + mGABp
+reaction_54: RasGAP + mGABp ->(cell*k54) mGABp_RasGAP
+reaction_54_rev: mGABp_RasGAP ->(cell*k_54) RasGAP + mGABp
+reaction_55: SHP2 + mGABp ->(cell*k55) mGABp_SHP2
+reaction_55_rev: mGABp_SHP2 ->(cell*k_55) SHP2 + mGABp
+reaction_56: mGABp_SHP2 ->(cell*k56) SHP2 + mGAB
+reaction_57: mGABp_SHP2 ->(cell*kcat57*(Rp + aSrc)/(Km57 + mGABp_SHP2)) mGABp_pSHP2
+reaction_58: mGABp_pSHP2 ->(V58*cell/(Km58 + mGABp_pSHP2)) mGABp_SHP2
+reaction_59: GS + mGABp_pSHP2 ->(cell*k59) mGABp_pSHP2_GS
+reaction_59_rev: mGABp_pSHP2_GS ->(cell*k_59) GS + mGABp_pSHP2
+reaction_60:  ->(cell*k60*(IRp_PI3K + Rp_PI3K + mGABp_PI3K + mIRSp_PI3K + tRas_PI3K)) PIP3
+reaction_61: PIP3 ->(cell*k61) Null
+reaction_62: dRas ->(cell*kcat62*(Rp_GS + Rp_pShc_GS + mGABp_GS + mGABp_pSHP2_GS + mIRSp_GS)/(Km62 + dRas)) tRas
+reaction_63: tRas ->(cell*kcat63*(IRp_RasGAP + Rp_RasGAP + bRasGAP + mGABp_RasGAP)/(Km63 + tRas)) dRas
+reaction_64: PI3K + tRas ->(cell*(PI3K*k64*tRas - k_64*tRas_PI3K)/(PI3K*tRas)) tRas_PI3K
+reaction_65: Raf ->(cell*kcat65*tRas/(Km65 + Raf)) aRaf
+reaction_66: aRaf ->(aSrc*cell*kcat66/(Km66 + aRaf)) aaRaf
+reaction_67: aaRaf ->(cell*(PKA*aaRaf*kcat67/(Km67 + aaRaf) + aaRaf*alpha67*(beta67*ppAkt + pAkt))/aaRaf) Raf
+reaction_68: Mek ->(aaRaf*cell*kcat68/(Km68 + Mek)) ppMek
+reaction_69: ppMek ->(V69*cell/(Km69 + ppMek)) Mek
+reaction_70: Erk ->(cell*kcat70*ppMek/(Erk + Km70 + Km70*pErk/Km71)) pErk
+reaction_71: pErk ->(cell*kcat71*ppMek/(Erk*Km71/Km70 + Km71 + pErk)) ppErk
+reaction_72: ppErk ->(V72*cell/(Km72 + Km72*pErk/Km73 + ppErk)) pErk
+reaction_73: pErk ->(V73*cell/(Km73 + pErk + Km73*ppErk/Km72)) Erk
+reaction_74: PDK1 + PIP3 ->(cell*k74) mPDK1
+reaction_74_rev: mPDK1 ->(cell*k_74) PDK1 + PIP3
+reaction_75: Akt ->(cell*kcat75*mPDK1/(Akt + Km75)) pAkt
+reaction_76: pAkt ->(V76*cell/(Km76 + pAkt)) Akt
+reaction_77: mTOR ->((alpha77*cell*kcat77*mTOR*pAkt + cell*kcat77*mTOR*ppAkt)/(mTOR*(Km77 + mTOR))) amTOR
+reaction_77_rev: amTOR ->((Km77*amTOR*cell*k_77 + amTOR*cell*k_77*mTOR)/(amTOR*(Km77 + mTOR))) mTOR
+reaction_78: pAkt ->(amTOR*cell*kcat78/(Km78 + pAkt)) ppAkt
+reaction_78_rev: ppAkt ->((Km78*cell*k_78*ppAkt + cell*k_78*pAkt*ppAkt)/(ppAkt*(Km78 + pAkt))) pAkt
+reaction_79: GS ->(cell*kcat79*ppErk/(GS + Km79)) iGS
+reaction_79_rev: iGS ->((GS*cell*iGS*k_79 + Km79*cell*iGS*k_79)/(iGS*(GS + Km79))) GS
+reaction_80: mGAB ->(cell*kcat80*ppErk/(Km80 + mGAB)) imGAB
+reaction_80_rev: imGAB ->((Km80*cell*imGAB*k_80 + cell*imGAB*k_80*mGAB)/(imGAB*(Km80 + mGAB))) mGAB
+reaction_81: mIRS ->(amTOR*cell*kcat81/(Km81 + mIRS)) imIRS
+reaction_81_rev: imIRS ->((Km81*cell*imIRS*k_81 + cell*imIRS*k_81*mIRS)/(imIRS*(Km81 + mIRS))) mIRS
+reaction_82: Rp ->(V_82*cell/(Km82 + Rp)) Ri
+reaction_83: Ri ->(cell*k83) Rd
+reaction_84: IRp ->(V_84*cell/(IRp + Km84)) IRi
+reaction_85: IRi ->(cell*k85) IRL
+reaction_88: mIRSp ->(cell*k_42) IRSp + PIP3
+reaction_88_rev: IRSp + PIP3 ->(cell*k42) mIRSp
+reaction_89: mIRSp_PI3K ->(cell*k_42) IRSp_PI3K + PIP3
+reaction_89_rev: IRSp_PI3K + PIP3 ->(cell*k42) mIRSp_PI3K
+reaction_90: mIRSp_GS ->(cell*k_42) IRSp_GS + PIP3
+reaction_90_rev: IRSp_GS + PIP3 ->(cell*k42) mIRSp_GS
+reaction_91: mIRSp_SHP2 ->(cell*k_42) IRSp_SHP2 + PIP3
+reaction_91_rev: IRSp_SHP2 + PIP3 ->(cell*k42) mIRSp_SHP2
+reaction_92: mGABp ->(cell*k_42) GABp + PIP3
+reaction_92_rev: GABp + PIP3 ->(cell*k42) mGABp
+reaction_93: mGABp_PI3K ->(cell*k_42) GABp_PI3K + PIP3
+reaction_93_rev: GABp_PI3K + PIP3 ->(cell*k42) mGABp_PI3K
+reaction_94: mGABp_GS ->(cell*k_42) GABp_GS + PIP3
+reaction_94_rev: GABp_GS + PIP3 ->(cell*k42) mGABp_GS
+reaction_95: mGABp_RasGAP ->(cell*k_42) GABp_RasGAP + PIP3
+reaction_95_rev: GABp_RasGAP + PIP3 ->(cell*k49) mGABp_RasGAP
+reaction_96: mGABp_SHP2 ->(cell*k_42) GABp_SHP2 + PIP3
+reaction_96_rev: GABp_SHP2 + PIP3 ->(cell*k42) mGABp_SHP2
+reaction_97: mGABp_pSHP2 ->(cell*k_42) GABp_pSHP2 + PIP3
+reaction_97_rev: GABp_pSHP2 + PIP3 ->(cell*k42) mGABp_pSHP2
+reaction_98: mGABp_pSHP2_GS ->(cell*k_42) GABp_pSHP2_GS + PIP3
+reaction_98_rev: GABp_pSHP2_GS + PIP3 ->(cell*k42) mGABp_pSHP2_GS
+reaction_99: IRSp_PI3K ->(V31*cell/(IRSp_PI3K + Km31)) IRS + PI3K
+reaction_100: IRSp_GS ->(V31*cell/(IRSp_GS + Km31)) GS + IRS
+reaction_101: IRSp_SHP2 ->(cell*k48) IRS + SHP2
+reaction_102: mGABp_pSHP2 ->(cell*k56) SHP2 + mGAB
+reaction_103: mGABp_pSHP2_GS ->(cell*k56) GS + SHP2 + mGAB
+reaction_104: GABp ->(V51*cell/(GABp + Km51)) GAB
+reaction_105: GABp_PI3K ->(V51*cell/(GABp_PI3K + Km51)) GAB + PI3K
+reaction_106: GABp_GS ->(V51*cell/(GABp_GS + Km51)) GAB + GS
+reaction_107: GABp_RasGAP ->(V51*cell/(GABp_RasGAP + Km51)) GAB + RasGAP
+reaction_108: GABp_SHP2 ->(cell*k56) GAB + SHP2
+reaction_109: GABp_pSHP2 ->(cell*k56) GAB + SHP2
+reaction_110: GABp_pSHP2_GS ->(cell*k56) GAB + GS + SHP2
+reaction_111: mGABp_RasGAP ->(cell*k111*(mGABp_SHP2 + mGABp_pSHP2 + mGABp_pSHP2_GS + mIRSp_SHP2)) RasGAP + mGAB
+reaction_112: Rp_RasGAP ->(cell*k111*(mGABp_SHP2 + mGABp_pSHP2 + mGABp_pSHP2_GS)) RasGAP + Rp
+reaction_113: IRp_RasGAP ->(cell*k111*(mGABp_SHP2 + mGABp_pSHP2 + mGABp_pSHP2_GS)) IRp + RasGAP
+reaction_114: Rp_RasGAP ->(cell*k111*mIRSp_SHP2) RasGAP + Rp
+reaction_115: IRp_RasGAP ->(cell*k111*mIRSp_SHP2) IRp + RasGAP
+reaction_117: mGABp ->(2*cell*kcat80*ppErk/(Km80 + mGABp)) imGABp
+reaction_117_rev: imGABp ->((Km80*cell*imGABp*k_80 + cell*imGABp*k_80*mGABp)/(imGABp*(Km80 + mGABp))) mGABp
+reaction_118: imGABp ->(cell*k118) imGAB

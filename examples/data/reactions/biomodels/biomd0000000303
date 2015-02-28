@@ -1,0 +1,68 @@
+a_01: CRP + PC ->(compartment*ka01_1) PC_CRP
+a_01_rev: PC_CRP ->(compartment*ka01_2) CRP + PC
+a_02: C1 + PC_CRP ->(compartment*ka02_1) PC_CRP_C1
+a_02_rev: PC_CRP_C1 ->(compartment*ka02_2) C1 + PC_CRP
+a_03: C4 ->(PC_CRP_C1*compartment*ka03_1/(C4 + ka03_2)) C4a + C4b
+a_04: C2 ->(PC_CRP_C1*compartment*ka04_1/(C2 + ka04_2)) C2a + C2b
+c_01: C2a + C4b ->(compartment*kc01_1) C4b_C2a
+c_01_rev: C4b_C2a ->(compartment*kc01_2) C2a + C4b
+c_02: C3 + C4b_C2a ->(compartment*kc02) C3a + C3b + C4b_C2a
+c_03: C3b ->(compartment*kc03_1) dC3b
+c_03_rev: dC3b ->(compartment*kc03_2) C3b
+c_04: C4b_C2a ->(compartment*kc04_1) dC4b_C2a
+c_04_rev: dC4b_C2a ->(compartment*kc04_2) C4b_C2a
+d_01: LF + PC_CRP ->(compartment*kd01_1) PC_CRP_LF
+d_01_rev: PC_CRP_LF ->(compartment*kd01_2) LF + PC_CRP
+d_02: MASP + PC_CRP_LF ->(compartment*kd02_1) PC_CRP_LF_MASP
+d_02_rev: PC_CRP_LF_MASP ->(compartment*kd02_2) MASP + PC_CRP_LF
+d_03: C4 ->(PC_CRP_LF_MASP*compartment*kd03_1/(C4 + kd03_2)) C4a + C4b
+d_04: C2 ->(PC_CRP_LF_MASP*compartment*kd04_1/(C2 + kd04_2)) C2a + C2b
+b_01: GlcNac + LF ->(compartment*kb01_1) GlcNac_LF
+b_01_rev: GlcNac_LF ->(compartment*kb01_2) GlcNac + LF
+b_02: GlcNac_LF + MASP ->(compartment*kb02_1) GlcNac_LF_MASP
+b_02_rev: GlcNac_LF_MASP ->(compartment*kb02_2) GlcNac_LF + MASP
+b_03: C4 ->(GlcNac_LF_MASP*compartment*kb03_1/(C4 + kb03_2)) C4a + C4b
+b_04: C2 ->(GlcNac_LF_MASP*compartment*kb04_1/(C2 + kb04_2)) C2a + C2b
+e_01: CRP + GlcNac_LF ->(compartment*ke01_1) GlcNac_LF_CRP
+e_01_rev: GlcNac_LF_CRP ->(compartment*ke01_2) CRP + GlcNac_LF
+e_02: C1 + GlcNac_LF_CRP ->(compartment*ke02_1) GlcNac_LF_CRP_C1
+e_02_rev: GlcNac_LF_CRP_C1 ->(compartment*ke02_2) C1 + GlcNac_LF_CRP
+e_03: C4 ->(GlcNac_LF_CRP_C1*compartment*ke03_1/(C4 + ke03_2)) C4a + C4b
+e_04: C2 ->(GlcNac_LF_CRP_C1*compartment*ke04_1/(C2 + ke04_2)) C2a + C2b
+f_01: C4BP + PC_CRP ->(compartment*kf01_1) C4BP_PC_CRP
+f_01_rev: C4BP_PC_CRP ->(compartment*kf01_2) C4BP + PC_CRP
+f_02: C4BP + GlcNac_LF_CRP ->(compartment*kf02_1) C4BP_GlcNac_LF_CRP
+f_02_rev: C4BP_GlcNac_LF_CRP ->(compartment*kf02_2) C4BP + GlcNac_LF_CRP
+f_03: C4BP + C4b_C2a ->(compartment*kf03) C4BP + iC4b_C2a
+f_04: C4BP + C4b ->(compartment*kf04_1) C4BP_C4b
+f_04_rev: C4BP_C4b ->(compartment*kf04_2) C4BP + C4b
+f_05: C4BP + C4b_C2a ->(compartment*kf05) C2a + C4BP + C4b
+f_06: C4BP + C4b_C2a ->(compartment*kf06_1) C4b_C2a_C4BP
+f_06_rev: C4b_C2a_C4BP ->(compartment*kf06_2) C4BP + C4b_C2a
+f_07: C4BP + dC4b_C2a ->(compartment*kf07_1) dC4b_C2a_C4BP
+f_07_rev: dC4b_C2a_C4BP ->(compartment*kf07_2) C4BP + dC4b_C2a
+t_01: C4BP ->(compartment*k1) 
+t_02: C3b ->(compartment*k1) 
+t_03: C4b_C2a ->(compartment*k1) 
+d_05: C1 + PC_CRP_LF ->(compartment*kd05_1) PC_CRP_LF_C1
+d_05_rev: PC_CRP_LF_C1 ->(compartment*kd05_2) C1 + PC_CRP_LF
+d_06: C4 ->(PC_CRP_LF_C1*compartment*kd06_1/(C4 + kd06_2)) C4a + C4b
+d_07: C2 ->(PC_CRP_LF_C1*compartment*kd07_1/(C2 + kd07_2)) C2a + C2b
+t_04: C4BP + PC_CRP_LF ->(compartment*k1) C4BP_PC_CRP_LF
+t_04_rev: C4BP_PC_CRP_LF ->(compartment*k2) C4BP + PC_CRP_LF
+e_05: GlcNac_LF_CRP + MASP ->(compartment*ke05_1) GlcNac_LF_CRP_MASP
+e_05_rev: GlcNac_LF_CRP_MASP ->(compartment*ke05_2) GlcNac_LF_CRP + MASP
+e_06: C4 ->(GlcNac_LF_CRP_MASP*compartment*ke06_1/(C4 + ke06_2)) C4a + C4b
+e_07: C2 ->(GlcNac_LF_CRP_MASP*compartment*ke07_1/(C2 + ke07_2)) C2a + C2b
+d_08: MASP + PC_CRP_LF_C1 ->(compartment*kd08_1) PC_CRP_LF_C1_MASP
+d_08_rev: PC_CRP_LF_C1_MASP ->(compartment*kd08_2) MASP + PC_CRP_LF_C1
+d_09: C1 + PC_CRP_LF_MASP ->(compartment*kd09_1) PC_CRP_LF_C1_MASP
+d_09_rev: PC_CRP_LF_C1_MASP ->(compartment*kd09_2) C1 + PC_CRP_LF_MASP
+d_10: C4 ->(PC_CRP_LF_C1_MASP*compartment*kd10_1/(C4 + kd10_2)) C4a + C4b
+d_11: C2 ->(PC_CRP_LF_C1_MASP*compartment*kd11_1/(C2 + kd11_2)) C2a + C2b
+g_01: HF + X ->(compartment*kg01_1) GlcNac_HF
+g_01_rev: GlcNac_HF ->(compartment*kg01_2) HF + X
+g_02: GlcNac_HF + MASP ->(compartment*kg02_1) GlcNac_HF_MASP
+g_02_rev: GlcNac_HF_MASP ->(compartment*kg02_2) GlcNac_HF + MASP
+g_03: C4 ->(GlcNac_HF_MASP*compartment*kg03_1/(C4 + kg03_2)) C4a + C4b
+g_04: C2 ->(GlcNac_HF_MASP*compartment*kg04_1/(C2 + kg04_2)) C2a + C2b

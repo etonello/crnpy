@@ -1,0 +1,10 @@
+Receptor_Open_state_transition: Receptor ->(Phi2*compartment*v1_IP3) Open_State
+Receptor_Open_state_transition_rev: Open_State ->(Phi_minus2*compartment) Receptor
+Receptor_Inactivated_state_1_transition: Receptor ->(Phi1*compartment) Inactivated_State_1
+Receptor_Inactivated_state_1_transition_rev: Inactivated_State_1 ->((Inactivated_State_1*compartment*v2_kminus1 + Inactivated_State_1*compartment*v2_lminus2)/Inactivated_State_1) Receptor
+Open_Shut_state_transition: Open_State ->(Phi3*compartment) Shut_State
+Open_Shut_state_transition_rev: Shut_State ->(compartment*v3_kminus3) Open_State
+Open_Activated_state_transition: Open_State ->(Phi4*compartment) Activated_State
+Open_Activated_state_transition_rev: Activated_State ->(Phi_minus4*compartment) Open_State
+Activated_Inactivated_state_2_transition: Activated_State ->(Phi5*compartment) Inactivated_State_2
+Activated_Inactivated_state_2_transition_rev: Inactivated_State_2 ->((Inactivated_State_2*compartment*v5_kminus1 + Inactivated_State_2*compartment*v5_lminus2)/Inactivated_State_2) Activated_State

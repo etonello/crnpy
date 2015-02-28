@@ -1,0 +1,8 @@
+v1: ATP ->(Vmapp1/(ATP + Kmapp1)) AMP
+v1_rev: AMP ->(0) ATP
+v2: AMP + ATP ->(Vm2/(AMP*ATP + AMP*Km2ATP + ATP*Km2AMP + K)) 2ADP
+v2_rev: 2ADP ->(0) AMP + ATP
+v3: ADP ->(Vmapp3/(ADP + Kmapp3)) ATP + Pyr
+v3_rev: ATP + Pyr ->(0) ADP
+v4: NADH + Pyr ->(k4/NADH) Lac
+v4_rev: Lac ->(0) NADH + Pyr

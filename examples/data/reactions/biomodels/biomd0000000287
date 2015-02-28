@@ -1,0 +1,37 @@
+p53mRNASynthesis: Source ->(ksynp53mRNA) p53_mRNA
+p53mRNADegradation: p53_mRNA ->(kdegp53mRNA) Sink
+Mdm2Synthesis: Mdm2_mRNA ->(ksynMdm2) Mdm2 + Mdm2_mRNA
+Mdm2mRNASynthesis1: p53 ->(ksynMdm2mRNA) Mdm2_mRNA + p53
+Mdm2mRNASynthesis2: p53_P ->(ksynMdm2mRNA) Mdm2_mRNA + p53_P
+Mdm2mRNADegradation: Mdm2_mRNA ->(kdegMdm2mRNA) Sink
+Mdm2Degradation: Mdm2 ->(kdegMdm2) Sink
+p53Synthesis: p53_mRNA ->(ksynp53) p53 + p53_mRNA
+p53Degradation: Mdm2_p53 ->(kdegp53) Mdm2
+p53Mdm2IndepDegradation1: p53_P ->(kdegp53mdm2ind) Sink
+p53Mdm2IndepDegradation2: p53 ->(kdegp53mdm2ind) Sink
+P53_Mdm2Binding: Mdm2 + p53 ->(kbinMdm2p53) Mdm2_p53
+P53_Mdm2Release: Mdm2_p53 ->(krelMdm2p53) Mdm2 + p53
+DNAdamage: IR ->(kdam) IR + damDNA
+DNArepair: damDNA ->(krepair) Sink
+ATMactivation: ATMI + damDNA ->(kactATM) ATMA + damDNA
+p53phoshorylation: ATMA + p53 ->(kphosp53) ATMA + p53_P
+p53dephosorylation: p53_P ->(kdephosp53) p53
+Mdm2phoshorylation: ATMA + Mdm2 ->(kphosMdm2) ATMA + Mdm2_P
+Mdm2dephosorylation: Mdm2_P ->(kdephosMdm2) Mdm2
+Mdm2Pdegradation: Mdm2_P ->(kdegATMMdm2) Sink
+ATMInactivation: ATMA ->(kinactATM) ATMI
+p21mRNASynthesis1: p53 ->(ksynp21mRNAp53) p21_mRNA + p53
+p21mRNASynthesis2: p53_P ->(ksynp21mRNAp53P) p21_mRNA + p53_P
+p21mRNADegradation: p21_mRNA ->(kdegp21mRNA) Sink
+p21Synthesis1: p21_mRNA ->(ksynp21step1) p21_mRNA + p21step1
+p21Synthesis2: p21step1 ->(ksynp21step2) p21step2
+p21Synthesis3: p21step2 ->(ksynp21step3) p21
+p21degradation: p21 ->(kdegp21) Sink
+GADD45activation2: p21 ->(kGADD45) GADD45 + p21
+GADD45degradation: GADD45 ->(kdegGADD45) Sink
+p38activation: GADD45 + p38 ->(kphosp38) GADD45 + p38_P
+p38inactivation: p38_P ->(kdephosp38) p38
+ROSgenerationP38: p38_P ->(kgenROSp38*kp38ROS) ROS + p38_P
+ROSremoval: ROS ->(kremROS) Sink
+ROSDNAdamage: ROS ->(kdamROS) ROS + damDNA
+basalROSDNAdamage: basalROS ->(kdamBasalROS) basalROS + damDNA

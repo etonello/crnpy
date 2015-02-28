@@ -1,0 +1,9 @@
+# Allosteric activation.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.7.8
+
+R + E ->(k1) ER
+ER ->(k_1) R + E
+ER + S ->(k2) ERS
+ERS ->(k_2) ER + S
+ERS ->(k3) P + ER

@@ -1,0 +1,17 @@
+r1:  ->(S*cell*r1_kM/(S + r1_KS)) Myc
+r2:  ->(S*cell*r2_kkCDS/(S + r2_KS)) CycD
+r3:  ->(cell*(E2F*Myc*r3_kkEF/((E2F + r3_KEF)*(Myc + r3_KMC)) + Myc*r3_kkb/(Myc + r3_KMC))) E2F
+r4:  ->(E2F*cell*r4_kkCE/(E2F + r4_KEF)) CycE
+r5:  ->(Myc*cell*r5_kkCD/(Myc + r5_KMC)) CycD
+r6:  ->(cell*r6_kkRB) Rb
+r7: Rb_E2F_complex ->(cell*(CycD*Rb_E2F_complex*r7_kkRBPP/(Rb_E2F_complex + r7_KD) + CycE*Rb_E2F_complex*r7_kkRBPP/(Rb_E2F_complex + r7_KE))/Rb_E2F_complex) E2F + phosphorylated_Rb
+r8: E2F + Rb ->(cell*r8_kkRE) Rb_E2F_complex
+r9: Rb ->(cell*(CycD*Rb*r9_kkRBP/(Rb + r9_KD) + CycE*Rb*r9_kkRBP2/(Rb + r9_KE))/Rb) phosphorylated_Rb
+r10: phosphorylated_Rb ->(cell*r10_kkRBUP/(phosphorylated_Rb + r10_Kp)) Rb
+r11: Myc ->(cell*r11_dMC) 
+r12: E2F ->(cell*r12_dEF) 
+r13: CycE ->(cell*r13_dCE) 
+r14: CycD ->(cell*r14_dCD) 
+r15: Rb ->(cell*r15_dRB) 
+r16: phosphorylated_Rb ->(cell*r16_dRP) 
+r17: Rb_E2F_complex ->(cell*r17_dRE) 

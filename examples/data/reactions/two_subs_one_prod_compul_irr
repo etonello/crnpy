@@ -1,0 +1,7 @@
+# Two-substrate, one-product compulsory order, irreversible mechanism.
+
+e + a ->(k1) ea
+ea ->(k_1) e + a
+ea + b ->(k2) eab
+eab ->(k_2) ea + b
+eab ->(k3) e + p

@@ -1,0 +1,11 @@
+v1a: IR ->((IR*ins*k1a + IR*k1aBasic)/IR) IRins
+v1b: IRins ->(k1b) IR
+v1c: IRins ->(k1c) IRp
+v1d: IRp ->(k1d) IRiP
+v1e: IRiP ->(Xp*k1f/(Xp + 1) + k1e) IRi
+v1g: IRp ->(k1g) IR
+v1r: IRi ->(k1r) IR
+v2: IRS ->(k21*(IRiP*k22 + IRp)/(Xp*km23 + 1)) IRSiP
+vm2: IRSiP ->(km2) IRS
+v3: X ->(IRSiP*k3) Xp
+vm3: Xp ->(km3) X

@@ -1,0 +1,18 @@
+R1:  ->(compartment*j1) T1
+R2:  ->(T3**n*compartment*vd1/(T3**n + km1**n)) T1
+R3:  ->(C1*compartment*kc1) T1
+R4: T1 ->(compartment*kd1) 
+R5:  ->(compartment*j2) T2
+R6:  ->(T1**n*compartment*vd2/(T1**n + km2**n)) T2
+R7:  ->(C2*compartment*kc2) T2
+R8: T2 ->(compartment*kd2) 
+R9:  ->(compartment*j3) T3
+R10:  ->(T2**n*compartment*vd3/(T2**n + km3**n)) T3
+R11:  ->(C3*compartment*kc3) T3
+R12: T3 ->(compartment*kd3) 
+R13:  ->(T1**n*compartment*v12/(C2**n + T1**n + k120**n)) C1
+R14: C1 ->(compartment*kd4) 
+R15:  ->(T2**n*compartment*v11/(C3**n + T2**n + k110**n)) C2
+R16: C2 ->(compartment*kd5) 
+R17:  ->(T3**n*compartment*v10/(C1**n + T3**n + k100**n)) C3
+R18: C3 ->(compartment*kd6) 

@@ -1,0 +1,39 @@
+cL_m_trscr:  ->(g1**a*(L*cP*q1 + L*n0 + cTm**b*n1/(cTm**b + g2**b))/(g1**a + (cNI + cP7 + cP9)**a)) cL_m
+cL_m_degr: cL_m ->(D*m2 + L*m1) 
+cL_trsl:  ->(cL_m*(D*p2 + L*p1)) cL
+cL_degr: cL ->((cL*m3 + cL**c*p3/(cL**c + g3**c))/cL) 
+cL_modif:  ->(cL**c*p3/(cL**c + g3**c)) cLm
+cLm_degr: cLm ->(m4) 
+cT_m_trscr:  ->(g5**e*(cY**d*n2/(cY**d + g4**d) + n3)/(cL**e + g5**e)) cT_m
+cT_m_degr: cT_m ->(m5) 
+cT_trsl:  ->(cT_m*p4) cT
+cT_degr: cT ->((cT*m8 + cT*(cZG + cZTL*p5)*(D*m7 + L*m6))/cT) 
+cT_modif:  ->(cT**f*p15/(cT**f + g6**f)) cTm
+cTm_degr: cTm ->(D*m26 + L*m25) 
+cY_m_trscr:  ->(L*cP*q2 + g16**g*g7**s*(D*n6 + L*n5)/((cL**g + g16**g)*(cT**s + g7**s))) cY_m
+cY_m_degr: cY_m ->(m9) 
+cY_trsl:  ->(cY_m*p6) cY
+cY_degr: cY ->(m10) 
+cP_trsl:  ->(D*p7*(-cP + 1)) cP
+cP_degr: cP ->(L*m11) 
+cP9_m_trscr:  ->(L*cP*q3 + g8**h*(L*n4 + cL**i*n7/(cL**i + g9**i))/(cT**h + g8**h)) cP9_m
+cP9_m_degr: cP9_m ->(m12) 
+cP9_trsl:  ->(cP9_m*p8) cP9
+cP9_degr: cP9 ->(D*m22 + L*m13) 
+cP7_m_trscr:  ->(cP9**k*n9/(cP9**k + g11**k) + n8*(cL + cLm)**j/(g10**j + (cL + cLm)**j)) cP7_m
+cP7_m_degr: cP7_m ->(m14) 
+cP7_trsl:  ->(cP7_m*p9) cP7
+cP7_degr: cP7 ->(D*m23 + L*m15) 
+cNI_m_trscr:  ->(cLm**l*n10/(cLm**l + g12**l) + cP7**m*n11/(cP7**m + g13**m)) cNI_m
+cNI_m_degr: cNI_m ->(m16) 
+cNI_trsl:  ->(cNI_m*p10) cNI
+cNI_degr: cNI ->(D*m24 + L*m17) 
+cG_m_trscr:  ->(L*cP*q4 + L*g14**n*g15**o*n12/((cL**o + g15**o)*(cT**n + g14**n))) cG_m
+cG_m_degr: cG_m ->(m18) 
+cG_trsl:  ->(cG_m*p11) cG
+cG_degr: cG ->(m19) 
+cG_cZTL_assoc: cG + cZTL ->(L*p12) cZG
+cG_cZTL_assoc_rev: cZG ->(D*p13) cG + cZTL
+cZTL_trsl:  ->(p14) cZTL
+cZTL_degr: cZTL ->(m20) 
+cZG_degr: cZG ->(m21) 

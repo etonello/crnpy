@@ -1,0 +1,4 @@
+Binding: Cdk2 + CyclinA ->(Binding_kf*geometry) CDK2cycA
+Binding_rev: CDK2cycA ->(Binding_kb*geometry) Cdk2 + CyclinA
+Activation: CDK2cycA ->(Activation_kf*geometry) CDK2cycA_star_
+Activation_rev: CDK2cycA_star_ ->(Activation_kb*geometry) CDK2cycA

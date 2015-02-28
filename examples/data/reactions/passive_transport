@@ -1,0 +1,10 @@
+# Passive transport.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.4.2
+
+S1 + T ->(k1) TS1
+TS1 ->(k_1) S1 + T
+TS1 ->(k2) TS2
+TS2 ->(k_2) TS1
+TS2 ->(k3) T + S2
+T + S2 ->(k_3) TS2

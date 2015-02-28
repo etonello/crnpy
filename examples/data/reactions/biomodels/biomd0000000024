@@ -1,0 +1,4 @@
+mRNA_production: _EmptySet ->(TC_rM*compartment_0000004/(_EmptySet*((protein/TC_k)**TC_n + 1))) mRNA
+protein_production: _EmptySet ->(TL_rP*compartment_0000004*delay(mRNA, tau)**TL_m/_EmptySet) protein
+messenger_degradation: mRNA ->(Md_qM*compartment_0000004) _EmptySet
+protein_degradation: protein ->(Pd_qP*compartment_0000004) _EmptySet

@@ -1,0 +1,4 @@
+phosphorylation_of_MAPK: M ->(MAPKK*k1cat*uVol/(Km1*(1 + Mp/Km2 + M/Km1))) Mp
+phosphorylation_of_P_MAPK: Mp ->(MAPKK*k2cat*uVol/(Km2*(1 + Mp/Km2 + M/Km1))) Mpp
+dephosphorylation_of_PP_MAPK: Mpp ->(MKP3*k3cat*uVol/(Km3*(1 + M/Km5 + Mp/Km4 + Mpp/Km3))) Mp
+dephosphorylation_of_P_MAPK: Mp ->(MKP3*k4cat*uVol/(Km4*(1 + M/Km5 + Mp/Km4 + Mpp/Km3))) M

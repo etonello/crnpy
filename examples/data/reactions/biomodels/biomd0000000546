@@ -1,0 +1,5 @@
+re1: Ep ->(V*beta_a) Eps
+re3: s4 ->(Ep*rho_E/s4) Ep
+re5: Eps ->(delta_Es) s5
+re6: V ->(c_V) s6
+re7: s7 ->(Eps*pi_a/s7) V

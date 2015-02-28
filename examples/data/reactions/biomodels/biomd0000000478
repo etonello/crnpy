@@ -1,0 +1,39 @@
+R0: Cdc25 + Ras2_GDP ->(K0) Ras2_GDP_Cdc25
+R1: Ras2_GDP_Cdc25 ->(K1) Cdc25 + Ras2_GDP
+R2: Ras2_GDP_Cdc25 ->(K2) GDP + Ras2_Cdc25
+R3: GDP + Ras2_Cdc25 ->(K3) Ras2_GDP_Cdc25
+R4: GTP + Ras2_Cdc25 ->(K4) Ras2_GTP_Cdc25
+R5: Ras2_GTP_Cdc25 ->(K5) GTP + Ras2_Cdc25
+R6: Ras2_GTP_Cdc25 ->(K6) Cdc25 + Ras2_GTP
+R7: Cdc25 + Ras2_GTP ->(K7) Ras2_GTP_Cdc25
+R8: Ira2 + Ras2_GTP ->(K8) Ras2_GTP_Ira2
+R9: Ras2_GTP_Ira2 ->(K9) Ira2 + Ras2_GDP
+R10: CYR1 + Ras2_GTP ->(K10) Ras2_GTP_CYR1
+R11: ATP + Ras2_GTP_CYR1 ->(K11) Ras2_GTP_CYR1 + cAMP
+R12: Ira2 + Ras2_GTP_CYR1 ->(K12) CYR1 + Ira2 + Ras2_GDP
+R13: PKA + cAMP ->(K13) cAMP_PKA
+R14: cAMP + cAMP_PKA ->(K14) IIcAMP_PKA
+R15: IIcAMP_PKA + cAMP ->(K15) IIIcAMP_PKA
+R16: IIIcAMP_PKA + cAMP ->(K16) IVcAMP_PKA
+R17: IVcAMP_PKA ->(K17) IIIcAMP_PKA + cAMP
+R18: IIIcAMP_PKA ->(K18) IIcAMP_PKA + cAMP
+R19: IIcAMP_PKA ->(K19) cAMP + cAMP_PKA
+R20: cAMP_PKA ->(K20) PKA + cAMP
+R21: IVcAMP_PKA ->(K21) 2C + 2R_2cAMP
+R22: R_2cAMP ->(K22) R + 2cAMP
+R23: C + R ->(K23) R_C
+R24: 2R_C ->(K24*(R_C - 1)/(2*R_C)) PKA
+R25: C + Pde1 ->(K25) C + Pde1f
+R26: Pde1f + cAMP ->(K26) cAMP_Pde1f
+R27: cAMP_Pde1f ->(K27) Pde1f + cAMP
+R28: cAMP_Pde1f ->(K28) AMP + Pde1f
+R29: PPA2 + Pde1f ->(K29) PPA2 + Pde1
+R30: Pde2 + cAMP ->(K30) cAMP_Pde2
+R31: cAMP_Pde2 ->(K31) Pde2 + cAMP
+R32: cAMP_Pde2 ->(K32) AMP + Pde2
+R33: C + Cdc25 ->(K33) C + Cdc25f
+R34: Cdc25f + PPA2 ->(K34) Cdc25 + PPA2
+R35: C + Ira2 ->(K35) C + Ira2P
+R36: Ira2P + Ras2_GTP ->(K36) Ras2_GTP_Ira2P
+R37: Ras2_GTP_Ira2P ->(K37) Ira2P + Ras2_GDP
+R38: Ira2P ->(K38) Ira2

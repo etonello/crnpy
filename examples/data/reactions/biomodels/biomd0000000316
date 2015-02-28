@@ -1,0 +1,8 @@
+r1:  ->(piecewise(1, X >= r1_Ty, 0)) Y
+r1_rev: Y ->(0) 
+r2: Y ->(r2_a) 
+r2_rev:  ->(0) Y
+r3:  ->(piecewise(1, X >= r3_Ty, 0)*piecewise(1, Y >= r3_Tz, 0)) Z
+r3_rev: Z ->(0) 
+r4: Z ->(r4_a) 
+r4_rev:  ->(0) Z

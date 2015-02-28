@@ -1,0 +1,7 @@
+re3: LasR ->(degradation_rate_of_LasR) sa3_degraded
+re2: mRNA_LasR_ ->(k2) LasR
+re4: LasR + _3OC12HSL ->((LasR*_3OC12HSL*k3 - LasR_AHL*k4)/(LasR*_3OC12HSL)) LasR_AHL
+re5: LasR_AHL + pLuxR ->((-A_pLux*k6 + LasR_AHL*k5*pLuxR)/(LasR_AHL*pLuxR)) A_pLux
+re8: _3OC12HSL ->(Y3) sa6_degraded
+re1: Ptet_LasR ->((Ptet_LasR*k1 - Y1*mRNA_LasR_)/Ptet_LasR) mRNA_LasR_
+re14: A_pLux ->((A_pLux**n1*K8/(A_pLux**n1 + K9**n1) + K7)*(A_pLux**n2*K11/(A_pLux**n2 + K12**n2) - GFP + K10)/A_pLux) GFP

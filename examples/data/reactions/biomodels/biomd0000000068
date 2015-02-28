@@ -1,0 +1,6 @@
+Phosphohomoserine_synthesis: Homoserine ->(compartment*v1_V0/Homoserine) Phosphohomoserine
+Phosphohomoserine_synthesis_rev: Phosphohomoserine ->(0) Homoserine
+Cystathionine_gamma_synthase: Cysteine + Phosphohomoserine ->((Cystathionine_gamma_synthase*Cysteine**2*Phosphohomoserine*vCys_Ki2*vCys_kcat2 + Cystathionine_gamma_synthase*Cysteine*Phosphohomoserine*vCys_Ki2*vCys_KmCYS*vCys_kcat2)/(Cysteine*Phosphohomoserine*(Cysteine + vCys_KmCYS)*(Cysteine*vCys_KmPHSER*(Inorganic_phosphate + vCys_Ki2) + Phosphohomoserine*vCys_Ki2*(Cysteine + vCys_KmCYS)))) Cystathionine + Inorganic_phosphate
+Cystathionine_gamma_synthase_rev: Cystathionine + Inorganic_phosphate ->(0) Cysteine + Phosphohomoserine
+Threonine_Synthase: Phosphohomoserine ->((0.06259*Phosphohomoserine*S_adenosylmethionine**2.9*Threonine_synthase*vThr_Ki3 + 0.00059*32**2.9*Phosphohomoserine*Threonine_synthase*vThr_Ki3)/(Phosphohomoserine*(Inorganic_phosphate + vThr_Ki3)*(S_adenosylmethionine**2.9 + 32**2.9))) Inorganic_phosphate + Threonine
+Threonine_Synthase_rev: Inorganic_phosphate + Threonine ->(0) Phosphohomoserine

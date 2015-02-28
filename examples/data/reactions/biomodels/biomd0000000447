@@ -1,0 +1,36 @@
+reaction_1: PLG + scUPA ->(compartment_1*keff1) PLS + scUPA
+reaction_2: PLS + scUPA ->(compartment_1*keff2) PLS + tcUPA
+reaction_3: PLG + tcUPA ->(compartment_1*keff3) PLS + tcUPA
+reaction_4: LTGFb1 + PLS ->(compartment_1*k1) PLS + TGFb1
+reaction_5: LTGFb1 + TSP1 ->(compartment_1*k2) TGFb1
+reaction_6: LTGFb1 ->(compartment_1*kothers) TGFb1
+reaction_7: TGFb1 ->(compartment_1*kp1) TGFb1 + TSP1
+reaction_8: TGFb1 ->(compartment_1*kp2) PAI1 + TGFb1
+reaction_9: PLS + TSP1 ->(compartment_1*k3) TSP1_PLS
+reaction_9_rev: TSP1_PLS ->(compartment_1*k_3) PLS + TSP1
+reaction_10: TSP1_PLS ->(compartment_1*k4) PLS
+reaction_11: A2M + PLS ->(compartment_1*k5) A2M_PLS
+reaction_11_rev: A2M_PLS ->(compartment_1*k_5) A2M + PLS
+reaction_12: PAI1 + tcUPA ->(compartment_1*k6) PAI1_tcUPA
+reaction_12_rev: PAI1_tcUPA ->(compartment_1*k_6) PAI1 + tcUPA
+reaction_13: PAI1 + scUPA ->(compartment_1*k7) PAI1_scUPA
+reaction_13_rev: PAI1_scUPA ->(compartment_1*k_7) PAI1 + scUPA
+reaction_14:  ->(alpha1*compartment_1) scUPA
+reaction_15:  ->(alpha1*compartment_1) LTGFb1
+reaction_16:  ->(alpha1*compartment_1) A2M
+reaction_17:  ->(alpha2*compartment_1) PLG
+reaction_18: scUPA ->(compartment_1*u_edeg) 
+reaction_19: tcUPA ->(compartment_1*u_edeg) 
+reaction_20: PLS ->(compartment_1*u_edeg) 
+reaction_21: TSP1 ->(compartment_1*u_pdeg) 
+reaction_22: PAI1 ->(compartment_1*u_pdeg) 
+reaction_23: LTGFb1 ->(compartment_1*u_pdeg) 
+reaction_24: TGFb1 ->(compartment_1*u_pdeg) 
+reaction_25: PLG ->(compartment_1*u_pdeg) 
+reaction_26: A2M ->(compartment_1*u_pdeg) 
+reaction_28: A2M_PLS ->(compartment_1*u_pdeg) 
+reaction_29: PAI1_tcUPA ->(compartment_1*u_pdeg) 
+reaction_30: PAI1_scUPA ->(compartment_1*u_pdeg) 
+reaction_27: TSP1_PLS ->(compartment_1*u_pdeg) 
+reaction_31: TSP1_PLS ->(compartment_1*k8) 
+reaction_32: TGFb1 ->(compartment_1*k9) 

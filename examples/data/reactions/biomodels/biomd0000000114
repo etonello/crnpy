@@ -1,0 +1,5 @@
+Ca_flux_into_the_cell:  ->(cytoplasm*gamma) Ca_Cyt
+Ca_translocation_between_cytoplasm_and_ER: Ca_ER ->(cytoplasm*k) Ca_Cyt
+Ca_translocation_between_cytoplasm_and_ER_rev: Ca_Cyt ->(ER*k1) Ca_ER
+Ca_pumped_out_of_the_cell: Ca_Cyt ->(beta*extracellular) 
+InsP3_channel: Ca_ER ->(alpha*cytoplasm*fy) Ca_Cyt

@@ -1,0 +1,122 @@
+b_gsh_decomp: b_GSH ->(90*blood) b_Cysteine + b_Glutamate + b_Glycine
+b_gsh_decomp_rev: b_Cysteine + b_Glutamate + b_Glycine ->(0) b_GSH
+b_gsg_decomp: b_GSSG ->(67.5*blood) 2b_Cysteine + 2b_Glutamate + 2b_Glycine
+b_gsg_decomp_rev: 2b_Cysteine + 2b_Glutamate + 2b_Glycine ->(0) b_GSSG
+b_cys_cystine_conv: b_Cysteine ->(0.25*blood) 
+b_cys_cystine_conv_rev:  ->(0) b_Cysteine
+b_cys_loss: b_Cysteine ->(0.1*blood) 
+b_cys_loss_rev:  ->(0) b_Cysteine
+b_glu_loss: b_Glutamate ->(0.1*blood) 
+b_glu_loss_rev:  ->(0) b_Glutamate
+b_gly_loss: b_Glycine ->(0.1*blood) 
+b_gly_loss_rev:  ->(0) b_Glycine
+b_gsh_loss: b_GSH ->(0.7*blood) 
+b_gsh_loss_rev:  ->(0) b_GSH
+b_gsg_loss: b_GSSG ->(7.5*blood) 
+b_gsg_loss_rev:  ->(0) b_GSSG
+b_cys_import:  ->(V_oCys_b*blood) b_Cysteine
+b_cys_import_rev: b_Cysteine ->(0) 
+b_gly_import:  ->(V_oGly_b*blood) b_Glycine
+b_gly_import_rev: b_Glycine ->(0) 
+b_glu_import:  ->(V_oGlu_b*blood) b_Glutamate
+b_glu_import_rev: b_Glutamate ->(0) 
+V_c_gshHb: c_GSH ->(V_gshHb*cytosol/(K_gshHb + c_GSH)) b_GSH
+V_c_gshHb_rev: b_GSH ->(0) c_GSH
+V_c_gshLb: c_GSH ->(V_gshLb*c_GSH**h_gshLb*cytosol/(c_GSH*(K_gshLb**h_gshLb + c_GSH**h_gshLb))) b_GSH
+V_c_gshLb_rev: b_GSH ->(0) c_GSH
+V_c_gsgHb: c_GSSG ->(V_gsgHb*cytosol/(K_gsgHb + c_GSSG)) b_GSSG
+V_c_gsgHb_rev: b_GSSG ->(0) c_GSSG
+V_c_gsgLb: c_GSSG ->(V_gsgLb*cytosol/(K_gsgLb + c_GSSG)) b_GSSG
+V_c_gsgLb_rev: b_GSSG ->(0) c_GSSG
+V_b_CYS_c: b_Cysteine ->(V_bcysc*cytosol/(K_bcysc + b_Cysteine)) c_Cysteine
+V_b_CYS_c_rev: c_Cysteine ->(0) b_Cysteine
+V_b_GLU_c: b_Glutamate ->(V_bglutc*cytosol/(K_bglutc + b_Glutamate)) c_Glutamate
+V_b_GLU_c_rev: c_Glutamate ->((K_bglutc*c_Glutamate*cytosol*k_out_glu + b_Glutamate*c_Glutamate*cytosol*k_out_glu)/(c_Glutamate*(K_bglutc + b_Glutamate))) b_Glutamate
+V_b_GLY_c: b_Glycine ->(V_bglyc*cytosol/(K_bglyc + b_Glycine)) c_Glycine
+V_b_GLY_c_rev: c_Glycine ->((K_bglyc*c_Glycine*cytosol*k_out_gly + b_Glycine*c_Glycine*cytosol*k_out_gly)/(c_Glycine*(K_bglyc + b_Glycine))) b_Glycine
+V_b_SER_c: b_Ser ->(V_bserc*cytosol/(K_bserc + b_Ser)) c_Serine
+V_b_SER_c_rev: c_Serine ->((K_bserc*c_Serine*cytosol*k_out_ser + b_Ser*c_Serine*cytosol*k_out_ser)/(c_Serine*(K_bserc + b_Ser))) b_Ser
+V_b_MET_c: b_Met ->(V_bmetc*cytosol/(K_bmetc + b_Met)) c_Methionine
+V_b_MET_c_rev: c_Methionine ->((K_bmetc*c_Methionine*cytosol*k_out_met + b_Met*c_Methionine*cytosol*k_out_met)/(c_Methionine*(K_bmetc + b_Met))) b_Met
+VmFTD: m_10_formyl_THF ->(Vm_mFTD*mito/(K_10f_FTD + m_10_formyl_THF)) m_THF
+VmFTD_rev: m_THF ->(0) m_10_formyl_THF
+VmSHMT: m_Serine + m_THF ->((K_2cf_SHMT*K_gly_SHMT*Vf_mSHMT*m_Serine*m_THF*mito + K_2cf_SHMT*Vf_mSHMT*m_Glycine*m_Serine*m_THF*mito + K_gly_SHMT*Vf_mSHMT*m_5_10_methylene_THF*m_Serine*m_THF*mito + Vf_mSHMT*m_5_10_methylene_THF*m_Glycine*m_Serine*m_THF*mito)/(m_Serine*m_THF*(K_2cf_SHMT + m_5_10_methylene_THF)*(K_gly_SHMT + m_Glycine)*(K_ser_SHMT + m_Serine)*(K_thf_SHMT + m_THF))) m_5_10_methylene_THF + m_Glycine
+VmSHMT_rev: m_5_10_methylene_THF + m_Glycine ->((K_ser_SHMT*K_thf_SHMT*Vr_mSHMT*m_5_10_methylene_THF*m_Glycine*mito + K_ser_SHMT*Vr_mSHMT*m_5_10_methylene_THF*m_Glycine*m_THF*mito + K_thf_SHMT*Vr_mSHMT*m_5_10_methylene_THF*m_Glycine*m_Serine*mito + Vr_mSHMT*m_5_10_methylene_THF*m_Glycine*m_Serine*m_THF*mito)/(m_5_10_methylene_THF*m_Glycine*(K_2cf_SHMT + m_5_10_methylene_THF)*(K_gly_SHMT + m_Glycine)*(K_ser_SHMT + m_Serine)*(K_thf_SHMT + m_THF))) m_Serine + m_THF
+VmFTS: m_Formate + m_THF ->((K_10f_mFTS*Vf_mFTS*m_Formate*m_THF*mito + Vf_mFTS*m_10_formyl_THF*m_Formate*m_THF*mito)/(m_Formate*m_THF*(K_10f_mFTS + m_10_formyl_THF)*(K_coo_mFTS + m_Formate)*(K_thf_mFTS + m_THF))) m_10_formyl_THF
+VmFTS_rev: m_10_formyl_THF ->((K_coo_mFTS*K_thf_mFTS*Vr_mFTS*m_10_formyl_THF*mito + K_coo_mFTS*Vr_mFTS*m_10_formyl_THF*m_THF*mito + K_thf_mFTS*Vr_mFTS*m_10_formyl_THF*m_Formate*mito + Vr_mFTS*m_10_formyl_THF*m_Formate*m_THF*mito)/(m_10_formyl_THF*(K_10f_mFTS + m_10_formyl_THF)*(K_coo_mFTS + m_Formate)*(K_thf_mFTS + m_THF))) m_Formate + m_THF
+VmNE: Formaldehyde + m_THF ->(k1_mNE*mito) m_5_10_methylene_THF
+VmNE_rev: m_5_10_methylene_THF ->(k2_mNE*mito) Formaldehyde + m_THF
+V_GDC: m_Glycine + m_THF ->(Vm_GDC*mito/((K_gly_GDC + m_Glycine)*(K_thf_GDC + m_THF))) CO2 + m_5_10_methylene_THF
+V_GDC_rev: CO2 + m_5_10_methylene_THF ->(0) m_Glycine + m_THF
+V_SDH: Sarcosine + m_THF ->(Vm_SDH*mito/((K_src_SDH + Sarcosine)*(K_thf_SDH + m_THF))) m_5_10_methylene_THF + m_Glycine
+V_SDH_rev: m_5_10_methylene_THF + m_Glycine ->(0) Sarcosine + m_THF
+V_DMGD: Dimethylglycine + m_THF ->(Vm_DMGD*mito/((Dimethylglycine + K_dmg_DMGD)*(K_thf_DMGD + m_THF))) Sarcosine + m_5_10_methylene_THF
+V_DMGD_rev: Sarcosine + m_5_10_methylene_THF ->(0) Dimethylglycine + m_THF
+VmMTD: m_5_10_methylene_THF ->((K_1cf_MTD*Vf_mMTD*m_5_10_methylene_THF*mito + Vf_mMTD*m_5_10_methenyl_THF*m_5_10_methylene_THF*mito)/(m_5_10_methylene_THF*(K_1cf_MTD + m_5_10_methenyl_THF)*(K_2cf_MTD + m_5_10_methylene_THF))) m_5_10_methenyl_THF
+VmMTD_rev: m_5_10_methenyl_THF ->((K_2cf_MTD*Vr_MTD*m_5_10_methenyl_THF*mito + Vr_MTD*m_5_10_methenyl_THF*m_5_10_methylene_THF*mito)/(m_5_10_methenyl_THF*(K_1cf_MTD + m_5_10_methenyl_THF)*(K_2cf_MTD + m_5_10_methylene_THF))) m_5_10_methylene_THF
+VmMTCH: m_5_10_methenyl_THF ->((K_10f_MTCH*Vf_mMTCH*m_5_10_methenyl_THF*mito + Vf_mMTCH*m_10_formyl_THF*m_5_10_methenyl_THF*mito)/(m_5_10_methenyl_THF*(K_10f_MTCH + m_10_formyl_THF)*(K_1cf_MTCH + m_5_10_methenyl_THF))) m_10_formyl_THF
+VmMTCH_rev: m_10_formyl_THF ->((K_1cf_MTCH*Vr_MTCH*m_10_formyl_THF*mito + Vr_MTCH*m_10_formyl_THF*m_5_10_methenyl_THF*mito)/(m_10_formyl_THF*(K_10f_MTCH + m_10_formyl_THF)*(K_1cf_MTCH + m_5_10_methenyl_THF))) m_5_10_methenyl_THF
+VmSERc: 3m_Serine ->((K_cser*V_mser*cytosol*m_Serine*mito + V_mser*c_Serine*cytosol*m_Serine*mito)/(3*m_Serine**3*(K_cser + c_Serine)*(K_mser + m_Serine))) c_Serine
+VmSERc_rev: c_Serine ->((3*K_mser*V_cser*c_Serine*cytosol + 3*V_cser*c_Serine*cytosol*m_Serine)/(3*c_Serine*(K_cser + c_Serine)*(K_mser + m_Serine))) 3m_Serine
+VmHCOOHc: 3m_Formate ->(k_in_coo*mito/(3*m_Formate**2)) c_formate
+VmHCOOHc_rev: c_formate ->(cytosol*k_out_coo) 3m_Formate
+VmGLYc: 3m_Glycine ->((K_cgly*V_mgly*m_Glycine*mito + V_mgly*c_Glycine*m_Glycine*mito)/(3*m_Glycine**3*(K_cgly + c_Glycine)*(K_mgly + m_Glycine))) c_Glycine
+VmGLYc_rev: c_Glycine ->((3*K_mgly*V_cgly*c_Glycine*cytosol + 3*V_cgly*c_Glycine*cytosol*m_Glycine)/(3*c_Glycine*(K_cgly + c_Glycine)*(K_mgly + m_Glycine))) 3m_Glycine
+V_MS: Homocysteine + c_5_methyl_THF ->((Homocysteine*Ki_MS*Vm_MS*c_5_methyl_THF*cytosol + Homocysteine*Vm_MS*c_5_methyl_THF*cytosol*ssH2O2)/(Homocysteine*c_5_methyl_THF*(H2O2 + Ki_MS)*(Homocysteine + K_hcy_MS)*(K_5mf_MS + c_5_methyl_THF))) c_Methionine + c_THF
+V_MS_rev: c_Methionine + c_THF ->(0) Homocysteine + c_5_methyl_THF
+V_DHFR: NADPH + c_DHF ->(Vm_DHFR*cytosol/((K_NADPH_DHFR + NADPH)*(K_dhf_DHFR + c_DHF))) c_THF
+V_DHFR_rev: c_THF ->(0) NADPH + c_DHF
+VcFTD: c_10_formyl_THF ->(Vm_cFTD*cytosol/(K_10f_FTD + c_10_formyl_THF)) c_THF
+VcFTD_rev: c_THF ->(0) c_10_formyl_THF
+V_PGT: GAR + c_10_formyl_THF ->(Vm_PGT*cytosol/((GAR + K_GAR_PGT)*(K_10f_PGT + c_10_formyl_THF))) AICAR + c_THF
+V_PGT_rev: AICAR + c_THF ->(0) GAR + c_10_formyl_THF
+VcFTS: c_THF + c_formate ->(Vm_cFTS*cytosol/((K_coo_cFTS + c_formate)*(K_thf_cFTS + c_THF))) c_10_formyl_THF
+VcFTS_rev: c_10_formyl_THF ->(0) c_THF + c_formate
+VcSHMT: c_Serine + c_THF ->((K_2cf_SHMT*K_gly_SHMT*Vf_cSHMT*c_Serine*c_THF*cytosol + K_2cf_SHMT*Vf_cSHMT*c_Glycine*c_Serine*c_THF*cytosol + K_gly_SHMT*Vf_cSHMT*c_5_10_methylene_THF*c_Serine*c_THF*cytosol + Vf_cSHMT*c_5_10_methylene_THF*c_Glycine*c_Serine*c_THF*cytosol)/(c_Serine*c_THF*(K_2cf_SHMT + c_5_10_methylene_THF)*(K_gly_SHMT + c_Glycine)*(K_ser_SHMT + c_Serine)*(K_thf_SHMT + c_THF))) c_5_10_methylene_THF + c_Glycine
+VcSHMT_rev: c_5_10_methylene_THF + c_Glycine ->((K_ser_SHMT*K_thf_SHMT*Vr_cSHMT*c_5_10_methylene_THF*c_Glycine*cytosol + K_ser_SHMT*Vr_cSHMT*c_5_10_methylene_THF*c_Glycine*c_THF*cytosol + K_thf_SHMT*Vr_cSHMT*c_5_10_methylene_THF*c_Glycine*c_Serine*cytosol + Vr_cSHMT*c_5_10_methylene_THF*c_Glycine*c_Serine*c_THF*cytosol)/(c_5_10_methylene_THF*c_Glycine*(K_2cf_SHMT + c_5_10_methylene_THF)*(K_gly_SHMT + c_Glycine)*(K_ser_SHMT + c_Serine)*(K_thf_SHMT + c_THF))) c_Serine + c_THF
+VcNE: Formaldehyde + c_THF ->(cytosol*k1_cNE) c_5_10_methylene_THF
+VcNE_rev: c_5_10_methylene_THF ->(cytosol*k2_cNE) Formaldehyde + c_THF
+V_TS: c_5_10_methylene_THF + dUMP ->(Vm_TS*cytosol/((K_2cf_TS + c_5_10_methylene_THF)*(K_DUMP_TS + dUMP))) c_DHF
+V_TS_rev: c_DHF ->(0) c_5_10_methylene_THF + dUMP
+V_MTHFR: NADPH + c_5_10_methylene_THF ->(72*Vm_MTHFR*cytosol/((K_2cf_MTHFR + c_5_10_methylene_THF)*(K_NADPH_MTHFR + NADPH)*(-S_adenosylhomocysteine + S_adenosylmethionine + 10))) c_5_methyl_THF
+V_MTHFR_rev: c_5_methyl_THF ->(0) NADPH + c_5_10_methylene_THF
+VcMTD: c_5_10_methylene_THF ->((K_1cf_MTD*Vf_cMTD*c_5_10_methylene_THF*cytosol + Vf_cMTD*c_5_10_methenyl_THF*c_5_10_methylene_THF*cytosol)/(c_5_10_methylene_THF*(K_1cf_MTD + c_5_10_methenyl_THF)*(K_2cf_MTD + c_5_10_methylene_THF))) NADPH + c_5_10_methenyl_THF
+VcMTD_rev: NADPH + c_5_10_methenyl_THF ->((K_2cf_MTD*Vr_cMTD*c_5_10_methenyl_THF*cytosol + Vr_cMTD*c_5_10_methenyl_THF*c_5_10_methylene_THF*cytosol)/(NADPH*c_5_10_methenyl_THF*(K_1cf_MTD + c_5_10_methenyl_THF)*(K_2cf_MTD + c_5_10_methylene_THF))) c_5_10_methylene_THF
+VcMTCH: c_5_10_methenyl_THF ->((K_10f_MTCH*Vf_cMTCH*c_5_10_methenyl_THF*cytosol + Vf_cMTCH*c_10_formyl_THF*c_5_10_methenyl_THF*cytosol)/(c_5_10_methenyl_THF*(K_10f_MTCH + c_10_formyl_THF)*(K_1cf_MTCH + c_5_10_methenyl_THF))) c_10_formyl_THF
+VcMTCH_rev: c_10_formyl_THF ->((K_1cf_MTCH*Vr_MTCH*c_10_formyl_THF*cytosol + Vr_MTCH*c_10_formyl_THF*c_5_10_methenyl_THF*cytosol)/(c_10_formyl_THF*(K_10f_MTCH + c_10_formyl_THF)*(K_1cf_MTCH + c_5_10_methenyl_THF))) c_5_10_methenyl_THF
+V_ART: AICAR + c_10_formyl_THF ->(Vm_ART*cytosol/((AICAR + K_aic_ART)*(K_10f_ART + c_10_formyl_THF))) c_THF
+V_ART_rev: c_THF ->(0) AICAR + c_10_formyl_THF
+V_BHMT: Betaine + Homocysteine ->((1.24043236463617*Betaine*Homocysteine*Ki_BHMT*Vm_BHMT*cytosol*exp(-0.0021*S_adenosylhomocysteine)*exp(-0.0021*S_adenosylmethionine) + 1.24043236463617*Betaine*Homocysteine*Vm_BHMT*cytosol*ssH2O2*exp(-0.0021*S_adenosylhomocysteine)*exp(-0.0021*S_adenosylmethionine))/(Betaine*Homocysteine*(Betaine + K_bet_BHMT)*(H2O2 + Ki_BHMT)*(Homocysteine + K_hcy_BHMT))) Dimethylglycine + c_Methionine
+V_BHMT_rev: Dimethylglycine + c_Methionine ->(0) Betaine + Homocysteine
+V_MATI: c_Methionine ->((0.23*Ki_MAT1*Vm_MAT1*c_Methionine*cytosol*exp(0.0026*S_adenosylmethionine) + 0.8*Ki_MAT1*Vm_MAT1*c_Methionine*cytosol + 15.3433*Vm_MAT1*c_Methionine*cytosol*exp(0.0026*S_adenosylmethionine) + 53.368*Vm_MAT1*c_Methionine*cytosol)*exp(-0.0026*S_adenosylmethionine)/(c_Methionine*(Ki_MAT1 + c_GSSG)*(Km_MAT1 + c_Methionine))) S_adenosylmethionine
+V_MATI_rev: S_adenosylmethionine ->(0) c_Methionine
+V_MATIII: c_Methionine ->((Ka_MAT3**2*Ki_MAT3*Vm_MAT3*c_Methionine**1.21*cytosol + 66.71*Ka_MAT3**2*Vm_MAT3*c_Methionine**1.21*cytosol + 8.2*Ki_MAT3*S_adenosylmethionine**2*Vm_MAT3*c_Methionine**1.21*cytosol + 547.022*S_adenosylmethionine**2*Vm_MAT3*c_Methionine**1.21*cytosol)/(c_Methionine*(Ka_MAT3**2 + S_adenosylmethionine**2)*(Ki_MAT3 + c_GSSG)*(Km_MAT3 + c_Methionine**1.21))) S_adenosylmethionine
+V_MATIII_rev: S_adenosylmethionine ->(0) c_Methionine
+V_GNMT: S_adenosylmethionine + c_Glycine ->(4.8*Ki_GNMT*Vm_GNMT*cytosol/((K_gly_GNMT + c_Glycine)*(K_sam_GNMT + S_adenosylmethionine)*(Ki_GNMT + S_adenosylhomocysteine)*(c_5_methyl_THF + 0.35))) S_adenosylhomocysteine + Sarcosine
+V_GNMT_rev: S_adenosylhomocysteine + Sarcosine ->(0) S_adenosylmethionine + c_Glycine
+V_DNMT: S_adenosylmethionine ->(Ki_DNMT*Vm_DNMT*cytosol/(Ki_DNMT*S_adenosylmethionine + Km_DNMT*(Ki_DNMT + S_adenosylhomocysteine))) S_adenosylhomocysteine
+V_DNMT_rev: S_adenosylhomocysteine ->(0) S_adenosylmethionine
+V_SAHH: S_adenosylhomocysteine ->((Homocysteine*S_adenosylhomocysteine*Vf_SAHH*cytosol + K_hcy_SAHH*S_adenosylhomocysteine*Vf_SAHH*cytosol)/(S_adenosylhomocysteine*(Homocysteine + K_hcy_SAHH)*(K_sah_SAHH + S_adenosylhomocysteine))) Homocysteine
+V_SAHH_rev: Homocysteine ->((Homocysteine*K_sah_SAHH*Vr_SAHH*cytosol + Homocysteine*S_adenosylhomocysteine*Vr_SAHH*cytosol)/(Homocysteine*(Homocysteine + K_hcy_SAHH)*(K_sah_SAHH + S_adenosylhomocysteine))) S_adenosylhomocysteine
+gluconeogenesis_ser: c_Serine ->(1.2*cytosol) 
+gluconeogenesis_ser_rev:  ->(0) c_Serine
+V_CBS: Homocysteine + c_Serine ->((1.08551306045248*H2O2*Homocysteine*S_adenosylhomocysteine**2*Vm_CBS*c_Serine*cytosol + 2.17102612090496*H2O2*Homocysteine*S_adenosylhomocysteine*S_adenosylmethionine*Vm_CBS*c_Serine*cytosol + 1.08551306045248*H2O2*Homocysteine*S_adenosylmethionine**2*Vm_CBS*c_Serine*cytosol + 1.08551306045248*Homocysteine*Ka_CBS*S_adenosylhomocysteine**2*Vm_CBS*c_Serine*cytosol + 2.17102612090496*Homocysteine*Ka_CBS*S_adenosylhomocysteine*S_adenosylmethionine*Vm_CBS*c_Serine*cytosol + 1.08551306045248*Homocysteine*Ka_CBS*S_adenosylmethionine**2*Vm_CBS*c_Serine*cytosol)/(Homocysteine*c_Serine*(Homocysteine + K_hcy_CBS)*(K_ser_CBS + c_Serine)*(Ka_CBS + ssH2O2)*((S_adenosylhomocysteine + S_adenosylmethionine)**2 + 900))) Cystathione
+V_CBS_rev: Cystathione ->(0) Homocysteine + c_Serine
+V_CTGL: Cystathione ->(Vm_CTGL*cytosol/(Cystathione + K_cyt_CTGL)) c_Cysteine
+V_CTGL_rev: c_Cysteine ->(0) Cystathione
+V_GCS: c_Cysteine + c_Glutamate ->((H2O2*Ke_GCS*Ki_GCS*Kp_GCS*Vm_GCS*c_Cysteine*c_Glutamate*cytosol + Ka_GCS*Ke_GCS*Ki_GCS*Kp_GCS*Vm_GCS*c_Cysteine*c_Glutamate*cytosol)/(Ke_GCS*c_Cysteine*c_Glutamate*(Ka_GCS + ssH2O2)*(Glutamyl_Cysteine*Ki_GCS + Ki_GCS*Kp_GCS*(K_cys_GCS*K_glu_GCS + K_cys_GCS*c_Glutamate) + Kp_GCS*(c_Cysteine*(K_glu_GCS*(Ki_GCS + c_GSH) + Ki_GCS*c_Glutamate) + c_GSH)))) Glutamyl_Cysteine
+V_GCS_rev: Glutamyl_Cysteine ->((Glutamyl_Cysteine*H2O2*Ki_GCS*Kp_GCS*Vm_GCS*cytosol + Glutamyl_Cysteine*Ka_GCS*Ki_GCS*Kp_GCS*Vm_GCS*cytosol)/(Glutamyl_Cysteine*Ke_GCS*(Ka_GCS + ssH2O2)*(Glutamyl_Cysteine*Ki_GCS + Ki_GCS*Kp_GCS*(K_cys_GCS*K_glu_GCS + K_cys_GCS*c_Glutamate) + Kp_GCS*(c_Cysteine*(K_glu_GCS*(Ki_GCS + c_GSH) + Ki_GCS*c_Glutamate) + c_GSH)))) c_Cysteine + c_Glutamate
+cys_usage: c_Cysteine ->(0.00175*c_Cysteine*cytosol) 
+cys_usage_rev:  ->(0) c_Cysteine
+c_glu_usage: c_Glutamate ->(0.07*cytosol) 
+c_glu_usage_rev:  ->(0) c_Glutamate
+V_GS: Glutamyl_Cysteine + c_Glycine ->(Kp_GS*Vm_GS*cytosol/(Kp_GS*(Glutamyl_Cysteine*K_gly_GS + K_glc_GS*K_gly_GS + c_Glycine*(Glutamyl_Cysteine + K_glc_GS)) + c_GSH)) c_GSH
+V_GS_rev: c_GSH ->(Kp_GS*Vm_GS*cytosol/(Ke_GS*(Kp_GS*(Glutamyl_Cysteine*K_gly_GS + K_glc_GS*K_gly_GS + c_Glycine*(Glutamyl_Cysteine + K_glc_GS)) + c_GSH))) Glutamyl_Cysteine + c_Glycine
+V_GPX: H2O2 + 2c_GSH ->(Vm_GPX*cytosol/((H2O2 + K_H2O2_GPX)*(K_gsh_GPX + c_GSH)**2)) c_GSSG
+V_GPX_rev: c_GSSG ->(0) H2O2 + 2c_GSH
+V_GR: NADPH + c_GSSG ->(Vm_GR*cytosol/((K_NADPH_GR + NADPH)*(K_gsg_GR + c_GSSG))) 2c_GSH
+V_GR_rev: 2c_GSH ->(0) NADPH + c_GSSG
+c_gsh_degr: c_GSH ->(0.002*cytosol) 
+c_gsh_degr_rev:  ->(0) c_GSH
+c_gsg_degr: c_GSSG ->(0.1*cytosol) 
+c_gsg_degr_rev:  ->(0) c_GSSG

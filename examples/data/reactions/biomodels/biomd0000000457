@@ -1,0 +1,200 @@
+reaction1: eIF2B + eIF2_GDP ->(compartment_1*k1) eIF2_GDP_eIF2B
+reaction1_rev: eIF2_GDP_eIF2B ->(compartment_1*k2) eIF2B + eIF2_GDP
+reaction2: eIF2_GDP_eIF2B ->(compartment_1*k1) eIF2B + eIF2_GTP
+reaction2_rev: eIF2B + eIF2_GTP ->(compartment_1*k2) eIF2_GDP_eIF2B
+reaction3: Met_tRNA + eIF2_GTP ->(compartment_1*k1) eIF2_GTP_Met_tRNA
+reaction3_rev: eIF2_GTP_Met_tRNA ->(compartment_1*k2) Met_tRNA + eIF2_GTP
+reaction4: eIF3 + eIF5 ->(compartment_1*k1) eIF3_eIF5
+reaction4_rev: eIF3_eIF5 ->(compartment_1*k2) eIF3 + eIF5
+reaction5: eIF2_GTP_Met_tRNA + eIF3_eIF5 ->(compartment_1*k1) eIF3_eIF5_eIF2_GTP_Met_tRNA
+reaction5_rev: eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k2) eIF2_GTP_Met_tRNA + eIF3_eIF5
+reaction6: eIF1 + eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k1) eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA
+reaction6_rev: eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k2) eIF1 + eIF3_eIF5_eIF2_GTP_Met_tRNA
+reaction7: _40S + eIF1A ->(compartment_1*k1) _40S_eIF1A
+reaction8: _40S_eIF1A + eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k1) _43S
+reaction9: eIF4E + eIF4G ->(compartment_1*k1) eIF4E_eIF4G
+reaction9_rev: eIF4E_eIF4G ->(compartment_1*k2) eIF4E + eIF4G
+reaction10: Pab1 + mRNA_cap ->(compartment_1*k1) mRNA_Pab1
+reaction10_rev: mRNA_Pab1 ->(compartment_1*k2) Pab1 + mRNA_cap
+reaction11: eIF4E_eIF4G + mRNA_Pab1 ->(compartment_1*k1) eIF4E_eIF4G_mRNA_Pab1
+reaction11_rev: eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k2) eIF4E_eIF4G + mRNA_Pab1
+reaction12: eIF4A + eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k1) eIF4A_eIF4E_eIF4G_mRNA_Pab1
+reaction12_rev: eIF4A_eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k2) eIF4A + eIF4E_eIF4G_mRNA_Pab1
+reaction13: eIF4A_eIF4E_eIF4G_mRNA_Pab1 + eIF4B ->(compartment_1*k1) eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B
+reaction13_rev: eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B ->(compartment_1*k2) eIF4A_eIF4E_eIF4G_mRNA_Pab1 + eIF4B
+reaction14: _43S + eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B ->(compartment_1*k1) _48S
+reaction15: Ded1 + _48S ->(compartment_1*k1) _48S_Ded1
+reaction15_rev: _48S_Ded1 ->(compartment_1*k2) Ded1 + _48S
+reaction16: eIF5B_GDP ->(compartment_1*k1) eIF5B_GTP
+reaction16_rev: eIF5B_GTP ->(compartment_1*k2) eIF5B_GDP
+reaction17: _48S_Ded1 + eIF5B_GTP ->(compartment_1*k1) _48S_Ded1_eIF5B_GTP
+reaction17_rev: _48S_Ded1_eIF5B_GTP ->(compartment_1*k2) _48S_Ded1 + eIF5B_GTP
+reaction18: _48S_Ded1_eIF5B_GTP + _60S ->(compartment_1*k*(-_80S_1 - _80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_2 - _80S_3 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_1 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_2 - _80S_aa_tRNA_3 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_1 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_2 - _80S_aa_tRNA_eEF1A_GTP_3 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_1 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_2 - _80S_aa_tRNA_eEF2_GTP_3 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_2 - _80S_tRNA_3 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_2 - _80S_tRNA_eEF3_GTP_3 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) Ded1 + Pab1 + _80S_1 + eIF1 + eIF1A + eIF2_GDP + eIF3 + eIF4A + eIF4B + eIF4E + eIF4G + eIF5 + eIF5B_GDP + mRNA_cap
+reaction19: eEF1A_GDP + eEF1B ->(compartment_1*k1) eEF1A_GDP_eEF1B
+reaction19_rev: eEF1A_GDP_eEF1B ->(compartment_1*k2) eEF1A_GDP + eEF1B
+reaction20: eEF1A_GDP_eEF1B ->(compartment_1*k1) eEF1A_GTP + eEF1B
+reaction20_rev: eEF1A_GTP + eEF1B ->(compartment_1*k2) eEF1A_GDP_eEF1B
+reaction21: aa_tRNA + eEF1A_GTP ->(compartment_1*k1) aa_tRNA_eEF1A_GTP
+reaction21_rev: aa_tRNA_eEF1A_GTP ->(compartment_1*k2) aa_tRNA + eEF1A_GTP
+reaction24: eEF2_GDP ->(compartment_1*k1) eEF2_GTP
+reaction24_rev: eEF2_GTP ->(compartment_1*k2) eEF2_GDP
+reaction27: eEF3_GDP ->(compartment_1*k1) eEF3_GTP
+reaction27_rev: eEF3_GTP ->(compartment_1*k2) eEF3_GDP
+reaction22_1: _80S_1 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_1
+reaction22_1_rev: _80S_aa_tRNA_eEF1A_GTP_1 ->(compartment_1*k22b) _80S_1 + aa_tRNA_eEF1A_GTP
+reaction23_1: _80S_aa_tRNA_eEF1A_GTP_1 ->(compartment_1*k23f) _80S_aa_tRNA_1 + eEF1A_GDP
+reaction25_1: _80S_aa_tRNA_1 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_1
+reaction25_1_rev: _80S_aa_tRNA_eEF2_GTP_1 ->(compartment_1*k25b) _80S_aa_tRNA_1 + eEF2_GTP
+reaction26_1: _80S_aa_tRNA_eEF2_GTP_1 ->(compartment_1*k26f*(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_2 - _80S_3 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_2 - _80S_aa_tRNA_3 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_2 - _80S_aa_tRNA_eEF1A_GTP_3 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_2 - _80S_aa_tRNA_eEF2_GTP_3 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_2 - _80S_tRNA_3 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_2 - _80S_tRNA_eEF3_GTP_3 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)/(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_2 - _80S_3 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_2 - _80S_aa_tRNA_3 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_2 - _80S_aa_tRNA_eEF1A_GTP_3 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_2 - _80S_aa_tRNA_eEF2_GTP_3 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_2 - _80S_tRNA_3 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_2 - _80S_tRNA_eEF3_GTP_3 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) _80S_tRNA_2 + eEF2_GDP
+reaction22_2: _80S_2 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_2
+reaction22_2_rev: _80S_aa_tRNA_eEF1A_GTP_2 ->(compartment_1*k22b) _80S_2 + aa_tRNA_eEF1A_GTP
+reaction23_2: _80S_aa_tRNA_eEF1A_GTP_2 ->(compartment_1*k23f) _80S_aa_tRNA_2 + eEF1A_GDP
+reaction25_2: _80S_aa_tRNA_2 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_2
+reaction25_2_rev: _80S_aa_tRNA_eEF2_GTP_2 ->(compartment_1*k25b) _80S_aa_tRNA_2 + eEF2_GTP
+reaction26_2: _80S_aa_tRNA_eEF2_GTP_2 ->(compartment_1*k26f*(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_3 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_3 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_3 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_3 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_3 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_3 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)/(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_3 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_3 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_3 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_3 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_3 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_3 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) _80S_tRNA_3 + eEF2_GDP
+reaction28_2: _80S_tRNA_2 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_2
+reaction29_2: _80S_tRNA_eEF3_GTP_2 ->(compartment_1*k29f) _80S_2 + eEF3_GDP + tRNA
+reaction22_3: _80S_3 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_3
+reaction22_3_rev: _80S_aa_tRNA_eEF1A_GTP_3 ->(compartment_1*k22b) _80S_3 + aa_tRNA_eEF1A_GTP
+reaction23_3: _80S_aa_tRNA_eEF1A_GTP_3 ->(compartment_1*k23f) _80S_aa_tRNA_3 + eEF1A_GDP
+reaction25_3: _80S_aa_tRNA_3 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_3
+reaction25_3_rev: _80S_aa_tRNA_eEF2_GTP_3 ->(compartment_1*k25b) _80S_aa_tRNA_3 + eEF2_GTP
+reaction26_3: _80S_aa_tRNA_eEF2_GTP_3 ->(compartment_1*k26f*(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_18 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_18 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_18 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_18 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_18 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_18 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)/(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_4 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_4 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_4 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_4 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_4 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_4 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) _80S_tRNA_4 + eEF2_GDP
+reaction28_3: _80S_tRNA_3 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_3
+reaction29_3: _80S_tRNA_eEF3_GTP_3 ->(compartment_1*k29f) _80S_3 + eEF3_GDP + tRNA
+reaction22_4: _80S_4 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_4
+reaction22_4_rev: _80S_aa_tRNA_eEF1A_GTP_4 ->(compartment_1*k22b) _80S_4 + aa_tRNA_eEF1A_GTP
+reaction23_4: _80S_aa_tRNA_eEF1A_GTP_4 ->(compartment_1*k23f) _80S_aa_tRNA_4 + eEF1A_GDP
+reaction25_4: _80S_aa_tRNA_4 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_4
+reaction25_4_rev: _80S_aa_tRNA_eEF2_GTP_4 ->(compartment_1*k25b) _80S_aa_tRNA_4 + eEF2_GTP
+reaction26_4: _80S_aa_tRNA_eEF2_GTP_4 ->(compartment_1*k26f*(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_18 - _80S_19 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_18 - _80S_aa_tRNA_19 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_18 - _80S_aa_tRNA_eEF1A_GTP_19 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_18 - _80S_aa_tRNA_eEF2_GTP_19 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_18 - _80S_tRNA_19 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_18 - _80S_tRNA_eEF3_GTP_19 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)/(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_18 - _80S_5 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_18 - _80S_aa_tRNA_5 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_18 - _80S_aa_tRNA_eEF1A_GTP_5 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_18 - _80S_aa_tRNA_eEF2_GTP_5 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_18 - _80S_tRNA_5 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_18 - _80S_tRNA_eEF3_GTP_5 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) _80S_tRNA_5 + eEF2_GDP
+reaction28_4: _80S_tRNA_4 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_4
+reaction29_4: _80S_tRNA_eEF3_GTP_4 ->(compartment_1*k29f) _80S_4 + eEF3_GDP + tRNA
+reaction22_5: _80S_5 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_5
+reaction22_5_rev: _80S_aa_tRNA_eEF1A_GTP_5 ->(compartment_1*k22b) _80S_5 + aa_tRNA_eEF1A_GTP
+reaction23_5: _80S_aa_tRNA_eEF1A_GTP_5 ->(compartment_1*k23f) _80S_aa_tRNA_5 + eEF1A_GDP
+reaction25_5: _80S_aa_tRNA_5 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_5
+reaction25_5_rev: _80S_aa_tRNA_eEF2_GTP_5 ->(compartment_1*k25b) _80S_aa_tRNA_5 + eEF2_GTP
+reaction26_5: _80S_aa_tRNA_eEF2_GTP_5 ->(compartment_1*k26f*(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_18 - _80S_19 - _80S_20 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_18 - _80S_aa_tRNA_19 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_18 - _80S_aa_tRNA_eEF1A_GTP_19 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_18 - _80S_aa_tRNA_eEF2_GTP_19 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_18 - _80S_tRNA_19 - _80S_tRNA_20 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_18 - _80S_tRNA_eEF3_GTP_19 - _80S_tRNA_eEF3_GTP_20 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)/(-_80S_10 - _80S_11 - _80S_12 - _80S_13 - _80S_14 - _80S_15 - _80S_16 - _80S_17 - _80S_18 - _80S_19 - _80S_6 - _80S_7 - _80S_8 - _80S_9 - _80S_aa_tRNA_10 - _80S_aa_tRNA_11 - _80S_aa_tRNA_12 - _80S_aa_tRNA_13 - _80S_aa_tRNA_14 - _80S_aa_tRNA_15 - _80S_aa_tRNA_16 - _80S_aa_tRNA_17 - _80S_aa_tRNA_18 - _80S_aa_tRNA_19 - _80S_aa_tRNA_6 - _80S_aa_tRNA_7 - _80S_aa_tRNA_8 - _80S_aa_tRNA_9 - _80S_aa_tRNA_eEF1A_GTP_10 - _80S_aa_tRNA_eEF1A_GTP_11 - _80S_aa_tRNA_eEF1A_GTP_12 - _80S_aa_tRNA_eEF1A_GTP_13 - _80S_aa_tRNA_eEF1A_GTP_14 - _80S_aa_tRNA_eEF1A_GTP_15 - _80S_aa_tRNA_eEF1A_GTP_16 - _80S_aa_tRNA_eEF1A_GTP_17 - _80S_aa_tRNA_eEF1A_GTP_18 - _80S_aa_tRNA_eEF1A_GTP_19 - _80S_aa_tRNA_eEF1A_GTP_6 - _80S_aa_tRNA_eEF1A_GTP_7 - _80S_aa_tRNA_eEF1A_GTP_8 - _80S_aa_tRNA_eEF1A_GTP_9 - _80S_aa_tRNA_eEF2_GTP_10 - _80S_aa_tRNA_eEF2_GTP_11 - _80S_aa_tRNA_eEF2_GTP_12 - _80S_aa_tRNA_eEF2_GTP_13 - _80S_aa_tRNA_eEF2_GTP_14 - _80S_aa_tRNA_eEF2_GTP_15 - _80S_aa_tRNA_eEF2_GTP_16 - _80S_aa_tRNA_eEF2_GTP_17 - _80S_aa_tRNA_eEF2_GTP_18 - _80S_aa_tRNA_eEF2_GTP_19 - _80S_aa_tRNA_eEF2_GTP_6 - _80S_aa_tRNA_eEF2_GTP_7 - _80S_aa_tRNA_eEF2_GTP_8 - _80S_aa_tRNA_eEF2_GTP_9 - _80S_tRNA_10 - _80S_tRNA_11 - _80S_tRNA_12 - _80S_tRNA_13 - _80S_tRNA_14 - _80S_tRNA_15 - _80S_tRNA_16 - _80S_tRNA_17 - _80S_tRNA_18 - _80S_tRNA_19 - _80S_tRNA_6 - _80S_tRNA_7 - _80S_tRNA_8 - _80S_tRNA_9 - _80S_tRNA_eEF3_GTP_10 - _80S_tRNA_eEF3_GTP_11 - _80S_tRNA_eEF3_GTP_12 - _80S_tRNA_eEF3_GTP_13 - _80S_tRNA_eEF3_GTP_14 - _80S_tRNA_eEF3_GTP_15 - _80S_tRNA_eEF3_GTP_16 - _80S_tRNA_eEF3_GTP_17 - _80S_tRNA_eEF3_GTP_18 - _80S_tRNA_eEF3_GTP_19 - _80S_tRNA_eEF3_GTP_6 - _80S_tRNA_eEF3_GTP_7 - _80S_tRNA_eEF3_GTP_8 - _80S_tRNA_eEF3_GTP_9 + mRNA_tot)) _80S_tRNA_6 + eEF2_GDP
+reaction28_5: _80S_tRNA_5 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_5
+reaction29_5: _80S_tRNA_eEF3_GTP_5 ->(compartment_1*k29f) _80S_5 + eEF3_GDP + tRNA
+reaction22_6: _80S_6 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_6
+reaction22_6_rev: _80S_aa_tRNA_eEF1A_GTP_6 ->(compartment_1*k22b) _80S_6 + aa_tRNA_eEF1A_GTP
+reaction23_6: _80S_aa_tRNA_eEF1A_GTP_6 ->(compartment_1*k23f) _80S_aa_tRNA_6 + eEF1A_GDP
+reaction25_6: _80S_aa_tRNA_6 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_6
+reaction25_6_rev: _80S_aa_tRNA_eEF2_GTP_6 ->(compartment_1*k25b) _80S_aa_tRNA_6 + eEF2_GTP
+reaction26_6: _80S_aa_tRNA_eEF2_GTP_6 ->(compartment_1*k26f) _80S_tRNA_7 + eEF2_GDP
+reaction28_6: _80S_tRNA_6 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_6
+reaction29_6: _80S_tRNA_eEF3_GTP_6 ->(compartment_1*k29f) _80S_6 + eEF3_GDP + tRNA
+reaction22_7: _80S_7 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_7
+reaction22_7_rev: _80S_aa_tRNA_eEF1A_GTP_7 ->(compartment_1*k22b) _80S_7 + aa_tRNA_eEF1A_GTP
+reaction23_7: _80S_aa_tRNA_eEF1A_GTP_7 ->(compartment_1*k23f) _80S_aa_tRNA_7 + eEF1A_GDP
+reaction25_7: _80S_aa_tRNA_7 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_7
+reaction25_7_rev: _80S_aa_tRNA_eEF2_GTP_7 ->(compartment_1*k25b) _80S_aa_tRNA_7 + eEF2_GTP
+reaction26_7: _80S_aa_tRNA_eEF2_GTP_7 ->(compartment_1*k26f) _80S_tRNA_8 + eEF2_GDP
+reaction28_7: _80S_tRNA_7 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_7
+reaction29_7: _80S_tRNA_eEF3_GTP_7 ->(compartment_1*k29f) _80S_7 + eEF3_GDP + tRNA
+reaction22_8: _80S_8 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_8
+reaction22_8_rev: _80S_aa_tRNA_eEF1A_GTP_8 ->(compartment_1*k22b) _80S_8 + aa_tRNA_eEF1A_GTP
+reaction23_8: _80S_aa_tRNA_eEF1A_GTP_8 ->(compartment_1*k23f) _80S_aa_tRNA_8 + eEF1A_GDP
+reaction25_8: _80S_aa_tRNA_8 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_8
+reaction25_8_rev: _80S_aa_tRNA_eEF2_GTP_8 ->(compartment_1*k25b) _80S_aa_tRNA_8 + eEF2_GTP
+reaction26_8: _80S_aa_tRNA_eEF2_GTP_8 ->(compartment_1*k26f) _80S_tRNA_9 + eEF2_GDP
+reaction28_8: _80S_tRNA_8 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_8
+reaction29_8: _80S_tRNA_eEF3_GTP_8 ->(compartment_1*k29f) _80S_8 + eEF3_GDP + tRNA
+reaction22_9: _80S_9 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_9
+reaction22_9_rev: _80S_aa_tRNA_eEF1A_GTP_9 ->(compartment_1*k22b) _80S_9 + aa_tRNA_eEF1A_GTP
+reaction23_9: _80S_aa_tRNA_eEF1A_GTP_9 ->(compartment_1*k23f) _80S_aa_tRNA_9 + eEF1A_GDP
+reaction25_9: _80S_aa_tRNA_9 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_9
+reaction25_9_rev: _80S_aa_tRNA_eEF2_GTP_9 ->(compartment_1*k25b) _80S_aa_tRNA_9 + eEF2_GTP
+reaction26_9: _80S_aa_tRNA_eEF2_GTP_9 ->(compartment_1*k26f) _80S_tRNA_10 + eEF2_GDP
+reaction28_9: _80S_tRNA_9 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_9
+reaction29_9: _80S_tRNA_eEF3_GTP_9 ->(compartment_1*k29f) _80S_9 + eEF3_GDP + tRNA
+reaction22_10: _80S_10 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_10
+reaction22_10_rev: _80S_aa_tRNA_eEF1A_GTP_10 ->(compartment_1*k22b) _80S_10 + aa_tRNA_eEF1A_GTP
+reaction23_10: _80S_aa_tRNA_eEF1A_GTP_10 ->(compartment_1*k23f) _80S_aa_tRNA_10 + eEF1A_GDP
+reaction25_10: _80S_aa_tRNA_10 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_10
+reaction25_10_rev: _80S_aa_tRNA_eEF2_GTP_10 ->(compartment_1*k25b) _80S_aa_tRNA_10 + eEF2_GTP
+reaction26_10: _80S_aa_tRNA_eEF2_GTP_10 ->(compartment_1*k26f) _80S_tRNA_11 + eEF2_GDP
+reaction28_10: _80S_tRNA_10 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_10
+reaction29_10: _80S_tRNA_eEF3_GTP_10 ->(compartment_1*k29f) _80S_10 + eEF3_GDP + tRNA
+reaction22_11: _80S_11 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_11
+reaction22_11_rev: _80S_aa_tRNA_eEF1A_GTP_11 ->(compartment_1*k22b) _80S_11 + aa_tRNA_eEF1A_GTP
+reaction23_11: _80S_aa_tRNA_eEF1A_GTP_11 ->(compartment_1*k23f) _80S_aa_tRNA_11 + eEF1A_GDP
+reaction25_11: _80S_aa_tRNA_11 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_11
+reaction25_11_rev: _80S_aa_tRNA_eEF2_GTP_11 ->(compartment_1*k25b) _80S_aa_tRNA_11 + eEF2_GTP
+reaction26_11: _80S_aa_tRNA_eEF2_GTP_11 ->(compartment_1*k26f) _80S_tRNA_12 + eEF2_GDP
+reaction28_11: _80S_tRNA_11 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_11
+reaction29_11: _80S_tRNA_eEF3_GTP_11 ->(compartment_1*k29f) _80S_11 + eEF3_GDP + tRNA
+reaction22_12: _80S_12 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_12
+reaction22_12_rev: _80S_aa_tRNA_eEF1A_GTP_12 ->(compartment_1*k22b) _80S_12 + aa_tRNA_eEF1A_GTP
+reaction23_12: _80S_aa_tRNA_eEF1A_GTP_12 ->(compartment_1*k23f) _80S_aa_tRNA_12 + eEF1A_GDP
+reaction25_12: _80S_aa_tRNA_12 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_12
+reaction25_12_rev: _80S_aa_tRNA_eEF2_GTP_12 ->(compartment_1*k25b) _80S_aa_tRNA_12 + eEF2_GTP
+reaction26_12: _80S_aa_tRNA_eEF2_GTP_12 ->(compartment_1*k26f) _80S_tRNA_13 + eEF2_GDP
+reaction28_12: _80S_tRNA_12 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_12
+reaction29_12: _80S_tRNA_eEF3_GTP_12 ->(compartment_1*k29f) _80S_12 + eEF3_GDP + tRNA
+reaction22_13: _80S_13 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_13
+reaction22_13_rev: _80S_aa_tRNA_eEF1A_GTP_13 ->(compartment_1*k22b) _80S_13 + aa_tRNA_eEF1A_GTP
+reaction23_13: _80S_aa_tRNA_eEF1A_GTP_13 ->(compartment_1*k23f) _80S_aa_tRNA_13 + eEF1A_GDP
+reaction25_13: _80S_aa_tRNA_13 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_13
+reaction25_13_rev: _80S_aa_tRNA_eEF2_GTP_13 ->(compartment_1*k25b) _80S_aa_tRNA_13 + eEF2_GTP
+reaction26_13: _80S_aa_tRNA_eEF2_GTP_13 ->(compartment_1*k26f) _80S_tRNA_14 + eEF2_GDP
+reaction28_13: _80S_tRNA_13 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_13
+reaction29_13: _80S_tRNA_eEF3_GTP_13 ->(compartment_1*k29f) _80S_13 + eEF3_GDP + tRNA
+reaction22_14: _80S_14 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_14
+reaction22_14_rev: _80S_aa_tRNA_eEF1A_GTP_14 ->(compartment_1*k22b) _80S_14 + aa_tRNA_eEF1A_GTP
+reaction23_14: _80S_aa_tRNA_eEF1A_GTP_14 ->(compartment_1*k23f) _80S_aa_tRNA_14 + eEF1A_GDP
+reaction25_14: _80S_aa_tRNA_14 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_14
+reaction25_14_rev: _80S_aa_tRNA_eEF2_GTP_14 ->(compartment_1*k25b) _80S_aa_tRNA_14 + eEF2_GTP
+reaction26_14: _80S_aa_tRNA_eEF2_GTP_14 ->(compartment_1*k26f) _80S_tRNA_15 + eEF2_GDP
+reaction28_14: _80S_tRNA_14 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_14
+reaction29_14: _80S_tRNA_eEF3_GTP_14 ->(compartment_1*k29f) _80S_14 + eEF3_GDP + tRNA
+reaction22_15: _80S_15 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_15
+reaction22_15_rev: _80S_aa_tRNA_eEF1A_GTP_15 ->(compartment_1*k22b) _80S_15 + aa_tRNA_eEF1A_GTP
+reaction23_15: _80S_aa_tRNA_eEF1A_GTP_15 ->(compartment_1*k23f) _80S_aa_tRNA_15 + eEF1A_GDP
+reaction25_15: _80S_aa_tRNA_15 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_15
+reaction25_15_rev: _80S_aa_tRNA_eEF2_GTP_15 ->(compartment_1*k25b) _80S_aa_tRNA_15 + eEF2_GTP
+reaction26_15: _80S_aa_tRNA_eEF2_GTP_15 ->(compartment_1*k26f) _80S_tRNA_16 + eEF2_GDP
+reaction28_15: _80S_tRNA_15 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_15
+reaction29_15: _80S_tRNA_eEF3_GTP_15 ->(compartment_1*k29f) _80S_15 + eEF3_GDP + tRNA
+reaction22_16: _80S_16 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_16
+reaction22_16_rev: _80S_aa_tRNA_eEF1A_GTP_16 ->(compartment_1*k22b) _80S_16 + aa_tRNA_eEF1A_GTP
+reaction23_16: _80S_aa_tRNA_eEF1A_GTP_16 ->(compartment_1*k23f) _80S_aa_tRNA_16 + eEF1A_GDP
+reaction25_16: _80S_aa_tRNA_16 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_16
+reaction25_16_rev: _80S_aa_tRNA_eEF2_GTP_16 ->(compartment_1*k25b) _80S_aa_tRNA_16 + eEF2_GTP
+reaction26_16: _80S_aa_tRNA_eEF2_GTP_16 ->(compartment_1*k26f) _80S_tRNA_17 + eEF2_GDP
+reaction28_16: _80S_tRNA_16 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_16
+reaction29_16: _80S_tRNA_eEF3_GTP_16 ->(compartment_1*k29f) _80S_16 + eEF3_GDP + tRNA
+reaction22_17: _80S_17 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_17
+reaction22_17_rev: _80S_aa_tRNA_eEF1A_GTP_17 ->(compartment_1*k22b) _80S_17 + aa_tRNA_eEF1A_GTP
+reaction23_17: _80S_aa_tRNA_eEF1A_GTP_17 ->(compartment_1*k23f) _80S_aa_tRNA_17 + eEF1A_GDP
+reaction25_17: _80S_aa_tRNA_17 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_17
+reaction25_17_rev: _80S_aa_tRNA_eEF2_GTP_17 ->(compartment_1*k25b) _80S_aa_tRNA_17 + eEF2_GTP
+reaction26_17: _80S_aa_tRNA_eEF2_GTP_17 ->(compartment_1*k26f) _80S_tRNA_18 + eEF2_GDP
+reaction28_17: _80S_tRNA_17 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_17
+reaction29_17: _80S_tRNA_eEF3_GTP_17 ->(compartment_1*k29f) _80S_17 + eEF3_GDP + tRNA
+reaction22_18: _80S_18 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_18
+reaction22_18_rev: _80S_aa_tRNA_eEF1A_GTP_18 ->(compartment_1*k22b) _80S_18 + aa_tRNA_eEF1A_GTP
+reaction23_18: _80S_aa_tRNA_eEF1A_GTP_18 ->(compartment_1*k23f) _80S_aa_tRNA_18 + eEF1A_GDP
+reaction25_18: _80S_aa_tRNA_18 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_18
+reaction25_18_rev: _80S_aa_tRNA_eEF2_GTP_18 ->(compartment_1*k25b) _80S_aa_tRNA_18 + eEF2_GTP
+reaction26_18: _80S_aa_tRNA_eEF2_GTP_18 ->(compartment_1*k26f) _80S_tRNA_19 + eEF2_GDP
+reaction28_18: _80S_tRNA_18 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_18
+reaction29_18: _80S_tRNA_eEF3_GTP_18 ->(compartment_1*k29f) _80S_18 + eEF3_GDP + tRNA
+reaction22_19: _80S_19 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_19
+reaction22_19_rev: _80S_aa_tRNA_eEF1A_GTP_19 ->(compartment_1*k22b) _80S_19 + aa_tRNA_eEF1A_GTP
+reaction23_19: _80S_aa_tRNA_eEF1A_GTP_19 ->(compartment_1*k23f) _80S_aa_tRNA_19 + eEF1A_GDP
+reaction25_19: _80S_aa_tRNA_19 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_19
+reaction25_19_rev: _80S_aa_tRNA_eEF2_GTP_19 ->(compartment_1*k25b) _80S_aa_tRNA_19 + eEF2_GTP
+reaction26_19: _80S_aa_tRNA_eEF2_GTP_19 ->(compartment_1*k26f) _80S_tRNA_20 + eEF2_GDP
+reaction28_19: _80S_tRNA_19 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_19
+reaction29_19: _80S_tRNA_eEF3_GTP_19 ->(compartment_1*k29f) _80S_19 + eEF3_GDP + tRNA
+reaction28_20: _80S_tRNA_20 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_20
+reaction29_20: _80S_tRNA_eEF3_GTP_20 ->(compartment_1*k29f) _80S_20 + eEF3_GDP + tRNA
+reaction30: eRF3_GDP ->(compartment_1*k1) eRF3_GTP
+reaction30_rev: eRF3_GTP ->(compartment_1*k2) eRF3_GDP
+reaction31: eRF1 + eRF3_GTP ->(compartment_1*k1) eRF1_eRF3_GTP
+reaction31_rev: eRF1_eRF3_GTP ->(compartment_1*k2) eRF1 + eRF3_GTP
+reaction32: _80S_20 + eRF1_eRF3_GTP ->(compartment_1*k1) _80S_eRF1_eRF3_GTP
+reaction33: _80S_eRF1_eRF3_GTP ->(compartment_1*k1) _40S + _60S + eRF1 + eRF3_GDP

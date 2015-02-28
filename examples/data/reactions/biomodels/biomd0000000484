@@ -1,0 +1,2 @@
+re2: ES ->(default*k1/ES) S
+re12: S ->(k2) ES

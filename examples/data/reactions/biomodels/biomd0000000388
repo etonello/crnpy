@@ -1,0 +1,7 @@
+RuBisCO: RuBP ->(V*chloroplast/(Km + RuBP)) 2PGA
+PGA_kinase: ATP + PGA ->(Vm*chloroplast/((ATP + K2)*(K1 + PGA))) ADP + DPGA
+GAP_dehydrogenase: DPGA ->(V*chloroplast/(DPGA + Km)) GAP + Pi
+GAP_to_Ru5P: GAP ->(V*chloroplast/(GAP + Km)) 0Ru5P
+Ru5P_kinase: ATP + Ru5P ->(Vm*chloroplast/((ATP + K2)*(K1 + Ru5P))) ADP + RuBP
+PGA_to_sink: PGA ->(V*chloroplast/(Km + PGA)) 
+GAP_to_sink: GAP ->(V*chloroplast/(GAP + Km)) 

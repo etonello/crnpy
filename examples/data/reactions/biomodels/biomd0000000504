@@ -1,0 +1,132 @@
+IL1binding: IL1 + IL1R ->(kbinIL1IL1R) IL1_IL1R
+IL1release: IL1_IL1R ->(krelIL1IL1R) IL1 + IL1R
+IL1antagonistbinding: IL1 + IL1Ra ->(kbinIL1IL1Ra) IL1_IL1Ra
+IL1antagonistrelease: IL1_IL1Ra ->(krelIL1IL1Ra) IL1 + IL1Ra
+IL1degradation: IL1 ->(kdegIL1) Sink
+IRAK2binding: IL1_IL1R + IRAK2 ->(kbinIRAK2) IL1_IL1R_IRAK2
+IRAK2release: IL1_IL1R_IRAK2 ->(krelIRAK2) IL1_IL1R + IRAK2
+TRAF6binding: IL1_IL1R_IRAK2 + TRAF6 ->(kbinTRAF6) IL1_IL1R + IRAK2_TRAF6
+TRAF6release: IRAK2_TRAF6 ->(krelTRAF6) IRAK2 + TRAF6
+JNKphosphorylation: IRAK2_TRAF6 + JNK ->(kphosJNK) IRAK2_TRAF6 + JNK_P
+JNKdephosphorylation: JNK_P ->(kdephosJNK) JNK
+JNKdephosphorylationByDUSP16: DUSP16 + JNK_P ->(kdephosJNKDUSP16) DUSP16 + JNK
+cJunPhosphorylation: JNK_P + cJun ->(kphoscJun) JNK_P + cJun_P
+cJunDephosphorylation: cJun_P ->(kdephoscJun) cJun
+cJunDimerisation: 2cJun_P ->(0.5*kdimercJun*(cJun_P - 1)/cJun_P) cJun_dimer
+cJunDedimerisation: cJun_dimer ->(kdedimercJun) 2cJun_P
+cJunTranscriptionAP1: cFos_cJun ->(kAP1activity*ksyncJunmRNA) cFos_cJun + cJun_mRNA
+cJunTranscriptioncJun: cJun_dimer ->(ksyncJunmRNAcJun) cJun_dimer + cJun_mRNA
+cJunBasalTranscription: Source ->(ksynbasalcJunmRNA) cJun_mRNA
+cJunmRNADegradation: cJun_mRNA ->(kdegcJunmRNA) Sink
+cJunTranslation: cJun_mRNA ->(ksyncJun) cJun + cJun_mRNA
+cJunDegradation: cJun ->(kdegcJun) Sink
+p38phosphorylation: IRAK2_TRAF6 + p38 ->(kphosp38) IRAK2_TRAF6 + p38_P
+p38dephosphorylation: p38_P ->(kdephosp38) p38
+p38dephosphorylationMKP1: MKP1 + p38_P ->(kdephosp38MKP1) MKP1 + p38
+MMP1Transcription_AP1: cFos_cJun ->(kAP1activity*ksynMMP1mRNA) MMP1_mRNA + cFos_cJun
+MMP1Transcription_cJun_dimer: cJun_dimer ->(ksynMMP1mRNAcJun) MMP1_mRNA + cJun_dimer
+MMP1Translation: MMP1_mRNA ->(ksynMMP1) MMP1_mRNA + proMMP1
+MMP1mRNADegradation: MMP1_mRNA ->(kdegMMP1mRNA) Sink
+proMMP1cleavageByMatriptase: Matriptase + proMMP1 ->(kactMMP1mat) MMP1 + Matriptase
+proMMP1cleavageByMMP3: MMP3 + proMMP1 ->(kactMMP1mmp3) MMP1 + MMP3
+MMP1Degradation: MMP1 ->(kdegMMP1) Sink
+MMP3Transcription_AP1: cFos_cJun ->(kAP1activity*ksynMMP3mRNA) MMP3_mRNA + cFos_cJun
+MMP3Transcription_cJun_dimer: cJun_dimer ->(ksynMMP3mRNAcJun) MMP3_mRNA + cJun_dimer
+MMP3Translation: MMP3_mRNA ->(ksynMMP3) MMP3_mRNA + proMMP3
+MMP3mRNADegradation: MMP3_mRNA ->(kdegMMP3mRNA) Sink
+proMMP3cleavageByMatriptase: Matriptase + proMMP3 ->(kactMMP3mat) MMP3 + Matriptase
+MMP3Degradation: MMP3 ->(kdegMMP3) Sink
+MMP13Transcription_AP1: cFos_cJun ->(kAP1activity*ksynMMP13mRNA) MMP13_mRNA + cFos_cJun
+MMP13Transcription_cJun_dimer: cJun_dimer ->(ksynMMP13mRNAcJun) MMP13_mRNA + cJun_dimer
+MMP13Translation: MMP13_mRNA ->(ksynMMP13) MMP13_mRNA + proMMP13
+MMP13mRNADegradation: MMP13_mRNA ->(kdegMMP13mRNA) Sink
+proMMP13cleavageByMMP3: MMP3 + proMMP13 ->(kactMMP13mmp3) MMP13 + MMP3
+MMP13Degradation: MMP13 ->(kdegMMP13) Sink
+TIMP1Translation: TIMP1_mRNA ->(ksynTIMP1) TIMP1 + TIMP1_mRNA
+TIMP1mRNADegradation: TIMP1_mRNA ->(kdegTIMP1mRNA) Sink
+TIMP1Degradation: TIMP1 ->(kdegTIMP1) Sink
+ADAMTS4Transcription_AP1: cFos_cJun ->(kAP1activity*ksynADAMTS4mRNA) ADAMTS4_mRNA + cFos_cJun
+ADAMTS4Transcription_cJun_dimer: cJun_dimer ->(ksynADAMTS4mRNAcJun) ADAMTS4_mRNA + cJun_dimer
+ADAMTS4Translation: ADAMTS4_mRNA ->(ksynADAMTS4) ADAMTS4 + ADAMTS4_mRNA
+ADAMTS4mRNADegradation: ADAMTS4_mRNA ->(kdegADAMTS4mRNA) Sink
+ADAMTS4Degradation: ADAMTS4 ->(kdegADAMTS4) Sink
+PP4Synthesis: cFos_cJun ->(kAP1activity*ksynPP4) PP4 + cFos_cJun
+PP4Synthesis_cJun_dimer: cJun_dimer ->(ksynPP4cJun) PP4 + cJun_dimer
+DUSP16Synthesis: cFos_cJun ->(kAP1activity*ksynDUSP16) DUSP16 + cFos_cJun
+DUSP16Synthesis_cJun_dimer: cJun_dimer ->(ksynDUSP16cJun) DUSP16 + cJun_dimer
+PP4Degradation: PP4 ->(kdegPP4) Sink
+DUSP16Degradation: DUSP16 ->(kdegDUSP16) Sink
+TRAF6Inhibition: PP4 + TRAF6 ->(kinhibTRAF6) TRAF6_PP4
+BoundTRAF6Inhibition: IRAK2_TRAF6 + PP4 ->(kinhibTRAF6) IRAK2_TRAF6_PP4
+TRAF6PP4Disassociation: TRAF6_PP4 ->(krelTRAF6PP4) PP4 + TRAF6
+IRAK2_TRAF6PP4Disassociation: IRAK2_TRAF6_PP4 ->(krelTRAF6PP4) IRAK2_TRAF6 + PP4
+Transcription_cFos_byAP1: cFos_cJun ->(kAP1activity*ksyncFosmRNA) cFos_cJun + cFos_mRNA
+cFosmRNA_Degradation: cFos_mRNA ->(kdegcFosmRNA) Sink
+cFosSynthesis: cFos_mRNA ->(ksyncFos) cFos + cFos_mRNA
+cFosDegradation: cFos ->(kdegcFos) Sink
+cFosPhosphorylation_p38: cFos + p38_P ->(kphoscFos) cFos_P + p38_P
+cFosDephosphorylation: cFos_P ->(kdephoscFos) cFos
+MKP1Synthesis: cFos_cJun ->(kAP1activity*ksynMKP1) MKP1 + cFos_cJun
+MKP1Synthesis_cJun_dimer: cJun_dimer ->(ksynMKP1cJun) MKP1 + cJun_dimer
+MKP1Degradation: MKP1 ->(kdegMKP1) Sink
+cFosDephosphorylationByDusp16: DUSP16 + cFos_P ->(kdephoscFosDUSP16) DUSP16 + cFos
+cFoscJunBinding: cFos_P + cJun_P ->(kbincFoscJun) cFos_cJun
+cFoscJunRelease: cFos_cJun ->(krelcFoscJun) cFos_P + cJun_P
+OSM_OSMR_binding: OSM + OSMR ->(kbinOSMOSMR) OSM_OSMR
+OSM_OSMR_release: OSM_OSMR ->(krelOSMOSMR) OSM + OSMR
+OSM_OSMRa_binding: OSM + OSMRa ->(kbinOSMOSMRa) OSM_OSMRa
+OSM_OSMRa_release: OSM_OSMRa ->(krelOSMOSMRa) OSM + OSMRa
+JAK1_Phosphorylation: JAK1 + OSM_OSMR ->(kphosJAK1) JAK1_P + OSM_OSMR
+JAK1_Dephosphorylation: JAK1_P ->(kdephosJAK1) JAK1
+JAK1_DephosphorylationByPTPRT: JAK1_P + PTPRT ->(kdephosJAK1PTPRT) JAK1 + PTPRT
+STAT3_Phosphorylation: JAK1_P + STAT3_cyt ->(kphosSTAT3) JAK1_P + STAT3_P_cyt
+STAT3_cyt_Dephosphorylation: STAT3_P_cyt ->(kdephosSTAT3) STAT3_cyt
+STAT3_cyt_DephosphorylationByPTPRT: PTPRT + STAT3_P_cyt ->(kdephosSTAT3PTPRT) PTPRT + STAT3_cyt
+STAT3_nuc_Dephosphorylation: STAT3_P_nuc ->(kdephosSTAT3nuc) STAT3_nuc
+STAT3_nuc_DephosphorylationByPTPRT: PTPRT + STAT3_P_nuc ->(kdephosSTAT3nucPTPRT) PTPRT + STAT3_nuc
+STAT3_transport_to_nucleus: STAT3_P_cyt ->(kcyt2nucSTAT3) STAT3_P_nuc
+STAT3_transport_from_nucleus: STAT3_nuc ->(knuc2cytSTAT3) STAT3_cyt
+cFos_induction_by_STAT3: STAT3_P_nuc ->(ksyncFosmRNAStat3) STAT3_P_nuc + cFos_mRNA
+PTPRT_induction_by_STAT3: STAT3_P_nuc ->(ksynPTPRT) PTPRT + STAT3_P_nuc
+PTPRT_degradation: PTPRT ->(kdegPTPRT) Sink
+STAT3_induction_of_SOCS3: STAT3_P_nuc ->(ksynSOCS3mRNA) SOCS3_mRNA + STAT3_P_nuc
+SOCS3mRNAdegradation: SOCS3_mRNA ->(kdegSOCS3mRNA) Sink
+SOCS3_translation: SOCS3_mRNA ->(ksynSOCS3) SOCS3 + SOCS3_mRNA
+SOCS3_degradation: SOCS3 ->(kdegSOCS3) Sink
+SOCS3_OSMR_binding: OSMR + SOCS3 ->(kbinSOCS3OSMR) OSMR_SOCS3
+SOCS3_OSMR_release: OSMR_SOCS3 ->(krelSOCS3OSMR) OSMR + SOCS3
+OSM_degradation: OSM ->(kdegOSM) Sink
+MMP1InhibtionByTIMP1: MMP1 + TIMP1 ->(kinhibMMP1TIMP1) MMP1_TIMP1
+MMP1_TIMP1release: MMP1_TIMP1 ->(krelMMP1) MMP1 + TIMP1
+MMP3InhibtionByTIMP1: MMP3 + TIMP1 ->(kinhibMMP3TIMP1) MMP3_TIMP1
+MMP3_TIMP1release: MMP3_TIMP1 ->(krelMMP3) MMP3 + TIMP1
+MMP13InhibtionByTIMP1: MMP13 + TIMP1 ->(kinhibMMP13TIMP1) MMP13_TIMP1
+MMP13_TIMP1release: MMP13_TIMP1 ->(krelMMP13) MMP13 + TIMP1
+ADAMTS4InhibtionByTIMP1: ADAMTS4 + TIMP1 ->(kinhibADAMTS4TIMP1) ADAMTS4_TIMP1
+ADAMTS4_TIMP1release: ADAMTS4_TIMP1 ->(krelADAMTS4TIMP1) ADAMTS4 + TIMP1
+Collagen2DegradationByMMP1: Collagen2 + MMP1 ->(kdegCollagen2mmp1) ColFrag + MMP1
+Collagen2DegradationByMMP13: Collagen2 + MMP13 ->(kdegCollagen2mmp13) ColFrag + MMP13
+AggrecanDegradationByADAMTS4: ADAMTS4 + Aggrecan_Collagen2 ->(kdegAggrecan) ADAMTS4 + AggFrag + Collagen2
+MatriptaseSynthesis: cFos_cJun ->(kAP1activity*ksynMatriptase) Matriptase + cFos_cJun
+MatriptaseDegradation: Matriptase ->(kdegMatriptase) Sink
+SP1Synthesis: cFos_cJun ->(kAP1activity*ksynSP1) SP1 + cFos_cJun
+SP1Degradation: SP1 ->(kdegSP1) Sink
+SP1_TIMP1_DNAbinding: SP1 + TIMP1_DNA ->(kbinSP1TIMP1DNA) SP1_TIMP1_DNA
+SP1_TIMP1_DNArelease: SP1_TIMP1_DNA ->(krelSP1TIMP1DNA) SP1 + TIMP1_DNA
+TIMP1_transcription_STAT3: STAT3_P_nuc + TIMP1_DNA ->(ksynTIMP1mRNAStat3) STAT3_P_nuc + TIMP1_DNA + TIMP1_mRNA
+TIMP1BasalTranscription: TIMP1_DNA ->(ksynbasalTIMP1mRNA) TIMP1_DNA + TIMP1_mRNA
+TIMP1Transcription_AP1: TIMP1_DNA + cFos_cJun ->(kAP1activity*ksynTIMP1mRNA) TIMP1_DNA + TIMP1_mRNA + cFos_cJun
+TIMP3BasalTranscriptionn: Source ->(ksynbasalTIMP3mRNA) TIMP3_mRNA
+TIMP3Transcription_AP1: cFos_cJun ->(kAP1activity*ksynTIMP3mRNA) TIMP3_mRNA + cFos_cJun
+TIMP3Transcription_STAT3: STAT3_P_nuc ->(kAP1activity*ksynTIMP3mRNAStat3) STAT3_P_nuc + TIMP3_mRNA
+TIMP3Translation: TIMP3_mRNA ->(ksynTIMP3) TIMP3 + TIMP3_mRNA
+TIMP3mRNADegradation: TIMP3_mRNA ->(kdegTIMP3mRNA) Sink
+TIMP3Degradation: TIMP3 ->(kdegTIMP3) Sink
+ADAMTS4InhibitionByTimp3: ADAMTS4 + TIMP3 ->(kinhibADAMTS4TIMP3) ADAMTS4_TIMP3
+ADAMTS4_TIMP3release: ADAMTS4_TIMP3 ->(krelADAMTS4TIMP3) ADAMTS4 + TIMP3
+MMP1InhibtionByTIMP3: MMP1 + TIMP3 ->(kinhibMMP1TIMP3) MMP1_TIMP3
+MMP1_TIMP3release: MMP1_TIMP3 ->(krelMMP1TIMP3) MMP1 + TIMP3
+MMP3InhibtionByTIMP3: MMP3 + TIMP3 ->(kinhibMMP3TIMP3) MMP3_TIMP3
+MMP3_TIMP3release: MMP3_TIMP3 ->(krelMMP3TIMP3) MMP3 + TIMP3
+MMP13InhibtionByTIMP3: MMP13 + TIMP3 ->(kinhibMMP13TIMP3) MMP13_TIMP3
+MMP13_TIMP3release: MMP13_TIMP3 ->(krelMMP13TIMP3) MMP13 + TIMP3

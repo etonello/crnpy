@@ -1,0 +1,46 @@
+complex_r1: TTW ->(cell*complex_r1_k1) TT + W
+complex_r1_rev: TT + W ->(cell*complex_r1_k2) TTW
+complex_r2: WAA ->(cell*complex_r2_k1) AA + W
+complex_r2_rev: AA + W ->(cell*complex_r2_k2) WAA
+complex_r3: TTWAA ->(cell*complex_r3_k1) TT + WAA
+complex_r3_rev: TT + WAA ->(cell*complex_r3_k2) TTWAA
+complex_r4: TTWWAA ->(cell*complex_r4_k1) TTW + WAA
+complex_r4_rev: TTW + WAA ->(cell*complex_r4_k2) TTWWAA
+complex_r5: TTWWAA ->(cell*complex_r5_k1) AA + TTWW
+complex_r5_rev: AA + TTWW ->(cell*complex_r5_k2) TTWWAA
+complex_r6: TTWWAA ->(cell*complex_r6_k1) TT + WWAA
+complex_r6_rev: TT + WWAA ->(cell*complex_r6_k2) TTWWAA
+complex_r7: TTAA ->(cell*complex_r7_k1) AA + TT
+complex_r7_rev: AA + TT ->(cell*complex_r7_k2) TTAA
+complex_r8: TTWAA ->(cell*complex_r8_k1) AA + TTW
+complex_r8_rev: AA + TTW ->(cell*complex_r8_k2) TTWAA
+complex_r9: TTWWAA ->(cell*complex_r9_k1) TTWAA + W
+complex_r9_rev: TTWAA + W ->(cell*complex_r9_k2) TTWWAA
+complex_r10: TTWW ->(cell*complex_r10_k1) TTW + W
+complex_r10_rev: TTW + W ->(cell*complex_r10_k2) TTWW
+complex_r11: WWAA ->(cell*complex_r11_k1) W + WAA
+complex_r11_rev: W + WAA ->(cell*complex_r11_k2) WWAA
+complex_r12: TTWAA ->(cell*complex_r12_k1) TTAA + W
+complex_r12_rev: TTAA + W ->(cell*complex_r12_k2) TTWAA
+phosphorylation_r1: TTWWAA ->(cell*phosphorylation_r1_k1) TTWWAAp
+phosphorylation_r2: AA ->(cell*phosphorylation_r2_k1) AAp
+phosphorylation_r3: WAA ->(cell*phosphorylation_r3_k1) WAAp
+phosphorylation_r4: WWAA ->(cell*phosphorylation_r4_k1) WWAAp
+phosphorylation_r5: TTAA ->(cell*phosphorylation_r5_k1) TTAAp
+phosphorylation_r6: TTWAA ->(cell*phosphorylation_r6_k1) TTWAAp
+phosphorylation_r7: Y ->(cell*phosphorylation_r7_k1) Yp
+phosphorylation_r8: Yp ->(cell*phosphorylation_r8_k1) Y
+phosphorylation_r9: Yp + Z ->(cell*phosphorylation_r9_k1) Y + Z
+phosphorylation_r10: Bp ->(cell*phosphorylation_r10_k1) B
+phosphotransfer_r1: AAp + B ->(cell*phosphotransfer_r1_k1) AA + Bp
+phosphotransfer_r2: B + WAAp ->(cell*phosphotransfer_r2_k1) Bp + WAA
+phosphotransfer_r3: B + WWAAp ->(cell*phosphotransfer_r3_k1) Bp + WWAA
+phosphotransfer_r4: B + TTAAp ->(cell*phosphotransfer_r4_k1) Bp + TTAA
+phosphotransfer_r5: B + TTWAAp ->(cell*phosphotransfer_r5_k1) Bp + TTWAA
+phosphotransfer_r6: B + TTWWAAp ->(cell*phosphotransfer_r6_k1) Bp + TTWWAA
+phosphotransfer_r7: AAp + Y ->(cell*phosphotransfer_r7_k1) AA + Yp
+phosphotransfer_r8: WAAp + Y ->(cell*phosphotransfer_r8_k1) WAA + Yp
+phosphotransfer_r9: WWAAp + Y ->(cell*phosphotransfer_r9_k1) WWAA + Yp
+phosphotransfer_r10: TTAAp + Y ->(cell*phosphotransfer_r10_k1) TTAA + Yp
+phosphotransfer_r11: TTWAAp + Y ->(cell*phosphotransfer_r11_k1) TTWAA + Yp
+phosphotransfer_r12: TTWWAAp + Y ->(cell*phosphotransfer_r12_k1) TTWWAA + Yp

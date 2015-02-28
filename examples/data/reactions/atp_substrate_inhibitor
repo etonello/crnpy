@@ -1,0 +1,3 @@
+atp + e (k_1)<->(k1) eatp
+eatp ->(k2) e + p
+atp + eatp (k_3)<->(k3) eatpi

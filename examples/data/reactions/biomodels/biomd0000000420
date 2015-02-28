@@ -1,0 +1,4 @@
+___r1:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1)) P2
+___r2: P2 ->(___r2___RATE__) 
+___r3:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1)) Target
+___r4: Target ->(___r4___RATE__) 

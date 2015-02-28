@@ -1,0 +1,26 @@
+Birth_S__unvaccinated_:  ->(N*mu*(-p + 1)) S
+Birth_V__vaccinated_:  ->(N*mu*p) V
+Death_in_S: S ->(mu) 
+Death_in_V: V ->(mu) 
+Death_in_I1: I1 ->(mu) 
+Death_in_I2: I2 ->(mu) 
+Death_in_Iv2: Iv2 ->(mu) 
+Death_in_R1: R1 ->(mu) 
+Death_in_R2: R2 ->(mu) 
+Death_in_J1: J1 ->(mu) 
+Death_in_J2: J2 ->(mu) 
+Death_in_Rp: R ->(mu) 
+Primary_Infection_with_strain_1: S ->(beta*(I1 + J1)/N) I1
+Primary_Infection_with_strain_2: S ->(beta*(I2 + Iv2 + J2)/N) I2
+Primary_Infection_of_V_with_strain_2: V ->(beta*(-tau + 1)*(I2 + Iv2 + J2)/N) Iv2
+Recovery__I1_: I1 ->(gamma) R1
+Recovery__I2_: I2 ->(gamma) R2
+Secondary_Infection_with_strain_1: R2 ->(beta*(I1 + J1)*(-theta + 1)/N) J1
+Secondary_Infection_with_strain_2: R1 ->(beta*(-theta + 1)*(I2 + Iv2 + J2)/N) J2
+Recovery__J1_: J1 ->(gamma/(-nu + 1)) R
+Recovery__J2_: J2 ->(gamma/(-nu + 1)) R
+Recovery__Iv2_: Iv2 ->(gamma/(-eta + 1)) R
+Loss_of_Immunity__R1_: R1 ->(sigma) S
+Loss_of_Immunity__R2_: R2 ->(sigma) S
+Loss_of_Immunity__Rp_: R ->(sigma) S
+Loss_of_Immunity__V_: V ->(sigmaV) S

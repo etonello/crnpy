@@ -1,0 +1,12 @@
+R_expression:  ->(cell*(A*Rs/(A + KD) + BR)) R
+R_degradation: R ->(cell*kdegR) 
+R_L_binding: L + R ->(cell*kon) C
+R_L_binding_rev: C ->(cell*koff) L + R
+C_degradation: C ->(cell*kdegC) 
+C_I_binding: C + I ->(cell*k1) X
+C_I_binding_rev: X ->(cell*k2) C + I
+I_activation: X ->(cell*k3) A + C
+X_degradation: X ->(cell*kdegX) 
+A_degradation: A ->(cell*kdegA) 
+I_expression:  ->(cell*(A*TFs/(A + KD) + BI)) I
+I_degradation: I ->(cell*kdegI) 

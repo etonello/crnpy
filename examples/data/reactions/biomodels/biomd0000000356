@@ -1,0 +1,64 @@
+R1: r0 ->(2*S1*a1) r1
+R2: r0 ->(2*S1*a2) r2
+R3: r1 ->(S1*a1) r11
+R4: r2 ->(S1*a1) r12
+R5: r1 ->(d1) r0
+R6: r1 ->(S1*a2) r12
+R7: r2 ->(S1*a2) r22
+R8: r2 ->(d2) r0
+R9: r1 ->(Kcr) r1x2
+R10: r2 ->(Kcr) r1x2
+R11: r1x2 ->(S1*a1) r11x2
+R12: r11 ->(2*d1) r1
+R13: r12 ->(d1) r2
+R14: r1x2 ->(S1*a2) r1x22
+R15: r12 ->(d2) r1
+R16: r22 ->(2*d2) r2
+R17: r11 ->(2*Kcr) r11x2
+R18: r12 ->(Kcr) r1x22
+R19: r1x2 ->(d2) r1
+R20: r12 ->(Kcr) r11x2
+R21: r22 ->(2*Kcr) r1x22
+R22: r1x2 ->(d1) r2
+R23: r1x2 ->(S2*a2) r1x22d
+R24: r11x2 ->(d1) r1x2
+R25: r1x22 ->(d2) r1x2
+R26: r11x2 ->(d2) r11
+R27: r1x22 ->(d2) r12
+R28: r11x2 ->(d1) r12
+R29: r1x22 ->(d1) r22
+R30: r1x22 ->(S1*a1) r11x22
+R31: r11x2 ->(S1*a2) r11x22
+R32: r1x22 ->(K4*S1) r1x22d
+R33: r1x22d ->(K8) r1x22
+R34: r1x22d ->(d2) r1x2
+R35: r11x22 ->(d1) r1x22
+R36: r11x22 ->(d2) r11x2
+R37: rend ->(Kex) r0
+R38: iend ->(Kex) 
+R39: r1x2 ->(Kend) iendIR + rendP
+R40: r11x2 ->(Kend) 2iendIR + rendP
+R41: r1x22 ->(Kend) 2iendIR + rendP
+R42: r1x22d ->(Kend) 3iendIR + rendP
+R43: r11x22 ->(Kend) 3iendIR + rendP
+R44: rendP ->(Kcat*X_P/(Km + X_P) + Kdp) rend
+R45: iendIR ->(Kcat*X_P/(Km + X_P) + Kdp) iend
+R46: r0 ->(kfbasal) rPbasal
+R47: rPbasal ->(krbasal) r0
+R48: rPbasal ->(Kend) rendP
+v2f: IRS ->(k21*(PKC_P*k23 + k24*mTOR + 1)*(k22*rendP + r11x2 + r11x22 + r1x2 + r1x22 + r1x22d + rPbasal)) IRSiP
+v2b: IRSiP ->(k2b) IRS
+v3f: X ->(IRSiP*k3f) X_P
+v3b: X_P ->(k3b) X
+v4f: PI3K ->(IRSiP*k4f) PI3K_
+v4b: PI3K_ ->(k4b) PI3K
+v5f: PDK1 ->(PI3K_*k5f) PDK1_
+v5b: PDK1_ ->(k5b) PDK1
+v6f: PKC ->(PDK1_*k6f) PKC_P
+v6b: PKC_P ->(k6b) PKC
+v7f: PKB ->(PDK1_*k7f) PKB_P
+v7b: PKB_P ->(k7b) PKB
+v8f: mTOR ->(PKB_P*k8f) mTOR_
+v8b: mTOR_ ->(k8b) mTOR
+v9f: GLUT4_C ->((GLUT4_C*PKB_P*k92 + GLUT4_C*PKC_P*k91 + GLUT4_C*k5BasicWb)/GLUT4_C) GLUT4_M
+v9b: GLUT4_M ->(k9b) GLUT4_C

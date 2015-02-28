@@ -1,0 +1,5 @@
+r0: X ->(env*(Ep*k0 + k0_prime)) R
+r1:  ->(S*env*k1) X
+r2: R ->(env*k2) 
+r3: E ->(R*env*k3/(E + Km3)) Ep
+r4: Ep ->(env*k4/(Ep + Km4)) E

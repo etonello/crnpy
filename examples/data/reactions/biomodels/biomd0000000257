@@ -1,0 +1,19 @@
+reaction1: S + STU ->(env*k1) STUS
+reaction1_rev: STUS ->(env*k1r) S + STU
+reaction2: STUS + T ->(env*k2) STUST
+reaction2_rev: STUST ->(env*k2r) STUS + T
+reaction3: STUST ->(env*k3) ST + STU
+reaction3_rev: ST + STU ->(env*k3r) STUST
+reaction4: STU ->(env*k4) 
+reaction5: ST + SU ->(env*k5) SUST
+reaction5_rev: SUST ->(env*k5r) ST + SU
+reaction6: SUST + U ->(env*k6) SUSTU
+reaction6_rev: SUSTU ->(env*k6r) SUST + U
+reaction7: SUSTU ->(env*k7) STU + SU
+reaction7_rev: STU + SU ->(env*k7r) SUSTU
+reaction8: SU ->(env*k8) 
+reaction9: STUS + U ->(env*k9) STUSU
+reaction9_rev: STUSU ->(env*k9r) STUS + U
+reaction10: STUSU ->(env*k10) STU + SU
+reaction10_rev: STU + SU ->(env*k10r) STUSU
+reaction11: ST ->(env*k11) 

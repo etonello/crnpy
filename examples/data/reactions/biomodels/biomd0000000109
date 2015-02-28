@@ -1,0 +1,138 @@
+rxnY001:  ->(X*ksYCyclinD) CyclinD
+rxnY002: CyclinD ->(X*kdYCyclinD) 
+rxnY003: Cdk4Y01 ->(X*kdYCyclinD) Cdk4Y00
+rxnY004: Cdk4Y11 ->(X*kdYCyclinD) Cdk4Y10
+rxnY005:  ->(X*ksYp27) p27
+rxnY006: p27 ->(X*kdYp27) 
+rxnY007: Cdk4Y10 ->(X*kdYp27) Cdk4Y00
+rxnY008: Cdk4Y11 ->(X*kdYp27) Cdk4Y01
+rxnY009: Cdk2Y100 ->(X*kdYp27) Cdk2Y000
+rxnY010: Cdk2Y101 ->(X*kdYp27) Cdk2Y001
+rxnY011: Cdk2Y102 ->(X*kdYp27) Cdk2Y002
+rxnY012: Cdk2Y110 ->(X*kdYp27) Cdk2Y010
+rxnY013: Cdk2Y111 ->(X*kd1Yp27) Cdk2Y011
+rxnY014: Cdk2Y112 ->(X*kdYp27) Cdk2Y012
+rxnY015:  ->(X*ksYCyclinE) CyclinE
+rxnY016: CyclinE ->(X*kdYCyclinE) 
+rxnY017: Cdk2Y001 ->(X*kdYCyclinE) Cdk2Y000
+rxnY018: Cdk2Y101 ->(X*kdYCyclinE) Cdk2Y100
+rxnY019: Cdk2Y011 ->(X*kdYCyclinE) Cdk2Y010
+rxnY020: Cdk2Y111 ->(X*kdYCyclinE) Cdk2Y110
+rxnY021:  ->(X*ksYCyclinA) CyclinA
+rxnY022: CyclinA ->(X*kdYCyclinA) 
+rxnY023: Cdk1Y01 ->(X*kdYCyclinA) Cdk1Y00
+rxnY024: Cdk1Y11 ->(X*kdYCyclinA) Cdk1Y10
+rxnY025: Cdk2Y002 ->(X*kdYCyclinA) Cdk2Y000
+rxnY026: Cdk2Y102 ->(X*kdYCyclinA) Cdk2Y100
+rxnY027: Cdk2Y012 ->(X*kdYCyclinA) Cdk2Y010
+rxnY028: Cdk2Y112 ->(X*kdYCyclinA) Cdk2Y110
+rxnY029:  ->(X*ksYE2F) E2F
+rxnY030: E2F ->(X*kd0YE2F) 
+rxnY031: pRbY01 ->(X*kdYE2F) pRbY00
+rxnY032: pRbY11 ->(X*kdYE2F) pRbY10
+rxnY033: pRbY21 ->(X*kdYE2F) pRbY20
+rxnY034:  ->(X*ksYEmi1) Emi1
+rxnY035: Emi1 ->(X*kdYEmi1) 
+rxnY036: APCCYEmi1 ->(X*kdYEmi1) APCC
+rxnY037: Cdk4Y00 + CyclinD ->(X*kbYCyclinDYYCdk4) Cdk4Y01
+rxnY038: Cdk4Y01 ->(X*kuYCyclinDYYCdk4) Cdk4Y00 + CyclinD
+rxnY039: Cdk4Y10 + CyclinD ->(X*kbYCyclinDYYCdk4) Cdk4Y11
+rxnY040: Cdk4Y11 ->(X*kuYCyclinDYYCdk4) Cdk4Y10 + CyclinD
+rxnY041: Cdk4Y00 + p27 ->(X*kbYp27YYCdk4) Cdk4Y10
+rxnY042: Cdk4Y10 ->(X*kuYp27YYCdk4) Cdk4Y00 + p27
+rxnY043: Cdk4Y01 + p27 ->(X*kbYp27YYCdk4) Cdk4Y11
+rxnY044: Cdk4Y11 ->(X*kuYp27YYCdk4) Cdk4Y01 + p27
+rxnY045: Cdk2Y000 + p27 ->(X*kbYp27YYCdk2) Cdk2Y100
+rxnY046: Cdk2Y100 ->(X*kuYp27YYCdk2) Cdk2Y000 + p27
+rxnY047: Cdk2Y001 + p27 ->(X*kbYp27YYCdk2) Cdk2Y101
+rxnY048: Cdk2Y101 ->(X*kuYp27YYCdk2) Cdk2Y001 + p27
+rxnY049: Cdk2Y002 + p27 ->(X*kbYp27YYCdk2) Cdk2Y102
+rxnY050: Cdk2Y102 ->(X*kuYp27YYCdk2) Cdk2Y002 + p27
+rxnY051: Cdk2Y010 + p27 ->(X*kbYp27YYCdk2) Cdk2Y110
+rxnY052: Cdk2Y110 ->(X*kuYp27YYCdk2) Cdk2Y010 + p27
+rxnY053: Cdk2Y011 + p27 ->(X*kbYp27YYCdk2) Cdk2Y111
+rxnY054: Cdk2Y111 ->(X*kuYp27YYCdk2) Cdk2Y011 + p27
+rxnY055: Cdk2Y012 + p27 ->(X*kbYp27YYCdk2) Cdk2Y112
+rxnY056: Cdk2Y112 ->(X*kuYp27YYCdk2) Cdk2Y012 + p27
+rxnY057: Cdk2Y000 ->(X*kYact) Cdk2Y010
+rxnY058: Cdk2Y100 ->(X*kYact) Cdk2Y110
+rxnY059: Cdk2Y001 ->(X*kYact) Cdk2Y011
+rxnY060: Cdk2Y101 ->(X*kYact) Cdk2Y111
+rxnY061: Cdk2Y002 ->(X*kYact) Cdk2Y012
+rxnY062: Cdk2Y102 ->(X*kYact) Cdk2Y112
+rxnY063: Cdk2Y000 + CyclinE ->(X*kbYCyclinEYYCdk2) Cdk2Y001
+rxnY064: Cdk2Y001 ->(X*kuYCyclinEYYCdk2) Cdk2Y000 + CyclinE
+rxnY065: Cdk2Y100 + CyclinE ->(X*kbYCyclinEYYCdk2) Cdk2Y101
+rxnY066: Cdk2Y101 ->(X*kuYCyclinEYYCdk2) Cdk2Y100 + CyclinE
+rxnY067: Cdk2Y010 + CyclinE ->(X*kbYCyclinEYYCdk2) Cdk2Y011
+rxnY068: Cdk2Y011 ->(X*kuYCyclinEYYCdk2) Cdk2Y010 + CyclinE
+rxnY069: Cdk2Y110 + CyclinE ->(X*kbYCyclinEYYCdk2) Cdk2Y111
+rxnY070: Cdk2Y111 ->(X*kuYCyclinEYYCdk2) Cdk2Y110 + CyclinE
+rxnY071: Cdk2Y000 + CyclinA ->(X*kbYCyclinAYYCdk2) Cdk2Y002
+rxnY072: Cdk2Y002 ->(X*kuYCyclinAYYCdk2) Cdk2Y000 + CyclinA
+rxnY073: Cdk2Y100 + CyclinA ->(X*kbYCyclinAYYCdk2) Cdk2Y102
+rxnY074: Cdk2Y102 ->(X*kuYCyclinAYYCdk2) Cdk2Y100 + CyclinA
+rxnY075: Cdk2Y010 + CyclinA ->(X*kbYCyclinAYYCdk2) Cdk2Y012
+rxnY076: Cdk2Y012 ->(X*kuYCyclinAYYCdk2) Cdk2Y010 + CyclinA
+rxnY077: Cdk2Y110 + CyclinA ->(X*kbYCyclinAYYCdk2) Cdk2Y112
+rxnY078: Cdk2Y112 ->(X*kuYCyclinAYYCdk2) Cdk2Y110 + CyclinA
+rxnY079: Cdk1Y00 ->(X*kYact) Cdk1Y10
+rxnY080: Cdk1Y01 ->(X*kYact) Cdk1Y11
+rxnY081: Cdk1Y00 + CyclinA ->(X*kbYCyclinAYYCdk1) Cdk1Y01
+rxnY082: Cdk1Y01 ->(X*kuYCyclinAYYCdk1) Cdk1Y00 + CyclinA
+rxnY083: Cdk1Y10 + CyclinA ->(X*kbYCyclinAYYCdk1) Cdk1Y11
+rxnY084: Cdk1Y11 ->(X*kuYCyclinAYYCdk1) Cdk1Y10 + CyclinA
+rxnY085: Cdk4Y01 + pRbY00 ->(X*kbYD4YYpRb) Cdk4Y01YpRbY00YpRbY10YInt
+rxnY086: Cdk4Y01YpRbY00YpRbY10YInt ->(X*kuYD4YYpRb) Cdk4Y01 + pRbY00
+rxnY087: Cdk4Y01YpRbY00YpRbY10YInt ->(X*kupYD4YYpRb) Cdk4Y01 + pRbY10
+rxnY088: Cdk4Y01 + pRbY01 ->(X*kbYD4YYpRb) Cdk4Y01YpRbY01YpRbY11YInt
+rxnY089: Cdk4Y01YpRbY01YpRbY11YInt ->(X*kuYD4YYpRb) Cdk4Y01 + pRbY01
+rxnY090: Cdk4Y01YpRbY01YpRbY11YInt ->(X*kupYD4YYpRb) Cdk4Y01 + pRbY11
+rxnY091: Cdk2Y011 + pRbY10 ->(X*kbYE2YYpRb) Cdk2Y011YpRbY10YpRbY20YInt
+rxnY092: Cdk2Y011YpRbY10YpRbY20YInt ->(X*kuYE2YYpRb) Cdk2Y011 + pRbY10
+rxnY093: Cdk2Y011YpRbY10YpRbY20YInt ->(X*kupYE2YYpRb) Cdk2Y011 + pRbY20
+rxnY094: Cdk2Y011 + pRbY11 ->(X*kbYE2YYpRb) Cdk2Y011YpRbY11YpRbY21YInt
+rxnY095: Cdk2Y011YpRbY11YpRbY21YInt ->(X*kuYE2YYpRb) Cdk2Y011 + pRbY11
+rxnY096: Cdk2Y011YpRbY11YpRbY21YInt ->(X*kupYE2YYpRb) Cdk2Y011 + pRbY21
+rxnY097: Cdk2Y012 + pRbY10 ->(X*kbYA2YYpRb) Cdk2Y012YpRbY10YpRbY20YInt
+rxnY098: Cdk2Y012YpRbY10YpRbY20YInt ->(X*kuYA2YYpRb) Cdk2Y012 + pRbY10
+rxnY099: Cdk2Y012YpRbY10YpRbY20YInt ->(X*kupYA2YYpRb) Cdk2Y012 + pRbY20
+rxnY100: Cdk2Y012 + pRbY11 ->(X*kbYA2YYpRb) Cdk2Y012YpRbY11YpRbY21YInt
+rxnY101: Cdk2Y012YpRbY11YpRbY21YInt ->(X*kuYA2YYpRb) Cdk2Y012 + pRbY11
+rxnY102: Cdk2Y012YpRbY11YpRbY21YInt ->(X*kupYA2YYpRb) Cdk2Y012 + pRbY21
+rxnY103: Cdk1Y11 + pRbY10 ->(X*kbYA1YYpRb) Cdk1Y11YpRbY10YpRbY20YInt
+rxnY104: Cdk1Y11YpRbY10YpRbY20YInt ->(X*kuYA1YYpRb) Cdk1Y11 + pRbY10
+rxnY105: Cdk1Y11YpRbY10YpRbY20YInt ->(X*kupYA1YYpRb) Cdk1Y11 + pRbY20
+rxnY106: Cdk1Y11 + pRbY11 ->(X*kbYA1YYpRb*pRbY10/pRbY11) Cdk1Y11YpRbY11YpRbY21YInt
+rxnY107: Cdk1Y11YpRbY11YpRbY21YInt ->(X*kuYA1YYpRb) Cdk1Y11 + pRbY11
+rxnY108: Cdk1Y11YpRbY11YpRbY21YInt ->(X*kupYA1YYpRb) Cdk1Y11 + pRbY21
+rxnY109: pRbY20 ->(X*ktYpRbYYDephos) pRbY00
+rxnY110: pRbY21 ->(X*ktYpRbYYDephos) pRbY01
+rxnY111: E2F + pRbY00 ->(X*kbYE2FYYpRb) pRbY01
+rxnY112: pRbY01 ->(X*kuYE2FYYpRb) E2F + pRbY00
+rxnY113: E2F + pRbY10 ->(X*kbYE2FYYpRb) pRbY11
+rxnY114: pRbY11 ->(X*kuYE2FYYpRb) E2F + pRbY10
+rxnY115: pRbY21 ->(X*kuYE2FYYpRb) E2F + pRbY20
+rxnY116: APCC + Emi1 ->(X*kbYEmi1YYAPCC) APCCYEmi1
+rxnY117: APCCYEmi1 ->(X*kuYEmi1YYAPCC) APCC + Emi1
+rxnY118: APCC + CyclinA ->(X*kbYAPCCYYCyclinA) APCCYCyclinAYInt
+rxnY119: APCCYCyclinAYInt ->(X*kuYAPCCYYCyclinA) APCC + CyclinA
+rxnY120: APCCYCyclinAYInt ->(X*kudYAPCCYYCyclinA) APCC
+rxnY121: APCC + Cdk2Y002 ->(X*kbYAPCCYYCyclinA) APCCYCdk2Y000YCdk2Y002YInt
+rxnY122: APCCYCdk2Y000YCdk2Y002YInt ->(X*kuYAPCCYYCyclinA) APCC + Cdk2Y002
+rxnY123: APCCYCdk2Y000YCdk2Y002YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk2Y000
+rxnY124: APCC + Cdk2Y102 ->(X*kbYAPCCYYCyclinA) APCCYCdk2Y100YCdk2Y102YInt
+rxnY125: APCCYCdk2Y100YCdk2Y102YInt ->(X*kuYAPCCYYCyclinA) APCC + Cdk2Y102
+rxnY126: APCCYCdk2Y100YCdk2Y102YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk2Y100
+rxnY127: APCC + Cdk2Y012 ->(Cdk2Y102*X*kbYAPCCYYCyclinA/Cdk2Y012) APCCYCdk2Y010YCdk2Y012YInt
+rxnY128: APCCYCdk2Y010YCdk2Y012YInt ->(X*kuYAPCCYYCyclinA) APCC + Cdk2Y012
+rxnY129: APCCYCdk2Y010YCdk2Y012YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk2Y010
+rxnY130: APCC + Cdk2Y112 ->(X*kbYAPCCYYCyclinA) APCCYCdk2Y110YCdk2Y112YInt
+rxnY131: APCCYCdk2Y110YCdk2Y112YInt ->(X*kuYAPCCYYCyclinA) APCC + Cdk2Y112
+rxnY132: APCCYCdk2Y110YCdk2Y112YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk2Y110
+rxnY133: APCC + Cdk1Y01 ->(X*kbYAPCCYYCyclinA) APCCYCdk1Y00YCdk1Y01YInt
+rxnY134: APCC + APCCYCdk1Y00YCdk1Y01YInt ->(X*kuYAPCCYYCyclinA/APCC) Cdk1Y01
+rxnY135: APCCYCdk1Y00YCdk1Y01YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk1Y00
+rxnY136: APCC + Cdk1Y11 ->(X*kbYAPCCYYCyclinA) APCCYCdk1Y10YCdk1Y11YInt
+rxnY137: APCC + APCCYCdk1Y10YCdk1Y11YInt ->(X*kuYAPCCYYCyclinA/APCC) Cdk1Y11
+rxnY138: APCCYCdk1Y10YCdk1Y11YInt ->(X*kudYAPCCYYCyclinA) APCC + Cdk1Y10

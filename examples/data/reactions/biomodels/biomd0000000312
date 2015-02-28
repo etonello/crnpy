@@ -1,0 +1,4 @@
+r1:  ->(S*env*k1) R
+r2: R ->(X*env*k2) 
+r3:  ->(S*env*k3) X
+r4: X ->(env*k4) 

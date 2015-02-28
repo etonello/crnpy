@@ -1,0 +1,64 @@
+v1: IKKIkBa + NFkB ->(k7) IKKIkBaNFkB
+v2: IKKIkBaNFkB ->(k9) IKK + NFkB
+v3: IKKIkBaNFkB ->(k8) IKKIkBa + NFkB
+v4: IKK + IkBa ->(k34) IKKIkBa
+v5: IKKIkBa ->(k62) IKK
+v6: IKKIkBa ->(k35) IKK + IkBa
+v7: IKKIkBb + NFkB ->(k10) IKKIkBbNFkB
+v8: IKKIkBbNFkB ->(k12) IKK + NFkB
+v9: IKKIkBbNFkB ->(k11) IKKIkBb + NFkB
+v10: IKK + IkBb ->(k40) IKKIkBb
+v11: IKKIkBb ->(k63) IKK
+v12: IKKIkBb ->(k41) IKK + IkBb
+v13: IKKIkBe + NFkB ->(k13) IKKIkBeNFkB
+v14: IKKIkBeNFkB ->(k15) IKK + NFkB
+v15: IKKIkBeNFkB ->(k14) IKKIkBe + NFkB
+v16: IKK + IkBe ->(k46) IKKIkBe
+v17: IKKIkBe ->(k64) IKK
+v18: IKKIkBe ->(k47) IKK + IkBe
+v19: IKK + IkBaNFkB ->(k52) IKKIkBaNFkB
+v20: IKKIkBaNFkB ->(k53) IKK + IkBaNFkB
+v21: IKK + IkBbNFkB ->(k55) IKKIkBbNFkB
+v22: IKKIkBbNFkB ->(k56) IKK + IkBbNFkB
+v23: IKK + IkBeNFkB ->(k58) IKKIkBeNFkB
+v24: IKKIkBeNFkB ->(k59) IKK + IkBeNFkB
+v25: IkBa + NFkB ->(k1) IkBaNFkB
+v26: 2_source ->(NFkBn**2*k28/_source**2) IkBat + 2sink
+v27: IkBaNFkB ->(k2) IkBa + NFkB
+v28: IkBan + NFkBn ->(k21) IkBanNFkBn
+v29: IkBanNFkBn ->(k22) IkBan + NFkBn
+v30: IkBanNFkBn ->(k54) IkBaNFkB
+v31: IkBaNFkB ->(k16) NFkB
+v32: IkBat ->(k29) sink
+v33: IkBan ->(k39) IkBa
+v34: IkBa ->(k38) IkBan
+v35: _source ->(IkBat*k36/_source) IkBa + sink
+v36: IkBb + NFkB ->(k3) IkBbNFkB
+v37: IkBbNFkB ->(k4) IkBb + NFkB
+v38: IkBbn + NFkBn ->(k23) IkBbnNFkBn
+v39: IkBbnNFkBn ->(k24) IkBbn + NFkBn
+v40: IkBbnNFkBn ->(k57) IkBbNFkB
+v41: IkBbNFkB ->(k17) NFkB
+v42: IkBbt ->(k31) sink
+v43: IkBbn ->(k45) IkBb
+v44: IkBb ->(k44) IkBbn
+v45: _source ->(IkBbt*k42/_source) IkBb + sink
+v46: IkBe + NFkB ->(k5) IkBeNFkB
+v47: IkBeNFkB ->(k6) IkBe + NFkB
+v48: IkBen + NFkBn ->(k25) IkBenNFkBn
+v49: IkBenNFkBn ->(k26) IkBen + NFkBn
+v50: IkBenNFkBn ->(k60) IkBeNFkB
+v51: IkBeNFkB ->(k18) NFkB
+v52: IkBet ->(k33) sink
+v53: IkBen ->(k51) IkBe
+v54: IkBe ->(k50) IkBen
+v55: _source ->(IkBet*k48/_source) IkBe + sink
+v56: NFkBn ->(k20) NFkB
+v57: NFkB ->(k19) NFkBn
+v58: _source ->(k27) IkBat
+v59: _source ->(k30) IkBbt
+v60: _source ->(k32) IkBet
+v61: IkBa ->(k37) sink
+v62: IkBb ->(k43) sink
+v63: IkBe ->(k49) sink
+v64: IKK ->(k61) sink

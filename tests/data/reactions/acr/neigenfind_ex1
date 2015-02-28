@@ -1,0 +1,13 @@
+# Biochemical network decomposition reveals
+# absolute concentration robustness
+# Neigenfind, Jost; Grimbs, Sergio; Nikoloski, Zoran
+# A.3.1 Example 1
+
+R1: A + X ->(k1) F + Y
+R2: F + Y ->(k2) A + X
+R3: A ->(k3) B
+R4: C + F ->(k4) E
+R5: E ->(k5) D + F
+R6: B + D ->(k6) A + C
+R7: X ->(k7) Y
+R8: Y ->(k8) X

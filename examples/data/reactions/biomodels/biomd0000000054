@@ -1,0 +1,5 @@
+Passive_ion_influx:  ->(Extracellular_ion_concentration*Membrane_permeability*cell) Ions
+ATP_consumption_by_ion_pump: Energy_pool + 3Ions ->(ATP*Ion_pump_activity*cell/(Energy_pool*Ions**2)) 
+ATP_from_glycolysis:  ->(AMP**0.41*ATP**0.52*Glycolytic_activity*cell) Energy_pool
+AMP_synthesis_de_novo: Energy_pool ->(2*cell*de_novo_AMP_synthesis/Energy_pool) 
+Adenylate_pool:  ->(cell*de_novo_AMP_synthesis*(-AMP**Dependence_of_AMP_degradation_on_AMP*AMP_degradation*ATP**Dependence_of_AMP_degradation_on_ATP + 1)) Adenylate_pool

@@ -1,0 +1,21 @@
+v1: SO4_ex ->(c0*k_v0/(SO4_ex*((CYS/Kc)**n + 1))) SO4
+v13: EtOH_ex ->(c0*k_v13/EtOH_ex) EtOH
+v2: ATP + SO4 ->(c1*k2) APS + PPi
+v10: O2_ex ->(c0*k_v10/O2_ex) O2
+v14: O2 ->(c2*k14) O2_ex
+v3: APS + ATP ->(c1*k3) ADP + PAPS
+v4: 3NADH + PAPS ->(c1*k4/NADH**2) H2S + 3NAD
+v5: H2S + OAH ->(c1*k5) CYS
+v6: CYS ->(c1*k6) 
+v7: EtOH + 2NAD ->(c1*k7/NAD) AcCoA + 2NADH
+v15: AcCoA ->(c1*k15) OAH
+v17: H2S ->(c1*k17) 
+v18: OAH ->(c1*k18) 
+v8: AcCoA + S2 ->(c2*k8) S1
+v9: 4NAD + S1 ->(c2*k9/NAD**3) 4NADH + S2
+vET1: C1 + Hm + NADH ->(O2*c2*k11/(C1*Hm*((H2S/Kh)**m + 1)*(NADH*a + O2))) C2 + Ho + NAD
+vET2: C2 + O2 ->(NADH*c2*k11/(C2*((H2S/Kh)**m + 1)*(NADH*a + O2))) C1 + H2O
+v16: ADP + ATP_mit ->(c2*k16) ADP_mit + ATP
+vSYNT: ADP_mit + Ho ->(3*NADH*O2*c2*k11/(Ho*(ADP_mit + Ka)*((H2S/Kh)**m + 1)*(NADH*a + O2))) ATP_mit + Hm
+vLEAK: Ho ->(0) Hm
+v12: ATP ->(c1*k12) ADP

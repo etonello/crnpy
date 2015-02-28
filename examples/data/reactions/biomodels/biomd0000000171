@@ -1,0 +1,27 @@
+per_transkription:  ->(per_inh_konstant**transkr_rep_hill_coefficient*per_max_transkr_rate/(PER_TIM_complex_nuclear**transkr_rep_hill_coefficient + per_inh_konstant**transkr_rep_hill_coefficient)) per_mRNA
+tim_transkription:  ->(tim_inh_konstant**transkr_rep_hill_coefficient*tim_max_transkr_rate/(PER_TIM_complex_nuclear**transkr_rep_hill_coefficient + tim_inh_konstant**transkr_rep_hill_coefficient)) tim_mRNA
+tim_mRNA_decay: tim_mRNA ->(cytoplasm*(M_T_mm_decay/(decay_KM_T + tim_mRNA) + degradation_rate)) 
+per_mRNA_decay: per_mRNA ->(cytoplasm*(degradation_rate + max_M_P_decay_rate/(M_P_decay_Km + per_mRNA))) 
+PER_tranlation:  ->(PER_translation_rate*cytoplasm*per_mRNA) PER
+TIM_translation:  ->(TIM_translation_rate*cytoplasm*tim_mRNA) TIM
+PER_decay: PER ->(cytoplasm*degradation_rate) 
+PER_p_decay: PER_p ->(cytoplasm*degradation_rate) 
+PER_pp_decay: PER_pp ->(cytoplasm*degradation_rate) 
+TIM_decay: TIM ->(cytoplasm*degradation_rate) 
+TIM_p_decay: TIM_p ->(cytoplasm*degradation_rate) 
+TIM_pp_decay: TIM_pp ->(cytoplasm*degradation_rate) 
+Per_TIM_complex_formation: PER_pp + TIM_pp ->(cytoplasm*(-C_diss_rate*PER_TIM_complex_cytoplasm + PER_pp*TIM_pp*T_P_ass_rate)/(PER_pp*TIM_pp)) PER_TIM_complex_cytoplasm
+cytopl__PER_TIM_compl__decay: PER_TIM_complex_cytoplasm ->(C_decay_rate*cytoplasm) 
+nuclear_PER_TIM_compl__decay: PER_TIM_complex_nuclear ->(CN_decay_rate*nucleus) 
+PER_TIM_complex_shuttling: PER_TIM_complex_cytoplasm ->(C_import_rate*cytoplasm) PER_TIM_complex_nuclear
+PER_TIM_complex_shuttling_rev: PER_TIM_complex_nuclear ->(C_export_rate*nucleus) PER_TIM_complex_cytoplasm
+PER_phosphorylation: PER ->(P0_phos_rate*cytoplasm/(P0_kinase_KM + PER)) PER_p
+PER_p_phosphorylation: PER_p ->(P1_phosph_rate*cytoplasm/(P1_kinase_KM + PER_p)) PER_pp
+PER_p_dephosphorylation: PER_p ->(P1_dephos_rate*cytoplasm/(P1_phosphatase_KM + PER_p)) PER
+PER_pp_dephosphorylation: PER_pp ->(P2_dephos_rate*cytoplasm/(P2_phosphatase_KM + PER_pp)) PER_p
+TIM_phosphorylation: TIM ->(T0_phos_rate*cytoplasm/(T0_kinase_KM + TIM)) TIM_p
+TIM_p_phosphorylation: TIM_p ->(T1_phosph_rate*cytoplasm/(T1_kinase_KM + TIM_p)) TIM_pp
+TIM_p_dephosphorylation: TIM_p ->(T1_dephos_rate*cytoplasm/(T1_phosphatase_KM + TIM_p)) TIM
+TIM_pp_dephosphorylation: TIM_pp ->(T2_dephos_rate*cytoplasm/(T2_phosphatase_KM + TIM_pp)) TIM_p
+TIM_pp_light_deactivation: TIM_pp ->(T2_lightdecay_rate*cytoplasm/(T2_light_deact_KM + TIM_pp)) 
+PER_pp_light_deactivation: PER_pp ->(P2_light_deactivation_rate*cytoplasm/(P2_light_deactivation_KM + PER_pp)) 

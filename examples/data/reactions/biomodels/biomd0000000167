@@ -1,0 +1,14 @@
+PstatDimerisation: 2Pstat_sol ->(PstatDimerisation_Kf_PstatDimerisation*sol) PstatDimer_sol
+PstatDimerisation_rev: PstatDimer_sol ->(PstatDimerisation_Kr_PstatDimerisation*sol) 2Pstat_sol
+statDephosphorylation: Pstat_nuc ->(nuc*statDephosphorylation_Kcat_dephos*statPhosphatase_nuc/(Pstat_nuc + statDephosphorylation_Km_dephos)) stat_nuc
+statDephosphorylation_rev: stat_nuc ->(0) Pstat_nuc
+statPhosphorylation: stat_sol ->(sol*statKinase_sol*statPhosphorylation_Kcat_phos/(statPhosphorylation_Km_phos + stat_sol)) Pstat_sol + species_test
+statPhosphorylation_rev: Pstat_sol + species_test ->(0) stat_sol
+PstatDimerisationNuc: 2Pstat_nuc ->(PstatDimerisationNuc_Kf_PstatDimerisation*nuc) PstatDimer_nuc
+PstatDimerisationNuc_rev: PstatDimer_nuc ->(PstatDimerisationNuc_Kr_PstatDimerisation*nuc) 2Pstat_nuc
+PstatDimer__import: PstatDimer_sol ->(PstatDimer__import_PstatDimer_impMax*nm/(PstatDimer__import_Kpsd_imp + PstatDimer_sol)) PstatDimer_nuc
+PstatDimer__import_rev: PstatDimer_nuc ->(0) PstatDimer_sol
+stat_export: stat_sol ->(nm*nuc*stat_export_stat_expMax*stat_nuc/(stat_sol*(stat_export_Ks_exp + stat_nuc))) stat_nuc
+stat_export_rev: stat_nuc ->(0) stat_sol
+stat_import: stat_sol ->(nm*nuc*stat_import_stat_impMax/(stat_import_Ks_imp + stat_sol)) stat_nuc
+stat_import_rev: stat_nuc ->(0) stat_sol

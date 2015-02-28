@@ -1,0 +1,13 @@
+Ligand_receptor_complex_formation: Receptor_1 + Receptor_2 ->(ka*ligand) ligand_receptor_complex_plasma_membrane
+Ligand_receptor_complex_constitutive_degradation: ligand_receptor_complex_plasma_membrane ->(kcd) 
+Ligand_independent_complex_degradation: ligand_receptor_complex_plasma_membrane ->(klid) 
+Ligand_receptor_complex_internalization: ligand_receptor_complex_plasma_membrane ->(ki) ligand_receptor_complex_endosome
+RI_synthesis:  ->(pRI) Receptor_1
+RI_constitutive_degradation: Receptor_1 ->(kcd) 
+RI_internalization: Receptor_1 ->(ki) Receptor_1_endosome
+RI_recycling: Receptor_1_endosome ->(kr) Receptor_1
+Ligand_Receptor_complex_recycling: ligand_receptor_complex_endosome ->(kr) Receptor_1 + Receptor_2
+RII_synthesis:  ->(pRII) Receptor_2
+RII_constitutive_degradation: Receptor_2 ->(kcd) 
+RII_internalization: Receptor_2 ->(ki) Receptor_2_endosome
+RII_recycling: Receptor_2_endosome ->(kr) Receptor_2

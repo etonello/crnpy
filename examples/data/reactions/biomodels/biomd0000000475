@@ -1,0 +1,25 @@
+r01: L + PCNA ->(compartment_1*k1) PCNAon
+r02: 2Rad18 ->(compartment_1*k1) Rad18_Rad18
+r03: Rad18_Rad18 ->(compartment_1*k1) 2Rad18
+r04: Rad6 + U ->(compartment_1*k1) Rad6U
+r05: PCNAon + Rad18_Rad18 ->(compartment_1*k1) Rad18_Rad18_PCNAon
+r06: Rad18_Rad18_PCNAon ->(compartment_1*k1) PCNAon + Rad18_Rad18
+r07: Rad18_Rad18_PCNAon + Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAon_Rad6U
+r08: Rad18_Rad18_PCNAon_Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAon + Rad6U
+r09: Rad18_Rad18_PCNAon_Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAonU + Rad6
+r10: Rad18_Rad18_PCNAonU ->(compartment_1*k1) PCNAonU + Rad18_Rad18
+r11: U + Ubc13_Mms2 ->(compartment_1*k1) Ubc13U_Mms2
+r12: PCNAonU + Rad5 ->(compartment_1*k1) Rad5_PCNAonU
+r13: Rad5_PCNAonU ->(compartment_1*k1) PCNAonU + Rad5
+r14: Rad5_PCNAonU + Ubc13U_Mms2 ->(compartment_1*k1) Ubc13U_Mms2_Rad5_PCNAonU
+r15: Ubc13U_Mms2_Rad5_PCNAonU ->(compartment_1*k1) Rad5_PCNAonU + Ubc13U_Mms2
+r16: Ubc13U_Mms2_Rad5_PCNAonU ->(compartment_1*k1) Rad5_PCNAonU_U + Ubc13_Mms2
+r17: Rad5_PCNAonU_U ->(compartment_1*k1) PCNAonU_U + Rad5
+r18: PCNAonU_U + Rad5 ->(compartment_1*k1) Rad5_PCNAonU_U
+r19: Rad5_PCNAonU_U + Ubc13U_Mms2 ->(compartment_1*k1) Ubc13U_Mms2_Rad5_PCNAonU_U
+r20: Ubc13U_Mms2_Rad5_PCNAonU_U ->(compartment_1*k1) Rad5_PCNAonU_U + Ubc13U_Mms2
+r21: Ubc13U_Mms2_Rad5_PCNAonU_U ->(compartment_1*k1) Rad5_PCNAonU_U_U + Ubc13_Mms2
+r22: Rad5_PCNAonU_U_U ->(compartment_1*k1) PCNAonU_U_U + Rad5
+r23: PCNAonU ->(compartment_1*k1) PCNAoff + U
+r24: PCNAonU_U ->(compartment_1*k1) PCNAoff + 2U
+r25: PCNAonU_U_U ->(compartment_1*k1) PCNAoff + 3U

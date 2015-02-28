@@ -1,0 +1,12 @@
+# Substituted-enzyme mechanism
+# Cornish-Bowden, Athel. "Fundamentals of enzyme kinetics". Elsevier, 2014.
+# 6.3
+
+a + e ->(k1) ea
+ea ->(k_1) a + e
+ea ->(k2) p + e1    # ea = e1p
+e1 + p ->(k_2) ea
+e1 + b ->(k3) e1b
+e1b ->(k_3) e1 + b  # e1b = eq
+e1b ->(k4) e + q
+e + q ->(k_4) e1b

@@ -1,0 +1,80 @@
+ProteinSynthesis: Source ->(kalive*ksynNatP) NatP
+Misfolding: NatP + ROS ->(kalive*kmisfold) MisP + ROS
+Hsp90MisPBinding: Hsp90 + MisP ->(kalive*kbinHspMisp) Hsp90_MisP
+Hsp90unsuccessulRefolding: Hsp90_MisP ->(kalive*krelHspMisp) Hsp90 + MisP
+Hsp90refolding: ATP + Hsp90_MisP ->(kalive*krefold/(ATP + 5000)) ADP + Hsp90 + NatP
+Hsp70MisPBinding: Hsp70 + MisP ->(kalive*kbinHspMisp) Hsp70_MisP
+Hsp70unsuccessulRefolding: Hsp70_MisP ->(kalive*krelHspMisp) Hsp70 + MisP
+Hsp70refolding: ATP + Hsp70_MisP ->(kalive*krefold/(ATP + 5000)) ADP + Hsp70 + NatP
+Hsp70ClientBinding: Hsp70 + Hsp70Client ->(kalive*kbinHsp70client) Hsp70_Hsp70Client
+Hsp70ClientRelease: Hsp70_Hsp70Client ->(kalive*krelHsp70client) Hsp70 + Hsp70Client
+Hsp90ClientBinding: Hsp90 + Hsp90Client ->(kalive*kbinHsp90client) Hsp90_Hsp90Client
+Hsp90ClientRelease: Hsp90_Hsp90Client ->(kalive*krelHsp90client) Hsp90 + Hsp90Client
+Hsp90HSF1Binding: Hsf1 + Hsp90 ->(kalive*kbinHsf1Hsp90) Hsf1_Hsp90
+Hsp90HSF1Release: Hsf1_Hsp90 ->(kalive*krelHsf1Hsp90) Hsf1 + Hsp90
+dimerisation: 2Hsf1 ->(kalive*kdimerHsf1*(Hsf1 - 1)/(2*Hsf1)) Hsf1_Hsf1
+trimerisation: Hsf1 + Hsf1_Hsf1 ->(kalive*ktrimerHsf1) Hsf1_Hsf1_Hsf1
+deTrimerisation: Hsf1_Hsf1_Hsf1 ->(kalive*kdetrimerHsf1) Hsf1 + Hsf1_Hsf1
+deDimerisation: Hsf1_Hsf1 ->(kalive*kdedimerHsf1) 2Hsf1
+HSE70TriHBinding: HSEHsp70 + Hsf1_Hsf1_Hsf1 ->(kalive*kbinHSEHsf1) HSEHsp70_Hsf1_Hsf1_Hsf1
+HSE70TriHRelease: HSEHsp70_Hsf1_Hsf1_Hsf1 ->(kalive*krelHSEHsf1) HSEHsp70 + Hsf1_Hsf1_Hsf1
+HSE90TriHBinding: HSEHsp90 + Hsf1_Hsf1_Hsf1 ->(kalive*kbinHSEHsf1) HSEHsp90_Hsf1_Hsf1_Hsf1
+HSE90TriHRelease: HSEHsp90_Hsf1_Hsf1_Hsf1 ->(kalive*krelHSEHsf1) HSEHsp90 + Hsf1_Hsf1_Hsf1
+Hsf1_Hsf1_Hsf1Phosphorylation: Hsf1_Hsf1_Hsf1 + Pkc ->(kalive*kphosHsf1) Hsf1_Hsf1_Hsf1_P + Pkc
+Hsf1_Hsf1_Hsf1DePhosphorylation: Hsf1_Hsf1_Hsf1_P + Hsp70_Ppx ->(kalive*kdephosHsf1) Hsf1_Hsf1_Hsf1 + Hsp70_Ppx
+HSE70PhosTriHBinding: HSEHsp70 + Hsf1_Hsf1_Hsf1_P ->(kalive*kbinHSEPhosTriH) HSEHsp70_Hsf1_Hsf1_Hsf1_P
+HSE70PhosTriHRelease: HSEHsp70_Hsf1_Hsf1_Hsf1_P ->(kalive*krelHSEPhosTriH) HSEHsp70 + Hsf1_Hsf1_Hsf1_P
+HSE90PhosTriHBinding: HSEHsp90 + Hsf1_Hsf1_Hsf1_P ->(kalive*kbinHSEPhosTriH) HSEHsp90_Hsf1_Hsf1_Hsf1_P
+HSE90PhosTriHRelease: HSEHsp90_Hsf1_Hsf1_Hsf1_P ->(kalive*krelHSEPhosTriH) HSEHsp90 + Hsf1_Hsf1_Hsf1_P
+Hsp90BasalSynthesis: Source ->(kalive*kbasalsynHsp90/Source) Hsp90
+Hsp90Upregulation: HSEHsp90_Hsf1_Hsf1_Hsf1_P ->(kalive*kupregHsp) HSEHsp90_Hsf1_Hsf1_Hsf1_P + Hsp90
+Hsp90ProteasomeBinding: Hsp90 + Proteasome ->(kalive*kbinHsp90Prot) Hsp90_Proteasome
+Hsp90Degradation: ATP + Hsp90_Proteasome ->(kalive*kdegHsp90/(ATP + 5000)) ADP + Proteasome
+Hsp70BasalSynthesis: Source ->(kalive*kbasalsynHsp70/Source) Hsp70
+Hsp70Upregulation: HSEHsp70_Hsf1_Hsf1_Hsf1_P ->(kalive*kupregHsp) HSEHsp70_Hsf1_Hsf1_Hsf1_P + Hsp70
+Hsp70ProteasomeBinding: Hsp70 + Proteasome ->(kalive*kbinHsp70Prot) Hsp70_Proteasome
+Hsp70Degradation: ATP + Hsp70_Proteasome ->(kalive*kdegHsp70/(ATP + 5000)) ADP + Proteasome
+MisPProteasomeBinding1: Hsp70_MisP + Proteasome ->(kalive*kbinMisPProt) Hsp70 + MisP_Proteasome
+MisPProteasomeBinding2: Hsp90_MisP + Proteasome ->(kalive*kbinMisPProt) Hsp90 + MisP_Proteasome
+MisPDegradation: ATP + MisP_Proteasome ->(kalive*kdegMisP/(ATP + 5000)) ADP + Proteasome
+radicalFormation: Source ->(kalive*kgenROS) ROS
+radicalScavenging: ROS ->(kalive*kremROS) Sink
+Hsp70_PpxBinding: Hsp70 + Ppx ->(kalive*kbinHsp70Ppx) Hsp70_Ppx
+Hsp70_PPXRelease: Hsp70_Ppx ->(kalive*krelHsp70Ppx) Hsp70 + Ppx
+JnkPhosphorylation: Jnk + ROS ->(kalive*kphosJnk) Jnk_P + ROS
+JNKDephosphorylatioByMkp1: Jnk_P + Mkp1_P ->(kalive*kdephosJnkMkp1) Jnk + Mkp1_P
+p38Phosphorylation: ROS + p38 ->(kalive*kphosp38) ROS + p38_P
+p38DePhosphorylationByMkp1: Mkp1_P + p38_P ->(kalive*kdephosp38Mkp1) Mkp1_P + p38
+Aggregation1: 2MisP ->(0.5*kagg*kalive*(MisP - 1)/MisP) AggP
+SequesteringOfAggregate: AggP + MisP ->(kagg*kalive) SeqAggP
+InclusionGrowth: MisP + SeqAggP ->(kalive*kseqagg) 2SeqAggP
+ProteasomeInhibtion: AggP + Proteasome ->(kalive*kbinAggPProt) AggP_Proteasome
+ROSgenerationSmallAggP: AggP ->(kalive*kgenROSAggP) AggP + ROS
+ROSgenerationAggPProteasome: AggP_Proteasome ->(kalive*kgenROSAggP) AggP_Proteasome + ROS
+AktSynthesis: Source ->(kalive*ksynAkt) Akt
+Hsp90AktBinding: Akt + Hsp90 ->(kalive*kbinAktHsp90) Akt_Hsp90
+Hsp90AktRelease: Akt_Hsp90 ->(kalive*krelAktHsp90) Akt + Hsp90
+CHIPbinding: Akt_Hsp90 + CHIP ->(kalive*kbinCHIP) Akt_CHIP_Hsp90
+CHIPrelease: Akt_CHIP_Hsp90 ->(kalive*krelCHIP) Akt_Hsp90 + CHIP
+AktProteasomeBinding: Akt_CHIP_Hsp90 + Proteasome ->(kalive*kbinAktProt) Akt_Proteasome + CHIP + Hsp90
+AktProteasomeRelease: Akt_Proteasome ->(kalive*krelAktProt) Akt + Proteasome
+AktDegradation: ATP + Akt_Proteasome ->(kalive*kdegAkt/(ATP + 5000)) ADP + Proteasome
+Mkp1Synthesis: Source ->(kalive*ksynMkp1) Mkp1
+Mkp1ProteasomeBinding: Mkp1 + Proteasome ->(kalive*kbinMkp1Prot) Mkp1_Proteasome
+Mkp1Degradation: ATP + Mkp1_Proteasome ->(kalive*kdegMkp1/(ATP + 5000)) ADP + Proteasome
+Mkp1Phosphorylation: Hsp70 + Mkp1 ->(kalive*kphosMkp1) Hsp70 + Mkp1_P
+Mkp1Dephosphorylation: Mkp1_P + ROS ->(kalive*kdephosMkp1) Mkp1 + ROS
+p38ROSproduction: p38_P ->(kalive*kgenROSp38*kp38act) ROS + p38_P
+Hsp70Damage: Hsp70 + ROS ->(kalive*kdamHsp) Hsp70_dam + ROS
+Hsp90Damage: Hsp90 + ROS ->(kalive*kdamHsp) Hsp90_dam + ROS
+Hsp70DamProteasomeBinding: Hsp70_dam + Proteasome ->(kalive*kbinHsp70Prot) Hsp70_Proteasome
+Hsp90DamProteasomeBinding: Hsp90_dam + Proteasome ->(kalive*kbinHsp90Prot) Hsp90_Proteasome
+Hsp70DamAggregation1: 2Hsp70_dam ->(0.5*kagg*kalive*(Hsp70_dam - 1)/Hsp70_dam) AggP
+Hsp70DamInclusionFormation: AggP + Hsp70_dam ->(kagg*kalive) SeqAggP
+Hsp90DamAggregation: 2Hsp90_dam ->(0.5*kagg*kalive*(Hsp90_dam - 1)/Hsp90_dam) AggP
+Hsp90DamInclusionFormation: AggP + Hsp90_dam ->(kagg*kalive) SeqAggP
+Hsp70DamSequestering: Hsp70_dam + SeqAggP ->(kalive*kseqagg) 2SeqAggP
+Hsp90DamSequestering: Hsp90_dam + SeqAggP ->(kalive*kseqagg) 2SeqAggP
+p38CellDeath: p38_P ->(kalive*kp38act*kp38death) CellDeath + p38Death + p38_P
+JnkCellDeath: Jnk_P ->(kJnkdeath*kalive) CellDeath + JNKDeath + Jnk_P
+PICellDeath: AggP_Proteasome ->(kPIdeath*kalive) AggP_Proteasome + CellDeath + PIDeath

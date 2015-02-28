@@ -1,0 +1,13 @@
+C3_phos: C_3 ->(default*v*exp(EAlow*(-T + T2)/(R*T*T2))) C_3_P
+C3_transk: C3_Gene ->(default*v*exp(EAhigh*(-T + T2)/(R*T*T2))/(C3_Gene*(C_3_P**h + k))) C3_mRNA
+C3_mRNADegr: C3_mRNA ->(default*v*exp(EAlow*(-T + T2)/(R*T*T2))/(C3_mRNA + Km)) junk
+C3_degr: C_3 ->(default*v*exp(EAlow*(-T + T2)/(R*T*T2))/(C_3 + Km)) junk
+C3_phos_degr: C_3_P ->(default*v*exp(EAlow*(-T + T2)/(R*T*T2))/(C_3_P + Km)) junk
+C3_transl: C_3_pre ->(C3_mRNA*default*v*exp(EAhigh*(-T + T2)/(R*T*T2))/C_3_pre) C_3
+C1_transl: C1_mRNA ->(default*v*exp(E*(-T + T2)/(R*T*T2))) C1
+complexformation: C1_phos + C_3_P ->(C_3_P**a*default*v*exp(EAhigh*(-T + T2)/(R*T*T2))/C_3_P) c1c3complex
+C1_phos: C1 ->(default*v_phos*exp(Ephos*(-T + T2)/(R*T*T2))) C1_phos
+C1_degr: C1 ->(default*v*exp(E*(-T + T2)/(R*T*T2))/(C1 + Km)) junk
+complexdegr: c1c3complex ->(default*v*exp(E*(-T + T2)/(R*T*T2))/(Km + c1c3complex)) junk
+C1_dephos: C1_phos ->(V_dephos*default*exp(Edephos*(-T + T2)/(R*T*T2))) C1
+C1_phos_degr: C1_phos ->(default*vphosdegr*exp(E*(-T + T2)/(R*T*T2))/(C1_phos + Km)) junk

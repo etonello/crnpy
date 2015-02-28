@@ -1,0 +1,45 @@
+R1: TF + VII ->(compartment_1*k2) TF_VII
+R1_rev: TF_VII ->(compartment_1*k1) TF + VII
+R2: TF + VIIa ->(compartment_1*k4) TF_VIIa
+R2_rev: TF_VIIa ->(compartment_1*k3) TF + VIIa
+R3: TF_VIIa + VII ->(compartment_1*k5) TF_VIIa + VIIa
+R4: VII + Xa ->(compartment_1*k6) VIIa + Xa
+R5: IIa + VII ->(compartment_1*k7) IIa + VIIa
+R6: TF_VIIa + X ->(compartment_1*k9) TF_VIIa_X
+R6_rev: TF_VIIa_X ->(compartment_1*k8) TF_VIIa + X
+R7: TF_VIIa + Xa ->(compartment_1*k12) TF_VIIa_Xa
+R7_rev: TF_VIIa_Xa ->(compartment_1*k11) TF_VIIa + Xa
+R8: IX + TF_VIIa ->(compartment_1*k14) TF_VIIa_IX
+R8_rev: TF_VIIa_IX ->(compartment_1*k13) IX + TF_VIIa
+R9: II + Xa ->(compartment_1*k16) IIa + Xa
+R10: IIa + VIII ->(compartment_1*k17) IIa + VIIIa
+R11: IXa + VIIIa ->(compartment_1*k19) IXa_VIIIa
+R11_rev: IXa_VIIIa ->(compartment_1*k18) IXa + VIIIa
+R12: IXa_VIIIa + X ->(compartment_1*k21) IXa_VIIIa_X
+R12_rev: IXa_VIIIa_X ->(compartment_1*k20) IXa_VIIIa + X
+R13: VIIIa ->(compartment_1*k24) VIIIa1_L + VIIIa2
+R13_rev: VIIIa1_L + VIIIa2 ->(compartment_1*k23) VIIIa
+R14: IXa_VIIIa_X ->(compartment_1*k25) IXa + VIIIa1_L + VIIIa2 + X
+R15: IXa_VIIIa ->(compartment_1*k25) IXa + VIIIa1_L + VIIIa2
+R16: IIa + V ->(compartment_1*k26) IIa + Va
+R17: Va + Xa ->(compartment_1*k28) Xa_Va
+R17_rev: Xa_Va ->(compartment_1*k27) Va + Xa
+R18: II + Xa_Va ->(compartment_1*k30) Xa_Va_II
+R18_rev: Xa_Va_II ->(compartment_1*k29) II + Xa_Va
+R19: Xa_Va + mIIa ->(compartment_1*k32) IIa + Xa_Va
+R20: TFPI + Xa ->(compartment_1*k34) Xa_TFPI
+R20_rev: Xa_TFPI ->(compartment_1*k33) TFPI + Xa
+R21: TFPI + TF_VIIa_Xa ->(compartment_1*k36) TF_VIIa_Xa_TFPI
+R21_rev: TF_VIIa_Xa_TFPI ->(compartment_1*k35) TFPI + TF_VIIa_Xa
+R22: TF_VIIa + Xa_TFPI ->(compartment_1*k37) TF_VIIa_Xa_TFPI
+R23: ATIII + Xa ->(compartment_1*k38) Xa_ATIII
+R24: ATIII + mIIa ->(compartment_1*k39) mIIa_ATIII
+R25: ATIII + IXa ->(compartment_1*k40) IXa_ATIII
+R26: ATIII + IIa ->(compartment_1*k41) IIa_ATIII
+R27: ATIII + TF_VIIa ->(compartment_1*k42) TF_VIIa_ATIII
+R6b: TF_VIIa_X ->(compartment_1*k10) TF_VIIa_Xa
+R8b: TF_VIIa_IX ->(compartment_1*k15) IXa + TF_VIIa
+R12b: IXa_VIIIa_X ->(compartment_1*k22) IXa_VIIIa + Xa
+R18b: Xa_Va_II ->(compartment_1*k31) Xa_Va + mIIa
+R28: IXa + X ->(compartment_1*k43) IXa + Xa
+R29: V + mIIa ->(compartment_1*k44) Va + mIIa

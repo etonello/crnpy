@@ -1,0 +1,94 @@
+Growth:  ->(MASS*mu) MASS
+Synthesis_of_CLN2:  ->(MASS*(SBF*ksn2__ + ksn2_)) CLN2
+Degradation_of_CLN2: CLN2 ->(kdn2) 
+Synthesis_of_CLB2:  ->(MASS*(MCM1*ksb2__ + ksb2_)) CLB2
+Degradation_of_CLB2: CLB2 ->(Vdb2) 
+Synthesis_of_CLB5:  ->(MASS*(SBF*ksb5__ + ksb5_)) CLB5
+Degradation_of_CLB5: CLB5 ->(Vdb5) 
+Synthesis_of_SIC1:  ->(SWI5*ksc1__ + ksc1_) SIC1
+Phosphorylation_of_SIC1: SIC1 ->(Vkpc1) SIC1P
+Dephosphorylation_of_SIC1: SIC1P ->(Vppc1) SIC1
+Fast_Degradation_of_SIC1P: SIC1P ->(kd3c1) 
+Assoc__of_CLB2_and_SIC1: CLB2 + SIC1 ->(kasb2) C2
+Dissoc__of_CLB2_SIC1_complex: C2 ->(kdib2) CLB2 + SIC1
+Assoc__of_CLB5_and_SIC1: CLB5 + SIC1 ->(kasb5) C5
+Dissoc__of_CLB5_SIC1: C5 ->(kdib5) CLB5 + SIC1
+Phosphorylation_of_C2: C2 ->(Vkpc1) C2P
+Dephosphorylation_of_C2P: C2P ->(Vppc1) C2
+Phosphorylation_of_C5: C5 ->(Vkpc1) C5P
+Dephosphorylation_of_C5P: C5P ->(Vppc1) C5
+Degradation_of_CLB2_in_C2: C2 ->(Vdb2) SIC1
+Degradation_of_CLB5_in_C5: C5 ->(Vdb5) SIC1
+Degradation_of_SIC1_in_C2P: C2P ->(kd3c1) CLB2
+Degradation_of_SIC1P_in_C5P: C5P ->(kd3c1) CLB5
+Degradation_of_CLB2_in_C2P: C2P ->(Vdb2) SIC1P
+Degradation_of_CLB5_in_C5P: C5P ->(Vdb5) SIC1P
+CDC6_synthesis:  ->(SBF*ksf6___ + SWI5*ksf6__ + ksf6_) CDC6
+Phosphorylation_of_CDC6: CDC6 ->(Vkpf6) CDC6P
+Dephosphorylation_of_CDC6: CDC6P ->(Vppf6) CDC6
+Degradation_of_CDC6P: CDC6P ->(kd3f6) 
+CLB2_CDC6_complex_formation: CDC6 + CLB2 ->(kasf2) F2
+CLB2_CDC6_dissociation: F2 ->(kdif2) CDC6 + CLB2
+CLB5_CDC6_complex_formation: CDC6 + CLB5 ->(kasf5) F5
+CLB5_CDC6_dissociation: F5 ->(kdif5) CDC6 + CLB5
+F2_phosphorylation: F2 ->(Vkpf6) F2P
+F2P_dephosphorylation: F2P ->(Vppf6) F2
+F5_phosphorylation: F5 ->(Vkpf6) F5P
+F5P_dephosphorylation: F5P ->(Vppf6) F5
+CLB2_degradation_in_F2: F2 ->(Vdb2) CDC6
+CLB5_degradation_in_F5: F5 ->(Vdb5) CDC6
+CDC6_degradation_in_F2P: F2P ->(kd3f6) CLB2
+CDC6_degradation_in_F5P: F5P ->(kd3f6) CLB5
+CLB2_degradation_in_F2P: F2P ->(Vdb2) CDC6P
+CLB5_degradation_in_F5P: F5P ->(Vdb5) CDC6P
+Synthesis_of_SWI5:  ->(MCM1*ksswi__ + ksswi_) SWI5
+Degradation_of_SWI5: SWI5 ->(kdswi) 
+Degradation_of_SWI5P: SWI5P ->(kdswi) 
+Activation_of_SWI5: SWI5P ->(CDC14*kaswi) SWI5
+Inactivation_of_SWI5: SWI5 ->(CLB2*kiswi) SWI5P
+Activation_of_IEP: IE ->(Vaiep/(IE + Jaiep)) IEP
+Inactivation: IEP ->(kiiep/(IEP + Jiiep)) IE
+Synthesis_of_inactive_CDC20:  ->(MCM1*ks20__ + ks20_) CDC20i
+Degradation_of_inactiveCDC20: CDC20i ->(kd20) 
+Degradation_of_active_CDC20: CDC20 ->(kd20) 
+Activation_of_CDC20: CDC20i ->(IEP*ka20__ + ka20_) CDC20
+Inactivation: CDC20 ->(Inactivation_2_k*MAD2) CDC20i
+CDH1_synthesis:  ->(kscdh) CDH1
+CDH1_degradation: CDH1 ->(kdcdh) 
+CDH1i_degradation: CDH1i ->(kdcdh) 
+CDH1i_activation: CDH1i ->(Vacdh/(CDH1i + Jacdh)) CDH1
+Inactivation: CDH1 ->(Vicdh/(CDH1 + Jicdh)) CDH1i
+CDC14_synthesis:  ->(ks14) CDC14
+CDC14_degradation: CDC14 ->(kd14) 
+Assoc__with_NET1_to_form_RENT: CDC14 + NET1 ->(kasrent) RENT
+Dissoc__from_RENT: RENT ->(kdirent) CDC14 + NET1
+Assoc_with_NET1P_to_form_RENTP: CDC14 + NET1P ->(kasrentp) RENTP
+Dissoc__from_RENP: RENTP ->(kdirentp) CDC14 + NET1P
+Net1_synthesis:  ->(ksnet) NET1
+Net1_degradation: NET1 ->(kdnet) 
+Net1P_degradation: NET1P ->(kdnet) 
+NET1_phosphorylation: NET1 ->(Vkpnet) NET1P
+dephosphorylation: NET1P ->(Vppnet) NET1
+RENT_phosphorylation: RENT ->(Vkpnet) RENTP
+dephosphorylation: RENTP ->(Vppnet) RENT
+Degradation_of_NET1_in_RENT: RENT ->(kdnet) CDC14
+Degradation_of_NET1P_in_RENTP: RENTP ->(kdnet) CDC14
+Degradation_of_CDC14_in_RENT: RENT ->(kd14) NET1
+Degradation_of_CDC14_in_RENTP: RENTP ->(kd14) NET1P
+TEM1_activation: TEM1GDP ->(LTE1/(Jatem + TEM1GDP)) TEM1GTP
+inactivation: TEM1GTP ->(BUB2/(Jitem + TEM1GTP)) TEM1GDP
+CDC15_activation: CDC15i ->(CDC14*ka15p + TEM1GDP*ka15_ + TEM1GTP*ka15__) CDC15
+inactivation: CDC15 ->(ki15) CDC15i
+PPX_synthesis:  ->(ksppx) PPX
+degradation: PPX ->(Vdppx) 
+PDS1_synthesis:  ->(MCM1*ks2pds__ + SBF*ks1pds__ + kspds_) PDS1
+degradation: PDS1 ->(Vdpds) 
+Degradation_of_PDS1_in_PE: PE ->(Vdpds) ESP1
+Assoc__with_ESP1_to_form_PE: ESP1 + PDS1 ->(kasesp) PE
+Disso__from_PE: PE ->(kdiesp) ESP1 + PDS1
+DNA_synthesis:  ->(ksori*(CLB2*eorib2 + CLB5*eorib5)) ORI
+Negative_regulation_of_DNA_synthesis: ORI ->(kdori) 
+Budding:  ->(ksbud*(CLB5*ebudb5 + CLN2*ebudn2 + CLN3*ebudn3)) BUD
+Negative_regulation_of_Cell_budding: BUD ->(kdbud) 
+Spindle_formation:  ->(CLB2*ksspn/(CLB2 + Jspn)) SPN
+Spindle_disassembly: SPN ->(kdspn) 

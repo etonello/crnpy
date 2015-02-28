@@ -1,0 +1,9 @@
+auxin_TIR1association: TIR1 + auxin ->(ka) auxinTIR1
+auxin_TIR1dissociation: auxinTIR1 ->(kd) TIR1 + auxin
+auxin_TIR1_VENUSassociation: VENUS + auxinTIR1 ->(la) auxinTIR1VENUS
+auxin_TIR1_VENUSdissociation: auxinTIR1VENUS ->(ld) VENUS + auxinTIR1
+auxin_TIR1_VENUSdissociationleadingtoubiquitination: auxinTIR1VENUS ->(lm) auxinTIR1
+auxinproduction:  ->(alpha_tr) auxin
+auxindecay: auxin ->(mu) 
+VENUSproduction:  ->(delta) VENUS
+VENUSphotobleachingdecay: VENUS ->(_lambda) 

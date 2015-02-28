@@ -1,0 +1,14 @@
+AprEdeg: AprE ->(kdeg) 
+AprEsyn:  ->(ksyn*mAprE*univ) AprE
+DimerAss: 2DegUP ->(ka) Dim
+DimerDis: Dim ->(kd) 2DegUP
+degradation1: DegU ->(kdeg*univ) 
+degradation2: DegUP ->(kdeg*univ) 
+degradation3: Dim ->(kdeg*univ) 
+degradationmRNA: mDegU ->(kdegm) 
+dephosphorylation: DegUP ->(kdephos) DegU
+mRNAAprEdeg: mAprE ->(kdegm) 
+mRNAAprEsyn:  ->(Kr1*(Dim**2*Irmax*univ**2/(Kdim**2*(Dim**2*univ**2/Kdim**2 + Dim*univ/Kdim + 1 + R/Kr)) + Iro*(Dim*univ/Kdim + 1)/(Dim**2*univ**2/Kdim**2 + Dim*univ/Kdim + 1 + R/Kr))/(Kr1 + R)) mAprE
+phosphorylation: DegU ->(kphos) DegUP
+synthesisDegU:  ->(ksyn1*mDegU*univ) DegU
+synthesismRNA:  ->(Dim*Imax*univ/(Dim*univ + K) + Io*K/(Dim*univ + K)) mDegU

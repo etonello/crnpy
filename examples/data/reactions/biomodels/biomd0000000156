@@ -1,0 +1,6 @@
+p53_production:  ->(Theta*compartment*p53*psi) p53
+Mdm2_dependent_p53_degradation: p53 ->(Mdm2*alpha_xy*compartment) 
+p53_dependent_Mdm2_precursor_production:  ->(beta_y*compartment*p53*psi) precursor_Mdm2
+Mdm2_synthesis_from_precursor: precursor_Mdm2 ->(alpha_0*compartment) Mdm2
+Mdm2_degradation: Mdm2 ->(alpha_y*compartment) 
+Mdm2_degradation_rev:  ->(0) Mdm2

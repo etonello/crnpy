@@ -1,0 +1,10 @@
+ATPase: ATP ->(Katpase*Tissue) ADP
+ATPase_rev: ADP ->(0) ATP
+OxidativePhosphorylation: 6ADP + CTtis ->(CFtis*Tissue*Vmax/(ADP**5*CTtis*(ADP + Kadp)*(CFtis + Km))) 6ATP
+OxidativePhosphorylation_rev: 6ATP ->(0) 6ADP + CTtis
+ConvectionTransport:  ->(CTart*Qm) CTcap
+ConvectionTransport_rev: CTcap ->(Qm) 
+DiffusionTransport: CTcap ->(CFcap*PSm/CTcap) CTtis
+DiffusionTransport_rev: CTtis ->(CFtis*PSm/CTtis) CTcap
+CreatineKinase: ADP + PCr ->(Kia*Kib*Kiq**2*Kp*Tissue*VfCK/(ADP*Kia*Kib*Kiq**2*Kp*PCr + ATP*Cr*Kb*Kia**2*Kib*Kiq + ATP*Kb*Kia**2*Kib*Kiq*Kp + Kb*Kia**2*Kiq**2*Kp*PCr + Kb*Kia*Kib*Kiq**2*Kp*(ADP + Kia))) ATP + Cr
+CreatineKinase_rev: ATP + Cr ->(Kb*Kia**2*Kib*Kiq*Tissue*VrCK/(ADP*Kia*Kib*Kiq**2*Kp*PCr + ATP*Cr*Kb*Kia**2*Kib*Kiq + ATP*Kb*Kia**2*Kib*Kiq*Kp + Kb*Kia**2*Kiq**2*Kp*PCr + Kb*Kia*Kib*Kiq**2*Kp*(ADP + Kia))) ADP + PCr

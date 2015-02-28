@@ -1,0 +1,34 @@
+ATPflow:  ->(3.5*compartment*flow) ATP
+ATPflow_rev: ATP ->(compartment*flow) 
+ADPflow:  ->(1.1*compartment*flow) ADP
+ADPflow_rev: ADP ->(compartment*flow) 
+NADHflow:  ->(0.24*compartment*flow) NADH
+NADHflow_rev: NADH ->(compartment*flow) 
+NADflow:  ->(4*compartment*flow) NAD
+NADflow_rev: NAD ->(compartment*flow) 
+GLCflow:  ->(50*compartment*flow) GLC
+GLCflow_rev: GLC ->(compartment*flow) 
+F6Pflow: F6P ->(compartment*flow) 
+FBPflow: FBP ->(compartment*flow) 
+GAPflow: GAP ->(compartment*flow) 
+DPGflow: DPG ->(compartment*flow) 
+PEPflow: PEP ->(compartment*flow) 
+PYRflow: PYR ->(compartment*flow) 
+ACAflow: ACA ->(compartment*flow) 
+EtOHflow: EtOH ->(compartment*flow) 
+AMPflow: AMP ->(compartment*flow) 
+Pflow: P ->(compartment*flow) 
+reaction_1: ATP + GLC ->(V1*compartment/((ATP + K1ATP)*(GLC + K1GLC))) ADP + F6P
+reaction_2: ATP + F6P ->(F6P*V2*compartment/((ATP + K2ATP)*(F6P**2 + K2*(1 + ATP**2*k2/AMP**2)))) ADP + FBP
+reaction_3: FBP ->(compartment*k3f) 2GAP
+reaction_3_rev: 2GAP ->(compartment*k3b) FBP
+reaction_4: GAP + NAD ->(V4*compartment/((GAP + K4GAP)*(K4NAD + NAD))) DPG + NADH
+reaction_5: ADP + DPG ->(compartment*k5f) ATP + PEP
+reaction_5_rev: ATP + PEP ->(compartment*k5b) ADP + DPG
+reaction_6: ADP + PEP ->(V6*compartment/((ADP + K6ADP)*(K6PEP + PEP))) ATP + PYR
+reaction_7: PYR ->(V7*compartment/(K7PYR + PYR)) ACA
+reaction_8: ACA + NADH ->(compartment*k8f) EtOH + NAD
+reaction_8_rev: EtOH + NAD ->(compartment*k8b) ACA + NADH
+reaction_9: AMP + ATP ->(compartment*k9f) 2ADP
+reaction_9_rev: 2ADP ->(compartment*k9b) AMP + ATP
+reaction_10: F6P ->(compartment*k10) P

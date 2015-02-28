@@ -1,0 +1,20 @@
+r1:  ->(-IAAm + phiIAAp*(F1*lambda1 + F2 + F3*lambda3)) IAAm
+r2:  ->(etaARFIAA*(-ARF*IAAp*pa + ARFIAA*pd) + (AuxTIAA*ld - AuxTIR1*IAAp*la + IAAm*deltaIAAp)/eps) IAAp
+r3:  ->((Aux*TIR1*ka + AuxTIAA*(ld + 1) - AuxTIR1*IAAp*la - AuxTIR1*kd)/eps) AuxTIR1
+r4:  ->((-AuxTIAA*(ld + 1) + AuxTIR1*IAAp*la)/eps) AuxTIAA
+r5:  ->((AuxTIAA - IAAs*muIAAs)/eps) IAAs
+r6:  ->(ARF*IAAp*pa - ARFIAA*pd) ARFIAA
+r7:  ->(ARF**2*qa - ARF2*qd) ARF2
+r8:  ->(muAux*(-Aux + alphaAux) - etaAuxTIR1*(Aux*TIR1*ka - AuxTIR1*kd)/eps) Aux
+r9:  ->(-PINm + phiPINp*(F5a*lambda1 + F5b)) PINm
+r10:  ->((PINm*deltaPINp - PINp)/eps) PINp
+r11:  ->(-ARm + phiARp*(F5a*lambda1 + F5b)) ARm
+r12:  ->((ARm*deltaARp - ARp)/eps) ARp
+r13:  ->(-CRm + F4*phiCRp) CRm
+r14:  ->((CRm*deltaCRp - CRp)/eps) CRp
+r15:  ->((-AHKph*Ck*ra + CkAHKph*rd)/eps) AHKph
+r16:  ->(muCk*(-Ck + alphaCk) - etaCkPh*(AHKph*Ck*ra - CkAHKph*rd)/eps) Ck
+r17:  ->((ARRBp*CkAHKph*ua - ARRBph*CkAHK*ud)/eps) ARRBph
+r18:  ->((ARRAp*CkAHKph*sa - ARRAph*CkAHK*sd)/eps) ARRAph
+r19:  ->(-ARRAm + F6*phiARRAp) ARRAm
+r20:  ->((ARRAm*deltaARRAp - ARRAp + etaAHKph*(-ARRAp*CkAHKph*sa + ARRAph*CkAHK*sd))/eps) ARRAp

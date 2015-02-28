@@ -1,0 +1,10 @@
+# Double displacement (ping-pong) mechanism
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.7.6
+
+a + e ->(k1) c1
+c1 ->(k_1) a + e
+c1 ->(k2) p + ee
+b + ee ->(k3) c2
+c2 ->(k_3) b + ee
+c2 ->(k4) q + e

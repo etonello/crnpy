@@ -1,0 +1,17 @@
+PLC__Receptor_and_Ca2__regulated_IP3_production:  ->(CaI*R) IP3
+SERCA__Pumps_Ca2__into_ER_Ca2__stores: CaI ->(CaI*SERCA/(CaI**2 + kSERCA**2)) CaS
+IP3R__IP3_and_Ca2__regulated_Ca2__channel___plus_leak: CaS ->((-DirTransf + 1)*(CaI**2*IP3**2*IP3R*(-g + 1)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2)) + ERleak)) CaI
+IP3_phosphatase___Degradation_of_IP3: IP3 ->(IP3degradation) 
+Inhibition_of_IP3R__mechanism_not_well_understood_:  ->(CaI**4*IP3Rinhibition*(-g + 1)/(CaI**4 + kG**4)) g
+Recovery_of_IP3R_from_Ca2__iinhibition_when_Ca2__drops: g ->(IP3Rrecovery) 
+Regulation_of_Orai_by_STIM__plus_leak:  ->(STIM*(PMleak + kSTIM**8/(CaS**8 + kSTIM**8))) CaI
+PMCA___Pumps_Ca2__across_PM_out_of_cell: CaI ->(CaI*PMCA/(CaI**2 + kPMCA**2)) 
+PMCA_synthesis:  ->(CaI**4*PMCA0*ProtDeg*cr/(CaI**4 + 6.25e-6*cr - 6.25e-6)) PMCA
+PMCA_degradation: PMCA ->(ProtDeg) 
+SERCA_synthesis:  ->(ProtDeg*SERCA0*(CaS**4 + 16*cr - 16)/(CaS**4*cr)) SERCA
+STIM_Orai_synthesis:  ->(ProtDeg*STIM0*(CaI**2 + 0.0025*cr - 0.0025)*(CaS**2 + 4*cr - 4)/(CaI**2*CaS**2*cr**2)) STIM
+STIM_Orai_degradation: STIM ->(ProtDeg) 
+SERCA_degradation: SERCA ->(ProtDeg) 
+CytToMito: CaI ->(CaI**3*Uniport/(CaI**4 + kUnip**4)) CaM
+ERtoMito: CaS ->(DirTransf*(CaI**2*IP3**2*IP3R*(-g + 1)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2)) + ERleak)) CaM
+MitoToCytosol: CaM ->(MitNaCaEx/(CaM + 0.01)) CaI

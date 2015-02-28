@@ -1,0 +1,13 @@
+cyclin__synthesis:  ->(vf) cyclin
+cyclin_cdk_complex_formation: cyclin + free_CDK ->(kf) Pre_MPF
+cyclin_degradation: cyclin ->(APC_P*Bc + kc) 
+MPF_cyclin_subunit_degradation: MPF ->(kd*(APC_P*B2 + 1)) free_CDK
+Pre_MPF____MPF_transition: Pre_MPF ->(vM1*(a1*cdc25_P/(Ka + cdc25_P) + 1)/(Pre_MPF + j1)) MPF
+MPF____Pre_MPF_transition: MPF ->(v_M1*(B1*Wee1/(Ka + Wee1) + 1)/(MPF + j_1)) Pre_MPF
+cdc25_phosphorylation: cdc25 ->(vM2*(-cdc25_P + 1)*(MPF*a2*cell_mass/(Ka + MPF*cell_mass) + 1)/(cdc25*(-cdc25_P + j2 + 1))) cdc25_P
+cdc25_dephosphorylation: cdc25_P ->(v_M2/(cdc25_P + j_2)) cdc25
+wee1_dephosphorylation: Wee1_P ->(vM3*(-Wee1 + 1)/(Wee1_P*(-Wee1 + j3 + 1))) Wee1
+wee1_phosphorylation: Wee1 ->(v_M3*(B3*MPF*cell_mass/(Ka + MPF*cell_mass) + 1)/(Wee1 + j_3)) Wee1_P
+APC_phosphorylation: APC ->(vM4*(-APC_P + 1)*(a4*cell_mass*delay(MPF, tau)/(Ka + cell_mass*delay(MPF, tau)) + 1)/(APC*(-APC_P + j4 + 1))) APC_P
+APC_dephosphorylation: APC_P ->(v_M4/(APC_P + j_4)) APC
+cell_growth:  ->(cell_mass*mu*(1 - cell_mass/a)) cell_mass

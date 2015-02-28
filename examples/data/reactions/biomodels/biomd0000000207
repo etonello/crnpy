@@ -1,0 +1,6 @@
+cdk2_mediated_cyclinB_synthesis:  ->(Kim1*compartment*vi1/(Kim1 + cdk2)) cyclinB
+Ubiquitin_ligase_mediated_cyclinB_degradation: cyclinB ->(compartment*ubiquitin_ligase*vd1/(K_d1 + cyclinB)) 
+cyclinB_degradation: cyclinB ->(compartment*kd1) 
+cyclinE_synthesis:  ->(Kim2*compartment*vi2/(Kim2 + cdk1)) cyclinE
+Ubiquitin_ligase_mediated_cyclinE_degradation: cyclinE ->(Ubiquitin_ligase_2*compartment*vd2/(K_d2 + cyclinE)) 
+cyclinE_degradation: cyclinE ->(compartment*kd2) 

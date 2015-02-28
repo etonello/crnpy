@@ -1,0 +1,12 @@
+v1a: Glucose + Lysine ->(compartment*v1a_k1a*v1a_p1) Schiff
+v1b: Schiff ->(compartment*v1b_k1b) Glucose + Lysine
+v2a: Schiff ->(compartment*v2a_k2a*v2a_p2) Amadori
+v2b: Amadori ->(compartment*v2b_k2b*v2b_p2) Schiff
+v3: Glucose ->(1.64718203453515*Glucose**(-0.64)*compartment*v3_k3*v3_ox*v3_p3) Glyoxal
+v4: Amadori ->(compartment*v4_k4*v4_ox*v4_p4) CML
+v5: Glyoxal + Lysine ->(compartment*v5_k5*v5_ox*v5_p5) CML
+v5b: Glyoxal ->(compartment*v5b_k5b) 
+v6: Schiff ->(1.64718203453515*Schiff**(-0.64)*compartment*v6_k3*v6_ox*v6_p6) CML
+v7a:  ->(0.0823591017267573*Schiff**0.36*compartment*v7a_k3*v7a_ox*v7a_p7) Lysine
+v7b:  ->(0.00823591017267573*Schiff**0.36*compartment*v7b_k3*v7b_ox*v7b_p7) Glyoxal
+v7c: Schiff ->(1.64718203453515*Schiff**(-0.64)*compartment*v7c_k3*v7c_ox*v7c_p7) 

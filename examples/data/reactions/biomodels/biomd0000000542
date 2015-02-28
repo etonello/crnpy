@@ -1,0 +1,84 @@
+r1:  ->(Brain*k1) Tau03R
+r2: ATP + Tau03R ->(Brain*k3/(Tau03R + k3)) ADP + TauN3R
+r3: TauN3R ->(Brain*k4/(TauN3R + k5)) Tau03R
+r4: ATP + TauN3R ->(Brain*k6/(TauN3R + k7)) ADP + TauH3R
+r5: TauH3R ->(Brain*k8/(TauH3R + k9)) TauN3R
+r6: Tau03R ->(Brain*k10) Tau0_3R
+r7: Tau0_3R ->(Brain*k11) Tau03R
+r8: MT + Tau0_3R ->(Brain*k12) Tau03RMT
+r9: Tau03RMT ->(Brain*k13) MT + Tau0_3R
+r10: TauN3R ->(Brain*k14) TauN_3R
+r11: TauN_3R ->(Brain*k15) TauN3R
+r12: MT + TauN_3R ->(Brain*k16) TauN3RMT
+r13: TauN3RMT ->(Brain*k17) MT + TauN_3R
+r14: TauH3R ->(Brain*k18) TauH_3R
+r15: TauH_3R ->(Brain*k19) TauH3R
+r16: MT + TauH_3R ->(Brain*k20) TauH3RMT
+r17: TauH3RMT ->(Brain*k21) MT + TauH_3R
+r18: ATP + Tau03R + _20S ->(Brain*k22) ADP + _20S
+r19: ATP + TauN3R + _20S ->(Brain*k23) ADP + _20S
+r20: ATP + TauH3R + _20S ->(Brain*k24) ADP + _20S
+r21: ATP + Tau03RMT ->(Brain*k25/(Tau03RMT + k26)) ADP + TauN3RMT
+r22: TauN3RMT ->(Brain*k27/(TauN3RMT + k28)) Tau03RMT
+r23: ATP + TauN3RMT ->(Brain*k29/(TauN3RMT + k30)) ADP + TauH3RMT
+r24: TauH3RMT ->(Brain*k31/(TauH3RMT + k32)) TauN3RMT
+r25: Hsc70 + TauH3R ->(Brain*k33) TauH3R_Hsc70
+r26: TauH3R_Hsc70 ->(Brain*k34) Hsc70 + TauH3R
+r27: Hsp90 + TauH3R_Hsc70 ->(Brain*k35) Hsc70 + TauH3R_Hsp90
+r28: TauH3R_Hsp90 ->(Brain*k8/(TauH3R_Hsp90 + k9)) Tau03R_Hsp90
+r29: Tau03R_Hsp90 ->(Brain*k36) Hsp90 + Tau03R
+r30: CHIP + TauH3R_Hsc70 ->(Brain*k37) TauH3R_CHIP_Hsc70
+r31: TauH3R_CHIP_Hsc70 ->(Brain*k38) CHIP + Hsc70 + TauH3RUb
+r32: Bag2 + TauH3R_CHIP_Hsc70 ->(Brain*k39) TauH3R_CHIP_Hsc70_Bag2
+r33: TauH3R_CHIP_Hsc70_Bag2 ->(Brain*k40) Bag2 + CHIP + TauH3R_Hsc70
+r34: ATP + TauH3RUb + _26S ->(Brain*k41) ADP + _26S
+r35:  ->(Brain*k42) Tau04R
+r36: ATP + Tau04R ->(Brain*k43/(Tau04R + k44)) ADP + TauN4R
+r37: TauN4R ->(Brain*k45/(TauN4R + k46)) Tau04R
+r38: ATP + TauN4R ->(Brain*k47/(TauN4R + k48)) ADP + TauH4R
+r39: TauH4R ->(Brain*k49/(TauH4R + k50)) TauN4R
+r40: Tau04R ->(Brain*k51) Tau0_4R
+r41: Tau0_4R ->(Brain*k52) Tau04R
+r42: MT + Tau0_4R ->(Brain*k53) Tau04RMT
+r43: Tau04RMT ->(Brain*k54) MT + Tau0_4R
+r44: TauN4R ->(Brain*k55) TauN_4R
+r45: TauN_4R ->(Brain*k56) TauN4R
+r46: MT + TauN_4R ->(Brain*k57) TauN4RMT
+r47: TauN4RMT ->(Brain*k58) MT + TauN_4R
+r48: TauH4R ->(Brain*k59) TauH_4R
+r49: TauH_4R ->(Brain*k60) TauH4R
+r50: MT + TauH_4R ->(Brain*k61) TauH4RMT
+r51: TauH4RMT ->(Brain*k62) MT + TauH_4R
+r52: ATP + Tau04R + _20S ->(Brain*k63) ADP + _20S
+r53: ATP + TauN4R + _20S ->(Brain*k64) ADP + _20S
+r54: ATP + TauH4R + _20S ->(Brain*k65) ADP + _20S
+r55: ATP + Tau04RMT ->(Brain*k66/(Tau04RMT + k67)) ADP + TauN4RMT
+r56: TauN4RMT ->(Brain*k68/(TauN4RMT + k69)) Tau04RMT
+r57: ATP + TauN4RMT ->(Brain*k70/(TauN4RMT + k71)) ADP + TauH4RMT
+r58: TauH4RMT ->(Brain*k72/(TauH4RMT + k73)) TauN4RMT
+r59: Hsc70 + TauH4R ->(Brain*k74) TauH4R_Hsc70
+r60: TauH4R_Hsc70 ->(Brain*k75) Hsc70 + TauH4R
+r61: Hsp90 + TauH4R_Hsc70 ->(Brain*k76) Hsc70 + TauH4R_Hsp90
+r62: TauH4R_Hsp90 ->(Brain*k77/(TauH4R_Hsp90 + k9)) Tau04R_Hsp90
+r63: Tau04R_Hsp90 ->(Brain*k78) Hsp90 + Tau04R
+r64: CHIP + TauH4R_Hsc70 ->(Brain*k79) TauH4R_CHIP_Hsc70
+r65: TauH4R_CHIP_Hsc70 ->(Brain*k80) CHIP + Hsc70 + TauH4RUb
+r66: Bag2 + TauH4R_CHIP_Hsc70 ->(Brain*k81) TauH4R_CHIP_Hsc70_Bag2
+r67: TauH4R_CHIP_Hsc70_Bag2 ->(Brain*k82) Bag2 + CHIP + TauH4R_Hsc70
+r68: ATP + TauH4RUb + _26S ->(Brain*k83) ADP + _26S
+r69: ADP ->(Brain*k84) ATP
+r70: ATP ->(Brain*k85) ADP
+r71: 2TauH3RUb ->(Brain*k86) Nucleus3
+r72: Nucleus3 ->(Brain*k87) 2TauH3RUb
+r73: 2TauH4RUb ->(Brain*k88) Nucleus4
+r74: Nucleus4 ->(Brain*k89) 2TauH4RUb
+r75: Nucleus3 + TauH3RUb ->(Brain*k90) Agg33
+r76: Agg33 ->(Brain*k91) Nucleus3 + TauH3RUb
+r77: Agg33 + TauH3RUb ->(Brain*k90) Ap
+r78: Ap + TauH3RUb ->(Brain*k90) Ap
+r79: Ap ->(Brain*k91) Ap + TauH3RUb
+r80: Nucleus4 + TauH4RUb ->(Brain*k92) Agg43
+r81: Agg43 ->(Brain*k93) Nucleus4 + TauH4RUb
+r82: Agg43 + TauH4RUb ->(Brain*k92) Bp
+r83: Bp + TauH4RUb ->(Brain*k92) Bp
+r84: Bp ->(Brain*k93) Bp + TauH4RUb

@@ -1,0 +1,9 @@
+R1: X ->(RVV*compartment_1*kcat_X/(X + km_X)) Xa
+R2: Xa ->(compartment_1*ki_Xa) Xa_ATIII
+R3: PL + Va + Xa ->(compartment_1*k_PT) PT
+R3_rev: PT ->(compartment_1*k_PL) PL + Va + Xa
+R4: V ->(IIa*compartment_1*kcat_V/(V + km_V)) Va
+R5: II ->(PT*compartment_1*kcat_II/(II + km_II)) IIa
+R6: II ->(Xa*compartment_1*kcat_2/(II + km_2)) IIa
+R7: IIa ->(compartment_1*ki_IIaAlpha2M) IIa_alpha2M
+R8: IIa ->(compartment_1*ki_IIaATIII) IIa_ATIII

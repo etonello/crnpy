@@ -1,0 +1,9 @@
+# Adair equation for a protein that binds
+# ligand at two identical sites.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.3.1
+
+P + X ->(2*k1) PX1
+PX1 ->(k_1) P + X
+PX1 + X ->(k2) PX2
+PX2 ->(2*k_2) PX1 + X

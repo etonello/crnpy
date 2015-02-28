@@ -1,0 +1,17 @@
+duplex_1_association: mRNA + miRNA_1 ->(compartment_1*k1) duplex_1
+duplex_2_association: mRNA + miRNA_2 ->(compartment_1*k1) duplex_2
+triplex_association: mRNA + miRNA_1 + miRNA_2 ->(compartment_1*k1) triplex
+mRNA_synthesis:  ->(TF_mRNA*compartment_1*k_syn_mRNA) mRNA
+miRNA_1_synthesis:  ->(TF_miRNA_1*compartment_1*k_syn_miRNA_1) miRNA_1
+miRNA_2_synthesis:  ->(TF_miRNA_2*compartment_1*k_syn_miRNA_2) miRNA_2
+mRNA_degradation: mRNA ->(compartment_1*k1) 
+miRNA_1_degradation: miRNA_1 ->(compartment_1*k1) 
+miRNA_2_degradation: miRNA_2 ->(compartment_1*k1) 
+duplex_1_dissociation: duplex_1 ->(compartment_1*k1) mRNA + miRNA_1
+duplex_2_dissociation: duplex_2 ->(compartment_1*k1) mRNA + miRNA_2
+triplex_dissociation: triplex ->(compartment_1*k1) mRNA + miRNA_1 + miRNA_2
+duplex_1_degradation: duplex_1 ->(compartment_1*k1) 
+duplex_2_degradation: duplex_2 ->(compartment_1*k1) 
+triplex_degradation: triplex ->(compartment_1*k1) 
+protein_synthesis:  ->(compartment_1*k_syn_prot*mRNA) protein
+protein_degradation: protein ->(compartment_1*k1) 

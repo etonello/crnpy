@@ -1,0 +1,10 @@
+r1: FeIII + NADPH ->(cytosol*k1/NADPH) FeII + NADPplus
+r2: FeII + O2 ->(cytosol*k2) FeII_O2
+r3: FeII_O2 ->(cytosol*k3) FeIII_star
+r4: FeIII_star + 0NADPH ->(cytosol*k4) FeII_star + 0NADPplus
+r5: FeII_star + O2 ->(cytosol*k5) FeII_star_O2
+r6: FeII_star_O2 ->(cytosol*k6) FeIII_NO + citruline
+rF: FeIII_NO ->(cytosol*k7) FeIII + NO
+rG: FeIII_NO + 0NADPH ->(cytosol*k8) FeII_NO + 0NADPplus
+r9: FeII_NO ->(cytosol*k9) FeII + NO
+r10: FeII_NO + O2 ->(cytosol*k10) FeIII + NO3

@@ -1,0 +1,62 @@
+Mb_synthesized:  ->(Kib**m*compartment_0*vsb/(Kib**m + Rn**m)) Mb
+Mb_translated_into_protein:  ->(Mb*compartment_0*ksb) Bc
+Mb_nonspecific_degradation: Mb ->(compartment_0*kdmb) 
+Bc_phosphorylation: Bc ->(V1b*compartment_0/(Bc + Kp)) Bcp
+Bc_transfered_from_cytosolic_to_nuclear: Bc ->(compartment_0*k5) Bn
+Bc_transfered_from_cytosolic_to_nuclear_rev: Bn ->(compartment_0*k6) Bc
+Mc_translated_into_protein:  ->(Mc*compartment_0*ksc) Cc
+Mc_nonspecific_degradation: Mc ->(compartment_0*kdmc) 
+Cc_phosphorylation: Cc ->(V1c*compartment_0/(Cc + Kp)) Ccp
+Ccp_specific_degradation: Ccp ->(compartment_0*vdcc/(Ccp + Kd)) 
+Mp_synthesis:  ->(Bn**reaction_9_n*compartment_0*vsp/(Bn**reaction_9_n + Kap**reaction_9_n)) Mp
+Mp_translated_into_protein:  ->(Mp*compartment_0*ksp) Pc
+Pcp_specific_degradation: Pcp ->(compartment_0*vdpc/(Kd + Pcp)) 
+Pc_phospholation: Pc ->(V1p*compartment_0/(Kp + Pc)) Pcp
+Cc_and_Pc_produce_PCc: Cc + Pc ->(compartment_0*k3) PCc
+Cc_and_Pc_produce_PCc_rev: PCc ->(compartment_0*k4) Cc + Pc
+PCc_phospholation: PCc ->(V1pc*compartment_0/(Kp + PCc)) PCcp
+PCcp_specific_degradation: PCcp ->(compartment_0*vdpcc/(Kd + PCcp)) 
+PCc_transfered_into_nuclear: PCc ->(compartment_0*k1) PCn
+PCc_transfered_into_nuclear_rev: PCn ->(compartment_0*k2) PCc
+PCnp_nonspecific_degradation: PCnp ->(compartment_0*kdn) 
+Bcp_nonspecific_degradation: Bcp ->(compartment_0*kdn) 
+Bnp_nonspecific_degradation: Bnp ->(compartment_0*kdn) 
+Mc_synthesis:  ->(Bn**reaction_20_n*compartment_0*vsc/(Bn**reaction_20_n + Kac**reaction_20_n)) Mc
+PCn_phospholation: PCn ->(V3pc*compartment_0/(Kp + PCn)) PCnp
+Mp_nonspecific_degradation: Mp ->(compartment_0*kdmp) 
+Per_Cry_and_Clock_Bmal_form_inactive_complex: Bn + PCn ->(compartment_0*k7) In
+Per_Cry_and_Clock_Bmal_form_inactive_complex_rev: In ->(compartment_0*k8) Bn + PCn
+Mb_specific_degradation: Mb ->(compartment_0*vmb/(Kmb + Mb)) 
+Mc_specific_degradation: Mc ->(compartment_0*vmc/(Kmc + Mc)) 
+Mp_specific_degradation: Mp ->(compartment_0*vmp/(Kmp + Mp)) 
+Pc_nonspecific_degradation: Pc ->(compartment_0*kdn) 
+Cc_nonspecific_degradation: Cc ->(compartment_0*kdnc) 
+Pcp_nonspecific_degradation: Pcp ->(compartment_0*kdn) 
+Ccp_nonspecific_degradation: Ccp ->(compartment_0*kdn) 
+PCcp_nonspecific_degradation: PCcp ->(compartment_0*kdn) 
+PCc_nonspecific_degradation: PCc ->(compartment_0*kdn) 
+PCnp_specific_degradation: PCnp ->(compartment_0*vdpcn/(Kd + PCnp)) 
+Bc_nonspecific_degradation: Bc ->(compartment_0*kdn) 
+Bcp_specific_degradation: Bcp ->(compartment_0*vdbc/(Bcp + Kd)) 
+Bn_phospholation: Bn ->(V3b*compartment_0/(Bn + Kp)) Bnp
+Bnp_specific_degradation: Bnp ->(compartment_0*vdbn/(Bnp + Kd)) 
+In_nonspecific_degration: In ->(compartment_0*kdn) 
+In_specific_degradation: In ->(compartment_0*vdin/(In + Kd)) 
+Bn_nonspecific_degradation: Bn ->(compartment_0*kdn) 
+Bcp_dephospholation: Bcp ->(V2b*compartment_0/(Bcp + Kdp)) Bc
+Bnp_dephospholation: Bnp ->(V4b*compartment_0/(Bnp + Kdp)) Bn
+Ccp_dephospholation: Ccp ->(V2c*compartment_0/(Ccp + Kdp)) Cc
+Pcp_dephospholation: Pcp ->(V2p*compartment_0/(Kdp + Pcp)) Pc
+PCnp_dephospholation: PCnp ->(V4pc*compartment_0/(Kdp + PCnp)) PCn
+PCn_nonspecific_degradation: PCn ->(compartment_0*kdn) 
+PCcp_dephospholation: PCcp ->(V2pc*compartment_0/(Kdp + PCcp)) PCc
+Mr_synthesized:  ->(Bn**reaction_48_n*compartment_0*vsr/(Bn**reaction_48_n + Kar**reaction_48_n)) Mr
+Mr_nonspecific_degradation: Mr ->(compartment_0*kdmr) 
+Mr_specific_degradation: Mr ->(compartment_0*vmr/(Kmr + Mr)) 
+Mr_translated_into_protein:  ->(Mr*compartment_0*ksr) Rc
+Rc_transfered_into_nuclear: Rc ->(compartment_0*k9) Rn
+Rc_transfered_into_nuclear_rev: Rn ->(compartment_0*k10) Rc
+Rc_specific_degradation: Rc ->(compartment_0*vdrc/(Kd + Rc)) 
+Rc_nonspecific_degradation: Rc ->(compartment_0*kdn) 
+Rn_specific_degradation: Rn ->(compartment_0*vdrn/(Kd + Rn)) 
+Rn_nonspecific_degradation: Rn ->(compartment_0*kdn) 

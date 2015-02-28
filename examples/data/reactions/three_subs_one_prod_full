@@ -1,0 +1,28 @@
+e + a ->(k1) ea
+ea ->(k_1) e + a
+e + b ->(k2) eb
+eb ->(k_2) e + b
+e + c ->(k3) ec
+ec ->(k_3) e + c
+#
+eb + a ->(k1) eab
+eab ->(k_1) eb + a
+ec + a ->(k1) eac
+eac ->(k_1) ec + a
+ea + b ->(k2) eab
+eab ->(k_2) ea + b
+ec + b ->(k2) ebc
+ebc ->(k_2) ec + b
+eb + c ->(k3) ebc
+ebc ->(k_3) eb + c
+ea + c ->(k3) eac
+eac ->(k_3) ea + c
+#
+eab + c ->(k3) eabc
+eabc ->(k_3) eab + c
+ebc + a ->(k1) eabc
+eabc ->(k_1) ebc + a
+eac + b ->(k2) eabc
+eabc ->(k_2) eac + b
+#
+eabc ->(k4) e + p

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model timeUnits="second" extentUnits="mole">
+    <listOfUnitDefinitions>
+      <unitDefinition id="per_second">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="litre_per_mole_second">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="0" multiplier="1"/>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="_comp" spatialDimensions="3" size="1e-14" units="litre" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="E" compartment="_comp" initialAmount="5e-21" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="S" compartment="_comp" initialAmount="1e-20" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="P" compartment="_comp" initialAmount="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="ES" compartment="_comp" initialAmount="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="veq_koff" value="0.2" units="per_second" constant="true"/>
+      <parameter id="veq_kon" value="1000000" units="litre_per_mole_second" constant="true"/>
+      <parameter id="vcat_kcat" value="0.1" units="per_second" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="veq" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="E" stoichiometry="1" constant="true"/>
+          <speciesReference species="S" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ES" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> _comp </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> veq_kon </ci>
+                  <ci> E </ci>
+                  <ci> S </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> veq_koff </ci>
+                  <ci> ES </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vcat" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="ES" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="E" stoichiometry="1" constant="true"/>
+          <speciesReference species="P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> _comp </ci>
+              <ci> vcat_kcat </ci>
+              <ci> ES </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

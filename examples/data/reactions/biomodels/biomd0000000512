@@ -1,0 +1,75 @@
+vA_degr_b: A_b ->(BRAIN*FAAH_b*a_FAAH_A*kcat_FAAH/(FAAH_D_b*Km_FAAH_A)) 
+vO_degr_b: O_b ->(BRAIN*FAAH_b*a_FAAH_O*kcat_FAAH/(FAAH_D_b*Km_FAAH_O)) 
+vP_degr_b: P_b ->(BRAIN*FAAH_b*a_FAAH_P*kcat_FAAH/(FAAH_D_b*Km_FAAH_P)) 
+vL_degr_b: L_b ->(BRAIN*FAAH_b*a_FAAH_L*kcat_FAAH/(FAAH_D_b*Km_FAAH_L)) 
+vS_degr_b: S_b ->(BRAIN*FAAH_b*a_FAAH_S*kcat_FAAH/(FAAH_D_b*Km_FAAH_S)) 
+vNAPE_syn_b:  ->(BRAIN*Vmax_NAT*a_NAT_A*b_NAT_Brain*p_A) NAPE_b
+vNOPE_syn_b:  ->(BRAIN*Vmax_NAT*a_NAT_O*b_NAT_Brain*p_O) NOPE_b
+vNPPE_syn_b:  ->(BRAIN*Vmax_NAT*a_NAT_P*b_NAT_Brain*p_P) NPPE_b
+vNLPE_syn_b:  ->(BRAIN*Vmax_NAT*a_NAT_L*b_NAT_Brain*p_L) NLPE_b
+vNSPE_syn_b:  ->(BRAIN*Vmax_NAT*a_NAT_S*b_NAT_Brain*p_S) NSPE_b
+vA_syn_b: NAPE_b ->(BRAIN*PLD_b*k_NA_PE/(Km_NA_PE*den_b)) A_b
+vO_syn_b: NOPE_b ->(BRAIN*PLD_b*k_NO_PE/(Km_NO_PE*den_b)) O_b
+vP_syn_b: NPPE_b ->(BRAIN*PLD_b*k_NP_PE/(Km_NP_PE*den_b)) P_b
+vL_syn_b: NLPE_b ->(BRAIN*PLD_b*k_NL_PE/(Km_NL_PE*den_b)) L_b
+vS_syn_b: NSPE_b ->(BRAIN*PLD_b*k_NS_PE/(Km_NS_PE*den_b)) S_b
+vFAAH_syn_b:  ->(BRAIN*FAAH_t*b_FAAH_Brain*k_deg_FAAH) FAAH_b
+vFAAH_degr_b: FAAH_b ->(BRAIN*k_deg_FAAH) 
+vFAAH_inh_b: FAAH_b ->(BRAIN*PF_b*k_inh) FAAHinh_b
+vFAAH_inh_degr_b: FAAHinh_b ->(BRAIN*k_deg_FAAH) 
+vA_UE_b: A_b ->(BRAIN*b_FAAH_Brain*kcl_A) 
+vO_UE_b: O_b ->(BRAIN*b_FAAH_Brain*kcl_O) 
+vP_UE_b: P_b ->(BRAIN*b_FAAH_Brain*kcl_P) 
+vL_UE_b: L_b ->(BRAIN*b_FAAH_Brain*kcl_L) 
+vS_UE_b: S_b ->(BRAIN*b_FAAH_Brain*kcl_S) 
+vA_degr_r: A_r ->(FAAH_r*ROB*a_FAAH_A*kcat_FAAH/(FAAH_D_r*Km_FAAH_A)) 
+vO_degr_r: O_r ->(FAAH_r*ROB*a_FAAH_O*kcat_FAAH/(FAAH_D_r*Km_FAAH_O)) 
+vP_degr_r: P_r ->(FAAH_r*ROB*a_FAAH_P*kcat_FAAH/(FAAH_D_r*Km_FAAH_P)) 
+vL_degr_r: L_r ->(FAAH_r*ROB*a_FAAH_L*kcat_FAAH/(FAAH_D_r*Km_FAAH_L)) 
+vS_degr_r: S_r ->(FAAH_r*ROB*a_FAAH_S*kcat_FAAH/(FAAH_D_r*Km_FAAH_S)) 
+vNAPE_syn_r:  ->(Vmax_NAT*a_NAT_A*c_NAT_ROB*p_A) NAPE_r
+vNOPE_syn_r:  ->(Vmax_NAT*a_NAT_O*c_NAT_ROB*p_O) NOPE_r
+vNPPE_syn_r:  ->(Vmax_NAT*a_NAT_P*c_NAT_ROB*p_P) NPPE_r
+vNLPE_syn_r:  ->(Vmax_NAT*a_NAT_L*c_NAT_ROB*p_L) NLPE_r
+vNSPE_syn_r:  ->(Vmax_NAT*a_NAT_S*c_NAT_ROB*p_S) NSPE_r
+vA_syn_r: NAPE_r ->(PLD_r*ROB*k_NA_PE/(Km_NA_PE*den_r)) A_r
+vO_syn_r: NOPE_r ->(PLD_r*ROB*k_NO_PE/(Km_NO_PE*den_r)) O_r
+vP_syn_r: NPPE_r ->(PLD_r*ROB*k_NP_PE/(Km_NP_PE*den_r)) P_r
+vL_syn_r: NLPE_r ->(PLD_r*ROB*k_NL_PE/(Km_NL_PE*den_r)) L_r
+vS_syn_r: NSPE_r ->(PLD_r*ROB*k_NS_PE/(Km_NS_PE*den_r)) S_r
+vFAAH_syn_r:  ->(FAAH_t*c_FAAH_ROB*k_deg_FAAH) FAAH_r
+vFAAH_degr_r: FAAH_r ->(ROB*k_deg_FAAH) 
+vFAAH_inh_r: FAAH_r ->(PF_r*ROB*k_inh) FAAHinh_r
+vFAAH_inh_degr_r: FAAHinh_r ->(ROB*k_deg_FAAH) 
+vA_UE_r: A_r ->(c_NAAA_ROB*kcl_A) 
+vO_UE_r: O_r ->(c_NAAA_ROB*kcl_O) 
+vP_UE_r: P_r ->(c_NAAA_ROB*kcl_P) 
+vL_UE_r: L_r ->(c_NAAA_ROB*kcl_L) 
+vS_UE_r: S_r ->(c_NAAA_ROB*kcl_S) 
+vA_degr_m: A_m ->(FAAH_m*MEC*a_FAAH_A*kcat_FAAH/(FAAH_D_m*Km_FAAH_A)) 
+vO_degr_m: O_m ->(FAAH_m*MEC*a_FAAH_O*kcat_FAAH/(FAAH_D_m*Km_FAAH_O)) 
+vP_degr_m: P_m ->(FAAH_m*MEC*a_FAAH_P*kcat_FAAH/(FAAH_D_m*Km_FAAH_P)) 
+vL_degr_m: L_m ->(FAAH_m*MEC*a_FAAH_L*kcat_FAAH/(FAAH_D_m*Km_FAAH_L)) 
+vS_degr_m: S_m ->(FAAH_m*MEC*a_FAAH_S*kcat_FAAH/(FAAH_D_m*Km_FAAH_S)) 
+vFAAH_syn_m:  ->(FAAH_t*MEC*b_FAAH_MEC*k_deg_FAAH) FAAH_m
+vFAAH_degr_m: FAAH_m ->(MEC*k_deg_FAAH) 
+vFAAH_inh_m: FAAH_m ->(MEC*PF_m*k_inh) FAAHinh_m
+vFAAH_inh_degr_m: FAAHinh_m ->(MEC*k_deg_FAAH) 
+vA_m_p: A_m ->(MEC*ktr_m_p_A*(A_m - A_p*Ktr_p_m_A)/(A_m*(A_m + A_p + Km_p_m_A))) A_p
+vo_m_p: O_m ->(MEC*ktr_m_p_O*(-Ktr_p_m_O*O_p + O_m)/O_m) O_p
+vP_m_p: P_m ->(MEC*ktr_m_p_P*(-Ktr_p_m_P*P_p + P_m)/P_m) P_p
+vL_m_p: L_m ->(MEC*ktr_m_p_L*(-Ktr_p_m_L*L_p + L_m)/L_m) L_p
+vS_m_p: S_m ->(MEC*ktr_m_p_S*(-Ktr_p_m_S*S_p + S_m)/S_m) S_p
+vA_b_m: A_b ->(MEC*ktr_m_p_A*(A_b - A_m)/(A_b*(A_b + A_m + Km_p_m_A))) A_m
+vO_b_m: O_b ->(MEC*ktr_m_p_O*(O_b - O_m)/O_b) O_m
+vP_b_m: P_b ->(MEC*ktr_m_p_P*(P_b - P_m)/P_b) P_m
+vL_b_m: L_b ->(MEC*ktr_m_p_L*(L_b - L_m)/L_b) L_m
+vS_b_m: S_b ->(MEC*ktr_m_p_S*(S_b - S_m)/S_b) S_m
+vA_r_p: A_r ->(PLASMA*ktr_r_p*(-A_p*Ktr_p_r_A + A_r)/(A_r*(A_p + A_r + Km_p_m_A))) A_p
+vO_r_p: O_r ->(PLASMA*ktr_r_p*(-Ktr_p_r_O*O_p + O_r)/O_r) O_p
+vP_r_p: P_r ->(PLASMA*ktr_r_p*(-Ktr_p_r_P*P_p + P_r)/P_r) P_p
+vL_r_p: L_r ->(PLASMA*ktr_r_p*(-Ktr_p_r_L*L_p + L_r)/L_r) L_p
+vS_r_p: S_r ->(PLASMA*ktr_r_p*(-Ktr_p_r_S*S_p + S_r)/S_r) S_p
+absorp: PFM_gut ->(MD*kabs_PFM/PFM_gut) PFM_p
+dist: PFM_p ->((PFM_p*kout_PFM - PFM_r*kin_PFM)/PFM_p) PFM_r
+elim: PFM_p ->((PFM_p*Vm_PFM/(Vss_PFM*(Km_PFM + PFM_p/Vss_PFM)) + PFM_p*klinear_PFM)/PFM_p) 

@@ -1,0 +1,7 @@
+# Enzyme with two catalytic sites.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.3.4
+
+2*s + e ->(k1) c
+c ->(k_1) 2*s + e
+c ->(k2) 2*p + e

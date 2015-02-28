@@ -1,0 +1,6 @@
+phosphoglycerate_dehydrogenase: _3_phosphoglycerate ->(PDH_KAphp*PDH_KiAser*PDH_kcatA*cell*serA/((PDH_KiAser + serine)*(PDH_KAp3g*PDH_KAphp + PDH_KAp3g*phosphohydroxypyruvate + PDH_KAphp*_3_phosphoglycerate))) phosphohydroxypyruvate
+phosphoglycerate_dehydrogenase_rev: phosphohydroxypyruvate ->(0) _3_phosphoglycerate
+phosphoserine_aminotransferase: phosphohydroxypyruvate ->(PSA_KCpser*PSA_kcatC*cell*serC/(PSA_KCphp*PSA_KCpser + PSA_KCphp*phosphoserine + PSA_KCpser*phosphohydroxypyruvate)) phosphoserine
+phosphoserine_aminotransferase_rev: phosphoserine ->(0) phosphohydroxypyruvate
+phosphoserine_phosphatase: phosphoserine ->(PSP_KBser*PSP_kcatB*cell*serB/(PSP_KBpser*PSP_KBser + PSP_KBpser*serine + PSP_KBser*phosphoserine)) serine
+phosphoserine_phosphatase_rev: serine ->(0) phosphoserine

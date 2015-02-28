@@ -1,0 +1,16 @@
+R1: X ->(10*cell/(A + B**2 + X + 1)) A
+R1_rev: A ->(cell/(A + B**2 + X + 1)) X
+R2: A ->(2*cell/(A + B + 1)) B
+R2_rev: B ->(cell/(A + B + 1)) A
+R3: B ->(cell/(B + C + D**2 + 1)) C
+R3_rev: C ->(cell/(B + C + D**2 + 1)) B
+R4: C ->(5*cell/(C + D + 1)) D
+R4_rev: D ->(cell/(C + D + 1)) C
+R5: D ->(10*cell/(D + Y + 1)) Y
+R5_rev: Y ->(cell/(D + Y + 1)) D
+R6: B ->(cell/(B + E + F**2 + 1)) E
+R6_rev: E ->(cell/(B + E + F**2 + 1)) B
+R7: E ->(5*cell/(E + F + 1)) F
+R7_rev: F ->(cell/(E + F + 1)) E
+R8: F ->(10*cell/(F + Z + 1)) Z
+R8_rev: Z ->(cell/(F + Z + 1)) F

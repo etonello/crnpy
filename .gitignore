@@ -1,0 +1,7 @@
+*.swp
+*.pyc
+*log.txt
+*.log
+*_report.txt
+*.pdf
+*.png

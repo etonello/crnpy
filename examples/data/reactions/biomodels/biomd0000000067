@@ -1,0 +1,16 @@
+Glycolytic_flux:  ->(S0*compartment) Acetyl_CoA
+Flux_to_TCA_cycle: Acetyl_CoA ->(compartment*kTCA) 
+Intercellular_transport_of_Acetate: protonated_acetate ->(compartment*k3) acetate_export
+Intercellular_transport_of_Acetate_rev: acetate_export ->(compartment*k3) protonated_acetate
+Phosphate_acetyl_transferase_flux: Acetyl_CoA ->(Phosphate_acetyl_transferase*compartment*k1/(Acetyl_CoA + KM1)) Acetyl_phosphate
+Acetate_kinase: Acetyl_phosphate ->(compartment*kAck_f) Acetate
+Acetate_kinase_rev: Acetate ->(compartment*kAck_r) Acetyl_phosphate
+Acetyl_CoA_synthase_flux: Acetate ->(Acetyl_CoA_synthase*compartment*k2/(Acetate + KM2)) Acetyl_CoA
+Acid_base_equilibrium: Acetate ->(C*H*compartment) protonated_acetate
+Acid_base_equilibrium_rev: protonated_acetate ->(C*Keq*compartment) Acetate
+LacI_synthesis:  ->(compartment*(alpha0 + alpha1*(Acetyl_phosphate/Kg1)**n/((Acetyl_phosphate/Kg1)**n + 1))) lac_repressor
+Acetyl_CoA_synthase_synthesis:  ->(compartment*(alpha0 + alpha2*(Acetyl_phosphate/Kg2)**n/((Acetyl_phosphate/Kg2)**n + 1))) Acetyl_CoA_synthase
+Phosphate_acetyl_transferase_synthase:  ->(alpha0 + alpha3/((lac_repressor/Kg3)**n + 1)) Phosphate_acetyl_transferase
+LacI_degradation: lac_repressor ->(compartment*kd) 
+Acs_degradation: Acetyl_CoA_synthase ->(compartment*kd) 
+Pta_degradation: Phosphate_acetyl_transferase ->(compartment*kd) 

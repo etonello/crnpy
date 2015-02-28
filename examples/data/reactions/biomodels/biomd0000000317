@@ -1,0 +1,12 @@
+r1:  ->(piecewise(1, X >= r1_T1, 0)) Z1
+r1_rev: Z1 ->(0) 
+r2: Z1 ->(r2_a) 
+r2_rev:  ->(0) Z1
+r3:  ->(piecewise(1, X >= r3_T2, 0)) Z2
+r3_rev: Z2 ->(0) 
+r4: Z2 ->(r4_a) 
+r4_rev:  ->(0) Z2
+r5:  ->(piecewise(1, X >= r5_T3, 0)) Z3
+r5_rev: Z3 ->(0) 
+r6: Z3 ->(r6_a) 
+r6_rev:  ->(0) Z3

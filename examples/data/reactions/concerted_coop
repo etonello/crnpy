@@ -1,0 +1,13 @@
+# Concerted model of cooperativity.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.7.11
+#
+# T tensed state, R relaxed state
+
+T2 (k_1)<->(k1) R2
+T2 + X (k_2)<->(2*k2) T2X
+R2 + X (k_3)<->(2*k3) R2X
+T2X (k_1)<->(k1) R2X
+T2X + X (2*k_2)<->(k2) T2X2
+R2X + X (2*k_3)<->(k3) R2X2
+T2X2 (k_1)<->(k1) R2X2

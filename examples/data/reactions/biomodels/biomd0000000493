@@ -1,0 +1,12 @@
+a1:  ->((P**n*aP + bP)/(P**n*cPP + mP + zD)) P
+a1_rev: P ->(0) 
+a2: P ->(kP) 
+a2_rev:  ->(0) P
+a3:  ->((O**n*aO + bO + zO)/(C**n*cOC + O**n*cOO + P**n*cOP + mO)) O
+a3_rev: O ->(0) 
+a4: O ->(kO) 
+a4_rev:  ->(0) O
+a5:  ->((C**n*aC + bC + zC)/(C**n*cCC + O**n*cCO + P**n*cCP + mC)) C
+a5_rev: C ->(0) 
+a6: C ->(kC) 
+a6_rev:  ->(0) C

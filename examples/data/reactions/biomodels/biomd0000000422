@@ -1,0 +1,43 @@
+GA4_GID_association: GA4 + GID ->(la) GA4_GID
+GA4_GID_dissociation: GA4_GID ->(ld) GA4 + GID
+GA4_GID_DELLA1_association: DELLA + GA4_GID_closed ->(ua1) GA4_GID_DELLA1
+GA4_GID_DELLA1_dissociation: GA4_GID_DELLA1 ->(ud1) DELLA + GA4_GID_closed
+DELLA_ubiquitination: GA4_GID_DELLA1 ->(um) DELLA_U + GA4_GID_closed
+GA12_supply: GA12_source ->(omegaGA12/GA12_source) GA12
+GA12_GA20ox_association: GA12 + GA20ox ->(ka12) GA12_GA20ox
+GA12_GA20ox_dissociation: GA12_GA20ox ->(kd12) GA12 + GA20ox
+GA15_production: GA12_GA20ox ->(km12) GA15 + GA20ox
+GA15_GA20ox_association: GA15 + GA20ox ->(ka15) GA15_GA20ox
+GA15_GA20ox_dissociation: GA15_GA20ox ->(kd15) GA15 + GA20ox
+GA24_production: GA15_GA20ox ->(km15) GA20ox + GA24
+GA24_GA20ox_association: GA20ox + GA24 ->(ka24) GA24_GA20ox
+GA24_GA20ox_dissociation: GA24_GA20ox ->(kd24) GA20ox + GA24
+GA9_production: GA24_GA20ox ->(km24) GA20ox + GA9
+GA9_GA3ox_association: GA3ox + GA9 ->(ka9) GA9_GA3ox
+GA9_GA3ox_dissociation: GA9_GA3ox ->(kd9) GA3ox + GA9
+GA4_production: GA9_GA3ox ->(km9) GA3ox + GA4
+GA4_GID_lid_closing: GA4_GID ->(q) GA4_GID_closed
+GA4_GID_Closed_lid_opening: GA4_GID_closed ->(p) GA4_GID
+della_translation: DELLA_source ->(della*deltaDELLA/DELLA_source) DELLA
+ga20ox_translation: GA20ox_source ->(deltaGA20ox*ga20ox/GA20ox_source) GA20ox
+ga3ox_translation: GA3ox_source ->(deltaGA3ox*ga3ox/GA3ox_source) GA3ox
+gid_translation: GID_source ->(deltaGA3ox*gid/GID_source) GID
+ga20ox_transcription__activated_by_DELLA_: ga20ox_source ->(DELLA*muGA20ox/(ga20ox_source*(DELLA + thetaGA20ox))) ga20ox
+gid_transcription__activated_by_DELLA_: gid_source ->(DELLA*muGID/(gid_source*(DELLA + thetaGID))) gid
+della_transcription__repressed_by_DELLA_: della_source ->(muDELLA*thetaDELLA/(della_source*(DELLA + thetaDELLA))) della
+ga3ox_transcription__activated_by_DELLA_: ga3ox_source ->(DELLA*muGA3ox/(ga3ox_source*(DELLA + thetaGA3ox))) ga3ox
+della_decay: della ->(muDELLA) della_source
+gid_decay: gid ->(muGID) gid_source
+ga20ox_decay: ga20ox ->(muGA20ox) ga20ox_source
+ga3ox_decay: ga3ox ->(muGA3ox) ga3ox_source
+GA20ox_decay: GA20ox ->(gammaGA20ox) GA20ox_source
+GID_decay: GID ->(gammaGID) GID_source
+GA3ox_decay: GA3ox ->(gammaGA3ox) GA3ox_source
+GA4_GID_DELLA2_association: DELLA + GA4_GID_closed ->(ua2) GA4_GID_DELLA2
+GA4_GID_DELLA2_dissociation: GA4_GID_DELLA2 ->(ud2) DELLA + GA4_GID_closed
+GA4_supply: GA4_source ->(A1*Pmem*omegaGA4/GA4_source) GA4
+degradation_of_GA12: GA12 ->(muGA) sa5_degraded
+degradation_of_GA15: GA15 ->(muGA) sa6_degraded
+degradation_of_GA24: GA24 ->(muGA) sa7_degraded
+degradation_of_GA9: GA9 ->(muGA) sa8_degraded
+degradation_of_GA4: GA4 ->(B1*Pmem + muGA) sa1_degraded

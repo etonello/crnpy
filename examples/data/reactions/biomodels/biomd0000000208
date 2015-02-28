@@ -1,0 +1,15 @@
+R1:  ->(E2F*emax*k1/(E2F*k1 + pRB*(E2F*k1_double_prime + k1_prime))) E2F
+R2: E2F ->(phi1) 
+R3:  ->(E2F*k2) pRB
+R4: pRB ->(active_cycE_cdk2*k3) Phosphorylated_pRB
+R5: pRB ->(phi2) 
+R6: Phosphorylated_pRB ->(phi3) 
+R7:  ->(E2F*k4) inactive_cycE_cdk2
+R8:  ->(AP_1*k4_double_prime) inactive_cycE_cdk2
+R9: inactive_cycE_cdk2 ->(active_cycE_cdk2*k4i) active_cycE_cdk2
+R10: active_cycE_cdk2 ->(k4a) inactive_cycE_cdk2
+R11: inactive_cycE_cdk2 ->(phi4i) 
+R12: active_cycE_cdk2 ->(phi4a) 
+R13:  ->(E2F*k6) AP_1
+R14:  ->(F6) AP_1
+R15: AP_1 ->(phi6) 

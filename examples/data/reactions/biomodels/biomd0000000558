@@ -1,0 +1,4 @@
+ROS_1:  ->(Neuron*k1*(S1 + alpha_syn**4*dalphasyn/(kalphasyn**4*(alpha_syn**4/kalphasyn**4 + 1)) + 1)) ROS
+ROS_2: ROS ->(Neuron*S2_4*k2) 
+aSyn_1:  ->(Neuron*ROS*S2_4*k3) alpha_syn
+aSyn_2: alpha_syn ->(Neuron*S2_4*k4) 

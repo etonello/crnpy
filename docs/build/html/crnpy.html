@@ -1,0 +1,1286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>crnpy package &mdash; crnpy 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="crnpy 0.0.1 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="crnpy-package">
+<h1>crnpy package<a class="headerlink" href="#crnpy-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-crnpy.crn">
+<span id="crnpy-crn-module"></span><h2>crnpy.crn module<a class="headerlink" href="#module-crnpy.crn" title="Permalink to this headline">¶</a></h2>
+<p>CRN class.</p>
+<dl class="class">
+<dt id="crnpy.crn.CRN">
+<em class="property">class </em><code class="descclassname">crnpy.crn.</code><code class="descname">CRN</code><span class="sig-paren">(</span><em>model=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A chemical reaction network.</p>
+<dl class="docutils">
+<dt>Keyword argument:</dt>
+<dd><ul class="first last simple">
+<li>model: SBML model.</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">CRN</span><span class="p">(</span><span class="n">model_from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>or equivalently</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In alternative, a CRN can be created from a list of reactions or strings representing reactions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*a&quot;</span><span class="p">),</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r2&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(),</span> <span class="s2">&quot;k2*b**2&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_reacts</span><span class="p">(</span><span class="n">reacts</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;a -&gt; b&quot;</span><span class="p">,</span> <span class="s2">&quot;2b -&gt; &quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="crnpy.crn.CRN.acr_complexes">
+<code class="descname">acr_complexes</code><span class="sig-paren">(</span><em>as_vectors=False</em>, <em>subnets=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.acr_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return complex ratios that are robust.</p>
+<ul>
+<li><p class="first">as_vectors &#8211; if True, return vectors of length = n_species corresponding to the ratios.</p>
+</li>
+<li><dl class="first docutils">
+<dt>subnets &#8211; if True, look for a decomposition in subnetworks using split_by_ems,</dt>
+<dd><p class="first last">and use the decomposition to look for robust ratios.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.acr_species">
+<code class="descname">acr_species</code><span class="sig-paren">(</span><em>subnets=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.acr_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return some of the species with absolute concentration robustness.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>subnets &#8211; if True, look for a decomposition in subnetworks using split_by_ems,</dt>
+<dd><p class="first last">and use the decomposition to look for robust ratios and species.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.complex_graph_adj">
+<code class="descname">complex_graph_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.complex_graph_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nc x nc adjacency matrix of the graph of complexes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.complex_matrix">
+<code class="descname">complex_matrix</code><a class="headerlink" href="#crnpy.crn.CRN.complex_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complex matrix.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.complexes">
+<code class="descname">complexes</code><a class="headerlink" href="#crnpy.crn.CRN.complexes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.cons_laws">
+<code class="descname">cons_laws</code><a class="headerlink" href="#crnpy.crn.CRN.cons_laws" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of generators of the network conservation laws.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.constant_species">
+<code class="descname">constant_species</code><a class="headerlink" href="#crnpy.crn.CRN.constant_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constant species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.deficiency">
+<code class="descname">deficiency</code><a class="headerlink" href="#crnpy.crn.CRN.deficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deficiency of the chemical reaction network,
+calculated as number of complexes, minus number of linkage classes,
+minus the rank of the stoichiometric matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.derivative">
+<code class="descname">derivative</code><span class="sig-paren">(</span><em>cplx</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the derivative expression of a complex.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.detach_network">
+<code class="descname">detach_network</code><span class="sig-paren">(</span><em>inter_complexes</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.detach_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a list of complexes, and remove the weakly connected components
+for these complexes from the network, returning them as a separate network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.document">
+<code class="descname">document</code><a class="headerlink" href="#crnpy.crn.CRN.document" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.dsr_graph_adj">
+<code class="descname">dsr_graph_adj</code><span class="sig-paren">(</span><em>keep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.dsr_graph_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the (ns + nr) x (ns + nr) adjacency matrix
+of the directed species-reaction graph.
+Optionally keep only variables in keep.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.elem_modes">
+<code class="descname">elem_modes</code><a class="headerlink" href="#crnpy.crn.CRN.elem_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of elementary modes of the network,
+as vectors of length nr.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.equations">
+<code class="descname">equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the derivatives of the species concentrations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.format_deficiency">
+<code class="descname">format_deficiency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_deficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string &#8216;deficiency delta = n_c - n_lc - stoich_matrix_rank</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.format_elem_modes">
+<code class="descname">format_elem_modes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_elem_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list elementary modes of the network,
+as a string with the reaction ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.format_p_invariants">
+<code class="descname">format_p_invariants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_p_invariants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of generators of the Petri Net P-invariants,
+as combinations of the species.
+Requires pycddlib.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.format_t_invariants">
+<code class="descname">format_t_invariants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_t_invariants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a matrix with rows the generators of the Petri Net T-invariants,
+as combinations of the reaction ids.
+Requires pycddlib.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="crnpy.crn.CRN.from_reacts">
+<em class="property">classmethod </em><code class="descname">from_reacts</code><span class="sig-paren">(</span><em>reacts</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.from_reacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.groebner">
+<code class="descname">groebner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.groebner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a groebner basis for the steady state ideal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.has_linear_equation">
+<code class="descname">has_linear_equation</code><span class="sig-paren">(</span><em>species</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.has_linear_equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the equation ds/dt = 0 is linear in s.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.incidence_matrix">
+<code class="descname">incidence_matrix</code><a class="headerlink" href="#crnpy.crn.CRN.incidence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Incidence matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.influence_matrix">
+<code class="descname">influence_matrix</code><span class="sig-paren">(</span><em>var=None</em>, <em>state=None</em>, <em>check=False</em>, <em>interval=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.influence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the n_s x n_r influence matrix.
+The element at position ij is a variable with a plus in front
+if the rate v_j(x) of reaction j increases with x_i,
+a minus if it decreases, and 0 if it is constant in x_i.
+Every reaction rate v_j is assumed to be strictly monotone in each variable x_i.
+Optional check for monotonicity is available with check = True only for
+functions of one variable.</p>
+<p>Keyword arguments:</p>
+<ul class="simple">
+<li>var &#8211; variable name to use. Default is g_.</li>
+<li>state &#8211; dictionary of the point where the derivatives are evaluated. Default is (1, 1, ..., 1).</li>
+<li>check &#8211; check for monotonicity. Only available for unary functions.</li>
+<li>interval &#8211; interval where monotonicity is checked - default is [0, oo).</li>
+<li>params &#8211; values for the kinetic parameters. All set to 1 by default.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.inspect">
+<code class="descname">inspect</code><span class="sig-paren">(</span><em>print_reactions=False</em>, <em>print_matrices=False</em>, <em>invariants=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print information on the chemical reaction network.
+If print_reactions = True, print the network reactions.
+If print_matrices = True, print the stoichiometric, incidence
+and kinetic matrix.
+If invariants = True, print the place and transition invariants (pycddlib required).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.intermediate_complexes">
+<code class="descname">intermediate_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.intermediate_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complexes that are reactants for at least one reaction
+and products for at least one reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.intermediate_simple_complexes">
+<code class="descname">intermediate_simple_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.intermediate_simple_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple intermediate complexes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.intermediate_species">
+<code class="descname">intermediate_species</code><a class="headerlink" href="#crnpy.crn.CRN.intermediate_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Species that are not sink or souce species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.intermediate_stoich_1_species">
+<code class="descname">intermediate_stoich_1_species</code><a class="headerlink" href="#crnpy.crn.CRN.intermediate_stoich_1_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intermediate species that never appear with stoichiometry greater than one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_constant">
+<code class="descname">is_constant</code><span class="sig-paren">(</span><em>cplx</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the derivative is zero.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_cyclic_ss_flux">
+<code class="descname">is_cyclic_ss_flux</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_cyclic_ss_flux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if v is a cyclic steady state flux.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_dyn_eq">
+<code class="descname">is_dyn_eq</code><span class="sig-paren">(</span><em>net</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_dyn_eq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if two networks have the same dynamics.
+They must have the same set of species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_emul">
+<code class="descname">is_emul</code><span class="sig-paren">(</span><em>net</em>, <em>morphism=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_emul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the network is an emulation of the second
+under the provided morphism, i.e. the networks have the
+same equations modulo a renaming of the variables.
+See also Cardelli, L. (2014)., Morphisms of reaction networks
+that couple structure to function. BMC systems biology, 8(1), 84.</p>
+<p>morphim = dictionary species -&gt; species. Default = identity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_intermediate_species">
+<code class="descname">is_intermediate_species</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_intermediate_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if s is an intermediate species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.is_ma">
+<code class="descname">is_ma</code><a class="headerlink" href="#crnpy.crn.CRN.is_ma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the network has mass-action kinetics.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_sink_species">
+<code class="descname">is_sink_species</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_sink_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if s is a sink species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_source_species">
+<code class="descname">is_source_species</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_source_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if s is a source species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.is_ss_flux">
+<code class="descname">is_ss_flux</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_ss_flux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if v is a steady state flux.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.is_weakly_rev">
+<code class="descname">is_weakly_rev</code><a class="headerlink" href="#crnpy.crn.CRN.is_weakly_rev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the network is weakly reversible.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.kinetic_matrix">
+<code class="descname">kinetic_matrix</code><a class="headerlink" href="#crnpy.crn.CRN.kinetic_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetic matrix.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.kinetic_params">
+<code class="descname">kinetic_params</code><a class="headerlink" href="#crnpy.crn.CRN.kinetic_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.laplacian">
+<code class="descname">laplacian</code><a class="headerlink" href="#crnpy.crn.CRN.laplacian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalised Laplacian of the graph of complexes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.linkage_classes">
+<code class="descname">linkage_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.linkage_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of complexes grouped by linkage class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.merge_network">
+<code class="descname">merge_network</code><span class="sig-paren">(</span><em>network</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.merge_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add reactions of network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.merge_reactions">
+<code class="descname">merge_reactions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.merge_reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the reactions with same reactant and same product.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.model">
+<code class="descname">model</code><a class="headerlink" href="#crnpy.crn.CRN.model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.n_complexes">
+<code class="descname">n_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.n_complexes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.n_linkage_classes">
+<code class="descname">n_linkage_classes</code><a class="headerlink" href="#crnpy.crn.CRN.n_linkage_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of linkage classes of the graph of complexes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.n_reactions">
+<code class="descname">n_reactions</code><a class="headerlink" href="#crnpy.crn.CRN.n_reactions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.n_species">
+<code class="descname">n_species</code><a class="headerlink" href="#crnpy.crn.CRN.n_species" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.non_terminal_complexes">
+<code class="descname">non_terminal_complexes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.non_terminal_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of complexes in the nonterminal strongly connected components.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.p_invariants">
+<code class="descname">p_invariants</code><a class="headerlink" href="#crnpy.crn.CRN.p_invariants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of generators of the Petri Net P-invariants.
+Requires pycddlib.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_complex_matrix">
+<code class="descname">print_complex_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_complex_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the complex matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_equations">
+<code class="descname">print_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the system of ODEs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_incidence_matrix">
+<code class="descname">print_incidence_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_incidence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the incidence matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_influence_matrix">
+<code class="descname">print_influence_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_influence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the influence matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_kinetic_matrix">
+<code class="descname">print_kinetic_matrix</code><span class="sig-paren">(</span><em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_kinetic_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the laplacian.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_laplacian">
+<code class="descname">print_laplacian</code><span class="sig-paren">(</span><em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_laplacian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the laplacian.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.print_stoich_matrix">
+<code class="descname">print_stoich_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_stoich_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the stoichiometrix matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.qss">
+<code class="descname">qss</code><span class="sig-paren">(</span><em>intermediate=None</em>, <em>cons_law=None</em>, <em>minimal=False</em>, <em>remove_const=False</em>, <em>merge_reacts=False</em>, <em>adjust=False</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.qss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an intermediate species via quasi-steady state approximation.</p>
+<p>Keyword arguments:</p>
+<ul>
+<li><p class="first">intermediate &#8211; species to eliminate.</p>
+</li>
+<li><dl class="first docutils">
+<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
+<dd><p class="first last">that will be written as a function of the other species in the conservation.
+All other species in the conservation are eliminated via quasi-steady state approximation.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">minimal &#8211; find network of minimal structure when applying qss.</p>
+</li>
+<li><p class="first">remove_const &#8211; remove any species left constant after the reduction.</p>
+</li>
+<li><p class="first">merge_reacts &#8211; merge reactions with the same reactant and product.</p>
+</li>
+<li><p class="first">adjust &#8211; change the rates so that they reflect the reactant species.</p>
+</li>
+<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
+</li>
+</ul>
+<p>Update remove_species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.rapid_eq">
+<code class="descname">rapid_eq</code><span class="sig-paren">(</span><em>recouple</em>, <em>cons_law=None</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.rapid_eq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the rapid equilibrium approximation to recouple,
+replacing the species in recouple[0] with the complex in recouple[1].</p>
+<p>Keyword arguments:</p>
+<ul>
+<li><p class="first">recouple &#8211; couple (species to eliminate, complex to replace species)</p>
+</li>
+<li><dl class="first docutils">
+<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
+<dd><p class="first last">that will be written as a function of the other species in the conservation.
+All other species in the conservation are eliminated via quasi-steady state approximation.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
+</li>
+</ul>
+<p>Update remove_species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.rapid_eq_with_pool">
+<code class="descname">rapid_eq_with_pool</code><span class="sig-paren">(</span><em>remove</em>, <em>keep</em>, <em>pool_name=None</em>, <em>cons_law=None</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.rapid_eq_with_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply rapid equilibrium to reactions between remove and keep.
+remove and keep are merged in a pool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.rates">
+<code class="descname">rates</code><a class="headerlink" href="#crnpy.crn.CRN.rates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.reactionids">
+<code class="descname">reactionids</code><a class="headerlink" href="#crnpy.crn.CRN.reactionids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.reactions">
+<code class="descname">reactions</code><a class="headerlink" href="#crnpy.crn.CRN.reactions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>rapid_eq=None</em>, <em>qss=None</em>, <em>cons_law=None</em>, <em>minimal=False</em>, <em>remove_const=False</em>, <em>merge_reacts=False</em>, <em>adjust=False</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove intermediates either by rapid-equilibrium or
+by quasi-steady state approximation, with an optional conservation law.</p>
+<p>Keyword arguments:</p>
+<ul>
+<li><p class="first">rapid_eq &#8211; list of couples (species to remove, complex to replace species with).</p>
+</li>
+<li><p class="first">qss &#8211; list of species that to remove via qss.</p>
+</li>
+<li><dl class="first docutils">
+<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
+<dd><p class="first last">that will be written as a function of the other species in the conservation.
+If the reduction method is not specified for a species in the conservation,
+the quasi-steady state approximation is used.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">minimal &#8211; find network of minimal structure when applying qss.</p>
+</li>
+<li><p class="first">remove_const &#8211; remove any species left constant after the reduction.</p>
+</li>
+<li><p class="first">merge_reacts &#8211; merge reactions with the same reactant and product.</p>
+</li>
+<li><p class="first">adjust &#8211; change the rates so that they reflect the reactant species.</p>
+</li>
+<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
+</li>
+</ul>
+<p>Update remove_species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.remove_all_constants">
+<code class="descname">remove_all_constants</code><span class="sig-paren">(</span><em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.remove_all_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all constant species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.remove_by_cons">
+<code class="descname">remove_by_cons</code><span class="sig-paren">(</span><em>species</em>, <em>cons_law</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.remove_by_cons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a species using a conservation law.
+First replace removed_species in the conservation law with their expression.
+Then use the conservation expression to write the species
+concentration as function of the remaining species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.remove_constant">
+<code class="descname">remove_constant</code><span class="sig-paren">(</span><em>const_species</em>, <em>expr=None</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.remove_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the species from the network by setting it to constant.
+Give a warning if the species is not constant in the original network.</p>
+<ul class="simple">
+<li>expr &#8211; optional expression that replaces const_species in rates.</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.removed_species">
+<code class="descname">removed_species</code><a class="headerlink" href="#crnpy.crn.CRN.removed_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Couples (species, expression) for species that have been eliminated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.replace_reacts">
+<code class="descname">replace_reacts</code><span class="sig-paren">(</span><em>new_reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.replace_reacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace reactions with newreactions.
+Update the sbml model and all properties.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.save_reaction_file">
+<code class="descname">save_reaction_file</code><span class="sig-paren">(</span><em>filepath</em>, <em>rate=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.save_reaction_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the reactions to filepath.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.save_sbml">
+<code class="descname">save_sbml</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.save_sbml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the network as an SBML.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.save_to_file">
+<code class="descname">save_to_file</code><span class="sig-paren">(</span><em>filepath</em>, <em>reactions=None</em>, <em>overwrite='a'</em>, <em>rs=False</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.save_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write reactions (with optional removed species) to filepath,
+with an optional line of log.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.set_params">
+<code class="descname">set_params</code><span class="sig-paren">(</span><em>params_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the parameters used in the reaction rates
+with the values in dictionary params_dict.</p>
+<p>params_dict is a dictionary with keys the parameters to replace, and
+values the sympy expressions or numeric values that replace them.</p>
+<p>In the following example we set all the kinetic parameters to 0.001:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">kinetic_params</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0: A1 -&gt;(1.000e-3) A2 + A3, r1: A2 -&gt;(1.000e-3) 2A3)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.simple_complexes">
+<code class="descname">simple_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.simple_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the complexes that coincide with species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.simple_intermediate">
+<code class="descname">simple_intermediate</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.simple_intermediate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the species is an intermediate,
+that is produced or consumed with stoichiometric coeffient 1,
+and does not interact with other species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.sink_complexes">
+<code class="descname">sink_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.sink_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complexes that never appear as reactants.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.sink_species">
+<code class="descname">sink_species</code><a class="headerlink" href="#crnpy.crn.CRN.sink_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Species that are never consumed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.source_complexes">
+<code class="descname">source_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.source_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complexes that never appear as products.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.source_species">
+<code class="descname">source_species</code><a class="headerlink" href="#crnpy.crn.CRN.source_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Species that are never produced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.species">
+<code class="descname">species</code><a class="headerlink" href="#crnpy.crn.CRN.species" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.split_by_ems">
+<code class="descname">split_by_ems</code><span class="sig-paren">(</span><em>same_react=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.split_by_ems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split reactions according to the elementary modes.
+If same_react = True, do not split reactions with the same reactant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.stoich_1_intermediates">
+<code class="descname">stoich_1_intermediates</code><span class="sig-paren">(</span><em>species_list</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.stoich_1_intermediates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the species in ss are intermediates,
+with stoichiometric coefficients 0 or 1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.stoich_1_species">
+<code class="descname">stoich_1_species</code><a class="headerlink" href="#crnpy.crn.CRN.stoich_1_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stoichiometry 1 species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.stoich_matrix">
+<code class="descname">stoich_matrix</code><a class="headerlink" href="#crnpy.crn.CRN.stoich_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stoichiometric matrix.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.stoich_space_dim">
+<code class="descname">stoich_space_dim</code><a class="headerlink" href="#crnpy.crn.CRN.stoich_space_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dimension of the stoichiometric subspace,
+i.e. the rank of the stoichiometric matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.strong_conn_components">
+<code class="descname">strong_conn_components</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.strong_conn_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of strongly connected components of the graph of complexes,
+and an array of labels for the strongly connected components.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.strong_terminal_conn_components">
+<code class="descname">strong_terminal_conn_components</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.strong_terminal_conn_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list labels for the terminal strongly connected components,
+of the graph of complexes, and the array of labels for the strongly connected components.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.subnets">
+<code class="descname">subnets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.subnets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to split the network into subnetworks such that
+the ranks of the subnetworks sum to the rank of the network.
+Use split_by_ems to look for candidate subnetworks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.t_invariants">
+<code class="descname">t_invariants</code><a class="headerlink" href="#crnpy.crn.CRN.t_invariants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a matrix with rows the generators of the Petri Net T-invariants.
+Requires pycddlib.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.terminal_complexes">
+<code class="descname">terminal_complexes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.terminal_complexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of complexes in the terminal strongly connected components.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.tree_constant">
+<code class="descname">tree_constant</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the constant of Prop. 3 of
+&#8216;&#8217;Toric Dynamical Systems&#8217;&#8217; by Shul et al.,
+associated to index.
+The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in
+&#8216;&#8217;Translated Chemical Reaction Networks&#8217;&#8217; by M. D. Johnston.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.tree_constants">
+<code class="descname">tree_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the constants of Prop. 3 of
+&#8216;&#8217;Toric Dynamical Systems&#8217;&#8217; by Shul et al.
+The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in
+&#8216;&#8217;Translated Chemical Reaction Networks&#8217;&#8217; by M. D. Johnston.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.weak_conn_components">
+<code class="descname">weak_conn_components</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.weak_conn_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of weakly connected components of the graph of complexes,
+and an array of labels for the weakly connected components.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crn.from_react_file">
+<code class="descclassname">crnpy.crn.</code><code class="descname">from_react_file</code><span class="sig-paren">(</span><em>filename</em>, <em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.from_react_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a CRN from a reaction file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crn.from_react_strings">
+<code class="descclassname">crnpy.crn.</code><code class="descname">from_react_strings</code><span class="sig-paren">(</span><em>reacts</em>, <em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.from_react_strings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a CRN from a list of reaction strings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crn.from_reacts">
+<code class="descclassname">crnpy.crn.</code><code class="descname">from_reacts</code><span class="sig-paren">(</span><em>reacts</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.from_reacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a CRN from a list of reactions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crn.from_sbml">
+<code class="descclassname">crnpy.crn.</code><code class="descname">from_sbml</code><span class="sig-paren">(</span><em>xmlfile</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.from_sbml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a CRN from an SBML file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.reaction">
+<span id="crnpy-reaction-module"></span><h2>crnpy.reaction module<a class="headerlink" href="#module-crnpy.reaction" title="Permalink to this headline">¶</a></h2>
+<p>Reaction class and functions.</p>
+<dl class="class">
+<dt id="crnpy.reaction.Reaction">
+<em class="property">class </em><code class="descclassname">crnpy.reaction.</code><code class="descname">Reaction</code><span class="sig-paren">(</span><em>reactionid</em>, <em>reactant</em>, <em>product</em>, <em>rate</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A reaction is defined by a string reactionid,
+a reactant complex, a product complex,
+and a string or sympy expression representing the rate.</p>
+<p>Attributes: reactionid, reactant, product, rate, kinetic_param.</p>
+<dl class="method">
+<dt id="crnpy.reaction.Reaction.format">
+<code class="descname">format</code><span class="sig-paren">(</span><em>rate=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string of the form
+reactant complex -&gt;(k) product complex
+where k is the generalised kinetic parameter of the reaction if rate = False,
+otherwise the rate of the reaction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.reaction.Reaction.format_kinetics">
+<code class="descname">format_kinetics</code><span class="sig-paren">(</span><em>rate=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.format_kinetics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the kinetic parameter or rate to string.
+If rate = True, return a string representing the rate,
+otherwise one representing the kinetic parameter.
+If the kinetic parameter is a float, use exponent notation,
+with a number of digits equal to precision (3 is the default).
+If the reaction has no defined rate, return None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.reaction.Reaction.kinetic_param">
+<code class="descname">kinetic_param</code><a class="headerlink" href="#crnpy.reaction.Reaction.kinetic_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate of the reaction divided by the mass action monomial
+associated to the reactant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.reaction.Reaction.latex">
+<code class="descname">latex</code><span class="sig-paren">(</span><em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the latex code for the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.reaction.Reaction.product">
+<code class="descname">product</code><a class="headerlink" href="#crnpy.reaction.Reaction.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product complex of the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.reaction.Reaction.rate">
+<code class="descname">rate</code><a class="headerlink" href="#crnpy.reaction.Reaction.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate of the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.reaction.Reaction.reactant">
+<code class="descname">reactant</code><a class="headerlink" href="#crnpy.reaction.Reaction.reactant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reactant complex of the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="crnpy.reaction.Reaction.reactionid">
+<code class="descname">reactionid</code><a class="headerlink" href="#crnpy.reaction.Reaction.reactionid" title="Permalink to this definition">¶</a></dt>
+<dd><p>String id of the reaction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.reaction.Reaction.remove_react_prod">
+<code class="descname">remove_react_prod</code><span class="sig-paren">(</span><em>species=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.remove_react_prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove common species between reactant and product.</p>
+<p>If a species is specified, only species is removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.reaction.merge_reactions">
+<code class="descclassname">crnpy.reaction.</code><code class="descname">merge_reactions</code><span class="sig-paren">(</span><em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.merge_reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge reactions with same reactants and products.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.reaction.reaction_path">
+<code class="descclassname">crnpy.reaction.</code><code class="descname">reaction_path</code><span class="sig-paren">(</span><em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.reaction_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the reactions so that they can be composed,
+in the given order.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.reaction.translate">
+<code class="descclassname">crnpy.reaction.</code><code class="descname">translate</code><span class="sig-paren">(</span><em>reaction</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the reaction by c.
+Return the reaction (r + Id_c), where c has been added to both reactant and product.
+The rate is unchanged.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.parsereaction">
+<span id="crnpy-parsereaction-module"></span><h2>crnpy.parsereaction module<a class="headerlink" href="#module-crnpy.parsereaction" title="Permalink to this headline">¶</a></h2>
+<p>Parser for reaction strings and files.</p>
+<dl class="function">
+<dt id="crnpy.parsereaction.add_kinetic_param">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">add_kinetic_param</code><span class="sig-paren">(</span><em>reaction</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.add_kinetic_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a kinetic param of the form &#8216;k_reactionid&#8217;, if missing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.add_reaction_id">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">add_reaction_id</code><span class="sig-paren">(</span><em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.add_reaction_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a reactionid, if missing, of the form
+&#8216;ri&#8217;, where i is the index of the reaction, in the sublist of reactions without reactionid.
+If there is a reverse reaction, its id is set to ri_rev.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.param_to_rate">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">param_to_rate</code><span class="sig-paren">(</span><em>reaction</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.param_to_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplies the rate by the reactant mass-action monomial.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.parse_complex">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_complex</code><span class="sig-paren">(</span><em>complexString</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a string representing a complex.
+The string must be of the form &#8220;n1 s1 + n2 s2 + ...&#8221;,
+where the ni are the integer stoichiometric coefficients.
+Stoichiometric coefficients equal to 1 can be omitted.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.parse_reaction">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_reaction</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a (potentially reversible) reaction written as</p>
+<p>reactionid: i1 R1 + ... + in Rn (k_)&lt;-&gt;(k) j1 P1 + ... + jm Pm</p>
+<p>where (k_)&lt; is optional.
+Return a two-element tuple with two reactions, if &#8220;&lt;&#8221; is included
+(the reaction is reversible),
+or one reaction and None, if it is not reversible.
+k, k_ can be any string representing the rates. They are optional. If present,
+they must be enclosed in parenthesis.
+No spaces are allowed between the parenthesis and &lt;-&gt;.
+reactionid is optional. If the reaction is reversible, &#8220;_rev&#8221;
+is added to the reactionid for the reverse reaction.
+Everything after a # sign is ignored.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.parse_reaction_file">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_reaction_file</code><span class="sig-paren">(</span><em>filename</em>, <em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_reaction_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a reaction file, and populate
+reaction id and kineticParam if empty.
+If rate is False, the expression enclosed in parenthesis
+is interpreted as rate / reactant mass-action monomial,
+otherwise as the full rate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.parsereaction.parse_reactions">
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_reactions</code><span class="sig-paren">(</span><em>rs</em>, <em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a list of reaction strings.
+If rate is False, the expression enclosed in parenthesis
+is interpreted as rate / reactant mass-action monomial,
+otherwise as the full rate.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.crncomplex">
+<span id="crnpy-crncomplex-module"></span><h2>crnpy.crncomplex module<a class="headerlink" href="#module-crnpy.crncomplex" title="Permalink to this headline">¶</a></h2>
+<p>Complex class.</p>
+<dl class="class">
+<dt id="crnpy.crncomplex.Complex">
+<em class="property">class </em><code class="descclassname">crnpy.crncomplex.</code><code class="descname">Complex</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.Counter</span></code></p>
+<p>A complex is represented with a counter.
+A complex can be created from a dictionary or an iterable, for example
+Complex({&#8216;S&#8217;: 2, &#8216;E&#8217;: 1}),
+Complex(&#8216;SSE&#8217;) and
+Complex(S = 2, E = 1)
+all create the same complex E + 2S.</p>
+<p>From the collections.Counter documentation:</p>
+<dl class="docutils">
+<dt>&#8220;class collections.Counter([iterable-or-mapping])</dt>
+<dd>A Counter is a dict subclass for counting hashable objects.
+It is an unordered collection where elements are stored as dictionary keys
+and their counts are stored as dictionary values.
+Counts are allowed to be any integer value including zero or negative counts.
+The Counter class is similar to bags or multisets in other languages.&#8221;</dd>
+</dl>
+<dl class="method">
+<dt id="crnpy.crncomplex.Complex.ma">
+<code class="descname">ma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.ma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mass action monomial associated to the complex.
+For example, Complex({&#8216;S&#8217;: 2, &#8216;E&#8217;: 1}).ma() gives the monomial E*S**2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crncomplex.Complex.symp">
+<code class="descname">symp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.symp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sympy expression representing the complex.
+E.g. &#8220;2a + b&#8221; gives &#8220;2*a + b&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crncomplex.Complex.times">
+<code class="descname">times</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the complex obtained by multiplying
+all stoichiometric coefficients by n.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crncomplex.Complex.to_vector">
+<code class="descname">to_vector</code><span class="sig-paren">(</span><em>species</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.to_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a vector (sympy matrix of dimentions (number of species) times 1)
+containing the stoichiometric cofficients of species in complex.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crncomplex.sympify">
+<code class="descclassname">crnpy.crncomplex.</code><code class="descname">sympify</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.sympify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert s to sympy expression, accepting all symbols in the clashing-symbols dictionaries.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.crncomplex.to_complex">
+<code class="descclassname">crnpy.crncomplex.</code><code class="descname">to_complex</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.to_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a sympy-compatible string to a complex
+(&#8220;2*a + b&#8221; is converted, &#8220;2a + b&#8221; is not).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.createmodel">
+<span id="crnpy-createmodel-module"></span><h2>crnpy.createmodel module<a class="headerlink" href="#module-crnpy.createmodel" title="Permalink to this headline">¶</a></h2>
+<p>Functions for creating SBML models
+from SBML or reaction files.</p>
+<dl class="function">
+<dt id="crnpy.createmodel.adjust">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">adjust</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.adjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change dash, /, parenthesis and other symbols to underscore in
+compartments, species, reaction and parameter ids and names,
+to avoid problems with sympy.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.convert_functions">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">convert_functions</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.convert_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace functions with formulas.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.model_from_react_file">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_react_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_react_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an SBML model from a reaction file,
+with one compartment.
+Return model, document and list of species.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.model_from_reacts">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_reacts</code><span class="sig-paren">(</span><em>reactions</em>, <em>level=3</em>, <em>version=1</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_reacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an SBML model from a list of reactions,
+with one compartment.
+Return model, document and list of species.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.model_from_sbml">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_sbml</code><span class="sig-paren">(</span><em>sbmlxml</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_sbml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a model from an sbml file.
+Return model and document.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.promote_params">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">promote_params</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.promote_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change parameters to global, so that they are preserved
+when reactions change.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.createmodel.replace_reacts">
+<code class="descclassname">crnpy.createmodel.</code><code class="descname">replace_reacts</code><span class="sig-paren">(</span><em>model</em>, <em>document</em>, <em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.replace_reacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the current reactions and replace them with reactions.
+Update the species.
+Return document, model and list of species.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.conslaw">
+<span id="crnpy-conslaw-module"></span><h2>crnpy.conslaw module<a class="headerlink" href="#module-crnpy.conslaw" title="Permalink to this headline">¶</a></h2>
+<p>Conservation Law class.</p>
+<dl class="class">
+<dt id="crnpy.conslaw.ConsLaw">
+<em class="property">class </em><code class="descclassname">crnpy.conslaw.</code><code class="descname">ConsLaw</code><span class="sig-paren">(</span><em>expression</em>, <em>constant</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.conslaw.ConsLaw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conservation law of the form expression = constant,
+for example e + es + esi = etot.</p>
+<p>The parameters expression and constant are strings or sympy expressions.</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd><ul class="first last simple">
+<li>expression: the conservation expression converted to sympy expression.</li>
+<li>constant: the conservation constant converted to sympy expression.</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span> <span class="o">=</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + ES + ESI&quot;</span><span class="p">,</span> <span class="s2">&quot;Etot&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span>
+<span class="go">E + ES + ESI = Etot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span><span class="o">.</span><span class="n">expression</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="s2">&quot;ESI&quot;</span><span class="p">,</span> <span class="s2">&quot;ES*I&quot;</span><span class="p">)</span>
+<span class="go">E + ES + I*ES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span><span class="o">.</span><span class="n">constant</span>
+<span class="go">Etot</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy.matrixfunctions">
+<span id="crnpy-matrixfunctions-module"></span><h2>crnpy.matrixfunctions module<a class="headerlink" href="#module-crnpy.matrixfunctions" title="Permalink to this headline">¶</a></h2>
+<p>Auxiliary functions for sympy matrix manipulations.</p>
+<dl class="function">
+<dt id="crnpy.matrixfunctions.cexp">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">cexp</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.cexp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Componentwise exp.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.clog">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">clog</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.clog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Componentwise logarithm.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.dependent">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">dependent</code><span class="sig-paren">(</span><em>matrix</em>, <em>vector</em>, <em>particular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.dependent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if vector can be written as a linear combination of
+the columns of matrix.
+Return the coeffients if possible, None otherwise.
+If particular = True, use the option &#8216;particular&#8217; of sympy&#8217;s solve(),
+i.e. try to find a particular solution with as many zeros as possible.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.negative">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">negative</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a matrix with the negative elements of matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.print_matrix">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">print_matrix</code><span class="sig-paren">(</span><em>matrix</em>, <em>rowlabels</em>, <em>collabels</em>, <em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.print_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a matrix with rowlabels as first column,
+and collabels as first row.
+If numeric = True, the matrix is converted to a numpy array,
+and precision can be used to format the elements (default is 3).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.schur_reduction">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">schur_reduction</code><span class="sig-paren">(</span><em>A</em>, <em>rowIndices</em>, <em>colIndices</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.schur_reduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Schur complement of the block identified
+by rowIndices and colIndices.
+Works only if this block is square and invertible.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="crnpy.matrixfunctions.sdiag">
+<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">sdiag</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.sdiag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sparse diagonal matrix with vector as diagonal.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-crnpy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-crnpy" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">crnpy package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-crnpy.crn">crnpy.crn module</a></li>
+<li><a class="reference internal" href="#module-crnpy.reaction">crnpy.reaction module</a></li>
+<li><a class="reference internal" href="#module-crnpy.parsereaction">crnpy.parsereaction module</a></li>
+<li><a class="reference internal" href="#module-crnpy.crncomplex">crnpy.crncomplex module</a></li>
+<li><a class="reference internal" href="#module-crnpy.createmodel">crnpy.createmodel module</a></li>
+<li><a class="reference internal" href="#module-crnpy.conslaw">crnpy.conslaw module</a></li>
+<li><a class="reference internal" href="#module-crnpy.matrixfunctions">crnpy.matrixfunctions module</a></li>
+<li><a class="reference internal" href="#module-crnpy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/crnpy.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Elisa Tonello.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

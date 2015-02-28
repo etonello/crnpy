@@ -1,0 +1,20 @@
+CycBt_synthesis:  ->(k1) CycBt
+CycBt_degradation: CycBt ->(k2p) 
+CycBt_degradation_via_Cdh1: CycBt ->(Cdh1*k2pp) 
+CycBt_degradation_via_Cdc20a: CycBt ->(Cdc20a*k2ppp) 
+Cdh1_synthesis:  ->((-Cdh1 + 1)*(Cdc20a*k3pp + k3p)/(-Cdh1 + J3 + 1)) Cdh1
+Cdh1_degradation: Cdh1 ->((Cdh1*CycB*k4*m + Cdh1*SK*k4p)/(Cdh1*(Cdh1 + J4))) 
+Cdc20t_synthesis:  ->(k5p + k5pp*(CycB*m/J5)**n/((CycB*m/J5)**n + 1)) Cdc20t
+Cdc20t_degradation: Cdc20t ->(k6) 
+Cdc20_activation:  ->(IEP*k7*(-Cdc20a + Cdc20t)/(-Cdc20a + Cdc20t + J7)) Cdc20a
+Cdc20a_inhibition: Cdc20a ->(Mad*k8/(Cdc20a + J8)) 
+Cdc20a_degradation: Cdc20a ->(k6) 
+IEP_synthesis:  ->(CycB*k9*m*(-IEP + 1)) IEP
+IEP_degradation: IEP ->(k10) 
+growth:  ->(m*mu*(-m/mmax + 1)) m
+CKIt_synthesis:  ->(k11) CKIt
+CKIt_degradation: CKIt ->(k12p) 
+CKIt_phosphorilation_via_SK: CKIt ->(SK*k12pp) 
+CKIt_Trimer_sequestred: CKIt ->(CycB*k12ppp*m) 
+SK_synthesis:  ->(TF*k13) SK
+SK_degradation: SK ->(k14) 

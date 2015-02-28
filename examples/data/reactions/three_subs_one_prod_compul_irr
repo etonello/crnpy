@@ -1,0 +1,7 @@
+e + a ->(k1) ea
+ea ->(k_1) e + a
+ea + b ->(k2) eab
+eab ->(k_2) ea + b
+eab + c ->(k3) eabc
+eabc ->(k_3) eab + c
+eabc ->(k4) e + p

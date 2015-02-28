@@ -1,0 +1,49 @@
+_1: TNF ->(k1) TNFR1
+_2: TNFR1 ->(k2) TRADD_TRAF2_RIP
+_3: TRADD_TRAF2_RIP ->(v3/(TRADD_TRAF2_RIP + k3)) NIK
+_4: TRADD_TRAF2_RIP ->(v4/(TRADD_TRAF2_RIP + k4)) MEKK1
+_5: NIK ->(v5/(NIK + k5)) IkB
+_6: IkK_NFkB ->(v6/(IkK_NFkB + k6)) NFkB
+_7: NFkB ->(k7) NFkB
+_8: IkB ->(v8/(IkB + k8)) IkK_NFkB
+_9: MEKK1 ->(v9/(MEKK1 + k9)) MKK4_7
+_10: MKK4_7 ->(v10/(MKK4_7 + k10)) JNK
+_11: JNK ->(k11) JNK
+_12: JNK ->(v12/(JNK + k12)) cjun
+_13: TRADD_TRAF2_RIP ->(v13/(TRADD_TRAF2_RIP + k13)) ASK
+_14: ASK ->(v14/(ASK + k14)) MKK3_6
+_15: p38 ->(k15) p38
+_16: p38 ->(v16/(k16 + p38)) cfos
+_17: LPG ->(k17) CD14_TLR
+_18: CD14_TLR ->(k18) MyD88
+_19: MyD88 ->(k19) IRAK1_4
+_20: IRAK1_4 ->(k20) TRAF6
+_21: TRAF6 ->(k21) TAB2_TAK1_TAB1
+_22: TAB2_TAK1_TAB1 ->(v22/(TAB2_TAK1_TAB1 + k22)) NIK
+_23: TAB2_TAK1_TAB1 ->(v23/(TAB2_TAK1_TAB1 + k23)) MKK1_2
+_24: MKK1_2 ->(v24/(MKK1_2 + k24)) ERK1_2
+_25: ERK1_2 ->(k25) ERK1_2
+_26: TAB2_TAK1_TAB1 ->(v26/(TAB2_TAK1_TAB1 + k26)) MKK4_7
+_27: TAB2_TAK1_TAB1 ->(v27/(TAB2_TAK1_TAB1 + k27)) MKK3_6
+_28: MKK3_6 ->(v28/(MKK3_6 + k28)) p38
+_29: EGF ->(k29) EGFR
+_30: EGFR ->(v30/(EGFR + k30)) PLC_gamma
+_31: PLC_gamma ->(v31/(PLC_gamma + k31)) PIP2
+_32: PIP2 ->(v32/(PIP2 + k32)) DAG
+_33: DAG ->(k33) PKC
+_34: PKC ->(v34/(PKC + k34)) IkK_NFkB
+_35: EGFR ->(v35/(EGFR + k35)) PI3K
+_36: PI3K ->(v36/(PI3K + k36)) Akt
+_37: Akt ->(k37) Akt
+_38: EGFR ->(k38) Shc_Grb2_Sos1
+_39: Shc_Grb2_Sos1 ->(v39/(Shc_Grb2_Sos1 + k39)) Ras
+_40: Ras ->(v40/(Ras + k40)) Raf
+_41: Raf ->(v41/(Raf + k41)) MKK1_2
+_42: Ras ->(v42/(Ras + k42)) MKK4_7
+_43: EGFR ->(v43/(EGFR + k43)) JAK
+_44: JAK ->(v44/(JAK + k44)) STAT1_3
+_45: STAT1_3 ->(k45) STAT1_3
+_46: NFkB ->(NFkB**n46*v46/(NFkB*(NFkB**n46 + kp47))) TNF
+_47: TNF ->(k47) TNF
+_48: PKC ->(v48/(PKC + k48)) Ras
+_49: PKC ->(v49/(PKC + k49)) Raf

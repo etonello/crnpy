@@ -1,0 +1,10 @@
+# Example 4.3
+# "Computing sparse and dense realizations of reaction kinetic systems", Gábor Szederkényi (2010)
+# Journal of Mathematical Chemistry, 47(2), 551-568.
+
+X1 -> X2
+X2 -> X1 + X2
+X2 -> 3X1 + X2
+2X1 + X2 -> X1 + 2X2
+2X1 + X2 -> 3X2
+2X1 + X2 -> X1 + 3X2

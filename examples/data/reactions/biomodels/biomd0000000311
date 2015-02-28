@@ -1,0 +1,5 @@
+r1:  ->(Ep*env*k0) R
+r2:  ->(S*env*k1) R
+r3: R ->(env*k2) 
+r4: E ->(R*env*k3/(E + J3)) Ep
+r5: Ep ->(env*k4/(Ep + J4)) E

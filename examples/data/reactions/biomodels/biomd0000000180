@@ -1,0 +1,23 @@
+React1:  ->(i1) R1
+React2: R1 ->(d_R1) 
+React3:  ->(R1*sP1R1) P1
+React4: P1 ->(d_P1) 
+React5:  ->(P1*sP1_prime_P1) P1_prime
+React6:  ->(s1/(P2_prime**n + 1)) P1_prime
+React7:  ->(s3/(P3_prime**n + 1)) P1_prime
+React8: P1_prime ->(d_P1_prime) 
+React9:  ->(i2) R2
+React10: R2 ->(d_R2) 
+React11:  ->(R2*sP2R2) P2
+React12: P2 ->(d_P2) 
+React13:  ->(P2*sP2_prime_P2) P2_prime
+React14:  ->(s2/(P1_prime**n + 1)) P2_prime
+React15: P2_prime ->(d_P2_prime) 
+React16:  ->(P2_prime**n*sP3_prime_P2_prime/(P2_prime**n + 1)) P3_prime
+React17: P3_prime ->(d_P3_prime) 
+React18:  ->(s3/(P4_prime**n + 1)) P2_prime
+React18_rev: P2_prime ->(0) 
+React19:  ->(P1_prime**n*sP4_prime_P1_prime/(P1_prime**n + 1)) P4_prime
+React19_rev: P4_prime ->(0) 
+React20: P4_prime ->(d_P4_prime) 
+React20_rev:  ->(0) P4_prime

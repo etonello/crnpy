@@ -1,0 +1,4 @@
+r0: a + e ->(k_r0*k_r3/(d*k_r2 + e*k_r3)) p
+r1: a + d ->(k_r0*k_r2/(d*k_r2 + e*k_r3)) p
+r2: b + e ->(k_r1*k_r3/(d*k_r2 + e*k_r3)) p
+r3: b + d ->(k_r1*k_r2/(d*k_r2 + e*k_r3)) p

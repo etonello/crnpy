@@ -1,0 +1,31 @@
+reaction_1: ERKc ->(cytosol**2*k1_ERKc*ppMEKc_tot) ERK_ppMEKc
+reaction_1_rev: ERK_ppMEKc ->((ERK_ppMEKc*ERKc*cytosol**2*k1_ERKc + ERK_ppMEKc*cytosol*k2_ERKc + ERKc*cytosol*k1_ERKc*pERK_ppMEKc)/ERK_ppMEKc) ERKc
+reaction_2: ERK_ppMEKc ->(cytosol*k3_ERKc) pERKc
+reaction_3: pERKc ->(cytosol**2*k1_ERKc*ppMEKc_tot) pERK_ppMEKc
+reaction_3_rev: pERK_ppMEKc ->((ERK_ppMEKc*cytosol*k1_ERKc*pERKc + cytosol**2*k1_ERKc*pERK_ppMEKc*pERKc + cytosol*k2_ERKc*pERK_ppMEKc)/pERK_ppMEKc) pERKc
+reaction_4: pERK_ppMEKc ->(cytosol*k3_ERKc) ppERKc
+reaction_5: ERKc ->((ERKc*cytosol*k_ERKin - ERKn*k_ERKout*nucleus)/ERKc) ERKn
+reaction_6: pERKc ->((cytosol*k_pERKin*pERKc - k_pERKout*nucleus*pERKn)/pERKc) pERKn
+reaction_7: ppERKc ->((cytosol*k_ppERKin*ppERKc - k_ppERKout*nucleus*ppERKn)/ppERKc) ppERKn
+reaction_8: DUSPc + ppERKc ->(1.06382978723404*cytosol**2*kd1_ppERKc) ppERK_DUSPc
+reaction_8_rev: ppERK_DUSPc ->(cytosol*kd2_ppERKc) DUSPc + ppERKc
+reaction_9: ppERK_DUSPc ->(cytosol*kd3_ppERKc) DUSPc + pERKc
+reaction_10: DUSPc + pERKc ->(1.06382978723404*cytosol**2*kd1_pERKc) pERK_DUSPc
+reaction_10_rev: pERK_DUSPc ->(cytosol*kd2_pERKc) DUSPc + pERKc
+reaction_11: pERK_DUSPc ->(cytosol*kd3_pERKc) DUSPc + ERKc
+reaction_12: DUSPn + ppERKn ->(4.54545454545455*kd1_ppERKn*nucleus**2) ppERK_DUSPn
+reaction_12_rev: ppERK_DUSPn ->(kd2_ppERKn*nucleus) DUSPn + ppERKn
+reaction_13: ppERK_DUSPn ->(kd3_ppERKn*nucleus) DUSPn + pERKn
+reaction_14: DUSPn + pERKn ->(4.54545454545455*kd1_pERKn*nucleus**2) pERK_DUSPn
+reaction_14_rev: pERK_DUSPn ->(kd2_pERKn*nucleus) DUSPn + pERKn
+reaction_15: pERK_DUSPn ->(kd3_pERKn*nucleus) DUSPn + ERKn
+reaction_16:  ->(0.693*duspn_basal*(duspn_ind*ppERKn**2/(Kduspn**2 + nucleus*ppERKn**2) + 1)/Tduspn) duspn
+reaction_17: duspn ->(0.693*nucleus/Tduspn) 
+reaction_18:  ->(3.15*duspn*nucleus*v2/TDUSPn) DUSPn
+reaction_19: DUSPn ->(0.693*nucleus/TDUSPn) 
+reaction_20: ERKn + STYXn ->(4.54545454545455*k1_ES*nucleus**2) ERK_STYXn
+reaction_20_rev: ERK_STYXn ->(k2_ES*nucleus) ERKn + STYXn
+reaction_21: STYXn + pERKn ->(4.54545454545455*k1_pES*nucleus**2) pERK_STYXn
+reaction_21_rev: pERK_STYXn ->(k2_pES*nucleus) STYXn + pERKn
+reaction_22: STYXn + ppERKn ->(4.54545454545455*k1_ppES*nucleus**2) ppERK_STYXn
+reaction_22_rev: ppERK_STYXn ->(k2_ppES*nucleus) STYXn + ppERKn

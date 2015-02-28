@@ -1,0 +1,23 @@
+cyclin_synthesis:  ->(k1AA) cyclin
+cyclin_degradation: cyclin ->(k2) 
+cyclin_cdc2_dimer_formation: cyclin ->(cdc2*k3) cyclin_cdc2_dimer
+Thr161_dephosphorylation: Thr161_phosphorylated_dimer_active_MPF_ ->(kinh) cyclin_cdc2_dimer
+Tyr15_phosphorylation: cyclin_cdc2_dimer ->(kwee) Tyr15_phosphorylated_dimer
+Thr161_phosphorylation: cyclin_cdc2_dimer ->(kcak) Thr161_phosphorylated_dimer_active_MPF_
+cyclin_degradation: cyclin_cdc2_dimer ->(k2) 
+Tyr15_dephosphorylation: Tyr15_phosphorylated_dimer ->(k25) cyclin_cdc2_dimer
+Thr161_phosphorylation: Tyr15_phosphorylated_dimer ->(kcak) Thr161_Tyr15_phosphorylated_dimer
+cyclin_degradation: Tyr15_phosphorylated_dimer ->(k2) 
+Thr161_dephosphorylation: Thr161_Tyr15_phosphorylated_dimer ->(kinh) Tyr15_phosphorylated_dimer
+Tyr15_phosphorylation: Thr161_phosphorylated_dimer_active_MPF_ ->(kwee) Thr161_Tyr15_phosphorylated_dimer
+Tyr15_dephosphorylation: Thr161_Tyr15_phosphorylated_dimer ->(k25) Thr161_phosphorylated_dimer_active_MPF_
+cyclin_degradation: Thr161_Tyr15_phosphorylated_dimer ->(k2) 
+cyclin_degradation: Thr161_phosphorylated_dimer_active_MPF_ ->(k2) 
+cdc25_activation:  ->(Thr161_phosphorylated_dimer_active_MPF_*ka*(-phosphorylated_cdc25 + total_cdc25)/(K_a - phosphorylated_cdc25 + total_cdc25)) phosphorylated_cdc25
+cdc25_deactivation: phosphorylated_cdc25 ->(kbPPase/(K_b + phosphorylated_cdc25)) 
+wee1_deactivation:  ->(Thr161_phosphorylated_dimer_active_MPF_*ke*(-phosphorylated_wee1 + total_wee1)/(K_e - phosphorylated_wee1 + total_wee1)) phosphorylated_wee1
+wee1_activation: phosphorylated_wee1 ->(kfPPase/(K_f + phosphorylated_wee1)) 
+intermediary_enzyme_activation:  ->(Thr161_phosphorylated_dimer_active_MPF_*kg*(-phosphorylated_intermediary_enzyme + total_IE)/(K_g - phosphorylated_intermediary_enzyme + total_IE)) phosphorylated_intermediary_enzyme
+intermediary_enzyme_deactivation: phosphorylated_intermediary_enzyme ->(khPPAse/(K_h + phosphorylated_intermediary_enzyme)) 
+ubiquitin_conjugating_enzyme_activation:  ->(kc*phosphorylated_intermediary_enzyme*(total_UbE - ubiquitin_conjugating_enzyme)/(K_c + total_UbE - ubiquitin_conjugating_enzyme)) ubiquitin_conjugating_enzyme
+ubiquitin_conjugating_enzyme_deactivation: ubiquitin_conjugating_enzyme ->(kd_anti_IE/(K_d + ubiquitin_conjugating_enzyme)) 

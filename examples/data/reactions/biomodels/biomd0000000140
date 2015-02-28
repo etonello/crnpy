@@ -1,0 +1,64 @@
+NFkB_IkBalpha_complex_formation: IkBalpha + NFkB ->(a4*cytoplasm) IkBalpha_NFkB
+NFkB_IkBalpha_complex_formation_rev: IkBalpha_NFkB ->(cytoplasm*d4) IkBalpha + NFkB
+NFkB_IkBbeta_complex_formation: IkBbeta + NFkB ->(a5*cytoplasm) IkBbeta_NFkB
+NFkB_IkBbeta_complex_formation_rev: IkBbeta_NFkB ->(cytoplasm*d5) IkBbeta + NFkB
+NFkB_IkBeps_complex_formation: IkBeps + NFkB ->(a6*cytoplasm) IkBeps_NFkB
+NFkB_IkBeps_complex_formation_rev: IkBeps_NFkB ->(cytoplasm*d6) IkBeps + NFkB
+NFkB_binary_IKK_IkBalpha_complex_formation: IKK_IkBalpha + NFkB ->(a4*cytoplasm) IKK_IkBalpha_NFkB
+NFkB_binary_IKK_IkBalpha_complex_formation_rev: IKK_IkBalpha_NFkB ->(cytoplasm*d4) IKK_IkBalpha + NFkB
+IkBalpha_degradation: IKK_IkBalpha_NFkB ->(cytoplasm*r4) IKK + NFkB
+NFkB_binary_IKK_IkBbeta_complex_formation: IKK_IkBbeta + NFkB ->(a5*cytoplasm) IKK_IkBbeta_NFkB
+NFkB_binary_IKK_IkBbeta_complex_formation_rev: IKK_IkBbeta_NFkB ->(cytoplasm*d5) IKK_IkBbeta + NFkB
+IkBbeta_degradation: IKK_IkBbeta_NFkB ->(cytoplasm*r5) IKK + NFkB
+NFkB_binary_IKK_IkBeps_complex_formation: IKK_IkBeps + NFkB ->(a6*cytoplasm) IKK_IkBeps_NFkB
+NFkB_binary_IKK_IkBeps_complex_formation_rev: IKK_IkBeps_NFkB ->(cytoplasm*d6) IKK_IkBeps + NFkB
+IkBeps_degradation: IKK_IkBeps_NFkB ->(cytoplasm*r6) IKK + NFkB
+IkBalpha_degradation: IkBalpha_NFkB ->(cytoplasm*deg4) NFkB
+IkBbeta_degradation: IkBbeta_NFkB ->(cytoplasm*deg4) NFkB
+IkBeps_degradation: IkBeps_NFkB ->(cytoplasm*deg4) NFkB
+NFkB_translocation: NFkB ->(cytoplasm*k1) NFkB_nuc
+NFkB_translocation_rev: NFkB_nuc ->(k01*nucleus) NFkB
+NFkB_IkBalpha_complex_formation: IkBalpha_nuc + NFkB_nuc ->(a4*nucleus) IkBalpha_nuc_NFkB_nuc
+NFkB_IkBalpha_complex_formation_rev: IkBalpha_nuc_NFkB_nuc ->(d4*nucleus) IkBalpha_nuc + NFkB_nuc
+NFkB_IkBbeta_complex_formation: IkBbeta_nuc + NFkB_nuc ->(a5*nucleus) IkBbeta_nuc_NFkB_nuc
+NFkB_IkBbeta_complex_formation_rev: IkBbeta_nuc_NFkB_nuc ->(d5*nucleus) IkBbeta_nuc + NFkB_nuc
+NFkB_IkBeps_complex_formation: IkBeps_nuc + NFkB_nuc ->(a6*nucleus) IkBeps_nuc_NFkB_nuc
+NFkB_IkBeps_complex_formation_rev: IkBeps_nuc_NFkB_nuc ->(d6*nucleus) IkBeps_nuc + NFkB_nuc
+IkBalpha_transcription:  ->(nucleus*tr2a) IkBalpha_transcript
+IkBalpha_inducible_transcription:  ->(NFkB_nuc**2*nucleus*tr2) IkBalpha_transcript
+IkBalpha_transcript_degradation: IkBalpha_transcript ->(nucleus*tr3) 
+IkBbeta_transcription:  ->(nucleus*tr2b) IkBbeta_transcript
+IkBbeta_transcript_degradation: IkBbeta_transcript ->(nucleus*tr3) 
+IkBeps_transcription:  ->(nucleus*tr2e) IkBeps_transcript
+IkBeps_transcript_degradation: IkBeps_transcript ->(nucleus*tr3) 
+IKK_IkBalpha_complex_formation: IKK + IkBalpha ->(a1*cytoplasm) IKK_IkBalpha
+IKK_IkBalpha_complex_formation_rev: IKK_IkBalpha ->(cytoplasm*d1) IKK + IkBalpha
+IkBalpha_synthesis:  ->(IkBalpha_transcript*nucleus*tr1) IkBalpha
+IkBalpha_degradation: IkBalpha ->(cytoplasm*deg1) 
+IkBalpha_translocation: IkBalpha ->(cytoplasm*tp1) IkBalpha_nuc
+IkBalpha_translocation_rev: IkBalpha_nuc ->(nucleus*tp2) IkBalpha
+IKK_IkBbeta_complex_formation: IKK + IkBbeta ->(a2*cytoplasm) IKK_IkBbeta
+IKK_IkBbeta_complex_formation_rev: IKK_IkBbeta ->(cytoplasm*d2) IKK + IkBbeta
+IkBbeta_synthesis:  ->(IkBbeta_transcript*nucleus*tr1) IkBbeta
+IkBbeta_degradation: IkBbeta ->(cytoplasm*deg1) 
+IkBbeta_translocation: IkBbeta ->(0.5*cytoplasm*tp1) IkBbeta_nuc
+IkBbeta_translocation_rev: IkBbeta_nuc ->(0.5*nucleus*tp2) IkBbeta
+IKK_IkBeps_complex_formation: IKK + IkBeps ->(a3*cytoplasm) IKK_IkBeps
+IKK_IkBeps_complex_formation_rev: IKK_IkBeps ->(cytoplasm*d3) IKK + IkBeps
+IkBeps_synthesis:  ->(IkBeps_transcript*nucleus*tr1) IkBeps
+IkBeps_degradation: IkBeps ->(cytoplasm*deg1) 
+IkBeps_translocation: IkBeps ->(0.5*cytoplasm*tp1) IkBeps_nuc
+IkBeps_translocation_rev: IkBeps_nuc ->(0.5*nucleus*tp2) IkBeps
+IKK_binary_IkBalpha_NFkB_complex_formation: IKK + IkBalpha_NFkB ->(a7*cytoplasm) IKK_IkBalpha_NFkB
+IKK_binary_IkBalpha_NFkB_complex_formation_rev: IKK_IkBalpha_NFkB ->(cytoplasm*d1) IKK + IkBalpha_NFkB
+IkBalpha_NFkB_translocation: IkBalpha_nuc_NFkB_nuc ->(k2*nucleus) IkBalpha_NFkB
+IKK_binary_IkBbeta_NFkB_complex_formation: IKK + IkBbeta_NFkB ->(a8*cytoplasm) IKK_IkBbeta_NFkB
+IKK_binary_IkBbeta_NFkB_complex_formation_rev: IKK_IkBbeta_NFkB ->(cytoplasm*d2) IKK + IkBbeta_NFkB
+IkBbeta_NFkB_translocation: IkBbeta_nuc_NFkB_nuc ->(nucleus*v39_k2_IkBbeta_nuc_NFkB_nuc*(flag_for_after_trigger + fr_after_trigger)) IkBbeta_NFkB
+IKK_binary_IkBeps_NFkB_complex_formation: IKK + IkBeps_NFkB ->(a9*cytoplasm) IKK_IkBeps_NFkB
+IKK_binary_IkBeps_NFkB_complex_formation_rev: IKK_IkBeps_NFkB ->(cytoplasm*d3) IKK + IkBeps_NFkB
+IkBeps_NFkB_translocation: IkBeps_nuc_NFkB_nuc ->(0.5*k2_eps*nucleus) IkBeps_NFkB
+IkBalpha_degradation: IKK_IkBalpha ->(cytoplasm*r1) IKK
+IkBbeta_degradation: IKK_IkBbeta ->(cytoplasm*r2) IKK
+IkBeps_degradation: IKK_IkBeps ->(cytoplasm*r3) IKK
+IKK_consumption: IKK ->(cytoplasm*k02) 

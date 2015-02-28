@@ -1,0 +1,8 @@
+predator_growth: _source ->(C1*environment*kc1*(1 - (C1 + C2)/Cm)/_source) C1
+predator_death: C1 ->(environment*(D + K1*d1/(A2**2 + K1))) sink
+prey_growth: _source ->(C2*environment*kc2*(1 - (C1 + C2)/Cm)/_source) C2
+prey_death: C2 ->(environment*(A1**2*d2/(A1**2 + K2) + D)) sink
+_3OC12HSL_synthesis: _source ->(C1*environment*kA1/_source) A1
+_3OC12HSL_removal: A1 ->(environment*(D + dAA1)) sink
+_3OC6HSL_synthesis: _source ->(C2*environment*kA2/_source) A2
+_3OC6HSL_removal: A2 ->(environment*(D + dAA2)) sink

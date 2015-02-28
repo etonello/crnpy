@@ -1,0 +1,27 @@
+binding_ERK_and_MEK: ERK + MEK ->(cell*k1) ERK_MEK_Y
+binding_ERK_and_MEK_rev: ERK_MEK_Y ->(cell*k_1) ERK + MEK
+tyr_phosphorylation_of_ERK: ERK_MEK_Y ->(cell*k2) ERK_PY + MEK
+binding_ERK_PY_and_MEK: ERK_PY + MEK ->(cell*k3) ERK_PY_MEK
+binding_ERK_PY_and_MEK_rev: ERK_PY_MEK ->(cell*k_3) ERK_PY + MEK
+thr_phosphorylation_of_ERK: ERK_PY_MEK ->(cell*k4) ERK_PP + MEK
+binding_ERK_and_MEK: ERK + MEK ->(cell*k5) ERK_MEK_T
+binding_ERK_and_MEK_rev: ERK_MEK_T ->(cell*k_5) ERK + MEK
+thr_phosphorylation_of_ERK: ERK_MEK_T ->(cell*k6) ERK_PT + MEK
+binding_ERK_PT_and_MEK: ERK_PT + MEK ->(cell*k7) ERK_PT_MEK
+binding_ERK_PT_and_MEK_rev: ERK_PT_MEK ->(cell*k_7) ERK_PT + MEK
+tyr_phosphorylation_of_ERK: ERK_PT_MEK ->(cell*k8) ERK_PP + MEK
+binding_ERK_PP_and_MKP3: ERK_PP + MKP3 ->(cell*h1) ERK_PP_MKP3
+binding_ERK_PP_and_MKP3_rev: ERK_PP_MKP3 ->(cell*h_1) ERK_PP + MKP3
+dephosphorylation_of_tyr_on_ERK_PP: ERK_PP_MKP3 ->(cell*h2) ERK_PT_MKP3_Y
+dissociation_ERK_PT_and_MKP3: ERK_PT_MKP3_Y ->(cell*h3) ERK_PT + MKP3
+dissociation_ERK_PT_and_MKP3_rev: ERK_PT + MKP3 ->(cell*h_3) ERK_PT_MKP3_Y
+dephosphorylation_of_ERK_PT: ERK_PT_MKP3_T ->(cell*h5) ERK_MKP3_T
+binding_ERK_PT_and_MKP3: ERK_PT + MKP3 ->(cell*h4) ERK_PT_MKP3_T
+binding_ERK_PT_and_MKP3_rev: ERK_PT_MKP3_T ->(cell*h_4) ERK_PT + MKP3
+dephosphorylation_of_ERK_PY: ERK_PY_MKP3 ->(cell*h8) ERK_MKP3_Y
+dissociation_ERK_and_MKP3: ERK_MKP3_T ->(cell*h6) ERK + MKP3
+dissociation_ERK_and_MKP3_rev: ERK + MKP3 ->(cell*h_6) ERK_MKP3_T
+binding_ERK_PY_and_MKP3: ERK_PY + MKP3 ->(cell*h7) ERK_PY_MKP3
+binding_ERK_PY_and_MKP3_rev: ERK_PY_MKP3 ->(cell*h_7) ERK_PY + MKP3
+Dissociation_ERK_and_MKP3: ERK_MKP3_Y ->(cell*h9) ERK + MKP3
+Dissociation_ERK_and_MKP3_rev: ERK + MKP3 ->(cell*h_9) ERK_MKP3_Y

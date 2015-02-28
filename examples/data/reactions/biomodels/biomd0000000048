@@ -1,0 +1,47 @@
+EGF_binds_to_EGFR: EGFR + Epidermal_Growth_Factor ->(compartment*v1_k1f) EGF_EGFR
+EGF_binds_to_EGFR_rev: EGF_EGFR ->(compartment*v1_k1b) EGFR + Epidermal_Growth_Factor
+association_of_2_Ra_into_dimer: 2EGF_EGFR ->(compartment*v2_k2f) _EGF_EGFR_2
+association_of_2_Ra_into_dimer_rev: _EGF_EGFR_2 ->(compartment*v2_k2b) 2EGF_EGFR
+phosphorylation_of_R2: _EGF_EGFR_2 ->(compartment*v3_k3f) _EGF_EGFR_2_P
+phosphorylation_of_R2_rev: _EGF_EGFR_2_P ->(compartment*v3_k3b) _EGF_EGFR_2
+dephosphorylation_of_RP: _EGF_EGFR_2_P ->(compartment*v4_V4/(_EGF_EGFR_2_P + v4_K4)) _EGF_EGFR_2
+binding_of_PLCg_to_RP: PLCg + _EGF_EGFR_2_P ->(compartment*v5_k5f) _EGF_EGFR_2_PLCg
+binding_of_PLCg_to_RP_rev: _EGF_EGFR_2_PLCg ->(compartment*v5_k5b) PLCg + _EGF_EGFR_2_P
+phosphorylation_of_PLCg: _EGF_EGFR_2_PLCg ->(compartment*v6_k6f) _EGF_EGFR_2_PLCg_P
+phosphorylation_of_PLCg_rev: _EGF_EGFR_2_PLCg_P ->(compartment*v6_k6b) _EGF_EGFR_2_PLCg
+dissociation_of_RPLCgP: _EGF_EGFR_2_PLCg_P ->(compartment*v7_k7f) PLCg_P + _EGF_EGFR_2_P
+dissociation_of_RPLCgP_rev: PLCg_P + _EGF_EGFR_2_P ->(compartment*v7_k7b) _EGF_EGFR_2_PLCg_P
+dephosphorylation_of_PLCgP: PLCg_P ->(compartment*v8_V8/(PLCg_P + v8_K8)) PLCg
+binding_of_Grb2_to_RP: Grb2 + _EGF_EGFR_2_P ->(compartment*v9_k9f) _EGF_EGFR_2_Grb2
+binding_of_Grb2_to_RP_rev: _EGF_EGFR_2_Grb2 ->(compartment*v9_k9b) Grb2 + _EGF_EGFR_2_P
+binding_of_SOS_to_RG: SOS + _EGF_EGFR_2_Grb2 ->(compartment*v10_k10f) _EGF_EGFR_2_Grb2_SOS
+binding_of_SOS_to_RG_rev: _EGF_EGFR_2_Grb2_SOS ->(compartment*v10_k10b) SOS + _EGF_EGFR_2_Grb2
+dissociation_of_RGS: _EGF_EGFR_2_Grb2_SOS ->(compartment*v11_k11f) Grb2_SOS + _EGF_EGFR_2_P
+dissociation_of_RGS_rev: Grb2_SOS + _EGF_EGFR_2_P ->(compartment*v11_k11b) _EGF_EGFR_2_Grb2_SOS
+dissociation_of_GS: Grb2_SOS ->(compartment*v12_k12f) Grb2 + SOS
+dissociation_of_GS_rev: Grb2 + SOS ->(compartment*v12_k12b) Grb2_SOS
+binding_of_Shc_to_RP: Shc + _EGF_EGFR_2_P ->(compartment*v13_k13f) _EGF_EGFR_2_Shc
+binding_of_Shc_to_RP_rev: _EGF_EGFR_2_Shc ->(compartment*v13_k13b) Shc + _EGF_EGFR_2_P
+phosphorylation_of_RSh: _EGF_EGFR_2_Shc ->(compartment*v14_k14f) _EGF_EGFR__Shc_P
+phosphorylation_of_RSh_rev: _EGF_EGFR__Shc_P ->(compartment*v14_k14b) _EGF_EGFR_2_Shc
+dissociation_of_RShp: _EGF_EGFR__Shc_P ->(compartment*v15_k15f) Shc_P + _EGF_EGFR_2_P
+dissociation_of_RShp_rev: Shc_P + _EGF_EGFR_2_P ->(compartment*v15_k15b) _EGF_EGFR__Shc_P
+dephosphorylation_of_ShP: Shc_P ->(compartment*v16_V16/(Shc_P + v16_K16)) Shc
+binding_of_Grb2_to_RShP: Grb2 + _EGF_EGFR__Shc_P ->(compartment*v17_k17f) _EGF_EGFR_2_Shc_Grb2
+binding_of_Grb2_to_RShP_rev: _EGF_EGFR_2_Shc_Grb2 ->(compartment*v17_k17b) Grb2 + _EGF_EGFR__Shc_P
+dissociation_of_RShG: _EGF_EGFR_2_Shc_Grb2 ->(compartment*v18_k18f) Shc_Grb2 + _EGF_EGFR_2_P
+dissociation_of_RShG_rev: Shc_Grb2 + _EGF_EGFR_2_P ->(compartment*v18_k18b) _EGF_EGFR_2_Shc_Grb2
+binding_of_SOS_to_RShG: SOS + _EGF_EGFR_2_Shc_Grb2 ->(compartment*v19_k19f) _EGF_EGFR_2_Shc_Grb2_SOS
+binding_of_SOS_to_RShG_rev: _EGF_EGFR_2_Shc_Grb2_SOS ->(compartment*v19_k19b) SOS + _EGF_EGFR_2_Shc_Grb2
+dissociation_of_RShGS: _EGF_EGFR_2_Shc_Grb2_SOS ->(compartment*v20_k20f) Shc_Grb2_SOS + _EGF_EGFR_2_P
+dissociation_of_RShGS_rev: Shc_Grb2_SOS + _EGF_EGFR_2_P ->(compartment*v20_k20b) _EGF_EGFR_2_Shc_Grb2_SOS
+binding_of_Grb2_to_ShP: Grb2 + Shc_P ->(compartment*v21_k21f) Shc_Grb2
+binding_of_Grb2_to_ShP_rev: Shc_Grb2 ->(compartment*v21_k21b) Grb2 + Shc_P
+binding_of_SOS_to_ShG: SOS + Shc_Grb2 ->(compartment*v22_k22f) Shc_Grb2_SOS
+binding_of_SOS_to_ShG_rev: Shc_Grb2_SOS ->(compartment*v22_k22b) SOS + Shc_Grb2
+dissociation_of_ShGS: Shc_Grb2_SOS ->(compartment*v23_k23f) Grb2_SOS + Shc_P
+dissociation_of_ShGS_rev: Grb2_SOS + Shc_P ->(compartment*v23_k23b) Shc_Grb2_SOS
+association_of_RShP_and_GS: Grb2_SOS + _EGF_EGFR__Shc_P ->(compartment*v24_k24f) _EGF_EGFR_2_Shc_Grb2_SOS
+association_of_RShP_and_GS_rev: _EGF_EGFR_2_Shc_Grb2_SOS ->(compartment*v24_k24b) Grb2_SOS + _EGF_EGFR__Shc_P
+translocation_of_PLCgP: PLCg_P ->(compartment*v25_k25f) PLCgP_I
+translocation_of_PLCgP_rev: PLCgP_I ->(compartment*v25_k25b) PLCg_P

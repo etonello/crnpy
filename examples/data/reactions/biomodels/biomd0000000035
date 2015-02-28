@@ -1,0 +1,16 @@
+Reaction1: A + R ->(Reaction1_gammaC) C
+Reaction2: A ->(Reaction2_deltaA) _EmptySet
+Reaction3: C ->(Reaction3_deltaA) R
+Reaction4: R ->(Reaction4_deltaR) _EmptySet
+Reaction5: A + DA ->(Reaction5_gammaA) DAp
+Reaction6: DAp ->(Reaction6_thetaA) A + DA
+Reaction7: DA ->(Reaction7_alphaA) DA + MA
+Reaction8: DAp ->(Reaction8_alphaAp) DAp + MA
+Reaction9: MA ->(Reaction9_deltaMA) _EmptySet
+Reaction10: MA ->(Reaction10_betaA) A + MA
+Reaction11: A + DR ->(Reaction11_gammaR) DRp
+Reaction12: DRp ->(Reaction12_thetaR) A + DR
+Reaction13: DR ->(Reaction13_alphaR) DR + MR
+Reaction14: DRp ->(Reaction14_alphaRp) DRp + MR
+Reaction15: MR ->(Reaction15_deltaMR) _EmptySet
+Reaction16: MR ->(Reaction16_betaR) MR + R

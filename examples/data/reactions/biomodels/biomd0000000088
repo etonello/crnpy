@@ -1,0 +1,168 @@
+A2_1_1: pro_thrombinR + thrombin ->((Vmax*c1*pro_thrombinR*ratio*thrombin + Vmax*c1*pro_thrombinR*thrombin)/(Km*pro_thrombinR*thrombin)) thrombin_R
+A2_1_1_rev: thrombin_R ->(Vmax*c1*ratio) pro_thrombinR + thrombin
+A1_2: GTP + G_sub_12_endsub__alpha__beta__gamma__thrombinR_active ->(c1*kf) GDP + G_beta__gamma__1 + G_sub_12_endsub__alpha__GTP + thrombinR
+A1_5_1: thrombinR ->(c1*kf) sa40_degraded
+A1_3: G_sub_q_endsub__alpha__beta__gamma_ + thrombinR_active ->(c1*kf) G_sub_q_endsub__alpha__beta__gamma__thrombinR_active
+A1_3_rev: G_sub_q_endsub__alpha__beta__gamma__thrombinR_active ->(c1*kb) G_sub_q_endsub__alpha__beta__gamma_ + thrombinR_active
+A1_4: GTP + G_sub_q_endsub__alpha__beta__gamma__thrombinR_active ->(c1*kf) GDP + G_beta__gamma__2 + G_sub_q_endsub__alpha__GTP + thrombinR
+A1_6: G_sub_12_endsub__alpha__GTP ->(c1*kf) G_sub_12_endsub__alpha__GDP
+A1_7: G_beta__gamma__1 + G_sub_12_endsub__alpha__GDP ->(c1*kf) G_sub_12_endsub__alpha__beta__gamma_
+A2_2_1: G_sub_q_endsub__alpha__GTP + RGS ->((G_sub_q_endsub__alpha__GTP*RGS*Vmax*c1*ratio + G_sub_q_endsub__alpha__GTP*RGS*Vmax*c1)/(G_sub_q_endsub__alpha__GTP*Km*RGS)) RGS
+A2_2_1_rev: RGS ->(Vmax*c1*ratio) G_sub_q_endsub__alpha__GTP + RGS
+A1_9: G_beta__gamma__2 + G_sub_q_endsub__alpha__GDP ->(c1*kf) G_sub_q_endsub__alpha__beta__gamma_
+B1_1: G_sub_12_endsub__alpha__GTP + p115RhoGEF ->(c1*kf) p115RhoGEF_GTP_alpha_
+B1_1_rev: p115RhoGEF_GTP_alpha_ ->(c1*kb) G_sub_12_endsub__alpha__GTP + p115RhoGEF
+B2_1_1: Rho_GDP ->(Vmax*c1*p115RhoGEF_GTP_alpha_/(Km + Rho_GTP)) Rho_GTP
+B2_2_1: Rho_GDP + p115RhoGEF ->((Rho_GDP*Vmax*c1*p115RhoGEF*ratio + Rho_GDP*Vmax*c1*p115RhoGEF)/(Km*Rho_GDP*p115RhoGEF)) Rho_GEF
+B2_2_1_rev: Rho_GEF ->(Vmax*c1*ratio) Rho_GDP + p115RhoGEF
+B2_3_1: RhoGAP + Rho_GTP ->((RhoGAP*Rho_GTP*Vmax*c1*ratio + RhoGAP*Rho_GTP*Vmax*c1)/(Km*RhoGAP*Rho_GTP)) Rho_GAP
+B2_3_1_rev: Rho_GAP ->(Vmax*c1*ratio) RhoGAP + Rho_GTP
+B2_1_2: Rho_GEF ->(Vmax*c1) Rho_GTP + p115RhoGEF
+B2_3_2: Rho_GAP ->(Vmax*c1) RhoGAP + Rho_GDP
+A2_2_2: RGS ->(Vmax*c1) G_sub_q_endsub__alpha__GDP + RGS
+B1_2: p115RhoGEF_GTP_alpha_ ->(c1*kf) G_sub_12_endsub__alpha__GDP + p115RhoGEF
+B1_3: Rho_GTP ->(c1*kf) Rho_GDP
+B1_4: Rho_GTP + Rho_kinase ->(c1*kf) Rho_GTP_Rho_kinase
+B1_4_rev: Rho_GTP_Rho_kinase ->(c1*kb) Rho_GTP + Rho_kinase
+A2_1_2: thrombin_R ->(Vmax*c1) thrombin + thrombinR_active + thrombin_ligand
+A1_1: G_sub_12_endsub__alpha__beta__gamma_ + thrombinR_active ->(c1*kf) G_sub_12_endsub__alpha__beta__gamma__thrombinR_active
+A1_1_rev: G_sub_12_endsub__alpha__beta__gamma__thrombinR_active ->(c1*kb) G_sub_12_endsub__alpha__beta__gamma_ + thrombinR_active
+A1_8: G_sub_q_endsub__alpha__GTP ->(c1*kf) G_sub_q_endsub__alpha__GDP
+A1_5_2: thrombinR_active ->(c1*kf) sa40_degraded
+C1_2: G_sub_q_endsub__alpha__GTP + PLC_beta__Ca_super_2_plus__endsuper_ ->(c1*kf) PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_
+C1_2_rev: PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_ ->(c1*kb) G_sub_q_endsub__alpha__GTP + PLC_beta__Ca_super_2_plus__endsuper_
+C1_3: G_sub_q_endsub__alpha__GTP + PLC_beta_ ->(c1*kf) PLC_beta__G_sub_q_endsub__alpha__GTP
+C1_3_rev: PLC_beta__G_sub_q_endsub__alpha__GTP ->(c1*kb) G_sub_q_endsub__alpha__GTP + PLC_beta_
+C1_4: Ca_super_2_plus__endsuper_ + PLC_beta__G_sub_q_endsub__alpha__GTP ->(c1*kf) PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_
+C1_4_rev: PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_ ->(c1*kb) Ca_super_2_plus__endsuper_ + PLC_beta__G_sub_q_endsub__alpha__GTP
+C1_1: Ca_super_2_plus__endsuper_ + PLC_beta_ ->(c1*kf) PLC_beta__Ca_super_2_plus__endsuper_
+C1_1_rev: PLC_beta__Ca_super_2_plus__endsuper_ ->(c1*kb) Ca_super_2_plus__endsuper_ + PLC_beta_
+C1_5: PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_ ->(c1*kf) G_sub_q_endsub__alpha__GDP + PLC_beta__Ca_super_2_plus__endsuper_
+C2_1_1: PIP2 + PLC_beta__Ca_super_2_plus__endsuper_ ->((PIP2*PLC_beta__Ca_super_2_plus__endsuper_*Vmax*c1*ratio + PIP2*PLC_beta__Ca_super_2_plus__endsuper_*Vmax*c1)/(Km*PIP2*PLC_beta__Ca_super_2_plus__endsuper_)) PLC_beta__Ca_PIP2
+C2_1_1_rev: PLC_beta__Ca_PIP2 ->(Vmax*c1*ratio) PIP2 + PLC_beta__Ca_super_2_plus__endsuper_
+C2_2_1: PIP2 + PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_ ->((PIP2*PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_*Vmax*c1*ratio + PIP2*PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_*Vmax*c1)/(Km*PIP2*PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_)) PLC_beta__G_sub_q_endsub__GTP_Ca_PIP2
+C2_2_1_rev: PLC_beta__G_sub_q_endsub__GTP_Ca_PIP2 ->(Vmax*c1*ratio) PIP2 + PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_
+C2_1_2: PLC_beta__Ca_PIP2 ->(Vmax*c1) DAG + IP3 + PLC_beta__Ca_super_2_plus__endsuper_
+C2_2_2: PLC_beta__G_sub_q_endsub__GTP_Ca_PIP2 ->(Vmax*c1) DAG + IP3 + PLC_beta__G_sub_q_endsub__alpha__GTP_Ca_super_2_plus__endsuper_
+C1_6: DAG ->(c1*kf) PC
+C1_7: IP3 ->(c1*kf) Inositol
+C1_8: 3IP3 + IP3R ->(c1*kf) _3IP3_IP3R
+C1_8_rev: _3IP3_IP3R ->(c1*kb) 3IP3 + IP3R
+D3_1: Ca_super_2_plus__endsuper__store ->(_3IP3_IP3R*c1*g) Ca_super_2_plus__endsuper_
+D3_1_rev: Ca_super_2_plus__endsuper_ ->(_3IP3_IP3R*c1*g) Ca_super_2_plus__endsuper__store
+D1_2: _2Ca_super_2_plus__endsuper___Ca_super_2_plus__endsuper__trunsp ->(c1*kf) 2Ca_super_2_plus__endsuper__store + Ca_super_2_plus__endsuper__trunsp
+D1_3: CaM + Ca_super_2_plus__endsuper_ ->(c1*kf) Ca_super_2_plus__endsuper__CaM
+D1_3_rev: Ca_super_2_plus__endsuper__CaM ->(c1*kb) CaM + Ca_super_2_plus__endsuper_
+D1_4: Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__CaM ->(c1*kf) _2Ca_super_2_plus__endsuper__CaM
+D1_4_rev: _2Ca_super_2_plus__endsuper__CaM ->(c1*kb) Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__CaM
+D1_6: Ca_super_2_plus__endsuper_ + _3Ca_super_2_plus__endsuper__CaM ->(c1*kf) _4Ca_super_2_plus__endsuper__CaM
+D1_6_rev: _4Ca_super_2_plus__endsuper__CaM ->(c1*kb) Ca_super_2_plus__endsuper_ + _3Ca_super_2_plus__endsuper__CaM
+D1_5: Ca_super_2_plus__endsuper_ + _2Ca_super_2_plus__endsuper__CaM ->(c1*kf) _3Ca_super_2_plus__endsuper__CaM
+D1_5_rev: _3Ca_super_2_plus__endsuper__CaM ->(c1*kb) Ca_super_2_plus__endsuper_ + _2Ca_super_2_plus__endsuper__CaM
+D1_10: MLCK + _4Ca_super_2_plus__endsuper__CaM ->(c1*kf) MLCK_4Ca_super_2_plus__endsuper__CaM
+D1_10_rev: MLCK_4Ca_super_2_plus__endsuper__CaM ->(c1*kb) MLCK + _4Ca_super_2_plus__endsuper__CaM
+D1_9: MLCK + _3Ca_super_2_plus__endsuper__CaM ->(c1*kf) MLCK_3Ca_super_2_plus__endsuper__CaM
+D1_9_rev: MLCK_3Ca_super_2_plus__endsuper__CaM ->(c1*kb) MLCK + _3Ca_super_2_plus__endsuper__CaM
+D1_8: MLCK + _2Ca_super_2_plus__endsuper__CaM ->(c1*kf) MLCK_2Ca_super_2_plus__endsuper__CaM
+D1_8_rev: MLCK_2Ca_super_2_plus__endsuper__CaM ->(c1*kb) MLCK + _2Ca_super_2_plus__endsuper__CaM
+D1_7: Ca_super_2_plus__endsuper__CaM + MLCK ->(c1*kf) MLCK_Ca_super_2_plus__endsuper__CaM
+D1_7_rev: MLCK_Ca_super_2_plus__endsuper__CaM ->(c1*kb) Ca_super_2_plus__endsuper__CaM + MLCK
+E1_1: PKC ->(c1*kf) PKC_active1
+E1_1_rev: PKC_active1 ->(c1*kb) PKC
+E1_3: DAG + PKC ->(c1*kf) PKC_DAG
+E1_3_rev: PKC_DAG ->(c1*kb) DAG + PKC
+E1_5: PKC_Ca_super_2_plus__endsuper_ ->(c1*kf) PKC_active_2
+E1_5_rev: PKC_active_2 ->(c1*kb) PKC_Ca_super_2_plus__endsuper_
+E1_4: Ca_super_2_plus__endsuper_ + PKC ->(c1*kf) PKC_Ca_super_2_plus__endsuper_
+E1_4_rev: PKC_Ca_super_2_plus__endsuper_ ->(c1*kb) Ca_super_2_plus__endsuper_ + PKC
+D2_1_2: Ca_super_2_plus__endsuper___pump_Ca_super_2_plus__endsuper_ ->(Vmax*c1) Ca_super_2_plus__endsuper__ext + Ca_super_2_plus__endsuper__pump
+D1_1: 2Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__trunsp ->(c1*kf) _2Ca_super_2_plus__endsuper___Ca_super_2_plus__endsuper__trunsp
+D1_1_rev: _2Ca_super_2_plus__endsuper___Ca_super_2_plus__endsuper__trunsp ->(c1*kb) 2Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__trunsp
+E1_7: DAG + PKC_Ca_super_2_plus__endsuper_ ->(c1*kf) PKC_Ca_super_2_plus__endsuper__DAG
+E1_7_rev: PKC_Ca_super_2_plus__endsuper__DAG ->(c1*kb) DAG + PKC_Ca_super_2_plus__endsuper_
+E1_8: PKC_Ca_super_2_plus__endsuper__DAG ->(c1*kf) PKC_active_3
+E1_8_rev: PKC_active_3 ->(c1*kb) PKC_Ca_super_2_plus__endsuper__DAG
+E1_9: PKC_active_3 ->(c1*kf) csa39_degraded
+E1_6: PKC_active_2 ->(c1*kf) csa36_degraded
+E1_2: PKC_active1 ->(c1*kf) csa35_degraded
+D2_1_1: Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__pump ->((Ca_super_2_plus__endsuper_*Ca_super_2_plus__endsuper__pump*Vmax*c1*ratio + Ca_super_2_plus__endsuper_*Ca_super_2_plus__endsuper__pump*Vmax*c1)/(Ca_super_2_plus__endsuper_*Ca_super_2_plus__endsuper__pump*Km)) Ca_super_2_plus__endsuper___pump_Ca_super_2_plus__endsuper_
+D2_1_1_rev: Ca_super_2_plus__endsuper___pump_Ca_super_2_plus__endsuper_ ->(Vmax*c1*ratio) Ca_super_2_plus__endsuper_ + Ca_super_2_plus__endsuper__pump
+E2_1_1_3: CPI_17 + PKC_active_3 ->((CPI_17*PKC_active_3*Vmax*c1*ratio + CPI_17*PKC_active_3*Vmax*c1)/(CPI_17*Km*PKC_active_3)) PKC_active_3_CPI
+E2_1_1_3_rev: PKC_active_3_CPI ->(Vmax*c1*ratio) CPI_17 + PKC_active_3
+E2_1_1_2: CPI_17 + PKC_active_2 ->((CPI_17*PKC_active_2*Vmax*c1*ratio + CPI_17*PKC_active_2*Vmax*c1)/(CPI_17*Km*PKC_active_2)) PKC_active_2_CPI
+E2_1_1_2_rev: PKC_active_2_CPI ->(Vmax*c1*ratio) CPI_17 + PKC_active_2
+E2_1_1_1: CPI_17 + PKC_active1 ->((CPI_17*PKC_active1*Vmax*c1*ratio + CPI_17*PKC_active1*Vmax*c1)/(CPI_17*Km*PKC_active1)) PKC_active_1_CPI
+E2_1_1_1_rev: PKC_active_1_CPI ->(Vmax*c1*ratio) CPI_17 + PKC_active1
+E2_1_2_3: PKC_active_3_CPI ->(Vmax*c1) CPI_17 + PKC_active_3
+E2_1_2_2: PKC_active_2_CPI ->(Vmax*c1) CPI_17 + PKC_active_2
+E2_1_2_1: PKC_active_1_CPI ->(Vmax*c1) CPI_17 + PKC_active1
+E1_10: CPI_17 ->(c1*kf) CPI_17
+E1_11: CPI_17 + MYPT1_PPase ->(c1*kf) CPI_17_MYPT1_PPase
+E1_11_rev: CPI_17_MYPT1_PPase ->(c1*kb) CPI_17 + MYPT1_PPase
+E1_12: CPI_17 + MYPT1_PPase ->(c1*kf) CPI_17_MYPT1_PPase
+E1_12_rev: CPI_17_MYPT1_PPase ->(c1*kb) CPI_17 + MYPT1_PPase
+E1_13: CPI_17_MYPT1_PPase ->(c1*kf) CPI_17_MYPT1_PPase
+F2_1_1: MLC + Rho_kinase ->((MLC*Rho_kinase*Vmax*c1*ratio + MLC*Rho_kinase*Vmax*c1)/(Km*MLC*Rho_kinase)) Rho_kinase_MLC
+F2_1_1_rev: Rho_kinase_MLC ->(Vmax*c1*ratio) MLC + Rho_kinase
+F2_2_1: MLC + Rho_kinase ->((MLC*Rho_kinase*Vmax*c1*ratio + MLC*Rho_kinase*Vmax*c1)/(Km*MLC*Rho_kinase)) Rho_kinase_MLC
+F2_2_1_rev: Rho_kinase_MLC ->(Vmax*c1*ratio) MLC + Rho_kinase
+F2_1_2: Rho_kinase_MLC ->(Vmax*c1) MLC + Rho_kinase
+F2_2_2: Rho_kinase_MLC ->(Vmax*c1) MLC + Rho_kinase
+F2_3_1: MLC + Rho_GTP_Rho_kinase ->((MLC*Rho_GTP_Rho_kinase*Vmax*c1*ratio + MLC*Rho_GTP_Rho_kinase*Vmax*c1)/(Km*MLC*Rho_GTP_Rho_kinase)) Rho_GTP_Rho_kinase_MLC
+F2_3_1_rev: Rho_GTP_Rho_kinase_MLC ->(Vmax*c1*ratio) MLC + Rho_GTP_Rho_kinase
+F2_4_1: MLC + Rho_GTP_Rho_kinase ->(c1*(-Rho_GTP_Rho_kinase_MLC*Vmax*ratio + MLC*Rho_GTP_Rho_kinase*Vmax*(ratio + 1)/Km)/(MLC*Rho_GTP_Rho_kinase)) Rho_GTP_Rho_kinase_MLC
+F2_3_2: Rho_GTP_Rho_kinase_MLC ->(Vmax*c1) MLC + Rho_GTP_Rho_kinase
+F2_4_2: Rho_GTP_Rho_kinase_MLC ->(Vmax*c1) MLC + Rho_GTP_Rho_kinase
+F2_14_1: MYPT1_PPase + Rho_kinase ->((MYPT1_PPase*Rho_kinase*Vmax*c1*ratio + MYPT1_PPase*Rho_kinase*Vmax*c1)/(Km*MYPT1_PPase*Rho_kinase)) MYPT1_Rho_kinase
+F2_14_1_rev: MYPT1_Rho_kinase ->(Vmax*c1*ratio) MYPT1_PPase + Rho_kinase
+F2_14_2: MYPT1_Rho_kinase ->(Vmax*c1) MYPT1_PPase + Rho_kinase
+F2_13_1: MYPT1_PPase + Rho_GTP_Rho_kinase ->((MYPT1_PPase*Rho_GTP_Rho_kinase*Vmax*c1*ratio + MYPT1_PPase*Rho_GTP_Rho_kinase*Vmax*c1)/(Km*MYPT1_PPase*Rho_GTP_Rho_kinase)) MYPT1_Rho_kinase
+F2_13_1_rev: MYPT1_Rho_kinase ->(Vmax*c1*ratio) MYPT1_PPase + Rho_GTP_Rho_kinase
+F2_13_2: MYPT1_Rho_kinase ->(Vmax*c1) MYPT1_PPase + Rho_GTP_Rho_kinase
+F2_11_1: MLC + MYPT1_PPase ->((MLC*MYPT1_PPase*Vmax*c1*ratio + MLC*MYPT1_PPase*Vmax*c1)/(Km*MLC*MYPT1_PPase)) MYPT1_MLC
+F2_11_1_rev: MYPT1_MLC ->(Vmax*c1*ratio) MLC + MYPT1_PPase
+F2_9_1: MLC + MYPT1_PPase ->((MLC*MYPT1_PPase*Vmax*c1*ratio + MLC*MYPT1_PPase*Vmax*c1)/(Km*MLC*MYPT1_PPase)) MYPT1_MLC
+F2_9_1_rev: MYPT1_MLC ->(Vmax*c1*ratio) MLC + MYPT1_PPase
+F2_12_1: MLC + MYPT1_PPase ->((MLC*MYPT1_PPase*Vmax*c1*ratio + MLC*MYPT1_PPase*Vmax*c1)/(Km*MLC*MYPT1_PPase)) MYPT1_MLC
+F2_12_1_rev: MYPT1_MLC ->(Vmax*c1*ratio) MLC + MYPT1_PPase
+F2_10_1: MLC + MYPT1_PPase ->((MLC*MYPT1_PPase*Vmax*c1*ratio + MLC*MYPT1_PPase*Vmax*c1)/(Km*MLC*MYPT1_PPase)) MYPT1_MLC
+F2_10_1_rev: MYPT1_MLC ->(Vmax*c1*ratio) MLC + MYPT1_PPase
+F2_11_2: MYPT1_MLC ->(Vmax*c1) MLC + MYPT1_PPase
+F2_9_2: MYPT1_MLC ->(Vmax*c1) MLC + MYPT1_PPase
+F2_12_2: MYPT1_MLC ->(Vmax*c1) MLC + MYPT1_PPase
+F2_10_2: MYPT1_MLC ->(Vmax*c1) MLC + MYPT1_PPase
+F1_1: MYPT1_PPase ->(c1*kf) MYPT1_PPase
+F2_7_1: MLC + MLCK ->((MLC*MLCK*Vmax*c1*ratio + MLC*MLCK*Vmax*c1)/(Km*MLC*MLCK)) MLCK_MLC
+F2_7_1_rev: MLCK_MLC ->(Vmax*c1*ratio) MLC + MLCK
+F2_8_1: MLC + MLCK ->((MLC*MLCK*Vmax*c1*ratio + MLC*MLCK*Vmax*c1)/(Km*MLC*MLCK)) MLCK_MLC
+F2_8_1_rev: MLCK_MLC ->(Vmax*c1*ratio) MLC + MLCK
+F2_7_2: MLCK_MLC ->(Vmax*c1) MLC + MLCK
+F2_8_2: MLCK_MLC ->(Vmax*c1) MLC + MLCK
+F2_5_1_1: MLC + MLCK_Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_Ca_super_2_plus__endsuper__CaM)) MLCK_Ca_super_2_plus__endsuper__CaM_MLC
+F2_5_1_1_rev: MLCK_Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_Ca_super_2_plus__endsuper__CaM
+F2_5_2_1: MLC + MLCK_2Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_2Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_2Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_2Ca_super_2_plus__endsuper__CaM)) MLCK_2Ca_super_2_plus__endsuper__CaM_MLC
+F2_5_2_1_rev: MLCK_2Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_2Ca_super_2_plus__endsuper__CaM
+F2_5_3_1: MLC + MLCK_3Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_3Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_3Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_3Ca_super_2_plus__endsuper__CaM)) MLCK_3Ca_super_2_plus__endsuper__CaM_MLC
+F2_5_3_1_rev: MLCK_3Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_3Ca_super_2_plus__endsuper__CaM
+F2_5_4_1: MLC + MLCK_4Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_4Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_4Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_4Ca_super_2_plus__endsuper__CaM)) MLCK_4Ca_super_2_plus__endsuper__CaM_MLC
+F2_5_4_1_rev: MLCK_4Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_4Ca_super_2_plus__endsuper__CaM
+F2_6_1_1: MLC + MLCK_Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_Ca_super_2_plus__endsuper__CaM)) MLCK_Ca_super_2_plus__endsuper__CaM_MLC
+F2_6_1_1_rev: MLCK_Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_Ca_super_2_plus__endsuper__CaM
+F2_6_2_1: MLC + MLCK_2Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_2Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_2Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_2Ca_super_2_plus__endsuper__CaM)) MLCK_2Ca_super_2_plus__endsuper__CaM_MLC
+F2_6_2_1_rev: MLCK_2Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_2Ca_super_2_plus__endsuper__CaM
+F2_6_3_1: MLC + MLCK_3Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_3Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_3Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_3Ca_super_2_plus__endsuper__CaM)) MLCK_3Ca_super_2_plus__endsuper__CaM_MLC
+F2_6_3_1_rev: MLCK_3Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_3Ca_super_2_plus__endsuper__CaM
+F2_6_4_1: MLC + MLCK_4Ca_super_2_plus__endsuper__CaM ->((MLC*MLCK_4Ca_super_2_plus__endsuper__CaM*Vmax*c1*ratio + MLC*MLCK_4Ca_super_2_plus__endsuper__CaM*Vmax*c1)/(Km*MLC*MLCK_4Ca_super_2_plus__endsuper__CaM)) MLCK_4Ca_super_2_plus__endsuper__CaM_MLC
+F2_6_4_1_rev: MLCK_4Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1*ratio) MLC + MLCK_4Ca_super_2_plus__endsuper__CaM
+F2_6_4_2: MLCK_4Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_4Ca_super_2_plus__endsuper__CaM
+F2_5_4_2: MLCK_4Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_4Ca_super_2_plus__endsuper__CaM
+F2_6_3_2: MLCK_3Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_3Ca_super_2_plus__endsuper__CaM
+F2_5_3_2: MLCK_3Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_3Ca_super_2_plus__endsuper__CaM
+F2_6_2_2: MLCK_2Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_2Ca_super_2_plus__endsuper__CaM
+F2_5_2_2: MLCK_2Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_2Ca_super_2_plus__endsuper__CaM
+F2_6_1_2: MLCK_Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_Ca_super_2_plus__endsuper__CaM
+F2_5_1_2: MLCK_Ca_super_2_plus__endsuper__CaM_MLC ->(Vmax*c1) MLC + MLCK_Ca_super_2_plus__endsuper__CaM
+D3_3: Ca_super_2_plus__endsuper__ext ->(Ca_super_2_plus__endsuper__ext_leak*c1*g) Ca_super_2_plus__endsuper_
+D3_3_rev: Ca_super_2_plus__endsuper_ ->(Ca_super_2_plus__endsuper__ext_leak*c1*g) Ca_super_2_plus__endsuper__ext
+D3_2: Ca_super_2_plus__endsuper__store ->(Ca_super_2_plus__endsuper__int_leak*c1*g) Ca_super_2_plus__endsuper_
+D3_2_rev: Ca_super_2_plus__endsuper_ ->(Ca_super_2_plus__endsuper__int_leak*c1*g) Ca_super_2_plus__endsuper__store

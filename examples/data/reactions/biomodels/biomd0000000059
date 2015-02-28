@@ -1,0 +1,18 @@
+Calcium_cyt_Ivca:  ->(-I_Vca*fi/(2*Faraday_s_constant)) Cytosolic_Calcium
+Calcium_cyt_Inaca:  ->(I_NaCa*fi/Faraday_s_constant) Cytosolic_Calcium
+Calcium_cyt_Icapump: Cytosolic_Calcium ->(I_CaPump*fi/(Cytosolic_Calcium*Faraday_s_constant)) 
+Calcium_cyt_Jerp: 0Cytosolic_Calcium ->(Cytoplasm*Jerp) 0ER_Calcium
+Calcium_cyt_Jout: 0ER_Calcium ->(Jout) 0Cytosolic_Calcium
+Calcium_cyt_sequestration: Cytosolic_Calcium ->(Cytoplasm*ksg) 
+IP3_synthesis:  ->(Cytoplasm*Cytosolic_Calcium**2*IP3_production_rate_constant/(Cytosolic_Calcium**2 + half_activation_cytosolic_Ca**2)) Cytosolic_IP3
+IP3_degradation: Cytosolic_IP3 ->(Cytoplasm*IP3_degradation_rate_constant) 
+Na_Inaca: Cytosolic_Sodium ->(3*I_NaCa/(Cytosolic_Sodium*Faraday_s_constant)) 
+Na_Inak: Cytosolic_Sodium ->(3*I_NaK/(Cytosolic_Sodium*Faraday_s_constant)) 
+Na_Ina:  ->(-I_Na/Faraday_s_constant) Cytosolic_Sodium
+Na_Icran:  ->(-I_CRAN/Faraday_s_constant) Cytosolic_Sodium
+ATP_production:  ->(ATP_production_rate_constant*Cytoplasm*Cytosolic_ADP) Cytosolic_ATP
+ATP_NaKATPase: Cytosolic_ATP ->(I_NaK/(Cytosolic_ATP*Faraday_s_constant)) 
+ATP_Capump: Cytosolic_ATP ->(I_CaPump/(Cytosolic_ATP*Faraday_s_constant)) 
+ATP_Jerp: Cytosolic_ATP ->(Cytoplasm*Jerp/(2*Cytosolic_ATP)) 
+ATP_Ca_dependent_consumption: Cytosolic_ATP ->(Ca_dependent_ATP_consumption*Cytoplasm*Cytosolic_Calcium) 
+ATP_consumption: Cytosolic_ATP ->(Cytoplasm*Rate_constant_of_ATP_consumption) 

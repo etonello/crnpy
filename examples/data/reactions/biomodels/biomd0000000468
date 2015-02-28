@@ -1,0 +1,90 @@
+re1: Ca_B ->((Ca_B*k7 - Ca_c*k6*(B_T - Ca_B))/Ca_B) Ca_c
+re4: s5 ->(k_CCE*(Ca_ex - Ca_s)*(-Ca_s + Cao*fracK/(Cao + K3))/s5) Ca_s
+re5: s7 ->(0.5*Ca_c*k1*(-R_T*half*(exp(-TimeT/tau_II) + exp(-TimeT/tau_I) + (tau_I + tau_II)*(-exp(-TimeT/tau_II) + exp(-TimeT/tau_I))/(tau_I - tau_II)) + R_T)/(s7*(Ca_c + K1))) IP3
+re6: IP3 ->(0.5*k2) s8
+re7: Ca_s ->((-0.5*Ca_c**2*k4/(Ca_c + K3)**2 + 0.5*Ca_c*Ca_s*IP3**3*k3*k_CICR/((Ca_c + K_CICR)*(IP3 + K2)**3) + 0.5*Ca_s**2*k5)/Ca_s) Ca_c
+re8: Ca_c ->(0.5*Ca_c**3*dot_Vhi/(Ca_c**4 + K_hi**4)) s9
+re9: Ca_c ->(0.5*dot_Vex/(Ca_c + K5)) s10
+re10: s11 ->(0.5*dot_q_inpass/s11) Ca_c
+re11: s13 ->(0.5*re11_unisec/s13) TimeT
+re12: Ca_c ->(0.5*Ca_c*dot_Vp/(Ca_c**2 + K4**2)) s9
+re37: CaM_Ca4 + eNOS_Cav_1 ->(k15) eNOS_CaM_Ca4
+re38: CaM_Ca2 + eNOS_Cav_1 ->(k17) eNOS_CaM_Ca2
+re38_rev: eNOS_CaM_Ca2 ->(k18) CaM_Ca2 + eNOS_Cav_1
+re41: Calmodulin ->(Ca_c*k11) CaM_Ca2
+re41_rev: CaM_Ca2 ->(k12) Calmodulin
+re42: CaM_Ca2 ->((CaM_Ca2*Ca_c*k13 - CaM_Ca4*k14)/CaM_Ca2) CaM_Ca4
+re50: eNOS_CaM_Ca4 ->(gam*k14) eNOS_CaM_Ca2
+re50_rev: eNOS_CaM_Ca2 ->(Ca_c*k13) eNOS_CaM_Ca4
+re51: Hsp90 + eNOS_CaM_Ca4 ->(k90) Hsp90_eNOS_CaM_Ca4
+re52: Hsp90_eNOS_CaM_Ca4 ->(gam*k14) Hsp90_eNOS_CaM_Ca2
+re52_rev: Hsp90_eNOS_CaM_Ca2 ->(Ca_c*k13) Hsp90_eNOS_CaM_Ca4
+re53: Hsp90_eNOS_CaM_Ca2 ->(kr90) Hsp90 + eNOS_CaM_Ca2
+re54: Hsp90_p_eNOS_CaM_Ca4 ->(gam*k14) Hsp90_p_eNOS_CaM_Ca2
+re54_rev: Hsp90_p_eNOS_CaM_Ca2 ->(Ca_c*k13) Hsp90_p_eNOS_CaM_Ca4
+re55: Hsp90_eNOS_CaM_Ca4 ->((Hsp90_eNOS_CaM_Ca4*Hsp90_p_eNOS_CaM_Ca4*kp*pp_AKT_PI3P + Hsp90_eNOS_CaM_Ca4*Kmdp*kp*pp_AKT_PI3P)/(Hsp90_eNOS_CaM_Ca4*(Hsp90_eNOS_CaM_Ca4 + Kmp)*(Hsp90_p_eNOS_CaM_Ca4 + Kmdp))) Hsp90_p_eNOS_CaM_Ca4
+re55_rev: Hsp90_p_eNOS_CaM_Ca4 ->((Hsp90_eNOS_CaM_Ca4*Hsp90_p_eNOS_CaM_Ca4*Vdp + Hsp90_p_eNOS_CaM_Ca4*Kmp*Vdp)/(Hsp90_p_eNOS_CaM_Ca4*(Hsp90_eNOS_CaM_Ca4 + Kmp)*(Hsp90_p_eNOS_CaM_Ca4 + Kmdp))) Hsp90_eNOS_CaM_Ca4
+re56: Hsp90_eNOS_CaM_Ca2 ->((Hsp90_eNOS_CaM_Ca2*Hsp90_p_eNOS_CaM_Ca2*kp*pp_AKT_PI3P + Hsp90_eNOS_CaM_Ca2*Kmdp*kp*pp_AKT_PI3P)/(Hsp90_eNOS_CaM_Ca2*(Hsp90_eNOS_CaM_Ca2 + Kmp)*(Hsp90_p_eNOS_CaM_Ca2 + Kmdp))) Hsp90_p_eNOS_CaM_Ca2
+re56_rev: Hsp90_p_eNOS_CaM_Ca2 ->((Hsp90_eNOS_CaM_Ca2*Hsp90_p_eNOS_CaM_Ca2*Vdp + Hsp90_p_eNOS_CaM_Ca2*Kmp*Vdp)/(Hsp90_p_eNOS_CaM_Ca2*(Hsp90_eNOS_CaM_Ca2 + Kmp)*(Hsp90_p_eNOS_CaM_Ca2 + Kmdp))) Hsp90_eNOS_CaM_Ca2
+re57: PI3K ->(re57_normal*re57_unity*(Time/re57_unimol)**0.8*exp(re57_unity)*exp(-(Time/re57_tf)**1.8)/PI3K) p_PI3K
+re57_rev: p_PI3K ->(re57_normal*(Time/re57_tf)**1.8*(Time/re57_unimol)**0.8*exp(re57_unity)*exp(-(Time/re57_tf)**1.8)/p_PI3K) PI3K
+re58: PIP2 ->(p_PI3K*re58_k58/(PIP2 + re58_Km58)) PI3P
+re59: PI3P ->(PTEN*re59_k59/(PI3P + re59_Km59)) PIP2
+re60: AKT + PI3P ->(re60_k60) AKT_PI3P
+re60_rev: AKT_PI3P ->(re60_kr60) AKT + PI3P
+re61: AKT_PI3P ->(PDK1*re61_k61/(AKT_PI3P + re61_Km61)) p_AKT_PI3P
+re62: p_AKT_PI3P ->(PDK2*re62_k62/(p_AKT_PI3P + re62_Km62)) pp_AKT_PI3P
+re63: p_AKT_PI3P ->(PP2A*re63_k63/(p_AKT_PI3P + re63_Km63)) AKT_PI3P
+re64: pp_AKT_PI3P ->(PP2A*re64_k64/(pp_AKT_PI3P + re64_Km64)) p_AKT_PI3P
+re65: pp_AKT_PI3P ->(PP2A*re65_k65/(pp_AKT_PI3P + re65_Km65)) AKT + PI3P
+re66: PDK1_cyto ->(PI3P*re66_k66) PDK1
+re67: PDK1 ->(re67_k67) PDK1_cyto
+re68: s3 ->(re68_unitime/s3) Time
+re69: L_Arg ->((Hsp90_p_eNOS_CaM_Ca4*re69_K_pcam_no + re69_K_cam_no*(Hsp90_eNOS_CaM_Ca4 + eNOS_CaM_Ca4) + re69_K_p_no*(Hsp90_p_eNOS + Hsp90_p_eNOS_CaM_Ca2))/L_Arg) NO
+re70: Hsp90_p_eNOS ->(Vdp/(Hsp90_p_eNOS + Kmdp)) Hsp90_eNOS
+re71: Hsp90_eNOS ->(kr90) Hsp90 + eNOS_Cav_1
+re72: Hsp90_p_eNOS_CaM_Ca2 ->(k18) CaM_Ca2 + Hsp90_p_eNOS
+re72_rev: CaM_Ca2 + Hsp90_p_eNOS ->(k17) Hsp90_p_eNOS_CaM_Ca2
+re102: FAK ->(re102_normal*re102_unity*((Time + re102_tiny_num)/re102_unimol)**(-0.65)*exp(re102_unity)*exp(-(Time/re102_tf)**0.35)/FAK) p_FAK
+re102_rev: p_FAK ->(re102_normal*(Time/re102_tf)**0.35*((Time + re102_tiny_num)/re102_unimol)**(-0.65)*exp(re102_unity)*exp(-(Time/re102_tf)**0.35)/p_FAK) FAK
+re103: Src ->(re103_normal*re103_unity*(Time/re103_unimol)**0.3*exp(re103_unity)*exp(-(Time/re103_tf)**1.3)/Src) p_Src
+re103_rev: p_Src ->(re103_normal*(Time/re103_tf)**1.3*(Time/re103_unimol)**0.3*exp(re103_unity)*exp(-(Time/re103_tf)**1.3)/p_Src) Src
+re104: Shc + p_FAK ->(re104_k105) p_FAK_Shc
+re104_rev: p_FAK_Shc ->(re104_k_105) Shc + p_FAK
+re105: p_FAK_Shc ->(p_Src*re105_kcat_src) p_FAK_p_Shc
+re105_rev: p_FAK_p_Shc ->(re105_k_6) p_FAK_Shc
+re106: Grb2_Sos + p_FAK_p_Shc ->(re106_k107) p_FAK_p_Shc_Grb2_Sos
+re106_rev: p_FAK_p_Shc_Grb2_Sos ->(re106_k_107) Grb2_Sos + p_FAK_p_Shc
+re107: p_FAK_p_Shc_Grb2_Sos ->(re107_k108) p_FAK + p_Shc_Grb2_Sos
+re107_rev: p_FAK + p_Shc_Grb2_Sos ->(re107_k_108) p_FAK_p_Shc_Grb2_Sos
+re108: p_Shc ->(re108_V10/(p_Shc + re108_K10)) Shc
+re109: p_Shc_Grb2_Sos ->(re109_k9) Grb2_Sos + p_Shc
+re110: eNOS ->(re110_kT) eNOS
+re111: eNOS ->((KLF2*re111_ktr1k2 + aAP_1*re111_ktr1)/eNOS) eNOS
+re112: Ras_GDP ->(p_Shc_Grb2_Sos*re112_k111/(Ras_GDP + re112_K111)) Ras_GTP
+re113: Ras_GTP ->(re113_V12/(Ras_GTP + re113_K12)) Ras_GDP
+re114: MEKK1 ->(Ras_GTP*re114_k113/(MEKK1 + re114_K113)) p_MEKK1
+re115: p_MEKK1 ->(re115_V18/(p_MEKK1 + re115_K18)) MEKK1
+re116: JNKK ->(p_MEKK1*re116_k19/(JNKK + re116_K19)) p_JNKK
+re117: p_JNKK ->(re117_V20/(p_JNKK + re117_K20)) JNKK
+re118: JNK ->(pp_JNKK*re118_k21/(JNK + re118_K21)) p_JNK
+re119: p_JNK ->(re119_V22/(p_JNK + re119_K22)) JNK
+re120: eNOS ->(re120_kD) s35
+re121: s37 ->(eNOS*re121_kP/(s37*(eNOS + re121_K30))) eNOS_Cav_1
+re122: pre_time ->(re122_unitime/pre_time) Time
+re123: pp_JNKK ->(re123_V37/(pp_JNKK + re123_K37)) p_JNKK
+re124: p_JNKK ->(p_MEKK1*re124_k38/(p_JNKK + re124_K38)) pp_JNKK
+re125: pp_JNK ->(re125_V39/(pp_JNK + re125_K39)) p_JNK
+re126: p_JNK ->(pp_JNKK*re126_k40/(p_JNK + re126_K40)) pp_JNK
+re127: AP_1 ->(pp_JNK*re127_k43/(AP_1 + re127_K43)) aAP_1
+re128: aAP_1 ->(re128_V44/(aAP_1 + re128_K44)) AP_1
+re129: KLF2 ->(29.256*exp(re129_tau*(-Time/re129_tc + re129_delay))/(KLF2*re129_uc*(exp(2*re129_tau*(-Time/re129_tc + re129_delay)) + 2*exp(re129_tau*(-Time/re129_tc + re129_delay)) + 1))) KLF2
+re131: eNOS_Cav_1 ->(kDD) sa49_degraded
+re132: eNOS_CaM_Ca4 ->(kDD) CaM_Ca4 + s117
+re133: eNOS_CaM_Ca2 ->(kDD) CaM_Ca2 + s117
+re134: Hsp90_eNOS ->(kDD) Hsp90 + s118
+re135: Hsp90_p_eNOS ->(kDD) Hsp90 + s118
+re136: Hsp90_eNOS_CaM_Ca2 ->(kDD) CaM_Ca2 + Hsp90
+re137: Hsp90_p_eNOS_CaM_Ca2 ->(kDD) CaM_Ca2 + Hsp90
+re138: Hsp90_eNOS_CaM_Ca4 ->(kDD) CaM_Ca4 + Hsp90
+re139: Hsp90_p_eNOS_CaM_Ca4 ->(kDD) CaM_Ca4 + Hsp90

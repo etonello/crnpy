@@ -1,0 +1,125 @@
+Smad_dissoc3: Smad4_Smad3_n ->(_3*k1) 2Smad3_n + Smad4_n
+Smad2_dephosphNuc: pSmad2_Smad4_n ->(V*_3/(Km + pSmad2_Smad4_n)) Smad4_Smad2_n
+Smad_inhibComp2SnoN: 2SnoN_n + pSmad2_Smad4_n ->(_3*k1) pSmad2_Smad4_SnoN_n
+Smad_inhibComp2SnoN_rev: pSmad2_Smad4_SnoN_n ->(_3*k2) 2SnoN_n + pSmad2_Smad4_n
+SnoN_degrad2: 3Smurf2_n + pSmad2_SnoN_n ->(k1) 3pSmad2_n
+Smad_compNuc2: Smad4_n + 2pSmad2_n ->(_3*k1) pSmad2_Smad4_n
+Smad2_dephosphNuc2: pSmad2_n ->(V*_3/(Km + pSmad2_n)) Smad2_n
+Smad2_degrad: Smad2_n + Smurf2_n ->(_3*k1) 
+Smad7_Smurf2: Smad7_n + Smurf2_n ->(_3*k1) Smad7_Smurf2_n
+Smad7_Smurf2_rev: Smad7_Smurf2_n ->(_3*k2) Smad7_n + Smurf2_n
+Rec_comp1: 2TGF_RII ->(TGFbeta*_1*k) TGFbeta_TGF_RII
+Rec_comp2: 2TGF_RI + TGFbeta_TGF_RII ->(_1*k1) Rec_active
+Rec_comp2_rev: Rec_active ->(_1*k2) 2TGF_RI + TGFbeta_TGF_RII
+SARA_comp2: SARA + Smad2_c ->(_1*k1) Smad2_SARA
+SARA_comp2_rev: Smad2_SARA ->(_1*k2) SARA + Smad2_c
+Smad2_phosph: Smad2_c ->(Rec_active*_1*k/(Smad2_c + km)) pSmad2_c
+Smad2_phosphSARA: Smad2_SARA ->(Rec_active*_1*k/(Smad2_SARA + km)) SARA + pSmad2_c
+Smad2_P_transp: pSmad2_c ->(k1) pSmad2_n
+Smad_compCyt2: Smad4_c + 2pSmad2_c ->(_1*k1) pSmad2_Smad4_c
+Smad4_transp: Smad4_c ->(k1) Smad4_n
+Smad4_transp_rev: Smad4_n ->(k2) Smad4_c
+Smad_compTransp2: pSmad2_Smad4_c ->(k1) pSmad2_Smad4_n
+Smad7_transp: Smad7_n ->(k1) Smad7_c
+Smad7_transp_rev: Smad7_c ->(k2) Smad7_n
+Smad7_Smurf2_transp: Smad7_Smurf2_n ->(k1) Smad7_Smurf2_c
+Smad7_Smurf2_transp_rev: Smad7_Smurf2_c ->(k2) Smad7_Smurf2_n
+Rec_degrad1: Rec_active + Smad7_Smurf2_c ->(_1*k1) 
+Rec_inhib: Rec_active + Smad7_c ->(_1*k1) Rec_Smad7
+Rec_inhib_rev: Rec_Smad7 ->(_1*k2) Rec_active + Smad7_c
+fluxRecII:  ->(_1*v) TGF_RII
+fluxSara:  ->(_1*(geneProduct*k1 + k)) SARA
+fluxSmad7:  ->(_1*(geneProduct*k1 + k)/(Smad4_Ski_n + Smad4_SnoN_n + 1)) Smad7_c
+fluxSmurf2:  ->(_1*(geneProduct*k1 + k)) Smurf2_c
+fluxSnoN:  ->(_1*(geneProduct*k1 + k)) SnoN_c
+fluxRecI:  ->(_1*v) TGF_RI
+Smad4_SnoN: Smad4_n + SnoN_n ->(_3*k1) Smad4_SnoN_n
+Smad4_SnoN_rev: Smad4_SnoN_n ->(_3*k2) Smad4_n + SnoN_n
+Smad2_transp: Smad2_c ->(k1) Smad2_n
+Smad2_transp_rev: Smad2_n ->(k2) Smad2_c
+Rec_degrad: Rec_active ->(_1*k1) 
+RecI_degrad: TGF_RI ->(_1*k1) 
+RecII_degrad: TGF_RII ->(_1*k1) 
+Rec_recycl: TGFbeta_TGF_RII ->(_1*k1) 2TGF_RII
+fluxSmad2:  ->(_1*v) Smad2_c
+fluxSmad4:  ->(_1*v) Smad4_c
+Smad4_degrad: Smad4_c ->(_1*k1) 
+SARA_degrad: SARA ->(_1*k1) 
+Smad2_dephospCyt: pSmad2_c ->(V*_1/(Km + pSmad2_c)) Smad2_c
+SnoN_degrad: SnoN_c ->(_1*k1) 
+Smurf2_transp: Smurf2_n ->(k1) Smurf2_c
+Smurf2_transp_rev: Smurf2_c ->(k2) Smurf2_n
+Smad2_cyt_degrad: Smad2_c ->(_1*k1) 
+SnoN_trans: SnoN_c ->(k1) SnoN_n
+SnoN_trans_rev: SnoN_n ->(k2) SnoN_c
+fluxSmad3:  ->(_1*v) Smad3_c
+Smad3_cyt_degrad: Smad3_c ->(_1*k1) 
+Smad3_dephospCyt: pSmad3_c ->(V*_1/(Km + pSmad3_c)) Smad3_c
+Smad3_dephospNuc: pSmad3_Smad4_n ->(V*_3/(Km + pSmad3_Smad4_n)) Smad4_Smad3_n
+Smad3_dephospNuc2: pSmad3_n ->(V*_3/(Km + pSmad3_n)) Smad3_n
+Smad3_phosph: Smad3_c ->(Rec_active*_1*k/(Smad3_c + km)) pSmad3_c
+Smad3_phosphSARA: Smad3_SARA ->(Rec_active*_1*k/(Smad3_SARA + km)) SARA + pSmad3_c
+Smad3_degrad: Smad3_n ->(_3*k1) 
+Smad3_transp: Smad3_c ->(k1) Smad3_n
+Smad3_transp_rev: Smad3_n ->(k2) Smad3_c
+SARA_comp3: SARA + Smad3_c ->(_1*k1) Smad3_SARA
+SARA_comp3_rev: Smad3_SARA ->(_1*k2) SARA + Smad3_c
+Smad_dissoc2: Smad4_Smad2_n ->(_3*k1) 2Smad2_n + Smad4_n
+Smad3_P_transp: pSmad3_c ->(k1) pSmad3_n
+Smad_compCyt3: Smad4_c + 2pSmad3_c ->(_1*k1) pSmad3_Smad4_c
+Smad_compNuc3: Smad4_n + 2pSmad3_n ->(_3*k1) pSmad3_Smad4_n
+Smad_inhibComp3SnoN: 2SnoN_n + pSmad3_Smad4_n ->(_3*k1) pSmad3_Smad4_SnoN_n
+Smad_inhibComp3SnoN_rev: pSmad3_Smad4_SnoN_n ->(_3*k2) 2SnoN_n + pSmad3_Smad4_n
+Smad_compTransp3: pSmad3_Smad4_c ->(k1) pSmad3_Smad4_n
+SnoN_degrad3: pSmad3_SnoN_n ->(k1) pSmad3_n
+Smad7_degrad: Smad7_c ->(_1*k1*(Arkadia_c + 1)) 
+Ski_degrad: Ski_c ->(_1*k1) 
+Ski_trans: Ski_c ->(k1) Ski_n
+Ski_trans_rev: Ski_n ->(k2) Ski_c
+fluxSki:  ->(_1*(geneProduct*k1 + k)) Ski_c
+Smurf2_degrad: Smurf2_c ->(_1*k1*(Smad7_c + 1)) 
+Smad4_Ski: Ski_n + Smad4_n ->(_3*k1) Smad4_Ski_n
+Smad4_Ski_rev: Smad4_Ski_n ->(_3*k2) Ski_n + Smad4_n
+Smad3_Ski_cyt: Ski_c + Smad3_c ->(_1*k1) Smad3_Ski_c
+Smad3_Ski_cyt_rev: Smad3_Ski_c ->(_1*k2) Ski_c + Smad3_c
+Smad7_Smurf1: Smad7_n + Smurf1_n ->(_3*k1) Smad7_Smurf1_n
+Smad7_Smurf1_rev: Smad7_Smurf1_n ->(_3*k2) Smad7_n + Smurf1_n
+fluxSmurf1:  ->(_1*(geneProduct*k1 + k)) Smurf1_c
+Smad_inhibComp3Ski: 2Ski_n + pSmad3_Smad4_n ->(_3*k1) pSmad3_Smad4_Ski_n
+Smad_inhibComp3Ski_rev: pSmad3_Smad4_Ski_n ->(_3*k2) 2Ski_n + pSmad3_Smad4_n
+Rec_degrad2: Rec_active + Smad7_Smurf1_c ->(_1*k1) 
+Smad7_Smurf1_transp: Smad7_Smurf1_n ->(k1) Smad7_Smurf1_c
+Smad7_Smurf1_transp_rev: Smad7_Smurf1_c ->(k2) Smad7_Smurf1_n
+Smurf1_degrad: Smurf1_c ->(_1*k1*(Smad7_c + 1)) 
+Smurf1_transp: Smurf1_n ->(k1) Smurf1_c
+Smurf1_transp_rev: Smurf1_c ->(k2) Smurf1_n
+Smad3_freePromot: freePromoters + pSmad3_Smad4_n ->(_3*k1) geneProduct
+Smad3_freePromot_rev: geneProduct ->(_3*k2) freePromoters + pSmad3_Smad4_n
+Smad2_freePromot: freePromoters + pSmad2_Smad4_n ->(_3*k1) geneProduct
+Smad2_freePromot_rev: geneProduct ->(_3*k2) freePromoters + pSmad2_Smad4_n
+Smad3_SnoN_freePromot: freePromoters + pSmad3_Smad4_SnoN_n ->(_3*k1) inactivePromoters
+Smad3_SnoN_freePromot_rev: inactivePromoters ->(_3*k2) freePromoters + pSmad3_Smad4_SnoN_n
+Smad2_SnoN_gene: freePromoters + pSmad2_Smad4_SnoN_n ->(_3*k1) inactivePromoters
+Smad2_SnoN_gene_rev: inactivePromoters ->(_3*k2) freePromoters + pSmad2_Smad4_SnoN_n
+Smad3_Ski_freePromot: freePromoters + pSmad3_Smad4_Ski_n ->(_3*k1) inactivePromoters
+Smad3_Ski_freePromot_rev: inactivePromoters ->(_3*k2) freePromoters + pSmad3_Smad4_Ski_n
+Smad_inhibComp2Ski: 2Ski_n + pSmad2_Smad4_n ->(k1) pSmad2_Smad4_Ski_n
+Smad_inhibComp2Ski_rev: pSmad2_Smad4_Ski_n ->(k2) 2Ski_n + pSmad2_Smad4_n
+Smad2_Ski_gene: freePromoters + pSmad2_Smad4_Ski_n ->(k1) inactivePromoters
+Smad2_Ski_gene_rev: inactivePromoters ->(k2) freePromoters + pSmad2_Smad4_Ski_n
+Smad4_freePromot: Smad4_Ski_n + freePromoters ->(_3*k1) inactivePromoters
+Smad4_freePromot_rev: inactivePromoters ->(_3*k2) Smad4_Ski_n + freePromoters
+Smad2_Ski_cyt: Ski_c + Smad2_c ->(_1*k1) Smad2_Ski_c
+Smad2_Ski_cyt_rev: Smad2_Ski_c ->(_1*k2) Ski_c + Smad2_c
+Smad2_Snon: 3SnoN_n + 3pSmad2_n ->(k1) pSmad2_SnoN_n
+Smad2_Snon_rev: pSmad2_SnoN_n ->(k2) 3SnoN_n + 3pSmad2_n
+Smad3_Snon: 3SnoN_n + 3pSmad3_n ->(k1) pSmad3_SnoN_n
+Smad3_Snon_rev: pSmad3_SnoN_n ->(k2) 3SnoN_n + 3pSmad3_n
+Smad2_comp_degrad: pSmad2_Smad4_n ->(_3*k1) 
+Samd3_comp_degrad: pSmad3_Smad4_n ->(_3*k1) 
+fluxArkadia:  ->(_1*v) Arkadia_c
+Arkadia_deg: Arkadia_c ->(_1*k1) 
+SnoN_deg2: 3Arkadia_n + pSmad2_SnoN_n ->(k1) 3pSmad2_n
+SnoN_deg3: 3Arkadia_n + pSmad3_SnoN_n ->(k1) pSmad3_n
+transArkadia: Arkadia_c ->(k1) Arkadia_n
+transArkadia_rev: Arkadia_n ->(k2) Arkadia_c

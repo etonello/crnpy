@@ -1,0 +1,10 @@
+_1: MKKK ->(Sig*compartment_1*k1/(K1 + MKKK)) MKKK_P
+_2: MKKK_P ->(P1*compartment_1*k2a/(K2a*(1 + MKK/Kse1 + MKKK/Kse1 + MKK_P/K6a + MKK_PP/K5a + MKKK_P/K2a))) MKKK
+_3: MKK ->(MKKK_P*compartment_1*k3/(K3*(1 + MKK_P/K4 + MKK/K3))) MKK_P
+_4: MKK_P ->(MKKK_P*compartment_1*k4/(K4*(1 + MKK_P/K4 + MKK/K3))) MKK_PP
+_5: MKK_PP ->(compartment_1*(MKK_PP*P2*k5b/(K5b*(1 + MK/Kse2 + MKK/Kse2 + MK_PP/K9b + MKK_P/K6b + MKK_PP/K5b + MK_P/K10b)) + MKK_PP*P1*k5a/(K5a*(1 + MKK/Kse1 + MKKK/Kse1 + MKK_P/K6a + MKK_PP/K5a + MKKK_P/K2a)))/MKK_PP) MKK_P
+_6: MKK_P ->(compartment_1*(MKK_P*P2*k6b/(K6b*(1 + MK/Kse2 + MKK/Kse2 + MK_PP/K9b + MKK_P/K6b + MKK_PP/K5b + MK_P/K10b)) + MKK_P*P1*k6a/(K6a*(1 + MKK/Kse1 + MKKK/Kse1 + MKK_P/K6a + MKK_PP/K5a + MKKK_P/K2a)))/MKK_P) MKK
+_7: MK ->(MKK_PP*compartment_1*k7/(K7*(1 + MK_P/K8 + MK/K7))) MK_P
+_8: MK_P ->(MKK_PP*compartment_1*k7/(K8*(1 + MK_P/K8 + MK/K7))) MK_PP
+_9: MK_PP ->(P2*compartment_1*k9b/(K9b*(1 + MK/Kse2 + MKK/Kse2 + MK_PP/K9b + MKK_P/K6b + P1/K5b + MK_P/K10b))) MK_P
+_10: MK_P ->(P2*compartment_1*k10b/(K10b*(1 + MK/Kse2 + MKK/Kse2 + MK_PP/K9b + MKK_P/K6b + MKK_PP/K5b + MK_P/K10b))) MK

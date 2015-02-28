@@ -1,0 +1,4 @@
+r0:  ->(E*env*k0) R
+r2: R ->(S*env*k2) 
+r3: Ep ->(env*k3/(Ep + Km3)) E
+r4: E ->(R*env*k4/(E + Km4)) Ep

@@ -1,0 +1,9 @@
+reaction1: x ->(compartment_1*k1) 
+reaction2: y ->(compartment_1*k1) 
+reaction3: u ->(compartment_1*k1) 
+reaction4: v ->(compartment_1*k1) 
+reaction5: u ->(alpha*compartment_1) u + x
+reaction6: v ->(beta*compartment_1) v + y
+reaction7: y ->(V*compartment_1/(y*(Shalve**n + y**n))) u + y
+reaction8: x ->(V*compartment_1*x**m/(x*(Shalve**m + x**m))) v + x
+reaction9: v ->(compartment_1*delta) v + x

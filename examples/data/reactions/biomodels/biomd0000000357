@@ -1,0 +1,12 @@
+r1: E + P ->(compartment*k1) E_P_1
+r1_rev: E_P_1 ->(compartment*j1) E + P
+r2: E_P_1 ->(compartment*k2) E + M
+r5: E + M ->(compartment*k3a) E_M
+r5_rev: E_M ->(compartment*j3a) E + M
+r7: E_M ->(compartment*k4a) E + T
+r8: E + P ->(compartment*k5) E_P_2
+r8_rev: E_P_2 ->(compartment*j5) E + P
+r9: E_P_2 ->(compartment*k6) E + P2
+r12: E + P2 ->(compartment*k7a) E_P2
+r12_rev: E_P2 ->(compartment*j7a) E + P2
+r14: E_P2 ->(compartment*k8a) E + T

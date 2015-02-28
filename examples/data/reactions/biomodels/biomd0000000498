@@ -1,0 +1,44 @@
+Fpn_Export: 2LIP ->(Fpn**n*a/(LIP*(Fpn**n + K**n))) Tf_Fe_intercell
+TfR1_expression:  ->(IRP**n*a*compartment_3/(IRP**n + K**n)) TfR
+TfR1_degradation: TfR ->(compartment_3*k1) 
+Ferroportin_Expression:  ->(a*compartment_1*(-IRP**n/(IRP**n + K**n) + 1)) Fpn
+IRP_expresion:  ->(a*compartment_1*(-LIP**n/(K**n + LIP**n) + 1)) IRP
+IRP_degradation: IRP ->(compartment_1*k1) 
+Fpn_degradation: Fpn ->(Hamp**n*a*compartment_1/(Hamp**n + K**n)) 
+HFE_degradation: HFE ->(compartment_3*k1) 
+HFE_expression:  ->(compartment_3*v) HFE
+TfR2_expression:  ->(compartment_3*v) TfR2
+TfR2_degradation: TfR2 ->(a*compartment_3*(-Tf_Fe_intercell**n/(K**n + Tf_Fe_intercell**n) + 1)) 
+Hepcidin_expression:  ->(compartment_1*(_2HFE_TfR2**n*a/(K**n + _2HFE_TfR2**n) + _2_Tf_Fe__TfR2*a1/(K1 + _2_Tf_Fe__TfR2) + basal)) Hamp
+Hepcidin_degradation: Hamp ->(compartment_1*k1) 
+HFE_TfR1_binding: HFE + TfR ->(compartment_3*k1) HFE_TfR
+HFE_TfR1_release: HFE_TfR ->(compartment_3*k1) HFE + TfR
+TfR1_binding: TfR + Tf_Fe_intercell ->(compartment_3*k1) Tf_Fe_TfR1
+TfR1_release: Tf_Fe_TfR1 ->(compartment_3*k1) TfR + Tf_Fe_intercell
+HFE_TfR2_binding: 2HFE + TfR2 ->(compartment_3*k1) _2HFE_TfR2
+HFE_TfR2_release: _2HFE_TfR2 ->(compartment_3*k1) 2HFE + TfR2
+TfR2_binding: TfR2 + Tf_Fe_intercell ->(compartment_3*k1) Tf_Fe_TfR2
+TfR2_release: Tf_Fe_TfR2 ->(compartment_3*k1) TfR2 + Tf_Fe_intercell
+TfR1_binding_2: Tf_Fe_TfR1 + Tf_Fe_intercell ->(compartment_3*k1) _2_Tf_Fe__TfR1
+TfR1_release_2: _2_Tf_Fe__TfR1 ->(compartment_3*k1) Tf_Fe_TfR1 + Tf_Fe_intercell
+HFE_TfR1_binding_2: HFE + HFE_TfR ->(compartment_3*k1) _2HFE_TfR
+HFE_TfR1_release_2: _2HFE_TfR ->(compartment_3*k1) HFE + HFE_TfR
+TfR2_binding_2: Tf_Fe_TfR2 + Tf_Fe_intercell ->(compartment_3*k1) _2_Tf_Fe__TfR2
+TfR2_release_2: _2_Tf_Fe__TfR2 ->(compartment_3*k1) Tf_Fe_TfR2 + Tf_Fe_intercell
+TfR1_iron_internalisation: _2_Tf_Fe__TfR1 ->(k1) 4LIP + TfR
+TfR2_iron_internalisation: _2_Tf_Fe__TfR2 ->(k1) 4LIP + TfR2
+outFlow: LIP ->(compartment_1*k1) 
+Ferritin_Iron_binding: FT + LIP ->(compartment_1*k1) Fe_FT
+Ferritin_Iron_release: Fe_FT ->(compartment_1*k1) FT + LIP
+Ferritin_Iron_internalisation: Fe_FT ->(compartment_1*k1) FT + FT1
+Ferritin_internalised_iron_release: FT1 ->(compartment_1*kloss*(1 + 0.048*FT1/(FT*(1 + FT1/FT)))) LIP
+ferritin_expression:  ->(a*compartment_1*(-IRP**n/(IRP**n + K**n) + 1)) FT
+Ferritin_Degredation_Full: FT ->(compartment_1*k1) 
+Ferritin_Degredation_Full_Iron_Release: FT1 ->(K*compartment_1) LIP
+HFETfR_degradation: _2HFE_TfR ->(compartment_3*k1) 
+HFETfR2_degradation: _2HFE_TfR2 ->(compartment_3*k1) 
+Heme_uptake: Heme_intercell ->(V/(Heme_intercell + Km)) Heme
+Heme_export: Heme ->(V/(Heme + Km)) Heme_intercell
+HO1_exp:  ->(Heme*a*compartment_1/(Heme + K)) HO_1
+HO1_Deg: HO_1 ->(compartment_1*k1) 
+Heme_oxygenation: Heme ->(C*HO_1*compartment_1/(Heme + K)) LIP

@@ -1,0 +1,13 @@
+creation_of_cyclin:  ->(reaction1_vi) cyclin
+cdc2_kinase_triggered_degration_of_cyclin: cyclin ->(protease*reaction2_k1/(cyclin + reaction2_K5)) 
+default_degradation_of_cyclin: cyclin ->(reaction3_kd) 
+activation_of_cdc2_kinase:  ->(V1*(-cdc2k + 1)/(-cdc2k + reaction4_K1 + 1)) cdc2k
+deactivation_of_cdc2_kinase: cdc2k ->(reaction5_V2/(cdc2k + reaction5_K2)) 
+activation_of_cyclin_protease:  ->(V3*(-protease + 1)/(-protease + reaction6_K3 + 1)) protease
+deactivation_of_cyclin_protease: protease ->(reaction7_V4/(protease + reaction7_K4)) 
+reaction8: cyclin + cyclin_inhibitor ->(reaction8_a1) complex_inhibitor_cyclin
+reaction9: complex_inhibitor_cyclin ->(reaction9_a2) cyclin + cyclin_inhibitor
+desinhibition_of_cyclin: complex_inhibitor_cyclin ->(reaction10_alpha*reaction10_d1) cyclin
+degradation_of_inhibited_cyclin: complex_inhibitor_cyclin ->(reaction11_alpha*reaction11_kd) cyclin_inhibitor
+creation_of_cyclin_inhibitor:  ->(reaction12_vs) cyclin_inhibitor
+degradation_of_cyclin_inhibitor: cyclin_inhibitor ->(reaction13_d1) 

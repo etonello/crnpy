@@ -1,0 +1,123 @@
+v_r1: R ->(stimulus/Rtot) R0
+v_r2_0: R0 + RK ->(kRK1_0) R0_RKpre
+v_r2_0_rev: R0_RKpre ->(kRK2) R0 + RK
+v_r2_1: R1 + RK ->(kRK1_1) R1_RKpre
+v_r2_1_rev: R1_RKpre ->(kRK2) R1 + RK
+v_r2_2: R2 + RK ->(kRK1_2) R2_RKpre
+v_r2_2_rev: R2_RKpre ->(kRK2) R2 + RK
+v_r2_3: R3 + RK ->(kRK1_3) R3_RKpre
+v_r2_3_rev: R3_RKpre ->(kRK2) R3 + RK
+v_r2_4: R4 + RK ->(kRK1_4) R4_RKpre
+v_r2_4_rev: R4_RKpre ->(kRK2) R4 + RK
+v_r2_5: R5 + RK ->(kRK1_5) R5_RKpre
+v_r2_5_rev: R5_RKpre ->(kRK2) R5 + RK
+v_r2_6: R6 + RK ->(kRK1_6) R6_RKpre
+v_r2_6_rev: R6_RKpre ->(kRK2) R6 + RK
+v_r3_0: R0_RKpre ->(kRK3_ATP) R1_RKpost
+v_r3_1: R1_RKpre ->(kRK3_ATP) R2_RKpost
+v_r3_2: R2_RKpre ->(kRK3_ATP) R3_RKpost
+v_r3_3: R3_RKpre ->(kRK3_ATP) R4_RKpost
+v_r3_4: R4_RKpre ->(kRK3_ATP) R5_RKpost
+v_r3_5: R5_RKpre ->(kRK3_ATP) R6_RKpost
+v_r4_1: R1_RKpost ->(kRK4) R1 + RK
+v_r4_2: R2_RKpost ->(kRK4) R2 + RK
+v_r4_3: R3_RKpost ->(kRK4) R3 + RK
+v_r4_4: R4_RKpost ->(kRK4) R4 + RK
+v_r4_5: R5_RKpost ->(kRK4) R5 + RK
+v_r4_6: R6_RKpost ->(kRK4) R6 + RK
+v_r5_1: Arr + R1 ->(kA1_1) R1_Arr
+v_r5_1_rev: R1_Arr ->(kA2) Arr + R1
+v_r5_2: Arr + R2 ->(kA1_2) R2_Arr
+v_r5_2_rev: R2_Arr ->(kA2) Arr + R2
+v_r5_3: Arr + R3 ->(kA1_3) R3_Arr
+v_r5_3_rev: R3_Arr ->(kA2) Arr + R3
+v_r5_4: Arr + R4 ->(kA1_4) R4_Arr
+v_r5_4_rev: R4_Arr ->(kA2) Arr + R4
+v_r5_5: Arr + R5 ->(kA1_5) R5_Arr
+v_r5_5_rev: R5_Arr ->(kA2) Arr + R5
+v_r5_6: Arr + R6 ->(kA1_6) R6_Arr
+v_r5_6_rev: R6_Arr ->(kA2) Arr + R6
+v_r6_1: R1_Arr ->(kA3) Arr + Ops
+v_r6_2: R2_Arr ->(kA3) Arr + Ops
+v_r6_3: R3_Arr ->(kA3) Arr + Ops
+v_r6_4: R4_Arr ->(kA3) Arr + Ops
+v_r6_5: R5_Arr ->(kA3) Arr + Ops
+v_r6_6: R6_Arr ->(kA3) Arr + Ops
+v_r7_0: R0 ->(ktherm) Ops
+v_r7_1: R1 ->(ktherm) Ops
+v_r7_2: R2 ->(ktherm) Ops
+v_r7_3: R3 ->(ktherm) Ops
+v_r7_4: R4 ->(ktherm) Ops
+v_r7_5: R5 ->(ktherm) Ops
+v_r7_6: R6 ->(ktherm) Ops
+v_r8: Ops + _Gt ->(kOps) Ops_Gt
+v_r8_rev: Ops_Gt ->(kG2) Ops + _Gt
+v_r9: Ops_Gt ->(kG3) Ops_G
+v_r9_rev: Ops_G ->(kG4_GDP) Ops_Gt
+v_r10: Ops_G ->(kG5_GTP) Ops_G_GTP
+v_r11: Ops_G_GTP ->(kG6) G_GTP + Ops
+v_r12: Ops ->(kRrecyc) R
+v_r13_0: R0 + _Gt ->(kG1_0) R0_Gt
+v_r13_0_rev: R0_Gt ->(kG2) R0 + _Gt
+v_r13_1: R1 + _Gt ->(kG1_1) R1_Gt
+v_r13_1_rev: R1_Gt ->(kG2) R1 + _Gt
+v_r13_2: R2 + _Gt ->(kG1_2) R2_Gt
+v_r13_2_rev: R2_Gt ->(kG2) R2 + _Gt
+v_r13_3: R3 + _Gt ->(kG1_3) R3_Gt
+v_r13_3_rev: R3_Gt ->(kG2) R3 + _Gt
+v_r13_4: R4 + _Gt ->(kG1_4) R4_Gt
+v_r13_4_rev: R4_Gt ->(kG2) R4 + _Gt
+v_r13_5: R5 + _Gt ->(kG1_5) R5_Gt
+v_r13_5_rev: R5_Gt ->(kG2) R5 + _Gt
+v_r13_6: R6 + _Gt ->(kG1_6) R6_Gt
+v_r13_6_rev: R6_Gt ->(kG2) R6 + _Gt
+v_r14_0: R0_Gt ->(kG3) R0_G
+v_r14_0_rev: R0_G ->(kG4_GDP) R0_Gt
+v_r14_1: R1_Gt ->(kG3) R1_G
+v_r14_1_rev: R1_G ->(kG4_GDP) R1_Gt
+v_r14_2: R2_Gt ->(kG3) R2_G
+v_r14_2_rev: R2_G ->(kG4_GDP) R2_Gt
+v_r14_3: R3_Gt ->(kG3) R3_G
+v_r14_3_rev: R3_G ->(kG4_GDP) R3_Gt
+v_r14_4: R4_Gt ->(kG3) R4_G
+v_r14_4_rev: R4_G ->(kG4_GDP) R4_Gt
+v_r14_5: R5_Gt ->(kG3) R5_G
+v_r14_5_rev: R5_G ->(kG4_GDP) R5_Gt
+v_r14_6: R6_Gt ->(kG3) R6_G
+v_r14_6_rev: R6_G ->(kG4_GDP) R6_Gt
+v_r15_0: R0_G ->(kG5_GTP) R0_G_GTP
+v_r15_1: R1_G ->(kG5_GTP) R1_G_GTP
+v_r15_2: R2_G ->(kG5_GTP) R2_G_GTP
+v_r15_3: R3_G ->(kG5_GTP) R3_G_GTP
+v_r15_4: R4_G ->(kG5_GTP) R4_G_GTP
+v_r15_5: R5_G ->(kG5_GTP) R5_G_GTP
+v_r15_6: R6_G ->(kG5_GTP) R6_G_GTP
+v_r16_0: R0_G_GTP ->(kG6) G_GTP + R0
+v_r16_1: R1_G_GTP ->(kG6) G_GTP + R1
+v_r16_2: R2_G_GTP ->(kG6) G_GTP + R2
+v_r16_3: R3_G_GTP ->(kG6) G_GTP + R3
+v_r16_4: R4_G_GTP ->(kG6) G_GTP + R4
+v_r16_5: R5_G_GTP ->(kG6) G_GTP + R5
+v_r16_6: R6_G_GTP ->(kG6) G_GTP + R6
+v_r17: G_GTP ->(kG7) Ga_GTP + Gbg
+v_r18: Ga_GTP + PDE ->(kP1) PDE_Ga_GTP
+v_r18_rev: PDE_Ga_GTP ->(kP1_rev) Ga_GTP + PDE
+v_r19: PDE_Ga_GTP ->(kP2) PDE_a_Ga_GTP
+v_r20: Ga_GTP + PDE_a_Ga_GTP ->(kP3) Ga_GTP_PDE_a_Ga_GTP
+v_r21: Ga_GTP_PDE_a_Ga_GTP ->(kP4) Ga_GTP_a_PDE_a_Ga_GTP
+v_r22: Ga_GTP_a_PDE_a_Ga_GTP + RGS ->(kRGS1) RGS_Ga_GTP_a_PDE_a_Ga_GTP
+v_r23: RGS_Ga_GTP_a_PDE_a_Ga_GTP ->(kRGS2) Ga_GDP + PDE_a_Ga_GTP + RGS
+v_r24: PDE_a_Ga_GTP + RGS ->(kRGS1) RGS_PDE_a_Ga_GTP
+v_r25: RGS_PDE_a_Ga_GTP ->(kRGS2) Ga_GDP + PDE + RGS
+v_r26: PDE_a_Ga_GTP ->(kPDEshutoff) Ga_GDP + PDE
+v_r27: Ga_GTP_a_PDE_a_Ga_GTP ->(kPDEshutoff) Ga_GDP + PDE_a_Ga_GTP
+v_r28: Ga_GTP ->(kGshutoff) Ga_GDP
+v_r29: Ga_GDP + Gbg ->(kGrecyc) _Gt
+v_r30: RK ->(Rec_wCa2*kRec3) Rec_wCa2_RK
+v_r30_rev: Rec_wCa2_RK ->(kRec4) RK
+v_r31: Ca2_free ->(eT*k1) Ca2_buff
+v_r31_rev: Ca2_buff ->((Ca2_buff*Ca2_free*k1 + Ca2_buff*k2)/Ca2_buff) Ca2_free
+v_r32: Ca2_free ->(gammaCa*(-Ca2_0 + Ca2_free)/Ca2_free) 
+v_r33:  ->(1000000.0*Jdark*fCa*(cGMP/cGMPdark)**ncg/(F*Vcyto*(fCa + 2))) Ca2_free
+v_r34:  ->(alfamax/((Ca2_free/Kc)**m + 1)) cGMP
+v_r35: cGMP ->(E*betasub + betadark) 

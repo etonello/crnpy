@@ -1,0 +1,4 @@
+v4: NADP_super__ ->(c*k4) NADPH
+v3: 2ADP ->(NADP_super__*c*k3/ADP) 2ATP
+v2: ATP + NADPH + Y ->(c*k2/(NADPH*Y)) ADP + NADP_super__ + X
+v1: ATP + X ->(c*k1/ATP) ADP + Y

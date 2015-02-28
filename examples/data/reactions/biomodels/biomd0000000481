@@ -1,0 +1,28 @@
+re1: LH_Pit ->(default*(GnRH_Pit**5*default**5*h_gnrh_lh/(GnRH_Pit**5*default**5 + T_gnrh_lh**5) + b_lh)) LH_Bld
+re2: FSH_Pit ->(default*(GnRH_Pit*default*h_gnrh_fsh/(GnRH_Pit*default + T_gnrh_fsh) + P4**2*default**2*h_p4_fsh/(P4**2*default**2 + T_p4_fsh**2) + T_e2_fsh**2*h_e2_fsh/(E2**2*default**2 + T_e2_fsh**2) + b_fsh)) FSH_Bld
+re3: GnRH_Hyp ->(default*(T_p4_G2**2*h_p4_G2/(P4**2*default**2 + T_p4_G2**2) + h_P4_E2_G*(-T_E2_G1**2*T_p4_G1**2/((E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)) + T_E2_G1**2/(E2**2*default**2 + T_E2_G1**2) + T_p4_G1**2/(P4**2*default**2 + T_p4_G1**2)))) snk_GnRH_Hyp
+re4: src_CL ->((CL**2*default**2*h_cl_cl/(CL**2*default**2 + T_cl_cl**2) + Foll*LH_Bld**2*SF_CL*default**3*h_lh_foll/(LH_Bld**2*default**2 + T_lh_Foll**2))/src_CL) CL
+re5: src_GnRH ->(k_G*(-GnRH_Hyp*default/GnRH_max + 1)/src_GnRH) GnRH_Hyp
+re6: src_E2 ->(Foll**2*default**2*k_foll_e2/src_E2) E2
+re7: src_P4 ->(CL**2*default**2*k_cl_p4/src_P4) P4
+re8: src_Inh ->(Foll**2*default**2*k_foll_inh/src_Inh) Inh
+re9: src_OT ->(CL**2*E2**2*default**4*h_e2cl_ot/(src_OT*(E2**2*default**2 + T_e2_ot**2))) OT
+re10: src_Enz ->(P4**5*default**5*h_p4_enz/(src_Enz*(P4**5*default**5 + T_p4_enz**5))) Enz
+re11: src_PGF ->(Enz**5*OT**2*default**2*h_enz_pgf/(src_PGF*(Enz**5 + T_enz_pgf**5)*(OT**2*default**2 + T_ot_pgf**2))) PGF
+re12: GnRH_Pit ->(cl_G*default) snk_GnRH_Pit
+re13: LH_Bld ->(cl_lh*default) snk_LH
+re14: FSH_Bld ->(cl_fsh*default) snk_FSH
+re15: P4 ->(cl_p4*default) snk_P4
+re16: E2 ->(cl_e2*default) snk_E2
+re17: Inh ->(cl_inh*default) snk_Inh
+re18: OT ->(cl_ot*default) snk_OT
+re19: Enz ->(cl_enz) snk_Enz
+re20: PGF ->(cl_pgf*default) snk_PGF
+re21: IOF ->(cl_iof*default) snk_IOF
+l: Foll ->(default*(LH_Bld**2*default**2*h_lh_foll/(LH_Bld**2*default**2 + T_lh_Foll**2) + P4**5*default**5*h_p4_fsh_2/(P4**5*default**5 + T_p4_foll**5))) snk_Foll
+re23: CL ->(IOF**5*default**6*h_iof_cl/(IOF**5*default**5 + T_iof_cl**5)) snk_CL
+re24: src_LH ->((E2**2*default**2*h_e2_lh/(E2**2*default**2 + T_e2_lh**2) + T_p4_lh**2*h_p4_lh/(P4**2*default**2 + T_p4_lh**2))/src_LH) LH_Pit
+re25: src_FSH ->(T_inh_fsh**5*h_inh_fsh/(src_FSH*(Inh**5*default**5 + T_inh_fsh**5))) FSH_Pit
+re26: src_GnRH_Pit ->(E2**5*GnRH_Hyp*default**6*h_e2_g2*(T_p4_G2**2*h_p4_G2/(P4**2*default**2 + T_p4_G2**2) + h_P4_E2_G*(-T_E2_G1**2*T_p4_G1**2/((E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)) + T_E2_G1**2/(E2**2*default**2 + T_E2_G1**2) + T_p4_G1**2/(P4**2*default**2 + T_p4_G1**2)))/(src_GnRH_Pit*(E2**5*default**5 + T_e2_g2**5))) GnRH_Pit
+re27: src_Foll ->(FSH_Bld**2*default**2*h_fsh_foll/(src_Foll*(FSH_Bld**2*default**2 + T_foll_fsh**4*T_fsh_foll**2/(Foll**2*default**2 + T_foll_fsh**2)**2))) Foll
+re28: src_IOF ->(CL**10*PGF**5*default**15*h_pg_iof/(src_IOF*(CL**10*default**10 + T_cl_iof**10)*(PGF**5*default**5 + T_pg_ot**5))) IOF

@@ -1,0 +1,14 @@
+re57: PI3K ->(re57_normal*re57_unity*(Time/re57_unimol)**0.8*exp(re57_unity)*exp(-(Time/re57_tf)**1.8)/PI3K) p_PI3K
+re57_rev: p_PI3K ->(re57_normal*(Time/re57_tf)**1.8*(Time/re57_unimol)**0.8*exp(re57_unity)*exp(-(Time/re57_tf)**1.8)/p_PI3K) PI3K
+re58: PIP2 ->(p_PI3K*re58_k2/(PIP2 + re58_Km2)) PI3P
+re59: PI3P ->(PTEN*re59_k3/(PI3P + re59_Km3)) PIP2
+re60: AKT + PI3P ->(re60_k4) AKT_PI3P
+re60_rev: AKT_PI3P ->(re60_kr4) AKT + PI3P
+re61: AKT_PI3P ->(PDK1*re61_k8/(AKT_PI3P + re61_Km8)) p_AKT_PI3P
+re62: p_AKT_PI3P ->(PDK2*re62_k10/(p_AKT_PI3P + re62_Km10)) pp_AKT_PI3P
+re63: p_AKT_PI3P ->(PP2A*re63_k7/(p_AKT_PI3P + re63_Km7)) AKT_PI3P
+re64: pp_AKT_PI3P ->(PP2A*re64_k9/(pp_AKT_PI3P + re64_Km9)) p_AKT_PI3P
+re65: pp_AKT_PI3P ->(PP2A*re65_k11/(pp_AKT_PI3P + re65_Km11)) AKT + PI3P
+re66: PDK1_cyto ->(PI3P*re66_k5) PDK1
+re67: PDK1 ->(re67_k6) PDK1_cyto
+re68: s3 ->(re68_unitime/s3) Time

@@ -1,0 +1,7 @@
+# Two-substrate, one-product random order, irreversible mechanism.
+
+e + a (k_1)<->(k1) ea
+e + b (k_2)<->(k2) eb
+ea + b (k_3)<->(k3) eab
+eb + a (k_4)<->(k4) eab
+eab ->(k5) e + p

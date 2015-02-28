@@ -1,0 +1,39 @@
+Dishevelled_activation: Dshi ->(W*cytoplasm*k1) Dsha
+Dishevelled_inactivation: Dsha ->(cytoplasm*k2) Dshi
+Dishevelled_mediated_GSK_Axin_APC_complex_disassembly: APC_Axin_GSK3beta ->(Dsha*cytoplasm*k3) APC_Axin + GSK3beta
+Activation_of_GSK_Axin_APC_complex: APC_Axin_GSK3beta ->(cytoplasm*k4) APC_ast_Axin_ast_GSK3beta
+Inactivation_of_GSK_Axin_APC_complex: APC_ast_Axin_ast_GSK3beta ->(cytoplasm*k5) APC_Axin_GSK3beta
+GSK_Axin_APC_complex_reassembly: APC_Axin + GSK3beta ->(cytoplasm*k_plus6) APC_Axin_GSK3beta
+GSK_Axin_APC_complex_reassembly_rev: APC_Axin_GSK3beta ->(cytoplasm*k_minus6) APC_Axin + GSK3beta
+Axin_APC_complex_formation: APC + Axin ->(cytoplasm*k_plus7) APC_Axin
+Axin_APC_complex_formation_rev: APC_Axin ->(cytoplasm*k_minus7) APC + Axin
+bCatenin_binding_to_GSK_Axin_APC_complex: APC_ast_Axin_ast_GSK3beta + bCatenin ->(cytoplasm*k_plus8) bCatenin_APC_Ast_Axin_ast_GSK3beta
+bCatenin_binding_to_GSK_Axin_APC_complex_rev: bCatenin_APC_Ast_Axin_ast_GSK3beta ->(cytoplasm*k_minus8) APC_ast_Axin_ast_GSK3beta + bCatenin
+bCatenin_phosphorylation: bCatenin_APC_Ast_Axin_ast_GSK3beta ->(cytoplasm*k9) bCatenin_ast_APC_ast_Axin_ast_GSK3beta
+GSK_Axin_APC_bCatenin_complex_disassembly: bCatenin_ast_APC_ast_Axin_ast_GSK3beta ->(cytoplasm*k10) APC_ast_Axin_ast_GSK3beta + bCatenin_ast
+Phosphorylated_bCatenin_degradation: bCatenin_ast ->(cytoplasm*k11) 
+bCatenin_synthesis:  ->(V12*cytoplasm) bCatenin
+Unphosphorylated_bCatenin_degradation: bCatenin ->(k13*nucleus) 
+Axin_synthesis:  ->(nucleus*(k14 + k21*(bCatenin + bCatenin_TCF))) Axin
+Axin_degradation: Axin ->(cytoplasm*k15) 
+bCatenin_TCF_complex_formation: TCF + bCatenin ->(k_plus16*nucleus) bCatenin_TCF
+bCatenin_TCF_complex_formation_rev: bCatenin_TCF ->(k_minus16*nucleus) TCF + bCatenin
+APC_bCatenin_complex_formation: APC + bCatenin ->(cytoplasm*k_plus17) bCatenin_APC
+APC_bCatenin_complex_formation_rev: bCatenin_APC ->(cytoplasm*k_minus17) APC + bCatenin
+Ras_activation: Rasi ->(Ki*Vmax1*W*cytoplasm/((ERK_ast + Ki)*(Km1 + Rasi))) Rasa
+Ras_inactivation: Rasa ->(Vmax2*cytoplasm/(Km2 + Rasa)) Rasi
+Raf_activation: Raf_1 ->(Rasa*cytoplasm*kcat1/(Km3 + Raf_1)) Raf_1_ast
+Raf_inactivation: Raf_1_ast ->(Vmax3*cytoplasm/(Km4 + Raf_1_ast)) Raf_1
+MEK_activation: MEK ->(Raf_1_ast*cytoplasm*kcat2/(Km5 + MEK)) MEK_ast
+MEK_inactivation: MEK_ast ->(Vmax4*cytoplasm/(Km6 + MEK_ast)) MEK
+ERK_activation: ERK ->(MEK_ast*cytoplasm*kcat3/(ERK + Km7)) ERK_ast
+ERK_inactivation: ERK_ast ->(Vmax5*cytoplasm/(ERK_ast + Km8)) ERK
+Raf_RKIP_complex_disassembly: Raf1_RKIP ->(ERK_ast*cytoplasm*kcat4/(Km9 + Raf1_RKIP)) RKIP_ast + Raf_1
+Raf_RKIP_complex_formation: RKIP + Raf_1 ->(cytoplasm*k18) Raf1_RKIP
+Raf_RKIP_complex_formation_rev: Raf1_RKIP ->(cytoplasm*k19) RKIP + Raf_1
+RKIP_dephosphorylation: RKIP_ast ->(Vmax6*cytoplasm/(Km10 + RKIP_ast)) RKIP
+Unknown_factor_X_formation:  ->(bCatenin_TCF**n1*cytoplasm*kcat5/(Km11**n1 + bCatenin_TCF**n1)) unknown_molecule_X
+Factor_X_degradation: unknown_molecule_X ->(cytoplasm*k20) 
+Factor_X_mediated_Raf_activation: Raf_1 ->(cytoplasm*kcat6*unknown_molecule_X/(Km12 + Raf_1)) Raf_1_ast
+ERK_mediated_GSK3beta_phosphorylation: GSK3beta ->(ERK_ast*cytoplasm*kcat7/(GSK3beta + Km13)) GSK3beta
+GSK3beta_dephosphorylation: GSK3beta ->(Vmax7*cytoplasm/(GSK3beta + Km14)) GSK3beta

@@ -1,0 +1,12 @@
+r1fast: NO + sGCfast ->(cytosol*k1) NO_sGCfast
+r1fast_rev: NO_sGCfast ->(cytosol*k2) NO + sGCfast
+r2fast: NO_sGCfast ->(cytosol*k3) NO_sGCfast_6coord
+r3fast: NO_sGCfast_6coord ->(cytosol*k4) NO_sGCfast_5coord
+r3fast_rev: NO_sGCfast_5coord ->(cytosol*k5) NO_sGCfast_6coord
+r1slow: NO + sGCslow ->(cytosol*k6) NO_sGCslow
+r1slow_rev: NO_sGCslow ->(cytosol*k7) NO + sGCslow
+r2slow: NO_sGCslow ->(cytosol*k8) NO_sGCslow_6coord
+r3slow: NO + NO_sGCslow_6coord ->(cytosol*k9) NO_sGCslow_6coord_NO_int
+r3slow_rev: NO_sGCslow_6coord_NO_int ->(cytosol*k10) NO + NO_sGCslow_6coord
+r4slow: NO_sGCslow_6coord_NO_int ->(cytosol*k11) NO_sGCslow_5coord
+r4slow_rev: NO_sGCslow_5coord ->(cytosol*k12) NO_sGCslow_6coord_NO_int

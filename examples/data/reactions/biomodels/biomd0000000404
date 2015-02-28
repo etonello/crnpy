@@ -1,0 +1,60 @@
+A__Ap: A ->(autoPhospho*cell*kcat) Ap
+TWA_A__TWA_Ap: A ->(TWA*autoPhospho*cell*kcat) Ap
+Tni_WA_A__Tni_WA_Ap: A ->(Tni_WA*autoPhospho*cell*kcat) Ap
+Tasp_WA_Yp__Tasp_WA_Y: Tasp_WA + Yp ->(cell*k1) Tasp_WA + Y
+Ap_Y__A_Yp: Ap + Y ->(cell*k1) A + Yp
+Y___Yp: Y ->(autoPhospho*cell*kcat) Yp
+Yp__Y: Yp ->(cell*k1) Y
+Yp_Z__Y_Z: Yp + Z ->(cell*k1) Y + Z
+Ap_B__A_Bp: Ap + B ->(cell*k1) A + Bp
+Bp__B: Bp ->(cell*k1) B
+T_asp___Tasp: T + asp ->(cell*k1) Tasp
+T_asp___Tasp_rev: Tasp ->(cell*k2) T + asp
+T_ni___Tni: T + ni ->(cell*k1) Tni
+T_ni___Tni_rev: Tni ->(cell*k2) T + ni
+T_W___TW: T + W ->(cell*k1) TW
+T_W___TW_rev: TW ->(cell*k2) T + W
+T_A___TA: A + T ->(cell*k1) TA
+T_A___TA_rev: TA ->(cell*k2) A + T
+W_A___WA: A + W ->(cell*k1) WA
+W_A___WA_rev: WA ->(cell*k2) A + W
+TW_A___TWA: A + TW ->(cell*k1) TWA
+TW_A___TWA_rev: TWA ->(cell*k2) A + TW
+TA_W___TWA: TA + W ->(cell*k1) TWA
+TA_W___TWA_rev: TWA ->(cell*k2) TA + W
+T_WA___TWA: T + WA ->(cell*k1) TWA
+T_WA___TWA_rev: TWA ->(cell*k2) T + WA
+Tasp_W___Tasp_W: Tasp + W ->(cell*k1) Tasp_W
+Tasp_W___Tasp_W_rev: Tasp_W ->(cell*k2) Tasp + W
+Tasp_A___Tasp_A: A + Tasp ->(cell*k1) Tasp_A
+Tasp_A___Tasp_A_rev: Tasp_A ->(cell*k2) A + Tasp
+Tasp_W_A___Tasp_WA: A + Tasp_W ->(cell*k1) Tasp_WA
+Tasp_W_A___Tasp_WA_rev: Tasp_WA ->(cell*k2) A + Tasp_W
+Tasp_A_W___Tasp_WA: Tasp_A + W ->(cell*k1) Tasp_WA
+Tasp_A_W___Tasp_WA_rev: Tasp_WA ->(cell*k2) Tasp_A + W
+Tasp_WA___Tasp_WA: Tasp + WA ->(cell*k1) Tasp_WA
+Tasp_WA___Tasp_WA_rev: Tasp_WA ->(cell*k2) Tasp + WA
+Tni_W___Tni_W: Tni + W ->(cell*k1) Tni_W
+Tni_W___Tni_W_rev: Tni_W ->(cell*k2) Tni + W
+Tni_A___Tni_A: A + Tni ->(cell*k1) Tni_A
+Tni_A___Tni_A_rev: Tni_A ->(cell*k2) A + Tni
+Tni_W_A___Tni_WA: A + Tni_W ->(cell*k1) Tni_WA
+Tni_W_A___Tni_WA_rev: Tni_WA ->(cell*k2) A + Tni_W
+Tni_A_W___Tni_WA: Tni_A + W ->(cell*k1) Tni_WA
+Tni_A_W___Tni_WA_rev: Tni_WA ->(cell*k2) Tni_A + W
+Tni_WA___Tni_WA: Tni + WA ->(cell*k1) Tni_WA
+Tni_WA___Tni_WA_rev: Tni_WA ->(cell*k2) Tni + WA
+M_Yp___MYp: M + Yp ->(ka) MYp
+M_Yp___MYp_rev: MYp ->(ka*kappa/4) M + Yp
+MYp_Yp___MYpYp: MYp + Yp ->(ka) MYpYp
+MYp_Yp___MYpYp_rev: MYpYp ->(2*alpha*ka*kappa/3) MYp + Yp
+MYpYp_Yp___MYpYpYp: MYpYp + Yp ->(ka) MYpYpYp
+MYpYp_Yp___MYpYpYp_rev: MYpYpYp ->(3*alpha**2*ka*kappa/2) MYpYp + Yp
+MYpYpYp_Yp___MYpYpYpYp: MYpYpYp + Yp ->(ka) MYpYpYpYp
+MYpYpYp_Yp___MYpYpYpYp_rev: MYpYpYpYp ->(4*alpha**3*ka*kappa) MYpYpYp + Yp
+TA___asp_____Tasp_A: TA + asp ->(cell*k1) Tasp_A
+TA___asp_____Tasp_A_rev: Tasp_A ->(cell*k2) TA + asp
+TW_asp_____Tasp_W: TW + asp ->(cell*k1) Tasp_W
+TW_asp_____Tasp_W_rev: Tasp_W ->(cell*k2) TW + asp
+TWA_asp_____Tasp_WA: TWA + asp ->(cell*k1) Tasp_WA
+TWA_asp_____Tasp_WA_rev: Tasp_WA ->(cell*k2) TWA + asp

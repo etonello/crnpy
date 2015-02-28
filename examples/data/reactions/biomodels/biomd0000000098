@@ -1,0 +1,6 @@
+Ca_influx:  ->(cytosol*v0) Z
+InsP3_dependent_Ca_influx:  ->(beta*cytosol*v1) Z
+ATP_driven_Ca_pumping_into_store: Z ->(Vm2*Z**n*cytosol/(Z*(K2**n + Z**n))) Y
+ATP_driven_pumping_into_cytosol: Y ->(Vm3*Y**m*Z**p*store/(Y*(Ka**p + Z**p)*(Kr**m + Y**m))) Z
+Ca_leak: Y ->(kf*store) Z
+Ca_efflux: Z ->(cytosol*k) 

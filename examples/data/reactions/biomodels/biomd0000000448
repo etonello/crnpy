@@ -1,0 +1,34 @@
+v1a: IR ->(insulin*k1a) IRins
+v1basal: IR ->(k1basal) IRp
+v1c: IRins ->(k1c) IRp
+v1d: IRp ->(k1d) IRip
+v1e: IRip ->(Xp*k1f) IRi
+v1g: IRp ->(k1g) IR
+v1r: IRi ->(k1r) IR
+v2a: IRS1 ->(IRip*k2a) IRS1p
+v2b: IRS1p ->(k2b) IRS1
+v2c: IRS1p ->(diabetes*k2c*mTORC1a) IRS1p307
+v2d: IRS1p307 ->(k2d) IRS1p
+v2f: IRS1p307 ->(k2f) IRS1307
+v2basal: IRS1 ->(k2basal) IRS1307
+v2g: IRS1307 ->(k2g) IRS1
+v3a: X ->(IRS1p*k3a) Xp
+v3b: Xp ->(k3b) X
+v5a: mTORC1 ->(PKB308p*k5a2 + PKB308p473p*k5a1) mTORC1a
+v5b: mTORC1a ->(k5b) mTORC1
+v5c: mTORC2 ->(IRip*k5c) mTORC2a
+v5d: mTORC2a ->(k5d) mTORC2
+v4a: PKB ->(IRS1p*k4a) PKB308p
+v4b: PKB308p ->(k4b) PKB
+v4c: PKB308p ->(k4c*mTORC2a) PKB308p473p
+v4e: PKB473p ->(IRS1p307*k4e) PKB308p473p
+v4f: PKB308p473p ->(k4f) PKB473p
+v4h: PKB473p ->(k4h) PKB
+v6f1: AS160 ->(PKB308p473p*k6f1 + PKB473p**n6*k6f2/(PKB473p**n6 + km6**n6)) AS160p
+v6b1: AS160p ->(k6b) AS160
+v7f: GLUT4 ->(AS160p*k7f) GLUT4m
+v7b: GLUT4m ->(k7b) GLUT4
+v9f1: S6K ->(k9f1*mTORC1a**n9/(km9**n9 + mTORC1a**n9)) S6Kp
+v9b1: S6Kp ->(k9b1) S6K
+v9f2: S6 ->(S6Kp*k9f2) S6p
+v9b2: S6p ->(k9b2) S6

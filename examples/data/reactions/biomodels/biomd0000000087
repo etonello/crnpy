@@ -1,0 +1,43 @@
+Capping: Cdc13 + Utelo ->(Capping_k1*kalive) Ctelo
+Uncapping: Ctelo ->(Uncapping_k2*kalive) Cdc13 + Utelo
+Rad17binding: ATP + Rad17 + Rad24 + Utelo ->(Rad17binding_k3*kalive/(ATP + 5000)) ADP + Rad17Utelo + Rad24
+ExoXactivation: ExoXI + Rad17Utelo ->(ExoXactivation_k4*kalive) ExoXA + Rad17Utelo
+ExoXactivity: ExoXA + Rad17Utelo ->(ExoXactivity_k5*kalive) ExoXA + Rad17Utelo + ssDNA
+Rad24independentExo1Activation: Exo1I ->(Exo1activation_k6a*kalive) Exo1A
+Rad24dependentExo1Activation: Exo1I + Rad24 ->(Exo1Rad24dependentActivation_k6b*kalive) Exo1A + Rad24
+Rad17independentExo1Activity: Exo1A + Utelo ->(Exo1Rad17independentActivity_k7a*kalive) Exo1A + Utelo + ssDNA
+Rad17dependentExo1Activity: Exo1A + Rad17Utelo ->(Exo1Rad17dependentActivity_k7b*kalive) Exo1A + Rad17Utelo + ssDNA
+RPAbinding_stage1: RPA + ssDNA ->(RPAbinding1_k8a*kalive) RPAssDNA1
+RPAbinding_stage2: RPAssDNA1 + ssDNA ->(RPAbinding2_k8b*kalive) RPAssDNA2
+RPAbinding_completed: RPAssDNA2 + ssDNA ->(RPAbinding_k8c*kalive) RPAssDNA
+Mec1binding: Mec1 + RPAssDNA ->(Mec1binding_k8d*kalive) Mec1RPAssDNA
+Rad9activation: Rad9I + Rad9Kin ->(Rad9activation_k9*kalive) Rad9A + Rad9Kin
+ExoXinhibition: ExoXA + Rad9A ->(ExoXinhibition_k10a*kalive) ExoXI + Rad9A
+ExoXinhibition2: ExoXA + Rad9I ->(ExoXinhibition2_k10b*kalive) ExoXI + Rad9I
+Rad53activation: Rad53I + Rad9A ->(Rad53activation_k11*kalive) Rad53A + Rad9A
+Chk1Activation: Chk1I + Rad9A ->(Chk1Activation_k12*kalive) Chk1A + Rad9A
+Exo1inhibition: Exo1A + Rad53A ->(Exo1inhibition_k13*kalive) Exo1I + Rad53A
+Dun1activation: Dun1I + Rad53A ->(Dun1activation_k14*kalive) Dun1A + Rad53A
+Chk1cellArrest: Chk1A + G2Mon ->(Chk1cellArrest_k15*kalive) Chk1A + G2Moff
+Dun1cellArrest: Dun1A + G2Mon ->(Dun1cellArrest_k16*kalive) Dun1A + G2Moff
+SDNArepair1: Mec1RPAssDNA + S ->(SDNArepair1_k17a*kalive) Mec1 + RPA + S + 3ssDNA
+G2DNArepair1: G2 + G2Moff + Mec1RPAssDNA ->(G2DNArepair1_k17b*kalive) G2 + G2Moff + Mec1 + RPA + 3ssDNA
+SDNArepair2: S + ssDNA ->(SDNArepair2_k18a*kalive) S
+G2DNArepair2: G2 + G2Moff + ssDNA ->(G2DNArepair2_k18b*kalive) G2 + G2Moff
+Recovery: Cdc13 + Rad17Utelo + recovery ->(Recovery_k19*kalive) Ctelo + Rad17 + recovery
+G1cyclinSynthesis: G1 ->(G1cyclinSynthesis_kc1*kalive) G1 + G1cyclin
+ScyclinSynthesis: S ->(ScyclinSynthesis_kc1*kalive) S + Scyclin
+G2cyclinSynthesis: G2 ->(G2cyclinSynthesis_kc1*kalive) G2 + G2cyclin
+McyclinSynthesis: M ->(McyclinSynthesis_kc1*kalive) M + Mcyclin
+G1toSGenesOn: G1 + G1CdkA + G1Soff ->(G1toSGenesOn_kc2*kalive) G1 + G1CdkA + G1Son
+StoG2GenesOn: S + SCdkA + SG2off ->(StoG2GenesOn_kc2*kalive) S + SCdkA + SG2on
+G2toMGenesOn: G2 + G2CdkA + G2Moff ->(G2toMGenesOn_kc2*kalive) G2 + G2CdkA + G2Mon
+MtoG1GenesOn: M + MCdkA + MG1off ->(MtoG1GenesOn_kc2*kalive) M + MCdkA + MG1on
+G1cyclinDegradation: G1cyclin ->(G1cyclinDegradation_kc3*kalive) sink
+ScyclinDegradation: Scyclin ->(ScyclinDegradation_kc3*kalive) sink
+G2cyclinDegradation: G2cyclin ->(G2cyclinDegradation_kc3*kalive) sink
+McyclinDegradation: Mcyclin ->(McyclinDegradation_kc3*kalive) sink
+G1toSProgession: G1 + G1CdkA + G1Son ->(G1toSProgession_kc4*kalive) G1CdkI + G1Soff + S
+StoG2Progession: S + SCdkA + SG2on ->(StoG2Progession_kc4*kalive) G2 + SCdkI + SG2off
+G2toMProgession: G2 + G2CdkA + G2Mon ->(G2toMProgession_kc4*kalive) G2CdkI + G2Moff + M
+MtoG1Progession: M + MCdkA + MG1on ->(MtoG1Progession_kc4*kalive) G1 + MCdkI + MG1off + budscar

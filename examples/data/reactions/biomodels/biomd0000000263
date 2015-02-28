@@ -1,0 +1,14 @@
+NGF_TrkA: NGF + TrkA ->(Cell*k1) NGF_TrkA
+NGF_TrkA_rev: NGF_TrkA ->(Cell*k2) NGF + TrkA
+pTrkA_Akt: Akt + pTrkA ->(Cell*k1) pTrkA_Akt
+pTrkA_Akt_rev: pTrkA_Akt ->(Cell*k2) Akt + pTrkA
+Akt_phosphorylation: pTrkA_Akt ->(Cell*k1) pAkt + pTrkA
+pTrkA_degradation: pTrkA ->(Cell*k1) 
+pAkt_S6: S6 + pAkt ->(Cell*k1) pAkt_S6
+pAkt_S6_rev: pAkt_S6 ->(Cell*k2) S6 + pAkt
+S6_phosphorylation: pAkt_S6 ->(Cell*k1) pAkt + pS6
+pAkt_dephospho: pAkt ->(Cell*k1) Akt
+pS6_dephospho: pS6 ->(Cell*k1) S6
+TrkA_synthesis: pro_TrkA ->(Cell*TrkA_turnover) TrkA
+TrkA_phosphorylation: NGF_TrkA ->(Cell*k1) pTrkA
+TrkA_degradation: TrkA ->(Cell*TrkA_turnover) 

@@ -1,0 +1,8 @@
+vin: EC ->(cytosol*(beta*vin_v1 + vin_v0)/EC) Z
+v2i: Z ->(Z*intravesicular2*v2i_Vm2i/(Z**2 + v2i_K2i**2)) Y
+v3i: Y ->(Y*Z**2*cytosol*v3i_Vm3i/((Y**2 + v3i_K3y**2)*(Z**2 + v3i_K3z**2))) Z
+v4: Y ->(cytosol*v4_Kf) Z
+v5: Z ->(extracellular*v5_K) EC
+v6: X ->(cytosol*v6_Kf) Z
+v2s: Z ->(Z*intravesicular1*v2s_Vm2s/(Z**2 + v2s_K2s**2)) X
+v3s: X ->(X*beta*cytosol*v3s_Vm3s/(X**2 + v3s_K3s**2)) Z

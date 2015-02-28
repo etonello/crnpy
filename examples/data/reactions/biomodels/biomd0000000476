@@ -1,0 +1,41 @@
+cLm_transcription:  ->(compartment*g0**alpha*(X_protein_in_nucleus**a*n1/(X_protein_in_nucleus**a + g1**a) + (light_sensitive_protein_P*q1 + n0)*(0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) + lightOffset))/(PPR7_9_protein_in_nucleus**alpha + g0**alpha)) LHY_mRNA
+cLm_degradation: LHY_mRNA ->(compartment*m1/(LHY_mRNA + k1)) 
+cLc_translation:  ->(LHY_mRNA*compartment*p1) LHY_protein_in_cytoplasm
+LHY_protein_translocation: LHY_protein_in_cytoplasm ->(compartment*r1) LHY_protein_in_nucleus
+LHY_protein_translocation_rev: LHY_protein_in_nucleus ->(compartment*r2) LHY_protein_in_cytoplasm
+cLc_degradation: LHY_protein_in_cytoplasm ->(compartment*m2/(LHY_protein_in_cytoplasm + k2)) 
+cLn_degradation: LHY_protein_in_nucleus ->(compartment*m3/(LHY_protein_in_nucleus + k3)) 
+cTm__transcription_:  ->(Y_protein_in_nucleus**b*compartment*g3**c*n2/((LHY_protein_in_nucleus**c + g3**c)*(Y_protein_in_nucleus**b + g2**b))) TOC1_mRNA
+cTm_degradation: TOC1_mRNA ->(compartment*m4/(TOC1_mRNA + k4)) 
+Y_protein_translocation: Y_protein_in_the_cytoplasm ->(compartment*r7) Y_protein_in_nucleus
+Y_protein_translocation_rev: Y_protein_in_nucleus ->(compartment*r8) Y_protein_in_the_cytoplasm
+cYn_degradation: Y_protein_in_nucleus ->(compartment*m14/(Y_protein_in_nucleus + k12)) 
+cYc_translation:  ->(Y_mRNA*compartment*p4) Y_protein_in_the_cytoplasm
+cYc_degradation: Y_protein_in_the_cytoplasm ->(compartment*m13/(Y_protein_in_the_cytoplasm + k11)) 
+X_protein_translocation: X_protein_in_cytoplasm ->(compartment*r5) X_protein_in_nucleus
+X_protein_translocation_rev: X_protein_in_nucleus ->(compartment*r6) X_protein_in_cytoplasm
+cXc_degradation: X_protein_in_cytoplasm ->(compartment*m10/(X_protein_in_cytoplasm + k8)) 
+cXc_translation:  ->(X_mRNA*compartment*p3) X_protein_in_cytoplasm
+cXn_degradation: X_protein_in_nucleus ->(compartment*m11/(X_protein_in_nucleus + k9)) 
+cAc_translation:  ->(PPR7_9_mRNA*compartment*p6) PPR7_9_protein_in_cytoplasm
+PPR7_9_protein_translocation: PPR7_9_protein_in_cytoplasm ->(compartment*r9) PPR7_9_protein_in_nucleus
+PPR7_9_protein_translocation_rev: PPR7_9_protein_in_nucleus ->(compartment*r10) PPR7_9_protein_in_cytoplasm
+cAc_degradation: PPR7_9_protein_in_cytoplasm ->(compartment*m17/(PPR7_9_protein_in_cytoplasm + k15)) 
+cAn_degradation: PPR7_9_protein_in_nucleus ->(compartment*m18/(PPR7_9_protein_in_nucleus + k16)) 
+light_dependent_production_of_protein_P:  ->(compartment*p5*(-0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) - lightOffset + 1)) light_sensitive_protein_P
+light_activation_protein_P_degradation: light_sensitive_protein_P ->(compartment*q3*(0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) + lightOffset)) 
+cPn_degradation: light_sensitive_protein_P ->(compartment*m15/(k13 + light_sensitive_protein_P)) 
+light_activation_of_cAm_transcription:  ->(compartment*light_sensitive_protein_P*q4*(0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) + lightOffset)) PPR7_9_mRNA
+light_independent_cAm_transcription:  ->(LHY_protein_in_nucleus**g*compartment*n6/(LHY_protein_in_nucleus**g + g7**g)) PPR7_9_mRNA
+cAm_degradation: PPR7_9_mRNA ->(compartment*m16/(PPR7_9_mRNA + k14)) 
+cXm_transcription:  ->(TOC1_protein_in_nucleus**d*compartment*n3/(TOC1_protein_in_nucleus**d + g4**d)) X_mRNA
+cXm_degradation: X_mRNA ->(compartment*m9/(X_mRNA + k7)) 
+cTc_translation:  ->(TOC1_mRNA*compartment*p2) TOC1_protein__in_cytoplasm
+TOC1_protein_translocation: TOC1_protein__in_cytoplasm ->(compartment*r3) TOC1_protein_in_nucleus
+TOC1_protein_translocation_rev: TOC1_protein_in_nucleus ->(compartment*r4) TOC1_protein__in_cytoplasm
+light_activation_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(compartment*m5*(-0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) - lightOffset + 1)/(TOC1_protein__in_cytoplasm + k5)) 
+light_independent_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(compartment*m6/(TOC1_protein__in_cytoplasm + k5)) 
+light_activation_degradation_of_cTn: TOC1_protein_in_nucleus ->(compartment*m7*(-0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) - lightOffset + 1)/(TOC1_protein_in_nucleus + k6)) 
+light_independent_degradation_cTn: TOC1_protein_in_nucleus ->(compartment*m8/(TOC1_protein_in_nucleus + k6)) 
+cYm_transcription:  ->(compartment*g6**f*(g5**e*(n4*(0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) + lightOffset) + n5)/(TOC1_protein_in_nucleus**e + g5**e) + light_sensitive_protein_P*q2*(0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - cyclePeriod)/twilightPeriod) + 1) - 0.5*lightAmplitude*(tanh((cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod) - photoPeriod)/twilightPeriod) + 1) + 0.5*lightAmplitude*(tanh(cyclePeriod*(-floor(floor(phase + t)/cyclePeriod) + (phase + t)/cyclePeriod)/twilightPeriod) + 1) + lightOffset))/(LHY_protein_in_nucleus**f + g6**f)) Y_mRNA
+cYm_degradation: Y_mRNA ->(compartment*m12/(Y_mRNA + k10)) 

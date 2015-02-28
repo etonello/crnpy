@@ -1,0 +1,19 @@
+r8: Raf_minus_1 ->((PP2A*Raf_minus_1**2*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24**2*kcatp_r8_s31 + PP2A*Raf_minus_1**2*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23*kM_r8_s124_s24**2*kM_r8_s31_s23*kM_r8_s31_s24**2*kcatp_r8_s31 + PP2A*Raf_minus_1*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24**2*kM_r8_s31_s23*kM_r8_s31_s24**2*kcatp_r8_s31 + Raf_minus_1**2*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23*kM_r8_s124_s24**2*kM_r8_s31_s23**2*kM_r8_s31_s24*kcatp_r8_s124 + Raf_minus_1**2*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23*kM_r8_s124_s24**2*kM_r8_s31_s23*kM_r8_s31_s24**2*kcatp_r8_s124 + Raf_minus_1*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23*kM_r8_s124_s24**2*kM_r8_s31_s23**2*kM_r8_s31_s24**2*kcatp_r8_s124)/(Raf_minus_1*kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24*(Akt + kI_r8_s22)*(RKIP + kI_r8_s29)*(_14_minus_3_minus_3 + kI_r8_s33)*(Raf_minus_1*kM_r8_s124_s23 + Raf_minus_1*kM_r8_s124_s24 + kM_r8_s124_s23*kM_r8_s124_s24)*(Raf_minus_1*kM_r8_s31_s23 + Raf_minus_1*kM_r8_s31_s24 + kM_r8_s31_s23*kM_r8_s31_s24))) Raf_minus_1
+r8_rev: Raf_minus_1 ->((PP2A*Raf_minus_1**2*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24*kM_r8_s31_s23**2*kM_r8_s31_s24*kcatn_r8_s31 + PP2A*Raf_minus_1**2*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23*kM_r8_s124_s24**2*kM_r8_s31_s23**2*kM_r8_s31_s24*kcatn_r8_s31 + PP2A*Raf_minus_1*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24**2*kM_r8_s31_s23**2*kM_r8_s31_s24*kcatn_r8_s31 + Raf_minus_1**2*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24*kM_r8_s31_s23**2*kM_r8_s31_s24*kcatn_r8_s124 + Raf_minus_1**2*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24**2*kcatn_r8_s124 + Raf_minus_1*Ras*kI_r8_s22*kI_r8_s29*kI_r8_s33*kM_r8_s124_s23**2*kM_r8_s124_s24*kM_r8_s31_s23**2*kM_r8_s31_s24**2*kcatn_r8_s124)/(Raf_minus_1*kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24*(Akt + kI_r8_s22)*(RKIP + kI_r8_s29)*(_14_minus_3_minus_3 + kI_r8_s33)*(Raf_minus_1*kM_r8_s124_s23 + Raf_minus_1*kM_r8_s124_s24 + kM_r8_s124_s23*kM_r8_s124_s24)*(Raf_minus_1*kM_r8_s31_s23 + Raf_minus_1*kM_r8_s31_s24 + kM_r8_s31_s23*kM_r8_s31_s24))) Raf_minus_1
+r9: MEK1_minus_2 ->(Raf_minus_1*kM_r9_s26*kcatp_r9/(MEK1_minus_2*kM_r9_s25 + MEK1_minus_2*kM_r9_s26 + kM_r9_s25*kM_r9_s26)) MEK1_minus_2
+r9_rev: MEK1_minus_2 ->(Raf_minus_1*kM_r9_s25*kcatn_r9/(MEK1_minus_2*kM_r9_s25 + MEK1_minus_2*kM_r9_s26 + kM_r9_s25*kM_r9_s26)) MEK1_minus_2
+r11: RKIP ->(PKC*kM_r11_s30*kcatp_r11/(RKIP*kM_r11_s29 + RKIP*kM_r11_s30 + kM_r11_s29*kM_r11_s30)) RKIP
+r11_rev: RKIP ->(PKC*kM_r11_s29*kcatn_r11/(RKIP*kM_r11_s29 + RKIP*kM_r11_s30 + kM_r11_s29*kM_r11_s30)) RKIP
+r14: ERK1_minus_2 ->(MEK1_minus_2*kM_r14_s28*kcatp_r14/(ERK1_minus_2*kM_r14_s27 + ERK1_minus_2*kM_r14_s28 + kM_r14_s27*kM_r14_s28)) ERK1_minus_2
+r14_rev: ERK1_minus_2 ->(MEK1_minus_2*kM_r14_s27*kcatn_r14/(ERK1_minus_2*kM_r14_s27 + ERK1_minus_2*kM_r14_s28 + kM_r14_s27*kM_r14_s28)) ERK1_minus_2
+r15: ERK1_minus_2 ->(kass_r15) Mitogenesis_br_Differentiation
+r15_rev: Mitogenesis_br_Differentiation ->(kdiss_r15) ERK1_minus_2
+r17: 2EGFR ->(EGF*kass_r17_s3) EGFR
+r17_rev: EGFR ->(EGF*kdiss_r17_s3) 2EGFR
+r6: PKC ->(Complex_br__EGFR_____br_GAP_*kass_r6_s144) PKC
+r6_rev: PKC ->(Complex_br__EGFR_____br_GAP_*kdiss_r6_s144) PKC
+r7: Akt ->(Complex_br__EGFR_____br_GAP_*kass_r7_s144) Akt
+r7_rev: Akt ->(Complex_br__EGFR_____br_GAP_*kdiss_r7_s144) Akt
+r4: GDP + Ras ->(Complex_br__EGFR_____br_GAP_*kass_r4_s144) GTP + Ras
+r4_rev: GTP + Ras ->(Complex_br__EGFR_____br_GAP_*kdiss_r4_s144) GDP + Ras
+re11: Complex_Grb2____PLC_ + EGFR ->(Vp_re11*kI_re11_s142/((erlotinib + kI_re11_s142)*(Complex_Grb2____PLC_*EGFR + Complex_Grb2____PLC_*kM_re11_s129 + EGFR*kM_re11_s147 + kM_re11_s147*ki_re11_s129))) Complex_br__EGFR_____br_GAP_

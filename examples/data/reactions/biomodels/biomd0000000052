@@ -1,0 +1,11 @@
+_J1: Glu ->(_J1_K1) Fru
+_J2: Fru ->(_J2_K2) Glu
+_J3: Glu ->(_J3_K3) C5 + Formic_acid
+_J4: Fru ->(_J4_K4) C5 + Formic_acid
+_J5: Fru ->(_J5_K5) 2Triose
+_J6: Triose ->(_J6_K6) Acetic_acid + Cn
+_J7: Glu + lys_R ->(_J7_K7) Amadori
+_J8: Amadori ->(_J8_K8) Acetic_acid + lys_R
+_J9: Amadori ->(_J9_K9) AMP
+_J10: Fru + lys_R ->(_J10_K10) AMP
+_J11: AMP ->(_J11_K11) Melanoidin

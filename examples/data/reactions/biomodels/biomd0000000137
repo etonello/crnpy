@@ -1,0 +1,32 @@
+Insulin_binding: Unbound_Insulin_Receptor ->(CellSurface*Insulin*k1) Unphosphorylated_once_bound_receptor
+Insulin_binding_rev: Unphosphorylated_once_bound_receptor ->(CellSurface*kminus1) Unbound_Insulin_Receptor
+Receptor_Autophosphorylation: Unphosphorylated_once_bound_receptor ->(CellSurface*k3) Phosphorylated_once_bound_receptor
+Insulin_Binding: Phosphorylated_once_bound_receptor ->(CellSurface*Insulin*k2) Phosphorylated_twice_bound_receptor
+Insulin_Binding_rev: Phosphorylated_twice_bound_receptor ->(kminus2) Phosphorylated_once_bound_receptor
+Receptor_dephosphorylation: Phosphorylated_once_bound_receptor ->(CellSurface*PTP*kminus3) Unbound_Insulin_Receptor
+Receptor_endocytosis: Unbound_Insulin_Receptor ->(CellSurface*k4) Unbound_unphosphorylated_intracellular_receptor
+Receptor_endocytosis_rev: Unbound_unphosphorylated_intracellular_receptor ->(CellSurface*kminus4) Unbound_Insulin_Receptor
+Receptor_transport: Phosphorylated_twice_bound_receptor ->(CellSurface*k4prime) Phosphorylated_twice_bound_intracellular_receptor
+Receptor_transport_rev: Phosphorylated_twice_bound_intracellular_receptor ->(CellSurface*kminus4prime) Phosphorylated_twice_bound_receptor
+Receptor_transport: Phosphorylated_once_bound_receptor ->(CellSurface*k4prime) Phosphorylated_once_bound_intracellular_receptor
+Receptor_transport_rev: Phosphorylated_once_bound_intracellular_receptor ->(CellSurface*kminus4prime) Phosphorylated_once_bound_receptor
+Receptor_synthesis:  ->(Intracellular*k5) Unbound_unphosphorylated_intracellular_receptor
+Receptor_degradation: Unbound_unphosphorylated_intracellular_receptor ->(Intracellular*kminus5) 
+Intracellular_receptor_dephosphorylation: Phosphorylated_twice_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
+Intracellular_receptor_dephosphorylation: Phosphorylated_once_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
+IRS1_activation: Unphosphorylated_IRS1 ->((Intracellular*Phosphorylated_once_bound_receptor*Unphosphorylated_IRS1*k7 + Intracellular*Phosphorylated_twice_bound_receptor*Unphosphorylated_IRS1*k7)/(IRp*Unphosphorylated_IRS1)) Phosphorylated_IRS1
+IRS1_activation_rev: Phosphorylated_IRS1 ->(Intracellular*PTP*kminus7) Unphosphorylated_IRS1
+IRS1_PI3K_complex_formation: PI3_Kinase + Phosphorylated_IRS1 ->(Intracellular*k8) IRS1__PI3_Kinase_Complex
+IRS1_PI3K_complex_formation_rev: IRS1__PI3_Kinase_Complex ->(Intracellular*kminus8) PI3_Kinase + Phosphorylated_IRS1
+PI_3_4_5_P3_generation: PI4_5P2 ->(Intracellular*k9) PI3_4_5P3
+PI_3_4_5_P3_generation_rev: PI3_4_5P3 ->(Intracellular*PTEN*kminus9) PI4_5P2
+PI_3_4_5P3_generation: PI3_4P2 ->(Intracellular*k10) PI3_4_5P3
+PI_3_4_5P3_generation_rev: PI3_4_5P3 ->(Intracellular*SHIP*kminus10) PI3_4P2
+Akt_activation: Unactivated_Akt ->(Intracellular*k11) Activated_Akt
+Akt_activation_rev: Activated_Akt ->(Intracellular*kminus11) Unactivated_Akt
+PKC_activation: Unactivated_PKC ->(Intracellular*k12) Activated_PKC
+PKC_activation_rev: Activated_PKC ->(Intracellular*kminus12) Unactivated_PKC
+GLUT4_synthesis:  ->(Intracellular*k14) Intracellular_GLUT4
+GLUT4_degradation: Intracellular_GLUT4 ->(Intracellular*kminus14) 
+GLUT4_translocation: Intracellular_GLUT4 ->((Intracellular*Intracellular_GLUT4*k13 + Intracellular*Intracellular_GLUT4*k13prime)/Intracellular_GLUT4) Cell_surface_GLUT4
+GLUT4_translocation_rev: Cell_surface_GLUT4 ->(Intracellular*kminus13) Intracellular_GLUT4

@@ -1,0 +1,20 @@
+Birth:  ->(N*mu) S
+Death_in_S: S ->(mu) 
+Death_in_I_1: I_1 ->(mu) 
+Death_in_I_2: I_2 ->(mu) 
+Death_in_R_1: R_1 ->(mu) 
+Death_in_R_2: R_2 ->(mu) 
+Death_in_I_1p: I_1p ->(mu) 
+Death_in_I_2p: I_2p ->(mu) 
+Death_in_R_p: R_p ->(mu) 
+Primary_Infection_with_strain_1: S ->(beta_1*(I_1 + I_1p)/N) I_1
+Primary_Infection_with_strain_2: S ->(beta_2*(I_2 + I_2p)/N) I_2
+Secondary_Infection_with_strain_1: R_2 ->(beta_1*(I_1 + I_1p)*(-psi + 1)/N) I_1p
+Secondary_Infection_with_strain_2: R_1 ->(beta_2*(I_2 + I_2p)*(-psi + 1)/N) I_2p
+Recovery__I_1_: I_1 ->(gamma_1) R_1
+Recovery__I_2_: I_2 ->(gamma_2) R_2
+Recovery__I_1p_: I_1p ->(gamma_1) R_p
+Recovery__I_2p_: I_2p ->(gamma_2) R_p
+Loss_of_Immunity__R_1_: R_1 ->(sigma) S
+Loss_of_Immunity__R_2_: R_2 ->(sigma) S
+Loss_of_Immunity__R_p_: R_p ->(sigma) S

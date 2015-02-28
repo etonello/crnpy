@@ -1,0 +1,14 @@
+Mdm2Synthesis: Mdm2_mRNA ->(ksynMdm2) Mdm2 + Mdm2_mRNA + mdm2syn
+Mdm2mRNASynthesis: p53 ->(ksynMdm2mRNA) Mdm2_mRNA + Mdm2mRNAsyn + p53
+Mdm2mRNADegradation: Mdm2_mRNA ->(kdegMdm2mRNA) Mdm2mRNAdeg + Sink
+Mdm2Degradation: Mdm2 ->(kdegMdm2*kproteff) Sink + mdm2deg
+p53Synthesis: Source ->(ksynp53) p53 + p53syn
+p53Degradation: Mdm2_p53 ->(kdegp53*kproteff) Mdm2 + p53deg
+P53_Mdm2Binding: Mdm2 + p53 ->(kbinMdm2p53) Mdm2_p53
+P53_Mdm2Release: Mdm2_p53 ->(krelMdm2p53) Mdm2 + p53
+DNAdamage:  ->(IR*kdam) damDNA + totdamDNA
+DNArepair: damDNA ->(krepair) Sink
+ARFactivation: damDNA ->(kactARF) ARF + damDNA
+ARF_Mdm2Binding: ARF + Mdm2 ->(kbinARFMdm2) ARF_Mdm2
+ARF_Mdm2Degradation: ARF_Mdm2 ->(kdegARFMdm2*kproteff) ARF + mdm2deg
+ARFDegradation: ARF ->(kdegARF*kproteff) Sink

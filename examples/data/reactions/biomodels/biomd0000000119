@@ -1,0 +1,1 @@
+reaction_0000001:  ->(compartment_0000001*(-Ca - ICa*uuCa)/tauCa) Ca

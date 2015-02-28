@@ -1,0 +1,45 @@
+ass_aa_l: T1 + alpha ->(k0d*sample) alpha_T1
+ass_aa_l_rev: alpha_T1 ->(k0r*sample) T1 + alpha
+m_ass_aa_lr: alpha_T1_alpha ->(k1d*sample) alpha + alpha_T1
+m_ass_aa_lr_rev: alpha + alpha_T1 ->(k1r*sample) alpha_T1_alpha
+m_ass_aa_r: T1_alpha ->(k2d*sample) T1 + alpha
+m_ass_aa_r_rev: T1 + alpha ->(k2r*sample) T1_alpha
+m_ass_aa_rl: alpha_T1_alpha ->(k3d*sample) T1_alpha + alpha
+m_ass_aa_rl_rev: T1_alpha + alpha ->(k3r*sample) alpha_T1_alpha
+pol_aa: alpha_T1 ->(k4d*sample) alpha_alpha_T1
+dis_aa: alpha_T1_alpha ->(k5d*sample) alpha + alpha_alpha_T1
+nick_aa: alpha_alpha_T1 ->(k6d*sample) alpha_T1_alpha
+ass_ab_l: T2 + alpha ->(k7d*sample) alpha_T2
+ass_ab_l_rev: alpha_T2 ->(k7r*sample) T2 + alpha
+m_ass_ab_lr: alpha_T2_beta ->(k8d*sample) alpha_T2 + beta
+m_ass_ab_lr_rev: alpha_T2 + beta ->(k8r*sample) alpha_T2_beta
+m_ass_ab_r: T2_beta ->(k9d*sample) T2 + beta
+m_ass_ab_r_rev: T2 + beta ->(k9r*sample) T2_beta
+m_ass_ab_rl: alpha_T2_beta ->(k10d*sample) T2_beta + alpha
+m_ass_ab_rl_rev: T2_beta + alpha ->(k10r*sample) alpha_T2_beta
+pol_ab: alpha_T2 ->(k11d*sample) alpha_beta_T2
+dis_ab: alpha_T2_beta ->(k12d*sample) alpha_beta_T2 + beta
+nick_ab: alpha_beta_T2 ->(k13d*sample) alpha_T2_beta
+ass_bc_l: T3 + beta ->(k14d*sample) beta_T3
+ass_bc_l_rev: beta_T3 ->(k14r*sample) T3 + beta
+m_ass_bc_lr: beta_T3_Inh ->(k15d*sample) Inh + beta_T3
+m_ass_bc_lr_rev: Inh + beta_T3 ->(k15r*sample) beta_T3_Inh
+ass_bc_r: Inh + T3 ->(k16d*sample) T3_Inh
+ass_bc_r_rev: T3_Inh ->(k16r*sample) Inh + T3
+ass_bc_rl: T3_Inh + beta ->(k17d*sample) beta_T3_Inh
+ass_bc_rl_rev: beta_T3_Inh ->(k17r*sample) T3_Inh + beta
+pol_bc: beta_T3 ->(k18d*sample) beta_Inh_T3
+dis_bc: beta_T3_Inh ->(k19d*sample) Inh + beta_Inh_T3
+nick_bc: beta_Inh_T3 ->(k20d*sample) beta_T3_Inh
+inh_ac: Inh + T1 ->(k21d*sample) Inh_T1
+inh_ac_rev: Inh_T1 ->(k21r*sample) Inh + T1
+inh_displ_ac: Inh + T1_alpha ->(k22d*sample) Inh_T1 + alpha
+inh_displ_ac_rev: Inh_T1 + alpha ->(k22r*sample) Inh + T1_alpha
+m_inh_displ_ca: Inh_T1 + alpha ->(k23d*sample) Inh + alpha_T1
+m_inh_displ_ca_rev: Inh + alpha_T1 ->(k23r*sample) Inh_T1 + alpha
+exo_a: alpha ->(k24d*sample) empty
+exo_a_rev: empty ->(0) alpha
+exo_b: beta ->(k25d*sample) empty
+exo_b_rev: empty ->(0) beta
+exo_c: Inh ->(k26d*sample) empty
+exo_c_rev: empty ->(0) Inh

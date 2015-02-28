@@ -1,0 +1,32 @@
+binding_MAPKK_on_Tyr_site_of_MAPK: MAPK + MAPKK ->(cell*k1) MAPK_MAPKK_Y
+binding_MAPKK_on_Tyr_site_of_MAPK_rev: MAPK_MAPKK_Y ->(cell*k_1) MAPK + MAPKK
+tyr_phosphorylation_of_MAPK: MAPK_MAPKK_Y ->(cell*k2) MAPKK + MAPK_PY
+binding_of_MAPKK_on_MAPK_PY: MAPKK + MAPK_PY ->(cell*k3) MAPK_PY_MAPKK
+binding_of_MAPKK_on_MAPK_PY_rev: MAPK_PY_MAPKK ->(cell*k_3) MAPKK + MAPK_PY
+thr_phosphorylation_of_MAPK: MAPK_PY_MAPKK ->(cell*k4) MAPKK + MAPK_PP
+binding_of_MAPKK_on_Thr_site_of_MAPK: MAPK + MAPKK ->(cell*k5) MAPK_MAPKK_T
+binding_of_MAPKK_on_Thr_site_of_MAPK_rev: MAPK_MAPKK_T ->(cell*k_5) MAPK + MAPKK
+thr_phosphorylation_of_MAPK: MAPK_MAPKK_T ->(cell*k6) MAPKK + MAPK_PT
+binding_MAPK_PT_and_MAPKK: MAPKK + MAPK_PT ->(cell*k7) MAPK_PT_MAPKK
+binding_MAPK_PT_and_MAPKK_rev: MAPK_PT_MAPKK ->(cell*k_7) MAPKK + MAPK_PT
+tyr_phosphorylation_of_MAPK: MAPK_PT_MAPKK ->(cell*k8) MAPKK + MAPK_PP
+binding_of_MKP_on_Tyr_site_of_MAPK_PP: MAPK_PP + MKP ->(cell*h1) MAPK_PP_MKP_T
+binding_of_MKP_on_Tyr_site_of_MAPK_PP_rev: MAPK_PP_MKP_T ->(cell*h_1) MAPK_PP + MKP
+dephosphorylation_of_Tyr_on_MAPKK_PP: MAPK_PP_MKP_T ->(cell*h2) MAPK_PT_MKP_Y
+dissociation_MAPK_PT_and_MKP: MAPK_PT_MKP_Y ->(cell*h3) MAPK_PT + MKP
+dissociation_MAPK_PT_and_MKP_rev: MAPK_PT + MKP ->(cell*h_3) MAPK_PT_MKP_Y
+binding_of_MKP_on_Thr_site_of_MAPK_PT: MAPK_PT + MKP ->(cell*h4) MAPK_PT_MKP_T
+binding_of_MKP_on_Thr_site_of_MAPK_PT_rev: MAPK_PT_MKP_T ->(cell*h_4) MAPK_PT + MKP
+dephosphorylation_of_MAPK_PT: MAPK_PT_MKP_T ->(cell*h5) MAPK_MKP_T
+dissociation_MAPK_and_MKP: MAPK_MKP_T ->(cell*h6) MAPK + MKP
+dissociation_MAPK_and_MKP_rev: MAPK + MKP ->(cell*h_6) MAPK_MKP_T
+binding_of_MKP_on_the_Tyr_site_of_MAPK_PY: MAPK_PY + MKP ->(cell*h7) MAPK_PY_MKP_Y
+binding_of_MKP_on_the_Tyr_site_of_MAPK_PY_rev: MAPK_PY_MKP_Y ->(cell*h_7) MAPK_PY + MKP
+dephosphorylation_of_MAPK_PY: MAPK_PY_MKP_Y ->(cell*h8) MAPK_MKP_Y
+Dissociation_MAPK_and_MKP: MAPK_MKP_Y ->(cell*h9) MAPK + MKP
+Dissociation_MAPK_and_MKP_rev: MAPK + MKP ->(cell*h_9) MAPK_MKP_Y
+binding_of_MKP_on_Thr_site_of_MAPK_PP: MAPK_PP + MKP ->(cell*h10) MAPK_PP_MKP_Y
+binding_of_MKP_on_Thr_site_of_MAPK_PP_rev: MAPK_PP_MKP_Y ->(cell*h_10) MAPK_PP + MKP
+dephosphorylation_of_Thr_on_MAPKK_PP: MAPK_PP_MKP_Y ->(cell*h11) MAPK_PY_MKP_T
+dissociation_MAPK_PY_and_MKP: MAPK_PY_MKP_T ->(cell*h12) MAPK_PY + MKP
+dissociation_MAPK_PY_and_MKP_rev: MAPK_PY + MKP ->(cell*h_12) MAPK_PY_MKP_T

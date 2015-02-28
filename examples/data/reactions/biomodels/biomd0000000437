@@ -1,0 +1,40 @@
+Time: time ->(1/time) T
+re01: frq_gene ->((L_WCC*k_01a + active_hypoWCCn**H_01*k_01/(K_01**H_01 + active_hypoWCCn**H_01))/frq_gene) frq_mRNA
+re02: wc1_gene ->((L_WCC*k_02a02 + active_hypoWCCn*k_02a01 + k_02)/wc1_gene) wc1_mRNA
+re03: wc2_gene ->((hypoFRQn*k_03a + k_03/(hypoWCCn*k_03i + 1))/wc2_gene) wc2_mRNA
+re04: vvd_gene ->(L_WCC*k_04/vvd_gene) vvd_mRNA
+re05: frq_mRNA ->(k_05) hypoFRQc
+re06: wc1_mRNA ->(k_06) WC1c
+re07: wc2_mRNA ->(k_07) WC2c
+re08: vvd_mRNA ->(k_08) VVDc
+re09: frq_mRNA ->(hypoFRQc*k_09a + k_09) degraded_frq_mRNA
+re10: wc1_mRNA ->(k_10) degraded_wc1_mRNA
+re11: wc2_mRNA ->(k_11) degraded_wc2_mRNA
+re12: vvd_mRNA ->(k_12) degraded_vvd_mRNA
+re13: WC1c + WC2c ->(k_13) hypoWCCc
+re14: hypoFRQc ->(k_14) hypoFRQn
+re15: hypoWCCc ->(k_15) hypoWCCn
+re16: VVDc ->(k_16) VVDn
+re17: hypoFRQn ->(k_17) hypoFRQc
+re18: hyperFRQn ->(k_18) hyperFRQc
+re19: hyperWCCn ->(k_19) hyperWCCc
+re20: hypoFRQc ->(k_20) hyperFRQc
+re21: hypoFRQn ->(k_21) hyperFRQn
+re22: hypoWCCc ->(k_22) hyperWCCc
+re23: hypoWCCn ->(hypoFRQn**H_02*k_23/(K_02**H_02 + hypoFRQn**H_02)) hyperWCCn
+re24: hyperWCCc ->(k_24) hypoWCCc
+re25: hypoWCCn ->(k_25) active_hypoWCCn
+re26: hypoWCCn ->(k_26) L_WCC
+re27: L_WCC + VVDn ->(k_27) L_WCCVVDn
+re28: L_WCCVVDn ->(k_28) VVDn + hypoWCCn
+re29: hyperFRQc ->(k_29) degraded_hyperFRQc
+re30: hyperFRQn ->(k_30) degraded_hyperFFCn
+re31: WC1c ->(k_31) degraded_WC1c
+re32: WC2c ->(k_32) degraded_WC2c
+re33: hyperWCCc ->(k_33) degraded_hyperWCCc
+re34: hyperWCCn ->(k_34) degraded_hyperWCCn
+re35: active_hypoWCCn ->(k_35) degraded_active_hypoWCCn
+re36: L_WCC ->(k_36) degraded_L_WCCCVVDn
+re37: VVDc ->(k_37) degraded_VVDc
+re38: VVDn ->(k_38) degraded_VVDn
+re39: L_WCCVVDn ->(k_39) degraded_L_WCCCVVDn

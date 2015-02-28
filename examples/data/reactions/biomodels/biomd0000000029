@@ -1,0 +1,7 @@
+phosphorylation_of_ERK_on_Tyr: ERK ->(MEK*cell*kcat1/(Km1*(ERK*(Km1 + Km3)/(Km1*Km3) + ERK_PT/Km4 + ERK_PY/Km2 + 1))) ERK_PY
+phosphorylation_of_ERK_PY_on_Thr: ERK_PY ->(MEK*cell*kcat2/(Km2*(ERK*(Km1 + Km3)/(Km1*Km3) + ERK_PT/Km4 + ERK_PY/Km2 + 1))) ERK_PP
+phosphorylation_of_ERK_on_Thr: ERK ->(MEK*cell*kcat3/(Km3*(ERK*(Km1 + Km3)/(Km1*Km3) + ERK_PT/Km4 + ERK_PY/Km2 + 1))) ERK_PT
+phosphorylation_of_ERK_PT_on_Tyr: ERK_PT ->(MEK*cell*kcat4/(Km4*(ERK*(Km1 + Km3)/(Km1*Km3) + ERK_PT/Km4 + ERK_PY/Km2 + 1))) ERK_PP
+dephosphorylation_of_ERK_PP_on_Tyr: ERK_PP ->(MKP3*cell*kcat5/(Km5*(ERK/Km8 + ERK_PP/Km5 + ERK_PT/Km6 + ERK_PY/Km7 + 1))) ERK_PT
+dephosphorylation_of_ERK_PT: ERK_PT ->(MKP3*cell*kcat6/(Km6*(ERK/Km8 + ERK_PP/Km5 + ERK_PT/Km6 + ERK_PY/Km7 + 1))) ERK
+dephosphorylation_of_ERK_PY: ERK_PY ->(MKP3*cell*kcat7/(Km7*(ERK/Km8 + ERK_PP/Km5 + ERK_PT/Km6 + ERK_PY/Km7 + 1))) ERK

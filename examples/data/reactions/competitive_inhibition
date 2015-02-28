@@ -1,0 +1,9 @@
+# Competitive Inhibition.
+# Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
+# 3.2.1
+
+S + E ->(k1) C
+C ->(k_1) S + E
+C ->(k2) E + P
+I + E ->(k3) C_i
+C_i ->(k_3) I + E

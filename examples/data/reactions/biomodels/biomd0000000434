@@ -1,0 +1,35 @@
+Ingestion: DC ->(k1) IC
+Intestinal_Cholesterol_Synthesis: ICS ->(ICSmax/(ICS*((IC/ICt)**IS + 1))) IC
+Bile_Salt_Release: HBS ->(k1) IBS
+Bile_Salt_Return: IBS ->(k1) HBS
+Bile_Salt_Excretion: IBS ->(k1) EBS
+Bile_Salt_Synthesis: HFC ->(k5/HBS) HBS
+Cholesterol_Absorption: IC ->(IBS*k6) HFC
+Cholesterol_Excretion: IC ->(IBS*k7) EC
+Intestinal_Nascent_HDL_Synthesis: INHDLS ->(PFC*k8/INHDLS) NHDL
+Billary_Cholesterol_Release: HFC ->(BCRmax/(HFC*((BCRt/HFC)**BS + 1))) IC
+Hepatic_Cholesterol_Synthesis: HCS ->(HCSmax/(HCS*((HFC/HCSt)**HS + 1))) HFC
+Hepatic_Cholesterol_Storage: HFC ->(ACAT*k9) HCE
+Release_of_Stored_Cholesterol: HCE ->(CEH*k10) HFC
+Hepatic_Nascent_HDL_Synthesis: HNHDLS ->(PFC*k11/HNHDLS) NHDL
+VLDL_Cholesterol_Formation: HFC ->(k1) VLDLC
+Hepatic_LDLR_Synthesis: HLDLRsS ->(khrs/HFC) HLDLRs
+Hepatic_LDL_Receptor_Degradation: HLDLRs ->(k1) HLDLRD
+VLDL_Cholesterol_ReUptake: VLDLC ->(k1) HFC
+IDL_Cholesterol_Formation: VLDLC ->(LPL*k15) IDLC
+IDL_Cholesterol_ReUptake: IDLC ->(k1) HFC
+LDL_Cholesterol_Formation: IDLC ->(HSL*k17) LDLC
+Receptor_Dependent_Hepatic_Uptake: LDLC ->(HLDLRs*k18) HFC
+Receptor_Independent_Hepatic_Uptake: LDLC ->(k1) HFC
+Receptor_Dependent_Peripheral_Uptake: LDLC ->(PLDLRs*k20) PFC
+Receptor_Independent_Peripheral_Uptake: LDLC ->(k1) PFC
+Peripheral_LDLR_Synthesis: PLDLRsS ->(kprs/PFC) PLDLRs
+Peripheral_LDL_Receptor_Degradation: PLDLRs ->(k1) PLDLRD
+Peripheral_Cholesterol_Storage: PFC ->(ACAT*k23) PCE
+Release_of_Stored_Peripheral_Cholesterol: PCE ->(CEH*k24) PFC
+Peripheral_Steroid_Production: PFC ->(k1) PSS
+HDL_Cholesterol_Formation: NHDL + PFC ->(LCAT*k26) HDLC
+Peripheral_Cholesterol_Synthesis: PCS ->(PCSmax/(PCS*((PFC/PPCt)**PCSS + 1))) PFC
+CETP_Mediated_Transfer_To_VLDL: HDLC ->(CETP*k27) VLDLC
+CETP_Mediated_TransferTo_LDL: HDLC ->(CETP*k28) LDLC
+Reverse_Cholesterol_Transport: HDLC ->(SRB1*k29) HFC

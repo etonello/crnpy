@@ -1,0 +1,16 @@
+e + a ->(k1) ea       # bi-uni random mechanism
+ea ->(k_1) e + a
+e + b ->(k2) eb
+eb ->(k_2) e + b
+ea + b ->(k3) eab
+eab ->(k_3) ea + b
+eb + a ->(k4) eab
+eab ->(k_4) eb + a
+eab ->(k5) eq + p
+eq + p ->(k_5) eab
+eab ->(k6) ep + q
+ep + q ->(k_6) eab
+ep ->(k7) e + p
+e + p ->(k_7) ep
+eq ->(k8) e + q
+e + q ->(k_8) eq

@@ -1,0 +1,12 @@
+degradation_of_LacI_transcripts: LacI_mRNA ->(kd_mRNA) 
+degradation_of_TetR_transcripts: TetR_mRNA ->(kd_mRNA) 
+degradation_of_CI_transcripts: cI_mRNA ->(kd_mRNA) 
+translation_of_LacI:  ->(LacI_mRNA*k_tl) LacI_protein
+translation_of_TetR:  ->(TetR_mRNA*k_tl) TetR_protein
+translation_of_CI:  ->(cI_mRNA*k_tl) cI_protein
+degradation_of_LacI: LacI_protein ->(kd_prot) 
+degradation_of_TetR: TetR_protein ->(kd_prot) 
+degradation_of_CI: cI_protein ->(kd_prot) 
+transcription_of_LacI:  ->(KM**n*a_tr/(KM**n + cI_protein**n) + a0_tr) LacI_mRNA
+transcription_of_TetR:  ->(KM**n*a_tr/(KM**n + LacI_protein**n) + a0_tr) TetR_mRNA
+transcription_of_CI:  ->(KM**n*a_tr/(KM**n + TetR_protein**n) + a0_tr) cI_mRNA

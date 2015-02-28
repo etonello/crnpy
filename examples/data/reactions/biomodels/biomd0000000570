@@ -1,0 +1,20 @@
+Sodium_leak:  ->(S_V*compartment_1*gNa*(RT_F*log(Na_extracellular*compartment_1/Na_) - Vm)/F) Na_
+Na_K___pump: ATP + 3Na_ ->(S_V*k_pump/(Na_**2*compartment_1*(ATP/(Km_pump*compartment_1) + 1))) ADP
+Blood_brain_transport_of_glucose: 100GLC ->(Tmax_GLC*(GLC/(compartment_3*(GLC/compartment_3 + Kt_GLC)) - GLC/(compartment_1*(GLC/compartment_1 + Kt_GLC)))/GLC**100) GLC
+Hexokinase_phosphofructokinase_system: ATP + GLC ->(kHK_PFK/(compartment_1*(GLC/compartment_1 + Kg)*((ATP/(KI_ATP*compartment_1))**nH + 1))) ADP + 2GAP
+Phosphoglycerate_kinase: GAP + NAD_ ->(ADP*kPGK/(NADH*compartment_1)) NADH + PEP
+Pyruvate_kinase: ADP + PEP ->(kPK/compartment_1) ATP + PYR
+Lactate_dehydrogenase: NADH + PYR ->(k_LDH/compartment_1) LAC + NAD_
+Lactate_dehydrogenase_rev: LAC + NAD_ ->(k_LDH/compartment_1) NADH + PYR
+Blood_brain_transport_of_lactate: LAC ->(Tmax_LAC*(-LAC/(compartment_3*(Kt_LAC + LAC/compartment_3)) + LAC/(compartment_1*(Kt_LAC + LAC/compartment_1)))/LAC) 100LAC
+Creatine_Kinase: ADP + PCr ->(k_CK/compartment_1) ATP + Cr
+Creatine_Kinase_rev: ATP + Cr ->(k_CK/compartment_1) ADP + PCr
+Blood_brain_transport_of_oxygen: 100O2 ->(PS_V*(KO2*(Hb_OP*compartment_3/O2 - 1)**(-1/nh) - O2/compartment_1)/O2**100) O2
+Blood_flow_contribution_to_O2_variation: O2 ->(2*F_in*(-O2/compartment_3 + O2/compartment_2)/(O2*V_cap)) O2
+Blood_flow_contribution_to_GLC_c_variation: GLC ->(2*F_in*(-GLC/compartment_3 + GLC/compartment_2)/(GLC*V_cap)) GLC
+Blood_flow_contribution_to_LAC_c_variation: LAC ->(2*F_in*(-LAC/compartment_3 + LAC/compartment_2)/(LAC*V_cap)) LAC
+mitochondrial_respiration: NADH + 3O2 + PYR ->(compartment_1*v_Mito_H3/(NADH*O2**3*PYR)) ATP
+ATPases: ATP ->(compartment_1*v/ATP) 
+Na__inflow_after_stimulation:  ->(compartment_1*v_stim_constant) Na_
+inflow_of_dHb:  ->(2*F_in*compartment_3*(-O2/compartment_3 + O2/compartment_2)) dHb
+outflow_of_dHb: dHb ->(F_out/compartment_4) 

@@ -1,0 +1,15 @@
+# Main example in
+# Feliu, E., & Wiuf, C. (2015).
+# Finding the positive feedback loops underlying multi-stationarity.
+# BMC systems biology, 9(1), 1
+#
+# Alternative model
+#
+# x1 = X_cyt
+# x2 = X_nuc
+# x3 = X_nuc*
+
+r1: x1 ->(k1) x2
+r2: x2 ->(k2) x1
+r3: x2 ->(x2**4/(K**4 + x2**4)) x3
+r4: x3 ->(k4) x2

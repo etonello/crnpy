@@ -1,0 +1,8 @@
+Xi_expr:  ->(compartment_1*theta/(Xj**n*a + theta)) Xi
+Xi_degr: Xi ->(compartment_1*k1) 
+Yi_expr:  ->(compartment_1*(b*(Yi*Yj)**n + theta)/(Xi**n*c + b*(Yi*Yj)**n + theta)) Yi
+Yi_degr: Yi ->(compartment_1*k1) 
+Xj_expr:  ->(compartment_1*theta/(Xi**n*a + theta)) Xj
+Xj_degr: Xj ->(compartment_1*k1) 
+Yj_expr:  ->(compartment_1*(b*(Yi*Yj)**n + theta)/(Xj**n*c + b*(Yi*Yj)**n + theta)) Yj
+Yj_degr: Yj ->(compartment_1*k1) 

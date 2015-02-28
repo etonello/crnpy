@@ -1,0 +1,41 @@
+CC_PT_association: PT + _CC ->(bccpt*wholeCell) CCPT
+Degradation_of_CLK_CYK_dimer: _CC ->(dcc*wholeCell) 
+Degradation_of_CC_PT_dimer: CCPT ->(dccpt*wholeCell) 
+Degradation_of_PER_TIM_dimer: PT ->(dpt*wholeCell) 
+Degradation_of_clk_mRNA: clkm ->(dclkm*wholeCell) 
+clkm_translation:  ->(clkm*tlclk*wholeCell) CLK
+Degradation_of_per_mRNA: perm ->(dperm*wholeCell) 
+perm_translation:  ->(perm*tlper*wholeCell) PER
+per_transcription:  ->(perp*wholeCell*(tcccperp*(-(-CCbindingPer + 1)**npt + 1) + tcdvpmt*(-CCbindingPer + 1)**npt)) perm
+vri_transcription:  ->(vrip*wholeCell*(tcccvrip*(-(-CCbindingvri + 1)**nvri + 1) + tcdvpmt*(-CCbindingvri + 1)**nvri)) vrim
+Degradation_of_vri_mRNA: vrim ->(dvrim*wholeCell) 
+vrim_translation:  ->(tlvri*vrim*wholeCell) VRI
+VRI_protein_degradation: VRI ->(dvri*wholeCell) 
+pdp_transcription:  ->(pdpp*wholeCell*(tcccpdpp*(-(-CCbindingpdp + 1)**npdp + 1) + tcdvpmt*(-CCbindingpdp + 1)**npdp)) pdpm
+Degradation_of_pdp_mRNA: pdpm ->(dpdpm*wholeCell) 
+pdpm_translation:  ->(pdpm*tlpdp*wholeCell) PDP
+PDP_protein_degradation: PDP ->(dpdp*wholeCell) 
+clk_transcription:  ->(clkp*wholeCell*(PDPbindingclkp*tcpdpclkp + VRIbindingclkp*tcvriclkp + tcclkp*(-PDPbindingclkp - VRIbindingclkp + 1))) clkm
+CLK_CYC_association: CLK + CYC ->(bcc*wholeCell) _CC
+CLK_protein_degradation: CLK ->(dclk*wholeCell) 
+CLK_CYC_dissociation: _CC ->(ubcc*wholeCell) CLK + CYC
+PER_TIM_association: PER + TIM ->(bpt*wholeCell) PT
+PER_TIM_dissociation: PT ->(ubpt*wholeCell) PER + TIM
+PER_protein_degradation: PER ->(dper*wholeCell) 
+tim_transcription:  ->(timp*wholeCell*(tccctimp*(-(-CCbindingtim + 1)**npt + 1) + tcdvpmt*(-CCbindingtim + 1)**npt)) timm
+Degradation_of_tim_mRNA: timm ->(dtimm*wholeCell) 
+timm_translation:  ->(timm*tltim*wholeCell) TIM
+TIM_protein_degradation: TIM ->(dtim*wholeCell) 
+CC_PT_dimer_dissociation: CCPT ->(ubccpt*wholeCell) PT + _CC
+CC_binding_probability_in_per_promoter:  ->(_CC*bccperp*wholeCell*(-CCbindingPer + 1)) CCbindingPer
+CC_Unbinding_probability_in_per_promoter: CCbindingPer ->(ubccperp*wholeCell) 
+CC_Unbinding_probability_in_vri_promoter: CCbindingvri ->(ubccvrip*wholeCell) 
+CC_binding_probability_in_vri_promoter:  ->(_CC*bccvrip*wholeCell*(-CCbindingvri + 1)) CCbindingvri
+CC_Unbinding_probability_in_pdp1_promoter: CCbindingpdp ->(ubccpdpp*wholeCell) 
+CC_binding_probability_in_pdp1_promoter:  ->(_CC*bccpdpp*wholeCell*(-CCbindingpdp + 1)) CCbindingpdp
+VRI_binding_clk_promoter:  ->(VRI*bvriclkp*wholeCell*(-PDPbindingclkp - VRIbindingclkp + 1)) VRIbindingclkp
+VRI_unbinding_clk_promoter: VRIbindingclkp ->(ubvriclkp*wholeCell) 
+PDP_binding_clk_promoter:  ->(PDP*bpdpclkp*wholeCell*(-PDPbindingclkp - VRIbindingclkp + 1)) PDPbindingclkp
+PDP_unbinding_clk_promoter: PDPbindingclkp ->(ubpdpclkp*wholeCell) 
+CC_binding_probability_in_tim_promoter:  ->(_CC*bcctimp*wholeCell*(-CCbindingtim + 1)) CCbindingtim
+CC_Unbinding_probability_in_tim_promoter: CCbindingtim ->(ubcctimp*wholeCell) 

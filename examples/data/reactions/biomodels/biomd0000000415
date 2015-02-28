@@ -1,0 +1,5 @@
+LOX1: LA ->(Vm_L1_*compartment_1/(Km_L1_ + LA)) 0_13HOD_R_E_E_ + 0_13HOD_R_Z_E_ + 0_13HOD_S_E_E_ + 0_13HOD_S_Z_E_ + 0_9HOD_R_E_E_ + 0_9HOD_R_Z_E_ + 0_9HOD_S_E_E_ + 0_9HOD_S_Z_E_
+LOX2: LA ->(Vm_L2_*compartment_1/(Km_L2_ + LA)) 0_13HOD_R_E_E_ + 0_13HOD_R_Z_E_ + 0_13HOD_S_E_E_ + 0_13HOD_S_Z_E_ + 0_9HOD_R_E_E_ + 0_9HOD_R_Z_E_ + 0_9HOD_S_E_E_ + 0_9HOD_S_Z_E_
+LOX3: LA ->(Vm_L3_*compartment_1/(Km_L3_ + LA)) 0_13HOD_R_E_E_ + 0_13HOD_R_Z_E_ + 0_13HOD_S_E_E_ + 0_13HOD_S_Z_E_ + 0_9HOD_R_E_E_ + 0_9HOD_R_Z_E_ + 0_9HOD_S_E_E_ + 0_9HOD_S_Z_E_
+HPL: _13HOD_S_Z_E_ ->(Vm_HPL_SZE_*compartment_1/(Km_HPL_ + _13HOD_S_Z_E_)) nHexanal
+HPL_RZE_: _13HOD_R_Z_E_ ->(Vm_HPL_RZE_*compartment_1/(Km_HPL_ + _13HOD_R_Z_E_)) nHexanal

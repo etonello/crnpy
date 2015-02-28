@@ -1,0 +1,106 @@
+TNFR_transport_into_membrane: TNFR ->(TNFR_transport_into_membrane_ka) TNFR_E
+TNFR_production:  ->(TNFR_production_ka) TNFR
+TNFR_degradation: TNFR_E ->(TNFR_degradation_ka) 
+RIP_turnover:  ->(RIP_turnover_ka) RIP
+RIP_turnover_rev: RIP ->(RIP_turnover_kd) 
+TRADD_turnover:  ->(TRADD_turnover_ka) TRADD
+TRADD_turnover_rev: TRADD ->(TRADD_turnover_kd) 
+TRAF2_turnover:  ->(TRAF2_turnover_ka) TRAF2
+TRAF2_turnover_rev: TRAF2 ->(TRAF2_turnover_kd) 
+FADD_turnover:  ->(FADD_turnover_ka) FADD
+FADD_turnover_rev: FADD ->(FADD_turnover_kd) 
+TNF_TNFR_degradation: TNF_TNFR_E ->(TNF_TNFR_degradation_ka) 
+TNF_TNFR_TRADD_degradation: TNF_TNFR_TRADD ->(TNF_TNFR_TRADD_degradation_ka) 
+TNFR_Complex1_degradation: TNFRC1 ->(TNFR_Complex1_degradation_ka) 
+TNFR_Complex2_degradation: TNFRC2 ->(TNFR_Complex2_degradation_ka) 
+TNFR_Complex2_FLIP_degradation: TNFRC2_FLIP ->(TNFR_Complex2_FLIP_degradation_ka) 
+TNFR_Complex2_FLIP_FLIP_degradation: TNFRC2_FLIP_FLIP ->(TNFR_Complex2_FLIP_FLIP_degradation_ka) 
+TNFR_Complex2_Procaspase_8_degradation: TNFRC2_pCasp8 ->(TNFR_Complex2_Procaspase_8_degradation_ka) 
+TNFR_Complex2_Procaspase_8_Procaspase_8_degradation: TNFRC2_pCasp8_pCasp8 ->(TNFR_Complex2_Procaspase_8_Procaspase_8_degradation_ka) 
+TNFR_Complex2_FLIP_Procaspase_8_degradation: TNFRC2_FLIP_pCasp8 ->(TNFR_Complex2_FLIP_Procaspase_8_degradation_ka) 
+TNFR_Complex2_FLIP_Procaspase_8_RIP_TRAF2_degradation: TNFRC2_FLIP_pCasp8_RIP_TRAF2 ->(TNFR_Complex2_FLIP_Procaspase_8_RIP_TRAF2_degradation_ka) 
+TNF_TNFR_binding_and_release: TNFR_E + TNF_E ->(TNF_TNFR_binding_and_release_ka) TNF_TNFR_E
+TNF_TNFR_binding_and_release_rev: TNF_TNFR_E ->(TNF_TNFR_binding_and_release_kd) TNFR_E + TNF_E
+TNF_TNFR_TRADD_building: TNF_TNFR_E + TRADD ->(TNF_TNFR_TRADD_building_ka) TNF_TNFR_TRADD
+TNFR_Complex1_building: RIP + TNF_TNFR_TRADD + TRAF2 ->(TNFR_Complex1_building_ka) TNFRC1
+Receptor_internalisation_step1: TNFRC1 ->(Receptor_internalisation_step1_ka) TNFRCint1
+Receptor_internalisation_step2: TNFRCint1 ->(Receptor_internalisation_step2_ka) RIP + TNFRCint2 + TRAF2
+Receptor_internalisation_step3: 2FADD + TNFRCint2 ->(Receptor_internalisation_step3_ka) TNFRCint3
+Receptor_internalisation_step4: TNFRCint3 ->(Receptor_internalisation_step4_ka) TNFRC2
+FLIP_recruitment_to_TNFR_Complex2: FLIP + TNFRC2 ->(FLIP_recruitment_to_TNFR_Complex2_ka) TNFRC2_FLIP
+FLIP_recruitment_to_TNFR_Complex2_FLIP: FLIP + TNFRC2_FLIP ->(FLIP_recruitment_to_TNFR_Complex2_FLIP_ka) TNFRC2_FLIP_FLIP
+Procaspase_8_recruitment_to_TNFR_Complex2: TNFRC2 + pCasp8 ->(Procaspase_8_recruitment_to_TNFR_Complex2_ka) TNFRC2_pCasp8
+Procaspase_8_recruitment_to_TNFR_Complex2_Procaspase_8: TNFRC2_pCasp8 + pCasp8 ->(Procaspase_8_recruitment_to_TNFR_Complex2_Procaspase_8_ka) TNFRC2_pCasp8_pCasp8
+Caspase_8_activation_by_TNFR_Complex2: TNFRC2_pCasp8_pCasp8 ->(Caspase_8_activation_by_TNFR_Complex2_ka) Casp8 + TNFRC2
+FLIP_recruitment_to_TNFR_Complex2_Procaspase_8: FLIP + TNFRC2_pCasp8 ->(FLIP_recruitment_to_TNFR_Complex2_Procaspase_8_ka) TNFRC2_FLIP_pCasp8
+Procaspase_8_recruitment_to_TNFR_Complex2_FLIP: TNFRC2_FLIP + pCasp8 ->(Procaspase_8_recruitment_to_TNFR_Complex2_FLIP_ka) TNFRC2_FLIP_pCasp8
+Caspase_8_activation_by_TNFR_Complex2_FLIP_Procaspase_8: TNFRC2_FLIP_pCasp8 ->(Caspase_8_activation_by_TNFR_Complex2_FLIP_Procaspase_8_ka) Casp8 + TNFRC2
+RIP_TRAF2_recruitment_at_TNFR_Complex2_FLIP_Procaspase_8: RIP + TNFRC2_FLIP_pCasp8 + TRAF2 ->(RIP_TRAF2_recruitment_at_TNFR_Complex2_FLIP_Procaspase_8_ka) TNFRC2_FLIP_pCasp8_RIP_TRAF2
+IKK_activation_by_TNFR_Complex2_FLIP_Procaspase_8_RIP_TRAF2: IKK ->(IKK_activation_by_TNFR_Complex2_FLIP_Procaspase_8_RIP_TRAF2_ka*TNFRC2_FLIP_pCasp8_RIP_TRAF2) IKKa
+IKK_turnover:  ->(IKK_turnover_ka) IKK
+IKK_turnover_rev: IKK ->(IKK_turnover_kd) 
+NF_kappaB_turnover:  ->(NF_kappaB_turnover_ka) NFkB
+NF_kappaB_turnover_rev: NFkB ->(NF_kappaB_turnover_kd) 
+FLIP_turnover:  ->(FLIP_turnover_ka) FLIP
+FLIP_turnover_rev: FLIP ->(FLIP_turnover_kd) 
+XIAP_turnover:  ->(XIAP_turnover_ka) XIAP
+XIAP_turnover_rev: XIAP ->(XIAP_turnover_kd) 
+A20_turnover:  ->(A20_turnover_ka) A20
+A20_turnover_rev: A20 ->(A20_turnover_kd) 
+IKK__degradation: IKKa ->(IKK__degradation_ka) 
+IkappaBalpha_NF_kappaB_complex_degradation: IkBa_NFkB ->(IkappaBalpha_NF_kappaB_complex_degradation_ka) 
+nuclear_NF_kappaB_degradation: NFkB_N ->(nuclear_NF_kappaB_degradation_ka) 
+IkappaBalpha_mRNA_degradation: IkBa_mRNA ->(IkappaBalpha_mRNA_degradation_ka) 
+IkappaBalpha_degradation: IkBa ->(IkappaBalpha_degradation_ka) 
+free_nuclear_IkappaBalpha_degradation: IkBa_N ->(free_nuclear_IkappaBalpha_degradation_ka) 
+nuclear_IkappaBalpha_NF_kappaB_complex_degradation: IkBa_NFkB_N ->(nuclear_IkappaBalpha_NF_kappaB_complex_degradation_ka) 
+P_IkappaBa_degradation: PIkBa ->(P_IkappaBa_degradation_ka) 
+A20_mRNA_degradation: A20_mRNA ->(A20_mRNA_degradation_ka) 
+XIAP_mRNA_degradation: XIAP_mRNA ->(XIAP_mRNA_degradation_ka) 
+FLIP_mRNA_degradation: FLIP_mRNA ->(FLIP_mRNA_degradation_ka) 
+IKK_activation_by_TNFR_Complex1: IKK ->(IKK_activation_by_TNFR_Complex1_ka*TNFRC1) IKKa
+IKK__inactivation: IKKa ->(IKK__inactivation_ka) IKK
+TNFR_Complex1_inactivation_by_A20: TNFRC1 ->(A20*TNFR_Complex1_inactivation_by_A20_ka) TNF_TNFR_TRADD + TRAF2
+IkappaBalpha_NF_kappaB_association: IkBa + NFkB ->(IkappaBalpha_NF_kappaB_association_ka) IkBa_NFkB
+release_and_degradation_of_bound_IkappaBalpha: IkBa_NFkB ->(IKKa*release_and_degradation_of_bound_IkappaBalpha_ka) NFkB + PIkBa
+NF_kappaB_nuclear_translocation: NFkB ->(NF_kappaB_nuclear_translocation_ka) NFkB_N
+IkappaBalpha_mRNA_transcription:  ->(IkappaBalpha_mRNA_transcription_ka*NFkB_N) IkBa_mRNA
+IkappaBalpha_translation:  ->(IkBa_mRNA*IkappaBalpha_translation_ka) IkBa
+IkappaBalpha_nuclear_translocation: IkBa ->(IkappaBalpha_nuclear_translocation_ka) IkBa_N
+IkappaBalpha_nuclear_translocation_rev: IkBa_N ->(IkappaBalpha_nuclear_translocation_kd) IkBa
+IkappaBalpha_binding_NF_kappaB_in_nucleus: IkBa_N + NFkB_N ->(IkappaBalpha_binding_NF_kappaB_in_nucleus_ka) IkBa_NFkB_N
+IkappaBalpha_NF_kappaB_N_C_export: IkBa_NFkB_N ->(IkappaBalpha_NF_kappaB_N_C_export_ka) IkBa_NFkB
+A20_mRNA_transcription:  ->(A20_mRNA_transcription_ka*NFkB_N) A20_mRNA
+A20_translation:  ->(A20_mRNA*A20_translation_ka) A20
+XIAP_mRNA_transcription:  ->(NFkB_N*XIAP_mRNA_transcription_ka) XIAP_mRNA
+XIAP_translation:  ->(XIAP_mRNA*XIAP_translation_ka) XIAP
+FLIP_mRNA_transcription:  ->(FLIP_mRNA_transcription_ka*NFkB_N) FLIP_mRNA
+FLIP_translation:  ->(FLIP_mRNA*FLIP_translation_ka) FLIP
+Procaspase_8_turnover:  ->(Procaspase_8_turnover_ka) pCasp8
+Procaspase_8_turnover_rev: pCasp8 ->(Procaspase_8_turnover_kd) 
+Procaspase_3_turnover:  ->(Procaspase_3_turnover_ka) pCasp3
+Procaspase_3_turnover_rev: pCasp3 ->(Procaspase_3_turnover_kd) 
+Procaspase_6_turnover:  ->(Procaspase_6_turnover_ka) pCasp6
+Procaspase_6_turnover_rev: pCasp6 ->(Procaspase_6_turnover_kd) 
+Caspase_8_degradation: Casp8 ->(Caspase_8_degradation_ka) 
+Caspase_3_degradation: Casp3 ->(Caspase_3_degradation_ka) 
+Caspase_6_degradation: Casp6 ->(Caspase_6_degradation_ka) 
+XIAP_Caspase_3_complex_degradation: XIAP_Casp3 ->(XIAP_Caspase_3_complex_degradation_ka) 
+BAR_turnover:  ->(BAR_turnover_ka) BAR
+BAR_turnover_rev: BAR ->(BAR_turnover_kd) 
+BAR_Caspase_8_complex_degradation: BAR_Casp8 ->(BAR_Caspase_8_complex_degradation_ka) 
+PARP_turnover: PARP ->(PARP_turnover_ka) 
+PARP_turnover_rev:  ->(PARP_turnover_kd) PARP
+CPARP_degradation: cPARP ->(CPARP_degradation_ka) 
+Caspase_3_activation: pCasp3 ->(Casp8*Caspase_3_activation_ka) Casp3
+Caspase_6_activation: pCasp6 ->(Casp3*Caspase_6_activation_ka) Casp6
+Caspase_8_activation: pCasp8 ->(Casp6*Caspase_8_activation_ka) Casp8
+XIAP_Caspase_3_complex_formation: Casp3 + XIAP ->(XIAP_Caspase_3_complex_formation_ka) XIAP_Casp3
+XIAP_Caspase_3_complex_formation_rev: XIAP_Casp3 ->(XIAP_Caspase_3_complex_formation_kd) Casp3 + XIAP
+XIAP_degradation_due_to_Caspase_3: XIAP ->(Casp3*XIAP_degradation_due_to_Caspase_3_ka) 
+XIAP_Caspase_3_complex_breakup: XIAP_Casp3 ->(XIAP_Caspase_3_complex_breakup_ka) XIAP
+negative_feedback_loop_Caspase_3_on_TNFR_Complex1: RIP ->(Casp3*negative_feedback_loop_Caspase_3_on_TNFR_Complex1_ka) 
+FLIP_degradation_by_Caspase_3: FLIP ->(Casp3*FLIP_degradation_by_Caspase_3_ka) 
+PARP_cleavage_as_Casp3_substrate: PARP ->(Casp3*PARP_cleavage_as_Casp3_substrate_ka) cPARP
+BAR_Caspase_8_complex_formation: BAR + Casp8 ->(BAR_Caspase_8_complex_formation_ka) BAR_Casp8
+BAR_Caspase_8_complex_formation_rev: BAR_Casp8 ->(BAR_Caspase_8_complex_formation_kd) BAR + Casp8

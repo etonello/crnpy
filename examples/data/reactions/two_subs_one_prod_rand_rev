@@ -1,0 +1,12 @@
+# Two-substrate, one-product random order, reversible mechanism.
+
+e + a ->(k1) ea
+ea ->(k_1) e + a
+e + b ->(k2) eb
+eb ->(k_2) e + b
+ea + b ->(k3) eab
+eab ->(k_3) ea + b
+eb + a ->(k4) eab
+eab ->(k_4) eb + a
+eab ->(k5) e + p
+e + p ->(k_5) eab

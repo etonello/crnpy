@@ -1,0 +1,8 @@
+# Two-substrate, two-product ternary-complex mechanism
+# Cornish-Bowden, Athel. "Fundamentals of enzyme kinetics". Elsevier, 2014.
+# 6.3
+
+a + e (k_1)<->(k1) ea
+ea + b (k_2)<->(k2) eab
+eab (k_3)<->(k3) eq + p
+eq (k_4)<->(k4) q + e

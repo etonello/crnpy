@@ -1,0 +1,62 @@
+v1: AA ->(ksclb2/AA) Clb2
+v1_rev: Clb2 ->(0) AA
+v2: Clb2 ->((Cdc20*Clb2*kadclb2 + Cdh1*Clb2*kaadclb2 + Clb2*kdclb2)/Clb2) degr
+v2_rev: degr ->(0) Clb2
+v3: AA ->(kscdc20/AA) Cdc20
+v3_rev: Cdc20 ->(0) AA
+v4: Cdc20 ->((Cdc20*Cdh1*kadcdc20 + Cdc20*kdcdc20)/Cdc20) degr
+v4_rev: degr ->(0) Cdc20
+v5: inactive_Cdh1 ->((Cdc14*Cdh1T*kadcdh + Cdh1T*kdcdh)/(inactive_Cdh1*(-Cdh1 + Cdh1T + Jcdh))) Cdh1
+v5_rev: Cdh1 ->((Cdc14*Cdh1*kadcdh + Cdh1*kdcdh)/(Cdh1*(-Cdh1 + Cdh1T + Jcdh))) inactive_Cdh1
+v6: Cdh1 ->(Cdk_activity*kapcdh/(Cdh1 + Jcdh)) inactive_Cdh1
+v6_rev: inactive_Cdh1 ->(0) Cdh1
+v7: AA ->(kssecurin/AA) securin + securinT
+v7_rev: securin + securinT ->(0) AA
+v8: securin + securinT ->((Cdc20*kadsecurin*securinT + kdsecurin*securinT)/(securin*securinT)) degr
+v8_rev: degr ->(0) securin + securinT
+v9: AA ->(ksseparase/AA) separase + separaseT
+v9_rev: separase + separaseT ->(0) AA
+v10: separase + separaseT ->(kdseparase/separase) degr
+v10_rev: degr ->(0) separase + separaseT
+v11: securin + separase ->(lasecurin) securin_separase
+v11_rev: securin_separase ->(ldsecurin) securin + separase
+securinseparase_securindegradation: securin_separase ->((Cdc20*kadsecurin*securin_separase + kdsecurin*securin_separase)/securin_separase) separase
+securinseparase_securindegradation_rev: separase ->(0) securin_separase
+securin_separase_separase_degradation: securin_separase ->(kdseparase) securin
+securin_separase_separase_degradation_rev: securin ->(0) securin_separase
+Net1P_dephosphorylation: Net1P ->((Cdc14*Net1P*kad + Net1P*PP2A*kd)/(Net1P*(Jnet + Net1P))) Net1
+Net1P_dephosphorylation_rev: Net1 ->(0) Net1P
+Net1_phosphorylation: Net1 ->((Cdk_activity*Net1*kp + MEN*Net1*kap)/(Net1*(Jnet + Net1 + Net1Cdc14))) Net1P
+Net1_phosphorylation_rev: Net1P ->(0) Net1
+v15: Net1 ->(Cdc14*lanet) Net1Cdc14
+v15_rev: Net1Cdc14 ->(0) Net1
+v16: Net1Cdc14 ->(ldnet) Net1
+v16_rev: Net1 ->(0) Net1Cdc14
+Net1Cdc14_phosphorylation: Net1Cdc14 ->((Cdk_activity*Net1Cdc14*kp + MEN*Net1Cdc14*kap)/(Net1Cdc14*(Jnet + Net1 + Net1Cdc14))) Net1P
+Net1Cdc14_phosphorylation_rev: Net1P ->(0) Net1Cdc14
+v18: AA ->(kspolo/AA) PoloT + inactive_Polo
+v18_rev: PoloT + inactive_Polo ->(0) AA
+v19: PoloT + inactive_Polo ->((Cdh1*PoloT*kadpolo + PoloT*kdpolo)/(PoloT*inactive_Polo)) degr
+v19_rev: degr ->(0) PoloT + inactive_Polo
+v20: inactive_Polo ->((Cdk_activity*PoloT*kaapolo + PoloT*kapolo)/(inactive_Polo*(Jpolo - Polo + PoloT))) Polo
+v20_rev: Polo ->((Cdk_activity*Polo*kaapolo + Polo*kapolo)/(Polo*(Jpolo - Polo + PoloT))) inactive_Polo
+v21: Polo ->(kipolo/(Jpolo + Polo)) inactive_Polo
+v21_rev: inactive_Polo ->(0) Polo
+v22: Polo ->((Cdh1*Polo*kadpolo + Polo*kdpolo)/Polo) degr
+v22_rev: degr ->(0) Polo
+v23: inactive_Tem1 ->((Polo*Tem1T*kaatem + Tem1T*katem)/(inactive_Tem1*(Jtem1 - Tem1 + Tem1T))) Tem1
+v23_rev: Tem1 ->((Polo*Tem1*kaatem + Tem1*katem)/(Tem1*(Jtem1 - Tem1 + Tem1T))) inactive_Tem1
+v24: Tem1 ->((PP2A*Tem1*kaitem + Tem1*kitem)/(Tem1*(Jtem1 + Tem1))) inactive_Tem1
+v24_rev: inactive_Tem1 ->(0) Tem1
+v25: inactive_Cdc15 ->((Cdc14*Cdc15T*kaacdc15 + Cdc15T*kacdc15)/(inactive_Cdc15*(-Cdc15 + Cdc15T + Jcdc15))) Cdc15
+v25_rev: Cdc15 ->((Cdc14*Cdc15*kaacdc15 + Cdc15*kacdc15)/(Cdc15*(-Cdc15 + Cdc15T + Jcdc15))) inactive_Cdc15
+v26: Cdc15 ->((Cdc15*Cdk_activity*kaicdc15 + Cdc15*kicdc15)/(Cdc15*(Cdc15 + Jcdc15))) inactive_Cdc15
+v26_rev: inactive_Cdc15 ->(0) Cdc15
+v27: AA ->((Cdc15*Tem1*lamen + MEN**2*lamen)/AA) MEN
+v27_rev: MEN ->((Cdc15*MEN*lamen + MEN*Tem1*lamen)/MEN) AA
+v28: MEN ->(ldmen) degr
+v28_rev: degr ->(0) MEN
+Tem1_degradation_in_MEN: MEN ->((MEN*PP2A*kaitem + MEN*kitem)/(MEN*(Jtem1 + Tem1))) 
+Tem1_degradation_in_MEN_rev:  ->(0) MEN
+Cdc15_degradation_in_MEN: MEN ->((Cdk_activity*MEN*kaicdc15 + MEN*kicdc15)/(MEN*(Cdc15 + Jcdc15))) 
+Cdc15_degradation_in_MEN_rev:  ->(0) MEN

@@ -1,0 +1,6 @@
+Increase_of__P:  ->(Q*body*reaction_0_a) P
+Decrease_of_P: P ->(reaction_1_V/(P + reaction_1_Km)) 
+Increase_of_Q:  ->(reaction_2_V1*(-Q + 1)/(-Q + reaction_2_K1 + 1)) Q
+Decrease_of_Q: Q ->(R*reaction_3_V2/(Q + reaction_3_K2)) 
+Increase_of_R:  ->(P*reaction_4_V3*(-R + 1)/(-R + reaction_4_k3 + 1)) R
+Decrease_of_R: R ->(reaction_5_V/(R + reaction_5_Km)) 

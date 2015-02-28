@@ -1,0 +1,313 @@
+R1: EGF + EGFR ->(compartment_0*reaction_0_k1) EGF_EGFR
+R1_rev: EGF_EGFR ->(compartment_0*reaction_0_k2) EGF + EGFR
+R2: 2EGF_EGFR ->(compartment_0*reaction_1_k1) EGF_EGFR_2
+R2_rev: EGF_EGFR_2 ->(compartment_0*reaction_1_k2) 2EGF_EGFR
+R3: EGF_EGFR_2 ->(compartment_0*reaction_2_k1) EGF_pEGFR_2
+R4: EGF_pEGFR_2 + SHP ->(compartment_0*reaction_3_k1) EGF_pEGFR_2_SHP
+R4_rev: EGF_pEGFR_2_SHP ->(compartment_0*reaction_3_k2) EGF_pEGFR_2 + SHP
+R5: EGF_pEGFR_2_SHP ->(compartment_0*reaction_4_k1) EGF_EGFR_2 + SHP
+R6: EGF_pEGFR_2 + Shc ->(compartment_0*reaction_5_k1) EGF_pEGFR_2_Shc
+R6_rev: EGF_pEGFR_2_Shc ->(compartment_0*reaction_5_k2) EGF_pEGFR_2 + Shc
+R7: EGF_pEGFR_2_Shc ->(compartment_0*reaction_6_k1) EGF_pEGFR_2_pShc
+R8: EGF_pEGFR_2_pShc ->(compartment_0*reaction_7_k1) EGF_pEGFR_2 + pShc
+R8_rev: EGF_pEGFR_2 + pShc ->(compartment_0*reaction_7_k2) EGF_pEGFR_2_pShc
+R9: SHP + pShc ->(compartment_0*reaction_8_k1) pShc_SHP
+R9_rev: pShc_SHP ->(compartment_0*reaction_8_k2) SHP + pShc
+R10: pShc_SHP ->(compartment_0*reaction_9_k1) SHP + Shc
+R11: EGF_pEGFR_2_pShc + Grb2 ->(compartment_0*reaction_10_k1) EGF_pEGFR_2_pShc_Grb2
+R11_rev: EGF_pEGFR_2_pShc_Grb2 ->(compartment_0*reaction_10_k2) EGF_pEGFR_2_pShc + Grb2
+R12: EGF_pEGFR_2_pShc_Grb2 + SOS ->(compartment_0*reaction_11_k1) EGF_pEGFR_2_pShc_Grb2_SOS
+R12_rev: EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_11_k2) EGF_pEGFR_2_pShc_Grb2 + SOS
+R13: Grb2 + SOS ->(compartment_0*reaction_12_k1) Grb2_SOS
+R13_rev: Grb2_SOS ->(compartment_0*reaction_12_k2) Grb2 + SOS
+R14: EGF_pEGFR_2_pShc + Grb2_SOS ->(compartment_0*reaction_13_k1) EGF_pEGFR_2_pShc_Grb2_SOS
+R14_rev: EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_13_k2) EGF_pEGFR_2_pShc + Grb2_SOS
+R15: EGF_pEGFR_2_pShc_Grb2_SOS + RasGDP ->(compartment_0*reaction_14_k1) EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP
+R15_rev: EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP ->(compartment_0*reaction_14_k2) EGF_pEGFR_2_pShc_Grb2_SOS + RasGDP
+R16: EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP ->(compartment_0*reaction_15_k1) EGF_pEGFR_2_pShc_Grb2_SOS + RasGTP
+R17: EGF_pEGFR_2 + Grb2 ->(compartment_0*reaction_16_k1) EGF_pEGFR_2_Grb2
+R17_rev: EGF_pEGFR_2_Grb2 ->(compartment_0*reaction_16_k2) EGF_pEGFR_2 + Grb2
+R18: EGF_pEGFR_2_Grb2 + SOS ->(compartment_0*reaction_17_k1) EGF_pEGFR_2_Grb2_SOS
+R18_rev: EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_17_k2) EGF_pEGFR_2_Grb2 + SOS
+R19: EGF_pEGFR_2 + Grb2_SOS ->(compartment_0*reaction_18_k1) EGF_pEGFR_2_Grb2_SOS
+R19_rev: EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_18_k2) EGF_pEGFR_2 + Grb2_SOS
+R20: EGF_pEGFR_2_Grb2_SOS + RasGDP ->(compartment_0*reaction_19_k1) EGF_pEGFR_2_Grb2_SOS_RasGDP
+R20_rev: EGF_pEGFR_2_Grb2_SOS_RasGDP ->(compartment_0*reaction_19_k2) EGF_pEGFR_2_Grb2_SOS + RasGDP
+R21: EGF_pEGFR_2_Grb2_SOS_RasGDP ->(compartment_0*reaction_20_k1) EGF_pEGFR_2_Grb2_SOS + RasGTP
+R22: Raf + RasGTP ->(compartment_0*reaction_21_k1) Raf_RasGTP
+R22_rev: Raf_RasGTP ->(compartment_0*reaction_21_k2) Raf + RasGTP
+R23: Raf_RasGTP ->(compartment_0*reaction_22_k1) RasGTP + pRaf
+R24: MEK + pRaf ->(compartment_0*reaction_23_k1) pRaf_MEK
+R24_rev: pRaf_MEK ->(compartment_0*reaction_23_k2) MEK + pRaf
+R25: pRaf_MEK ->(compartment_0*reaction_24_k1) pMEK + pRaf
+R26: pMEK + pRaf ->(compartment_0*reaction_25_k1) pRaf_pMEK
+R26_rev: pRaf_pMEK ->(compartment_0*reaction_25_k2) pMEK + pRaf
+R27: pRaf_pMEK ->(compartment_0*reaction_26_k1) pRaf + ppMEK
+R28: ERK + ppMEK ->(compartment_0*reaction_27_k1) ppMEK_ERK
+R28_rev: ppMEK_ERK ->(compartment_0*reaction_27_k2) ERK + ppMEK
+R29: ppMEK_ERK ->(compartment_0*reaction_28_k1) pERK + ppMEK
+R30: pERK + ppMEK ->(compartment_0*reaction_29_k1) ppMEK_pERK
+R30_rev: ppMEK_pERK ->(compartment_0*reaction_29_k2) pERK + ppMEK
+R31: ppMEK_pERK ->(compartment_0*reaction_30_k1) ppERK + ppMEK
+R32: Pase + pRaf ->(compartment_0*reaction_31_k1) pRaf_Pase
+R32_rev: pRaf_Pase ->(compartment_0*reaction_31_k2) Pase + pRaf
+R33: pRaf_Pase ->(compartment_0*reaction_32_k1) Pase + Raf
+R34: PP2A + ppMEK ->(compartment_0*reaction_33_k1) ppMEK_PP2A
+R34_rev: ppMEK_PP2A ->(compartment_0*reaction_33_k2) PP2A + ppMEK
+R35: ppMEK_PP2A ->(compartment_0*reaction_34_k1) PP2A + pMEK
+R36: PP2A + pMEK ->(compartment_0*reaction_35_k1) pMEK_PP2A
+R36_rev: pMEK_PP2A ->(compartment_0*reaction_35_k2) PP2A + pMEK
+R37: pMEK_PP2A ->(compartment_0*reaction_36_k1) MEK + PP2A
+R38: MKP3 + ppERK ->(compartment_0*reaction_37_k1) ppERK_MKP3
+R38_rev: ppERK_MKP3 ->(compartment_0*reaction_37_k2) MKP3 + ppERK
+R39: ppERK_MKP3 ->(compartment_0*reaction_38_k1) MKP3 + pERK
+R40: MKP3 + pERK ->(compartment_0*reaction_39_k1) pERK_MKP3
+R40_rev: pERK_MKP3 ->(compartment_0*reaction_39_k2) MKP3 + pERK
+R41: pERK_MKP3 ->(compartment_0*reaction_40_k1) ERK + MKP3
+R42: RasGTP ->(compartment_0*reaction_41_k1) RasGDP
+R43: RasGAP + RasGTP ->(compartment_0*reaction_42_k1) RasGTP_RasGAP
+R43_rev: RasGTP_RasGAP ->(compartment_0*reaction_42_k2) RasGAP + RasGTP
+R44: RasGTP_RasGAP ->(compartment_0*reaction_43_k1) RasGAP + RasGDP
+R45: EGF_pEGFR_2_pShc_Grb2_SOS + ppERK ->(compartment_0*reaction_44_k1) ppERK_EGF_pEGFR_2_pShc_Grb2_SOS
+R45_rev: ppERK_EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_44_k2) EGF_pEGFR_2_pShc_Grb2_SOS + ppERK
+R46: ppERK_EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_45_k1) EGF_pEGFR_2 + Grb2 + pSOS + pShc + ppERK
+R47: EGF_pEGFR_2_Grb2_SOS + ppERK ->(compartment_0*reaction_46_k1) ppERK_EGF_pEGFR_2_Grb2_SOS
+R47_rev: ppERK_EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_46_k2) EGF_pEGFR_2_Grb2_SOS + ppERK
+R48: ppERK_EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_47_k1) EGF_pEGFR_2 + Grb2 + pSOS + ppERK
+R49: pSOS ->(compartment_0*reaction_48_k1) SOS
+R50: EGF_pEGFR_2 + PI3K ->(compartment_0*reaction_49_k1) EGF_pEGFR_2_PI3K
+R50_rev: EGF_pEGFR_2_PI3K ->(compartment_0*reaction_49_k2) EGF_pEGFR_2 + PI3K
+R51: EGF_pEGFR_2_PI3K ->(compartment_0*reaction_50_k1) EGF_pEGFF_2 + pPI3K
+R52: TP4 + pPI3K ->(compartment_0*reaction_51_k1) pPI3K_TP4
+R52_rev: pPI3K_TP4 ->(compartment_0*reaction_51_k2) TP4 + pPI3K
+R53: pPI3K_TP4 ->(compartment_0*reaction_52_k1) PI3K + TP4
+R54: PIP2 + pPI3K ->(compartment_0*reaction_53_k1) pPI3K_PIP2
+R54_rev: pPI3K_PIP2 ->(compartment_0*reaction_53_k2) PIP2 + pPI3K
+R55: pPI3K_PIP2 ->(compartment_0*reaction_54_k1) PIP3 + pPI3K
+R56: Akt + PIP3 ->(compartment_0*reaction_55_k1) Akt_PIP3
+R56_rev: Akt_PIP3 ->(compartment_0*reaction_55_k2) Akt + PIP3
+R57: Akt_PIP3 + PDK1 ->(compartment_0*reaction_56_k1) Akt_PIP3_PDK1
+R57_rev: Akt_PIP3_PDK1 ->(compartment_0*reaction_56_k2) Akt_PIP3 + PDK1
+R58: Akt_PIP3_PDK1 ->(compartment_0*reaction_57_k1) PDK1 + pAkt_PIP3
+R59: pAkt_PIP3 ->(compartment_0*reaction_58_k1) PIP3 + pAkt
+R59_rev: PIP3 + pAkt ->(compartment_0*reaction_58_k2) pAkt_PIP3
+R60: Takt + pAkt_PIP3 ->(compartment_0*reaction_59_k1) pAkt_PIP3_Takt
+R60_rev: pAkt_PIP3_Takt ->(compartment_0*reaction_59_k2) Takt + pAkt_PIP3
+R61: pAkt_PIP3_Takt ->(compartment_0*reaction_60_k1) Akt_PIP3 + Takt
+R62: pAkt_PIP3 + pRaf ->(compartment_0*reaction_61_k1) pRaf_pAkt_PIP3
+R62_rev: pRaf_pAkt_PIP3 ->(compartment_0*reaction_61_k2) pAkt_PIP3 + pRaf
+R63: pRaf_pAkt_PIP3 ->(compartment_0*reaction_62_k1) pAkt_PIP3 + ppRaf
+R64: ppRaf ->(compartment_0*reaction_63_k1) pRaf
+R65: PTEN + pROK ->(compartment_0*reaction_64_k1) pROK_PTEN
+R65_rev: pROK_PTEN ->(compartment_0*reaction_64_k2) PTEN + pROK
+R66: pROK_PTEN ->(compartment_0*reaction_65_k1) pPTEN + pROK
+R67: PIP3 + pPTEN ->(compartment_0*reaction_66_k1) pPTEN_PIP3
+R67_rev: pPTEN_PIP3 ->(compartment_0*reaction_66_k2) PIP3 + pPTEN
+R68: pPTEN_PIP3 ->(compartment_0*reaction_67_k1) PIP2 + pPTEN
+R69: pPTEN ->(compartment_0*reaction_68_k1) PTEN
+R70: PIP3 ->(compartment_0*reaction_69_k1) PIP2
+R71: PIP3 + RacGEF ->(compartment_0*reaction_70_k1) PIP3_RacGEF
+R71_rev: PIP3_RacGEF ->(compartment_0*reaction_70_k2) PIP3 + RacGEF
+R72: PIP3_RacGEF + RacGDP ->(compartment_0*reaction_71_k1) PIP3_RacGEF_RacGDP
+R72_rev: PIP3_RacGEF_RacGDP ->(compartment_0*reaction_71_k2) PIP3_RacGEF + RacGDP
+R73: PIP3_RacGEF_RacGDP ->(compartment_0*reaction_72_k1) PIP3_RacGEF + RacGTP
+R74: RacGDP + RhoGDI ->(compartment_0*reaction_73_k1) RhoGDI_RacGDP
+R74_rev: RhoGDI_RacGDP ->(compartment_0*reaction_73_k2) RacGDP + RhoGDI
+R75: RacGTP ->(compartment_0*reaction_74_k1) RacGDP
+R76: RacGAP + RacGTP ->(compartment_0*reaction_75_k1) RacGTP_RacGAP
+R76_rev: RacGTP_RacGAP ->(compartment_0*reaction_75_k2) RacGAP + RacGTP
+R77: RacGTP_RacGAP ->(compartment_0*reaction_76_k1) RacGAP + RacGDP
+R78: RhoGDI + RhoGDP ->(compartment_0*reaction_77_k1) RhoGDP_RhoGDI
+R78_rev: RhoGDP_RhoGDI ->(compartment_0*reaction_77_k2) RhoGDI + RhoGDP
+R79: RhoGDP + pRhoGEF ->(compartment_0*reaction_78_k1) RhoGDP_pRhoGEF
+R79_rev: RhoGDP_pRhoGEF ->(compartment_0*reaction_78_k2) RhoGDP + pRhoGEF
+R80: RhoGDP_pRhoGEF ->(compartment_0*reaction_79_k1) RhoGTP + pRhoGEF
+R81: RhoGTP ->(compartment_0*reaction_80_k1) RhoGDP
+R82: EGF_pEGFR_2 + RasGAP ->(compartment_0*reaction_81_k1) EGF_pEGFR_2_RasGAP
+R82_rev: EGF_pEGFR_2_RasGAP ->(compartment_0*reaction_81_k2) EGF_pEGFR_2 + RasGAP
+R83: EGF_pEGFR_2_RasGAP + RasGTP ->(compartment_0*reaction_82_k1) EGF_pEGFR_2_RasGAP_RasGTP
+R83_rev: EGF_pEGFR_2_RasGAP_RasGTP ->(compartment_0*reaction_82_k2) EGF_pEGFR_2_RasGAP + RasGTP
+R84: EGF_pEGFR_2_RasGAP_RasGTP ->(compartment_0*reaction_83_k1) EGF_pEGFR2_RasGAP + RasGDP
+R85: EGF_pEGFR_2_pShc_Grb2 + SHP2 ->(compartment_0*reaction_84_k1) EGF_pEGFR_2_pShc_Grb2_SHP2
+R85_rev: EGF_pEGFR_2_pShc_Grb2_SHP2 ->(compartment_0*reaction_84_k2) EGF_pEGFR_2_pShc_Grb2 + SHP2
+R86: EGF_pEGFR_2_Grb2 + SHP2 ->(compartment_0*reaction_85_k1) EGF_pEGFR_2_Grb2_SHP2
+R86_rev: EGF_pEGFR_2_Grb2_SHP2 ->(compartment_0*reaction_85_k2) EGF_pEGFR_2_Grb2 + SHP2
+R87: EGF_pEGFR_2_pShc_Grb2_SHP2 ->(compartment_0*reaction_86_k1) EGF_EGFR_2 + Grb2 + SHP2 + pShc
+R88: EGF_pEGFR_2_Grb2_SHP2 ->(compartment_0*reaction_87_k1) EGF_EGFR_2 + Grb2 + SHP2
+R89: EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGEF ->(compartment_0*reaction_88_k1) EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF
+R89_rev: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_88_k2) EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGEF
+R90: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_89_k1) EGF_pEGFR_2_pShc_Grb2_SHP2 + RhoGEF
+R91: EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGAP ->(compartment_0*reaction_90_k1) EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP
+R91_rev: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_90_k2) EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGAP
+R92: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_91_k1) EGF_pEGFR_2_pShc_Grb2_SHP2 + RhoGAP
+R93: EGF_pEGFR_2_Grb2_SHP2 + pRhoGEF ->(compartment_0*reaction_92_k1) EGF_pEGFR_2_Grb2_SHP2_pRhoGEF
+R93_rev: EGF_pEGFR_2_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_92_k2) EGF_pEGFR_2_Grb2_SHP2 + pRhoGEF
+R94: EGF_pEGFR_2_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_93_k1) EGF_pEGFR_2_Grb2_SHP2 + RhoGEF
+R95: EGF_pEGFR_2_Grb2_SHP2 + pRhoGAP ->(compartment_0*reaction_94_k1) EGF_pEGFR_2_Grb2_SHP2_pRhoGAP
+R95_rev: EGF_pEGFR_2_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_94_k2) EGF_pEGFR_2_Grb2_SHP2 + pRhoGAP
+R96: EGF_pEGFR_2_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_95_k1) EGF_pEGFR_2_Grb2_SHP2 + RhoGAP
+R97: EGF_pEGFR_2_RasGAP + SHP2 ->(compartment_0*reaction_96_k1) EGF_pEGFR_2_RasGAP_SHP2
+R97_rev: EGF_pEGFR_2_RasGAP_SHP2 ->(compartment_0*reaction_96_k2) EGF_pEGFR_2_RasGAP + SHP2
+R98: EGF_pEGFR_2_RasGAP_SHP2 ->(compartment_0*reaction_97_k1) EGF_EGFR_2 + RasGAP + SHP2
+R99: RhoGEF + pSrc ->(compartment_0*reaction_98_k1) pSrc_RhoGEF
+R99_rev: pSrc_RhoGEF ->(compartment_0*reaction_98_k2) RhoGEF + pSrc
+R100: pSrc_RhoGEF ->(compartment_0*reaction_99_k1) pRhoGEF + pSrc
+R101: pRhoGEF ->(compartment_0*reaction_100_k1) RhoGEF
+R102: RhoGAP + pSrc ->(compartment_0*reaction_101_k1) pSrc_RhoGAP
+R102_rev: pSrc_RhoGAP ->(compartment_0*reaction_101_k2) RhoGAP + pSrc
+R103: pSrc_RhoGAP ->(compartment_0*reaction_102_k1) pRhoGAP + pSrc
+R104: RhoGTP + pRhoGAP ->(compartment_0*reaction_103_k1) pRhoGAP_RhoGTP
+R104_rev: pRhoGAP_RhoGTP ->(compartment_0*reaction_103_k2) RhoGTP + pRhoGAP
+R105: pRhoGAP_RhoGTP ->(compartment_0*reaction_104_k1) RhoGDP + pRhoGAP
+R106: ROK + RhoGTP ->(compartment_0*reaction_105_k1) RhoGTP_ROK
+R106_rev: RhoGTP_ROK ->(compartment_0*reaction_105_k2) ROK + RhoGTP
+R107: RhoGTP_ROK ->(compartment_0*reaction_106_k1) RhoGTP + pROK
+R108: EGF_pEGFR_2 + Src ->(compartment_0*reaction_107_k1) EGF_pEGFR_2_Src
+R108_rev: EGF_pEGFR_2_Src ->(compartment_0*reaction_107_k2) EGF_pEGFR_2 + Src
+R109: EGF_pEGFR_2_Src ->(compartment_0*reaction_108_k1) EGF_pEGFR_2_pSrc
+R110: EGF_pEGFR_2 ->(compartment_0*reaction_109_k1) EGF_pEGRF_2 + pSrc
+R110_rev: EGF_pEGRF_2 + pSrc ->(compartment_0*reaction_109_k2) EGF_pEGFR_2
+R111: TP7 + pSrc ->(compartment_0*reaction_110_k1) pSrc_TP7
+R111_rev: pSrc_TP7 ->(compartment_0*reaction_110_k2) TP7 + pSrc
+R112: pSrc_TP7 ->(compartment_0*reaction_111_k1) Src_TP7
+R113: Src_TP7 ->(compartment_0*reaction_112_k1) Src + TP7
+R113_rev: Src + TP7 ->(compartment_0*reaction_112_k2) Src_TP7
+R114: Cbl_CIN85 + EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_113_k1) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85
+R114_rev: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 ->(compartment_0*reaction_113_k2) Cbl_CIN85 + EGF_pEGFR_2_pShc_Grb2_SOS
+R115: Cbl_CIN85 + EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_114_k1) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85
+R115_rev: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 ->(compartment_0*reaction_114_k2) Cbl_CIN85 + EGF_pEGFR_2_Grb2_SOS
+R116: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 + EPn ->(compartment_0*reaction_115_k1) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn
+R116_rev: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_115_k2) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 + EPn
+R117: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 + EPn ->(compartment_0*reaction_116_k1) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn
+R117_rev: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_116_k2) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 + EPn
+R118: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_117_k1) Cbl_CIN85 + EGF_pEGFR_2_degrade + EPn + pShc_Grb2_SOS
+R119: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_118_k1) Cbl_CIN85 + EGF_pEGFR_2_degrade + EPn + Grb2_SOS
+R120: Pro_EGFR ->(compartment_0*reaction_119_k1) EGFR
+R121: EPn + pROK ->(compartment_0*reaction_120_k1) pROK_EPn
+R121_rev: pROK_EPn ->(compartment_0*reaction_120_k2) EPn + pROK
+R122: pROK_EPn ->(compartment_0*reaction_121_k1) pEPn + pROK
+R123: MPase + pEPn ->(compartment_0*reaction_122_k1) pEPn_MPase
+R123_rev: pEPn_MPase ->(compartment_0*reaction_122_k2) MPase + pEPn
+R124: pEPn_Mpase ->(compartment_0*reaction_123_k1) EPn + MPase
+R125: RasGTP + RhoGEF ->(compartment_0*reaction_124_k1) Ras_GTP_RhoGEF
+R125_rev: Ras_GTP_RhoGEF ->(compartment_0*reaction_124_k2) RasGTP + RhoGEF
+R126: Ras_GTP_RhoGEF ->(compartment_0*reaction_125_k1) RasGTP + pRhoGEF
+R127: pROK + ppERK ->(compartment_0*reaction_126_k1) ppERK_pROK
+R127_rev: ppERK_pROK ->(compartment_0*reaction_126_k2) pROK + ppERK
+R128: ppERK_pROK ->(compartment_0*reaction_127_k1) ROK + ppERK
+R129: Grb2 + MEKK1abcdef ->(compartment_0*reaction_128_k1) Grb2_MEKK1abcdef
+R129_rev: Grb2_MEKK1abcdef ->(compartment_0*reaction_128_k2) Grb2 + MEKK1abcdef
+R130: EGF_pEGFR_2_pShc + Grb2_MEKK1abcdef ->(compartment_0*reaction_129_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef
+R130_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef ->(compartment_0*reaction_129_k2) EGF_pEGFR_2_pShc + Grb2_MEKK1abcdef
+R131: EGF_pEGFR_2 + Grb2_MEKK1abcdef ->(compartment_0*reaction_130_k1) EGF_pEGFR_2_Grb2_MEKK1abcdef
+R131_rev: EGF_pEGFR_2_Grb2_MEKK1abcdef ->(compartment_0*reaction_130_k2) EGF_pEGFR_2 + Grb2_MEKK1abcdef
+R132: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + MEK ->(compartment_0*reaction_131_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef
+R132_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_131_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + MEK
+R133: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_132_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdef
+R134: EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdef ->(compartment_0*reaction_133_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef
+R135: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef ->(compartment_0*reaction_134_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + ppMEK
+R135_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + ppMEK ->(compartment_0*reaction_134_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef
+R136: EGF_pEGFR_2_Grb2_MEKK1abcdef + MEK ->(compartment_0*reaction_135_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdef
+R136_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_135_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + MEK
+R137: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_136_k1) EGF_pEGFR_2_Grb2_MEKK1abpMEKcdef
+R138: EGF_pEGFR_2_Grb2_MEKK1abpMEKcdef ->(compartment_0*reaction_137_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef
+R139: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef ->(compartment_0*reaction_138_k1) EGF_pEGFR_2_Grb2_MEKK1abcdef + ppMEK
+R139_rev: EGF_pEGFR_2_Grb2_MEKK1abcdef + ppMEK ->(compartment_0*reaction_138_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef
+R140: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + Raf ->(compartment_0*reaction_139_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef
+R140_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef ->(compartment_0*reaction_139_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + Raf
+R141: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + MEK ->(compartment_0*reaction_140_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef
+R141_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_140_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + MEK
+R142: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_141_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbpMEKcdef
+R143: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbpMEKcdef ->(compartment_0*reaction_142_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef
+R144: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef ->(compartment_0*reaction_143_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + ppMEK
+R144_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + ppMEK ->(compartment_0*reaction_143_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef
+R145: EGF_pEGFR_2_Grb2_MEKK1abcdef + Raf ->(compartment_0*reaction_144_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef
+R145_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef ->(compartment_0*reaction_144_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + Raf
+R146: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + MEK ->(compartment_0*reaction_145_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef
+R146_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_145_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + MEK
+R147: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_146_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbpMEKcdef
+R148: EGF_pEGFR_2_Grb2_MEKK1aRafbpMEKcdef ->(compartment_0*reaction_147_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef
+R149: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef ->(compartment_0*reaction_148_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + ppMEK
+R149_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + ppMEK ->(compartment_0*reaction_148_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef
+R150: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + RasGTP ->(compartment_0*reaction_149_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP
+R150_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP ->(compartment_0*reaction_149_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + RasGTP
+R151: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + MEK ->(compartment_0*reaction_150_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP
+R151_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_150_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + MEK
+R152: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_151_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdefRasGTP
+R153: EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdefRasGTP ->(compartment_0*reaction_152_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP
+R154: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP ->(compartment_0*reaction_153_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + ppMEK
+R154_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + ppMEK ->(compartment_0*reaction_153_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP
+R155: EGF_pEGFR_2_Grb2_MEKK1abcdef + RasGTP ->(compartment_0*reaction_154_k1) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP
+R155_rev: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP ->(compartment_0*reaction_154_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + RasGTP
+R156: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + MEK ->(compartment_0*reaction_155_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP
+R156_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_155_k2) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + MEK
+R157: EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_156_k1) EGF_pEGFR_2_Grb2_MEKK1abpMEKcdefRasGTP
+R158: EGF_pEGFR_2_Grb2_MEKK1abpMEKcdefRasGTP ->(compartment_0*reaction_157_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP
+R159: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP ->(compartment_0*reaction_158_k1) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + ppMEK
+R159_rev: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + ppMEK ->(compartment_0*reaction_158_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP
+R160: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ERK ->(compartment_0*reaction_159_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP
+R160_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_159_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ERK
+R161: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_160_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdefRasGTP
+R162: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdefRasGTP ->(compartment_0*reaction_161_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdefRasGTP
+R163: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdefRasGTP ->(compartment_0*reaction_162_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ppERK
+R164: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ERK ->(compartment_0*reaction_163_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP
+R164_rev: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_163_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ERK
+R165: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_164_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdefRasGTP
+R166: EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdefRasGTP ->(compartment_0*reaction_165_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdefRasGTP
+R167: EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdefRasGTP ->(compartment_0*reaction_166_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ppERK
+R168: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + pRaf ->(compartment_0*reaction_167_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef
+R168_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef ->(compartment_0*reaction_167_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + pRaf
+R169: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + MEK ->(compartment_0*reaction_168_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef
+R169_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_168_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + MEK
+R170: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_169_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbpMEKcdef
+R171: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbpMEKcdef ->(compartment_0*reaction_170_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef
+R172: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef ->(compartment_0*reaction_171_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + ppMEK
+R172_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + ppMEK ->(compartment_0*reaction_171_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef
+R173: EGF_pEGFR_2_Grb2_MEKK1abcdef + pRaf ->(compartment_0*reaction_172_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef
+R173_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef ->(compartment_0*reaction_172_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + pRaf
+R174: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + MEK ->(compartment_0*reaction_173_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef
+R174_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_173_k2) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + MEK
+R175: EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_174_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbpMEKcdef
+R176: EGF_pEGFR_2_Grb2_MEKK1apRafbpMEKcdef ->(compartment_0*reaction_175_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef
+R177: EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef ->(compartment_0*reaction_176_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + ppMEK
+R177_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + ppMEK ->(compartment_0*reaction_176_k2) EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef
+R178: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef + RhoGTP ->(compartment_0*reaction_177_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdRhoGTPef
+R178_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdRhoGTPef ->(compartment_0*reaction_177_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef + RhoGTP
+R179: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef + RhoGTP ->(compartment_0*reaction_178_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdRhoGTPef
+R179_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdRhoGTPef ->(compartment_0*reaction_178_k2) EGF_pEGFR_2_Grb2_MEKK1abMEKcdef + RhoGTP
+R180: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef + RhoGTP ->(compartment_0*reaction_179_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdRhoGTPef
+R180_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdRhoGTPef ->(compartment_0*reaction_179_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef + RhoGTP
+R181: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef + RhoGTP ->(compartment_0*reaction_180_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdRhoGTPef
+R181_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdRhoGTPef ->(compartment_0*reaction_180_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef + RhoGTP
+R182: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ERK ->(compartment_0*reaction_181_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef
+R182_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_181_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ERK
+R183: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_182_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdef
+R184: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdef ->(compartment_0*reaction_183_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdef
+R185: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdef ->(compartment_0*reaction_184_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ppERK
+R186: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ERK ->(compartment_0*reaction_185_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef
+R186_rev: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_185_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ERK
+R187: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_186_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdef
+R188: EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdef ->(compartment_0*reaction_187_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdef
+R189: EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdef ->(compartment_0*reaction_188_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ppERK
+R190: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ERK ->(compartment_0*reaction_189_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef
+R190_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_189_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ERK
+R191: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_190_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcpERKdef
+R192: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcpERKdef ->(compartment_0*reaction_191_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcppERKdef
+R193: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcppERKdef ->(compartment_0*reaction_192_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ppERK
+R194: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ERK ->(compartment_0*reaction_193_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef
+R194_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_193_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ERK
+R195: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_194_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcpERKdef
+R196: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcpERKdef ->(compartment_0*reaction_195_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcppERKdef
+R197: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcppERKdef ->(compartment_0*reaction_196_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ppERK
+R198: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_197_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf
+R198_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_197_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP
+R199: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_198_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + RhoGDP + pRhoGAP
+R200: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_199_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf
+R200_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_199_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP
+R201: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_200_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + RhoGDP + pRhoGAP
+R202: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_201_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf
+R202_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_201_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP
+R203: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_202_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + RhoGDP + pRhoGAP
+R204: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_203_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf
+R204_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_203_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP
+R205: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_204_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + RhoGDP + pRhoGAP

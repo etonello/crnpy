@@ -1,0 +1,16 @@
+reaction_1: Rec ->(IL13*Kon_IL13Rec*cell) IL13_Rec
+reaction_2: Rec ->(Rec_intern*cell) Rec_i
+reaction_3: Rec_i ->(Rec_recycle*cell) Rec
+reaction_4: IL13_Rec ->(Rec_phosphorylation*cell*pJAK2) p_IL13_Rec
+reaction_5: JAK2 ->(IL13_Rec*JAK2_phosphorylation*cell/(JAK2_p_inhibition*SOCS3 + 1)) pJAK2
+reaction_6: JAK2 ->(JAK2_phosphorylation*cell*p_IL13_Rec/(JAK2_p_inhibition*SOCS3 + 1)) pJAK2
+reaction_7: p_IL13_Rec ->(cell*pRec_intern) p_IL13_Rec_i
+reaction_8: p_IL13_Rec_i ->(cell*pRec_degradation) 
+reaction_9: pJAK2 ->(SHP1*cell*pJAK2_dephosphorylation) JAK2
+reaction_10: STAT5 ->(STAT5_phosphorylation*cell*pJAK2) pSTAT5
+reaction_11: pSTAT5 ->(SHP1*cell*pSTAT5_dephosphorylation) STAT5
+reaction_12: DecoyR ->(DecoyR_binding*IL13*cell) IL13_DecoyR
+reaction_13:  ->(SOCS3mRNA_production*cell*pSTAT5) SOCS3mRNA
+reaction_14:  ->(SOCS3_translation*SOCS3mRNA*cell/(SOCS3_accumulation + SOCS3mRNA)) SOCS3
+reaction_15: SOCS3 ->(SOCS3_degradation*cell) 
+reaction_16:  ->(CD274mRNA_production*cell*pSTAT5) CD274mRNA

@@ -1,0 +1,27 @@
+pRB_E2F_complex_deassociation: pRB_E2F ->((CycD_CDK4*k1p*pRB_E2F + a_cyclinE_CDK2*k1*pRB_E2F + cycD_CDK4_p27*k1pp*pRB_E2F)/pRB_E2F) E2F + pRB_P
+pRB_E2F_complex_formation: E2F + pRB ->(kminus1) pRB_E2F
+cycE_CDK2_activation: i_cyclinE_CDK2 ->(a_cyclinE_CDK2*k2) a_cyclinE_CDK2
+cycE_CDK2_deactivation: a_cyclinE_CDK2 ->(kminus2) i_cyclinE_CDK2
+icycE_CDK2_synthesis:  ->(E2F*k3 + k3p) i_cyclinE_CDK2
+E2F_synthesis:  ->(k4) E2F
+E2F_degradation: E2F ->(kminus4) 
+icycE_CDK2_degradation: i_cyclinE_CDK2 ->(k5) 
+cycD_CDK4_synthesis:  ->(k6) CycD_CDK4
+cycD_CDK4_degradation: CycD_CDK4 ->(kminus6) 
+p27_synthesis:  ->(k7) p27
+p27_degradation_via_cycE_CDK2: p27 ->(a_cyclinE_CDK2*k8) 
+cycE_CDK2_p27_complex_formation: a_cyclinE_CDK2 + p27 ->(k9) cycE_CDK2_p27
+cycE_CDK2_p27_deassociation: cycE_CDK2_p27 ->(K10) a_cyclinE_CDK2 + p27
+cycD_CDK4_p16_complex_formation: CycD_CDK4 + p16 ->(k17) 
+E2F_auto_stimulation:  ->(E2F*k18) E2F
+cycD_CDK4_p27_complex_formation: CycD_CDK4 + p27 ->(k19) cycD_CDK4_p27
+cycD_CDK4_p27_complex_deassociation: cycD_CDK4_p27 ->(k20) CycD_CDK4 + p27
+acycE_CDK2_degradation: a_cyclinE_CDK2 ->(a_cyclinE_CDK2*k21) 
+p27_degradation: p27 ->(k22) 
+p16_synthesis:  ->(k23) p16
+p16_degradation: p16 ->(k24) 
+p16_synthesis_inhibited_by_pRB:  ->(k25/(k25p*pRB + 1)) p16
+pRB_synthesis_inhibited_by_p16:  ->(k26/(k26p*p16 + 1)) pRB
+pRB_synthesis:  ->(k27) pRB
+pRB_degradation: pRB ->(k28) 
+pRB_p_dephosphorylation: pRB_P ->(k29) pRB

@@ -1,0 +1,14 @@
+k1:  ->(ERK2*compartment_1*k1) ACA
+k2: ACA ->(compartment_1*k2) 
+k3:  ->(In_cAMP*compartment_1*k3) PKA
+k4: PKA ->(compartment_1*k4) 
+k5:  ->(CAR1*compartment_1*k5) ERK2
+k6: ERK2 ->(PKA*compartment_1*k6) 
+k7:  ->(compartment_1*k7) REGA
+k8: REGA ->(ERK2*compartment_1*k8) 
+k9:  ->(ACA*compartment_1*k9) In_cAMP
+k10: In_cAMP ->(REGA*compartment_1*k10) 
+k11:  ->(ACA*compartment_0*k11) Ex_cAMP
+k12: Ex_cAMP ->(compartment_0*k12) 
+k13:  ->(Ex_cAMP*compartment_1*k13) CAR1
+k14: CAR1 ->(PKA*compartment_1*k14) 

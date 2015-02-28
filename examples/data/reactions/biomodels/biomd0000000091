@@ -1,0 +1,23 @@
+proteinSynthesis: 0_source ->(k1) NatP
+misfolding: NatP + ROS ->(k2) MisP + ROS
+Hsp90MisPBinding: Hsp90 + MisP ->(k3) MCom
+unsuccessfulRefolding: MCom ->(k4) Hsp90 + MisP
+refolding: ATP + MCom ->(k5) ADP + Hsp90 + NatP
+proteinDegradation: ATP + MisP ->(k6) ADP
+proteinAggregation1: 2MisP ->(k7*(MisP - 1)/(2*MisP)) AggP
+proteinAggregation2: AggP + MisP ->(k7) 2AggP
+Hsp90HSF1Binding: HSF1 + Hsp90 ->(k8) HCom
+Hsp90HSF1Release: HCom ->(k9) HSF1 + Hsp90
+dimerisation: 2HSF1 ->(k10*(HSF1 - 1)/(2*HSF1)) DiH
+trimerisation: DiH + HSF1 ->(k11) TriH
+deTrimerisation: TriH ->(k12) DiH + HSF1
+deDimerisation: DiH ->(k13) 2HSF1
+HSETriHBinding: HSE + TriH ->(k14) HSETriH
+HSETriHRelease: HSETriH ->(k15) HSE + TriH
+Hsp90Transcription: HSETriH ->(k16) HSETriH + Hsp90
+Hsp90Degradation: ATP + Hsp90 ->(k17) ADP
+countTime: 0_source ->(1) X
+ATPformation: ADP ->(k18) ATP
+ATPconsumption: ATP ->(k19) ADP
+radicalFormation: 0_source ->(k20) ROS
+radicalScavenging: ROS ->(k21) 

@@ -1,0 +1,3 @@
+r1: E + X ->(cell) P
+r1_rev: P ->(K2*cell) E + X
+r2: P ->(K3*cell) E + Q

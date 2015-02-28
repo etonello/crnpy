@@ -1,0 +1,32 @@
+RuBisCo: RuBP ->(Vm*chloroplast/(K*(FBP/KR2 + 1 + NADPH/KR5 + R4/KR4 + SBP/KR3 + PGA/KR1) + RuBP)) 2PGA
+PGA_kinase: ATP + PGA ->(chloroplast*k1) ADP + DPGA
+PGA_kinase_rev: ADP + DPGA ->(chloroplast*k2) ATP + PGA
+GAP_dehydrogenase: DPGA + H + NADPH ->(chloroplast*k1) GAP + NADP + Pi
+GAP_dehydrogenase_rev: GAP + NADP + Pi ->(chloroplast*k2) DPGA + H + NADPH
+TP_isomerase: GAP ->(chloroplast*k1) DHAP
+TP_isomerase_rev: DHAP ->(chloroplast*k2) GAP
+FBP_aldolase: DHAP + GAP ->(chloroplast*k1) FBP
+FBP_aldolase_rev: FBP ->(chloroplast*k2) DHAP + GAP
+FBP_ase: FBP ->(Vm*chloroplast/(FBP + K*(F6P/KR1 + 1 + R2/KR2))) F6P + Pi
+F6P_transketolase: F6P + GAP ->(chloroplast*k1) E4P + X5P
+F6P_transketolase_rev: E4P + X5P ->(chloroplast*k2) F6P + GAP
+SBP_aldolase: DHAP + E4P ->(chloroplast*k1) SBP
+SBP_aldolase_rev: SBP ->(chloroplast*k2) DHAP + E4P
+SBP_ase: SBP ->(Vm*chloroplast/(K*(1 + R1/KR1) + SBP)) Pi + S7P
+S7P_transketolase: GAP + S7P ->(chloroplast*k1) R5P + X5P
+S7P_transketolase_rev: R5P + X5P ->(chloroplast*k2) GAP + S7P
+R5P_isomerase: R5P ->(chloroplast*k1) Ru5P
+R5P_isomerase_rev: Ru5P ->(chloroplast*k2) R5P
+Ru5P_epimerase: X5P ->(chloroplast*k1) Ru5P
+Ru5P_epimerase_rev: Ru5P ->(chloroplast*k2) X5P
+Ru5P_kinase: ATP + Ru5P ->(Vm*chloroplast/((ATP*(ADP/KR41 + 1) + K2*(ADP/KR42 + 1))*(K1*(1 + R3/KR3 + RuBP/KR2 + PGA/KR1) + Ru5P))) ADP + RuBP
+PG_isomerase: F6P ->(chloroplast*k1) G6P
+PG_isomerase_rev: G6P ->(chloroplast*k2) F6P
+PG_mutase: G6P ->(chloroplast*k1) G1P
+PG_mutase_rev: G1P ->(chloroplast*k2) G6P
+starch_synthase: ATP + G1P ->(Vm*chloroplast/((ATP + K2*(K2*R2/(F6P*KA2 + FBP*KA3 + KA1*PGA) + 1))*(G1P + K1)*(ADP/KR1 + 1))) 
+starch_phosphorylase: Pi ->(S*Vm*chloroplast/(Pi*(K*(G1P/KR1 + 1) + S))) G1P
+ATP_synthetase: ADP + Pi ->(Vm*chloroplast*s2/(Pi*(ADP + K1)*(K2 + s2))) ATP
+TPT___PGA: PGA ->(Vm*chloroplast/(K*((KA/Pext + 1)*(DHAP/KR3 + GAP/KR2 + R1/KR1) + 1) + PGA*(KA/Pext + 1))) 
+TPT___GAP: GAP ->(Vm*chloroplast/(GAP*(KA/Pext + 1) + K*((KA/Pext + 1)*(DHAP/KR3 + PGA/KR2 + R1/KR1) + 1))) 
+TPT___DHAP: DHAP ->(Vm*chloroplast/(DHAP*(KA/Pext + 1) + K*((KA/Pext + 1)*(GAP/KR3 + PGA/KR2 + R1/KR1) + 1))) 

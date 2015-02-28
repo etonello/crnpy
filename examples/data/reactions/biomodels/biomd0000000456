@@ -1,0 +1,12 @@
+v1: x2 + y1 ->(v1_e1*v1_p1/(x1*x3 + x1 + x2*y1 + x2 + x3 + y1 + 1)) x1 + x3
+v1_rev: x1 + x3 ->(v1_e1/(x1*x3 + x1 + x2*y1 + x2 + x3 + y1 + 1)) x2 + y1
+v2: x3 + y4 ->(v2_e2*v2_p2/(x2*y5 + x2 + x3*y4 + x3 + y4 + y5 + 1)) x2 + y5
+v2_rev: x2 + y5 ->(v2_e2/(x2*y5 + x2 + x3*y4 + x3 + y4 + y5 + 1)) x3 + y4
+v3: x1 ->(v3_e3*v3_p3/(x1 + y2 + 1)) y2
+v3_rev: y2 ->(v3_e3/(x1 + y2 + 1)) x1
+v4: x1 ->(v4_e4*v4_p4/(x1 + y3 + 1)) y3
+v4_rev: y3 ->(v4_e4/(x1 + y3 + 1)) x1
+v6: y7 ->(v6_e6*v6_p6) x4
+v6_rev: x4 ->(0) y7
+v7: x4 ->(v7_e7*v7_p7/x4) y8
+v7_rev: y8 ->(0) x4

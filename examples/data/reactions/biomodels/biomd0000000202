@@ -1,0 +1,15 @@
+ER_Channel: Ca_ER ->(Cytoplasm*(-Ca_Cyt + Ca_ER)*(Ca_Cyt**3*IP3_Cyt**3*P_IP3R*h**3/((Ca_Cyt + Ka)**3*(IP3_Cyt + Ki)**3) + L)/Ca_ER) Ca_Cyt
+SERCA: Ca_Cyt ->(Ca_Cyt**p*Cytoplasm*V_SERCA/(Ca_Cyt*(Ca_Cyt**p + K_SERCA**p))) Ca_ER
+PM_Channel:  ->(Cytoplasm*(-Ca_Cyt + Ca_ec)*(O_o*k_soc + V_PMleak)) Ca_Cyt
+PMCA: Ca_Cyt ->(Ca_Cyt**q*Cytoplasm*V_PMCA/(Ca_Cyt*(Ca_Cyt**q + K_PMCA**q))) 
+PLC:  ->(Ca_Cyt**2*Cytoplasm*V_PLC/(Ca_Cyt**2 + K_PLC**2)) IP3_Cyt
+deg: IP3_Cyt ->(Ca_Cyt**2*Cytoplasm*kdeg/(Ca_Cyt**2 + K_deg**2)) 
+act_apoSTIM1_syn:  ->(ER*S2*k_a) S2a
+act_apoSTIM1_deg: S2a ->(ER*k_i) 
+apoSTIM1_oligo_syn:  ->(ER*S2**2*Vs4/(K2**2 + S2**2)) S4
+apoSTIM1_oligo_deg: S4 ->(ER*kd_oligo) 
+close_CRAC_prod:  ->(Orai1**n_hill*PM*Vcp/(Kc**n_hill + Orai1**n_hill)) Oc
+closed_CRAC_channel_deg: Oc ->(PM*kdc) 
+open_CRAC_channel_prod: Oc ->(PM*S2a**l_hill*kop/(Ko**l_hill + S2a**l_hill)) O_o
+open_to_closed: O_o ->(PM*kod) Oc
+open_CRAC_channel_deg: O_o ->(PM*kdo) 

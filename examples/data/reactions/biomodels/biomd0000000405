@@ -1,0 +1,8 @@
+binding1: E + x1 ->(Kp*compartment_1) _E1
+binding2: E + x2 ->(Kp*compartment_1) E2
+production1:  ->(compartment_1*lambda1) x1
+production2:  ->(compartment_1*lambda2) x2
+degradation1: _E1 ->(compartment_1*mu) E
+degradation2: E2 ->(compartment_1*mu) E
+dilution1: x1 ->(compartment_1*g) 
+dilution2: x2 ->(compartment_1*g) 

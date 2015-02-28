@@ -1,0 +1,11 @@
+OATP1B3_mediated_import: free_basolateral_BSP ->(p1) free_intracellular_BSP
+ABCC2_mediated_export: free_intracellular_BSP ->(p2) apical_BSP
+endogenous_basolateral_import: free_basolateral_BSP ->(p3) free_intracellular_BSP
+endogenous_basolateral_export: free_intracellular_BSP ->(p4) free_basolateral_BSP
+endogenous_apical_export: free_intracellular_BSP ->(p5) apical_BSP
+basolateral_BSP_binding: free_basolateral_BSP ->(p6*(-basolateral_bound_BSP + p8)) basolateral_bound_BSP
+basolateral_BSP_dissoc: basolateral_bound_BSP ->(p7) free_basolateral_BSP
+cellular_BSP_binding: free_intracellular_BSP ->(p9*(-bound_intracellular_BSP + p11)) bound_intracellular_BSP
+cellular_BSP_dissoc: bound_intracellular_BSP ->(p10) free_intracellular_BSP
+paracellular_transport: free_basolateral_BSP ->(p12/basolat) apical_BSP
+paracellular_transport_rev: apical_BSP ->(p12/apical) free_basolateral_BSP

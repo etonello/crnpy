@@ -1,0 +1,19 @@
+reaction_1: FADD ->(CD95act*cell*kon_FADD) DISC
+reaction_2: DISC ->(cell*koff_FADD) FADD
+reaction_3: DISC + p55free ->(cell*kDISC) DISCp55
+reaction_4: DISCp55 ->(cell*kD216) p30
+reaction_5: DISCp55 ->(cell*kD216trans_p55*(DISCp55 + p30)) p30
+reaction_6: DISCp55 ->(cell*kD216trans_p43*p43) p30
+reaction_7: p43 ->(cell*kD216) DISC + p18
+reaction_8: p43 ->(cell*kD216trans_p55*(DISCp55 + p30)) DISC + p18
+reaction_9: p43 ->(cell*kD216trans_p43*p43) DISC + p18
+reaction_10: DISCp55 ->(cell*kD374) p43
+reaction_11: DISCp55 ->(cell*kD374trans_p55*(DISCp55 + p30)) p43
+reaction_12: DISCp55 ->(cell*kD374trans_p43*p43) p43
+reaction_13: p30 ->(cell*kD374) DISC + p18
+reaction_14: p30 ->(cell*kD374trans_p55*(DISCp55 + p30)) DISC + p18
+reaction_15: p30 ->(cell*kD374trans_p43*p43) DISC + p18
+reaction_16: p18 ->(cell*kdiss_p18) p18inactive
+reaction_17: Bid ->(cell*kBid*(p18 + p43)) tBid
+reaction_18: PrNES_mCherry ->(cell*kD374probe*(p18 + p43)) PrNES + mCherry
+reaction_19: PrER_mGFP ->(cell*kD374probe*p18) PrER + mGFP

@@ -1,0 +1,22 @@
+SOS_conformational_activation: D_SOS + EGFR_active ->(D_SOS**n_SOS*k_SOS_E/(D_SOS*(D_SOS**n_SOS + KM_SOS_E**n_SOS))) A_SOS + EGFR_active
+kRas_Activation: A_SOS + Ras ->(Ras**n_Ras_SOS*k_Ras_SOS/(Ras*(KM_Ras_SOS**n_Ras_SOS + Ras**n_Ras_SOS))) A_SOS + Ras_active
+EGFR_degradation: EGFR_active ->(gamma_EGFR) 
+ERK_activation_by_Mek: ERK + Mek_active ->(k_ERK_MekActive/(ERK + KM_ERK_MekActive)) ERK_active + Mek_active
+SOS_deactivation_by_P90: A_SOS + P90Rsk_Active ->(A_SOS**n_D_SOS*k_D_SOS_P90Rsk/(A_SOS*(A_SOS**n_D_SOS + KM_D_SOS_P90Rsk**n_D_SOS))) D_SOS + P90Rsk_Active
+SOS_activation_by_IGF: D_SOS + IGFR_active ->(D_SOS**n_A_SOS_I*k_A_SOS_I/(D_SOS*(D_SOS**n_A_SOS_I + KM_A_SOS_I**n_A_SOS_I))) A_SOS + IGFR_active
+PI3KCA_activation_by_IGF1R: IGFR_active + PI3KCA ->(PI3KCA**n_PI3K_I*k_PI3K_IGF1R/(PI3KCA*(KM_PI3K_IGF1R**n_PI3K_I + PI3KCA**n_PI3K_I))) IGFR_active + PI3KCA_active
+PI3KCA_activation_by_EGF: EGFR_active + PI3KCA ->(EGFR_active*PI3KCA**n_PI3K_E*k_PI3K_EGF1R/(PI3KCA*(KM_PI3K_EGF1R**n_PI3K_E + PI3KCA**n_PI3K_E))) EGFR_active + PI3KCA_active
+Akt_activation_by_PI3KCA: AKT + PI3KCA_active ->(AKT**n_AKT_PI3K*k_AKT_PI3K/(AKT*(AKT**n_AKT_PI3K + KM_AKT_PI3K**n_AKT_PI3K))) AKT_active + PI3KCA_active
+Akt_deactivation: AKT_active ->(kd_AKT) AKT
+ERK_deactivation_by_PP2A: ERK_active + PP2A ->(ERK_active**n_ERKactive_PP2A*k_ERKactive_PP2A/(ERK_active*(ERK_active**n_ERKactive_PP2A + KM_ERKactive_PP2A**n_ERKactive_PP2A))) ERK + PP2A
+PI3KCA_activation_by_kRas: PI3KCA + Ras_active ->(PI3KCA**n_PI3K_Ras*k_PI3K_Ras/(PI3KCA*(KM_PI3K_Ras**n_PI3K_Ras + PI3KCA**n_PI3K_Ras))) PI3KCA_active + Ras_active
+Raf_activation_by_kRas: Raf + Ras_active ->(Raf**n_Raf_RasActive*k_Raf_RasActive/(Raf*(KM_Raf_RasActive + Raf**n_Raf_RasActive))) Raf_active + Ras_active
+Mek_activation_by_Raf: Mek + Raf_active ->(Mek**n_Mek_PP2A*k_Mek_PP2A/(Mek*(KM_MekPP2A**n_Mek_PP2A + Mek**n_Mek_PP2A))) Mek_active + Raf_active
+Raf_deactivation_by_Akt: AKT_active + Raf_active ->(Raf_active**n_Raf_AKT*k_Raf_AKT/(Raf_active*(KM_Raf_AKT**n_Raf_AKT + Raf_active**n_Raf_AKT))) AKT_active + Raf
+Ras_deactivation_by_RasGab: RasGapActive + Ras_active ->(Ras_active**n_RasActiveRasGap*k_RasActiveRasGap/(Ras_active*(KM_RasActiveRasGap**n_RasActiveRasGap + Ras_active**n_RasActiveRasGap))) Ras + RasGapActive
+Mek_deactivation_by_PP2A: Mek_active + PP2A ->(Mek_active**n_MekActivePP2A*k_MekActivePP2A/(Mek_active*(KM_MekActivePP2A**n_MekActivePP2A + Mek_active**n_MekActivePP2A))) Mek + PP2A
+IGFR_active_degradation: IGFR_active ->(gamma_IGFR) 
+PI3KCA_deactivation: PI3KCA_active ->(kd_PI3K_a) PI3KCA
+Raf_deactivation_by_RafPP: RafPP + Raf_active ->(Raf_active**n_RasActive_RafPP*k_RasActive_RafPP/(Raf_active*(KM_RasActive_RafPP**n_RasActive_RafPP + Raf_active**n_RasActive_RafPP))) Raf + RafPP
+P90_activation_by_ERK: ERK_active + P90RskInactive ->(k_P90Rsk_ERKActive/(KM_P90Rsk_ERKActive + P90RskInactive)) ERK_active + P90Rsk_Active
+P90_deactivation: P90Rsk_Active ->(kd_P90Rsk) P90RskInactive

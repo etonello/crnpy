@@ -1,0 +1,52 @@
+Binding_of_virions_to_high_affinity_sites: Bhi + Vex ->(compartment_1*kAttHi) VattHi
+Binding_of_virions_to_high_affinity_sites_rev: VattHi ->(compartment_1*kDisHi) Bhi + Vex
+Binding_of_virions_to_low_affinity_sites: Blo + Vex ->(compartment_1*kAttLo) VattLo
+Binding_of_virions_to_low_affinity_sites_rev: VattLo ->(compartment_1*kDisLo) Blo + Vex
+Endocytosis_of_virions_bound_to_high_affinity_sites: VattHi ->(compartment_1*kEn) Bhi + Ven
+Endocytosis_of_virions_bound_to_low_affinity_sites: VattLo ->(compartment_1*kEn) Blo + Ven
+Fusion_of_virions_with_endosomes: Ven ->(compartment_1*kFus) Vfus + 8VpCyt
+Degradation_of_virions_in_endosomes: Ven ->(compartment_1*kDegVen) 
+Nuclear_import_of_vRNPs: VpCyt ->(compartment_1*kImp) VpNuc
+Synthesis_of_cRNA: VpNuc ->(compartment_1*kSynC) Rc + VpNuc
+Binding_of_polymerase_to_nascent_cRNA: P_Rdrp + Rc ->(compartment_1*kBindRdrp) RcRdrp
+Binding_of_NP_to_RdRp_cRNA_complexes: 71P_Np + RcRdrp ->(compartment_1*kBindNp/P_Np**70) Cp
+Binding_of_M1_to_vRNPs_in_the_nucleus: 8P_M1 + VpNuc ->(compartment_1*kBindM1/P_M1**7) VpNucM1
+Nuclear_export_of_vRNPs: P_Nep + VpNucM1 ->(compartment_1*kExp) VpCytM1
+Synthesis_of_vRNA: Cp ->(compartment_1*kSynV) Cp + Rv
+Binding_of_polymerase_to_nascent_vRNA: P_Rdrp + Rv ->(compartment_1*kBindRdrp) RvRdrp
+Binding_of_NP_to_RdRp_vRNA_complexes: 71P_Np + RvRdrp ->(compartment_1*kBindNp/P_Np**70) VpNuc
+Synthesis_of_mRNA_of_segment_1: VpNuc ->(compartment_1*kSynM1) Rm1 + VpNuc
+Synthesis_of_mRNA_of_segment_2: VpNuc ->(compartment_1*kSynM2) Rm2 + VpNuc
+Synthesis_of_mRNA_of_segment_3: VpNuc ->(compartment_1*kSynM3) Rm3 + VpNuc
+Synthesis_of_mRNA_of_segment_4: VpNuc ->(compartment_1*kSynM4) Rm4 + VpNuc
+Synthesis_of_mRNA_of_segment_5: VpNuc ->(compartment_1*kSynM5) Rm5 + VpNuc
+Synthesis_of_mRNA_of_segment_6: VpNuc ->(compartment_1*kSynM6) Rm6 + VpNuc
+Synthesis_of_mRNA_of_segment_7: VpNuc ->(compartment_1*kSynM7) Rm7 + VpNuc
+Synthesis_of_mRNA_of_segment_8: VpNuc ->(compartment_1*kSynM8) Rm8 + VpNuc
+Synthesis_of_PB1: Rm2 ->(compartment_1*kSynP_Drib) P_Pb1 + Rm2
+Synthesis_of_PB2: Rm1 ->(compartment_1*kSynP_Drib) P_Pb2 + Rm1
+Synthesis_of_PA: Rm3 ->(compartment_1*kSynP_Drib) P_Pa + Rm3
+Formation_of_polymerases: P_Pa + P_Pb1 + P_Pb2 ->(compartment_1*kRdrp) P_Rdrp
+Synthesis_of_NP: Rm5 ->(compartment_1*kSynP_Drib) P_Np + Rm5
+Synthesis_of_M1: Rm7 ->(compartment_1*kSynP_M1) P_M1 + Rm7
+Synthesis_of_NEP: Rm8 ->(compartment_1*kSynP_NEP) P_Nep + Rm8
+Synthesis_of_HA: Rm4 ->(compartment_1*kSynP_Drib) P_Ha + Rm4
+Synthesis_of_NA: Rm6 ->(compartment_1*kSynP_Drib) P_Na + Rm6
+Synthesis_of_M2: Rm7 ->(compartment_1*kSynP_M2) P_M2 + Rm7
+Virus_release: 500P_Ha + 2932P_M1 + 40P_M2 + 100P_Na + 157P_Nep + 433P_Np + 37P_Rdrp + 8VpCytM1 ->(compartment_1*kRel/(P_Ha**499*P_M1**2931*P_M2**39*P_Na**99*P_Nep**156*P_Np**432*P_Rdrp**36*VpCytM1**7*(KmB + P_Rdrp)*(KmC + P_Ha)*(KmD + P_Np)*(KmE + P_Na)*(KmF + P_M1)*(KmG + P_M2)*(KmH + P_Nep))) Vrel
+Degradation_of_vRNPs_in_the_nucleus: VpNuc ->(compartment_1*kDegRnp) 
+Degradation_of_nascent_cRNA: Rc ->(compartment_1*kDegR) 
+Degradation_of_nascent_vRNA: Rv ->(compartment_1*kDegR) 
+Degradation_of_RdRp_cRNA: RcRdrp ->(compartment_1*kDegRrdrp) 
+Degradation_of_RdRp_vRNA: RvRdrp ->(compartment_1*kDegRrdrp) 
+Degradation_of_cRNPs: Cp ->(compartment_1*kDegRnp) 
+Degradation_of_M1_vRNP_complexes_in_the_nucleus: VpNucM1 ->(compartment_1*kDegRnp) 
+Degradation_of_M1_vRNP_complexes_in_the_cytoplasm: VpCytM1 ->(compartment_1*kDegRnp) 
+Degradation_of_mRNA_of_segment_1: Rm1 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_2: Rm2 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_3: Rm3 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_4: Rm4 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_5: Rm5 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_6: Rm6 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_7: Rm7 ->(compartment_1*kDegM) 
+Degradation_of_mRNA_of_segment_8: Rm8 ->(compartment_1*kDegM) 

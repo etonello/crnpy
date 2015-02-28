@@ -1,0 +1,12 @@
+r0_r3: a ->(d*k1*k_2/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) b
+r0_r5: a ->(k1*k_3/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) c + d
+r0_r6: a ->(d*k1*k4/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) p
+r0_r7: a ->(k1*k5/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) d + q
+r2_r1: b ->(d*k2*k_1/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) a
+r2_r5: b ->(k2*k_3/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) c + d
+r2_r6: b ->(d*k2*k4/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) p
+r2_r7: b ->(k2*k5/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) d + q
+r4_r1: c + d ->(k3*k_1/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) a
+r4_r3: c + d ->(k3*k_2/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) b
+r4_r6: c + d ->(k3*k4/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) p
+r4_r7: c ->(k3*k5/(d*k4 + d*k_1 + d*k_2 + k5 + k_3)) q

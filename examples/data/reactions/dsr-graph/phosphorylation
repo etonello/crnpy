@@ -1,0 +1,17 @@
+# Phosphorylation example from
+# Feliu, E., & Wiuf, C. (2015).
+# Finding the positive feedback loops underlying multi-stationarity.
+# BMC systems biology, 9(1), 1
+#
+r1: E + S0 -> ES0
+r2: ES0 -> E + S0
+r3: ES0 -> E + S1
+r7: E + S1 -> ES1
+r8: ES1 -> E + S1
+r9: ES1 -> E + S2
+r4: F1 + S1 -> F1S1
+r5: F1S1 -> F1 + S1
+r6: F1S1 -> F1 + S0
+r10: F2 + S2 -> F2S2
+r11: F2S2 -> F2 + S2
+r12: F2S2 -> F2 + S1

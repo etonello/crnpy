@@ -1,0 +1,8 @@
+reaction_1:  ->(Bmax*cell*kt) EpoR
+reaction_2: EpoR ->(cell*kt) 
+reaction_3: Epo + EpoR ->(cell*kon) Epo_EpoR
+reaction_4: Epo_EpoR ->(cell*koff) Epo + EpoR
+reaction_5: Epo_EpoR ->(cell*ke) Epo_EpoRi
+reaction_6: Epo_EpoRi ->(cell*kex) Epo + EpoR
+reaction_7: Epo_EpoRi ->(cell*kdi) dEpoi
+reaction_8: Epo_EpoRi ->(cell*kde) dEpoe

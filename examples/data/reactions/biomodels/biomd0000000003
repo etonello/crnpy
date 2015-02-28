@@ -1,0 +1,7 @@
+creation_of_cyclin:  ->(cell*reaction1_vi) Cyclin
+default_degradation_of_cyclin: Cyclin ->(cell*reaction2_kd) 
+cdc2_kinase_triggered_degration_of_cyclin: Cyclin ->(Cyclin_Protease*cell*reaction3_vd/(Cyclin + reaction3_Kd)) 
+activation_of_cdc2_kinase:  ->(V1*cell*(-CDC_2_Kinase + 1)/(-CDC_2_Kinase + reaction4_K1 + 1)) CDC_2_Kinase
+deactivation_of_cdc2_kinase: CDC_2_Kinase ->(cell*reaction5_V2/(CDC_2_Kinase + reaction5_K2)) 
+activation_of_cyclin_protease:  ->(V3*cell*(-Cyclin_Protease + 1)/(-Cyclin_Protease + reaction6_K3 + 1)) Cyclin_Protease
+deactivation_of_cyclin_protease: Cyclin_Protease ->(cell*reaction7_V4/(Cyclin_Protease + reaction7_K4)) 

@@ -1,0 +1,14 @@
+EGF_EGFR: EGF + EGFR ->(Cell*k1) EGF_EGFR
+EGF_EGFR_rev: EGF_EGFR ->(Cell*k2) EGF + EGFR
+pEGFR_Akt: Akt + pEGFR ->(Cell*k1) pEGFR_Akt
+pEGFR_Akt_rev: pEGFR_Akt ->(Cell*k2) Akt + pEGFR
+Akt_phosphorylation: pEGFR_Akt ->(Cell*k1) pAkt + pEGFR
+pEGFR_degradation: pEGFR ->(Cell*k1) 
+pAkt_S6: S6 + pAkt ->(Cell*k1) pAkt_S6
+pAkt_S6_rev: pAkt_S6 ->(Cell*k2) S6 + pAkt
+S6_phosphorylation: pAkt_S6 ->(Cell*k1) pAkt + pS6
+pAkt_dephospho: pAkt ->(Cell*k1) Akt
+pS6_dephospho: pS6 ->(Cell*k1) S6
+EGFR_synthesis: pro_EGFR ->(Cell*EGFR_turnover) EGFR
+EGFR_phosphorylation: EGF_EGFR ->(Cell*k1) pEGFR
+EGFR_degradation: EGFR ->(Cell*EGFR_turnover) 

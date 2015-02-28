@@ -1,0 +1,20 @@
+Transcription:  ->(K1**n*compartment*v_1/(K1**n + Transcriptional_repressor**n)) clock_gene_mRNA
+mRNA_degradation: clock_gene_mRNA ->(compartment*v_2/(K2 + clock_gene_mRNA)) 
+Neuropeptide_dependent_transcription_activation:  ->(F*K*compartment*vc/(F*K + Kc)) clock_gene_mRNA
+Light_dependent_transcription_activation:  ->(L*compartment) clock_gene_mRNA
+Translation:  ->(clock_gene_mRNA*compartment*k3) clock_protein
+Protein_degradation: clock_protein ->(compartment*v_4/(K4 + clock_protein)) 
+Transcriptional_repressor_synthesis:  ->(clock_protein*compartment*k5) Transcriptional_repressor
+Transcriptional_repressor_degradation: Transcriptional_repressor ->(compartment*v_6/(K6 + Transcriptional_repressor)) 
+Neuropeptide_synthesis:  ->(clock_gene_mRNA*compartment*k7) Neuropeptide
+Neuropeptide_degradation: Neuropeptide ->(compartment*v_8/(K8 + Neuropeptide)) 
+Transcription:  ->(K1**n*compartment*v_1/(K1**n + Transcriptional_repressor**n)) clock_gene_mRNA
+mRNA_degradation: clock_gene_mRNA ->(compartment*v_2/(K2 + clock_gene_mRNA)) 
+Neuropeptide_dependent_transcription_activation:  ->(F*K*compartment*vc/(F*K + Kc)) clock_gene_mRNA
+Light_dependent_transcription_activation:  ->(L*compartment) clock_gene_mRNA
+Translation:  ->(clock_gene_mRNA*compartment*k3) clock_protein
+Protein_degradation: clock_protein ->(compartment*v_4/(K4 + clock_protein)) 
+Transcriptional_repressor_synthesis:  ->(clock_protein*compartment*k5) Transcriptional_repressor
+Transcriptional_repressor_degradation: Transcriptional_repressor ->(compartment*v_6/(K6 + Transcriptional_repressor)) 
+Neuropeptide_synthesis:  ->(clock_gene_mRNA*compartment*k7) Neuropeptide
+Neuropeptide_degradation: Neuropeptide ->(compartment*v_8/(K8 + Neuropeptide)) 

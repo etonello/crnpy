@@ -1,0 +1,26 @@
+R1_Smad2_import: Smad2c ->(Kimp_Smad2c*V_cyt) Smad2n
+R2_Smad2_export: Smad2n ->(Kexp_Smad2n*V_nuc) Smad2c
+R3_Smad4_import: Smad4c ->(Kimp_Smad4c*V_cyt) Smad4n
+R4_Smad4_export: Smad4n ->(Kexp_Smad4n*V_nuc) Smad4c
+R5_T1R_production:  ->(V_cyt*v_T1R) T1R_Surf
+R6_T1R_Cave_formation: T1R_Surf ->(V_cyt*ki_Cave) T1R_Cave
+R7_T1R_Cave_recycling: T1R_Cave ->(V_cyt*kr_Cave) T1R_Surf
+R8_T1R_EE_formation: T1R_Surf ->(V_cyt*ki_EE) T1R_EE
+R9_T1R_EE_recycling: T1R_EE ->(V_cyt*kr_EE) T1R_Surf
+R10_T1R_EE_degradation: T1R_EE ->(Kdeg_T1R_EE*V_cyt) 
+R11_T2R_production:  ->(V_cyt*v_T2R) T2R_Surf
+R12_T2R_Cave_formation: T2R_Surf ->(V_cyt*ki_Cave) T2R_Cave
+R13_T2R_Cave_recycling: T2R_Cave ->(V_cyt*kr_Cave) T2R_Surf
+R14_T2R_EE_formation: T2R_Surf ->(V_cyt*ki_EE) T2R_EE
+R15_T2R_EE_recycling: T2R_EE ->(V_cyt*kr_EE) T2R_Surf + TGF_beta
+R16_T2R_EE_degradation: T2R_EE ->(Kdeg_T2R_EE*V_cyt) 
+R17_LRC_formation: T1R_Surf + T2R_Surf + TGF_beta ->(V_cyt*k_LRC) LRC_Surf
+R18_LRC_Cave_formation: LRC_Surf ->(V_cyt*ki_Cave) LRC_Cave
+R19_LRC_Cave_recycling: LRC_Cave ->(V_cyt*kr_Cave) T1R_Surf + T2R_Surf + TGF_beta
+R20_LRC_EE_formation: LRC_Surf ->(V_cyt*ki_EE) LRC_EE
+R21_LRC_EE_recycling: LRC_EE ->(V_cyt*kr_EE) T1R_Surf + T2R_Surf + TGF_beta
+R22_LRC_EE_degradation: LRC_EE ->(Kcd*V_cyt) 
+R23_Smads_Complex_formation: Smad2c + Smad4c ->(LRC_EE*V_cyt*k_Smads_Complex_c) Smads_Complex_c
+R24_Smads_Complex_import: Smads_Complex_c ->(Kimp_Smads_Complex_c*V_cyt) Smads_Complex_n
+R25_Smads_Complex_Dissociation: Smads_Complex_n ->(Kdiss_Smads_Complex_n*V_nuc) Smad2n + Smad4n
+R26_LRC_Cave_degradation: LRC_Cave ->(Klid*Smads_Complex_n*V_cyt) 

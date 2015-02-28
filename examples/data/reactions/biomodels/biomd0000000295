@@ -1,0 +1,10 @@
+MFtrn:  ->(ki**n*(amp*(tanh(-2*dawn + 2*time - 48*floor(time/24)) + 1)*(-tanh(-2*dusk + 2*time - 48*floor(time/24)) + 1)/4 + vs)/(ki**n + (FN + FNp)**n)) MF
+MFdeg: MF ->(vm/(MF + km)) 
+FCtrl:  ->(MF*ks) FC
+FCdeg: FC ->(vd) 
+FCtrs: FC ->(k1n) FN
+FCtrs_rev: FN ->(k2n) FC
+FCptrl:  ->(MF*ksp) FCp
+FCpdeg: FCp ->(vdp) 
+FCptrs: FCp ->(k1np) FNp
+FCptrs_rev: FNp ->(k2np) FCp
