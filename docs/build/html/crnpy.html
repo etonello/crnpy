@@ -1008,11 +1008,24 @@ otherwise as the full rate.</p>
 <em class="property">class </em><code class="descclassname">crnpy.crncomplex.</code><code class="descname">Complex</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.Counter</span></code></p>
 <p>A complex is represented with a counter.
-A complex can be created from a dictionary or an iterable, for example
-Complex({&#8216;S&#8217;: 2, &#8216;E&#8217;: 1}),
-Complex(&#8216;SSE&#8217;) and
-Complex(S = 2, E = 1)
-all create the same complex E + 2S.</p>
+A complex can be created from a dictionary or an iterable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span>
+<span class="go">E + 2S</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="s1">&#39;SSE&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="n">S</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span> <span class="o">==</span> <span class="n">c3</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 <p>From the collections.Counter documentation:</p>
 <dl class="docutils">
 <dt>&#8220;class collections.Counter([iterable-or-mapping])</dt>
@@ -1025,8 +1038,20 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 <dl class="method">
 <dt id="crnpy.crncomplex.Complex.ma">
 <code class="descname">ma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.ma" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the mass action monomial associated to the complex.
-For example, Complex({&#8216;S&#8217;: 2, &#8216;E&#8217;: 1}).ma() gives the monomial E*S**2.</p>
+<dd><p>Return the mass action monomial associated to the complex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span><span class="o">.</span><span class="n">ma</span><span class="p">()</span>
+<span class="go">E*S**2</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1041,6 +1066,18 @@ E.g. &#8220;2a + b&#8221; gives &#8220;2*a + b&#8221;.</p>
 <code class="descname">times</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the complex obtained by multiplying
 all stoichiometric coefficients by n.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2a + 6b</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1048,6 +1085,23 @@ all stoichiometric coefficients by n.</p>
 <code class="descname">to_vector</code><span class="sig-paren">(</span><em>species</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.to_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a vector (sympy matrix of dimentions (number of species) times 1)
 containing the stoichiometric cofficients of species in complex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span><span class="o">.</span><span class="n">to_vector</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">])</span>
+<span class="go">Matrix([</span>
+<span class="go">[1],</span>
+<span class="go">[0],</span>
+<span class="go">[2],</span>
+<span class="go">[0]])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>

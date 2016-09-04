@@ -14,11 +14,17 @@ __version__ = "0.0.1"
 
 class Complex(Counter):
     """A complex is represented with a counter.
-    A complex can be created from a dictionary or an iterable, for example
-    Complex({'S': 2, 'E': 1}),
-    Complex('SSE') and
-    Complex(S = 2, E = 1)
-    all create the same complex E + 2S.
+    A complex can be created from a dictionary or an iterable.
+
+    :Example:
+
+    >>> c1 = Complex({'S': 2, 'E': 1})
+    >>> c1
+    E + 2S
+    >>> c2 = Complex('SSE')
+    >>> c3 = Complex(S = 2, E = 1)
+    >>> c1 == c2 == c3
+    True
 
     From the collections.Counter documentation:
 
@@ -57,7 +63,14 @@ class Complex(Counter):
 
     def times(self, n):
         """Return the complex obtained by multiplying
-        all stoichiometric coefficients by n."""
+        all stoichiometric coefficients by n.
+
+        :Example:
+
+        >>> Complex(a = 1, b = 3).times(2)
+        2a + 6b
+
+        """
         if not isinstance(n, int):
             raise ValueError("Can only multiply stoichiometric coefficients by integer.")
         if n == 0:
@@ -68,13 +81,29 @@ class Complex(Counter):
 
     def ma(self):
         """Return the mass action monomial associated to the complex.
-        For example, Complex({'S': 2, 'E': 1}).ma() gives the monomial E*S**2."""
+
+        :Example:
+        >>> c1 = Complex({'S': 2, 'E': 1})
+        >>> c1.ma()
+        E*S**2
+
+        """
         if self == {}: return sympify("1")
         return sp.Mul(*(sympify(r)**self[r] for r in self))
 
     def to_vector(self, species):
         """Return a vector (sympy matrix of dimentions (number of species) times 1)
-        containing the stoichiometric cofficients of species in complex."""
+        containing the stoichiometric cofficients of species in complex.
+
+        :Example:
+        >>> c1 = Complex({'S': 2, 'E': 1})
+        >>> c1.to_vector(['E', 'C', 'S', 'P'])
+        Matrix([
+        [1],
+        [0],
+        [2],
+        [0]])
+        """
         return sp.Matrix([self[s] if s in self else 0 for s in species])
 
     def symp(self):
