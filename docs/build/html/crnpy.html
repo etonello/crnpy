@@ -1057,8 +1057,19 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 <dl class="method">
 <dt id="crnpy.crncomplex.Complex.symp">
 <code class="descname">symp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.Complex.symp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sympy expression representing the complex.
-E.g. &#8220;2a + b&#8221; gives &#8220;2*a + b&#8221;.</p>
+<dd><p>Return a sympy expression representing the complex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">symp</span><span class="p">()</span>
+<span class="go">E + 2*S</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1115,8 +1126,19 @@ containing the stoichiometric cofficients of species in complex.</p>
 <dl class="function">
 <dt id="crnpy.crncomplex.to_complex">
 <code class="descclassname">crnpy.crncomplex.</code><code class="descname">to_complex</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.to_complex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a sympy-compatible string to a complex
-(&#8220;2*a + b&#8221; is converted, &#8220;2a + b&#8221; is not).</p>
+<dd><p>Convert a sympy-compatible string to a complex</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">to_complex</span><span class="p">(</span><span class="s2">&quot;2*a + b&quot;</span><span class="p">)</span>
+<span class="go">2a + b</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

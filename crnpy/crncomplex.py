@@ -108,13 +108,23 @@ class Complex(Counter):
 
     def symp(self):
         """Return a sympy expression representing the complex.
-        E.g. "2a + b" gives "2*a + b"."""
+
+        :Example:
+        >>> Complex({'S': 2, 'E': 1}).symp()
+        E + 2*S
+
+        """
         return sp.Add(*(self[s]*sympify(s) for s in self))
 
 
 def to_complex(string):
     """Convert a sympy-compatible string to a complex
-    ("2*a + b" is converted, "2a + b" is not)."""
+
+    :Example:
+    >>> to_complex("2*a + b")
+    2a + b
+
+    """
     d = dict((str(k), v) for k, v in sympify(string).as_coefficients_dict().items())
     if '1' in d:
         raise ValueError("Invalid complex.")
