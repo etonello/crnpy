@@ -1021,6 +1021,8 @@ class CRN(object):
                         coeffs = _pos_dependent(gens, v)
 
                     if coeffs:
+                        if debug:
+                            print("{}, {} not a generator".format(r1.reactionid, r2.reactionid))
                         for i in range(len(gens)):
                             if coeffs[i] != 0:
                                 newreactions[i]._rate = (newreactions[i].rate + \
