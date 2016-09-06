@@ -261,6 +261,7 @@ class TestReduction(unittest.TestCase):
         print
 
         crn = from_react_strings(reacts)
+        crn.set_params(dict((k, 1) for k in crn.kinetic_params))
         # Qss on y, z, x, w
         crn.remove(qss = ['y', 'z', 'x', 'w'], minimal = True)
         self.assertTrue(len(crn.reactions) == 4)
