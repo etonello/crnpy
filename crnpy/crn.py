@@ -42,7 +42,10 @@ class CRN(object):
 
     >>> reacts = [Reaction("r1", Complex(a = 1), Complex(b = 1), "k1*a"), Reaction("r2", Complex(b = 2), Complex(), "k2*b**2")]
     >>> net = from_reacts(reacts)
-    >>> net = from_react_strings(["a -> b", "2b -> "])
+
+    or equivalently
+
+    >>> net = from_react_strings(["r1: a ->(k1) b", "r2: 2b ->(k2) "])
     """
 
     def __init__(self, model = None):
@@ -87,6 +90,16 @@ class CRN(object):
 
     @property
     def species(self):
+        """Tuple of the network species.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.species
+        ('A1', 'A2', 'A3')
+
+        """
         return tuple(self._species)
 
 
@@ -98,6 +111,16 @@ class CRN(object):
 
     @property
     def complexes(self):
+        """Tuple of the network complexes.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.complexes
+        (A1, A2 + A3, A2, 2A3)
+
+        """
         return tuple(self._complexes)
 
 
@@ -291,35 +314,112 @@ class CRN(object):
 
     @property
     def complex_matrix(self):
-        """Complex matrix."""
+        """Complex matrix (usually denoted with Y), i.e. the matrix with dimension
+        number of species times number of complexes, with element Yij given by
+        the stoichiometric coefficient of the i-th species in the j-th complex.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.complex_matrix
+        Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 1, 0],
+        [0, 1, 0, 2]])
+
+        """
         # ns x nc matrix
         return self._complex_matrix
 
 
     @property
     def incidence_matrix(self):
-        """Incidence matrix."""
+        """Incidence matrix.
+
+        Sometimes denoted as Ia, it is the matrix with dimension
+        number of complexes times number of reactions,
+        with element at position ij given by
+        -1 if the i-th complex is the reactant of the j-th reaction,
+        +1 if the i-th complex is the product of the j-th reaction,
+        and 0 otherwise.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.incidence_matrix
+        Matrix([
+        [-1,  0],
+        [ 1,  0],
+        [ 0, -1],
+        [ 0,  1]])
+
+        """
+
         # nc x nr matrix
         return self._incidence_matrix
 
 
     @property
     def stoich_matrix(self):
-        """Stoichiometric matrix."""
+        """Stoichiometric matrix of the reaction network.
+
+        Matrix with dimension number of species times number of reactions,
+        with element at position ij given by
+        the difference between the stoichiometric coefficient of the i-th species
+        in the product of the j-th reaction and
+        the stoichiometric coefficient of the i-th species
+        in the reactant of the j-th reaction.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.stoich_matrix
+        Matrix([
+        [-1,  0],
+        [ 1, -1],
+        [ 1,  2]])
+
+        """
         # s x r matrix
         return sp.SparseMatrix(self.complex_matrix.multiply(self.incidence_matrix))
 
 
     @property
     def kinetic_matrix(self):
-        """Kinetic matrix."""
+        """Kinetic matrix.
+
+        Sometimes denoted as Ak, it is the matrix with dimension
+        number of complexes times number of complexes,
+        with element at position ij given by
+        the sum of (generalised) kinetic parameters of reactions
+        with reactant the j-th complex and product the i-th complex,
+        when i and j are different. The diagonal elements are defined
+        so that the columns sum to zero.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
+        >>> net.kinetic_matrix
+        Matrix([
+        [-k1, 0,   0, 0],
+        [ k1, 0,   0, 0],
+        [  0, 0, -k2, 0],
+        [  0, 0,  k2, 0]])
+
+        """
         # -Laplacian
         return -self.incidence_matrix.multiply(sdiag(self.kinetic_params).multiply(negative(self.incidence_matrix).T))
 
 
     @property
     def laplacian(self):
-        """Generalised Laplacian of the graph of complexes."""
+        """Generalised Laplacian of the graph of complexes.
+        It is the negative of the kinetic matrix.
+        """
         # -kinetic matrix
         return self.incidence_matrix.multiply(sdiag(self.kinetic_params).multiply(negative(self.incidence_matrix).T))
 
@@ -758,7 +858,7 @@ class CRN(object):
 
 
     def stoich_1_intermediates(self, species_list):
-        """Check whether the species in ss are intermediates,
+        """Check whether the species in species_list are intermediates,
         with stoichiometric coefficients 0 or 1."""
         for s in species_list:
             if s not in self.species:
@@ -1519,6 +1619,14 @@ class CRN(object):
         * subnets -- if True, look for a decomposition in subnetworks using split_by_ems,
                    and use the decomposition to look for robust ratios and species.
 
+        :Example:
+
+        >>> net = from_react_strings(["A + B -> 2B", "B -> A", "2A <-> C", "A + C <-> D"])
+        >>> net.acr_species()
+        ['A']
+        >>> net.acr_species(subnets = True)
+        ['A', 'C', 'D']
+
         """
         # Algorithm based on the presentation in the supplementary material of
         # Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
@@ -1537,6 +1645,17 @@ class CRN(object):
         * as_vectors -- if True, return vectors of length = n_species corresponding to the ratios.
         * subnets -- if True, look for a decomposition in subnetworks using split_by_ems,
                      and use the decomposition to look for robust ratios.
+
+        :Example:
+
+        >>> net = from_react_strings(["A + B -> 2B", "B -> A", "2A <-> C", "A + C <-> D"])
+        >>> net.acr_complexes()
+        [A]
+        >>> net.acr_complexes(as_vectors=True)
+        [(1, 0, 0, 0)]
+        >>> net.acr_complexes(subnets=True)
+        [A**2/C, A*C/D, A]
+
 
         """
         # Algorithm based on the presentation in the supplementary material of
