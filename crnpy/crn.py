@@ -80,11 +80,13 @@ class CRN(object):
 
     @property
     def model(self):
+        """SBML model of the chemical reaction network."""
         return self._model
 
 
     @property
     def document(self):
+        """SBML document."""
         return self._document
 
 
@@ -1600,7 +1602,16 @@ class CRN(object):
 
 
     def linkage_classes(self):
-        """List of complexes grouped by linkage class."""
+        """List of complexes grouped by linkage class.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net.linkage_classes()
+        [[A, B + C], [2B, C, D + E]]
+
+        """
         nlc, lcs = self.weak_conn_components()
         return [[self.complexes[c] for c in range(self.n_complexes) if lcs[c] == lc] for lc in range(nlc)]
 

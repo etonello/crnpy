@@ -83,6 +83,7 @@ class Complex(Counter):
         """Return the mass action monomial associated to the complex.
 
         :Example:
+
         >>> c1 = Complex({'S': 2, 'E': 1})
         >>> c1.ma()
         E*S**2
@@ -96,6 +97,7 @@ class Complex(Counter):
         containing the stoichiometric cofficients of species in complex.
 
         :Example:
+
         >>> c1 = Complex({'S': 2, 'E': 1})
         >>> c1.to_vector(['E', 'C', 'S', 'P'])
         Matrix([
@@ -110,6 +112,7 @@ class Complex(Counter):
         """Return a sympy expression representing the complex.
 
         :Example:
+
         >>> Complex({'S': 2, 'E': 1}).symp()
         E + 2*S
 
@@ -121,6 +124,7 @@ def to_complex(string):
     """Convert a sympy-compatible string to a complex
 
     :Example:
+
     >>> to_complex("2*a + b")
     2a + b
 
