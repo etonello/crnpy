@@ -40,7 +40,7 @@ will be, by default, interpreted as a generalised kinetic parameter. In
 other words, the reaction rate will be set to the expression in
 parenthesis multiplied by the concentrations of the reactant species. In
 alternative, one can specify the rate between parenthesis, and use
-*from\_react\_strings* or \_from\_react\_file with the option *rate =
+*from\_react\_strings* or *from\_react\_file* with the option *rate =
 True*. For example, the network created with the command
 
 .. code:: python
