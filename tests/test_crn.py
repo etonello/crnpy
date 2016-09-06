@@ -49,12 +49,15 @@ class TestCrn(unittest.TestCase):
 
     def test_empty_replace(self):
         crn = CRN()
-        crn.replace_reacts(parse_reactions(['a -> b', 'c + 2d <-> e', 'e -> a']))
+        crn.reactions = parse_reactions(['a -> b', 'c + 2d <-> e', 'e -> a'])
         self.assertEqual(5, crn.n_species)
         self.assertEqual(('a', 'b', 'c', 'd', 'e'), crn.species)
         self.assertEqual(4, crn.n_complexes)
         self.assertEqual(['a', 'b', 'c + 2d', 'e'], list(map(str, crn.complexes)))
         self.assertEqual(4, crn.n_reactions)
+        self.assertEqual(None, crn.model)
+        crn.update_model()
+        self.assertFalse(crn.model == None)
         self.assertEqual(['a', 'b', 'c', 'd', 'e'], [crn.model.getSpecies(s).getId() for s in range(crn.model.getNumSpecies())])
         self.assertEqual(4, crn.model.getNumReactions())
         Y = sp.Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 2, 0], [0, 0, 0, 1]])
@@ -113,6 +116,7 @@ class TestCrn(unittest.TestCase):
 
     def test_save_sbml(self):
         crn = from_react_strings(["r_123: A -> B + C", "2A ->(0.0012345) E", "r_in: -> E"])
+        print crn.model
         output = path.join(input_sbml, "test_save_sbml.xml")
         compare = path.join(input_sbml, "test_save_sbml_check.xml")
         crn.save_sbml(output)
@@ -131,7 +135,7 @@ class TestCrn(unittest.TestCase):
         self.assertTrue(cmp(output2, compare2))
 
 
-    def test_replace_reacts(self):
+    def test_reactions(self):
         crn = from_react_strings(['a ->(k1) b', 'b (k_2)<->(k2) c + d', 'c ->(k3) d'])
         self.assertEqual(('a', 'b', 'c', 'd'), crn.species)
         self.assertEqual(['a', 'b', 'c + d', 'c', 'd'], [str(c) for c in crn.complexes])
@@ -142,8 +146,10 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(S, crn.stoich_matrix)
         self.assertEqual(L, crn.laplacian)
 
-        crn.replace_reacts(parse_reactions(['a ->(k1) b', 'c + e (k_4)<->(k4) f']))
+        crn.reactions = parse_reactions(['a ->(k1) b', 'c + e (k_4)<->(k4) f'])
         self.assertEqual(('a', 'b', 'c', 'e', 'f'), crn.species)
+        self.assertEqual(None, crn.model)
+        crn.update_model()
         self.assertEqual(['a', 'b', 'c', 'e', 'f'], [crn.model.getSpecies(s).getId() for s in range(crn.model.getNumSpecies())])
         self.assertEqual(3, crn.model.getNumReactions())
         self.assertEqual(['a', 'b', 'c + e', 'f'], [str(c) for c in crn.complexes])

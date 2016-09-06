@@ -52,29 +52,27 @@ class CRN(object):
         self.logger = logging.getLogger("crnpy.crn")
         self.logger.info("Creating an instance of crn.")
 
-        if not model:
-            document = SBMLDocument(3, 1)
-            model = document.createModel(), document
+        if model:
+            self._model, self._document = model
 
-        self._model, self._document = model
+            # species
+            self._species_from_sbml()
+            self._removed_species = []
 
-        # species
-        self._species_from_sbml()
-        self._removed_species = []
+            # reactions
+            self._get_reactions()
+            self._populate()
 
-        # reactions
-        self._get_reactions()
-        self._populate()
+        else:
+            self._model, self._document = None, None
+            self._removed_species = []
+            self.reactions = []
 
 
     @classmethod
     def from_reacts(cls, reacts):
         crn = cls()
-        crn._model, crn._document, crn._species = model_from_reacts(reacts)
-        crn._n_species = len(crn._species)
-        crn._removed_species = []
-        crn._reactions = reacts
-        crn._populate()
+        crn.reactions = reacts
         return crn
 
 
@@ -129,10 +127,14 @@ class CRN(object):
     @property
     def reactions(self):
         return tuple(self._reactions)
-    #@reactions.setter
-    #def reactions(self, value):
-        #self._reactions = value
-        #self._populate()
+    @reactions.setter
+    def reactions(self, value):
+        self._species = sorted(list(set([s for r in value for s in r.reactant] +
+                                       [s for r in value for s in r.product])))
+        self._n_species = len(self._species)
+        self._reactions = value
+        self._populate()
+        self.update_model(if_exists = True)
 
 
     @property
@@ -279,13 +281,13 @@ class CRN(object):
         self._incidence_matrix = sp.SparseMatrix(self.n_complexes, self.n_reactions, incidence)
 
 
-    def replace_reacts(self, new_reactions):
-        """Replace reactions with newreactions.
-        Update the sbml model and all properties."""
-        self._model, self._document, self._species = \
-            replace_reacts(self.model, self.document, new_reactions)
-        self._reactions = new_reactions
-        self._populate()
+    def update_model(self, if_exists = False):
+        if (not if_exists) and (not self.model):
+            document = SBMLDocument(3, 1)
+            self._model, self._document = document.createModel(), document
+        if self.model:
+            self._model, self._document, self._species = \
+                replace_reacts(self.model, self.document, self.reactions)
 
 
     def set_params(self, params_dict):
@@ -306,10 +308,11 @@ class CRN(object):
         (r0: A1 ->(1.000e-3) A2 + A3, r1: A2 ->(1.000e-3) 2A3)
 
         """
-        self.replace_reacts([Reaction(r.reactionid,
-                                      r.reactant,
-                                      r.product,
-                                      r.rate.subs(params_dict)) for r in self.reactions])
+        self.reactions = [Reaction(r.reactionid,
+                                   r.reactant,
+                                   r.product,
+                                   r.rate.subs(params_dict)) for r in self.reactions]
+        self.update_model(if_exists = True)
 
 
     ### Matrices ####
@@ -1155,7 +1158,7 @@ class CRN(object):
             for r in reactions: print(r)
             print
 
-        self.replace_reacts(reactions)
+        self.reactions = reactions
 
 
     def _qss_generalised(self, intermediate, keep_loops = False,
@@ -1246,7 +1249,7 @@ class CRN(object):
             for r in newreactions: print(r)
             print
 
-        self.replace_reacts(newreactions)
+        self.reactions = newreactions
         self._removed_species.append((intermediate, expr))
 
 
@@ -1255,18 +1258,18 @@ class CRN(object):
         monomials in the numerators of the reaction rates."""
         reactions = list(itertools.chain(*map(lambda r: _split_reaction_monom(r, self.species), self.reactions)))
         for r in reactions: r._fix_ma(self.species)
-        self.replace_reacts(reactions)
+        self.reactions = reactions
 
 
     def _remove_react_prod(self):
         """For each reaction, remove the species that
         are in common between reactant and product."""
         for r in self.reactions: r.remove_react_prod()
-        self.replace_reacts(self.reactions)
+        self.reactions = self.reactions
 
 
     def _same_denom(self):
-        self.replace_reacts(_same_denom(self.reactions))
+        self.reactions = _same_denom(self.reactions)
 
 
     def _fix_denom(self):
@@ -1274,7 +1277,7 @@ class CRN(object):
         concentrations divides the denominator of the rate."""
         reactions = list(itertools.chain(*map(lambda r: _split_reaction_monom(r, self.species), self.reactions)))
         for r in reactions: r._fix_denom(self.species)
-        self.replace_reacts(reactions)
+        self.reactions = reactions
 
 
     def rapid_eq_with_pool(self, remove, keep, pool_name = None, cons_law = None, debug = False):
@@ -1349,7 +1352,7 @@ class CRN(object):
                                           product, \
                                           rate.cancel()))
 
-        self.replace_reacts(reactions)
+        self.reactions = reactions
         self._removed_species.append((remove, exp))
 
         if debug:
@@ -1445,7 +1448,7 @@ class CRN(object):
         for r in range(len(newreactions)):
             newreactions[r]._rate = (newreactions[r].rate).subs(sympify(remove), exp)
 
-        self.replace_reacts(newreactions)
+        self.reactions = newreactions
 
         self._removed_species.append((remove, exp))
         if debug: print("Rapid Eq: added to removed_species {}".format(self.removed_species))
@@ -1454,7 +1457,7 @@ class CRN(object):
     def merge_network(self, network):
         """Add reactions of network."""
         if len(network.n_reactions) > 0:
-            self.replace_reacts(self.reactions + network.reactions)
+            self.reactions = self.reactions + network.reactions
 
 
     def detach_network(self, inter_complexes):
@@ -1473,7 +1476,7 @@ class CRN(object):
             network = CRN.from_reacts([allreactions[r] for r in involvedReactions])
 
             reactions = [allreactions[r] for r in range(self.n_reactions) if not r in involvedReactions]
-            self.replace_reacts(reactions)
+            self.reactions = reactions
             return network
         return None
 
@@ -1510,7 +1513,7 @@ class CRN(object):
             if expr != None: reaction._rate = reaction.rate.subs(sympify(const_species), expr).cancel()
 
         reactions = [r for r in self.reactions if r.reactant != r.product]
-        self.replace_reacts(reactions)
+        self.reactions = reactions
         self._removed_species = self._removed_species + [(const_species, expr if expr else sympify(const_species))]
 
 
@@ -1522,7 +1525,7 @@ class CRN(object):
 
     def merge_reactions(self):
         """Merge the reactions with same reactant and same product."""
-        self.replace_reacts(merge_reactions(self.reactions))
+        self.reactions = merge_reactions(self.reactions)
 
 
     ### Graphs ###
@@ -1924,6 +1927,8 @@ class CRN(object):
     def save_sbml(self, filepath):
         """Save the network as an SBML."""
         self.logger.info("Going to save model to {}".format(filepath))
+        if not self.model:
+            self._model, self._document, _ = model_from_reacts(self.reactions)
         success = writeSBMLToFile(self.document, filepath)
         if not success:
             raise SystemExit("Error trying to write SBML model to {}.".format(filepath))
