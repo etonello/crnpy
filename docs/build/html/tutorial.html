@@ -116,7 +116,11 @@ reactant and c as product, and one with id r1_rev with c as reactant
 and a + b as product. As shown in the last example, kinetic parameters
 are optional. In the same example, reaction r1 is assigned a parameter
 symbol k_r1, and the reverse reaction is assigned the parameter symbol
-k_r1_rev.</p>
+k_r1_rev:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r1: a + b -&gt;(k_r1) c, r1_rev: c -&gt;(k_r1_rev) a + b)</span>
+</pre></div>
+</div>
 <p>Comments can be added to a reaction file using the symbol &#8220;#&#8221;. Anything
 appearing after the hash sign will ignored.</p>
 </div>
