@@ -244,7 +244,7 @@ or if a reduction method is applied to eliminate some species.</p>
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.constant_species">
 <code class="descname">constant_species</code><a class="headerlink" href="#crnpy.crn.CRN.constant_species" title="Permalink to this definition">¶</a></dt>
-<dd><p>Species with constant concentration.</p>
+<dd><p>List of species with constant concentration.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -306,7 +306,22 @@ Optionally keep only variables in keep.</p>
 <dt id="crnpy.crn.CRN.elem_modes">
 <code class="descname">elem_modes</code><a class="headerlink" href="#crnpy.crn.CRN.elem_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the list of elementary modes of the network,
-as vectors of length nr.</p>
+as lists of length the number of reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A -&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;2B + 2C &lt;-&gt; 2D&quot;</span><span class="p">,</span> <span class="s2">&quot;D -&gt; A + C&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">elem_modes</span>
+<span class="go">[[1, 1, 0, 1], [0, 1, 1, 0]]</span>
+</pre></div>
+</div>
+<p>Requires pycddlib.</p>
 </dd></dl>
 
 <dl class="method">
@@ -324,23 +339,38 @@ as vectors of length nr.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.format_elem_modes">
 <code class="descname">format_elem_modes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_elem_modes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the list elementary modes of the network,
-as a string with the reaction ids.</p>
+<dd><p>Return a list of expressions in the reaction ids,
+each representing an elementary mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A -&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;B + C &lt;-&gt; D&quot;</span><span class="p">,</span> <span class="s2">&quot;D -&gt; A + C&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
+<span class="go">[[r0 + r1 + r2], [r1 + r1_rev]]</span>
+</pre></div>
+</div>
+<p>Requires pycddlib.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.format_p_invariants">
 <code class="descname">format_p_invariants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_p_invariants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of generators of the Petri Net P-invariants,
-as combinations of the species.
+<dd><p>Return a list of expressions in the species,
+each representing a generator of the Petri Net P-invariants.
 Requires pycddlib.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.format_t_invariants">
 <code class="descname">format_t_invariants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_t_invariants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a matrix with rows the generators of the Petri Net T-invariants,
-as combinations of the reaction ids.
+<dd><p>Return a list of expressions in the reaction ids,
+each representing a generator of the Petri Net T-invariants.
 Requires pycddlib.</p>
 </dd></dl>
 
@@ -450,7 +480,7 @@ and products for at least one reaction.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.is_constant">
 <code class="descname">is_constant</code><span class="sig-paren">(</span><em>cplx</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_constant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if the derivative is zero.</p>
+<dd><p>Return True if the derivative of cplx is zero.</p>
 </dd></dl>
 
 <dl class="method">
@@ -463,7 +493,7 @@ and products for at least one reaction.</p>
 <dt id="crnpy.crn.CRN.is_dyn_eq">
 <code class="descname">is_dyn_eq</code><span class="sig-paren">(</span><em>net</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.is_dyn_eq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if two networks have the same dynamics.
-They must have the same set of species.</p>
+The networks must have the same set of species.</p>
 </dd></dl>
 
 <dl class="method">
@@ -634,7 +664,24 @@ Requires pycddlib.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_complex_matrix">
 <code class="descname">print_complex_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_complex_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the complex matrix.</p>
+<dd><p>Print the complex matrix, with labels for species and complexes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 (k_2)&lt;-&gt;(k2) 2 A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A3 -&gt;(k3) &quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">print_complex_matrix</span><span class="p">()</span>
+<span class="go">     A1  A2 + A3  A2  2A3  A3</span>
+<span class="go">A1 |  1        0   0    0   0  0 |</span>
+<span class="go">A2 |  0        1   1    0   0  0 |</span>
+<span class="go">A3 |  0        1   0    2   1  0 |</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -646,31 +693,52 @@ Requires pycddlib.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_incidence_matrix">
 <code class="descname">print_incidence_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_incidence_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the incidence matrix.</p>
+<dd><p>Print the incidence matrix, with labels for complexes and reactions.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_influence_matrix">
 <code class="descname">print_influence_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_influence_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the influence matrix.</p>
+<dd><p>Print the influence matrix, with labels for species and reactions.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_kinetic_matrix">
 <code class="descname">print_kinetic_matrix</code><span class="sig-paren">(</span><em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_kinetic_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the laplacian.</p>
+<dd><p>Print the kinetic matrix, with labels for the complexes.</p>
+<p>If numeric = True, the matrix is converted to a numpy array,
+and precision can be used to format the elements (default is 3).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_laplacian">
 <code class="descname">print_laplacian</code><span class="sig-paren">(</span><em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_laplacian" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the laplacian.</p>
+<dd><p>Print the laplacian, with labels for the complexes.</p>
+<p>If numeric = True, the matrix is converted to a numpy array,
+and precision can be used to format the elements (default is 3).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.print_stoich_matrix">
 <code class="descname">print_stoich_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_stoich_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the stoichiometrix matrix.</p>
+<dd><p>Print the stoichiometrix matrix, with labels for species and reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 (k_2)&lt;-&gt;(k2) 2 A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A3 -&gt;(k3) &quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
+<span class="go">     r0  r1  r1_rev  r2</span>
+<span class="go">A1 | -1   0       0   0 |</span>
+<span class="go">A2 |  1  -1       1   0 |</span>
+<span class="go">A3 |  1   2      -2  -1 |</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">

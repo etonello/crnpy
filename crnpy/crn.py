@@ -617,8 +617,8 @@ class CRN(object):
 
 
     def format_p_invariants(self):
-        """Return a list of generators of the Petri Net P-invariants,
-        as combinations of the species.
+        """Return a list of expressions in the species,
+        each representing a generator of the Petri Net P-invariants.
         Requires pycddlib."""
         pinv = self.p_invariants
         if len(pinv) > 0:
@@ -635,27 +635,48 @@ class CRN(object):
 
 
     def format_t_invariants(self):
-        """Return a matrix with rows the generators of the Petri Net T-invariants,
-        as combinations of the reaction ids.
+        """Return a list of expressions in the reaction ids,
+        each representing a generator of the Petri Net T-invariants.
         Requires pycddlib."""
         tinv = self.t_invariants
         if len(tinv) > 0:
-            return tinv * sp.Matrix(list(map(sympify, self.reactionids)))
+            return (tinv * sp.Matrix(list(map(sympify, self.reactionids)))).tolist()
         else:
-            return sp.Matrix()
+            return []
 
 
     @property
     def elem_modes(self):
         """Return the list of elementary modes of the network,
-        as vectors of length nr."""
+        as lists of length the number of reactions.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A -> B", "2B + 2C <-> 2D", "D -> A + C"])
+        >>> net.elem_modes
+        [[1, 1, 0, 1], [0, 1, 1, 0]]
+
+        Requires pycddlib.
+
+        """
         return self.t_invariants.tolist()
 
 
     def format_elem_modes(self):
-        """Return the list elementary modes of the network,
-        as a string with the reaction ids."""
-        return self.format_t_invariants().tolist()
+        """Return a list of expressions in the reaction ids,
+        each representing an elementary mode.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A -> B", "B + C <-> D", "D -> A + C"])
+        >>> net.format_elem_modes()
+        [[r0 + r1 + r2], [r1 + r1_rev]]
+
+        Requires pycddlib.
+        """
+        return self.format_t_invariants()
 
 
     def is_ss_flux(self, v):
@@ -732,7 +753,7 @@ class CRN(object):
 
     @property
     def constant_species(self):
-        """Species with constant concentration."""
+        """List of species with constant concentration."""
         return [self.species[s] for s in self._constant_species()]
 
 
@@ -763,7 +784,7 @@ class CRN(object):
 
 
     def is_constant(self, cplx):
-        """Return True if the derivative is zero."""
+        """Return True if the derivative of cplx is zero."""
         return self.derivative(cplx) == 0
 
 
@@ -775,7 +796,7 @@ class CRN(object):
 
     def is_dyn_eq(self, net):
         """Check if two networks have the same dynamics.
-        They must have the same set of species."""
+        The networks must have the same set of species."""
         if set(self.species) != set(net.species):
             return False
         eqs = self.equations()
@@ -1847,15 +1868,24 @@ class CRN(object):
     ### Print ###
 
     def print_laplacian(self, numeric = False, precision = 3):
-        """Print the laplacian."""
+        """Print the laplacian, with labels for the complexes.
+
+        If numeric = True, the matrix is converted to a numpy array,
+        and precision can be used to format the elements (default is 3).
+        """
         print_matrix(self.laplacian,
                      list(map(str, self.complexes)),
                      list(map(str, self.complexes)),
                      numeric,
                      precision)
 
+
     def print_kinetic_matrix(self, numeric = False, precision = 3):
-        """Print the laplacian."""
+        """Print the kinetic matrix, with labels for the complexes.
+
+        If numeric = True, the matrix is converted to a numpy array,
+        and precision can be used to format the elements (default is 3).
+        """
         print_matrix(self.kinetic_matrix,
                      list(map(str, self.complexes)),
                      list(map(str, self.complexes)),
@@ -1864,22 +1894,45 @@ class CRN(object):
 
 
     def print_stoich_matrix(self):
-        """Print the stoichiometrix matrix."""
+        """Print the stoichiometrix matrix, with labels for species and reactions.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 (k_2)<->(k2) 2 A3", "A3 ->(k3) "])
+        >>> net.print_stoich_matrix()
+             r0  r1  r1_rev  r2
+        A1 | -1   0       0   0 |
+        A2 |  1  -1       1   0 |
+        A3 |  1   2      -2  -1 |
+
+        """
         print_matrix(self.stoich_matrix, self.species, self.reactionids)
 
 
     def print_incidence_matrix(self):
-        """Print the incidence matrix."""
+        """Print the incidence matrix, with labels for complexes and reactions."""
         print_matrix(self.incidence_matrix, list(map(str, self.complexes)), self.reactionids)
 
 
     def print_complex_matrix(self):
-        """Print the complex matrix."""
+        """Print the complex matrix, with labels for species and complexes.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 (k_2)<->(k2) 2 A3", "A3 ->(k3) "])
+        >>> net.print_complex_matrix()
+             A1  A2 + A3  A2  2A3  A3
+        A1 |  1        0   0    0   0  0 |
+        A2 |  0        1   1    0   0  0 |
+        A3 |  0        1   0    2   1  0 |
+        """
         print_matrix(self.complex_matrix, self.species, list(map(str, self.complexes)))
 
 
     def print_influence_matrix(self):
-        """Print the influence matrix."""
+        """Print the influence matrix, with labels for species and reactions."""
         print_matrix(self.influence_matrix(), self.species, self.reactionids)
 
 
