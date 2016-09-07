@@ -85,6 +85,7 @@ class CRN(object):
 
     @classmethod
     def from_reacts(cls, reacts):
+        """Create a reaction network from a list of reactions."""
         crn = cls()
         crn.reactions = reacts
         return crn
@@ -92,13 +93,23 @@ class CRN(object):
 
     @property
     def model(self):
-        """SBML model of the chemical reaction network."""
+        """SBML model of the chemical reaction network.
+
+        If the reaction network is created using a list of reactions,
+        the SBML model is not created. It is created if save_sbml is called,
+        or if update_model() is called.
+        """
         return self._model
 
 
     @property
     def document(self):
-        """SBML document."""
+        """SBML document.
+
+        If the reaction network is created using a list of reactions,
+        the SBML document is not created. It is created if save_sbml is called,
+        or if update_model() is called.
+        """
         return self._document
 
 
@@ -113,6 +124,8 @@ class CRN(object):
         >>> net.species
         ('A1', 'A2', 'A3')
 
+        The tuple of species is read-only, and can change if the reactions are updated,
+        or if a reduction method is applied to eliminate some species.
         """
         return tuple(self._species)
 
@@ -134,12 +147,19 @@ class CRN(object):
         >>> net.complexes
         (A1, A2 + A3, A2, 2A3)
 
+        The tuple of complexes is read-only, and can change if the reactions are updated,
+        or if a reduction method is applied to eliminate some species.
         """
         return tuple(self._complexes)
 
 
     @property
     def reactions(self):
+        """Tuple of the network reactions.
+
+        They can be updated. If the network SBML model exists, this is also updated
+        when reactions change.
+        """
         return tuple(self._reactions)
     @reactions.setter
     def reactions(self, value):
@@ -703,7 +723,7 @@ class CRN(object):
 
 
     def _constant_species(self):
-        """Constant species indices."""
+        """Indices of species with constant concentration."""
         # This is more general than
         # [i for i in range(self.n_species) if all([j == 0 for j in self.stoich_matrix[i,:]])]
         eqs = self.equations()
@@ -712,12 +732,25 @@ class CRN(object):
 
     @property
     def constant_species(self):
-        """Constant species."""
+        """Species with constant concentration."""
         return [self.species[s] for s in self._constant_species()]
 
 
     def derivative(self, cplx):
-        """Return the derivative expression of a complex."""
+        """Return an expression for the derivative of a complex.
+
+        cplx is a string representing the complex.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net.derivative("3A + E")
+        -3*A*k_r0 + B**2*k_r3_rev + 3*B*C*k_r0_rev + C*k_r2 - D*E*k_r3
+        >>> net.derivative("3A + B + 2C + 2E")
+        0
+
+        """
         c = parse_complex(cplx)
         der = sympify(0)
         # sum the derivative of each species, multiplied by the stoichiometry
