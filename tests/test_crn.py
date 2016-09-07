@@ -14,7 +14,7 @@ from context import crnpy
 from crnpy.conslaw import ConsLaw
 from crnpy.createmodel import model_from_reacts
 from crnpy.crn import CRN, from_sbml, from_react_file, from_reacts, from_react_strings
-from crnpy.crncomplex import Complex, to_complex
+from crnpy.crncomplex import Complex, to_complex, sympify
 from crnpy.parsereaction import parse_reaction_file, parse_reactions
 from crnpy.reaction import Reaction
 
@@ -57,7 +57,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(4, crn.n_reactions)
         self.assertEqual(None, crn.model)
         crn.update_model()
-        self.assertFalse(crn.model == None)
+        self.assertNotEqual(None, crn.model)
         self.assertEqual(['a', 'b', 'c', 'd', 'e'], [crn.model.getSpecies(s).getId() for s in range(crn.model.getNumSpecies())])
         self.assertEqual(4, crn.model.getNumReactions())
         Y = sp.Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 2, 0], [0, 0, 0, 1]])
@@ -114,6 +114,78 @@ class TestCrn(unittest.TestCase):
         self.assertTrue(success)
 
 
+    def test_reaction_setter(self):
+        net = CRN()
+        net.reactions = parse_reactions(["A -> 2B", "B <-> C + D"])
+        self.assertEqual(("A", "B", "C", "D"), net.species)
+        self.assertEqual(4, net.n_species)
+        self.assertEqual(4, net.n_complexes)
+        self.assertEqual(3, net.n_reactions)
+        self.assertEqual(("r0", "r1", "r1_rev"), net.reactionids)
+        self.assertEqual(sorted(["A", "2B", "B", "C + D"]), sorted(list(map(str, net.complexes))))
+        self.assertEqual(("r0: A ->(k_r0) 2B", "r1: B ->(k_r1) C + D", "r1_rev: C + D ->(k_r1_rev) B"), tuple(map(str, net.reactions)))
+        self.assertEqual(sp.Matrix([sympify("k_r0*A"), sympify("k_r1*B"), sympify("k_r1_rev*C*D")]), net.rates)
+        S = sp.Matrix([[-1,  0,  0], [ 2, -1,  1], [ 0,  1, -1], [ 0,  1, -1]])
+        self.assertEqual(S, net.stoich_matrix)
+        Y = sp.Matrix([[1, 0, 0, 0], [0, 2, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1]])
+        self.assertEqual(Y, net.complex_matrix)
+        Ia = sp.Matrix([[-1,  0,  0], [ 1,  0,  0], [ 0, -1,  1], [ 0,  1, -1]])
+        self.assertEqual(Ia, net.incidence_matrix)
+        k_r0, k_r1, k_r1_rev = sp.symbols("k_r0, k_r1, k_r1_rev")
+        self.assertEqual((k_r0, k_r1, k_r1_rev), net.kinetic_params)
+        L = sp.Matrix([[k_r0, 0, 0, 0], [-k_r0, 0, 0, 0], [0, 0, k_r1, -k_r1_rev], [0, 0, -k_r1, k_r1_rev]])
+        self.assertEqual(L, net.laplacian)
+        self.assertEqual((), net.removed_species)
+
+        net = from_react_strings(["A -> 2B", "B <-> C + D"])
+        self.assertEqual(None, net.model)
+        net.update_model()
+        self.assertNotEqual(None, net.model)
+        self.assertEqual(['A', 'B', 'C', 'D'], [net.model.getSpecies(s).getId() for s in range(net.model.getNumSpecies())])
+        self.assertEqual(("A", "B", "C", "D"), net.species)
+        self.assertEqual(4, net.n_species)
+        self.assertEqual(4, net.n_complexes)
+        self.assertEqual(3, net.n_reactions)
+        self.assertEqual(("r0", "r1", "r1_rev"), net.reactionids)
+        self.assertEqual(sorted(["A", "2B", "B", "C + D"]), sorted(list(map(str, net.complexes))))
+        self.assertEqual(("r0: A ->(k_r0) 2B", "r1: B ->(k_r1) C + D", "r1_rev: C + D ->(k_r1_rev) B"), tuple(map(str, net.reactions)))
+        self.assertEqual(sp.Matrix([sympify("k_r0*A"), sympify("k_r1*B"), sympify("k_r1_rev*C*D")]), net.rates)
+        S = sp.Matrix([[-1,  0,  0], [ 2, -1,  1], [ 0,  1, -1], [ 0,  1, -1]])
+        self.assertEqual(S, net.stoich_matrix)
+        Y = sp.Matrix([[1, 0, 0, 0], [0, 2, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1]])
+        self.assertEqual(Y, net.complex_matrix)
+        Ia = sp.Matrix([[-1,  0,  0], [ 1,  0,  0], [ 0, -1,  1], [ 0,  1, -1]])
+        self.assertEqual(Ia, net.incidence_matrix)
+        k_r0, k_r1, k_r1_rev = sp.symbols("k_r0, k_r1, k_r1_rev")
+        L = sp.Matrix([[k_r0, 0, 0, 0], [-k_r0, 0, 0, 0], [0, 0, k_r1, -k_r1_rev], [0, 0, -k_r1, k_r1_rev]])
+        self.assertEqual(L, net.laplacian)
+        self.assertEqual((), net.removed_species)
+
+        net.reactions = parse_reactions(["r_id_1: E -> F", "r_id_2: F + A -> 3G"])
+        self.assertNotEqual(None, net.model)
+        self.assertEqual(('A', 'E', 'F', 'G'), net.species)
+        # check that model is updated
+        self.assertEqual(['A', 'E', 'F', 'G'], [net.model.getSpecies(s).getId() for s in range(net.model.getNumSpecies())])
+        self.assertEqual(4, net.n_species)
+        self.assertEqual(4, net.n_complexes)
+        self.assertEqual(2, net.n_reactions)
+        self.assertEqual(("r_id_1", "r_id_2"), net.reactionids)
+        self.assertEqual(sorted(["A + F", "E", "F", "3G"]), sorted(list(map(str, net.complexes))))
+        self.assertEqual(("r_id_1: E ->(k_r_id_1) F", "r_id_2: A + F ->(k_r_id_2) 3G"), tuple(map(str, net.reactions)))
+        k_r_id_1, k_r_id_2 = sp.symbols("k_r_id_1, k_r_id_2")
+        self.assertEqual((k_r_id_1, k_r_id_2), net.kinetic_params)
+        self.assertEqual(sp.Matrix([sympify("k_r_id_1*E"), sympify("k_r_id_2*A*F")]), net.rates)
+        S = sp.Matrix([[ 0, -1], [-1,  0], [ 1, -1], [ 0,  3]])
+        self.assertEqual(S, net.stoich_matrix)
+        Y = sp.Matrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 1, 0], [0, 0, 0, 3]])
+        self.assertEqual(Y, net.complex_matrix)
+        Ia = sp.Matrix([[-1,  0], [ 1,  0], [ 0, -1], [ 0,  1]])
+        self.assertEqual(Ia, net.incidence_matrix)
+        L = sp.Matrix([[k_r_id_1, 0, 0, 0], [-k_r_id_1, 0, 0, 0], [0, 0, k_r_id_2, 0], [0, 0, -k_r_id_2, 0]])
+        self.assertEqual(L, net.laplacian)
+        self.assertEqual((), net.removed_species)
+
+
     def test_save_sbml(self):
         crn = from_react_strings(["r_123: A -> B + C", "2A ->(0.0012345) E", "r_in: -> E"])
         print crn.model
@@ -135,7 +207,7 @@ class TestCrn(unittest.TestCase):
         self.assertTrue(cmp(output2, compare2))
 
 
-    def test_reactions(self):
+    def test_update(self):
         crn = from_react_strings(['a ->(k1) b', 'b (k_2)<->(k2) c + d', 'c ->(k3) d'])
         self.assertEqual(('a', 'b', 'c', 'd'), crn.species)
         self.assertEqual(['a', 'b', 'c + d', 'c', 'd'], [str(c) for c in crn.complexes])
@@ -150,6 +222,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(('a', 'b', 'c', 'e', 'f'), crn.species)
         self.assertEqual(None, crn.model)
         crn.update_model()
+        self.assertNotEqual(None, crn.model)
         self.assertEqual(['a', 'b', 'c', 'e', 'f'], [crn.model.getSpecies(s).getId() for s in range(crn.model.getNumSpecies())])
         self.assertEqual(3, crn.model.getNumReactions())
         self.assertEqual(['a', 'b', 'c + e', 'f'], [str(c) for c in crn.complexes])
