@@ -45,7 +45,21 @@ class CRN(object):
 
     or equivalently
 
-    >>> net = from_react_strings(["r1: a ->(k1) b", "r2: 2b ->(k2) "])
+    >>> net1 = from_react_strings(["r1: a ->(k1) b", "r2: 2b ->(k2) "])
+
+    One can also create an empty CRN and update the reactions:
+
+    >>> from crnpy.parsereaction import parse_reactions
+    >>> net2 = CRN()
+    >>> net2.species
+    ()
+    >>> net2.complexes
+    ()
+    >>> net2.reactions = parse_reactions(["r1: a ->(k1) b", "r2: 2b ->(k2) "])
+    >>> net2.species
+    ('a', 'b')
+    >>> net2.complexes
+    (a, b, 2b, )
     """
 
     def __init__(self, model = None):
@@ -539,13 +553,39 @@ class CRN(object):
 
 
     def _cons_laws(self):
-        """Return a base of the nullspace in row echelon form."""
+        """Return a base of the nullspace in row echelon form.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net._cons_laws()
+        [Matrix([
+        [  1],
+        [1/3],
+        [2/3],
+        [  0],
+        [2/3]]), Matrix([
+        [ 0],
+        [ 0],
+        [ 0],
+        [ 1],
+        [-1]])]
+        """
         return [sp.Matrix(row) for row in sp.Matrix([list(c) for c in self.stoich_matrix.T.nullspace()]).rref()[0].tolist()]
 
 
     @property
     def cons_laws(self):
-        """Tuple of generators of the network conservation laws."""
+        """Tuple of generators of the network conservation laws.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net.cons_laws
+        (A + B/3 + 2*C/3 + 2*E/3, D - E)
+        """
         return tuple((v.T * sp.Matrix(list(map(sympify, self.species))))[0, 0] for v in self._cons_laws())
 
 
