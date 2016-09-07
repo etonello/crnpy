@@ -1807,7 +1807,7 @@ class CRN(object):
 
         if tinvs.rows == 0:
             print("No elementary modes.")
-            return [self.reactions], None
+            return [self.reactions], []
 
         for r in range(self.n_reactions):
             if tinvs[0, r] != 0:
