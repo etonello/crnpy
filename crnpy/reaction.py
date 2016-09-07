@@ -20,6 +20,16 @@ class Reaction(object):
     a reactant complex, a product complex,
     and a string or sympy expression representing the rate.
 
+    :Example:
+
+    >>> from crnpy.reaction import Reaction
+    >>> from crnpy.crncomplex import Complex
+    >>> r = Reaction("r1", Complex(A = 1, B = 2), Complex(C = 1), "k1*A*B**2")
+    >>> r
+    r1: A + 2B ->(k1) C
+    >>> r.reactionid, r.reactant, r.product, r.rate, r.kinetic_param
+    ('r1', A + 2B, C, A*B**2*k1, k1)
+
     Attributes: reactionid, reactant, product, rate, kinetic_param.
     """
     def __init__(self, reactionid, reactant, product, rate):
@@ -116,16 +126,39 @@ class Reaction(object):
         return k
 
     def latex(self, rate = False):
-        """Return the latex code for the reaction."""
+        """Return the latex code for the reaction.
+        By default the kinetic parameter of the reaction is included.
+        To use the rate instead, use rate = True.
+
+        :Example:
+
+        >>> from crnpy.reaction import Reaction
+        >>> from crnpy.crncomplex import Complex
+        >>> r = Reaction("r1", Complex(A = 1, B = 2), Complex(C = 1), "k1*A*B**2")
+        >>> print(r.latex())
+        r_{1}: A + 2 B \\xrightarrow{k_{1}} C
+        >>> print(r.latex(True))
+        r_{1}: A + 2 B \\xrightarrow{A B^{2} k_{1}} C
+        """
         return "{}: {} {} {}".format(sp.latex(sympify(self.reactionid)),
                                      sp.latex(self.reactant.symp()),
-                                     str("\\xrightarrow{" + sp.latex(self.format_kinetics(rate)) + "}") if self.rate else str("\\rightarrow"),
+                                     str("\\xrightarrow{" + sp.latex(self.rate if rate else self.kinetic_param) + "}") if self.rate else str("\\rightarrow"),
                                      sp.latex(self.product.symp()))
 
     def remove_react_prod(self, species = None):
         """Remove common species between reactant and product.
 
-        If a species is specified, only species is removed."""
+        If a species is specified, only that species is removed.
+
+        :Example:
+
+        >>> reacts = parse_reactions(["A + 2B -> A + B", "A + B + C -> B + C + D"])
+        >>> reacts[0].remove_react_prod()
+        >>> reacts[1].remove_react_prod('C')
+        >>> reacts
+        [r0: B ->(A*B*k_r0) , r1: A + B ->(C*k_r1) B + D]
+
+        """
         reactant = Complex(self.reactant)
         product = Complex(self.product)
         if species == None:
@@ -244,7 +277,22 @@ def _split_reaction_monom(reaction, species):
 
 
 def merge_reactions(reactions):
-    """Merge reactions with same reactants and products."""
+    """Merge reactions with same reactants and products.
+
+    Take a list of reactions in input and return a list of reactions,
+    with a maximum of one reaction for each pair of reactant and product.
+    The rates of reactions with the same reactant and product are summed, and
+    their reaction ids are concatenated.
+
+    :Example:
+
+    >>> from crnpy.parsereaction import parse_reactions
+    >>> from crnpy.reaction import merge_reactions
+    >>> reacts = parse_reactions(["a -> b", "c <-> d + e", "d + e -> c", "a -> b"])
+    >>> merge_reactions(reacts)
+    [r0r3: a ->(k_r0 + k_r3) b, r1: c ->(k_r1) d + e, r1_revr2: d + e ->(k_r1_rev + k_r2) c]
+
+    """
     react = defaultdict(list)
     newreactions = []
     for reaction in reactions:
@@ -254,7 +302,7 @@ def merge_reactions(reactions):
             newreactions.append(Reaction(''.join([reaction.reactionid for reaction in react[c]]), \
                                          react[c][0].reactant, \
                                          react[c][0].product, \
-                                         sum([reaction.rate for reaction in react[c]]).cancel()))
+                                         sum([reaction.rate for reaction in react[c]]).factor()))
     return sorted(newreactions, key = lambda r: r.reactionid)
 
 

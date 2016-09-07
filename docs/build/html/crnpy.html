@@ -326,7 +326,8 @@ as lists of length the number of reactions.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.format_deficiency">
 <code class="descname">format_deficiency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_deficiency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string &#8216;deficiency delta = n_c - n_lc - stoich_matrix_rank</p>
+<dd><p>Return a string &#8216;deficiency delta = numer of complexes -
+number of linkage classes - rank of the stoichiometric matrix&#8217;</p>
 </dd></dl>
 
 <dl class="method">
@@ -597,12 +598,6 @@ It is the negative of the kinetic matrix.</p>
 <span class="go">[[A, B + C], [2B, C, D + E]]</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="method">
-<dt id="crnpy.crn.CRN.merge_network">
-<code class="descname">merge_network</code><span class="sig-paren">(</span><em>network</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.merge_network" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add reactions of network.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1140,6 +1135,23 @@ and an array of labels for the weakly connected components.</p>
 <p>A reaction is defined by a string reactionid,
 a reactant complex, a product complex,
 and a string or sympy expression representing the rate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="k">import</span> <span class="n">Complex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*A*B**2&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">r1: A + 2B -&gt;(k1) C</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">reactionid</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">reactant</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">product</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">kinetic_param</span>
+<span class="go">(&#39;r1&#39;, A + 2B, C, A*B**2*k1, k1)</span>
+</pre></div>
+</div>
 <p>Attributes: reactionid, reactant, product, rate, kinetic_param.</p>
 <dl class="method">
 <dt id="crnpy.reaction.Reaction.format">
@@ -1171,7 +1183,26 @@ associated to the reactant.</p>
 <dl class="method">
 <dt id="crnpy.reaction.Reaction.latex">
 <code class="descname">latex</code><span class="sig-paren">(</span><em>rate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.latex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the latex code for the reaction.</p>
+<dd><p>Return the latex code for the reaction.
+By default the kinetic parameter of the reaction is included.
+To use the rate instead, use rate = True.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="k">import</span> <span class="n">Complex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*A*B**2&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">())</span>
+<span class="go">r_{1}: A + 2 B \xrightarrow{k_{1}} C</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">r_{1}: A + 2 B \xrightarrow{A B^{2} k_{1}} C</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -1202,7 +1233,22 @@ associated to the reactant.</p>
 <dt id="crnpy.reaction.Reaction.remove_react_prod">
 <code class="descname">remove_react_prod</code><span class="sig-paren">(</span><em>species=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.Reaction.remove_react_prod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove common species between reactant and product.</p>
-<p>If a species is specified, only species is removed.</p>
+<p>If a species is specified, only that species is removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="n">parse_reactions</span><span class="p">([</span><span class="s2">&quot;A + 2B -&gt; A + B&quot;</span><span class="p">,</span> <span class="s2">&quot;A + B + C -&gt; B + C + D&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove_react_prod</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">remove_react_prod</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span>
+<span class="go">[r0: B -&gt;(A*B*k_r0) , r1: A + B -&gt;(C*k_r1) B + D]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -1211,6 +1257,25 @@ associated to the reactant.</p>
 <dt id="crnpy.reaction.merge_reactions">
 <code class="descclassname">crnpy.reaction.</code><code class="descname">merge_reactions</code><span class="sig-paren">(</span><em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.merge_reactions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merge reactions with same reactants and products.</p>
+<p>Take a list of reactions in input and return a list of reactions,
+with a maximum of one reaction for each pair of reactant and product.
+The rates of reactions with the same reactant and product are summed, and
+their reaction ids are concatenated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.parsereaction</span> <span class="k">import</span> <span class="n">parse_reactions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">merge_reactions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="n">parse_reactions</span><span class="p">([</span><span class="s2">&quot;a -&gt; b&quot;</span><span class="p">,</span> <span class="s2">&quot;c &lt;-&gt; d + e&quot;</span><span class="p">,</span> <span class="s2">&quot;d + e -&gt; c&quot;</span><span class="p">,</span> <span class="s2">&quot;a -&gt; b&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">merge_reactions</span><span class="p">(</span><span class="n">reacts</span><span class="p">)</span>
+<span class="go">[r0r3: a -&gt;(k_r0 + k_r3) b, r1: c -&gt;(k_r1) d + e, r1_revr2: d + e -&gt;(k_r1_rev + k_r2) c]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
