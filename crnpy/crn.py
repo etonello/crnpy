@@ -1784,9 +1784,12 @@ class CRN(object):
     ### Subnetworks ###
 
     def subnets(self):
-        """ Try to split the network into subnetworks such that
+        """Try to split the network into subnetworks such that
         the ranks of the subnetworks sum to the rank of the network.
-        Use split_by_ems to look for candidate subnetworks."""
+        Use split_by_ems to look for candidate subnetworks.
+
+        Return a list of CRNs.
+        """
         reacts, rem_reacts = self.split_by_ems()
         nets = [from_reacts(r) for r in reacts] + ([from_reacts(rem_reacts)] if rem_reacts else [])
         if sum([net.stoich_matrix.rank() for net in nets]) == self.stoich_matrix.rank():
@@ -1796,7 +1799,11 @@ class CRN(object):
 
 
     def split_by_ems(self, same_react = False):
-        """ Split reactions according to the elementary modes.
+        """Split reactions according to the elementary modes they take part in.
+
+        Return a list of reactions grouped by elementary mode, and the list of reactions
+        not taking part in any elementary mode.
+
         If same_react = True, do not split reactions with the same reactant."""
         subnet = {}
         reacts = {}
@@ -1833,7 +1840,7 @@ class CRN(object):
                 reacts_not_ems.append(self.reactions[r])
 
         return [[self.reactions[r] for r in [h for h in range(self.n_reactions) if h in subnet and subnet[h] == sb]]
-                    for sb in range(max(subnet.values()) + 1)], reacts_not_ems if len(reacts_not_ems) > 0 else None
+                    for sb in range(max(subnet.values()) + 1)], reacts_not_ems
 
 
     ### Print ###
