@@ -1714,6 +1714,8 @@ class CRN(object):
         >>> net.acr_species(subnets = True)
         ['A', 'C', 'D']
 
+        Algorithm based on the presentation in the supplementary material of
+        Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
         """
         # Algorithm based on the presentation in the supplementary material of
         # Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
@@ -1743,10 +1745,9 @@ class CRN(object):
         >>> net.acr_complexes(subnets=True)
         [A**2/C, A*C/D, A]
 
-
+        Algorithm based on the presentation in the supplementary material of
+        Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
         """
-        # Algorithm based on the presentation in the supplementary material of
-        # Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
         if self.is_ma:
             if subnets:
                 nets = self.subnets()

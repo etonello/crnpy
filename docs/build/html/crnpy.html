@@ -133,6 +133,8 @@
 <span class="go">[A**2/C, A*C/D, A]</span>
 </pre></div>
 </div>
+<p>Algorithm based on the presentation in the supplementary material of
+Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.</p>
 </dd></dl>
 
 <dl class="method">
@@ -162,6 +164,8 @@
 <span class="go">[&#39;A&#39;, &#39;C&#39;, &#39;D&#39;]</span>
 </pre></div>
 </div>
+<p>Algorithm based on the presentation in the supplementary material of
+Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.</p>
 </dd></dl>
 
 <dl class="method">
@@ -916,8 +920,10 @@ or if a reduction method is applied to eliminate some species.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.split_by_ems">
 <code class="descname">split_by_ems</code><span class="sig-paren">(</span><em>same_react=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.split_by_ems" title="Permalink to this definition">¶</a></dt>
-<dd><p>Split reactions according to the elementary modes.
-If same_react = True, do not split reactions with the same reactant.</p>
+<dd><p>Split reactions according to the elementary modes they take part in.</p>
+<p>Return a list of reactions grouped by elementary mode, and the list of reactions
+not taking part in any elementary mode.</p>
+<p>If same_react = True, do not split reactions with the same reactant.</p>
 </dd></dl>
 
 <dl class="method">
@@ -989,6 +995,7 @@ of the graph of complexes, and the array of labels for the strongly connected co
 <dd><p>Try to split the network into subnetworks such that
 the ranks of the subnetworks sum to the rank of the network.
 Use split_by_ems to look for candidate subnetworks.</p>
+<p>Return a list of CRNs.</p>
 </dd></dl>
 
 <dl class="attribute">
