@@ -10,7 +10,7 @@ PAMP_production: Path ->(k1) PAMP + Path
 Effector_production: Path ->(Apoplast*k1) E + Path
 E_int_removal: E_int ->(Cell*k1) 
 ETI: Path + R_ ->(k1) R_
-Effector_translocation: E ->(V/(Callose*Km/Ki + E + Km)) E_int
+Effector_translocation: E ->(Ki*V/(Callose*Km + E*Ki + Ki*Km)) E_int
 Callose_production: PRR_ ->(k1) Callose + PRR_
 Callose_removal: Callose ->(Cell*k1) 
 PTI: Callose + Path ->(k1) Callose

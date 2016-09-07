@@ -1,8 +1,8 @@
-Per_transcription: _EmptySet ->(compartment_0000003*(C1 + S1*(Reaction1_B1 + (Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a)/(Reaction1_B1 + (Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a + (Per_Tim_nuc/R1)**Reaction1_r + 1))/_EmptySet) Per_mRNA
+Per_transcription: _EmptySet ->(compartment_0000003*(C1*Reaction1_B1 + C1*(Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a + C1*(Per_Tim_nuc/R1)**Reaction1_r + C1 + Reaction1_B1*S1 + S1*(Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a)/(_EmptySet*(Reaction1_B1 + (Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a + (Per_Tim_nuc/R1)**Reaction1_r + 1))) Per_mRNA
 non_specific_Per_mRNA_degradation: Per_mRNA ->(Reaction2_D0*compartment_0000003) _EmptySet
-Tim_transcription: _EmptySet ->(compartment_0000003*(C2 + S3*(Reaction3_B2 + (Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a)/(Reaction3_B2 + (Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a + (Per_Tim_nuc/R2)**Reaction3_r + 1))/_EmptySet) Tim_mRNA
+Tim_transcription: _EmptySet ->(compartment_0000003*(C2*Reaction3_B2 + C2*(Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a + C2*(Per_Tim_nuc/R2)**Reaction3_r + C2 + Reaction3_B2*S3 + S3*(Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a)/(_EmptySet*(Reaction3_B2 + (Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a + (Per_Tim_nuc/R2)**Reaction3_r + 1))) Tim_mRNA
 non_specific_Tim_mRNA_degradation: Tim_mRNA ->(Drosophilia*Reaction4_D0) _EmptySet
-Clk_transcription: _EmptySet ->(compartment_0000003*(C3 + S5*(Reaction5_B3 + (Per_Tim_nuc/Reaction5_A3)**Reaction5_a)/(Reaction5_B3 + (Clk_Cyc_nuc/R3)**Reaction5_r + (Per_Tim_nuc/Reaction5_A3)**Reaction5_a + 1))/_EmptySet) Clk_mRNA
+Clk_transcription: _EmptySet ->(compartment_0000003*(C3*Reaction5_B3 + C3*(Clk_Cyc_nuc/R3)**Reaction5_r + C3*(Per_Tim_nuc/Reaction5_A3)**Reaction5_a + C3 + Reaction5_B3*S5 + S5*(Per_Tim_nuc/Reaction5_A3)**Reaction5_a)/(_EmptySet*(Reaction5_B3 + (Clk_Cyc_nuc/R3)**Reaction5_r + (Per_Tim_nuc/Reaction5_A3)**Reaction5_a + 1))) Clk_mRNA
 non_specific_Clk_mRNA_degradation: Clk_mRNA ->(Drosophilia*Reaction6_D0) _EmptySet
 Clk_Cyc_nuclear_import: Clk_Cyc_cyt ->(Reaction7_T3*compartment_0000003/(Clk_Cyc_cyt + K3)) Clk_Cyc_nuc
 Clk_Cyc_nuclear_export: Clk_Cyc_nuc ->(Reaction8_T4*compartment_0000002/(Clk_Cyc_nuc + Reaction8_k4)) Clk_Cyc_cyt

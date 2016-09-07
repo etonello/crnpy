@@ -22,13 +22,13 @@ UbE_mediated_degradation_of_Cdc13_Cdc2_in_Rum1_Cdc13_Cdc2: Cdc13_Cdc2_Rum1 ->(k2
 UbE_mediated_degradation_of_Cdc13_Cdc2_in_Rum1_Cdc13_P_Cdc2: Cdc13_P_Cdc2_Rum1 ->(k2) FreeRum1
 Rum1_creation:  ->(k3) FreeRum1
 Rum1_degradation_by_SPF: FreeRum1 ->(Mass*S_phasePromotingFactor*kp/(FreeRum1 + Kmp)) 
-IE_production_&_degradation: BoundIntermediaryEnzyme ->((BoundIntermediaryEnzyme*IntermediaryEnzyme*M_phasePromotingFactor*ki + BoundIntermediaryEnzyme*Kmir*M_phasePromotingFactor*ki)/(BoundIntermediaryEnzyme*(BoundIntermediaryEnzyme + Kmi)*(IntermediaryEnzyme + Kmir))) IntermediaryEnzyme
-IE_production_&_degradation_rev: IntermediaryEnzyme ->((BoundIntermediaryEnzyme*IntermediaryEnzyme*kir + IntermediaryEnzyme*Kmi*kir)/(IntermediaryEnzyme*(BoundIntermediaryEnzyme + Kmi)*(IntermediaryEnzyme + Kmir))) BoundIntermediaryEnzyme
-UbE_production_&_degradation: BoundUbiquitinProtease1 ->((BoundUbiquitinProtease1*IntermediaryEnzyme*Kmur*ku + BoundUbiquitinProtease1*IntermediaryEnzyme*ku*ubiquitinProtease1)/(BoundUbiquitinProtease1*(BoundUbiquitinProtease1 + Kmu)*(Kmur + ubiquitinProtease1))) ubiquitinProtease1
-UbE_production_&_degradation_rev: ubiquitinProtease1 ->((BoundUbiquitinProtease1*kur*ubiquitinProtease1 + Kmu*kur*ubiquitinProtease1)/(ubiquitinProtease1*(BoundUbiquitinProtease1 + Kmu)*(Kmur + ubiquitinProtease1))) BoundUbiquitinProtease1
-UbE2_production_&_degradation: BoundUbiquitinProtease2 ->((BoundUbiquitinProtease2*Kmur2*M_phasePromotingFactor*ku2 + BoundUbiquitinProtease2*M_phasePromotingFactor*ku2*ubiquitinProtease2)/(BoundUbiquitinProtease2*(BoundUbiquitinProtease2 + Kmu2)*(Kmur2 + ubiquitinProtease2))) ubiquitinProtease2
-UbE2_production_&_degradation_rev: ubiquitinProtease2 ->((BoundUbiquitinProtease2*kur2*ubiquitinProtease2 + Kmu2*kur2*ubiquitinProtease2)/(ubiquitinProtease2*(BoundUbiquitinProtease2 + Kmu2)*(Kmur2 + ubiquitinProtease2))) BoundUbiquitinProtease2
-Wee1_production_&_degradation: BoundWee1 ->((BoundWee1*Kmw*kwr + BoundWee1*Wee1*kwr)/(BoundWee1*(BoundWee1 + Kmwr)*(Kmw + Wee1))) Wee1
-Wee1_production_&_degradation_rev: Wee1 ->((BoundWee1*M_phasePromotingFactor*Wee1*kw + Kmwr*M_phasePromotingFactor*Wee1*kw)/(Wee1*(BoundWee1 + Kmwr)*(Kmw + Wee1))) BoundWee1
-Cdc25_production_&_degradation: BoundCdc25 ->((BoundCdc25*Cdc25*M_phasePromotingFactor*kc + BoundCdc25*Kmcr*M_phasePromotingFactor*kc)/(BoundCdc25*(BoundCdc25 + Kmc)*(Cdc25 + Kmcr))) Cdc25
-Cdc25_production_&_degradation_rev: Cdc25 ->((BoundCdc25*Cdc25*kcr + Cdc25*Kmc*kcr)/(Cdc25*(BoundCdc25 + Kmc)*(Cdc25 + Kmcr))) BoundCdc25
+IE_production___degradation: BoundIntermediaryEnzyme ->(M_phasePromotingFactor*ki/(BoundIntermediaryEnzyme + Kmi)) IntermediaryEnzyme
+IE_production___degradation_rev: IntermediaryEnzyme ->(kir/(IntermediaryEnzyme + Kmir)) BoundIntermediaryEnzyme
+UbE_production___degradation: BoundUbiquitinProtease1 ->(IntermediaryEnzyme*ku/(BoundUbiquitinProtease1 + Kmu)) ubiquitinProtease1
+UbE_production___degradation_rev: ubiquitinProtease1 ->(kur/(Kmur + ubiquitinProtease1)) BoundUbiquitinProtease1
+UbE2_production___degradation: BoundUbiquitinProtease2 ->(M_phasePromotingFactor*ku2/(BoundUbiquitinProtease2 + Kmu2)) ubiquitinProtease2
+UbE2_production___degradation_rev: ubiquitinProtease2 ->(kur2/(Kmur2 + ubiquitinProtease2)) BoundUbiquitinProtease2
+Wee1_production___degradation: BoundWee1 ->(kwr/(BoundWee1 + Kmwr)) Wee1
+Wee1_production___degradation_rev: Wee1 ->(M_phasePromotingFactor*kw/(Kmw + Wee1)) BoundWee1
+Cdc25_production___degradation: BoundCdc25 ->(M_phasePromotingFactor*kc/(BoundCdc25 + Kmc)) Cdc25
+Cdc25_production___degradation_rev: Cdc25 ->(kcr/(Cdc25 + Kmcr)) BoundCdc25

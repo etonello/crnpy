@@ -31,4 +31,4 @@ re125: pp_JNK ->(re125_V20/(pp_JNK + re125_Km20)) p_JNK
 re126: p_JNK ->(pp_JNKK*re126_k19/(p_JNK + re126_Km19)) pp_JNK
 re127: AP_1 ->(pp_JNK*re127_k21/(AP_1 + re127_Km21)) aAP_1
 re128: aAP_1 ->(re128_V22/(aAP_1 + re128_Km22)) AP_1
-re129: KLF2 ->(29.256*exp(re129_tau*(-Time/re129_tc + re129_delay))/(KLF2*re129_uc*(exp(2*re129_tau*(-Time/re129_tc + re129_delay)) + 2*exp(re129_tau*(-Time/re129_tc + re129_delay)) + 1))) KLF2
+re129: KLF2 ->(29.256*exp(re129_delay*re129_tau)*exp(-Time*re129_tau/re129_tc)/(KLF2*re129_uc*(exp(re129_delay*re129_tau)*exp(-Time*re129_tau/re129_tc) + 1)**2)) KLF2

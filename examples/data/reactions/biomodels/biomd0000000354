@@ -1,11 +1,11 @@
 PLC__Receptor_and_Ca2__regulated_IP3_production:  ->(CaI*R) IP3
 SERCA__Pumps_Ca2__into_ER_Ca2__stores: CaI ->(CaI*SERCA/(CaI**2 + kSERCA**2)) CaS
-IP3R__IP3_and_Ca2__regulated_Ca2__channel___plus_leak: CaS ->((-DirTransf + 1)*(CaI**2*IP3**2*IP3R*(-g + 1)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2)) + ERleak)) CaI
+IP3R__IP3_and_Ca2__regulated_Ca2__channel___plus_leak: CaS ->((DirTransf - 1)*(-CaI**2*ERleak*IP3**2 - CaI**2*ERleak*kIP3R**2 + CaI**2*IP3**2*IP3R*g - CaI**2*IP3**2*IP3R - ERleak*IP3**2*kIP3Rca**2 - ERleak*kIP3R**2*kIP3Rca**2)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2))) CaI
 IP3_phosphatase___Degradation_of_IP3: IP3 ->(IP3degradation) 
-Inhibition_of_IP3R__mechanism_not_well_understood_:  ->(CaI**4*IP3Rinhibition*(-g + 1)/(CaI**4 + kG**4)) g
+Inhibition_of_IP3R__mechanism_not_well_understood_:  ->(-CaI**4*IP3Rinhibition*(g - 1)/(CaI**4 + kG**4)) g
 Recovery_of_IP3R_from_Ca2__iinhibition_when_Ca2__drops: g ->(IP3Rrecovery) 
-Regulation_of_Orai_by_STIM__plus_leak:  ->(STIM*(PMleak + kSTIM**8/(CaS**8 + kSTIM**8))) CaI
+Regulation_of_Orai_by_STIM__plus_leak:  ->(STIM*(CaS**8*PMleak + PMleak*kSTIM**8 + kSTIM**8)/(CaS**8 + kSTIM**8)) CaI
 PMCA___Pumps_Ca2__across_PM_out_of_cell: CaI ->(CaI*PMCA/(CaI**2 + kPMCA**2)) 
 UniporterFromCytosol: CaI ->(CaI**3*UniPort/(CaI**4 + kUniP**4)) CaM
-MitoToCytosol: CaM ->(MitNaCaEx/(CaM + 0.01)) CaI
-ERtoMito: CaS ->(DirTransf*(CaI**2*IP3**2*IP3R*(-g + 1)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2)) + ERleak)) CaM
+MitoToCytosol: CaM ->(1.0*MitNaCaEx/(1.0*CaM + 0.01)) CaI
+ERtoMito: CaS ->(-DirTransf*(-CaI**2*ERleak*IP3**2 - CaI**2*ERleak*kIP3R**2 + CaI**2*IP3**2*IP3R*g - CaI**2*IP3**2*IP3R - ERleak*IP3**2*kIP3Rca**2 - ERleak*kIP3R**2*kIP3Rca**2)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2))) CaM

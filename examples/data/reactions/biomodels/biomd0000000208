@@ -1,4 +1,4 @@
-R1:  ->(E2F*emax*k1/(E2F*k1 + pRB*(E2F*k1_double_prime + k1_prime))) E2F
+R1:  ->(E2F*emax*k1/(E2F*k1 + E2F*k1_double_prime*pRB + k1_prime*pRB)) E2F
 R2: E2F ->(phi1) 
 R3:  ->(E2F*k2) pRB
 R4: pRB ->(active_cycE_cdk2*k3) Phosphorylated_pRB

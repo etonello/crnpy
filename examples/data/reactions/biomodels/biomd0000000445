@@ -1,65 +1,65 @@
-cL_m_trscr:  ->(_def*(L*cP*q1 + g1**a*n1/(g1**a + (cNI + cP7 + cP9 + cT)**a))) cL_m
-cL_m_degr: cL_m ->(_def*(L*(m1 - m2) + m2)) 
+cL_m_trscr:  ->(_def*(L*cP*g1**a*q1 + L*cP*q1*(cNI + cP7 + cP9 + cT)**a + g1**a*n1)/(g1**a + (cNI + cP7 + cP9 + cT)**a)) cL_m
+cL_m_degr: cL_m ->(_def*(L*m1 - L*m2 + m2)) 
 cL_trsl:  ->(_def*cL_m*(L*p1 + p2)) cL
-cL_degr: cL ->((cL*m3 + cL**c*p3/(cL**c + g3**c))/cL) 
+cL_degr: cL ->((cL*cL**c*m3 + cL*g3**c*m3 + cL**c*p3)/(cL*(cL**c + g3**c))) 
 cL_modif:  ->(cL**c*p3/(cL**c + g3**c)) cLm
 cLm_degr: cLm ->(m4) 
-cP_trsl:  ->(_def*p7*(-L + 1)*(-cP + 1)) cP
+cP_trsl:  ->(_def*p7*(L - 1)*(cP - 1)) cP
 cP_degr: cP ->(L*_def*m11) 
-cP9_m_trscr:  ->(_def*g18**g*(L*cP*q3 + g8*(cL**e*n7/(cL**e + g9**e) + n4)/(cEC + g8))/(cT**g + g18**g)) cP9_m
+cP9_m_trscr:  ->(_def*g18**g*(L*cEC*cL**e*cP*q3 + L*cEC*cP*g9**e*q3 + L*cL**e*cP*g8*q3 + L*cP*g8*g9**e*q3 + cL**e*g8*n4 + cL**e*g8*n7 + g8*g9**e*n4)/((cEC + g8)*(cL**e + g9**e)*(cT**g + g18**g))) cP9_m
 cP9_m_degr: cP9_m ->(m12) 
 cP9_trsl:  ->(cP9_m*p8) cP9
-cP9_degr: cP9 ->(_def*(m13 + m22*(-L + 1))) 
-cP7_m_trscr:  ->(g22**g*(cP9**f*n9/(cP9**f + g11**f) + n8*(cL + cLm)**e/(g10**e + (cL + cLm)**e))/(cT**g + g22**g)) cP7_m
+cP9_degr: cP9 ->(_def*(-L*m22 + m13 + m22)) 
+cP7_m_trscr:  ->(g22**g*(cP9**f*g10**e*n9 + cP9**f*n8*(cL + cLm)**e + cP9**f*n9*(cL + cLm)**e + g11**f*n8*(cL + cLm)**e)/((cP9**f + g11**f)*(cT**g + g22**g)*(g10**e + (cL + cLm)**e))) cP7_m
 cP7_m_degr: cP7_m ->(m14) 
 cP7_trsl:  ->(cP7_m*p9) cP7
-cP7_degr: cP7 ->(_def*(m15 + m23*(-L + 1))) 
-cNI_m_trscr:  ->(g23**g*(cLm**e*n10/(cLm**e + g12**e) + cP7**b*n11/(cP7**b + g13**b))/(cT**g + g23**g)) cNI_m
+cP7_degr: cP7 ->(_def*(-L*m23 + m15 + m23)) 
+cNI_m_trscr:  ->(g23**g*(cLm**e*cP7**b*n10 + cLm**e*cP7**b*n11 + cLm**e*g13**b*n10 + cP7**b*g12**e*n11)/((cLm**e + g12**e)*(cP7**b + g13**b)*(cT**g + g23**g))) cNI_m
 cNI_m_degr: cNI_m ->(m16) 
 cNI_trsl:  ->(cNI_m*p10) cNI
-cNI_degr: cNI ->(_def*(m17 + m24*(-L + 1))) 
-cT_m_trscr:  ->(g4*n2/((cEC + g4)*((cL/(g5*((cSnRK2/g25)**j + 1)))**e + 1))) cT_m
+cNI_degr: cNI ->(_def*(-L*m24 + m17 + m24)) 
+cT_m_trscr:  ->(g4*n2/((cEC + g4)*((cL/(g5*(cSnRK2/g25)**j + g5))**e + 1))) cT_m
 cT_m_degr: cT_m ->(m5) 
 cT_trsl:  ->(cT_m*p4) cT
-cT_degr: cT ->(_def*(cT*m8 + cT*(cZG + cZTL*p5)*(m6 + m7*(-L + 1)))/cT) 
+cT_degr: cT ->(_def*(-L*cZG*m7 - L*cZTL*m7*p5 + cZG*m6 + cZG*m7 + cZTL*m6*p5 + cZTL*m7*p5 + m8)) 
 cE4_m_trscr:  ->(g20*g21**g*g6**e*n15/((cEC + g20)*(cL**e + g6**e)*(cT**g + g21**g))) cE4_m
 cE4_m_degr: cE4_m ->(m34) 
 cE4_trsl:  ->(cE4_m*p23) cE4
-cE4_degr: cE4 ->((-cE3n*cE4*p21*p25/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21) + cE3n*cE4*p25 + cE4*m35)/cE4) 
+cE4_degr: cE4 ->((cCOP1d*cE3n*m9*p25 + cCOP1d*m35*m9 + cCOP1n*cE3n*m10*p25 + cCOP1n*m10*m35 + cE3n*cLUX*p25*p26 + cLUX*m35*p26 + m35*p21)/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21)) 
 cE3_m_trscr:  ->(g16**e*n3/(cL**e + g16**e)) cE3_m
 cE3_m_degr: cE3_m ->(m26) 
 cE3_trsl:  ->(cE3_m*p16) cE3
 cE3_degr: cE3 ->(cCOP1c*m9) 
 cE3n_import: cE3 ->((cE3*p19 - cE3n*p20)/cE3) cE3n
-cE3n_degr: cE3n ->((cCOP1d*cE3n*m9 + cCOP1n*cE3n*m10 - cE3n*cE4*p21*p25/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21) + cE3n*cE4*p25 + cE3n*cG*p17*p28/(cE3n*p17 + m19 + p29))/cE3n) 
+cE3n_degr: cE3n ->((cCOP1d**2*cE3n*m9**2*p17 + cCOP1d**2*m19*m9**2 + cCOP1d**2*m9**2*p29 + 2*cCOP1d*cCOP1n*cE3n*m10*m9*p17 + 2*cCOP1d*cCOP1n*m10*m19*m9 + 2*cCOP1d*cCOP1n*m10*m9*p29 + cCOP1d*cE3n*cE4*m9*p17*p25 + cCOP1d*cE3n*cLUX*m9*p17*p26 + cCOP1d*cE3n*m9*p17*p21 + cCOP1d*cE4*m19*m9*p25 + cCOP1d*cE4*m9*p25*p29 + cCOP1d*cG*m9*p17*p28 + cCOP1d*cLUX*m19*m9*p26 + cCOP1d*cLUX*m9*p26*p29 + cCOP1d*m19*m9*p21 + cCOP1d*m9*p21*p29 + cCOP1n**2*cE3n*m10**2*p17 + cCOP1n**2*m10**2*m19 + cCOP1n**2*m10**2*p29 + cCOP1n*cE3n*cE4*m10*p17*p25 + cCOP1n*cE3n*cLUX*m10*p17*p26 + cCOP1n*cE3n*m10*p17*p21 + cCOP1n*cE4*m10*m19*p25 + cCOP1n*cE4*m10*p25*p29 + cCOP1n*cG*m10*p17*p28 + cCOP1n*cLUX*m10*m19*p26 + cCOP1n*cLUX*m10*p26*p29 + cCOP1n*m10*m19*p21 + cCOP1n*m10*p21*p29 + cE3n*cE4*cLUX*p17*p25*p26 + cE4*cLUX*m19*p25*p26 + cE4*cLUX*p25*p26*p29 + cG*cLUX*p17*p26*p28 + cG*p17*p21*p28)/((cE3n*p17 + m19 + p29)*(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21))) 
 cLUX_m_trscr:  ->(g19**g*g2*g6**e*n13/((cEC + g2)*(cL**e + g6**e)*(cT**g + g19**g))) cLUX_m
 cLUX_m_degr: cLUX_m ->(m34) 
 cLUX_trsl:  ->(cLUX_m*p27) cLUX
-cLUX_degr: cLUX ->((cE3n*cE4*cLUX*p25*p26/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21) + cLUX*m36)/cLUX) 
+cLUX_degr: cLUX ->((cCOP1d*m36*m9 + cCOP1n*m10*m36 + cE3n*cE4*p25*p26 + cLUX*m36*p26 + m36*p21)/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21)) 
 cCOP1c_trsl:  ->(n5) cCOP1c
 cCOP1c_degr: cCOP1c ->(_def*m27*(L*p15 + 1)) 
 cCOP1n_import: cCOP1c ->(p6) cCOP1n
 cCOP1n_degr: cCOP1n ->(_def*m27*(L*p15 + 1)) 
-cCOP1d_activ: cCOP1n ->(_def*(L*cCOP1n*cP*n6 + cCOP1n*n14)/cCOP1n) cCOP1d
-cCOP1d_degr: cCOP1d ->(_def*m31*(m33*(-L + 1) + 1)) 
-cG_m_trscr:  ->(_def*g17**g*(L*cP*q2 + g14*g15**e*n12/((cEC + g14)*(cL**e + g15**e)))/(cT**g + g17**g)) cG_m
+cCOP1d_activ: cCOP1n ->(_def*(L*cP*n6 + n14)) cCOP1d
+cCOP1d_degr: cCOP1d ->(-_def*m31*(L*m33 - m33 - 1)) 
+cG_m_trscr:  ->(_def*g17**g*(L*cEC*cL**e*cP*q2 + L*cEC*cP*g15**e*q2 + L*cL**e*cP*g14*q2 + L*cP*g14*g15**e*q2 + g14*g15**e*n12)/((cEC + g14)*(cL**e + g15**e)*(cT**g + g17**g))) cG_m
 cG_m_degr: cG_m ->(m18) 
 cG_trsl:  ->(cG_m*p11) cG
-cG_degr: cG ->((cG*m19 - cG*p28*p29/(cE3n*p17 + m19 + p29) + cG*p28)/cG) 
-cG_cZTL_assoc: cG + cZTL ->((L*_def*cG*cZTL*p12 + L*_def*cZG*p13)/(cG*cZTL)) cZG
+cG_degr: cG ->((cE3n*m19*p17 + cE3n*p17*p28 + m19**2 + m19*p28 + m19*p29)/(cE3n*p17 + m19 + p29)) 
+cG_cZTL_assoc: cG + cZTL ->(L*_def*(cG*cZTL*p12 + cZG*p13)/(cG*cZTL)) cZG
 cG_cZTL_assoc_rev: cZG ->(_def*p13) cG + cZTL
 cZTL_trsl:  ->(p14) cZTL
 cZTL_degr: cZTL ->(m20) 
 cZG_degr: cZG ->(m21) 
 cG_cE3_assoc: cE3 + cG ->(p17) cEG
-cEG_degr: cEG ->((cCOP1c*cEG*m10 + cEG*p18 - p31*(cE3n*cG*p17*p28/(cE3n*p17 + m19 + p29) + cEG*p18)/(cCOP1d*m9 + cCOP1n*m10 + p31))/cEG) 
+cEG_degr: cEG ->((cCOP1c*cCOP1d*cE3n*cEG*m10*m9*p17 + cCOP1c*cCOP1d*cEG*m10*m19*m9 + cCOP1c*cCOP1d*cEG*m10*m9*p29 + cCOP1c*cCOP1n*cE3n*cEG*m10**2*p17 + cCOP1c*cCOP1n*cEG*m10**2*m19 + cCOP1c*cCOP1n*cEG*m10**2*p29 + cCOP1c*cE3n*cEG*m10*p17*p31 + cCOP1c*cEG*m10*m19*p31 + cCOP1c*cEG*m10*p29*p31 + cCOP1d*cE3n*cEG*m9*p17*p18 + cCOP1d*cEG*m19*m9*p18 + cCOP1d*cEG*m9*p18*p29 + cCOP1n*cE3n*cEG*m10*p17*p18 + cCOP1n*cEG*m10*m19*p18 + cCOP1n*cEG*m10*p18*p29 - cE3n*cG*p17*p28*p31)/(cEG*(cCOP1d*m9 + cCOP1n*m10 + p31)*(cE3n*p17 + m19 + p29))) 
 cEC_form:  ->(cE3n*cE4*cLUX*p25*p26/(cCOP1d*m9 + cCOP1n*m10 + cLUX*p26 + p21)) cEC
-cEC_degr: cEC ->(_def*(cCOP1d*cEC*m9 + cCOP1n*cEC*m10 + cEC*m32*(L*p24*(cG*p28/(cE3n*p17 + m19 + p29) + (cE3n*cG*p17*p28/(cE3n*p17 + m19 + p29) + cEG*p18)/(cCOP1d*m9 + cCOP1n*m10 + p31))**d/(g7**d + (cG*p28/(cE3n*p17 + m19 + p29) + (cE3n*cG*p17*p28/(cE3n*p17 + m19 + p29) + cEG*p18)/(cCOP1d*m9 + cCOP1n*m10 + p31))**d) + 1))/cEC) 
+cEC_degr: cEC ->(_def*(L*m32*p24*(cCOP1d*cG*m9*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cCOP1n*cG*m10*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cEG*p17*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cG*p17*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*m19*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*p18*p29/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cG*p28*p31/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31))**d + cCOP1d*g7**d*m9 + cCOP1d*m9*(cCOP1d*cG*m9*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cCOP1n*cG*m10*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cEG*p17*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cG*p17*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*m19*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*p18*p29/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cG*p28*p31/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31))**d + cCOP1n*g7**d*m10 + cCOP1n*m10*(cCOP1d*cG*m9*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cCOP1n*cG*m10*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cEG*p17*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cG*p17*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*m19*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*p18*p29/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cG*p28*p31/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31))**d + g7**d*m32 + m32*(cCOP1d*cG*m9*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cCOP1n*cG*m10*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cEG*p17*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cG*p17*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*m19*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*p18*p29/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cG*p28*p31/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31))**d)/(g7**d + (cCOP1d*cG*m9*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cCOP1n*cG*m10*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cEG*p17*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cE3n*cG*p17*p28/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*m19*p18/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cEG*p18*p29/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31) + cG*p28*p31/(cCOP1d*cE3n*m9*p17 + cCOP1d*m19*m9 + cCOP1d*m9*p29 + cCOP1n*cE3n*m10*p17 + cCOP1n*m10*m19 + cCOP1n*m10*p29 + cE3n*p17*p31 + m19*p31 + p29*p31))**d)) 
 cABAR_m_trscr:  ->(cL**e*default*g24**g*n17/(_def*(cL**e + g28**e)*(cT**g + g24**g))) cABAR_m
 cABAR_m_degr: cABAR_m ->(default*m37/_def) 
-cPP2C_act:  ->(default*g27**h*p33/(_def*(g27**h + (0.5*A0 + 0.5*cABAR_m + 0.5*g29 - 0.5*sqrt(-4*A0*cABAR_m + (A0 + cABAR_m + g29)**2))**h))) cPP2C
+cPP2C_act:  ->(default*g27**h*p33/(_def*(g27**h + (0.5*A0 + 0.5*cABAR_m + 0.5*g29 - 0.5*sqrt(A0**2 - 2*A0*cABAR_m + 2*A0*g29 + cABAR_m**2 + 2*cABAR_m*g29 + g29**2))**h))) cPP2C
 cPP2C_degr: cPP2C ->(default*m39/_def) 
 cSnRK2_degr: cSnRK2 ->(cPP2C*default*m30/_def) 
 cSnRK2_act:  ->(default*p32/_def) cSnRK2
-cs_act:  ->(default*g26**i*(-cs + 1)*(L*n18 + n19)/(_def*(cSnRK2**i + g26**i))) cs
+cs_act:  ->(-default*g26**i*(cs - 1)*(L*n18 + n19)/(_def*(cSnRK2**i + g26**i))) cs
 cs_degr: cs ->(default*m29/_def) 

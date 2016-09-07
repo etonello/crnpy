@@ -116,8 +116,8 @@ v_r29: Ga_GDP + Gbg ->(kGrecyc) _Gt
 v_r30: RK ->(Rec_wCa2*kRec3) Rec_wCa2_RK
 v_r30_rev: Rec_wCa2_RK ->(kRec4) RK
 v_r31: Ca2_free ->(eT*k1) Ca2_buff
-v_r31_rev: Ca2_buff ->((Ca2_buff*Ca2_free*k1 + Ca2_buff*k2)/Ca2_buff) Ca2_free
-v_r32: Ca2_free ->(gammaCa*(-Ca2_0 + Ca2_free)/Ca2_free) 
+v_r31_rev: Ca2_buff ->(Ca2_free*k1 + k2) Ca2_free
+v_r32: Ca2_free ->(-gammaCa*(Ca2_0 - Ca2_free)/Ca2_free) 
 v_r33:  ->(1000000.0*Jdark*fCa*(cGMP/cGMPdark)**ncg/(F*Vcyto*(fCa + 2))) Ca2_free
 v_r34:  ->(alfamax/((Ca2_free/Kc)**m + 1)) cGMP
 v_r35: cGMP ->(E*betasub + betadark) 

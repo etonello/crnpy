@@ -2,17 +2,17 @@ re055: E ->(HP*c4*kEB) Ep
 re066: HP ->(Edead*kEB) HP
 re059: Ep ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
 re105: HP + iDC ->(c2*iDCtoeDC_LP) eDC
-re074: emT ->(c2*(M2*Stim_emT_iTreg + Stim_emT_iTreg*tDC)) iTreg
+re074: emT ->(Stim_emT_iTreg*c2*(M2 + tDC)) iTreg
 re063: HP + iDC ->(iDCtoeDC_Lumen) eDC
 re058: E ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
-re070: M0 ->(c2*vm*(Ep**n/(Bc2**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) M1
-re073: M0 ->(c2*vm*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) M2
-re072: M2 ->(c2*v21*(Ep**n/(Bc**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) M1
+re070: M0 ->(c2*vm*(4*Bc2**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc2**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc2**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc2**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*M1**n*eDC**n*ri_I**(2*n) + Bc2**n*M1**n*ri_I**(3*n) + 3*Bc2**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*Th1**n*eDC**n*ri_I**(2*n) + Bc2**n*Th1**n*ri_I**(3*n) + 2*Bc2**n*Th17**n*eDC**n*ri_I**(2*n) + Bc2**n*Th17**n*ri_I**(3*n) + Bc2**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc2**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) M1
+re073: M0 ->(c2*vm*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) M2
+re072: M2 ->(c2*v21*(4*Bc**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*M1**n*eDC**n*ri_I**(2*n) + Bc**n*M1**n*ri_I**(3*n) + 3*Bc**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*Th1**n*eDC**n*ri_I**(2*n) + Bc**n*Th1**n*ri_I**(3*n) + 2*Bc**n*Th17**n*eDC**n*ri_I**(2*n) + Bc**n*Th17**n*ri_I**(3*n) + Bc**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) M1
 re077: HP + iDC ->(c2*iDCtotDC_LP) tDC
 re078: eDC ->(_eEI) eDC
 re079: tDC ->(_eEI) tDC
 re080: nT ->(c3*(Stim_t_Th17*eDC + Stim_t_Th17LB*eDCLB)) Th17
-re081: nT ->(c3*(Stim_t_Th1*eDC + Stim_t_Th1LB*eDC)) Th1
+re081: nT ->(c3*eDC*(Stim_t_Th1 + Stim_t_Th1LB)) Th1
 re082: nT ->(Stim_t_iTreg*c3*tDC) iTreg
 re083: cmT ->(c3*(Stim_cmT_Th17*eDC + Stim_cmT_Th17LB*eDCLB)) Th17
 re084: cmT ->(c3*(Stim_cmT_Th1*eDC + Stim_cmT_Th1LB*eDCLB)) Th1
@@ -20,8 +20,8 @@ re085: cmT ->(Stim_cmT_iTreg*c3*tDC) iTreg
 re087: Th17 ->(_eIE) Th17
 re088: Th1 ->(_eIE) Th1
 re089: iTreg ->(_eIE) iTreg
-re091: iTreg ->(K_r17*c3*(Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Th17
-re093: iTreg ->(K_r17*c2*(Ep**n/(Bc**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Th17
+re091: iTreg ->(K_r17*c3*(3*Th1**n*Th17**n*eDC**n + 2*Th1**n*Th17**n*ri_I**n + 2*Th1**n*eDC**n*ri_I**n + Th1**n*ri_I**(2*n) + 2*Th17**n*eDC**n*ri_I**n + Th17**n*ri_I**(2*n) + eDC**n*ri_I**(2*n))/((Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Th17
+re093: iTreg ->(K_r17*c2*(4*Bc**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*M1**n*eDC**n*ri_I**(2*n) + Bc**n*M1**n*ri_I**(3*n) + 3*Bc**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*Th1**n*eDC**n*ri_I**(2*n) + Bc**n*Th1**n*ri_I**(3*n) + 2*Bc**n*Th17**n*eDC**n*ri_I**(2*n) + Bc**n*Th17**n*ri_I**(3*n) + Bc**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Th17
 re095: Th17 ->(c2*toemT) emT
 re096: Th1 ->(c2*toemT) emT
 re097: iTreg ->(c2*toemT) emT
@@ -37,23 +37,23 @@ re065: HP ->(c1*uHP)
 re103: emT ->(c2*(M1*Stim_emT_Th1 + Stim_emT_Th1*eDC + Stim_emT_Th1LB*eDCLB)) Th1
 re104: emT ->(c2*(M1*Stim_emT_Th17 + Stim_emT_Th17*eDC + Stim_emT_Th17LB*eDCLB)) Th17
 re119: Th17 ->(T_deactivation*c2) 
-re106:  ->(c3*(_et*eDC**n/(eDC**n + et_i**n) + _lt)) nT
+re106:  ->(c3*(_et*eDC**n + _lt*eDC**n + _lt*et_i**n)/(eDC**n + et_i**n)) nT
 re107: nT ->(_ut*c3) 
 re061: HP ->(Ep*cyto_change) HP
 re062: HP + iDC ->(iDCtotDC_Lumen) tDC
 re067: HP ->(c2*k_LP*(Bd*Ep + M1*uM1)) 
 re053: HP ->(Ep*HP_Ep_Lumen*c1) 
-re068:  ->(c2*(er*(Ep**n/(Br**n + Ep**n) + M1**n/(M1**n + er_i**n) + eDC**n/(eDC**n + er_i**n)) + ld)) iDC
-re069:  ->(c2*(er*(Ep**n/(Br**n + Ep**n) + M1**n/(M1**n + er_i**n) + eDC**n/(eDC**n + er_i**n)) + lm)) M0
+re068:  ->(c2*(2*Br**n*M1**n*eDC**n*er + Br**n*M1**n*eDC**n*ld + Br**n*M1**n*er*er_i**n + Br**n*M1**n*er_i**n*ld + Br**n*eDC**n*er*er_i**n + Br**n*eDC**n*er_i**n*ld + Br**n*er_i**(2*n)*ld + 3*Ep**n*M1**n*eDC**n*er + Ep**n*M1**n*eDC**n*ld + 2*Ep**n*M1**n*er*er_i**n + Ep**n*M1**n*er_i**n*ld + 2*Ep**n*eDC**n*er*er_i**n + Ep**n*eDC**n*er_i**n*ld + Ep**n*er*er_i**(2*n) + Ep**n*er_i**(2*n)*ld)/((Br**n + Ep**n)*(M1**n + er_i**n)*(eDC**n + er_i**n))) iDC
+re069:  ->(c2*(2*Br**n*M1**n*eDC**n*er + Br**n*M1**n*eDC**n*lm + Br**n*M1**n*er*er_i**n + Br**n*M1**n*er_i**n*lm + Br**n*eDC**n*er*er_i**n + Br**n*eDC**n*er_i**n*lm + Br**n*er_i**(2*n)*lm + 3*Ep**n*M1**n*eDC**n*er + Ep**n*M1**n*eDC**n*lm + 2*Ep**n*M1**n*er*er_i**n + Ep**n*M1**n*er_i**n*lm + 2*Ep**n*eDC**n*er*er_i**n + Ep**n*eDC**n*er_i**n*lm + Ep**n*er*er_i**(2*n) + Ep**n*er_i**(2*n)*lm)/((Br**n + Ep**n)*(M1**n + er_i**n)*(eDC**n + er_i**n))) M0
 re111: iDC ->(c2*udi_LP) 
 re112: M0 ->(c2*um) 
 re117: M1 ->(c2*uMA) 
 re118: M2 ->(c2*uMA) 
 re120: Th1 ->(T_deactivation*c2) 
 re121: iTreg ->(T_deactivation*c2) 
-re071: M1 ->(c2*v12*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) M2
-re094: Th17 ->(K_17r*c2*(M2**n/(M2**n + ir_I**n) + iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) iTreg
-re092: Th17 ->(K_17r*c3*(iTreg**n/(iTreg**n + ir_I**n) + tDC**n/(ir_I**n + tDC**n))) iTreg
+re071: M1 ->(c2*v12*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) M2
+re094: Th17 ->(K_17r*c2*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) iTreg
+re092: Th17 ->(K_17r*c3*(iTreg**n*ir_I**n + 2*iTreg**n*tDC**n + ir_I**n*tDC**n)/((iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) iTreg
 re122: HP + M0 ->(M0toM1_LP*c2) M1
 re123: HP + M0 ->(M0toM2_LP*c2) M2
 re116: eDC ->(_ud*c3) 
@@ -71,7 +71,7 @@ re135:  ->(c3*new_Th1_GLN) Th1
 re136:  ->(c3*new_Th17_GLN) Th17
 re137: eDCLB ->(_eEI) eDCLB
 re138: eDCLB ->(_ud*c3) 
-re139: E ->(c4*vEC*(Ep**n/(Bc2**n + Ep**n) + M1**n/(M1**n + ri_I**n) + Th1**n/(Th1**n + ri_I**n) + Th17**n/(Th17**n + ri_I**n) + eDC**n/(eDC**n + ri_I**n))) Ep
+re139: E ->(c4*vEC*(4*Bc2**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc2**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc2**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc2**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*M1**n*eDC**n*ri_I**(2*n) + Bc2**n*M1**n*ri_I**(3*n) + 3*Bc2**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*Th1**n*eDC**n*ri_I**(2*n) + Bc2**n*Th1**n*ri_I**(3*n) + 2*Bc2**n*Th17**n*eDC**n*ri_I**(2*n) + Bc2**n*Th17**n*ri_I**(3*n) + Bc2**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc2**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Ep
 re140: eDCLB ->(_ud*c3) 
 nTh1_creation: nT ->(k1) nTh1
 nTh1_trans: nTh1 ->(c1*k1) nTh1_LP

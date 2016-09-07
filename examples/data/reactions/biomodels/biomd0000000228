@@ -2,14 +2,14 @@ pRB_synthesis:  ->(E2F1*J11*J61*cell*k1/((E2F1 + Km1)*(J11 + pRB)*(J61 + pRBp)))
 pRB_phosphorylation: pRB ->(CycD_cdk4_6_a_*cell*k16) pRBp
 pRBp_dephosphorylation: pRBp ->(cell*k61) pRB
 pRB_degradation: pRB ->(cell*phi_pRB) 
-E2F1_synthesis:  ->(cell*(J12*J62*k2*(E2F1**2 + a**2)/((E2F1**2 + Km2**2)*(J12 + pRB)*(J62 + pRBp)) + kp)) E2F1
+E2F1_synthesis:  ->(cell*(E2F1**2*J12*J62*k2 + E2F1**2*J12*J62*kp + E2F1**2*J12*kp*pRBp + E2F1**2*J62*kp*pRB + E2F1**2*kp*pRB*pRBp + J12*J62*Km2**2*kp + J12*J62*a**2*k2 + J12*Km2**2*kp*pRBp + J62*Km2**2*kp*pRB + Km2**2*kp*pRB*pRBp)/((E2F1**2 + Km2**2)*(J12 + pRB)*(J62 + pRBp))) E2F1
 E2F1_degradation: E2F1 ->(cell*phi_E2F1) 
-CycD_synthesis:  ->(cell*(AP1*k3 + E2F1*J13*J63*k23/((J13 + pRB)*(J63 + pRBp)))) CycD_cdk4_6_i_
+CycD_synthesis:  ->(cell*(AP1*J13*J63*k3 + AP1*J13*k3*pRBp + AP1*J63*k3*pRB + AP1*k3*pRB*pRBp + E2F1*J13*J63*k23)/((J13 + pRB)*(J63 + pRBp))) CycD_cdk4_6_i_
 CycD_inibition: CycD_cdk4_6_a_ ->(cell*k43) CycD_cdk4_6_i_
 CycD_activation: CycD_cdk4_6_i_ ->(CycD_cdk4_6_a_*cell*k34/(CycD_cdk4_6_a_ + Km4)) CycD_cdk4_6_a_
 CycD_degradation: CycD_cdk4_6_i_ ->(cell*phi_CycDi) 
 CycD_degradation2: CycD_cdk4_6_a_ ->(cell*phi_CycDa) 
-AP1_synthesis:  ->(cell*(E2F1*J15*J65*k25/((J15 + pRB)*(J65 + pRBp)) + Fm)) AP1
+AP1_synthesis:  ->(cell*(E2F1*J15*J65*k25 + Fm*J15*J65 + Fm*J15*pRBp + Fm*J65*pRB + Fm*pRB*pRBp)/((J15 + pRB)*(J65 + pRBp))) AP1
 Ap1_degradation: AP1 ->(cell*phi_AP1) 
 pRBp_phosphorylation: pRBp ->(CycEa_cdk2_a_*cell*k67) pRBpp
 pRBpp_dephosphorylation: pRBpp ->(cell*k76) pRBp

@@ -1,16 +1,16 @@
-PIPSyn: PI_PM ->((PI_PM*PM*Ratebasal_PIPsyn_PIPSyn + PI_PM*PM*Ratestim_PIPsyn_PIPSyn)/PI_PM) PIP_PM
-PIPSyn_rev: PIP_PM ->(0) PI_PM
+PIPSyn: PI_PM ->(PM*(Ratebasal_PIPsyn_PIPSyn + Ratestim_PIPsyn_PIPSyn)) PIP_PM
+PIPSyn_rev: PIP_PM -> PI_PM
 PIP2_hyd: PIP2_PM ->(PIP2_hyd_k_PIP2hyd*PLC_act_PM*PM) DAG_PM + IP3_Cyt
-PIP2_hyd_rev: DAG_PM + IP3_Cyt ->(0) PIP2_PM
+PIP2_hyd_rev: DAG_PM + IP3_Cyt -> PIP2_PM
 PLCact: PLC_PM ->(PLCact_KfPLCact*PM*signal_PLCact*stim_PM) PLC_act_PM
 PLCact_rev: PLC_act_PM ->(PLCact_krPLCact*PM) PLC_PM
 PIP2_PH_hyd: PIP2_PHGFP_PM ->(PIP2_PH_hyd_k_PIP2PHhyd*PLC_act_PM*PM) DAG_PM + IP3_Cyt + PH_GFP_Cyt
-PIP2_PH_hyd_rev: DAG_PM + IP3_Cyt + PH_GFP_Cyt ->(0) PIP2_PHGFP_PM
+PIP2_PH_hyd_rev: DAG_PM + IP3_Cyt + PH_GFP_Cyt -> PIP2_PHGFP_PM
 PIP2_PH: PH_GFP_Cyt + PIP2_PM ->(0.00166112956810631*PM*kf_PIP2PH_PIP2_PH) PIP2_PHGFP_PM
 PIP2_PH_rev: PIP2_PHGFP_PM ->(PM*kr_PIP2PH_PIP2_PH) PH_GFP_Cyt + PIP2_PM
 IP3deg: IP3_Cyt ->(0.00166112956810631*Cytosol*IP3deg_kIP3deg/KMOLE) 
 IP3deg_rev:  ->(Cytosol*IP3deg_IP3_basal*IP3deg_kIP3deg/KMOLE) IP3_Cyt
-PIP2Syn: PIP_PM ->((PIP_PM*PM*Rate_PIP2SynStim_PIP2Syn + PIP_PM*PM*Rate_PIP2Synbasal_PIP2Syn)/PIP_PM) PIP2_PM
-PIP2Syn_rev: PIP2_PM ->(0) PIP_PM
+PIP2Syn: PIP_PM ->(PM*(Rate_PIP2SynStim_PIP2Syn + Rate_PIP2Synbasal_PIP2Syn)) PIP2_PM
+PIP2Syn_rev: PIP2_PM -> PIP_PM
 IP3_PHGFP: IP3_Cyt + PH_GFP_Cyt ->(2.75935144203706e-6*Cytosol*kf_IP3PH_IP3_PHGFP/KMOLE) IP3_PHGFP_Cyt
 IP3_PHGFP_rev: IP3_PHGFP_Cyt ->(0.00166112956810631*Cytosol*kr_IP3PH_IP3_PHGFP/KMOLE) IP3_Cyt + PH_GFP_Cyt

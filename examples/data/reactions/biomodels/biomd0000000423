@@ -1,8 +1,8 @@
-v1a: IR ->((IR*ins*k1a + IR*k1aBasic)/IR) IRins
+v1a: IR ->(ins*k1a + k1aBasic) IRins
 v1b: IRins ->(k1b) IR
 v1c: IRins ->(k1c) IRp
 v1d: IRp ->(k1d) IRiP
-v1e: IRiP ->(Xp*k1f/(Xp + 1) + k1e) IRi
+v1e: IRiP ->((Xp*k1e + Xp*k1f + k1e)/(Xp + 1)) IRi
 v1g: IRp ->(k1g) IR
 v1r: IRi ->(k1r) IR
 v2: IRS ->(k21*(IRiP*k22 + IRp)/(Xp*km23 + 1)) IRSiP

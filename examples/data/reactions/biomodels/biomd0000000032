@@ -1,94 +1,94 @@
 alpha_degradation: a_factor ->(Bar1activeEx*Extracellular*v1_k1) 
-alpha_degradation_rev:  ->(0) a_factor
+alpha_degradation_rev:  -> a_factor
 v2: Ste2 ->(a_factor*compartment*v2_k2) Ste2active
-v2_rev: Ste2active ->(0) Ste2
+v2_rev: Ste2active -> Ste2
 v3: Ste2active ->(compartment*v3_k3) Ste2
-v3_rev: Ste2 ->(0) Ste2active
+v3_rev: Ste2 -> Ste2active
 v4: Ste2active ->(compartment*v4_k4) p
-v4_rev: p ->(0) Ste2active
+v4_rev: p -> Ste2active
 v5: Ste2 ->(compartment*v5_k5) 
-v5_rev:  ->(0) Ste2
+v5_rev:  -> Ste2
 v6: Gabg ->(Ste2active*compartment*v6_k6) GaGTP + Gbg
-v6_rev: GaGTP + Gbg ->(0) Gabg
+v6_rev: GaGTP + Gbg -> Gabg
 v7: GaGTP ->(compartment*v7_k7) gagdp
-v7_rev: gagdp ->(0) GaGTP
+v7_rev: gagdp -> GaGTP
 v8: GaGTP ->(Sst2*compartment*v8_k8) gagdp
-v8_rev: gagdp ->(0) GaGTP
+v8_rev: gagdp -> GaGTP
 v9: Gbg + gagdp ->(compartment*v9_k9) Gabg
-v9_rev: Gabg ->(0) Gbg + gagdp
+v9_rev: Gabg -> Gbg + gagdp
 v10: Gbg + complexC ->(compartment*v10_k10) complexD
-v10_rev: complexD ->(0) Gbg + complexC
+v10_rev: complexD -> Gbg + complexC
 v11: complexD ->(compartment*v11_k11) Gbg + complexC
-v11_rev: Gbg + complexC ->(0) complexD
+v11_rev: Gbg + complexC -> complexD
 v12: Ste11 + Ste5 ->(compartment*v12_k12) complexA
-v12_rev: complexA ->(0) Ste11 + Ste5
+v12_rev: complexA -> Ste11 + Ste5
 v13: complexA ->(compartment*v13_k13) Ste11 + Ste5
-v13_rev: Ste11 + Ste5 ->(0) complexA
+v13_rev: Ste11 + Ste5 -> complexA
 v14: Fus3 + Ste7 ->(compartment*v14_k14) complexB
-v14_rev: complexB ->(0) Fus3 + Ste7
+v14_rev: complexB -> Fus3 + Ste7
 v15: complexB ->(compartment*v15_k15) Fus3 + Ste7
-v15_rev: Fus3 + Ste7 ->(0) complexB
+v15_rev: Fus3 + Ste7 -> complexB
 v16: complexA + complexB ->(compartment*v16_k16) complexC
-v16_rev: complexC ->(0) complexA + complexB
+v16_rev: complexC -> complexA + complexB
 v17: complexC ->(compartment*v17_k17) Fus3 + Ste11 + Ste5 + Ste7
-v17_rev: Fus3 + Ste11 + Ste5 + Ste7 ->(0) complexC
+v17_rev: Fus3 + Ste11 + Ste5 + Ste7 -> complexC
 v18: Ste20 + complexD ->(compartment*v18_k18) complexE
-v18_rev: complexE ->(0) Ste20 + complexD
+v18_rev: complexE -> Ste20 + complexD
 v19: complexE ->(compartment*v19_k19) Ste20 + complexD
-v19_rev: Ste20 + complexD ->(0) complexE
+v19_rev: Ste20 + complexD -> complexE
 v20: complexE ->(compartment*v20_k20) complexF
-v20_rev: complexF ->(0) complexE
+v20_rev: complexF -> complexE
 v21: complexE ->(compartment*v21_k21) Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7
-v21_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 ->(0) complexE
+v21_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 -> complexE
 v22: complexF ->(compartment*v22_k22) complexG
-v22_rev: complexG ->(0) complexF
+v22_rev: complexG -> complexF
 v23: complexF ->(compartment*v23_k23) Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7
-v23_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 ->(0) complexF
+v23_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 -> complexF
 v24: complexG ->(compartment*v24_k24) complexH
-v24_rev: complexH ->(0) complexG
+v24_rev: complexH -> complexG
 v25: complexG ->(compartment*v25_k25) Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7
-v25_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 ->(0) complexG
+v25_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 -> complexG
 v26: complexH ->(compartment*v26_k26) complexI
-v26_rev: complexI ->(0) complexH
+v26_rev: complexI -> complexH
 v27: complexH ->(compartment*v27_k27) Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7
-v27_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 ->(0) complexH
+v27_rev: Fus3 + Gbg + Ste11 + Ste20 + Ste5 + Ste7 -> complexH
 v28: complexI ->(compartment*v28_k28) Fus3PP + complexL
-v28_rev: Fus3PP + complexL ->(0) complexI
+v28_rev: Fus3PP + complexL -> complexI
 v29: Fus3 + complexL ->(compartment*v29_k29) complexK
-v29_rev: complexK ->(0) Fus3 + complexL
+v29_rev: complexK -> Fus3 + complexL
 v30: complexK ->(compartment*v30_k30) Fus3 + complexL
-v30_rev: Fus3 + complexL ->(0) complexK
+v30_rev: Fus3 + complexL -> complexK
 v31: complexK ->(compartment*v31_k31) complexI
-v31_rev: complexI ->(0) complexK
+v31_rev: complexI -> complexK
 v32: complexL ->(compartment*v32_k32) Gbg + Ste11 + Ste20 + Ste5 + Ste7
-v32_rev: Gbg + Ste11 + Ste20 + Ste5 + Ste7 ->(0) complexL
+v32_rev: Gbg + Ste11 + Ste20 + Ste5 + Ste7 -> complexL
 v33: Fus3PP ->(compartment*v33_k33) Fus3
-v33_rev: Fus3 ->(0) Fus3PP
+v33_rev: Fus3 -> Fus3PP
 v34: Fus3PP + Ste12 ->(compartment*v34_k34) Ste12active
-v34_rev: Ste12active ->(0) Fus3PP + Ste12
+v34_rev: Ste12active -> Fus3PP + Ste12
 v35: Ste12active ->(compartment*v35_k35) Fus3PP + Ste12
-v35_rev: Fus3PP + Ste12 ->(0) Ste12active
+v35_rev: Fus3PP + Ste12 -> Ste12active
 v36: Bar1 ->(Ste12active*compartment*v36_k36) Bar1active
-v36_rev: Bar1active ->(0) Bar1
+v36_rev: Bar1active -> Bar1
 v37: Bar1active ->(compartment*v37_k37) Bar1
-v37_rev: Bar1 ->(0) Bar1active
+v37_rev: Bar1 -> Bar1active
 v38: Bar1active ->(compartment*v38_k38) Bar1activeEx
-v38_rev: Bar1activeEx ->(0) Bar1active
+v38_rev: Bar1activeEx -> Bar1active
 v39: Far1 ->(Fus3PP**2*compartment*v39_k39/(Fus3PP**2 + 10000)) Far1PP
-v39_rev: Far1PP ->(0) Far1
+v39_rev: Far1PP -> Far1
 v40: Far1PP ->(compartment*v40_k40) Far1
-v40_rev: Far1 ->(0) Far1PP
+v40_rev: Far1 -> Far1PP
 v41: Far1 ->(Cdc28*compartment*v41_k41) Far1ubiquitin
-v41_rev: Far1ubiquitin ->(0) Far1
+v41_rev: Far1ubiquitin -> Far1
 v42: Far1PP + Gbg ->(compartment*v42_k42) complexM
-v42_rev: complexM ->(0) Far1PP + Gbg
+v42_rev: complexM -> Far1PP + Gbg
 v43: complexM ->(compartment*v43_k43) Far1PP + Gbg
-v43_rev: Far1PP + Gbg ->(0) complexM
+v43_rev: Far1PP + Gbg -> complexM
 v44: complexN ->(compartment*v44_k44) Cdc28 + Far1PP
-v44_rev: Cdc28 + Far1PP ->(0) complexN
+v44_rev: Cdc28 + Far1PP -> complexN
 v45: Cdc28 + Far1PP ->(compartment*v45_k45) complexN
-v45_rev: complexN ->(0) Cdc28 + Far1PP
+v45_rev: complexN -> Cdc28 + Far1PP
 v46: p ->(Fus3PP**2*compartment*v46_k46/(p*(Fus3PP**2 + 16))) Sst2
-v46_rev: Sst2 ->(0) p
+v46_rev: Sst2 -> p
 v47: Sst2 ->(compartment*v47_k47) p
-v47_rev: p ->(0) Sst2
+v47_rev: p -> Sst2

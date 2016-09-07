@@ -2,43 +2,43 @@ CD28k_highDbinding: Ca_D_Cytosol + D28k_high_D_Cytosol ->(2.75935144203706e-6*CD
 CD28k_highDbinding_rev: D28kB_high_D_Cytosol ->(0.00166112956810631*CD28k_highDbinding_Kr*Cytosol/KMOLE) Ca_D_Cytosol + D28k_high_D_Cytosol
 PA_Dbinding: Ca_D_Cytosol + PA_D_Cytosol ->(2.75935144203706e-6*Cytosol*PA_Dbinding_Kf/KMOLE) PABCa_D_Cytosol
 PA_Dbinding_rev: PABCa_D_Cytosol ->(0.00166112956810631*Cytosol*PA_Dbinding_Kr/KMOLE) Ca_D_Cytosol + PA_D_Cytosol
-CG_deg: CG_D_Cytosol ->((0.00166112956810631*CG_D_Cytosol*CG_deg_D*CG_deg_l_n*CG_deg_l_star*CG_deg_r_d**2*Cytosol + 0.00166112956810631*CG_D_Cytosol*CG_deg_D*CG_deg_l_star*CG_deg_lc*CG_deg_r_n**2*Cytosol)/(CG_D_Cytosol*CG_deg_l_n*CG_deg_l_star**2*CG_deg_lc*CG_deg_r_d**2*KMOLE)) 
-CG_deg_rev:  ->((0.00166112956810631*CG_Cytosol*CG_deg_D*CG_deg_l_star*CG_deg_lc*CG_deg_r_n**2*Cytosol + CG_deg_CG_F*CG_deg_D*CG_deg_l_n*CG_deg_l_star*CG_deg_r_d**2*Cytosol)/(CG_deg_l_n*CG_deg_l_star**2*CG_deg_lc*CG_deg_r_d**2*KMOLE)) CG_D_Cytosol
-IP3deg: IP3_D_Cytosol ->((0.00166112956810631*Cytosol*IP3_D_Cytosol*IP3deg_D*IP3deg_l_n*IP3deg_l_star*IP3deg_r_d**2 + 0.00166112956810631*Cytosol*IP3_D_Cytosol*IP3deg_D*IP3deg_l_star*IP3deg_lc*IP3deg_r_n**2)/(IP3_D_Cytosol*IP3deg_l_n*IP3deg_l_star**2*IP3deg_lc*IP3deg_r_d**2*KMOLE)) 
-IP3deg_rev:  ->((0.00166112956810631*Cytosol*IP3_Cytosol*IP3deg_D*IP3deg_l_star*IP3deg_lc*IP3deg_r_n**2 + Cytosol*IP3deg_D*IP3deg_IP3_F*IP3deg_l_n*IP3deg_l_star*IP3deg_r_d**2)/(IP3deg_l_n*IP3deg_l_star**2*IP3deg_lc*IP3deg_r_d**2*KMOLE)) IP3_D_Cytosol
-D28kB_deg: D28kB_D_Cytosol ->((0.00166112956810631*Cytosol*D28kB_D_Cytosol*D28kB_deg_D*D28kB_deg_l_n*D28kB_deg_l_star*D28kB_deg_r_D**2 + 0.00166112956810631*Cytosol*D28kB_D_Cytosol*D28kB_deg_D*D28kB_deg_l_star*D28kB_deg_lc*D28kB_deg_r_n**2)/(D28kB_D_Cytosol*D28kB_deg_l_n*D28kB_deg_l_star**2*D28kB_deg_lc*D28kB_deg_r_D**2*KMOLE)) 
-D28kB_deg_rev:  ->((0.00166112956810631*Cytosol*D28kB_Cytosol*D28kB_deg_D*D28kB_deg_l_star*D28kB_deg_lc*D28kB_deg_r_n**2 + Cytosol*D28kB_deg_D*D28kB_deg_D28kB_F*D28kB_deg_l_n*D28kB_deg_l_star*D28kB_deg_r_D**2)/(D28kB_deg_l_n*D28kB_deg_l_star**2*D28kB_deg_lc*D28kB_deg_r_D**2*KMOLE)) D28kB_D_Cytosol
-D28k_deg: D28k_D_Cytosol ->((0.00166112956810631*Cytosol*D28k_D_Cytosol*D28k_deg_D*D28k_deg_l_n*D28k_deg_l_star*D28k_deg_r_D**2 + 0.00166112956810631*Cytosol*D28k_D_Cytosol*D28k_deg_D*D28k_deg_l_star*D28k_deg_lc*D28k_deg_r_n**2)/(D28k_D_Cytosol*D28k_deg_l_n*D28k_deg_l_star**2*D28k_deg_lc*D28k_deg_r_D**2*KMOLE)) 
-D28k_deg_rev:  ->((0.00166112956810631*Cytosol*D28k_Cytosol*D28k_deg_D*D28k_deg_l_star*D28k_deg_lc*D28k_deg_r_n**2 + Cytosol*D28k_deg_D*D28k_deg_D28k_F*D28k_deg_l_n*D28k_deg_l_star*D28k_deg_r_D**2)/(D28k_deg_l_n*D28k_deg_l_star**2*D28k_deg_lc*D28k_deg_r_D**2*KMOLE)) D28k_D_Cytosol
+CG_deg: CG_D_Cytosol ->(0.00166112956810631*CG_deg_D*Cytosol*(CG_deg_l_n*CG_deg_r_d**2 + CG_deg_lc*CG_deg_r_n**2)/(CG_deg_l_n*CG_deg_l_star*CG_deg_lc*CG_deg_r_d**2*KMOLE)) 
+CG_deg_rev:  ->(1.0*CG_deg_D*Cytosol*(0.00166112956810631*CG_Cytosol*CG_deg_lc*CG_deg_r_n**2 + 1.0*CG_deg_CG_F*CG_deg_l_n*CG_deg_r_d**2)/(CG_deg_l_n*CG_deg_l_star*CG_deg_lc*CG_deg_r_d**2*KMOLE)) CG_D_Cytosol
+IP3deg: IP3_D_Cytosol ->(0.00166112956810631*Cytosol*IP3deg_D*(IP3deg_l_n*IP3deg_r_d**2 + IP3deg_lc*IP3deg_r_n**2)/(IP3deg_l_n*IP3deg_l_star*IP3deg_lc*IP3deg_r_d**2*KMOLE)) 
+IP3deg_rev:  ->(1.0*Cytosol*IP3deg_D*(0.00166112956810631*IP3_Cytosol*IP3deg_lc*IP3deg_r_n**2 + 1.0*IP3deg_IP3_F*IP3deg_l_n*IP3deg_r_d**2)/(IP3deg_l_n*IP3deg_l_star*IP3deg_lc*IP3deg_r_d**2*KMOLE)) IP3_D_Cytosol
+D28kB_deg: D28kB_D_Cytosol ->(0.00166112956810631*Cytosol*D28kB_deg_D*(D28kB_deg_l_n*D28kB_deg_r_D**2 + D28kB_deg_lc*D28kB_deg_r_n**2)/(D28kB_deg_l_n*D28kB_deg_l_star*D28kB_deg_lc*D28kB_deg_r_D**2*KMOLE)) 
+D28kB_deg_rev:  ->(1.0*Cytosol*D28kB_deg_D*(0.00166112956810631*D28kB_Cytosol*D28kB_deg_lc*D28kB_deg_r_n**2 + 1.0*D28kB_deg_D28kB_F*D28kB_deg_l_n*D28kB_deg_r_D**2)/(D28kB_deg_l_n*D28kB_deg_l_star*D28kB_deg_lc*D28kB_deg_r_D**2*KMOLE)) D28kB_D_Cytosol
+D28k_deg: D28k_D_Cytosol ->(0.00166112956810631*Cytosol*D28k_deg_D*(D28k_deg_l_n*D28k_deg_r_D**2 + D28k_deg_lc*D28k_deg_r_n**2)/(D28k_deg_l_n*D28k_deg_l_star*D28k_deg_lc*D28k_deg_r_D**2*KMOLE)) 
+D28k_deg_rev:  ->(1.0*Cytosol*D28k_deg_D*(0.00166112956810631*D28k_Cytosol*D28k_deg_lc*D28k_deg_r_n**2 + 1.0*D28k_deg_D28k_F*D28k_deg_l_n*D28k_deg_r_D**2)/(D28k_deg_l_n*D28k_deg_l_star*D28k_deg_lc*D28k_deg_r_D**2*KMOLE)) D28k_D_Cytosol
 PA_MgD: Mg_D_Cytosol + PA_D_Cytosol ->(2.75935144203706e-6*Cytosol*PA_MgD_Kf/KMOLE) PABMg_D_Cytosol
 PA_MgD_rev: PABMg_D_Cytosol ->(0.00166112956810631*Cytosol*PA_MgD_Kr/KMOLE) Mg_D_Cytosol + PA_D_Cytosol
 PA_Ca: Ca_Cytosol + PA_Cytosol ->(2.75935144203706e-6*Cytosol*PA_Ca_Kf/KMOLE) PABCa_Cytosol
 PA_Ca_rev: PABCa_Cytosol ->(0.00166112956810631*Cytosol*PA_Ca_Kr/KMOLE) Ca_Cytosol + PA_Cytosol
-PABMg_deg: PABMg_D_Cytosol ->((0.00166112956810631*Cytosol*PABMg_D_Cytosol*PABMg_deg_D*PABMg_deg_l_n*PABMg_deg_l_star*PABMg_deg_r_d**2 + 0.00166112956810631*Cytosol*PABMg_D_Cytosol*PABMg_deg_D*PABMg_deg_l_star*PABMg_deg_lc*PABMg_deg_r_n**2)/(KMOLE*PABMg_D_Cytosol*PABMg_deg_l_n*PABMg_deg_l_star**2*PABMg_deg_lc*PABMg_deg_r_d**2)) 
-PABMg_deg_rev:  ->((0.00166112956810631*Cytosol*PABMg_Cytosol*PABMg_deg_D*PABMg_deg_l_star*PABMg_deg_lc*PABMg_deg_r_n**2 + Cytosol*PABMg_deg_D*PABMg_deg_PABMg_F*PABMg_deg_l_n*PABMg_deg_l_star*PABMg_deg_r_d**2)/(KMOLE*PABMg_deg_l_n*PABMg_deg_l_star**2*PABMg_deg_lc*PABMg_deg_r_d**2)) PABMg_D_Cytosol
-D28k_high_deg: D28k_high_D_Cytosol ->((0.00166112956810631*Cytosol*D28k_high_D_Cytosol*D28k_high_deg_D*D28k_high_deg_l_n*D28k_high_deg_l_star*D28k_high_deg_r_D**2 + 0.00166112956810631*Cytosol*D28k_high_D_Cytosol*D28k_high_deg_D*D28k_high_deg_l_star*D28k_high_deg_lc*D28k_high_deg_r_n**2)/(D28k_high_D_Cytosol*D28k_high_deg_l_n*D28k_high_deg_l_star**2*D28k_high_deg_lc*D28k_high_deg_r_D**2*KMOLE)) 
-D28k_high_deg_rev:  ->((0.00166112956810631*Cytosol*D28k_high_Cytosol*D28k_high_deg_D*D28k_high_deg_l_star*D28k_high_deg_lc*D28k_high_deg_r_n**2 + Cytosol*D28k_high_deg_D*D28k_high_deg_D28k_high_F*D28k_high_deg_l_n*D28k_high_deg_l_star*D28k_high_deg_r_D**2)/(D28k_high_deg_l_n*D28k_high_deg_l_star**2*D28k_high_deg_lc*D28k_high_deg_r_D**2*KMOLE)) D28k_high_D_Cytosol
+PABMg_deg: PABMg_D_Cytosol ->(0.00166112956810631*Cytosol*PABMg_deg_D*(PABMg_deg_l_n*PABMg_deg_r_d**2 + PABMg_deg_lc*PABMg_deg_r_n**2)/(KMOLE*PABMg_deg_l_n*PABMg_deg_l_star*PABMg_deg_lc*PABMg_deg_r_d**2)) 
+PABMg_deg_rev:  ->(1.0*Cytosol*PABMg_deg_D*(0.00166112956810631*PABMg_Cytosol*PABMg_deg_lc*PABMg_deg_r_n**2 + 1.0*PABMg_deg_PABMg_F*PABMg_deg_l_n*PABMg_deg_r_d**2)/(KMOLE*PABMg_deg_l_n*PABMg_deg_l_star*PABMg_deg_lc*PABMg_deg_r_d**2)) PABMg_D_Cytosol
+D28k_high_deg: D28k_high_D_Cytosol ->(0.00166112956810631*Cytosol*D28k_high_deg_D*(D28k_high_deg_l_n*D28k_high_deg_r_D**2 + D28k_high_deg_lc*D28k_high_deg_r_n**2)/(D28k_high_deg_l_n*D28k_high_deg_l_star*D28k_high_deg_lc*D28k_high_deg_r_D**2*KMOLE)) 
+D28k_high_deg_rev:  ->(1.0*Cytosol*D28k_high_deg_D*(0.00166112956810631*D28k_high_Cytosol*D28k_high_deg_lc*D28k_high_deg_r_n**2 + 1.0*D28k_high_deg_D28k_high_F*D28k_high_deg_l_n*D28k_high_deg_r_D**2)/(D28k_high_deg_l_n*D28k_high_deg_l_star*D28k_high_deg_lc*D28k_high_deg_r_D**2*KMOLE)) D28k_high_D_Cytosol
 Ca_d: Ca_Cytosol ->(0.00124584717607973*Ca_d_D*Ca_d_r_neck**2*Cytosol/(Ca_d_l*Ca_d_r_spine**3*KMOLE)) 
 Ca_d_rev:  ->(0.00124584717607973*Ca_D_Cytosol*Ca_d_D*Ca_d_r_neck**2*Cytosol/(Ca_d_l*Ca_d_r_spine**3*KMOLE)) Ca_Cytosol
-D28kB_high_deg: D28kB_high_D_Cytosol ->((0.00166112956810631*Cytosol*D28kB_high_D_Cytosol*D28kB_high_deg_D*D28kB_high_deg_l_n*D28kB_high_deg_l_star*D28kB_high_deg_r_D**2 + 0.00166112956810631*Cytosol*D28kB_high_D_Cytosol*D28kB_high_deg_D*D28kB_high_deg_l_star*D28kB_high_deg_lc*D28kB_high_deg_r_n**2)/(D28kB_high_D_Cytosol*D28kB_high_deg_l_n*D28kB_high_deg_l_star**2*D28kB_high_deg_lc*D28kB_high_deg_r_D**2*KMOLE)) 
-D28kB_high_deg_rev:  ->((0.00166112956810631*Cytosol*D28kB_high_Cytosol*D28kB_high_deg_D*D28kB_high_deg_l_star*D28kB_high_deg_lc*D28kB_high_deg_r_n**2 + Cytosol*D28kB_high_deg_D*D28kB_high_deg_D28kB_high_F*D28kB_high_deg_l_n*D28kB_high_deg_l_star*D28kB_high_deg_r_D**2)/(D28kB_high_deg_l_n*D28kB_high_deg_l_star**2*D28kB_high_deg_lc*D28kB_high_deg_r_D**2*KMOLE)) D28kB_high_D_Cytosol
+D28kB_high_deg: D28kB_high_D_Cytosol ->(0.00166112956810631*Cytosol*D28kB_high_deg_D*(D28kB_high_deg_l_n*D28kB_high_deg_r_D**2 + D28kB_high_deg_lc*D28kB_high_deg_r_n**2)/(D28kB_high_deg_l_n*D28kB_high_deg_l_star*D28kB_high_deg_lc*D28kB_high_deg_r_D**2*KMOLE)) 
+D28kB_high_deg_rev:  ->(1.0*Cytosol*D28kB_high_deg_D*(0.00166112956810631*D28kB_high_Cytosol*D28kB_high_deg_lc*D28kB_high_deg_r_n**2 + 1.0*D28kB_high_deg_D28kB_high_F*D28kB_high_deg_l_n*D28kB_high_deg_r_D**2)/(D28kB_high_deg_l_n*D28kB_high_deg_l_star*D28kB_high_deg_lc*D28kB_high_deg_r_D**2*KMOLE)) D28kB_high_D_Cytosol
 CG_d: CG_Cytosol ->(0.00124584717607973*CG_d_D*CG_d_r_neck**2*Cytosol/(CG_d_l*CG_d_r_spine**3*KMOLE)) 
 CG_d_rev:  ->(0.00124584717607973*CG_D_Cytosol*CG_d_D*CG_d_r_neck**2*Cytosol/(CG_d_l*CG_d_r_spine**3*KMOLE)) CG_Cytosol
-D28kB_d: D28kB_Cytosol ->(0) 
-D28kB_d_rev:  ->(0) D28kB_Cytosol
-reaction1: h_D_ERM ->((0.00166112956810631*Ca_D_Cytosol*ERM*h_D_ERM*reaction1_Kon + ERM*h_D_ERM*reaction1_Kinh*reaction1_Kon)/h_D_ERM) 
+D28kB_d: D28kB_Cytosol -> 
+D28kB_d_rev:  -> D28kB_Cytosol
+reaction1: h_D_ERM ->(1.0*ERM*reaction1_Kon*(0.00166112956810631*Ca_D_Cytosol + 1.0*reaction1_Kinh)) 
 reaction1_rev:  ->(ERM*reaction1_Kinh*reaction1_Kon) h_D_ERM
 CGbinding: CG_Cytosol + Ca_Cytosol ->(2.75935144203706e-6*CGbinding_Kf*Cytosol/KMOLE) CGB_Cytosol
 CGbinding_rev: CGB_Cytosol ->(0.00166112956810631*CGbinding_Kr*Cytosol/KMOLE) CG_Cytosol + Ca_Cytosol
 CaD28k_med: Ca_Cytosol + D28k_Cytosol ->(2.75935144203706e-6*CaD28k_med_Kf*Cytosol/KMOLE) D28kB_Cytosol
 CaD28k_med_rev: D28kB_Cytosol ->(0.00166112956810631*CaD28k_med_Kr*Cytosol/KMOLE) Ca_Cytosol + D28k_Cytosol
-PABCa_deg: PABCa_D_Cytosol ->((0.00166112956810631*Cytosol*PABCa_D_Cytosol*PABCa_deg_D*PABCa_deg_l_n*PABCa_deg_l_star*PABCa_deg_r_d**2 + 0.00166112956810631*Cytosol*PABCa_D_Cytosol*PABCa_deg_D*PABCa_deg_l_star*PABCa_deg_lc*PABCa_deg_r_n**2)/(KMOLE*PABCa_D_Cytosol*PABCa_deg_l_n*PABCa_deg_l_star**2*PABCa_deg_lc*PABCa_deg_r_d**2)) 
-PABCa_deg_rev:  ->((0.00166112956810631*Cytosol*PABCa_Cytosol*PABCa_deg_D*PABCa_deg_l_star*PABCa_deg_lc*PABCa_deg_r_n**2 + Cytosol*PABCa_deg_D*PABCa_deg_PABCa_F*PABCa_deg_l_n*PABCa_deg_l_star*PABCa_deg_r_d**2)/(KMOLE*PABCa_deg_l_n*PABCa_deg_l_star**2*PABCa_deg_lc*PABCa_deg_r_d**2)) PABCa_D_Cytosol
+PABCa_deg: PABCa_D_Cytosol ->(0.00166112956810631*Cytosol*PABCa_deg_D*(PABCa_deg_l_n*PABCa_deg_r_d**2 + PABCa_deg_lc*PABCa_deg_r_n**2)/(KMOLE*PABCa_deg_l_n*PABCa_deg_l_star*PABCa_deg_lc*PABCa_deg_r_d**2)) 
+PABCa_deg_rev:  ->(1.0*Cytosol*PABCa_deg_D*(0.00166112956810631*PABCa_Cytosol*PABCa_deg_lc*PABCa_deg_r_n**2 + 1.0*PABCa_deg_PABCa_F*PABCa_deg_l_n*PABCa_deg_r_d**2)/(KMOLE*PABCa_deg_l_n*PABCa_deg_l_star*PABCa_deg_lc*PABCa_deg_r_d**2)) PABCa_D_Cytosol
 IP3_d: IP3_Cytosol ->(0.00124584717607973*Cytosol*IP3_d_D*IP3_d_r_neck**2/(IP3_d_l*IP3_d_r_spine**3*KMOLE)) 
 IP3_d_rev:  ->(0.00124584717607973*Cytosol*IP3_D_Cytosol*IP3_d_D*IP3_d_r_neck**2/(IP3_d_l*IP3_d_r_spine**3*KMOLE)) IP3_Cytosol
 D28k_high_d: D28k_high_Cytosol ->(0.00124584717607973*Cytosol*D28k_high_d_D*D28k_high_d_r_neck**2/(D28k_high_d_l*D28k_high_d_r_spine**3*KMOLE)) 
 D28k_high_d_rev:  ->(0.00124584717607973*Cytosol*D28k_high_D_Cytosol*D28k_high_d_D*D28k_high_d_r_neck**2/(D28k_high_d_l*D28k_high_d_r_spine**3*KMOLE)) D28k_high_Cytosol
-reaction0: h_ERM ->((0.00166112956810631*Ca_Cytosol*ERM*h_ERM*reaction0_Kon + ERM*h_ERM*reaction0_Kinh*reaction0_Kon)/h_ERM) 
+reaction0: h_ERM ->(1.0*ERM*reaction0_Kon*(0.00166112956810631*Ca_Cytosol + 1.0*reaction0_Kinh)) 
 reaction0_rev:  ->(ERM*reaction0_Kinh*reaction0_Kon) h_ERM
 PABMg_d: PABMg_Cytosol ->(0.00124584717607973*Cytosol*PABMg_d_D*PABMg_d_r_neck**2/(KMOLE*PABMg_d_l*PABMg_d_r_spine**3)) 
 PABMg_d_rev:  ->(0.00124584717607973*Cytosol*PABMg_D_Cytosol*PABMg_d_D*PABMg_d_r_neck**2/(KMOLE*PABMg_d_l*PABMg_d_r_spine**3)) PABMg_Cytosol
@@ -50,12 +50,12 @@ PABCa_d: PABCa_Cytosol ->(0.00124584717607973*Cytosol*PABCa_d_D*PABCa_d_r_neck**
 PABCa_d_rev:  ->(0.00124584717607973*Cytosol*PABCa_D_Cytosol*PABCa_d_D*PABCa_d_r_neck**2/(KMOLE*PABCa_d_l*PABCa_d_r_spine**3)) PABCa_Cytosol
 PA_d: PA_Cytosol ->(0.00124584717607973*Cytosol*PA_d_D*PA_d_r_neck**2/(KMOLE*PA_d_l*PA_d_r_spine**3)) 
 PA_d_rev:  ->(0.00124584717607973*Cytosol*PA_D_Cytosol*PA_d_D*PA_d_r_neck**2/(KMOLE*PA_d_l*PA_d_r_spine**3)) PA_Cytosol
-CGB_deg: CGB_D_Cytosol ->((0.00166112956810631*CGB_D_Cytosol*CGB_deg_D*CGB_deg_l_n*CGB_deg_l_star*CGB_deg_r_d**2*Cytosol + 0.00166112956810631*CGB_D_Cytosol*CGB_deg_D*CGB_deg_l_star*CGB_deg_lc*CGB_deg_r_n**2*Cytosol)/(CGB_D_Cytosol*CGB_deg_l_n*CGB_deg_l_star**2*CGB_deg_lc*CGB_deg_r_d**2*KMOLE)) 
-CGB_deg_rev:  ->((0.00166112956810631*CGB_Cytosol*CGB_deg_D*CGB_deg_l_star*CGB_deg_lc*CGB_deg_r_n**2*Cytosol + CGB_deg_CGB_F*CGB_deg_D*CGB_deg_l_n*CGB_deg_l_star*CGB_deg_r_d**2*Cytosol)/(CGB_deg_l_n*CGB_deg_l_star**2*CGB_deg_lc*CGB_deg_r_d**2*KMOLE)) CGB_D_Cytosol
+CGB_deg: CGB_D_Cytosol ->(0.00166112956810631*CGB_deg_D*Cytosol*(CGB_deg_l_n*CGB_deg_r_d**2 + CGB_deg_lc*CGB_deg_r_n**2)/(CGB_deg_l_n*CGB_deg_l_star*CGB_deg_lc*CGB_deg_r_d**2*KMOLE)) 
+CGB_deg_rev:  ->(1.0*CGB_deg_D*Cytosol*(0.00166112956810631*CGB_Cytosol*CGB_deg_lc*CGB_deg_r_n**2 + 1.0*CGB_deg_CGB_F*CGB_deg_l_n*CGB_deg_r_d**2)/(CGB_deg_l_n*CGB_deg_l_star*CGB_deg_lc*CGB_deg_r_d**2*KMOLE)) CGB_D_Cytosol
 PA_Mg: Mg_Cytosol + PA_Cytosol ->(2.75935144203706e-6*Cytosol*PA_Mg_Kf/KMOLE) PABMg_Cytosol
 PA_Mg_rev: PABMg_Cytosol ->(0.00166112956810631*Cytosol*PA_Mg_Kr/KMOLE) Mg_Cytosol + PA_Cytosol
-PA_deg: PA_D_Cytosol ->((0.00166112956810631*Cytosol*PA_D_Cytosol*PA_deg_D*PA_deg_l_n*PA_deg_l_star*PA_deg_r_d**2 + 0.00166112956810631*Cytosol*PA_D_Cytosol*PA_deg_D*PA_deg_l_star*PA_deg_lc*PA_deg_r_n**2)/(KMOLE*PA_D_Cytosol*PA_deg_l_n*PA_deg_l_star**2*PA_deg_lc*PA_deg_r_d**2)) 
-PA_deg_rev:  ->((0.00166112956810631*Cytosol*PA_Cytosol*PA_deg_D*PA_deg_l_star*PA_deg_lc*PA_deg_r_n**2 + Cytosol*PA_deg_D*PA_deg_PA_F*PA_deg_l_n*PA_deg_l_star*PA_deg_r_d**2)/(KMOLE*PA_deg_l_n*PA_deg_l_star**2*PA_deg_lc*PA_deg_r_d**2)) PA_D_Cytosol
+PA_deg: PA_D_Cytosol ->(0.00166112956810631*Cytosol*PA_deg_D*(PA_deg_l_n*PA_deg_r_d**2 + PA_deg_lc*PA_deg_r_n**2)/(KMOLE*PA_deg_l_n*PA_deg_l_star*PA_deg_lc*PA_deg_r_d**2)) 
+PA_deg_rev:  ->(1.0*Cytosol*PA_deg_D*(0.00166112956810631*PA_Cytosol*PA_deg_lc*PA_deg_r_n**2 + 1.0*PA_deg_PA_F*PA_deg_l_n*PA_deg_r_d**2)/(KMOLE*PA_deg_l_n*PA_deg_l_star*PA_deg_lc*PA_deg_r_d**2)) PA_D_Cytosol
 IP3_degr: IP3_Cytosol ->(0.00166112956810631*Cytosol*IP3_degr_Kdegr/KMOLE) 
 IP3_degr_rev:  ->(Cytosol*IP3_degr_IP3_CytosolS*IP3_degr_Kdegr/KMOLE) IP3_Cytosol
 D28kB_high_d: D28kB_high_Cytosol ->(0.00124584717607973*Cytosol*D28kB_high_d_D*D28kB_high_d_r_neck**2/(D28kB_high_d_l*D28kB_high_d_r_spine**3*KMOLE)) 
@@ -68,23 +68,23 @@ CG_Dbinding: CG_D_Cytosol + Ca_D_Cytosol ->(2.75935144203706e-6*CG_Dbinding_Kf*C
 CG_Dbinding_rev: CGB_D_Cytosol ->(0.00166112956810631*CG_Dbinding_Kr*Cytosol/KMOLE) CG_D_Cytosol + Ca_D_Cytosol
 IP3_degr1: IP3_D_Cytosol ->(0.00166112956810631*Cytosol*IP3_degr1_Kdegr/KMOLE) 
 IP3_degr1_rev:  ->(Cytosol*IP3_degr1_IP3_CytosolD*IP3_degr1_Kdegr/KMOLE) IP3_D_Cytosol
-Ca_deg: Ca_D_Cytosol ->((0.00166112956810631*Ca_D_Cytosol*Ca_deg_D*Ca_deg_l_n*Ca_deg_l_star*Ca_deg_r_D**2*Cytosol + 0.00166112956810631*Ca_D_Cytosol*Ca_deg_D*Ca_deg_l_star*Ca_deg_lc*Ca_deg_r_n**2*Cytosol)/(Ca_D_Cytosol*Ca_deg_l_n*Ca_deg_l_star**2*Ca_deg_lc*Ca_deg_r_D**2*KMOLE)) 
-Ca_deg_rev:  ->((0.00166112956810631*Ca_Cytosol*Ca_deg_D*Ca_deg_l_star*Ca_deg_lc*Ca_deg_r_n**2*Cytosol + Ca_deg_Ca_F*Ca_deg_D*Ca_deg_l_n*Ca_deg_l_star*Ca_deg_r_D**2*Cytosol)/(Ca_deg_l_n*Ca_deg_l_star**2*Ca_deg_lc*Ca_deg_r_D**2*KMOLE)) Ca_D_Cytosol
+Ca_deg: Ca_D_Cytosol ->(0.00166112956810631*Ca_deg_D*Cytosol*(Ca_deg_l_n*Ca_deg_r_D**2 + Ca_deg_lc*Ca_deg_r_n**2)/(Ca_deg_l_n*Ca_deg_l_star*Ca_deg_lc*Ca_deg_r_D**2*KMOLE)) 
+Ca_deg_rev:  ->(1.0*Ca_deg_D*Cytosol*(0.00166112956810631*Ca_Cytosol*Ca_deg_lc*Ca_deg_r_n**2 + 1.0*Ca_deg_Ca_F*Ca_deg_l_n*Ca_deg_r_D**2)/(Ca_deg_l_n*Ca_deg_l_star*Ca_deg_lc*Ca_deg_r_D**2*KMOLE)) Ca_D_Cytosol
 pulses:  ->(Cytosol*pulses_Js*pulses_SVR*pulses_ar/(KMOLE*pulses_Rs)) IP3_Cytosol
-pulses_rev: IP3_Cytosol ->(0) 
+pulses_rev: IP3_Cytosol -> 
 ER_leak_flux: Ca_Cytosol ->(1.0*ERDensity_ERM*ERM*ER_leak_flux_vL/(Ca_ER*KMOLE)) Ca_ER
 ER_leak_flux_rev: Ca_ER ->(ERDensity_ERM*ERM*ER_leak_flux_vL/(Ca_ER*KMOLE)) Ca_Cytosol
-SERCA_fluxD: Ca_D_Cytosol ->(2.75935144203706e-6*Ca_D_Cytosol*ERDensity_D_ERM*ERM*SERCA_fluxD_vP/(KMOLE*(2.75935144203706e-6*Ca_D_Cytosol**2 + SERCA_fluxD_kP**2))) Ca_D_ER
-SERCA_fluxD_rev: Ca_D_ER ->(0) Ca_D_Cytosol
-IP3R_fluxD: Ca_D_Cytosol ->(2.10097581171068e-17*Ca_D_Cytosol**3*ERDensity_D_ERM*ERM*IP3R_fluxD_Jmax2*IP3_D_Cytosol**3*h_D_ERM**3/(Ca_D_ER*KMOLE*(0.00166112956810631*Ca_D_Cytosol + IP3R_fluxD_Kact)**3*(IP3R_fluxD_dI + 0.00166112956810631*IP3_D_Cytosol)**3)) Ca_D_ER
-IP3R_fluxD_rev: Ca_D_ER ->(2.10097581171068e-17*Ca_D_Cytosol**3*ERDensity_D_ERM*ERM*IP3R_fluxD_Jmax2*IP3_D_Cytosol**3*h_D_ERM**3/(Ca_D_ER*KMOLE*(0.00166112956810631*Ca_D_Cytosol + IP3R_fluxD_Kact)**3*(IP3R_fluxD_dI + 0.00166112956810631*IP3_D_Cytosol)**3)) Ca_D_Cytosol
-SERCA_flux: Ca_Cytosol ->(2.75935144203706e-6*Ca_Cytosol*ERDensity_ERM*ERM*SERCA_flux_vP/(KMOLE*(2.75935144203706e-6*Ca_Cytosol**2 + SERCA_flux_kP**2))) Ca_ER
-SERCA_flux_rev: Ca_ER ->(0) Ca_Cytosol
+SERCA_fluxD: Ca_D_Cytosol ->(2.75935144203706e-6*Ca_D_Cytosol*ERDensity_D_ERM*ERM*SERCA_fluxD_vP/(KMOLE*(2.75935144203706e-6*Ca_D_Cytosol**2 + 1.0*SERCA_fluxD_kP**2))) Ca_D_ER
+SERCA_fluxD_rev: Ca_D_ER -> Ca_D_Cytosol
+IP3R_fluxD: Ca_D_Cytosol ->(2.10097581171068e-17*Ca_D_Cytosol**3*ERDensity_D_ERM*ERM*IP3R_fluxD_Jmax2*IP3_D_Cytosol**3*h_D_ERM**3/(Ca_D_ER*KMOLE*(0.00166112956810631*Ca_D_Cytosol + 1.0*IP3R_fluxD_Kact)**3*(1.0*IP3R_fluxD_dI + 0.00166112956810631*IP3_D_Cytosol)**3)) Ca_D_ER
+IP3R_fluxD_rev: Ca_D_ER ->(2.10097581171068e-17*Ca_D_Cytosol**3*ERDensity_D_ERM*ERM*IP3R_fluxD_Jmax2*IP3_D_Cytosol**3*h_D_ERM**3/(Ca_D_ER*KMOLE*(0.00166112956810631*Ca_D_Cytosol + 1.0*IP3R_fluxD_Kact)**3*(1.0*IP3R_fluxD_dI + 0.00166112956810631*IP3_D_Cytosol)**3)) Ca_D_Cytosol
+SERCA_flux: Ca_Cytosol ->(2.75935144203706e-6*Ca_Cytosol*ERDensity_ERM*ERM*SERCA_flux_vP/(KMOLE*(2.75935144203706e-6*Ca_Cytosol**2 + 1.0*SERCA_flux_kP**2))) Ca_ER
+SERCA_flux_rev: Ca_ER -> Ca_Cytosol
 flux0: Ca_Extracellular ->(PM*flux0_ar/(Ca_Extracellular*KMOLE)) Ca_Cytosol
-flux0_rev: Ca_Cytosol ->(0) Ca_Extracellular
-IP3R_flux: Ca_Cytosol ->(2.10097581171068e-17*Ca_Cytosol**3*ERDensity_ERM*ERM*IP3R_flux_Jmax2*IP3_Cytosol**3*h_ERM**3/(Ca_ER*KMOLE*(0.00166112956810631*Ca_Cytosol + IP3R_flux_Kact)**3*(IP3R_flux_dI + 0.00166112956810631*IP3_Cytosol)**3)) Ca_ER
-IP3R_flux_rev: Ca_ER ->(2.10097581171068e-17*Ca_Cytosol**3*ERDensity_ERM*ERM*IP3R_flux_Jmax2*IP3_Cytosol**3*h_ERM**3/(Ca_ER*KMOLE*(0.00166112956810631*Ca_Cytosol + IP3R_flux_Kact)**3*(IP3R_flux_dI + 0.00166112956810631*IP3_Cytosol)**3)) Ca_Cytosol
+flux0_rev: Ca_Cytosol -> Ca_Extracellular
+IP3R_flux: Ca_Cytosol ->(2.10097581171068e-17*Ca_Cytosol**3*ERDensity_ERM*ERM*IP3R_flux_Jmax2*IP3_Cytosol**3*h_ERM**3/(Ca_ER*KMOLE*(0.00166112956810631*Ca_Cytosol + 1.0*IP3R_flux_Kact)**3*(1.0*IP3R_flux_dI + 0.00166112956810631*IP3_Cytosol)**3)) Ca_ER
+IP3R_flux_rev: Ca_ER ->(2.10097581171068e-17*Ca_Cytosol**3*ERDensity_ERM*ERM*IP3R_flux_Jmax2*IP3_Cytosol**3*h_ERM**3/(Ca_ER*KMOLE*(0.00166112956810631*Ca_Cytosol + 1.0*IP3R_flux_Kact)**3*(1.0*IP3R_flux_dI + 0.00166112956810631*IP3_Cytosol)**3)) Ca_Cytosol
 flux1: Ca_D_Extracellular ->(PM*flux1_ar/(Ca_D_Extracellular*KMOLE)) Ca_D_Cytosol
-flux1_rev: Ca_D_Cytosol ->(0) Ca_D_Extracellular
+flux1_rev: Ca_D_Cytosol -> Ca_D_Extracellular
 ER_leak_fluxD: Ca_D_Cytosol ->(1.0*ERDensity_D_ERM*ERM*ER_leak_fluxD_vL/(Ca_D_ER*KMOLE)) Ca_D_ER
 ER_leak_fluxD_rev: Ca_D_ER ->(ERDensity_D_ERM*ERM*ER_leak_fluxD_vL/(Ca_D_ER*KMOLE)) Ca_D_Cytosol

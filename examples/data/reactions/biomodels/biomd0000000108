@@ -15,4 +15,4 @@ v17: L_ ->(compartment_0000001*k17) LOO_
 v18: LOO_ ->(compartment_0000001*k18) LOOH + L_
 v19: 2LOO_ ->(compartment_0000001*k19) 
 v16: O2__ ->(HO2_*compartment_0000001*k10/O2__) 
-v16_rev:  ->(0) O2__
+v16_rev:  -> O2__

@@ -1,5 +1,5 @@
 Ca_flux_into_the_cell:  ->(Cytosol*gamma) Ca_Cyt
-Ca_translocation_from_ER_to_Cytosol: Ca_ER ->(Cytosol*k*(-Ca_Cyt + Ca_ER)/Ca_ER) Ca_Cyt
+Ca_translocation_from_ER_to_Cytosol: Ca_ER ->(-Cytosol*k*(Ca_Cyt - Ca_ER)/Ca_ER) Ca_Cyt
 Ca_transport_from_Cytosol_to_ER: Ca_Cyt ->(ER*k1) Ca_ER
-InsP3_channel: Ca_ER ->(Cytosol*alpha*fy*(-Ca_Cyt + Ca_ER)/Ca_ER) Ca_Cyt
+InsP3_channel: Ca_ER ->(-Cytosol*alpha*fy*(Ca_Cyt - Ca_ER)/Ca_ER) Ca_Cyt
 Ca_pumped_ouside_the_cell: Ca_Cyt ->(Extracellular*beta) 

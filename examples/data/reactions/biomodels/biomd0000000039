@@ -1,7 +1,7 @@
 Jch: 0CaER ->(Ca_cyt**2*Cytosol*v1_Kch*(CaER - Ca_cyt)/(Ca_cyt**2 + v1_K1**2)) Ca_cyt
 Jleak: 0CaER ->(Cytosol*v3_Kleak*(CaER - Ca_cyt)) Ca_cyt
 Jpump: Ca_cyt ->(Endoplasmic_Reticulum*v5_Kpump) 0CaER
-Jout: 0CaM ->(CaM*Cytosol*(Ca_cyt**2*v7_Kout/(Ca_cyt**2 + v7_K3**2) + v7_Km)) Ca_cyt
+Jout: 0CaM ->(CaM*Cytosol*(Ca_cyt**2*v7_Km + Ca_cyt**2*v7_Kout + v7_K3**2*v7_Km)/(Ca_cyt**2 + v7_K3**2)) Ca_cyt
 Jin: Ca_cyt ->(Ca_cyt**7*Mitochondria*v9_Kin/(Ca_cyt**8 + v9_K2**8)) 0CaM
 dissociation_of_CaPr: CaPr ->(Cytosol*v11_Kminus) Ca_cyt + Pr
 binding_of_Ca_on_Pr: Ca_cyt + Pr ->(Cytosol*v12_Kplus) CaPr

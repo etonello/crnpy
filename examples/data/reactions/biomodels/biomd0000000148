@@ -1,11 +1,11 @@
 Osteoclast_production:  ->(Osteoblast**g21*Osteoclast**g11*alpha1) Osteoclast
-Osteoclast_production_rev: Osteoclast ->(0) 
+Osteoclast_production_rev: Osteoclast -> 
 Osteoclast_removal: Osteoclast ->(beta1) 
-Osteoclast_removal_rev:  ->(0) Osteoclast
+Osteoclast_removal_rev:  -> Osteoclast
 Osteoblast_production:  ->(Osteoblast**g22*Osteoclast**g12*alpha2) Osteoblast
-Osteoblast_production_rev: Osteoblast ->(0) 
+Osteoblast_production_rev: Osteoblast -> 
 Osteoblast_removal: Osteoblast ->(beta2) 
-Osteoblast_removal_rev:  ->(0) Osteoblast
+Osteoblast_removal_rev:  -> Osteoblast
 Bone_resorption: Bone_mass ->(Osteoclast*flag_resorption*k1/Bone_mass) 
 Bone_resorption_rev:  ->(Steady_state_osteoclast*flag_resorption*k1) Bone_mass
 Bone_formation:  ->(Osteoblast*flag_formation*k2) Bone_mass

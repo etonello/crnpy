@@ -1,6 +1,6 @@
 IL6_gp80_complex_formation:  ->(IL6*cytosol*gp80*kf0) IL6_gp80
 IL6_gp80_complex_dissociation: IL6_gp80 ->(cytosol*kr0) 
-IL6_gp80_gp130_JAK_dissociation: IL6_gp80_gp130_JAK ->(cytosol*(-IL6_gp80*gp130_JAK*kf2 + IL6_gp80_gp130_JAK*kr2)/IL6_gp80_gp130_JAK) IL6_gp80 + gp130_JAK
+IL6_gp80_gp130_JAK_dissociation: IL6_gp80_gp130_JAK ->(-cytosol*(IL6_gp80*gp130_JAK*kf2 - IL6_gp80_gp130_JAK*kr2)/IL6_gp80_gp130_JAK) IL6_gp80 + gp130_JAK
 gp130_JAK_complex_formation: JAK ->(cytosol*(JAK*gp130*kf1 - gp130_JAK*kr1)/JAK) gp130_JAK
 IL6_gp80_gp130_JAK_dimerization: 2IL6_gp80_gp130_JAK ->(cytosol*kf3) _IL6_gp80_gp130_JAK_2
 IL6_gp80_gp130_JAK_dimer_dissociation: _IL6_gp80_gp130_JAK_2 ->(cytosol*kr3) 2IL6_gp80_gp130_JAK

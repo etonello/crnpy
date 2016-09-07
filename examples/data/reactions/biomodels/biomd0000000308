@@ -1,6 +1,6 @@
 r1:  ->(env*(S*k1 + k0)) X
 r2: X ->(env*(Rp*k2_prime + k2)) 
-r3: Y ->(X*env*k3*(-Yp + Yt)/(Y*(Km3 - Yp + Yt))) Yp
+r3: Y ->(-X*env*k3*(Yp - Yt)/(Y*(Km3 - Yp + Yt))) Yp
 r4: Yp ->(env*k4/(Km4 + Yp)) Y
-r5: R ->(Yp*env*k5*(-Rp + Rt)/(R*(Km5 - Rp + Rt))) Rp
+r5: R ->(-Yp*env*k5*(Rp - Rt)/(R*(Km5 - Rp + Rt))) Rp
 r6: Rp ->(env*k6/(Km6 + Rp)) R

@@ -1,8 +1,8 @@
 reaction_1: ERKc ->(cytosol**2*k1_ERKc*ppMEKc_tot) ERK_ppMEKc
-reaction_1_rev: ERK_ppMEKc ->((ERK_ppMEKc*ERKc*cytosol**2*k1_ERKc + ERK_ppMEKc*cytosol*k2_ERKc + ERKc*cytosol*k1_ERKc*pERK_ppMEKc)/ERK_ppMEKc) ERKc
+reaction_1_rev: ERK_ppMEKc ->(cytosol*(ERK_ppMEKc*ERKc*cytosol*k1_ERKc + ERK_ppMEKc*k2_ERKc + ERKc*k1_ERKc*pERK_ppMEKc)/ERK_ppMEKc) ERKc
 reaction_2: ERK_ppMEKc ->(cytosol*k3_ERKc) pERKc
 reaction_3: pERKc ->(cytosol**2*k1_ERKc*ppMEKc_tot) pERK_ppMEKc
-reaction_3_rev: pERK_ppMEKc ->((ERK_ppMEKc*cytosol*k1_ERKc*pERKc + cytosol**2*k1_ERKc*pERK_ppMEKc*pERKc + cytosol*k2_ERKc*pERK_ppMEKc)/pERK_ppMEKc) pERKc
+reaction_3_rev: pERK_ppMEKc ->(cytosol*(ERK_ppMEKc*k1_ERKc*pERKc + cytosol*k1_ERKc*pERK_ppMEKc*pERKc + k2_ERKc*pERK_ppMEKc)/pERK_ppMEKc) pERKc
 reaction_4: pERK_ppMEKc ->(cytosol*k3_ERKc) ppERKc
 reaction_5: ERKc ->((ERKc*cytosol*k_ERKin - ERKn*k_ERKout*nucleus)/ERKc) ERKn
 reaction_6: pERKc ->((cytosol*k_pERKin*pERKc - k_pERKout*nucleus*pERKn)/pERKc) pERKn
@@ -19,7 +19,7 @@ reaction_13: ppERK_DUSPn ->(kd3_ppERKn*nucleus) DUSPn + pERKn
 reaction_14: DUSPn + pERKn ->(4.54545454545455*kd1_pERKn*nucleus**2) pERK_DUSPn
 reaction_14_rev: pERK_DUSPn ->(kd2_pERKn*nucleus) DUSPn + pERKn
 reaction_15: pERK_DUSPn ->(kd3_pERKn*nucleus) DUSPn + ERKn
-reaction_16:  ->(0.693*duspn_basal*(duspn_ind*ppERKn**2/(Kduspn**2 + nucleus*ppERKn**2) + 1)/Tduspn) duspn
+reaction_16:  ->(0.693*duspn_basal*(Kduspn**2 + duspn_ind*ppERKn**2 + nucleus*ppERKn**2)/(Tduspn*(Kduspn**2 + nucleus*ppERKn**2))) duspn
 reaction_17: duspn ->(0.693*nucleus/Tduspn) 
 reaction_18:  ->(3.15*duspn*nucleus*v2/TDUSPn) DUSPn
 reaction_19: DUSPn ->(0.693*nucleus/TDUSPn) 

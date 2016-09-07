@@ -1,15 +1,15 @@
 Fpn_Export: 2LIP ->(Fpn**n*a/(LIP*(Fpn**n + K**n))) Tf_Fe_intercell
 TfR1_expression:  ->(IRP**n*a*compartment_3/(IRP**n + K**n)) TfR
 TfR1_degradation: TfR ->(compartment_3*k1) 
-Ferroportin_Expression:  ->(a*compartment_1*(-IRP**n/(IRP**n + K**n) + 1)) Fpn
-IRP_expresion:  ->(a*compartment_1*(-LIP**n/(K**n + LIP**n) + 1)) IRP
+Ferroportin_Expression:  ->(K**n*a*compartment_1/(IRP**n + K**n)) Fpn
+IRP_expresion:  ->(K**n*a*compartment_1/(K**n + LIP**n)) IRP
 IRP_degradation: IRP ->(compartment_1*k1) 
 Fpn_degradation: Fpn ->(Hamp**n*a*compartment_1/(Hamp**n + K**n)) 
 HFE_degradation: HFE ->(compartment_3*k1) 
 HFE_expression:  ->(compartment_3*v) HFE
 TfR2_expression:  ->(compartment_3*v) TfR2
-TfR2_degradation: TfR2 ->(a*compartment_3*(-Tf_Fe_intercell**n/(K**n + Tf_Fe_intercell**n) + 1)) 
-Hepcidin_expression:  ->(compartment_1*(_2HFE_TfR2**n*a/(K**n + _2HFE_TfR2**n) + _2_Tf_Fe__TfR2*a1/(K1 + _2_Tf_Fe__TfR2) + basal)) Hamp
+TfR2_degradation: TfR2 ->(K**n*a*compartment_3/(K**n + Tf_Fe_intercell**n)) 
+Hepcidin_expression:  ->(compartment_1*(K**n*K1*basal + K**n*_2_Tf_Fe__TfR2*a1 + K**n*_2_Tf_Fe__TfR2*basal + K1*_2HFE_TfR2**n*a + K1*_2HFE_TfR2**n*basal + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*a + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*a1 + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*basal)/((K**n + _2HFE_TfR2**n)*(K1 + _2_Tf_Fe__TfR2))) Hamp
 Hepcidin_degradation: Hamp ->(compartment_1*k1) 
 HFE_TfR1_binding: HFE + TfR ->(compartment_3*k1) HFE_TfR
 HFE_TfR1_release: HFE_TfR ->(compartment_3*k1) HFE + TfR
@@ -31,8 +31,8 @@ outFlow: LIP ->(compartment_1*k1)
 Ferritin_Iron_binding: FT + LIP ->(compartment_1*k1) Fe_FT
 Ferritin_Iron_release: Fe_FT ->(compartment_1*k1) FT + LIP
 Ferritin_Iron_internalisation: Fe_FT ->(compartment_1*k1) FT + FT1
-Ferritin_internalised_iron_release: FT1 ->(compartment_1*kloss*(1 + 0.048*FT1/(FT*(1 + FT1/FT)))) LIP
-ferritin_expression:  ->(a*compartment_1*(-IRP**n/(IRP**n + K**n) + 1)) FT
+Ferritin_internalised_iron_release: FT1 ->(1.0*compartment_1*kloss*(1.0*FT + 1.048*FT1)/(FT + FT1)) LIP
+ferritin_expression:  ->(K**n*a*compartment_1/(IRP**n + K**n)) FT
 Ferritin_Degredation_Full: FT ->(compartment_1*k1) 
 Ferritin_Degredation_Full_Iron_Release: FT1 ->(K*compartment_1) LIP
 HFETfR_degradation: _2HFE_TfR ->(compartment_3*k1) 

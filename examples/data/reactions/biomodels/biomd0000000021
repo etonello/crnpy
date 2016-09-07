@@ -10,8 +10,8 @@ PER_degradation: PER_Protein__unphosphorylated_ ->(Cell*P0_degradation_k_d)
 TIM_degradation: TIM_Protein__unphosphorylated_ ->(Cell*T0_degradation_k_d) 
 PER_1_degradation: PER_Protein__mono_phosphorylated_ ->(Cell*P1_degradation_k_d) 
 TIM_1_degradation: TIM_Protein__mono_phosphorylated_ ->(Cell*T1_degradation_k_d) 
-PER_2_degradation: PER_Protein__bi_phosphorylated_ ->((Cell*P2_degradation_V_dP*PER_Protein__bi_phosphorylated_/(P2_degradation_K_dP + PER_Protein__bi_phosphorylated_) + Cell*P2_degradation_k_d*PER_Protein__bi_phosphorylated_)/PER_Protein__bi_phosphorylated_) 
-TIM_2_degradation: TIM_Protein__bi_phosphorylated_ ->((Cell*T2_degradation_k_d*TIM_Protein__bi_phosphorylated_ + Cell*TIM_Protein__bi_phosphorylated_*V_dT/(T2_degradation_K_dT + TIM_Protein__bi_phosphorylated_))/TIM_Protein__bi_phosphorylated_) 
+PER_2_degradation: PER_Protein__bi_phosphorylated_ ->(Cell*(P2_degradation_K_dP*P2_degradation_k_d + P2_degradation_V_dP + P2_degradation_k_d*PER_Protein__bi_phosphorylated_)/(P2_degradation_K_dP + PER_Protein__bi_phosphorylated_)) 
+TIM_2_degradation: TIM_Protein__bi_phosphorylated_ ->(Cell*(T2_degradation_K_dT*T2_degradation_k_d + T2_degradation_k_d*TIM_Protein__bi_phosphorylated_ + V_dT)/(T2_degradation_K_dT + TIM_Protein__bi_phosphorylated_)) 
 PER_TIM_complex_formation: PER_Protein__bi_phosphorylated_ + TIM_Protein__bi_phosphorylated_ ->(Cell*PT_complex_formation_k3) Cytosolic_PER_TIM_Complex
 PER_TIM_complex_formation_rev: Cytosolic_PER_TIM_Complex ->(Cell*PT_complex_formation_k4) PER_Protein__bi_phosphorylated_ + TIM_Protein__bi_phosphorylated_
 PER_TIM_complex_nucleation: Cytosolic_PER_TIM_Complex ->(Cell*PT_complex_nucleation_k1) Nuclear_PER_TIM_Complex
@@ -22,5 +22,5 @@ PER_mRNA_production:  ->(Cell*Mp_production_K_IP**Mp_production_n*Mp_production_
 TIM_mRNA_production:  ->(Cell*Mt_production_K_IT**Mt_production_n*Mt_production_V_sT/(Mt_production_K_IT**Mt_production_n + Nuclear_PER_TIM_Complex**Mt_production_n)) TIM_mRNA
 PER_production:  ->(Cell*P0_production_k_sP*PER_mRNA) PER_Protein__unphosphorylated_
 TIM_production:  ->(Cell*T0_production_k_sT*TIM_mRNA) TIM_Protein__unphosphorylated_
-PER_mRNA_degradation: PER_mRNA ->((Cell*Mp_degradation_V_mP*PER_mRNA/(Mp_degradation_K_mP + PER_mRNA) + Cell*Mp_degradation_k_d*PER_mRNA)/PER_mRNA) 
-TIM_mRNA_degradation: TIM_mRNA ->((Cell*Mt_degradation_k_d*TIM_mRNA + Cell*TIM_mRNA*V_mT/(Mt_degradation_K_mT + TIM_mRNA))/TIM_mRNA) 
+PER_mRNA_degradation: PER_mRNA ->(Cell*(Mp_degradation_K_mP*Mp_degradation_k_d + Mp_degradation_V_mP + Mp_degradation_k_d*PER_mRNA)/(Mp_degradation_K_mP + PER_mRNA)) 
+TIM_mRNA_degradation: TIM_mRNA ->(Cell*(Mt_degradation_K_mT*Mt_degradation_k_d + Mt_degradation_k_d*TIM_mRNA + V_mT)/(Mt_degradation_K_mT + TIM_mRNA)) 

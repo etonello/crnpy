@@ -1,10 +1,10 @@
 X1_activats_X2: X1p ->(compartment_0*k12x*(X2T - X2p)) X2p
-S1_activates_X1:  ->(S1*compartment_0*kx*(X1T - X1p)/(1 + S1/Kmx)) X1p
+S1_activates_X1:  ->(Kmx*S1*compartment_0*kx*(X1T - X1p)/(Kmx + S1)) X1p
 X2_activates_X3: X2p ->(compartment_0*k23x*(X3T - X3p)) X3p
-S2_activates_Y1:  ->(S2*compartment_0*ky*(Y1T - Y1p)/(1 + S2/Kmy)) Y1p
+S2_activates_Y1:  ->(Kmy*S2*compartment_0*ky*(Y1T - Y1p)/(Kmy + S2)) Y1p
 Y1p_activates_Y2p: Y1p ->(compartment_0*k12y*(Y2T - Y2p)) Y2p
 Y2p_activates_Y3p: Y2p ->(compartment_0*k23y*(Y3T - Y3p)) Y3p
 X1p_activates_Y2p: X1p ->(compartment_0*ka*(Y2T - Y2p)) Y2p
 Y1p_activates_X2p: Y1p ->(compartment_0*ka*(X2T - X2p)) X2p
-X3p_inhibited_by_Y3p: X3p ->(Y3p*compartment_0*kd/(1 + X3p/Kmyx)) 
-Y3p_inhibited_by_X3p: Y3p ->(X3p*compartment_0*kd/(1 + Y3p/Kmxy)) 
+X3p_inhibited_by_Y3p: X3p ->(Kmyx*Y3p*compartment_0*kd/(Kmyx + X3p)) 
+Y3p_inhibited_by_X3p: Y3p ->(Kmxy*X3p*compartment_0*kd/(Kmxy + Y3p)) 

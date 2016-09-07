@@ -37,7 +37,7 @@ R37f: extracellular_ROS ->(extracellular*k_ros_perm) ROS
 R37r: ROS ->(extracellular*k_ros_perm) extracellular_ROS
 R38f: GSH ->(ROS*cytoplasm**2*k38f) GSSG
 R38r: GSSG ->(cytoplasm*k38r) GSH
-R12f: IRS1 ->(cyto_vol*cytoplasm*k7*(Ins_2_InR_P*cellsurface + Ins_InR_P*cellsurface)/IRp) IRS1_TyrP
+R12f: IRS1 ->(cellsurface*cyto_vol*cytoplasm*k7*(Ins_2_InR_P + Ins_InR_P)/IRp) IRS1_TyrP
 R12r: IRS1_TyrP ->(PTP1B*cyto_vol*cytoplasm**2*kminus7a) IRS1
 R12_a_f: IRS1 ->(PKC_P*cyto_vol*cytoplasm**2*k2psp) IRS1_PolySerP
 R12_a_r: IRS1_PolySerP ->(PP2A*cyto_vol*cytoplasm**2*kminus7b) IRS1

@@ -6,4 +6,4 @@ deactivation_of_cdc2_kinase: p_cyclin_cdc2 ->(Reaction5_k5notP*cell) p_cyclin_cd
 cyclin_biosynthesis: _EmptySet ->(Reaction6_k1aa*cell/_EmptySet) cyclin
 default_degradation_of_cyclin: cyclin ->(Reaction7_k2*cell) _EmptySet
 cdc2_kinase_triggered_degration_of_cyclin: p_cyclin ->(Reaction8_k7*cell) _EmptySet
-activation_of_cdc2_kinase: p_cyclin_cdc2_p ->(cell*(Reaction9_k4*p_cyclin_cdc2**2/total_cdc2**2 + Reaction9_k4prime)) p_cyclin_cdc2
+activation_of_cdc2_kinase: p_cyclin_cdc2_p ->(cell*(Reaction9_k4*p_cyclin_cdc2**2 + Reaction9_k4prime*total_cdc2**2)/total_cdc2**2) p_cyclin_cdc2

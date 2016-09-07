@@ -1,12 +1,12 @@
-J1: w ->((IC2*(IC1*r0 + IRF7Pn*k15) - IFNb_mRNA*log(2)/tao1)/w) IFNb_mRNA
+J1: w ->((IC1*IC2*r0*tao1 + IC2*IRF7Pn*k15*tao1 - IFNb_mRNA*log(2))/(tao1*w)) IFNb_mRNA
 J2: w ->(1000000000*C*IFNb_mRNA*vmax2/(NA*w*(IFNb_mRNA + K2))) IFNb_env
-J3: w ->((K5*STAT*TJ/(2*(K5 + STAT)) - STATP2n*log(2)/tao3)/w) STATP2n
-J4: w ->((IC2*(IC1*r3 + STATP2n*k8) - SOCS1m*log(2)/tao4)/w) SOCS1m
-J5: w ->((IC2*(IRF7Pn*k14 + STATP2n*k11) - IRF7m*log(2)/tao6)/w) IRF7m
+J3: w ->((K5*STAT*TJ*tao3 - 2*K5*STATP2n*log(2) - 2*STAT*STATP2n*log(2))/(2*tao3*w*(K5 + STAT))) STATP2n
+J4: w ->((IC1*IC2*r3*tao4 + IC2*STATP2n*k8*tao4 - SOCS1m*log(2))/(tao4*w)) SOCS1m
+J5: w ->((IC2*IRF7Pn*k14*tao6 + IC2*STATP2n*k11*tao6 - IRF7m*log(2))/(tao6*w)) IRF7m
 J6: w ->(IC1*IRF7m*k12/w) IRF7Pn
-J7: w ->((IC2ifa*IRF7Pn*k16 - IFNa_mRNA*log(2)/tao8)/w) IFNa_mRNA
+J7: w ->((IC2ifa*IRF7Pn*k16*tao8 - IFNa_mRNA*log(2))/(tao8*w)) IFNa_mRNA
 J8: w ->(1000000000*C*IFNa_mRNA*vmax17/(NA*w*(IFNa_mRNA + K17))) IFNa_env
-J9: w ->((IC2*(IC1*r1 + TNFenv*rmax20/(K20 + TNFenv)) - TNFam*log(2)/tao9)/w) TNFam
+J9: w ->((IC1*IC2*K20*r1*tao9 + IC1*IC2*TNFenv*r1*tao9 + IC2*TNFenv*rmax20*tao9 - K20*TNFam*log(2) - TNFam*TNFenv*log(2))/(tao9*w*(K20 + TNFenv))) TNFam
 J10: w ->(1000000000*C*TNFam*vmax19/(NA*w*(K19 + TNFam))) TNFenv
-J11: w ->((IC2*(IC1*r4 + STATP2n*k26) - STATm*log(2)/tao12)/w) STATm
-J12: w ->((-STAT*log(2)/tao13 + STATm*k28)/w) STAT
+J11: w ->((IC1*IC2*r4*tao12 + IC2*STATP2n*k26*tao12 - STATm*log(2))/(tao12*w)) STATm
+J12: w ->((-STAT*log(2) + STATm*k28*tao13)/(tao13*w)) STAT

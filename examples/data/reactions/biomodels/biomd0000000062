@@ -1,10 +1,10 @@
 Anthranilate_synthase_synthesis:  ->(Enzyme_synthesis_Ot*Enzyme_synthesis_k1*Enzyme_synthesis_ki1**Enzyme_synthesis_nH*compartment/(Enzyme_synthesis_ki1**Enzyme_synthesis_nH + Total_tryptophan**Enzyme_synthesis_nH)) Anthranilate_synthase
-Anthranilate_synthase_synthesis_rev: Anthranilate_synthase ->(0) 
+Anthranilate_synthase_synthesis_rev: Anthranilate_synthase -> 
 Enzyme_dilution_due_to_cell_growth: Anthranilate_synthase ->(Enzyme_dilution_mu*compartment) 
-Enzyme_dilution_due_to_cell_growth_rev:  ->(0) Anthranilate_synthase
+Enzyme_dilution_due_to_cell_growth_rev:  -> Anthranilate_synthase
 Tryptophan_synthesis:  ->(Anthranilate_synthase*compartment*tryptophan_synthesis_Ki2*tryptophan_synthesis_k2/(Total_tryptophan + tryptophan_synthesis_Ki2)) Synthesized_tryptophan
-Tryptophan_synthesis_rev: Synthesized_tryptophan ->(0) 
+Tryptophan_synthesis_rev: Synthesized_tryptophan -> 
 Tryptophan_consumption_for_protein_synthesis: Synthesized_tryptophan ->(compartment*tryptophan_consumption_g/(Synthesized_tryptophan + tryptophan_consumption_Kg)) 
-Tryptophan_consumption_for_protein_synthesis_rev:  ->(0) Synthesized_tryptophan
+Tryptophan_consumption_for_protein_synthesis_rev:  -> Synthesized_tryptophan
 Tryptophan_dilution_due_to_cell_growth: Synthesized_tryptophan ->(compartment*tryptophan_dilution_mu) 
-Tryptophan_dilution_due_to_cell_growth_rev:  ->(0) Synthesized_tryptophan
+Tryptophan_dilution_due_to_cell_growth_rev:  -> Synthesized_tryptophan

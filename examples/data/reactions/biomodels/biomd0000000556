@@ -1,8 +1,8 @@
 r0:  ->(Brain*v0) APP
-r1: APP ->(Brain*vm1/(km1*(APP/km1 + C99/km5 + 1))) C83
-r2: APP ->(Brain*vm2/(km2*(APP/km2 + 1))) C99
-r3__ND_: C83 ->(Brain*vm3/(km3*(C83/km3 + C99/km4 + 1))) p3
-r4__ND_: C99 ->(Brain*vm4/(km4*(C83/km3 + C99/km4 + 1))) AB
-r5: C99 ->(Brain*vm5/(km5*(APP/km1 + C99/km5 + 1))) C83
-r3__D_: C83 ->(Brain*vm3/(den*km3*(X/kic + 1))) p3
-r4__D_: C99 ->(Brain*vm4/(den*km4*(X/kic + 1))) AB
+r1: APP ->(Brain*km5*vm1/(APP*km5 + C99*km1 + km1*km5)) C83
+r2: APP ->(Brain*vm2/(APP + km2)) C99
+r3__ND_: C83 ->(Brain*km4*vm3/(C83*km4 + C99*km3 + km3*km4)) p3
+r4__ND_: C99 ->(Brain*km3*vm4/(C83*km4 + C99*km3 + km3*km4)) AB
+r5: C99 ->(Brain*km1*vm5/(APP*km5 + C99*km1 + km1*km5)) C83
+r3__D_: C83 ->(Brain*kic*vm3/(den*km3*(X + kic))) p3
+r4__D_: C99 ->(Brain*kic*vm4/(den*km4*(X + kic))) AB

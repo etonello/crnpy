@@ -1,15 +1,15 @@
 v1_fb: Pbs2 ->(ActivationSln1_nlfb*Sln1BranchActive*v1_fb_k/((Hog1PPActive/(compartment_1*v1_fb_Ki))**v1_fb_h + 1)) Pbs2P
 v2: Pbs2P ->(Phosphatase*v2_k/compartment_1) Pbs2
-v5: Hog1 ->(compartment_1*(Hog1*Pbs2P*kHog1phos1/compartment_1**2 + Hog1*Sho1Pbs2P*kHog1phos2/compartment_1**2)/Hog1) Hog1P
+v5: Hog1 ->((Pbs2P*kHog1phos1 + Sho1Pbs2P*kHog1phos2)/compartment_1) Hog1P
 v6: Hog1P ->(Phosphatase*kHog1dephos/compartment_1) Hog1
 v11:  ->(RNA*v11_k) Protein
 v12: Protein ->(Protein_deg_k) 
-v13:  ->(Protein*v13_k1*(Hog1PPActive*v13_k2/compartment_1 + 1)/(Protein*(Hog1PPActive*v13_k2/compartment_1 + 1)/compartment_1 + v13_Km)) Glyin
+v13:  ->(Protein*compartment_1*v13_k1*(Hog1PPActive*v13_k2 + compartment_1)/(Hog1PPActive*Protein*v13_k2 + Protein*compartment_1 + compartment_1**2*v13_Km)) Glyin
 v14: Glyin ->(Area*Fps1TransportCapacitty*ks/compartment_1) Glyex
 v14_rev: Glyex ->(Area*Fps1TransportCapacitty*ks/compartment_2) Glyin
-v9:  ->(Hog1PPActive*v9_k/(Hog1PPActive/compartment_1 + v9_Km)) RNA
+v9:  ->(Hog1PPActive*compartment_1*v9_k/(Hog1PPActive + compartment_1*v9_Km)) RNA
 v10: RNA ->(RNA_deg_k_MM) 
-v7: Hog1P ->(compartment_1*(Hog1P*Pbs2P*kHog1phos1/compartment_1**2 + Hog1P*Sho1Pbs2P*kHog1phos2/compartment_1**2)/Hog1P) Hog1PP
+v7: Hog1P ->((Pbs2P*kHog1phos1 + Sho1Pbs2P*kHog1phos2)/compartment_1) Hog1PP
 v8: Hog1PP ->(Phosphatase*kHog1dephos/compartment_1) Hog1P
 v4: Sho1Pbs2P ->(v4_k1) Pbs2 + Sho1
 v3_fb: Pbs2 + Sho1 ->(ActivationSho1_nlfb*Sho1BranchActive*v3_fb_k/(compartment_1*((Hog1PPActive/(compartment_1*v3_fb_Ki))**v3_fb_h + 1))) Sho1Pbs2P

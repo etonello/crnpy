@@ -12,9 +12,9 @@ NADP_dimer_formation: 2NADP ->(cytoplasm*k11) NADP2
 NADPH_synthesis:  ->(cytoplasm*k12) NADPH
 Oxygen_diffusion:  ->(cytoplasm*k13) Oxygen
 Oxygen_diffusion: Oxygen ->(cytoplasm*kminus13) 
-Oxygen_diffusion__phagosome_cytoplasm: Oxygen ->(0) Oxygen
-H2O2_diffusion_phagosome_cytoplasm: H2O2 ->(0) H2O2
-Melatonin__diffusion_phagosome_cytoplasm: Melatonin ->(0) Melatonin
-Melatonin_free_radical__diffusion_phagosome_cytoplasm: Melatonin_free_radical ->(0) Melatonin_free_radical
-Superoxide__diffusion_phagosome_cytoplasm: Superoxide ->(0) Superoxide
-NADPH_oxidase_activity: NADPH + 2Oxygen ->(V*phagosome*(1 + NADPH/Knadph)/(Knadph*Oxygen*(Ko + Oxygen)*(L + (1 + NADPH/Knadph)**2))) NADP + 2Superoxide
+Oxygen_diffusion__phagosome_cytoplasm: Oxygen -> Oxygen
+H2O2_diffusion_phagosome_cytoplasm: H2O2 -> H2O2
+Melatonin__diffusion_phagosome_cytoplasm: Melatonin -> Melatonin
+Melatonin_free_radical__diffusion_phagosome_cytoplasm: Melatonin_free_radical -> Melatonin_free_radical
+Superoxide__diffusion_phagosome_cytoplasm: Superoxide -> Superoxide
+NADPH_oxidase_activity: NADPH + 2Oxygen ->(V*phagosome*(Knadph + NADPH)/(Oxygen*(Ko + Oxygen)*(Knadph**2*L + Knadph**2 + 2*Knadph*NADPH + NADPH**2))) NADP + 2Superoxide

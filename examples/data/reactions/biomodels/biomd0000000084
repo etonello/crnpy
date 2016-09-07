@@ -1,16 +1,16 @@
 Receptor_inactivation: R ->(v1_Vm1/(R + v1_Km1)) Rin
-Receptor_inactivation_rev: Rin ->(0) R
+Receptor_inactivation_rev: Rin -> R
 Receptor_activation: Rin ->(v2_Vm2/(Rin + v2_Km2)) R
-Receptor_activation_rev: R ->(0) Rin
+Receptor_activation_rev: R -> Rin
 Kinase_1_activation: x1 ->(R*v3_k3/(v3_Km3 + x1)) x1p
-Kinase_1_activation_rev: x1p ->(0) x1
+Kinase_1_activation_rev: x1p -> x1
 Kinase_1_inactivation: x1p ->(v4_Vm4/(v4_Km4 + x1p)) x1
-Kinase_1_inactivation_rev: x1 ->(0) x1p
+Kinase_1_inactivation_rev: x1 -> x1p
 Kinase_2_activation: x2 ->(v5_k5*x1p/(v5_Km5 + x2)) x2p
-Kinase_2_activation_rev: x2p ->(0) x2
+Kinase_2_activation_rev: x2p -> x2
 Kinase_2_inactivation: x2p ->(v6_Vm6/(v6_Km6 + x2p)) x2
-Kinase_2_inactivation_rev: x2 ->(0) x2p
+Kinase_2_inactivation_rev: x2 -> x2p
 Kinase_3_activation: x3 ->(v7_k7*x2p/(v7_Km7 + x3)) x3p
-Kinase_3_activation_rev: x3p ->(0) x3
+Kinase_3_activation_rev: x3p -> x3
 Kinase_3_inactivation: x3p ->(v8_Ki8*v8_Vm8/(v8_Inh*v8_Km8 + v8_Ki8*v8_Km8 + v8_Ki8*x3p)) x3
-Kinase_3_inactivation_rev: x3 ->(0) x3p
+Kinase_3_inactivation_rev: x3 -> x3p

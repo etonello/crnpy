@@ -11,4 +11,4 @@ reac_DIIxI: Aux_IAA_Aux_IAA ->(K_aux*auxin*d_I*gamma_I/(K_aux*auxin + 1)) Aux_IA
 reac_degrR: mRNA ->(d_r) 
 reac_prodI:  ->(mRNA*pi_I) Aux_IAA
 reac_prodA:  ->(pi_A) ARF
-reac_prodR:  ->((ARF*f_c*(ARF*f_A*w_A/B_d + 1)/B_d + 1)/(ARF*Aux_IAA*w_I/(B_d*K_IA) + ARF*(ARF*w_A/B_d + 1)/B_d + Aux_IAA_ARF*w_D/B_d + k_Am + 1)) mRNA
+reac_prodR:  ->(K_IA*(ARF**2*f_A*f_c*w_A + ARF*B_d*f_c + B_d**2)/(ARF**2*K_IA*w_A + ARF*Aux_IAA*B_d*w_I + ARF*B_d*K_IA + Aux_IAA_ARF*B_d*K_IA*w_D + B_d**2*K_IA*k_Am + B_d**2*K_IA)) mRNA

@@ -1,22 +1,22 @@
 v1: 2ATP + Glucose ->(compartment*k1/(ATP*((ATP/ki)**n + 1))) F16P
-v1_rev: F16P ->(0) 2ATP + Glucose
+v1_rev: F16P -> 2ATP + Glucose
 v2: F16P ->(compartment*k2) 2Triose_Gly3Phos_DHAP
-v2_rev: 2Triose_Gly3Phos_DHAP ->(0) F16P
-v3: NAD + Triose_Gly3Phos_DHAP ->((ATP*NAD*_3PG*compartment*k33*k34 + NAD*Triose_Gly3Phos_DHAP*atot*compartment*k31*k32)/(NAD*Triose_Gly3Phos_DHAP*(k32*(-ATP + atot) + k33*(-NAD + ntot)))) ATP + _3PG
-v3_rev: ATP + _3PG ->((ATP*NAD*Triose_Gly3Phos_DHAP*compartment*k31*k32 + ATP*_3PG*compartment*k33*k34*ntot)/(ATP*_3PG*(k32*(-ATP + atot) + k33*(-NAD + ntot)))) NAD + Triose_Gly3Phos_DHAP
+v2_rev: 2Triose_Gly3Phos_DHAP -> F16P
+v3: NAD + Triose_Gly3Phos_DHAP ->(-compartment*(ATP*_3PG*k33*k34 + Triose_Gly3Phos_DHAP*atot*k31*k32)/(Triose_Gly3Phos_DHAP*(ATP*k32 + NAD*k33 - atot*k32 - k33*ntot))) ATP + _3PG
+v3_rev: ATP + _3PG ->(-compartment*(NAD*Triose_Gly3Phos_DHAP*k31*k32 + _3PG*k33*k34*ntot)/(_3PG*(ATP*k32 + NAD*k33 - atot*k32 - k33*ntot))) NAD + Triose_Gly3Phos_DHAP
 v4: _3PG ->(atot*compartment*k4) ATP + Pyruvate
 v4_rev: ATP + Pyruvate ->(_3PG*compartment*k4/Pyruvate) _3PG
 v5: Pyruvate ->(compartment*k5) Acetaldehyde
-v5_rev: Acetaldehyde ->(0) Pyruvate
+v5_rev: Acetaldehyde -> Pyruvate
 v7: ATP ->(compartment*k7) 
-v7_rev:  ->(0) ATP
+v7_rev:  -> ATP
 v8: Triose_Gly3Phos_DHAP ->(compartment*k8*ntot) NAD
 v8_rev: NAD ->(Triose_Gly3Phos_DHAP*compartment*k8) Triose_Gly3Phos_DHAP
 v9: extracellular_acetaldehyde ->(compartment*k9) 
-v9_rev:  ->(0) extracellular_acetaldehyde
+v9_rev:  -> extracellular_acetaldehyde
 v10: Acetaldehyde ->(compartment*k10) 0extracellular_acetaldehyde
 v10_rev: 0extracellular_acetaldehyde ->(compartment*extracellular_acetaldehyde*k10) Acetaldehyde
 v6: Acetaldehyde ->(compartment*k6*ntot) NAD
 v6_rev: NAD ->(Acetaldehyde*compartment*k6) Acetaldehyde
 v0:  ->(compartment*k0) Glucose
-v0_rev: Glucose ->(0) 
+v0_rev: Glucose -> 

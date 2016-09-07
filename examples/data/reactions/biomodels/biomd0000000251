@@ -1,9 +1,9 @@
-_1_PhIM_1:  ->(compartment*(K1*L/tau1 - x1/tau1)) x1
-_1_PhIM_2:  ->(compartment*(K*L/tau - x2/tau)) x2
+_1_PhIM_1:  ->(-compartment*(-K1*L + x1)/tau1) x1
+_1_PhIM_2:  ->(-compartment*(-K*L + x2)/tau) x2
 _2a_ppERKn:  ->(compartment*(-DUSP*k3*ppERK_nucleus_ + k1*ppERK_cytosol_ - k2*ppERK_nucleus_)) ppERK_nucleus_
 _2b_DUSP:  ->(compartment*k*ppERK_nucleus_) DUSP
 _3_pRSKn:  ->(compartment*(k4*ppERK_nucleus_ - k5*pRSKn)) pRSKn
-_4_cFOSp:  ->(compartment*(-cFOS_preRNA*k7 + (pRSKn*ppERK_nucleus_)**n/(k6**n + (pRSKn*ppERK_nucleus_)**n))) cFOS_preRNA
+_4_cFOSp:  ->(-compartment*(cFOS_preRNA*k6**n*k7 + cFOS_preRNA*k7*(pRSKn*ppERK_nucleus_)**n - (pRSKn*ppERK_nucleus_)**n)/(k6**n + (pRSKn*ppERK_nucleus_)**n)) cFOS_preRNA
 _5_cFOSm:  ->(compartment*(cFOS_preRNA*k7 - cFOSmRNA*k8)) cFOSmRNA
 _6_cFOS:  ->(compartment*(-cFOS*k10 - cFOS*k11*ppERK_cytosol_ + cFOSmRNA*k9 + k13*pc_FOS)) cFOS
 _7_pcFOS:  ->(compartment*(cFOS*k11*ppERK_cytosol_ - k12*pc_FOS - k13*pc_FOS)) pc_FOS

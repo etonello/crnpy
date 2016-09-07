@@ -2,7 +2,7 @@ R1: OCT4_Gene ->((A*a1 + NANOG*OCT4*SOX2*a3 + OCT4*SOX2*a2 + a0)/(OCT4_Gene*(A*b
 R2: OCT4 ->(gamma1) degradation
 R3: SOX2_Gene ->((NANOG*OCT4*SOX2*c2 + OCT4*SOX2*c1 + c0)/(SOX2_Gene*(NANOG*OCT4*SOX2*d2 + OCT4*SOX2*d1 + OCT4*d0 + 1))) SOX2
 R4: SOX2 ->(gamma2) degradation
-R5: NANOG_Gene ->((NANOG*OCT4_SOX2*a2 + OCT4_SOX2*a1)/(NANOG_Gene*(GATA6*OCT4_SOX2*b3 + NANOG*OCT4_SOX2*b2 + OCT4_SOX2*b1 + 1))) NANOG
+R5: NANOG_Gene ->(OCT4_SOX2*(NANOG*a2 + a1)/(NANOG_Gene*(GATA6*OCT4_SOX2*b3 + NANOG*OCT4_SOX2*b2 + OCT4_SOX2*b1 + 1))) NANOG
 R6: NANOG ->(gamman) degradation
 R7: CDX2_Gene ->((CDX2*g1 + g0)/(CDX2_Gene*(CDX2*OCT4*h1 + CDX2*h0 + 1))) CDX2
 R8: CDX2 ->(gamma4) degradation

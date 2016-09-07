@@ -1,7 +1,7 @@
 Basal_mRNA_Synthesis:  ->(cell*gamma_0) mRNA
 mRNA_Degradation: mRNA ->(cell*(gamma_M + mu)) 
 allolactose_controlled_mRNA_synthesis: PartialmRNA ->(cell/tau_M) mRNA
-allolactose_controlled_partial_mRNA_synthesis:  ->(alpha_M*cell*(K_1*allolactose**2*exp(-2*mu*tau_M) + 1)/(K + K_1*allolactose**2*exp(-2*mu*tau_M))) PartialmRNA
+allolactose_controlled_partial_mRNA_synthesis:  ->(alpha_M*cell*(K_1*allolactose**2 + exp(2*mu*tau_M))/(K*exp(2*mu*tau_M) + K_1*allolactose**2)) PartialmRNA
 Beta_galactosidase_Degradation: Betagalactosidase ->(cell*(gamma_B + mu)) 
 Beta_galactosidase_synthesis: PartialBetagalactosidase ->(cell/tau_B) Betagalactosidase
 Partial_Beta_galactosidase_synthesis:  ->(alpha_B*cell*mRNA*exp(-mu*tau_B)) PartialBetagalactosidase
@@ -13,4 +13,4 @@ Lactose_transport_out: lactose_internal ->(beta_L1*cell*permease/(K_L1 + lactose
 Lactose_transport_in:  ->(External_Lactose*alpha_L*cell*permease/(External_Lactose + K_Le)) lactose_internal
 permease_degradation: permease ->(cell*(gamma_P + mu)) 
 permease_synthesis: PartialPermease ->(cell/(tau_B + tau_P)) permease
-partial_permease_synthesis:  ->(alpha_P*cell*mRNA*exp(-mu*(tau_B + tau_P))) PartialPermease
+partial_permease_synthesis:  ->(alpha_P*cell*mRNA*exp(-mu*tau_B)*exp(-mu*tau_P)) PartialPermease

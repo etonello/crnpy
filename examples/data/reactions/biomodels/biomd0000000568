@@ -1,5 +1,5 @@
 reaction_1:  ->(ks_c4*tf) _cyto__C4D1_b_
-reaction_2:  ->(ks_c2e2f*(_nuc__e2f_b_ + _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_) + ks_c2myc*tf) _cyto__C2E_T160_U_b_
+reaction_2:  ->(_nuc__e2f_b_*ks_c2e2f + _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_*ks_c2e2f + ks_c2myc*tf) _cyto__C2E_T160_U_b_
 reaction_3: _nuc__C2E_T160_U_b_1__p21_b_1_ ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) _nuc__p21_b_
 reaction_4: _cyto__C2E_T160_U_b_ ->(gsk3b*kdeg_c2gsk3b + kdeg_c2) 
 reaction_5:  ->(tfp21*(_nuc__e2f_b_*ks_p21e2f + ks_p21p53)) _cyto__p21_b_

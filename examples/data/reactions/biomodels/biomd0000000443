@@ -1,13 +1,13 @@
-_1: MKKK ->(V1*compartment_0/(K1*(1 + MKKK/K1)*(1 + M_PP/KI))) MKKK_P
-_3: MKK ->(MKKK_P*compartment_0*k3*(A*M_PP/Ka + 1)/(K3*(1 + M_PP/Ka)*(1 + MKK/K3 + MKK_P/K3))) MKK_P
-_4: MKK_P ->(MKKK_P*compartment_0*k4*(A*M_PP/Ka + 1)/(K4*(1 + M_PP/Ka)*(1 + MKK/K4 + MKK_P/K4))) MKK_PP
-_7: M ->(MKK_PP*compartment_0*k7/(K7*(1 + M/K7 + M_P/K7))) M_P
-_8: M_P ->(MKK_PP*compartment_0*k8/(K8*(1 + M/K8 + M_P/K8))) M_PP
-_2: MKKK_P ->(P1*compartment_0*k2/(K2*(1 + MKKK_P/K2))) MKKK
-_5: MKK_PP ->(P2*compartment_0*k5/(K5*(1 + MKK_P/K5 + MKK_PP/K5))) MKK_P
-_6: MKK_P ->(P2*compartment_0*k6/(K6*(1 + MKK_P/K6 + MKK_PP/K6))) MKK
-_9: M_PP ->(P3*compartment_0*k9/(K9*(1 + M_P/K9 + M_PP/K9))) M_P
-_10: M_P ->(P3*compartment_0*k10/(K10*(1 + M_P/K10 + M_PP/K10))) M
+_1: MKKK ->(KI*V1*compartment_0/((K1 + MKKK)*(KI + M_PP))) MKKK_P
+_3: MKK ->(MKKK_P*compartment_0*k3*(A*M_PP + Ka)/((Ka + M_PP)*(K3 + MKK + MKK_P))) MKK_P
+_4: MKK_P ->(MKKK_P*compartment_0*k4*(A*M_PP + Ka)/((Ka + M_PP)*(K4 + MKK + MKK_P))) MKK_PP
+_7: M ->(MKK_PP*compartment_0*k7/(K7 + M + M_P)) M_P
+_8: M_P ->(MKK_PP*compartment_0*k8/(K8 + M + M_P)) M_PP
+_2: MKKK_P ->(P1*compartment_0*k2/(K2 + MKKK_P)) MKKK
+_5: MKK_PP ->(P2*compartment_0*k5/(K5 + MKK_P + MKK_PP)) MKK_P
+_6: MKK_P ->(P2*compartment_0*k6/(K6 + MKK_P + MKK_PP)) MKK
+_9: M_PP ->(P3*compartment_0*k9/(K9 + M_P + M_PP)) M_P
+_10: M_P ->(P3*compartment_0*k10/(K10 + M_P + M_PP)) M
 _11: M_PP ->(compartment_0*k11f) M_PP_n
 _11_rev: M_PP_n ->(compartment_0*k11b) M_PP
 _12:  ->(M_PP_n**n12*V12*compartment_0/(K12**n12 + M_PP_n**n12)) PreP3_mRNA
@@ -21,6 +21,6 @@ _20: M_P ->(compartment_0*k1) M_P_n
 _20_rev: M_P_n ->(compartment_0*k2) M_P
 _16: P3_c ->(compartment_0*k1) P3_n
 _16_rev: P3_n ->(compartment_0*k2) P3_c
-_21: M_PP_n ->(P3_n*compartment_0*k21/(K21*(1 + M_P_n/K21i + M_PP_n/K21))) M_P_n
-_22: M_P_n ->(P3_n*compartment_0*k22/(K22*(1 + M_PP_n/K22i + M_P_n/K22))) M_n
+_21: M_PP_n ->(K21i*P3_n*compartment_0*k21/(K21*K21i + K21*M_P_n + K21i*M_PP_n)) M_P_n
+_22: M_P_n ->(K22i*P3_n*compartment_0*k22/(K22*K22i + K22*M_PP_n + K22i*M_P_n)) M_n
 _18: P3_n ->(compartment_0*k1) 

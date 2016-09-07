@@ -1,9 +1,9 @@
-v001: ERK_c ->(Fct*V1*cytoplasm*pMEK/(ERK_c + K1*(1 + pERK_c/K2))) pERK_c
-v002: pERK_c ->(Fct*V2*cytoplasm*pMEK/(K2*(ERK_c/K1 + 1) + pERK_c)) ppERK_c
-v003: pERK_c ->(V3*cytoplasm/(K3*(1 + ppERK_c/K4) + pERK_c)) ERK_c
-v004: ppERK_c ->(V4*cytoplasm/(K4*(1 + pERK_c/K3) + ppERK_c)) pERK_c
-v005: pERK_n ->(V5*nucleus/(K5*(1 + ppERK_n/K6) + pERK_n)) ERK_n
-v006: ppERK_n ->(V6*nucleus/(K6*(1 + pERK_n/K5) + ppERK_n)) pERK_n
+v001: ERK_c ->(Fct*K2*V1*cytoplasm*pMEK/(ERK_c*K2 + K1*K2 + K1*pERK_c)) pERK_c
+v002: pERK_c ->(Fct*K1*V2*cytoplasm*pMEK/(ERK_c*K2 + K1*K2 + K1*pERK_c)) ppERK_c
+v003: pERK_c ->(K4*V3*cytoplasm/(K3*K4 + K3*ppERK_c + K4*pERK_c)) ERK_c
+v004: ppERK_c ->(K3*V4*cytoplasm/(K3*K4 + K3*ppERK_c + K4*pERK_c)) pERK_c
+v005: pERK_n ->(K6*V5*nucleus/(K5*K6 + K5*ppERK_n + K6*pERK_n)) ERK_n
+v006: ppERK_n ->(K5*V6*nucleus/(K5*K6 + K5*ppERK_n + K6*pERK_n)) pERK_n
 v007: ERK_c ->(KimERK*Vc) ERK_n
 v007_rev: ERK_n ->(KexERK*Vn) ERK_c
 v008: pERK_c ->(KimERKP*Vc) pERK_n

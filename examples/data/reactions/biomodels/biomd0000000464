@@ -1,8 +1,8 @@
-re1: Ca_B ->((Ca_B*k7 - Ca_c*k6*(B_T - Ca_B))/Ca_B) Ca_c
-re4: s5 ->(k_CCE*(Ca_ex - Ca_s)*(-Ca_s + Cao*fracK/(Cao + K3))/s5) Ca_s
-re5: s7 ->(Ca_c*k1*(-R_T*half*(exp(-TimeT/tau_II) + exp(-TimeT/tau_I) + (tau_I + tau_II)*(-exp(-TimeT/tau_II) + exp(-TimeT/tau_I))/(tau_I - tau_II)) + R_T)/(s7*(Ca_c + K1))) IP3
+re1: Ca_B ->(-(B_T*Ca_c*k6 - Ca_B*Ca_c*k6 - Ca_B*k7)/Ca_B) Ca_c
+re4: s5 ->(-k_CCE*(Ca_ex - Ca_s)*(Ca_s*Cao + Ca_s*K3 - Cao*fracK)/(s5*(Cao + K3))) Ca_s
+re5: s7 ->(Ca_c*R_T*k1*(-2*half*tau_I*exp(TimeT/tau_II) + 2*half*tau_II*exp(TimeT/tau_I) + tau_I*exp(TimeT/tau_I)*exp(TimeT/tau_II) - tau_II*exp(TimeT/tau_I)*exp(TimeT/tau_II))*exp(-TimeT/tau_I)*exp(-TimeT/tau_II)/(s7*(Ca_c + K1)*(tau_I - tau_II))) IP3
 re6: IP3 ->(k2) s8
-re7: Ca_s ->((-Ca_c**2*k4/(Ca_c + K3)**2 + Ca_c*Ca_s*IP3**3*k3*k_CICR/((Ca_c + K_CICR)*(IP3 + K2)**3) + Ca_s**2*k5)/Ca_s) Ca_c
+re7: Ca_s ->((Ca_c**3*Ca_s**2*IP3**3*k5 + 3*Ca_c**3*Ca_s**2*IP3**2*K2*k5 + 3*Ca_c**3*Ca_s**2*IP3*K2**2*k5 + Ca_c**3*Ca_s**2*K2**3*k5 + Ca_c**3*Ca_s*IP3**3*k3*k_CICR - Ca_c**3*IP3**3*k4 - 3*Ca_c**3*IP3**2*K2*k4 - 3*Ca_c**3*IP3*K2**2*k4 - Ca_c**3*K2**3*k4 + 2*Ca_c**2*Ca_s**2*IP3**3*K3*k5 + Ca_c**2*Ca_s**2*IP3**3*K_CICR*k5 + 6*Ca_c**2*Ca_s**2*IP3**2*K2*K3*k5 + 3*Ca_c**2*Ca_s**2*IP3**2*K2*K_CICR*k5 + 6*Ca_c**2*Ca_s**2*IP3*K2**2*K3*k5 + 3*Ca_c**2*Ca_s**2*IP3*K2**2*K_CICR*k5 + 2*Ca_c**2*Ca_s**2*K2**3*K3*k5 + Ca_c**2*Ca_s**2*K2**3*K_CICR*k5 + 2*Ca_c**2*Ca_s*IP3**3*K3*k3*k_CICR - Ca_c**2*IP3**3*K_CICR*k4 - 3*Ca_c**2*IP3**2*K2*K_CICR*k4 - 3*Ca_c**2*IP3*K2**2*K_CICR*k4 - Ca_c**2*K2**3*K_CICR*k4 + Ca_c*Ca_s**2*IP3**3*K3**2*k5 + 2*Ca_c*Ca_s**2*IP3**3*K3*K_CICR*k5 + 3*Ca_c*Ca_s**2*IP3**2*K2*K3**2*k5 + 6*Ca_c*Ca_s**2*IP3**2*K2*K3*K_CICR*k5 + 3*Ca_c*Ca_s**2*IP3*K2**2*K3**2*k5 + 6*Ca_c*Ca_s**2*IP3*K2**2*K3*K_CICR*k5 + Ca_c*Ca_s**2*K2**3*K3**2*k5 + 2*Ca_c*Ca_s**2*K2**3*K3*K_CICR*k5 + Ca_c*Ca_s*IP3**3*K3**2*k3*k_CICR + Ca_s**2*IP3**3*K3**2*K_CICR*k5 + 3*Ca_s**2*IP3**2*K2*K3**2*K_CICR*k5 + 3*Ca_s**2*IP3*K2**2*K3**2*K_CICR*k5 + Ca_s**2*K2**3*K3**2*K_CICR*k5)/(Ca_s*(Ca_c + K3)**2*(Ca_c + K_CICR)*(IP3 + K2)**3)) Ca_c
 re8: Ca_c ->(Ca_c**3*dot_Vhi/(Ca_c**4 + K_hi**4)) s9
 re9: Ca_c ->(dot_Vex/(Ca_c + K5)) s10
 re10: s11 ->(dot_q_inpass/s11) Ca_c

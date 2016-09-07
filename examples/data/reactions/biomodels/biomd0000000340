@@ -44,8 +44,8 @@ r43: Pk ->(XIIa*compartment_1*v/(XIIa + k)) K
 r44: ATIII_Heparin + IIa ->(compartment_1/c44) IIa_ATIII_Heparin
 r45: ATIII_Heparin + Xa ->(compartment_1/c45) Xa_ATIII_Heparin
 r46: ATIII_Heparin + IXa ->(compartment_1/c46) IXa_ATIII_Heparin
-r47: VK ->(compartment_1*d_VK2*(-C_warf*I_max/(C_warf + IC50) + 1)) VKH2
-r48: VKO ->(compartment_1*d_VKO*(-C_warf*I_max/(C_warf + IC50) + 1)) VK
+r47: VK ->(-compartment_1*d_VK2*(C_warf*I_max - C_warf - IC50)/(C_warf + IC50)) VKH2
+r48: VKO ->(-compartment_1*d_VKO*(C_warf*I_max - C_warf - IC50)/(C_warf + IC50)) VK
 pII_VKH2:  ->(II_0_*VKH2*compartment_1*d_II/VKH2_0_) II
 pVII_VKH2:  ->(VII_0_*VKH2*compartment_1*d_VII/VKH2_0_) VII
 pIX_VKH2:  ->(IX_0_*VKH2*compartment_1*d_IX/VKH2_0_) IX

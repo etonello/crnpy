@@ -13,6 +13,6 @@ Nucleoplasmic_transfer_rev: RanGDP_cy ->(kpermRanGDP*nucleus) RanGDP_nuc
 RanGTP_binding: RanBP1 + RanGTP_cy ->(cytoplasm*kon) RanGTP_RanBP1
 RanGTP_binding_rev: RanGTP_RanBP1 ->(cytoplasm*koff) RanBP1 + RanGTP_cy
 RanBP1_RanGDP: RanGTP_RanBP1 ->(RanGAP*cytoplasm*kcat/(Km + RanGTP_RanBP1)) RanBP1 + RanGDP_cy
-RanBP1_RanGDP_rev: RanBP1 + RanGDP_cy ->(0) RanGTP_RanBP1
+RanBP1_RanGDP_rev: RanBP1 + RanGDP_cy -> RanGTP_RanBP1
 RanGAP_RanGDP: RanGTP_cy ->(RanGAP*cytoplasm*kcat/(Km + RanGTP_cy)) RanGDP_cy
-RanGAP_RanGDP_rev: RanGDP_cy ->(0) RanGTP_cy
+RanGAP_RanGDP_rev: RanGDP_cy -> RanGTP_cy

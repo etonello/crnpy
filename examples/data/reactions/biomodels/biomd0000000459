@@ -1,6 +1,6 @@
 v1: IPTG ->(kbs) sigb
 v1_rev: sigb ->(kbd) IPTG
 v2: sigb ->(kzs) lacz
-v2_rev: lacz ->((kzd*lacz + kzx*lacz*x)/lacz) sigb
+v2_rev: lacz ->(kzd + kzx*x) sigb
 v3: sigb ->(kxs) x
 v3_rev: x ->(kxd) sigb

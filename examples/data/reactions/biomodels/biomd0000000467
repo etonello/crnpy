@@ -12,11 +12,11 @@ re52_rev: Hsp90_eNOS_CaM_Ca2 ->(Ca_c*k2) Hsp90_eNOS_CaM_Ca4
 re53: Hsp90_eNOS_CaM_Ca2 ->(k7) Hsp90 + eNOS_CaM_Ca2
 re54: Hsp90_p_eNOS_CaM_Ca4 ->(k5) Hsp90_p_eNOS_CaM_Ca2
 re54_rev: Hsp90_p_eNOS_CaM_Ca2 ->(Ca_c*k2) Hsp90_p_eNOS_CaM_Ca4
-re55: Hsp90_eNOS_CaM_Ca4 ->((Hsp90_eNOS_CaM_Ca4*Hsp90_p_eNOS_CaM_Ca4*k10*pp_AKT_PI3P + Hsp90_eNOS_CaM_Ca4*Km10r*k10*pp_AKT_PI3P)/(Hsp90_eNOS_CaM_Ca4*(Hsp90_eNOS_CaM_Ca4 + Km10)*(Hsp90_p_eNOS_CaM_Ca4 + Km10r))) Hsp90_p_eNOS_CaM_Ca4
-re55_rev: Hsp90_p_eNOS_CaM_Ca4 ->((Hsp90_eNOS_CaM_Ca4*Hsp90_p_eNOS_CaM_Ca4*V10r + Hsp90_p_eNOS_CaM_Ca4*Km10*V10r)/(Hsp90_p_eNOS_CaM_Ca4*(Hsp90_eNOS_CaM_Ca4 + Km10)*(Hsp90_p_eNOS_CaM_Ca4 + Km10r))) Hsp90_eNOS_CaM_Ca4
-re56: Hsp90_eNOS_CaM_Ca2 ->((Hsp90_eNOS_CaM_Ca2*Hsp90_p_eNOS_CaM_Ca2*k10*pp_AKT_PI3P + Hsp90_eNOS_CaM_Ca2*Km10r*k10*pp_AKT_PI3P)/(Hsp90_eNOS_CaM_Ca2*(Hsp90_eNOS_CaM_Ca2 + Km10)*(Hsp90_p_eNOS_CaM_Ca2 + Km10r))) Hsp90_p_eNOS_CaM_Ca2
-re56_rev: Hsp90_p_eNOS_CaM_Ca2 ->((Hsp90_eNOS_CaM_Ca2*Hsp90_p_eNOS_CaM_Ca2*V10r + Hsp90_p_eNOS_CaM_Ca2*Km10*V10r)/(Hsp90_p_eNOS_CaM_Ca2*(Hsp90_eNOS_CaM_Ca2 + Km10)*(Hsp90_p_eNOS_CaM_Ca2 + Km10r))) Hsp90_eNOS_CaM_Ca2
-re69: L_Arg ->((Hsp90_p_eNOS_CaM_Ca4*re69_kpCaM + re69_kCaM*(Hsp90_eNOS_CaM_Ca4 + eNOS_CaM_Ca4) + re69_kp*(Hsp90_p_eNOS + Hsp90_p_eNOS_CaM_Ca2))/L_Arg) NO
+re55: Hsp90_eNOS_CaM_Ca4 ->(k10*pp_AKT_PI3P/(Hsp90_eNOS_CaM_Ca4 + Km10)) Hsp90_p_eNOS_CaM_Ca4
+re55_rev: Hsp90_p_eNOS_CaM_Ca4 ->(V10r/(Hsp90_p_eNOS_CaM_Ca4 + Km10r)) Hsp90_eNOS_CaM_Ca4
+re56: Hsp90_eNOS_CaM_Ca2 ->(k10*pp_AKT_PI3P/(Hsp90_eNOS_CaM_Ca2 + Km10)) Hsp90_p_eNOS_CaM_Ca2
+re56_rev: Hsp90_p_eNOS_CaM_Ca2 ->(V10r/(Hsp90_p_eNOS_CaM_Ca2 + Km10r)) Hsp90_eNOS_CaM_Ca2
+re69: L_Arg ->((Hsp90_eNOS_CaM_Ca4*re69_kCaM + Hsp90_p_eNOS*re69_kp + Hsp90_p_eNOS_CaM_Ca2*re69_kp + Hsp90_p_eNOS_CaM_Ca4*re69_kpCaM + eNOS_CaM_Ca4*re69_kCaM)/L_Arg) NO
 re70: Hsp90_p_eNOS ->(V10r/(Hsp90_p_eNOS + Km10r)) Hsp90_eNOS
 re71: Hsp90_eNOS ->(k7) Hsp90 + eNOS_Cav_1
 re72: Hsp90_p_eNOS_CaM_Ca2 ->(k3r) CaM_Ca2 + Hsp90_p_eNOS

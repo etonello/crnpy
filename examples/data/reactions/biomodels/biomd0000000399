@@ -7,7 +7,7 @@ v3_rev: EGF_EGFR__2 ->(kr3) EGF_EGFR_2
 v4: EGF_EGFR__2_GAP_Grb2 + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Prot
 v4_rev: EGF_EGFR__2_GAP_Grb2_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2 + Prot
 v5: EGF_EGFR__2_GAP_Grb2_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2 + Proti
-v5_rev: EGF_EGFRi__2_GAP_Grb2 + Proti ->(0) EGF_EGFR__2_GAP_Grb2_Prot
+v5_rev: EGF_EGFRi__2_GAP_Grb2 + Proti -> EGF_EGFR__2_GAP_Grb2_Prot
 v6: EGFR ->(k6) EGFRi
 v6_rev: EGFRi ->(kr6) EGFR
 v7: EGF_EGFR__2 ->(k7) EGF_EGFRi__2
@@ -78,39 +78,39 @@ v41_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(kr41) EGF_EGFR__2_GAP_Shc_ + Grb2_Sos
 v42: Phosphotase1 + Raf_ ->(k42) Raf__P_ase
 v42_rev: Raf__P_ase ->(kr42) Phosphotase1 + Raf_
 v43: Raf__P_ase ->(k43) Phosphotase1 + Raf
-v43_rev: Phosphotase1 + Raf ->(0) Raf__P_ase
+v43_rev: Phosphotase1 + Raf -> Raf__P_ase
 v44: MEK + Raf_ ->(k44) MEK_Raf_
 v44_rev: MEK_Raf_ ->(kr44) MEK + Raf_
 v45: MEK_Raf_ ->(k45) MEK_P + Raf_
-v45_rev: MEK_P + Raf_ ->(0) MEK_Raf_
+v45_rev: MEK_P + Raf_ -> MEK_Raf_
 v46: MEK_P + Raf_ ->(k44) MEK_P_Raf_
 v46_rev: MEK_P_Raf_ ->(kr44) MEK_P + Raf_
 v47: MEK_P_Raf_ ->(k47) MEK_PP + Raf_
-v47_rev: MEK_PP + Raf_ ->(0) MEK_P_Raf_
+v47_rev: MEK_PP + Raf_ -> MEK_P_Raf_
 v48: MEK_PP + Phosphatase2 ->(k48*t_MEK_PP/MEK_PP) MEK_PP_P_ase2
 v48_rev: MEK_PP_P_ase2 ->(kr48) MEK_PP + Phosphatase2
 v49: MEK_PP_P_ase2 ->(k49) MEK_P + Phosphatase2
-v49_rev: MEK_P + Phosphatase2 ->(0) MEK_PP_P_ase2
+v49_rev: MEK_P + Phosphatase2 -> MEK_PP_P_ase2
 v50: MEK_P + Phosphatase2 ->(k50) MEK_P_P_ase2
 v50_rev: MEK_P_P_ase2 ->(kr50) MEK_P + Phosphatase2
 v51: MEK_P_P_ase2 ->(k49) MEK + Phosphatase2
-v51_rev: MEK + Phosphatase2 ->(0) MEK_P_P_ase2
+v51_rev: MEK + Phosphatase2 -> MEK_P_P_ase2
 v52: ERK + MEK_PP ->(k52*t_MEK_PP/MEK_PP) ERK_MEK_PP
 v52_rev: ERK_MEK_PP ->(kr52) ERK + MEK_PP
 v53: ERK_MEK_PP ->(k53) ERK_P + MEK_PP
-v53_rev: ERK_P + MEK_PP ->(0) ERK_MEK_PP
+v53_rev: ERK_P + MEK_PP -> ERK_MEK_PP
 v54: ERK_P + MEK_PP ->(k52*t_MEK_PP/MEK_PP) ERK_P_MEK_PP
 v54_rev: ERK_P_MEK_PP ->(kr52) ERK_P + MEK_PP
 v55: ERK_P_MEK_PP ->(k55) ERK_PP + MEK_PP
-v55_rev: ERK_PP + MEK_PP ->(0) ERK_P_MEK_PP
+v55_rev: ERK_PP + MEK_PP -> ERK_P_MEK_PP
 v56: ERK_PP + Phosphotase3 ->(k56*t_ERK_PP/ERK_PP) ERK_PP_P_ase3
 v56_rev: ERK_PP_P_ase3 ->(kr56) ERK_PP + Phosphotase3
 v57: ERK_PP_P_ase3 ->(k57) ERK_P + Phosphotase3
-v57_rev: ERK_P + Phosphotase3 ->(0) ERK_PP_P_ase3
+v57_rev: ERK_P + Phosphotase3 -> ERK_PP_P_ase3
 v58: ERK_P + Phosphotase3 ->(k58) ERK_P_P_ase3
 v58_rev: ERK_P_P_ase3 ->(kr58) ERK_P + Phosphotase3
 v59: ERK_P_P_ase3 ->(k59) ERK + Phosphotase3
-v59_rev: ERK + Phosphotase3 ->(0) ERK_P_P_ase3
+v59_rev: ERK + Phosphotase3 -> ERK_P_P_ase3
 v60: EGFRi ->(k60) EGFRideg
 v61: EGFi ->(k61) EGFideg
 v62: EGF_EGFRi__2 ->(k60) EGF_EGFRi__2deg
@@ -159,39 +159,39 @@ v83_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(kr41) EGF_EGFRi__2_GAP_Shc_ + Grb2_So
 v84: Phosphotase1 + Rafi_ ->(k42) Rafi__P_ase
 v84_rev: Rafi__P_ase ->(kr42) Phosphotase1 + Rafi_
 v85: Rafi__P_ase ->(k43) Phosphotase1 + Raf
-v85_rev: Phosphotase1 + Raf ->(0) Rafi__P_ase
+v85_rev: Phosphotase1 + Raf -> Rafi__P_ase
 v86: MEK + Rafi_ ->(k44) MEKi_Rafi_
 v86_rev: MEKi_Rafi_ ->(kr44) MEK + Rafi_
 v87: MEKi_Rafi_ ->(k45) MEKi_P + Rafi_
-v87_rev: MEKi_P + Rafi_ ->(0) MEKi_Rafi_
+v87_rev: MEKi_P + Rafi_ -> MEKi_Rafi_
 v88: MEKi_P + Rafi_ ->(k44) MEKi_P_Rafi_
 v88_rev: MEKi_P_Rafi_ ->(kr44) MEKi_P + Rafi_
 v89: MEKi_P_Rafi_ ->(k47) MEKi_PP + Rafi_
-v89_rev: MEKi_PP + Rafi_ ->(0) MEKi_P_Rafi_
+v89_rev: MEKi_PP + Rafi_ -> MEKi_P_Rafi_
 v90: MEKi_PP + Phosphatase2 ->(k48) MEKi_PP_P_ase2i
 v90_rev: MEKi_PP_P_ase2i ->(kr48) MEKi_PP + Phosphatase2
 v91: MEKi_PP_P_ase2i ->(k49) MEKi_P + Phosphatase2
-v91_rev: MEKi_P + Phosphatase2 ->(0) MEKi_PP_P_ase2i
+v91_rev: MEKi_P + Phosphatase2 -> MEKi_PP_P_ase2i
 v92: MEKi_P + Phosphatase2 ->(k50) MEKi_P_P_ase2i
 v92_rev: MEKi_P_P_ase2i ->(kr50) MEKi_P + Phosphatase2
 v93: MEKi_P_P_ase2i ->(k49) MEK + Phosphatase2
-v93_rev: MEK + Phosphatase2 ->(0) MEKi_P_P_ase2i
+v93_rev: MEK + Phosphatase2 -> MEKi_P_P_ase2i
 v94: ERK + MEKi_PP ->(k52) ERKi_MEKi_PP
 v94_rev: ERKi_MEKi_PP ->(kr52) ERK + MEKi_PP
 v95: ERKi_MEKi_PP ->(k53) ERKi_P + MEKi_PP
-v95_rev: ERKi_P + MEKi_PP ->(0) ERKi_MEKi_PP
+v95_rev: ERKi_P + MEKi_PP -> ERKi_MEKi_PP
 v96: ERKi_P + MEKi_PP ->(k52) ERKi_P_MEKi_PP
 v96_rev: ERKi_P_MEKi_PP ->(kr52) ERKi_P + MEKi_PP
 v97: ERKi_P_MEKi_PP ->(k55) ERKi_PP + MEKi_PP
-v97_rev: ERKi_PP + MEKi_PP ->(0) ERKi_P_MEKi_PP
+v97_rev: ERKi_PP + MEKi_PP -> ERKi_P_MEKi_PP
 v98: ERKi_PP + Phosphotase3 ->(k56) ERKi_PP_P_ase3i
 v98_rev: ERKi_PP_P_ase3i ->(kr56) ERKi_PP + Phosphotase3
 v99: ERKi_PP_P_ase3i ->(k57) ERKi_P + Phosphotase3
-v99_rev: ERKi_P + Phosphotase3 ->(0) ERKi_PP_P_ase3i
+v99_rev: ERKi_P + Phosphotase3 -> ERKi_PP_P_ase3i
 v100: ERKi_P + Phosphotase3 ->(k58) ERKi_P_P_ase3i
 v100_rev: ERKi_P_P_ase3i ->(kr58) ERKi_P + Phosphotase3
 v101: ERKi_P_P_ase3i ->(k59) ERK + Phosphotase3
-v101_rev: ERK + Phosphotase3 ->(0) ERKi_P_P_ase3i
+v101_rev: ERK + Phosphotase3 -> ERKi_P_P_ase3i
 v102: EGF_EGFR__2_GAP ->(k6) EGF_EGFRi__2_GAP
 v102_rev: EGF_EGFRi__2_GAP ->(kr6) EGF_EGFR__2_GAP
 v103: EGF_EGFR__2_GAP_Shc ->(k6) EGF_EGFRi__2_GAP_Shc
@@ -203,40 +203,40 @@ v105_rev: EGF_EGFRi__2_GAP_Grb2_Sos ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos
 v106: EGF_EGFR__2_GAP_Grb2_Sos + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Prot
 v106_rev: EGF_EGFR__2_GAP_Grb2_Sos_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos + Prot
 v107: EGF_EGFR__2_GAP_Grb2_Sos_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos + Proti
-v107_rev: EGF_EGFRi__2_GAP_Grb2_Sos + Proti ->(0) EGF_EGFR__2_GAP_Grb2_Sos_Prot
+v107_rev: EGF_EGFRi__2_GAP_Grb2_Sos + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Prot
 v108: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP ->(k6) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP
 v108_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP
 v109: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot
 v109_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP + Prot
 v110: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP + Proti
-v110_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP + Proti ->(0) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot
+v110_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot
 v111: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP ->(k6) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP
 v111_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP
 v112: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot
 v112_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP + Prot
 v113: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP + Proti
-v113_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP + Proti ->(0) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot
+v113_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot
 v114: EGF_EGFR__2_GAP_Shc__Grb2 ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2
 v114_rev: EGF_EGFRi__2_GAP_Shc__Grb2 ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2
 v115: EGF_EGFR__2_GAP_Shc__Grb2 + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Prot
 v115_rev: EGF_EGFR__2_GAP_Shc__Grb2_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2 + Prot
 v116: EGF_EGFR__2_GAP_Shc__Grb2_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2 + Proti
-v116_rev: EGF_EGFRi__2_GAP_Shc__Grb2 + Proti ->(0) EGF_EGFR__2_GAP_Shc__Grb2_Prot
+v116_rev: EGF_EGFRi__2_GAP_Shc__Grb2 + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Prot
 v117: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos
 v117_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos
 v118: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot
 v118_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Prot
 v119: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Proti
-v119_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Proti ->(0) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot
+v119_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot
 v120: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP
 v120_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP
 v121: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot
 v121_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP + Prot
 v122: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP + Proti
-v122_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP + Proti ->(0) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot
+v122_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot
 v123: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP
 v123_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP
 v124: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot
 v124_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP + Prot
 v125: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP + Proti
-v125_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP + Proti ->(0) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot
+v125_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot

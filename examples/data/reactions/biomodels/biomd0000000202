@@ -1,6 +1,6 @@
-ER_Channel: Ca_ER ->(Cytoplasm*(-Ca_Cyt + Ca_ER)*(Ca_Cyt**3*IP3_Cyt**3*P_IP3R*h**3/((Ca_Cyt + Ka)**3*(IP3_Cyt + Ki)**3) + L)/Ca_ER) Ca_Cyt
+ER_Channel: Ca_ER ->(-Cytoplasm*(Ca_Cyt - Ca_ER)*(Ca_Cyt**3*IP3_Cyt**3*L + Ca_Cyt**3*IP3_Cyt**3*P_IP3R*h**3 + 3*Ca_Cyt**3*IP3_Cyt**2*Ki*L + 3*Ca_Cyt**3*IP3_Cyt*Ki**2*L + Ca_Cyt**3*Ki**3*L + 3*Ca_Cyt**2*IP3_Cyt**3*Ka*L + 9*Ca_Cyt**2*IP3_Cyt**2*Ka*Ki*L + 9*Ca_Cyt**2*IP3_Cyt*Ka*Ki**2*L + 3*Ca_Cyt**2*Ka*Ki**3*L + 3*Ca_Cyt*IP3_Cyt**3*Ka**2*L + 9*Ca_Cyt*IP3_Cyt**2*Ka**2*Ki*L + 9*Ca_Cyt*IP3_Cyt*Ka**2*Ki**2*L + 3*Ca_Cyt*Ka**2*Ki**3*L + IP3_Cyt**3*Ka**3*L + 3*IP3_Cyt**2*Ka**3*Ki*L + 3*IP3_Cyt*Ka**3*Ki**2*L + Ka**3*Ki**3*L)/(Ca_ER*(Ca_Cyt + Ka)**3*(IP3_Cyt + Ki)**3)) Ca_Cyt
 SERCA: Ca_Cyt ->(Ca_Cyt**p*Cytoplasm*V_SERCA/(Ca_Cyt*(Ca_Cyt**p + K_SERCA**p))) Ca_ER
-PM_Channel:  ->(Cytoplasm*(-Ca_Cyt + Ca_ec)*(O_o*k_soc + V_PMleak)) Ca_Cyt
+PM_Channel:  ->(-Cytoplasm*(Ca_Cyt - Ca_ec)*(O_o*k_soc + V_PMleak)) Ca_Cyt
 PMCA: Ca_Cyt ->(Ca_Cyt**q*Cytoplasm*V_PMCA/(Ca_Cyt*(Ca_Cyt**q + K_PMCA**q))) 
 PLC:  ->(Ca_Cyt**2*Cytoplasm*V_PLC/(Ca_Cyt**2 + K_PLC**2)) IP3_Cyt
 deg: IP3_Cyt ->(Ca_Cyt**2*Cytoplasm*kdeg/(Ca_Cyt**2 + K_deg**2)) 

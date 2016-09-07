@@ -1,6 +1,6 @@
 Intramolecular_autoactivation: Zymogen ->(compartment*v1_k1) Enzyme + Peptide
-Intramolecular_autoactivation_rev: Enzyme + Peptide ->(0) Zymogen
+Intramolecular_autoactivation_rev: Enzyme + Peptide -> Zymogen
 Intermolecular_autoactivation_Complex_formation: Enzyme + Zymogen ->(compartment*v2_k21) Enzyme_Substrate_complex
 Intermolecular_autoactivation_Complex_formation_rev: Enzyme_Substrate_complex ->(compartment*v2_k22) Enzyme + Zymogen
 Intermolecular_autoactivation_Enzyme_release: Enzyme_Substrate_complex ->(compartment*v3_k3) 2Enzyme + Peptide
-Intermolecular_autoactivation_Enzyme_release_rev: 2Enzyme + Peptide ->(0) Enzyme_Substrate_complex
+Intermolecular_autoactivation_Enzyme_release_rev: 2Enzyme + Peptide -> Enzyme_Substrate_complex

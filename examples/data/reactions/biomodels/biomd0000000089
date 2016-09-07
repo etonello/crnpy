@@ -1,4 +1,4 @@
-cLm_transcription:  ->(compartment*g0**alpha*(X_protein_in_nucleus**a*n1/(X_protein_in_nucleus**a + g1**a) + light*(light_sensitive_protein_P*q1 + n0))/(PPR7_9_protein_in_nucleus**alpha + g0**alpha)) LHY_mRNA
+cLm_transcription:  ->(compartment*g0**alpha*(X_protein_in_nucleus**a*light*light_sensitive_protein_P*q1 + X_protein_in_nucleus**a*light*n0 + X_protein_in_nucleus**a*n1 + g1**a*light*light_sensitive_protein_P*q1 + g1**a*light*n0)/((PPR7_9_protein_in_nucleus**alpha + g0**alpha)*(X_protein_in_nucleus**a + g1**a))) LHY_mRNA
 cLm_degradation: LHY_mRNA ->(compartment*m1/(LHY_mRNA + k1)) 
 cLc_translation:  ->(LHY_mRNA*compartment*p1) LHY_protein_in_cytoplasm
 LHY_protein_translocation: LHY_protein_in_cytoplasm ->(compartment*r1) LHY_protein_in_nucleus
@@ -22,7 +22,7 @@ PPR7_9_protein_translocation: PPR7_9_protein_in_cytoplasm ->(compartment*r9) PPR
 PPR7_9_protein_translocation_rev: PPR7_9_protein_in_nucleus ->(compartment*r10) PPR7_9_protein_in_cytoplasm
 cAc_degradation: PPR7_9_protein_in_cytoplasm ->(compartment*m17/(PPR7_9_protein_in_cytoplasm + k15)) 
 cAn_degradation: PPR7_9_protein_in_nucleus ->(compartment*m18/(PPR7_9_protein_in_nucleus + k16)) 
-light_dependent_production_of_protein_P:  ->(compartment*p5*(-light + 1)) light_sensitive_protein_P
+light_dependent_production_of_protein_P:  ->(-compartment*p5*(light - 1)) light_sensitive_protein_P
 light_activation_protein_P_degradation: light_sensitive_protein_P ->(compartment*light*q3) 
 cPn_degradation: light_sensitive_protein_P ->(compartment*m15/(k13 + light_sensitive_protein_P)) 
 light_activation_of_cAm_transcription:  ->(compartment*light*light_sensitive_protein_P*q4) PPR7_9_mRNA
@@ -33,9 +33,9 @@ cXm_degradation: X_mRNA ->(compartment*m9/(X_mRNA + k7))
 cTc_translation:  ->(TOC1_mRNA*compartment*p2) TOC1_protein__in_cytoplasm
 TOC1_protein_translocation: TOC1_protein__in_cytoplasm ->(compartment*r3) TOC1_protein_in_nucleus
 TOC1_protein_translocation_rev: TOC1_protein_in_nucleus ->(compartment*r4) TOC1_protein__in_cytoplasm
-light_activation_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(compartment*m5*(-light + 1)/(TOC1_protein__in_cytoplasm + k5)) 
+light_activation_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(-compartment*m5*(light - 1)/(TOC1_protein__in_cytoplasm + k5)) 
 light_independent_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(compartment*m6/(TOC1_protein__in_cytoplasm + k5)) 
-light_activation_degradation_of_cTn: TOC1_protein_in_nucleus ->(compartment*m7*(-light + 1)/(TOC1_protein_in_nucleus + k6)) 
+light_activation_degradation_of_cTn: TOC1_protein_in_nucleus ->(-compartment*m7*(light - 1)/(TOC1_protein_in_nucleus + k6)) 
 light_independent_degradation_cTn: TOC1_protein_in_nucleus ->(compartment*m8/(TOC1_protein_in_nucleus + k6)) 
-cYm_transcription:  ->(compartment*g6**f*(g5**e*(light*n4 + n5)/(TOC1_protein_in_nucleus**e + g5**e) + light*light_sensitive_protein_P*q2)/(LHY_protein_in_nucleus**f + g6**f)) Y_mRNA
+cYm_transcription:  ->(compartment*g6**f*(TOC1_protein_in_nucleus**e*light*light_sensitive_protein_P*q2 + g5**e*light*light_sensitive_protein_P*q2 + g5**e*light*n4 + g5**e*n5)/((LHY_protein_in_nucleus**f + g6**f)*(TOC1_protein_in_nucleus**e + g5**e))) Y_mRNA
 cYm_degradation: Y_mRNA ->(compartment*m12/(Y_mRNA + k10)) 

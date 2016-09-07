@@ -1,3 +1,3 @@
 reaction_0000001:  ->(cell*f*(jertot + jmemtot)) cytosolic_calcium_concentration
 reaction_0000002:  ->(-cell*fer*jertot*sigmav) ER_calcium_concentration
-reaction_000003:  ->(ETswitch*cell*(-cAMP + cAMPlow)/taudir) cAMP
+reaction_000003:  ->(-ETswitch*cell*(cAMP - cAMPlow)/taudir) cAMP

@@ -14,7 +14,7 @@ Receptor_synthesis:  ->(Intracellular*k5) Unbound_unphosphorylated_intracellular
 Receptor_degradation: Unbound_unphosphorylated_intracellular_receptor ->(Intracellular*kminus5) 
 Intracellular_receptor_dephosphorylation: Phosphorylated_twice_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
 Intracellular_receptor_dephosphorylation: Phosphorylated_once_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
-IRS1_activation: Unphosphorylated_IRS1 ->((Intracellular*Phosphorylated_once_bound_receptor*Unphosphorylated_IRS1*k7 + Intracellular*Phosphorylated_twice_bound_receptor*Unphosphorylated_IRS1*k7)/(IRp*Unphosphorylated_IRS1)) Phosphorylated_IRS1
+IRS1_activation: Unphosphorylated_IRS1 ->(Intracellular*k7*(Phosphorylated_once_bound_receptor + Phosphorylated_twice_bound_receptor)/IRp) Phosphorylated_IRS1
 IRS1_activation_rev: Phosphorylated_IRS1 ->(Intracellular*PTP*kminus7) Unphosphorylated_IRS1
 IRS1_PI3K_complex_formation: PI3_Kinase + Phosphorylated_IRS1 ->(Intracellular*k8) IRS1__PI3_Kinase_Complex
 IRS1_PI3K_complex_formation_rev: IRS1__PI3_Kinase_Complex ->(Intracellular*kminus8) PI3_Kinase + Phosphorylated_IRS1
@@ -28,5 +28,5 @@ PKC_activation: Unactivated_PKC ->(Intracellular*k12) Activated_PKC
 PKC_activation_rev: Activated_PKC ->(Intracellular*kminus12) Unactivated_PKC
 GLUT4_synthesis:  ->(Intracellular*k14) Intracellular_GLUT4
 GLUT4_degradation: Intracellular_GLUT4 ->(Intracellular*kminus14) 
-GLUT4_translocation: Intracellular_GLUT4 ->((Intracellular*Intracellular_GLUT4*k13 + Intracellular*Intracellular_GLUT4*k13prime)/Intracellular_GLUT4) Cell_surface_GLUT4
+GLUT4_translocation: Intracellular_GLUT4 ->(Intracellular*(k13 + k13prime)) Cell_surface_GLUT4
 GLUT4_translocation_rev: Cell_surface_GLUT4 ->(Intracellular*kminus13) Intracellular_GLUT4

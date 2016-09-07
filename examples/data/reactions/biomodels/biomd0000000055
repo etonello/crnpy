@@ -10,9 +10,9 @@ TOC1_transcription:  ->(Y_protein_in_nucleus**b*compartment*g3**c*n2/((LHY_prote
 TOC_mRNA_degradation: TOC1_mRNA ->(compartment*m4/(TOC1_mRNA + k4)) 
 TOC1_translation:  ->(TOC1_mRNA*compartment*p2) TOC1_protein_in_cytoplasm
 TOC1_transport_out_of_nucleus: TOC1_protein_in_nucleus ->(compartment*r4) TOC1_protein_in_cytoplasm
-Cytoplasmic_TOC1_degradation: TOC1_protein_in_cytoplasm ->(compartment*(m5*(-ceil(sin(0.001 + pi*t/dayLength)/2) + 1) + m6)/(TOC1_protein_in_cytoplasm + k5)) 
+Cytoplasmic_TOC1_degradation: TOC1_protein_in_cytoplasm ->(-compartment*(m5*ceil(sin(0.001 + pi*t/dayLength)/2) - m5 - m6)/(TOC1_protein_in_cytoplasm + k5)) 
 TOC1_movement_into_nucleus: TOC1_protein_in_cytoplasm ->(compartment*r3) TOC1_protein_in_nucleus
-Nuclear_TOC1_degradation: TOC1_protein_in_nucleus ->(compartment*(m7*(-ceil(sin(0.001 + pi*t/dayLength)/2) + 1) + m8)/(TOC1_protein_in_nucleus + k6)) 
+Nuclear_TOC1_degradation: TOC1_protein_in_nucleus ->(-compartment*(m7*ceil(sin(0.001 + pi*t/dayLength)/2) - m7 - m8)/(TOC1_protein_in_nucleus + k6)) 
 Protein_X_transcription:  ->(TOC1_protein_in_nucleus**d*compartment*n3/(TOC1_protein_in_nucleus**d + g4**d)) X_mRNA
 Protein_X_degradation: X_mRNA ->(compartment*m9/(X_mRNA + k7)) 
 Protein_X_translation:  ->(X_mRNA*compartment*p3) X_protein_in_cytoplasm
@@ -20,13 +20,13 @@ ProteinX_movement_out_of_nucleus: X_protein_in_nucleus ->(compartment*r6) X_prot
 Cytoplasmic_Protein_X_degradation: X_protein_in_cytoplasm ->(compartment*m10/(X_protein_in_cytoplasm + k8)) 
 Protein_X_movement_into_nucleus: X_protein_in_cytoplasm ->(compartment*r5) X_protein_in_nucleus
 Nuclear_Protein_X_degradation: X_protein_in_nucleus ->(compartment*m11/(X_protein_in_nucleus + k9)) 
-Protein_Y_transcription:  ->(compartment*g6**f*(g5**e*(n4*ceil(sin(0.001 + pi*t/dayLength)/2) + n5)/(TOC1_protein_in_nucleus**e + g5**e) + light_sensitive_protein_P*q2*ceil(sin(0.001 + pi*t/dayLength)/2))/(LHY_protein_in_nucleus**f + g6**f)) Y_mRNA
+Protein_Y_transcription:  ->(compartment*g6**f*(TOC1_protein_in_nucleus**e*light_sensitive_protein_P*q2*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*light_sensitive_protein_P*q2*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*n4*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*n5)/((LHY_protein_in_nucleus**f + g6**f)*(TOC1_protein_in_nucleus**e + g5**e))) Y_mRNA
 Protein_Y_mRNA_degradation: Y_mRNA ->(compartment*m12/(Y_mRNA + k10)) 
 Protein_Y_translation:  ->(Y_mRNA*compartment*p4) Y_protein_in_cytoplasm
 Protein_Y_out_of_nucleus: Y_protein_in_nucleus ->(compartment*r8) Y_protein_in_cytoplasm
 Cytoplasmic_Protein_Y_degradation: Y_protein_in_cytoplasm ->(compartment*m13/(Y_protein_in_cytoplasm + k11)) 
 Protein_Y_into_nucleus: Y_protein_in_cytoplasm ->(compartment*r7) Y_protein_in_nucleus
 Nuclear_Protein_Y_degradation: Y_protein_in_nucleus ->(compartment*m14/(Y_protein_in_nucleus + k12)) 
-Light_dependent_production_of_Protein_P:  ->(compartment*p5*(-ceil(sin(0.001 + pi*t/dayLength)/2) + 1)) light_sensitive_protein_P
+Light_dependent_production_of_Protein_P:  ->(-compartment*p5*(ceil(sin(0.001 + pi*t/dayLength)/2) - 1)) light_sensitive_protein_P
 Protein_P_degradation: light_sensitive_protein_P ->(compartment*m15/(k13 + light_sensitive_protein_P)) 
 Light_activated_Protein_P_degradation: light_sensitive_protein_P ->(compartment*q3*ceil(sin(0.001 + pi*t/dayLength)/2)) 

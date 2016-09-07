@@ -1,4 +1,4 @@
-PGA_production___v_c: CO2 + 2NADPH + RuBP ->(chloroplast*(CO2*E*kc/(2*(CO2 + Kc*(1 + O2/Ko))) + CO2*RuBP*kc/(2*(CO2 + Kc*(1 + O2/Ko))) - abs(CO2*E*kc/(CO2 + Kc*(1 + O2/Ko)) - CO2*RuBP*kc/(CO2 + Kc*(1 + O2/Ko)))/2)/(CO2*NADPH**2*RuBP)) 2PGA
-PGA_production___v_o: CO2 + 2NADPH + RuBP ->(chloroplast*phi*(CO2*E*kc/(CO2 + Kc*(1 + O2/Ko)) + CO2*RuBP*kc/(CO2 + Kc*(1 + O2/Ko)) - abs(CO2*E*kc/(CO2 + Kc*(1 + O2/Ko)) - CO2*RuBP*kc/(CO2 + Kc*(1 + O2/Ko))))/(2*CO2*NADPH**2*RuBP)) PGA
+PGA_production___v_c: CO2 + 2NADPH + RuBP ->(chloroplast*(CO2*E*Ko*kc + CO2*Ko*RuBP*kc - CO2*Ko*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)) - Kc*Ko*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)) - Kc*O2*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)))/(2*CO2*NADPH**2*RuBP*(CO2*Ko + Kc*Ko + Kc*O2))) 2PGA
+PGA_production___v_o: CO2 + 2NADPH + RuBP ->(chloroplast*phi*(CO2*E*Ko*kc + CO2*Ko*RuBP*kc - CO2*Ko*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)) - Kc*Ko*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)) - Kc*O2*abs(CO2*E*kc/(CO2 + Kc + Kc*O2/Ko) - CO2*RuBP*kc/(CO2 + Kc + Kc*O2/Ko)))/(2*CO2*NADPH**2*RuBP*(CO2*Ko + Kc*Ko + Kc*O2))) PGA
 PGA_consumption: PGA ->(E*NADPH*chloroplast*kc/(Nt*Rp)) RuBP
 NADPH_production: NADP ->(chloroplast*j/(2*Nt)) NADPH

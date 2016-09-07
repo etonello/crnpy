@@ -2,13 +2,13 @@ v1:  ->(mitochondrion*v1_k1) pyruvate
 v2: NAD___ + pyruvate ->(mitochondrion*v2_k2) NADH + acetyl_CoA
 v3: acetyl_CoA + oxaloacetate ->(mitochondrion*v3_k3) citrate
 v4: NAD___ + citrate ->(mitochondrion*v4_k4) NADH + alpha_ketoglutarate
-v5: ADP + 2NAD___ + alpha_ketoglutarate ->(mitochondrion*v5_k5*(-ATP + At)/(ADP*NAD___)) ATP + 2NADH + oxaloacetate
+v5: ADP + 2NAD___ + alpha_ketoglutarate ->(-mitochondrion*v5_k5*(ATP - At)/(ADP*NAD___)) ATP + 2NADH + oxaloacetate
 v6: oxaloacetate ->(mitochondrion*v6_k6) alpha_ketoglutarate
 v6_rev: alpha_ketoglutarate ->(mitochondrion*v6_k6/v6_Keq) oxaloacetate
 v7: ATP + pyruvate ->(mitochondrion*v7_k7) ADP + oxaloacetate
 v8: oxaloacetate ->(mitochondrion*v8_k8) 
 vresp: 11H_ + NADH + 0oxygen ->(Jresp*mitochondrion/(H_**11*NADH)) 10H_ + NAD___ + water
 vATP: ADP + 3H_ + phosphate ->(JATP*mitochondrion/(ADP*H_**3*phosphate)) ATP + 3H_ + water
-vATP_rev: ATP + 3H_ + water ->(0) ADP + 3H_ + phosphate
+vATP_rev: ATP + 3H_ + water -> ADP + 3H_ + phosphate
 vANT: ATP ->(JANT*mitochondrion/ATP) ADP
 vleak: H_ ->(Jleak*mitochondrion/H_) H_

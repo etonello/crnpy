@@ -1,4 +1,4 @@
-pRB_E2F_complex_deassociation: pRB_E2F ->((CycD_CDK4*k1p*pRB_E2F + a_cyclinE_CDK2*k1*pRB_E2F + cycD_CDK4_p27*k1pp*pRB_E2F)/pRB_E2F) E2F + pRB_P
+pRB_E2F_complex_deassociation: pRB_E2F ->(CycD_CDK4*k1p + a_cyclinE_CDK2*k1 + cycD_CDK4_p27*k1pp) E2F + pRB_P
 pRB_E2F_complex_formation: E2F + pRB ->(kminus1) pRB_E2F
 cycE_CDK2_activation: i_cyclinE_CDK2 ->(a_cyclinE_CDK2*k2) a_cyclinE_CDK2
 cycE_CDK2_deactivation: a_cyclinE_CDK2 ->(kminus2) i_cyclinE_CDK2

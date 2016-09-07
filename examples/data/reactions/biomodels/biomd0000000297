@@ -45,7 +45,7 @@ Cln_degradation: Cln ->(kdcln)
 SBF_dependent_Cln_synthesis:  ->(SBF*kscln) Cln
 Swe1M_degradation: Swe1_modified ->(kdswe_prime) 
 Cdc20_degradation: Cdc20 ->(kdcdc20) 
-Clb2_dependent_Cdc20_synthesis:  ->(Clb2**4*kscdc20_doubleprime/(Clb2**4 + jscdc20**4) + kscdc20_prime) Cdc20
+Clb2_dependent_Cdc20_synthesis:  ->((Clb2**4*kscdc20_doubleprime + Clb2**4*kscdc20_prime + jscdc20**4*kscdc20_prime)/(Clb2**4 + jscdc20**4)) Cdc20
 PSwe1M_degradation: Phosphorylated_Swe1M ->(kdswe_doubleprime) 
 PClb_degradation: Phosphorylated_Clb2 ->(Cdc20_activated*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) 
 cell_mass:  ->(mass*mu) mass

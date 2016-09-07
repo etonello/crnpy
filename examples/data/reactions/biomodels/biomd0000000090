@@ -17,5 +17,5 @@ vET1: C1 + Hm + NADH ->(O2*c2*k11/(C1*Hm*((H2S/Kh)**m + 1)*(NADH*a + O2))) C2 + 
 vET2: C2 + O2 ->(NADH*c2*k11/(C2*((H2S/Kh)**m + 1)*(NADH*a + O2))) C1 + H2O
 v16: ADP + ATP_mit ->(c2*k16) ADP_mit + ATP
 vSYNT: ADP_mit + Ho ->(3*NADH*O2*c2*k11/(Ho*(ADP_mit + Ka)*((H2S/Kh)**m + 1)*(NADH*a + O2))) ATP_mit + Hm
-vLEAK: Ho ->(0) Hm
+vLEAK: Ho -> Hm
 v12: ATP ->(c1*k12) ADP

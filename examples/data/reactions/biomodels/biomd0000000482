@@ -1,6 +1,6 @@
 v1: GLCex ->(V1/(G6P + GLCex + K1)) G6P
 v1_rev: G6P ->(V1/(G6P + GLCex + K1)) GLCex
-v2: G6P + pAkt ->((G6P*K2_F16P**2*K2_G6P*V2_G6P*pAkt*s1 + G6P*K2_F16P**2*K2_G6P*V2_G6P)/(G6P*K2_F16P*K2_G6P*pAkt*(F16P*K2_G6P + G6P*K2_F16P + K2_F16P*K2_G6P))) F16P + pAkt
+v2: G6P + pAkt ->(K2_F16P*V2_G6P*(pAkt*s1 + 1)/(pAkt*(F16P*K2_G6P + G6P*K2_F16P + K2_F16P*K2_G6P))) F16P + pAkt
 v2_rev: F16P + pAkt ->(K2_G6P*V2_F16P/(pAkt*(F16P*K2_G6P + G6P*K2_F16P + K2_F16P*K2_G6P))) G6P + pAkt
 v3: F16P ->(V3/(F16P + K3)) PYRin
 v4: PYRin ->(K4_LAC*V4_PYR/(K4_LAC*K4_PYR + K4_LAC*PYRin + K4_PYR*LAC)) LAC
@@ -9,12 +9,12 @@ v5: PYRout ->(V5/(K5 + PYRin + PYRout)) PYRin
 v5_rev: PYRin ->(V5/(K5 + PYRin + PYRout)) PYRout
 v6: PYRin ->(V6/(K6 + PYRin)) OAA
 v7: OAA + PEPCK ->(V7*(PEPCK*s2 + 1)/(PEPCK*(K7 + OAA))) F16P + PEPCK
-v8: G6P + pAkt ->((G6P*K8_G1P**2*K8_G6P*V8_G6P*pAkt*s3 + G6P*K8_G1P**2*K8_G6P*V8_G6P)/(G6P*K8_G1P*K8_G6P*pAkt*(G1P*K8_G6P + G6P*K8_G1P + K8_G1P*K8_G6P))) G1P + pAkt
+v8: G6P + pAkt ->(K8_G1P*V8_G6P*(pAkt*s3 + 1)/(pAkt*(G1P*K8_G6P + G6P*K8_G1P + K8_G1P*K8_G6P))) G1P + pAkt
 v8_rev: G1P + pAkt ->(K8_G6P*V8_G1P/(pAkt*(G1P*K8_G6P + G6P*K8_G1P + K8_G1P*K8_G6P))) G6P + pAkt
 v9: G1P + pGP ->(K9_GLY*V9_G1P/(pGP*(G1P*K9_GLY + GLY*K9_G1P + K9_G1P*K9_GLY))) GLY + pGP
-v9_rev: GLY + pGP ->((GLY*K9_G1P**2*K9_GLY*V9_GLY*pGP*s3 + GLY*K9_G1P**2*K9_GLY*V9_GLY)/(GLY*K9_G1P*K9_GLY*pGP*(G1P*K9_GLY + GLY*K9_G1P + K9_G1P*K9_GLY))) G1P + pGP
+v9_rev: GLY + pGP ->(K9_G1P*V9_GLY*(pGP*s3 + 1)/(pGP*(G1P*K9_GLY + GLY*K9_G1P + K9_G1P*K9_GLY))) G1P + pGP
 metabolicENZ1: G6P + pGP ->(k4) G6P + GP
-reaction1:  ->(param1*(-IRS + proIRS)) IRS
+reaction1:  ->(-param1*(IRS - proIRS)) IRS
 reaction2: IRS ->(insulin*param2) p1IRS
 reaction2_rev: p1IRS ->(param3) IRS
 reaction3: p1IRS ->(param4) 
@@ -32,6 +32,6 @@ reaction13: mTOR + pAkt ->(param15) pAkt + pmTOR
 reaction14: pmTOR ->(param16) mTOR
 reaction15: Foxo + pAkt ->(k1_PEPCK) pAkt + pFoxo
 reactionPEP1: Foxo ->((Foxo*k3_PEPCK - k4_PEPCK*mRNA)/Foxo) Foxo + mRNA
-reactionPEP2: mRNA ->((-PEPCK*k6_PEPCK + k5_PEPCK*mRNA)/mRNA) PEPCK + mRNA
+reactionPEP2: mRNA ->(-(PEPCK*k6_PEPCK - k5_PEPCK*mRNA)/mRNA) PEPCK + mRNA
 reaction16: pFoxo ->(k2_PEPCK) Foxo
 metabolicENZ2: GP ->(k3) pGP

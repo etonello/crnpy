@@ -6,5 +6,5 @@ Calcium_efflux: Cytosolic_Calcium ->(K*cytosol) Extracellular_Calcium
 Agonist_stimulated_production_of_IP3:  ->(V4*beta*cytosol) IP3
 Ca_dependant_IP3_degradation: IP3 ->(Cytosolic_Calcium**n*IP3**p*Vm5*cytosol/(IP3*(Cytosolic_Calcium**n + Kd**n)*(IP3**p + K5**p))) 
 Ca_independent_IP3_degradation: IP3 ->(cytosol*epsilon) 
-Phosphorylase_kinase_activity:  ->(Vpm1*cytosol*(-Glycogen_Phosphorylase + 1)*(Cytosolic_Calcium**4*gamma/(Cytosolic_Calcium**4 + Ka5**4) + 1)/(-Glycogen_Phosphorylase + K1/(Cytosolic_Calcium**4/Ka6**4 + 1) + 1)) Glycogen_Phosphorylase
-Phosphatase_activity: Glycogen_Phosphorylase ->(Vpm2*cytosol*(G*alpha/(G + Ka1) + 1)/(Glycogen_Phosphorylase + Kp2/(G/Ka2 + 1))) 
+Phosphorylase_kinase_activity:  ->(Vpm1*cytosol*(Cytosolic_Calcium**4 + Ka6**4)*(Glycogen_Phosphorylase - 1)*(Cytosolic_Calcium**4*gamma + Cytosolic_Calcium**4 + Ka5**4)/((Cytosolic_Calcium**4 + Ka5**4)*(Cytosolic_Calcium**4*Glycogen_Phosphorylase - Cytosolic_Calcium**4 + Glycogen_Phosphorylase*Ka6**4 - K1*Ka6**4 - Ka6**4))) Glycogen_Phosphorylase
+Phosphatase_activity: Glycogen_Phosphorylase ->(Vpm2*cytosol*(G + Ka2)*(G*alpha + G + Ka1)/((G + Ka1)*(G*Glycogen_Phosphorylase + Glycogen_Phosphorylase*Ka2 + Ka2*Kp2))) 

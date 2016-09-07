@@ -1,7 +1,7 @@
 Per_production:  ->(compartment_0000002*(OPper*Vper + Rpbas)) P0cyt
 Vri_production:  ->(compartment_0000001*(OPvri*Vvri + Rvbas)) VRI
 Pdp_production:  ->(compartment_0000001*delay(OPpdp*Vpdp + Rpdbas, Tdelay)) PDP
-Clk_production:  ->(compartment_0000001*(Kvc**2*PDP**2*Vclk/((Kpdc**2 + PDP**2)*(Kvc**2 + VRI**2)) + Rcbas)) CLK
+Clk_production:  ->(compartment_0000001*(Kpdc**2*Kvc**2*Rcbas + Kpdc**2*Rcbas*VRI**2 + Kvc**2*PDP**2*Rcbas + Kvc**2*PDP**2*Vclk + PDP**2*Rcbas*VRI**2)/((Kpdc**2 + PDP**2)*(Kvc**2 + VRI**2))) CLK
 Clk_specific_degradation: CLK ->(Vdclk*compartment_0000001) 
 Pdp_specific_degradation: PDP ->(compartment_0000001*vdpdp) 
 Vri_specific_degradation: VRI ->(compartment_0000001*vdvri) 

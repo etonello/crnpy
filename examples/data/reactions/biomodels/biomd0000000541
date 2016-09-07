@@ -8,7 +8,7 @@ re36: Isocitrate ->(-k_icit/Isocitrate) sa6_degraded
 re37: F2_6BP ->(-k_f26bp/F2_6BP) sa9_degraded
 re38: Citrate ->(-k_cit/Citrate) sa10_degraded
 re39: F6P ->(-k_f6p/F6P) sa3_degraded
-re40: pro_IR_complex ->(k1*(-IR_complex + pro_IR_complex)/pro_IR_complex) IR_complex
+re40: pro_IR_complex ->(-k1*(IR_complex - pro_IR_complex)/pro_IR_complex) IR_complex
 re41: IR_complex ->(insulin*k1) p1IR_complex
 re41_rev: p1IR_complex ->(k2) IR_complex
 re42: IR_complex ->(k1*pmTOR) p2IR_complex

@@ -14,8 +14,8 @@ FUM: fa ->(FUM_Kmal_fum*FUM_Vf_fum*cell/(FUM_Kfa_fum*FUM_Kmal_fum + FUM_Kfa_fum*
 FUM_rev: mal ->(FUM_Kfa_fum*FUM_Vr_fum*cell/(FUM_Kfa_fum*FUM_Kmal_fum + FUM_Kfa_fum*mal + FUM_Kmal_fum*fa)) fa
 MDH: mal ->(MDH_Koaa_mdh*MDH_Vf_mdh*cell/(MDH_Kmal_mdh*MDH_Koaa_mdh + MDH_Kmal_mdh*oaa + MDH_Koaa_mdh*mal)) oaa
 MDH_rev: oaa ->(MDH_Kmal_mdh*MDH_Vr_mdh*cell/(MDH_Kmal_mdh*MDH_Koaa_mdh + MDH_Kmal_mdh*oaa + MDH_Koaa_mdh*mal)) mal
-ICL: icit ->(ICL_Kgly_icl**2*ICL_Kicit_icl*ICL_Ksuc_icl**3*ICL_Vf_icl*cell/(ICL_Kgly_icl**2*ICL_Kicit_icl**2*ICL_Ksuc_icl**3 + ICL_Kgly_icl**2*ICL_Kicit_icl**2*ICL_Ksuc_icl**2*suc + ICL_Kgly_icl**2*ICL_Kicit_icl*ICL_Ksuc_icl**3*icit + ICL_Kgly_icl**2*ICL_Kicit_icl*ICL_Ksuc_icl**2*icit*suc + ICL_Kgly_icl*ICL_Kicit_icl**2*ICL_Ksuc_icl**3*gly + ICL_Kgly_icl*ICL_Kicit_icl**2*ICL_Ksuc_icl**2*gly*suc)) gly + suc
-ICL_rev: gly + suc ->(ICL_Kgly_icl*ICL_Kicit_icl**2*ICL_Ksuc_icl**2*ICL_Vr_icl*cell/(ICL_Kgly_icl**2*ICL_Kicit_icl**2*ICL_Ksuc_icl**3 + ICL_Kgly_icl**2*ICL_Kicit_icl**2*ICL_Ksuc_icl**2*suc + ICL_Kgly_icl**2*ICL_Kicit_icl*ICL_Ksuc_icl**3*icit + ICL_Kgly_icl**2*ICL_Kicit_icl*ICL_Ksuc_icl**2*icit*suc + ICL_Kgly_icl*ICL_Kicit_icl**2*ICL_Ksuc_icl**3*gly + ICL_Kgly_icl*ICL_Kicit_icl**2*ICL_Ksuc_icl**2*gly*suc)) icit
+ICL: icit ->(ICL_Kgly_icl*ICL_Ksuc_icl*ICL_Vf_icl*cell/((ICL_Ksuc_icl + suc)*(ICL_Kgly_icl*ICL_Kicit_icl + ICL_Kgly_icl*icit + ICL_Kicit_icl*gly))) gly + suc
+ICL_rev: gly + suc ->(ICL_Kicit_icl*ICL_Vr_icl*cell/((ICL_Ksuc_icl + suc)*(ICL_Kgly_icl*ICL_Kicit_icl + ICL_Kgly_icl*icit + ICL_Kicit_icl*gly))) icit
 MS: aca + gly ->(MS_Kcoa_ms*MS_Kmal_ms*MS_Vf_ms*cell/((MS_Kaca_ms*MS_Kcoa_ms + MS_Kaca_ms*coa + MS_Kcoa_ms*aca)*(MS_Kgly_ms*MS_Kmal_ms + MS_Kgly_ms*mal + MS_Kmal_ms*gly))) coa + mal
 MS_rev: coa + mal ->(MS_Kaca_ms*MS_Kgly_ms*MS_Vr_ms*cell/((MS_Kaca_ms*MS_Kcoa_ms + MS_Kaca_ms*coa + MS_Kcoa_ms*aca)*(MS_Kgly_ms*MS_Kmal_ms + MS_Kgly_ms*mal + MS_Kmal_ms*gly))) aca + gly
 SYN: akg ->(0.0341*SYN_Kakg_icd*SYN_Vf_icd*cell*icit/(akg*(SYN_Kakg_icd*SYN_Kicit_icd + SYN_Kakg_icd*icit + SYN_Kicit_icd*akg))) biosyn

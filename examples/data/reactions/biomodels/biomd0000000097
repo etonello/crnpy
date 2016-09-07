@@ -11,8 +11,8 @@ cTm_degradation: cTm ->(m4*nucleus/(cTm + k4))
 cTc_synthesis:  ->(cTm*cytoplasm*p2) cTc
 cTc_transport_to_nucleus: cTc ->(cytoplasm*r3) cTn
 cTn_transport_to_cytoplasm: cTn ->(nucleus*r4) cTc
-cTc_degradation: cTc ->(cytoplasm*(m5*(-ld + lmax) + m6)/(cTc + k5)) 
-cTn_degradation: cTn ->(nucleus*(m7*(-ld + lmax) + m8)/(cTn + k6)) 
+cTc_degradation: cTc ->(-cytoplasm*(ld*m5 - lmax*m5 - m6)/(cTc + k5)) 
+cTn_degradation: cTn ->(-nucleus*(ld*m7 - lmax*m7 - m8)/(cTn + k6)) 
 Species_X_transcription:  ->(cTn**d*n3*nucleus/(cTn**d + g4**d)) cXm
 Species_X_degradation: cXm ->(m9*nucleus/(cXm + k7)) 
 cXc_synthesis:  ->(cXm*cytoplasm*p3) cXc
@@ -27,7 +27,7 @@ cYc_transport_to_nucleus: cYc ->(cytoplasm*r7) cYn
 cYn_transport_to_cytoplasm: cYn ->(nucleus*r8) cYc
 cYc_degradation: cYc ->(cytoplasm*m13/(cYc + k11)) 
 cYn_degradation: cYn ->(m14*nucleus/(cYn + k12)) 
-cPn_synthesis:  ->(nucleus*p5*(-ld + lmax)) cPn
+cPn_synthesis:  ->(-nucleus*p5*(ld - lmax)) cPn
 cPn_degradation: cPn ->(m15*nucleus/(cPn + k13)) 
 cPn_light_dependent_degradation: cPn ->(ld*nucleus*q3) 
 cP7m_transcription:  ->(cLn**j*n6*nucleus/(cLn**j + g9**j)) cP7m

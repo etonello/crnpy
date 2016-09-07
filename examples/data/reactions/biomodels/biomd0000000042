@@ -19,7 +19,7 @@ EtOHflow: EtOH ->(compartment*flow)
 AMPflow: AMP ->(compartment*flow) 
 Pflow: P ->(compartment*flow) 
 reaction_1: ATP + GLC ->(V1*compartment/((ATP + K1ATP)*(GLC + K1GLC))) ADP + F6P
-reaction_2: ATP + F6P ->(F6P*V2*compartment/((ATP + K2ATP)*(F6P**2 + K2*(1 + ATP**2*k2/AMP**2)))) ADP + FBP
+reaction_2: ATP + F6P ->(AMP**2*F6P*V2*compartment/((ATP + K2ATP)*(AMP**2*F6P**2 + AMP**2*K2 + ATP**2*K2*k2))) ADP + FBP
 reaction_3: FBP ->(compartment*k3f) 2GAP
 reaction_3_rev: 2GAP ->(compartment*k3b) FBP
 reaction_4: GAP + NAD ->(V4*compartment/((GAP + K4GAP)*(K4NAD + NAD))) DPG + NADH

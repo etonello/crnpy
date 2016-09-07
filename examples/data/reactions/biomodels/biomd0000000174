@@ -1,10 +1,10 @@
 recruitment_of_Rab5:  ->(endosome*reaction_0_K1) Rab5_GDP
-activation_of_Rab5__time_: Rab5_GDP ->(endosome*reaction_1_ke*time/((time + 100)*(exp(reaction_1_kf*(-Rab5_GTP + reaction_1_kg)) + 1))) Rab5_GTP
+activation_of_Rab5__time_: Rab5_GDP ->(endosome*reaction_1_ke*time/((1 + exp(-Rab5_GTP*reaction_1_kf)*exp(reaction_1_kf*reaction_1_kg))*(time + 100))) Rab5_GTP
 extraction_of_Rab5: Rab5_GDP ->(endosome*reaction_2_kminus1) 
 recruitment_of_Rab7:  ->(endosome*reaction_3_K1) Rab7_GDP
 activation_of_Rab7_by_GEF7: Rab7_GDP ->(Rab7_GTP**reaction_4_h*endosome*reaction_4_ke/(Rab7_GTP**reaction_4_h + reaction_4_kg)) Rab7_GTP
-activation_of_Rab7_by_GEF5: Rab7_GDP ->(endosome*reaction_5_ke/(exp(reaction_5_kf*(-Rab5_GTP + reaction_5_kg)) + 1)) Rab7_GTP
-hydrolysis_of_Rab5_by_Rab7: Rab5_GTP ->(endosome*reaction_6_ke/(exp(reaction_6_kf*(-Rab7_GTP + reaction_6_kg)) + 1)) Rab5_GDP
+activation_of_Rab7_by_GEF5: Rab7_GDP ->(endosome*reaction_5_ke/(1 + exp(-Rab5_GTP*reaction_5_kf)*exp(reaction_5_kf*reaction_5_kg))) Rab7_GTP
+hydrolysis_of_Rab5_by_Rab7: Rab5_GTP ->(endosome*reaction_6_ke/(1 + exp(-Rab7_GTP*reaction_6_kf)*exp(reaction_6_kf*reaction_6_kg))) Rab5_GDP
 extraction_of_rab7: Rab7_GDP ->(endosome*reaction_7_kminus1) 
 hydrolysis_of_Rab5__intr__: Rab5_GTP ->(endosome*reaction_8_kh) Rab5_GDP
 hydrolysis_of_Rab7__intr__: Rab7_GTP ->(endosome*reaction_9_kh) Rab7_GDP

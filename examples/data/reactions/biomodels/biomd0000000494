@@ -7,10 +7,10 @@ re8: GnRH + R_GnRH_a ->(default**2*k_on_G) GnRH_R_a
 re11: R_GnRH_i ->(default*k_degr_RG) sa1_degraded
 re15: GnRH_R_a ->(default*k_off_G) GnRH + R_GnRH_a
 re24: GnRH ->(default*k_degr_G) sa3_degraded
-re25: s33 ->((b_syn_LH + k_E2_LH*(E2*default/(T_E2_LH*facE2))**n_E2_LH/((E2*default/(T_E2_LH*facE2))**n_E2_LH + 1))/(s33*((P4*default/(T_P4_LH*facP4))**n_P4_LH + 1))) LH_Pit
+re25: s33 ->((b_syn_LH*(E2*default/(T_E2_LH*facE2))**n_E2_LH + b_syn_LH + k_E2_LH*(E2*default/(T_E2_LH*facE2))**n_E2_LH)/(s33*((E2*default/(T_E2_LH*facE2))**n_E2_LH + 1)*((P4*default/(T_P4_LH*facP4))**n_P4_LH + 1))) LH_Pit
 re26: s38 ->(k_Ih_FSH/(s38*((freq/T_freq_FSH)**n_freq_FSH + 1)*((InhA_delay*default/T_IhA)**n_IhA + (InhB*default/T_IhB)**n_IhB + 1))) FSH_pit
-re28: LH_Pit ->(default*(b_rel_LH + k_GR_LH*((Ago_R_a*default + GnRH_R_a*default)/T_GR_LH)**n_GR_LH/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_LH)**n_GR_LH + 1))) s92
-re29: FSH_pit ->(default*(b_rel_FSH + k_GR_FSH*((Ago_R_a*default + GnRH_R_a*default)/T_GR_FSH)**n_GR_FSH/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_FSH)**n_GR_FSH + 1))) s94
+re28: LH_Pit ->(default*(b_rel_LH*(Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH + b_rel_LH + k_GR_LH*(Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH)/((Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH + 1)) s92
+re29: FSH_pit ->(default*(b_rel_FSH*(Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH + b_rel_FSH + k_GR_FSH*(Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH)/((Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH + 1)) s94
 re35: LH_bld + R_LH ->(default**2*k_on_LH/facLH) LH_R
 re36: LH_R ->(default*k_des_LH) R_LH_des
 re37: R_LH_des ->(default*k_recy_LH) R_LH
@@ -24,18 +24,18 @@ re45: AF3 ->(R_Foll*default**2*k_AF3_AF4*(LH_R*default/SF_LHR)**n_AF3_AF4) AF4
 re46: AF4 ->(LH_R*R_Foll*default**3*k_AF4_PrF/SF_LHR) PrF
 re49: Sc1 ->(default*k_Sc1_Sc2) Sc2
 re50: Sc2 ->(default*k_Sc2_Lut1) Lut1
-re51: Lut1 ->(default*k_Lut1_Lut2*(m_GR_Lut*((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut + 1) + 1)) Lut2
-re52: Lut2 ->(default*k_Lut2_Lut3*(m_GR_Lut*((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut + 1) + 1)) Lut3
-re53: Lut3 ->(default*k_Lut3_Lut4*(m_GR_Lut*((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut + 1) + 1)) Lut4
+re51: Lut1 ->(default*k_Lut1_Lut2*(m_GR_Lut*(Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + (Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)/((Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)) Lut2
+re52: Lut2 ->(default*k_Lut2_Lut3*(m_GR_Lut*(Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + (Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)/((Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)) Lut3
+re53: Lut3 ->(default*k_Lut3_Lut4*(m_GR_Lut*(Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + (Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)/((Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)) Lut4
 re54: s64 ->(k_s*(FSH_bld*default/T_FSH_s)**n_FSH_s/(s64*((FSH_bld*default/T_FSH_s)**n_FSH_s + 1))) R_Foll
 re56: R_Foll ->(default*k_cl_s*(P4*default/(T_P4_s*facP4))**n_P4_s/((P4*default/(T_P4_s*facP4))**n_P4_s + 1)) sa61_degraded
-re57: s66 ->(AF3*FSH_R*default**2*k_AF3_AF3*(-AF3*default/SeF_max + 1)/s66) AF3
-re58: s67 ->(AF4*default*k_A42_AF4*(LH_R*default/SF_LHR)**n_AF4*(-AF4*default/SeF_max + 1)/s67) AF4
+re57: s66 ->(-AF3*FSH_R*default**2*k_AF3_AF3*(AF3*default - SeF_max)/(SeF_max*s66)) AF3
+re58: s67 ->(-AF4*default*k_A42_AF4*(LH_R*default/SF_LHR)**n_AF4*(AF4*default - SeF_max)/(SeF_max*s67)) AF4
 re59: PrF ->(R_Foll*default**2*k_cl_PrF*(LH_R*default/SF_LHR)**n_OvF) sa52_degraded
 re60: s69 ->(R_Foll*default*k_OvF*(LH_R*default/SF_LHR)**n_OvF*(PrF*default/T_PrF_OvF)**n_PrF_OvF/(s69*((PrF*default/T_PrF_OvF)**n_PrF_OvF + 1))) OvF
 re61: OvF ->(default*k_cl_OvF) sa53_degraded
 re62: s71 ->(k_Sc1*(OvF*default/T_OvF_Sc1)**n_OvF_Sc1/(s71*((OvF*default/T_OvF_Sc1)**n_OvF_Sc1 + 1))) Sc1
-re64: Lut4 ->(default*k_cl_Lut4*(m_GR_Lut*((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_Lut)**n_GR_Lut + 1) + 1)) s72
+re64: Lut4 ->(default*k_cl_Lut4*(m_GR_Lut*(Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + (Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)/((Ago_R_a*default/T_GR_Lut + GnRH_R_a*default/T_GR_Lut)**n_GR_Lut + 1)) s72
 re65: s74 ->(facE2*(AF2*default*k_AF2_E2 + AF3*LH_bld*default**2*k_AF3_E2 + AF4*default*k_AF4_E2 + LH_bld*PrF*default**2*k_PrF_E2 + Lut1*default*k_Lut1_E2 + Lut4*default*k_Lut4_E2 + b_E2)/s74) E2
 re66: E2 ->(default*k_cl_E2) sa75_degraded
 re67: s76 ->(facP4*(Lut4*default*k_Lut4_P4 + b_P4)/s76) P4
@@ -48,8 +48,8 @@ re75: s85 ->(k_syn_RG/s85) R_GnRH_i
 re76: GnRH_R_i ->(default*k_degr_GRi) csa1_degraded
 re78: s87 ->(freq*mass/s87) GnRH
 re82: FSH_bld ->(default*k_cl_FSH) sa31_degraded
-re83: s93 ->(LH_Pit*default*facLH*(b_rel_LH + k_GR_LH*((Ago_R_a*default + GnRH_R_a*default)/T_GR_LH)**n_GR_LH/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_LH)**n_GR_LH + 1))/(V_blood*s93)) LH_bld
-re84: s95 ->(FSH_pit*default*facFSH*(b_rel_FSH + k_GR_FSH*((Ago_R_a*default + GnRH_R_a*default)/T_GR_FSH)**n_GR_FSH/(((Ago_R_a*default + GnRH_R_a*default)/T_GR_FSH)**n_GR_FSH + 1))/(V_blood*s95)) FSH_bld
+re83: s93 ->(LH_Pit*default*facLH*(b_rel_LH*(Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH + b_rel_LH + k_GR_LH*(Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH)/(V_blood*s93*((Ago_R_a*default/T_GR_LH + GnRH_R_a*default/T_GR_LH)**n_GR_LH + 1))) LH_bld
+re84: s95 ->(FSH_pit*default*facFSH*(b_rel_FSH*(Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH + b_rel_FSH + k_GR_FSH*(Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH)/(V_blood*s95*((Ago_R_a*default/T_GR_FSH + GnRH_R_a*default/T_GR_FSH)**n_GR_FSH + 1))) FSH_bld
 re85: FSH_bld + R_FSH ->(default**2*k_on_FSH/facFSH) FSH_R
 re87: InhA ->(default*k_IhA) InhA_delay
 re90: Ago_c ->(cl_Ago*default) s102

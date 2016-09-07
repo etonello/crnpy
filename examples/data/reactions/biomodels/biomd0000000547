@@ -9,7 +9,7 @@ v8: AsIIIin + GSH ->(GSH_damping_factor*v8_k/compartment_4) AsGS3
 v10: AsGS3 ->(6**(2/3)*Ycf1*compartment_1**(2/3)*pi**(1/3)*v10_k*v10_ko/(compartment_3*compartment_4)) vAsGS3
 v12:  ->(AsIIIin*compartment_3*k18*v12_ko/compartment_4) Acr3
 v13: Acr3 ->(v13_k1) 
-v14: AsIIIin ->(6**(2/3)*Acr3*pi**(1/3)*v14_Vmax/(compartment_3**(1/3)*compartment_4*(AsIIIin/compartment_4 + v14_Km))) AsIIIex
-v6: Fps1 ->(AsIIIin*v6_k/compartment_4 + Hog1PP*v6_k1/compartment_3 + v6_kb) Fps1P
+v14: AsIIIin ->(6**(2/3)*Acr3*pi**(1/3)*v14_Vmax/(compartment_3**(1/3)*(AsIIIin + compartment_4*v14_Km))) AsIIIex
+v6: Fps1 ->((AsIIIin*compartment_3*v6_k + Hog1PP*compartment_4*v6_k1 + compartment_3*compartment_4*v6_kb)/(compartment_3*compartment_4)) Fps1P
 v9: AsGS3 ->(v9_k1) AsIIIin + GSH
 v11: vAsGS3 ->(6**(2/3)*pi**(1/3)*v11_k/compartment_1**(1/3)) AsGS3

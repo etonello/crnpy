@@ -7,6 +7,6 @@ v3_rev: srcc ->(default*k2*ptp_activity) srca
 v4: srcc ->(default*k4*p1) srci
 CSK_translocation: CSK_cytoplasm + Cbp_P ->(default*kCSKon) Cbp_P_CSK
 CSK_translocation_rev: Cbp_P_CSK ->(default*kCSKoff) CSK_cytoplasm + Cbp_P
-PTP_phosphorylation: PTP ->((PTP*default*kPTP*src_activity + PTP*default*p3)/PTP) PTP_pY789
+PTP_phosphorylation: PTP ->(default*(kPTP*src_activity + p3)) PTP_pY789
 PTP_phosphorylation_rev: PTP_pY789 ->(default*p2) PTP
 Cbp_phosphorylation: Cbp ->(default*kCbp*src_activity) Cbp_P

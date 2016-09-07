@@ -1,7 +1,7 @@
 v1: alpha ->(Ks3*Vm1/(Ks1*Ks3 + Ks1*beta + Ks3*alpha)) beta
-v1_rev: beta ->(0) alpha
+v1_rev: beta -> alpha
 v2: beta ->(Ks4*Vm1*r24/(Chi14*(Ks2*Ks4 + Ks2*gamma + Ks4*beta))) alpha
-v2_rev: alpha ->(0) beta
+v2_rev: alpha -> beta
 v3: beta ->(Ks1*Vm1*r31/(Ks1*Ks3 + Ks1*beta + Ks3*alpha)) gamma
-v3_rev: gamma ->(0) beta
-v4: gamma ->(Vm1/(Chi14*Ks4*(1 + gamma/Ks4 + beta/Ks2))) beta
+v3_rev: gamma -> beta
+v4: gamma ->(Ks2*Vm1/(Chi14*(Ks2*Ks4 + Ks2*gamma + Ks4*beta))) beta

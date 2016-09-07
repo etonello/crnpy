@@ -14,7 +14,7 @@ GSK_Axin_APC_bCatenin_complex_disassembly: bCatenin_ast_APC_ast_Axin_ast_GSK3bet
 Phosphorylated_bCatenin_degradation: bCatenin_ast ->(cytoplasm*k11) 
 bCatenin_synthesis:  ->(V12*cytoplasm) bCatenin
 Unphosphorylated_bCatenin_degradation: bCatenin ->(k13*nucleus) 
-Axin_synthesis:  ->(nucleus*(k14 + k21*(bCatenin + bCatenin_TCF))) Axin
+Axin_synthesis:  ->(nucleus*(bCatenin*k21 + bCatenin_TCF*k21 + k14)) Axin
 Axin_degradation: Axin ->(cytoplasm*k15) 
 bCatenin_TCF_complex_formation: TCF + bCatenin ->(k_plus16*nucleus) bCatenin_TCF
 bCatenin_TCF_complex_formation_rev: bCatenin_TCF ->(k_minus16*nucleus) TCF + bCatenin

@@ -1,7 +1,7 @@
 Time: time ->(1/time) T
-re01: frq_gene ->((L_WCC*k_01a + active_hypoWCCn**H_01*k_01/(K_01**H_01 + active_hypoWCCn**H_01))/frq_gene) frq_mRNA
+re01: frq_gene ->((K_01**H_01*L_WCC*k_01a + L_WCC*active_hypoWCCn**H_01*k_01a + active_hypoWCCn**H_01*k_01)/(frq_gene*(K_01**H_01 + active_hypoWCCn**H_01))) frq_mRNA
 re02: wc1_gene ->((L_WCC*k_02a02 + active_hypoWCCn*k_02a01 + k_02)/wc1_gene) wc1_mRNA
-re03: wc2_gene ->((hypoFRQn*k_03a + k_03/(hypoWCCn*k_03i + 1))/wc2_gene) wc2_mRNA
+re03: wc2_gene ->((hypoFRQn*hypoWCCn*k_03a*k_03i + hypoFRQn*k_03a + k_03)/(wc2_gene*(hypoWCCn*k_03i + 1))) wc2_mRNA
 re04: vvd_gene ->(L_WCC*k_04/vvd_gene) vvd_mRNA
 re05: frq_mRNA ->(k_05) hypoFRQc
 re06: wc1_mRNA ->(k_06) WC1c

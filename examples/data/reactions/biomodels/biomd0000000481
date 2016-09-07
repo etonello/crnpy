@@ -1,14 +1,14 @@
-re1: LH_Pit ->(default*(GnRH_Pit**5*default**5*h_gnrh_lh/(GnRH_Pit**5*default**5 + T_gnrh_lh**5) + b_lh)) LH_Bld
-re2: FSH_Pit ->(default*(GnRH_Pit*default*h_gnrh_fsh/(GnRH_Pit*default + T_gnrh_fsh) + P4**2*default**2*h_p4_fsh/(P4**2*default**2 + T_p4_fsh**2) + T_e2_fsh**2*h_e2_fsh/(E2**2*default**2 + T_e2_fsh**2) + b_fsh)) FSH_Bld
-re3: GnRH_Hyp ->(default*(T_p4_G2**2*h_p4_G2/(P4**2*default**2 + T_p4_G2**2) + h_P4_E2_G*(-T_E2_G1**2*T_p4_G1**2/((E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)) + T_E2_G1**2/(E2**2*default**2 + T_E2_G1**2) + T_p4_G1**2/(P4**2*default**2 + T_p4_G1**2)))) snk_GnRH_Hyp
-re4: src_CL ->((CL**2*default**2*h_cl_cl/(CL**2*default**2 + T_cl_cl**2) + Foll*LH_Bld**2*SF_CL*default**3*h_lh_foll/(LH_Bld**2*default**2 + T_lh_Foll**2))/src_CL) CL
-re5: src_GnRH ->(k_G*(-GnRH_Hyp*default/GnRH_max + 1)/src_GnRH) GnRH_Hyp
+re1: LH_Pit ->(default*(GnRH_Pit**5*b_lh*default**5 + GnRH_Pit**5*default**5*h_gnrh_lh + T_gnrh_lh**5*b_lh)/((GnRH_Pit*default + T_gnrh_lh)*(GnRH_Pit**4*default**4 - GnRH_Pit**3*T_gnrh_lh*default**3 + GnRH_Pit**2*T_gnrh_lh**2*default**2 - GnRH_Pit*T_gnrh_lh**3*default + T_gnrh_lh**4))) LH_Bld
+re2: FSH_Pit ->(default*(E2**2*GnRH_Pit*P4**2*b_fsh*default**5 + E2**2*GnRH_Pit*P4**2*default**5*h_gnrh_fsh + E2**2*GnRH_Pit*P4**2*default**5*h_p4_fsh + E2**2*GnRH_Pit*T_p4_fsh**2*b_fsh*default**3 + E2**2*GnRH_Pit*T_p4_fsh**2*default**3*h_gnrh_fsh + E2**2*P4**2*T_gnrh_fsh*b_fsh*default**4 + E2**2*P4**2*T_gnrh_fsh*default**4*h_p4_fsh + E2**2*T_gnrh_fsh*T_p4_fsh**2*b_fsh*default**2 + GnRH_Pit*P4**2*T_e2_fsh**2*b_fsh*default**3 + GnRH_Pit*P4**2*T_e2_fsh**2*default**3*h_e2_fsh + GnRH_Pit*P4**2*T_e2_fsh**2*default**3*h_gnrh_fsh + GnRH_Pit*P4**2*T_e2_fsh**2*default**3*h_p4_fsh + GnRH_Pit*T_e2_fsh**2*T_p4_fsh**2*b_fsh*default + GnRH_Pit*T_e2_fsh**2*T_p4_fsh**2*default*h_e2_fsh + GnRH_Pit*T_e2_fsh**2*T_p4_fsh**2*default*h_gnrh_fsh + P4**2*T_e2_fsh**2*T_gnrh_fsh*b_fsh*default**2 + P4**2*T_e2_fsh**2*T_gnrh_fsh*default**2*h_e2_fsh + P4**2*T_e2_fsh**2*T_gnrh_fsh*default**2*h_p4_fsh + T_e2_fsh**2*T_gnrh_fsh*T_p4_fsh**2*b_fsh + T_e2_fsh**2*T_gnrh_fsh*T_p4_fsh**2*h_e2_fsh)/((E2**2*default**2 + T_e2_fsh**2)*(GnRH_Pit*default + T_gnrh_fsh)*(P4**2*default**2 + T_p4_fsh**2))) FSH_Bld
+re3: GnRH_Hyp ->(default*(E2**2*P4**2*T_p4_G1**2*default**4*h_P4_E2_G + E2**2*P4**2*T_p4_G2**2*default**4*h_p4_G2 + E2**2*T_p4_G1**2*T_p4_G2**2*default**2*h_P4_E2_G + E2**2*T_p4_G1**2*T_p4_G2**2*default**2*h_p4_G2 + P4**4*T_E2_G1**2*default**4*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G1**2*default**2*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G2**2*default**2*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G2**2*default**2*h_p4_G2 + T_E2_G1**2*T_p4_G1**2*T_p4_G2**2*h_P4_E2_G + T_E2_G1**2*T_p4_G1**2*T_p4_G2**2*h_p4_G2)/((E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)*(P4**2*default**2 + T_p4_G2**2))) snk_GnRH_Hyp
+re4: src_CL ->(default**2*(CL**2*Foll*LH_Bld**2*SF_CL*default**3*h_lh_foll + CL**2*LH_Bld**2*default**2*h_cl_cl + CL**2*T_lh_Foll**2*h_cl_cl + Foll*LH_Bld**2*SF_CL*T_cl_cl**2*default*h_lh_foll)/(src_CL*(CL**2*default**2 + T_cl_cl**2)*(LH_Bld**2*default**2 + T_lh_Foll**2))) CL
+re5: src_GnRH ->(-k_G*(GnRH_Hyp*default - GnRH_max)/(GnRH_max*src_GnRH)) GnRH_Hyp
 re6: src_E2 ->(Foll**2*default**2*k_foll_e2/src_E2) E2
 re7: src_P4 ->(CL**2*default**2*k_cl_p4/src_P4) P4
 re8: src_Inh ->(Foll**2*default**2*k_foll_inh/src_Inh) Inh
 re9: src_OT ->(CL**2*E2**2*default**4*h_e2cl_ot/(src_OT*(E2**2*default**2 + T_e2_ot**2))) OT
-re10: src_Enz ->(P4**5*default**5*h_p4_enz/(src_Enz*(P4**5*default**5 + T_p4_enz**5))) Enz
-re11: src_PGF ->(Enz**5*OT**2*default**2*h_enz_pgf/(src_PGF*(Enz**5 + T_enz_pgf**5)*(OT**2*default**2 + T_ot_pgf**2))) PGF
+re10: src_Enz ->(P4**5*default**5*h_p4_enz/(src_Enz*(P4*default + T_p4_enz)*(P4**4*default**4 - P4**3*T_p4_enz*default**3 + P4**2*T_p4_enz**2*default**2 - P4*T_p4_enz**3*default + T_p4_enz**4))) Enz
+re11: src_PGF ->(Enz**5*OT**2*default**2*h_enz_pgf/(src_PGF*(Enz + T_enz_pgf)*(OT**2*default**2 + T_ot_pgf**2)*(Enz**4 - Enz**3*T_enz_pgf + Enz**2*T_enz_pgf**2 - Enz*T_enz_pgf**3 + T_enz_pgf**4))) PGF
 re12: GnRH_Pit ->(cl_G*default) snk_GnRH_Pit
 re13: LH_Bld ->(cl_lh*default) snk_LH
 re14: FSH_Bld ->(cl_fsh*default) snk_FSH
@@ -19,10 +19,10 @@ re18: OT ->(cl_ot*default) snk_OT
 re19: Enz ->(cl_enz) snk_Enz
 re20: PGF ->(cl_pgf*default) snk_PGF
 re21: IOF ->(cl_iof*default) snk_IOF
-l: Foll ->(default*(LH_Bld**2*default**2*h_lh_foll/(LH_Bld**2*default**2 + T_lh_Foll**2) + P4**5*default**5*h_p4_fsh_2/(P4**5*default**5 + T_p4_foll**5))) snk_Foll
-re23: CL ->(IOF**5*default**6*h_iof_cl/(IOF**5*default**5 + T_iof_cl**5)) snk_CL
-re24: src_LH ->((E2**2*default**2*h_e2_lh/(E2**2*default**2 + T_e2_lh**2) + T_p4_lh**2*h_p4_lh/(P4**2*default**2 + T_p4_lh**2))/src_LH) LH_Pit
-re25: src_FSH ->(T_inh_fsh**5*h_inh_fsh/(src_FSH*(Inh**5*default**5 + T_inh_fsh**5))) FSH_Pit
-re26: src_GnRH_Pit ->(E2**5*GnRH_Hyp*default**6*h_e2_g2*(T_p4_G2**2*h_p4_G2/(P4**2*default**2 + T_p4_G2**2) + h_P4_E2_G*(-T_E2_G1**2*T_p4_G1**2/((E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)) + T_E2_G1**2/(E2**2*default**2 + T_E2_G1**2) + T_p4_G1**2/(P4**2*default**2 + T_p4_G1**2)))/(src_GnRH_Pit*(E2**5*default**5 + T_e2_g2**5))) GnRH_Pit
-re27: src_Foll ->(FSH_Bld**2*default**2*h_fsh_foll/(src_Foll*(FSH_Bld**2*default**2 + T_foll_fsh**4*T_fsh_foll**2/(Foll**2*default**2 + T_foll_fsh**2)**2))) Foll
-re28: src_IOF ->(CL**10*PGF**5*default**15*h_pg_iof/(src_IOF*(CL**10*default**10 + T_cl_iof**10)*(PGF**5*default**5 + T_pg_ot**5))) IOF
+l: Foll ->(default**3*(LH_Bld**2*P4**5*default**5*h_lh_foll + LH_Bld**2*P4**5*default**5*h_p4_fsh_2 + LH_Bld**2*T_p4_foll**5*h_lh_foll + P4**5*T_lh_Foll**2*default**3*h_p4_fsh_2)/((LH_Bld**2*default**2 + T_lh_Foll**2)*(P4*default + T_p4_foll)*(P4**4*default**4 - P4**3*T_p4_foll*default**3 + P4**2*T_p4_foll**2*default**2 - P4*T_p4_foll**3*default + T_p4_foll**4))) snk_Foll
+re23: CL ->(IOF**5*default**6*h_iof_cl/((IOF*default + T_iof_cl)*(IOF**4*default**4 - IOF**3*T_iof_cl*default**3 + IOF**2*T_iof_cl**2*default**2 - IOF*T_iof_cl**3*default + T_iof_cl**4))) snk_CL
+re24: src_LH ->((E2**2*P4**2*default**4*h_e2_lh + E2**2*T_p4_lh**2*default**2*h_e2_lh + E2**2*T_p4_lh**2*default**2*h_p4_lh + T_e2_lh**2*T_p4_lh**2*h_p4_lh)/(src_LH*(E2**2*default**2 + T_e2_lh**2)*(P4**2*default**2 + T_p4_lh**2))) LH_Pit
+re25: src_FSH ->(T_inh_fsh**5*h_inh_fsh/(src_FSH*(Inh*default + T_inh_fsh)*(Inh**4*default**4 - Inh**3*T_inh_fsh*default**3 + Inh**2*T_inh_fsh**2*default**2 - Inh*T_inh_fsh**3*default + T_inh_fsh**4))) FSH_Pit
+re26: src_GnRH_Pit ->(E2**5*GnRH_Hyp*default**6*h_e2_g2*(E2**2*P4**2*T_p4_G1**2*default**4*h_P4_E2_G + E2**2*P4**2*T_p4_G2**2*default**4*h_p4_G2 + E2**2*T_p4_G1**2*T_p4_G2**2*default**2*h_P4_E2_G + E2**2*T_p4_G1**2*T_p4_G2**2*default**2*h_p4_G2 + P4**4*T_E2_G1**2*default**4*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G1**2*default**2*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G2**2*default**2*h_P4_E2_G + P4**2*T_E2_G1**2*T_p4_G2**2*default**2*h_p4_G2 + T_E2_G1**2*T_p4_G1**2*T_p4_G2**2*h_P4_E2_G + T_E2_G1**2*T_p4_G1**2*T_p4_G2**2*h_p4_G2)/(src_GnRH_Pit*(E2*default + T_e2_g2)*(E2**2*default**2 + T_E2_G1**2)*(P4**2*default**2 + T_p4_G1**2)*(P4**2*default**2 + T_p4_G2**2)*(E2**4*default**4 - E2**3*T_e2_g2*default**3 + E2**2*T_e2_g2**2*default**2 - E2*T_e2_g2**3*default + T_e2_g2**4))) GnRH_Pit
+re27: src_Foll ->(FSH_Bld**2*default**2*h_fsh_foll*(Foll**2*default**2 + T_foll_fsh**2)**2/(src_Foll*(FSH_Bld**2*Foll**4*default**6 + 2*FSH_Bld**2*Foll**2*T_foll_fsh**2*default**4 + FSH_Bld**2*T_foll_fsh**4*default**2 + T_foll_fsh**4*T_fsh_foll**2))) Foll
+re28: src_IOF ->(CL**10*PGF**5*default**15*h_pg_iof/(src_IOF*(CL**2*default**2 + T_cl_iof**2)*(PGF*default + T_pg_ot)*(CL**8*default**8 - CL**6*T_cl_iof**2*default**6 + CL**4*T_cl_iof**4*default**4 - CL**2*T_cl_iof**6*default**2 + T_cl_iof**8)*(PGF**4*default**4 - PGF**3*T_pg_ot*default**3 + PGF**2*T_pg_ot**2*default**2 - PGF*T_pg_ot**3*default + T_pg_ot**4))) IOF

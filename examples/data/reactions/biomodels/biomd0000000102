@@ -22,13 +22,13 @@ cleaved_Caspase_9_Xiap_Apaf_1_binding: APAF_1 + Caspase_9_cleaved_XIAP_complex -
 cleaved_Caspase_9_Xiap_Apaf_1_binding_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k14b) APAF_1 + Caspase_9_cleaved_XIAP_complex
 Caspase_3_cleavage_by_cleaved_Caspase_9: Caspase_3 + Caspase_9_cleaved ->(cytosol*k6) Caspase_3_cleaved + Caspase_9_cleaved
 Caspase_3_cleavage_by_cleaved_Caspase_9___Apaf_1: APAF_1_Caspase_9_cleaved_complex + Caspase_3 ->(cytosol*k7) APAF_1_Caspase_9_cleaved_complex + Caspase_3_cleaved
-Apaf_1_turnover:  ->(cytosol*(-APAF_1*k16 + k16prod)) APAF_1
-Caspase_9_turnover:  ->(cytosol*(-Caspase_9*k17 + k17prod)) Caspase_9
-Xiap_turnover:  ->(cytosol*(-XIAP*k18 + k18prod)) XIAP
+Apaf_1_turnover:  ->(-cytosol*(APAF_1*k16 - k16prod)) APAF_1
+Caspase_9_turnover:  ->(-cytosol*(Caspase_9*k17 - k17prod)) Caspase_9
+Xiap_turnover:  ->(-cytosol*(XIAP*k18 - k18prod)) XIAP
 Caspase_9_Xiap_degradation: Caspase_9_XIAP_complex ->(cytosol*k19) 
 Apaf_1_Caspase_9_Xiap_degradation: APAF_1_Caspase_9_XIAP_complex ->(cytosol*k20) 
 Apaf_1_Caspase_9_degradation: APAF_1_Caspase_9_complex ->(cytosol*k21) 
-Caspase_3_turnover:  ->(cytosol*(-Caspase_3*k22 + k22prod)) Caspase_3
+Caspase_3_turnover:  ->(-cytosol*(Caspase_3*k22 - k22prod)) Caspase_3
 Caspase_3_cleaved_degradation: Caspase_3_cleaved ->(cytosol*k23) 
 Caspase_3_cleaved_Xiap_degradation: Caspase_3_cleaved___XIAP_complex ->(cytosol*k24) 
 Caspase_9_cleaved_Xiap_degradation: Caspase_9_cleaved_XIAP_complex ->(cytosol*k25) 

@@ -1,21 +1,21 @@
 activate_Gs: iso_BAR_G_cyto_mem ->(activate_Gs_Kf_activate_Gs*cyto_mem) G_a_s_cyto + bg_cyto + iso_BAR_cyto_mem
 activate_Gs_rev: G_a_s_cyto + bg_cyto + iso_BAR_cyto_mem ->(2.75935144203706e-6*activate_Gs_Kr_activate_Gs*cyto_mem) iso_BAR_G_cyto_mem
-pde4_p: cAMP_cyto ->(0.00166112956810631*Vmax_pde4_p_pde4_p*cyto/(KMOLE*(0.00166112956810631*cAMP_cyto + pde4_p_Km_pde4_p))) AMP_cyto
-pde4_p_rev: AMP_cyto ->(0) cAMP_cyto
-PPase_Raf: B_Raf_active_cyto ->(0.00166112956810631*Vmax_PPase_Raf*cyto/(KMOLE*(0.00166112956810631*B_Raf_active_cyto + PPase_Raf_Km))) B_Raf_cyto
-PPase_Raf_rev: B_Raf_cyto ->(0) B_Raf_active_cyto
+pde4_p: cAMP_cyto ->(0.00166112956810631*Vmax_pde4_p_pde4_p*cyto/(KMOLE*(0.00166112956810631*cAMP_cyto + 1.0*pde4_p_Km_pde4_p))) AMP_cyto
+pde4_p_rev: AMP_cyto -> cAMP_cyto
+PPase_Raf: B_Raf_active_cyto ->(0.00166112956810631*Vmax_PPase_Raf*cyto/(KMOLE*(0.00166112956810631*B_Raf_active_cyto + 1.0*PPase_Raf_Km))) B_Raf_cyto
+PPase_Raf_rev: B_Raf_cyto -> B_Raf_active_cyto
 iso_binds_BAR: BAR_cyto_mem + iso_extra ->(0.00166112956810631*cyto_mem*iso_binds_BAR_Kf) iso_BAR_cyto_mem
 iso_binds_BAR_rev: iso_BAR_cyto_mem ->(cyto_mem*iso_binds_BAR_Kr) BAR_cyto_mem + iso_extra
-PDE4: cAMP_cyto ->(0.00166112956810631*Vmax_PDE4_PDE4*cyto/(KMOLE*(PDE4_Km_PDE4 + 0.00166112956810631*cAMP_cyto))) AMP_cyto
-PDE4_rev: AMP_cyto ->(0) cAMP_cyto
+PDE4: cAMP_cyto ->(0.00166112956810631*Vmax_PDE4_PDE4*cyto/(KMOLE*(1.0*PDE4_Km_PDE4 + 0.00166112956810631*cAMP_cyto))) AMP_cyto
+PDE4_rev: AMP_cyto -> cAMP_cyto
 bg_binds_GRK: GRK_cyto + bg_cyto ->(2.75935144203706e-6*bg_binds_GRK_Kf_bg_binds_GRK*cyto/KMOLE) GRK_bg_cyto
 bg_binds_GRK_rev: GRK_bg_cyto ->(0.00166112956810631*bg_binds_GRK_Kr_bg_binds_GRK*cyto/KMOLE) GRK_cyto + bg_cyto
-MEK_activates_MAPK: MAPK_cyto ->(0.00166112956810631*Vmax_MEK_activates_MAPK*cyto/(KMOLE*(0.00166112956810631*MAPK_cyto + MEK_activates_MAPK_Km))) MAPK_active_cyto
-MEK_activates_MAPK_rev: MAPK_active_cyto ->(0) MAPK_cyto
-PKA_activates_Raf: B_Raf_cyto ->(0.00166112956810631*Vmax_PKA_activates_Raf*cyto/(KMOLE*(0.00166112956810631*B_Raf_cyto + PKA_activates_Raf_Km))) B_Raf_active_cyto
-PKA_activates_Raf_rev: B_Raf_active_cyto ->(0) B_Raf_cyto
-AC_active: ATP_cyto ->(0.00166112956810631*Vmax_AC_active_AC_active*cyto_mem/(AC_active_Km_AC_active + 0.00166112956810631*ATP_cyto)) cAMP_cyto
-AC_active_rev: cAMP_cyto ->(0) ATP_cyto
+MEK_activates_MAPK: MAPK_cyto ->(0.00166112956810631*Vmax_MEK_activates_MAPK*cyto/(KMOLE*(0.00166112956810631*MAPK_cyto + 1.0*MEK_activates_MAPK_Km))) MAPK_active_cyto
+MEK_activates_MAPK_rev: MAPK_active_cyto -> MAPK_cyto
+PKA_activates_Raf: B_Raf_cyto ->(0.00166112956810631*Vmax_PKA_activates_Raf*cyto/(KMOLE*(0.00166112956810631*B_Raf_cyto + 1.0*PKA_activates_Raf_Km))) B_Raf_active_cyto
+PKA_activates_Raf_rev: B_Raf_active_cyto -> B_Raf_cyto
+AC_active: ATP_cyto ->(0.00166112956810631*Vmax_AC_active_AC_active*cyto_mem/(1.0*AC_active_Km_AC_active + 0.00166112956810631*ATP_cyto)) cAMP_cyto
+AC_active_rev: cAMP_cyto -> ATP_cyto
 GTPase: G_a_s_cyto ->(0.00166112956810631*GTPase_Kf_GTPase*cyto/KMOLE) G_GDP_cyto
 GTPase_rev: G_GDP_cyto ->(0.00166112956810631*GTPase_Kr_GTPase*cyto/KMOLE) G_a_s_cyto
 trimer: G_GDP_cyto + bg_cyto ->(2.75935144203706e-6*cyto*trimer_Kf_trimer/KMOLE) G_protein_cyto
@@ -24,41 +24,41 @@ G_binds_iso_BAR: G_protein_cyto + iso_BAR_cyto_mem ->(0.00166112956810631*G_bind
 G_binds_iso_BAR_rev: iso_BAR_G_cyto_mem ->(G_binds_iso_BAR_Kr_G_binds_iso_BAR*cyto_mem) G_protein_cyto + iso_BAR_cyto_mem
 A2: c3_R2C2_cyto + cAMP_cyto ->(2.75935144203706e-6*A2_Kf*cyto/KMOLE) PKA_cyto
 A2_rev: PKA_cyto ->(0.00166112956810631*A2_Kr*cyto/KMOLE) c3_R2C2_cyto + cAMP_cyto
-highKM_PDE: cAMP_cyto ->(0.00166112956810631*Vmax_highKM_PDE*cyto/(KMOLE*(0.00166112956810631*cAMP_cyto + highKM_PDE_Km))) AMP_cyto
-highKM_PDE_rev: AMP_cyto ->(0) cAMP_cyto
-PKA_P_PTP: PTP_cyto ->(0.00166112956810631*Vmax_PKA_P_PTP*cyto/(KMOLE*(PKA_P_PTP_Km + 0.00166112956810631*PTP_cyto))) PTP_PKA_cyto
-PKA_P_PTP_rev: PTP_PKA_cyto ->(0) PTP_cyto
+highKM_PDE: cAMP_cyto ->(0.00166112956810631*Vmax_highKM_PDE*cyto/(KMOLE*(0.00166112956810631*cAMP_cyto + 1.0*highKM_PDE_Km))) AMP_cyto
+highKM_PDE_rev: AMP_cyto -> cAMP_cyto
+PKA_P_PTP: PTP_cyto ->(0.00166112956810631*Vmax_PKA_P_PTP*cyto/(KMOLE*(1.0*PKA_P_PTP_Km + 0.00166112956810631*PTP_cyto))) PTP_PKA_cyto
+PKA_P_PTP_rev: PTP_PKA_cyto -> PTP_cyto
 AC_activation: AC_cyto_mem + G_a_s_cyto ->(0.00166112956810631*AC_activation_Kf_AC_activation*cyto_mem) AC_active_cyto_mem
 AC_activation_rev: AC_active_cyto_mem ->(AC_activation_Kr_AC_activation*cyto_mem) AC_cyto_mem + G_a_s_cyto
-AC_basal: ATP_cyto ->(0.00166112956810631*Vmax_AC_basal_AC_basal*cyto_mem/(AC_basal_Km_AC_basal + 0.00166112956810631*ATP_cyto)) cAMP_cyto
-AC_basal_rev: cAMP_cyto ->(0) ATP_cyto
+AC_basal: ATP_cyto ->(0.00166112956810631*Vmax_AC_basal_AC_basal*cyto_mem/(1.0*AC_basal_Km_AC_basal + 0.00166112956810631*ATP_cyto)) cAMP_cyto
+AC_basal_rev: cAMP_cyto -> ATP_cyto
 B1: R2C2_cyto + cAMP_cyto ->(2.75935144203706e-6*B1_Kf*cyto/KMOLE) c_R2C2_cyto
 B1_rev: c_R2C2_cyto ->(0.00166112956810631*B1_Kr*cyto/KMOLE) R2C2_cyto + cAMP_cyto
 GRK: iso_BAR_cyto_mem ->(Vmax_grk_GRK*cyto_mem/(GRK_Km_grk + iso_BAR_cyto_mem)) iso_BAR_p_cyto_mem
-GRK_rev: iso_BAR_p_cyto_mem ->(0) iso_BAR_cyto_mem
-PKA_P_PDE: PDE4_cyto ->(0.00166112956810631*Vmax_PKA_P_PDE*cyto/(KMOLE*(0.00166112956810631*PDE4_cyto + PKA_P_PDE_Km))) PDE4_P_cyto
-PKA_P_PDE_rev: PDE4_P_cyto ->(0) PDE4_cyto
-Raf_activates_MEK: MEK_cyto ->(0.00166112956810631*Vmax_Raf_activates_MEK*cyto/(KMOLE*(0.00166112956810631*MEK_cyto + Raf_activates_MEK_Km))) MEK_active_cyto
-Raf_activates_MEK_rev: MEK_active_cyto ->(0) MEK_cyto
-PTP_PKA: MAPK_active_cyto ->(0.00166112956810631*Vmax_PTP_PKA*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + PTP_PKA_Km))) MAPK_cyto
-PTP_PKA_rev: MAPK_cyto ->(0) MAPK_active_cyto
+GRK_rev: iso_BAR_p_cyto_mem -> iso_BAR_cyto_mem
+PKA_P_PDE: PDE4_cyto ->(0.00166112956810631*Vmax_PKA_P_PDE*cyto/(KMOLE*(0.00166112956810631*PDE4_cyto + 1.0*PKA_P_PDE_Km))) PDE4_P_cyto
+PKA_P_PDE_rev: PDE4_P_cyto -> PDE4_cyto
+Raf_activates_MEK: MEK_cyto ->(0.00166112956810631*Vmax_Raf_activates_MEK*cyto/(KMOLE*(0.00166112956810631*MEK_cyto + 1.0*Raf_activates_MEK_Km))) MEK_active_cyto
+Raf_activates_MEK_rev: MEK_active_cyto -> MEK_cyto
+PTP_PKA: MAPK_active_cyto ->(0.00166112956810631*Vmax_PTP_PKA*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + 1.0*PTP_PKA_Km))) MAPK_cyto
+PTP_PKA_rev: MAPK_cyto -> MAPK_active_cyto
 B2: cAMP_cyto + c_R2C2_cyto ->(2.75935144203706e-6*B2_Kf*cyto/KMOLE) c2_R2C2_cyto
 B2_rev: c2_R2C2_cyto ->(0.00166112956810631*B2_Kr*cyto/KMOLE) cAMP_cyto + c_R2C2_cyto
-PTP: MAPK_active_cyto ->(0.00166112956810631*Vmax_PTP*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + PTP_Km))) MAPK_cyto
-PTP_rev: MAPK_cyto ->(0) MAPK_active_cyto
+PTP: MAPK_active_cyto ->(0.00166112956810631*Vmax_PTP*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + 1.0*PTP_Km))) MAPK_cyto
+PTP_rev: MAPK_cyto -> MAPK_active_cyto
 iso_binds_BAR_g: BAR_G_cyto_mem + iso_extra ->(0.00166112956810631*cyto_mem*iso_binds_BAR_g_Kf) iso_BAR_G_cyto_mem
 iso_binds_BAR_g_rev: iso_BAR_G_cyto_mem ->(cyto_mem*iso_binds_BAR_g_Kr) BAR_G_cyto_mem + iso_extra
-PPase_MAPK: MAPK_active_cyto ->(0.00166112956810631*Vmax_PPase_MAPK*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + PPase_MAPK_Km))) MAPK_cyto
-PPase_MAPK_rev: MAPK_cyto ->(0) MAPK_active_cyto
-pp2a_4: PDE4_P_cyto ->(0.00166112956810631*Vmax_pp2a_4_pp2a_4*cyto/(KMOLE*(0.00166112956810631*PDE4_P_cyto + pp2a_4_Km_pp2a_4))) PDE4_cyto
-pp2a_4_rev: PDE4_cyto ->(0) PDE4_P_cyto
-pp_ptp: PTP_PKA_cyto ->(0.00166112956810631*Vmax_pp_ptp*cyto/(KMOLE*(0.00166112956810631*PTP_PKA_cyto + pp_ptp_Km))) PTP_cyto
-pp_ptp_rev: PTP_cyto ->(0) PTP_PKA_cyto
+PPase_MAPK: MAPK_active_cyto ->(0.00166112956810631*Vmax_PPase_MAPK*cyto/(KMOLE*(0.00166112956810631*MAPK_active_cyto + 1.0*PPase_MAPK_Km))) MAPK_cyto
+PPase_MAPK_rev: MAPK_cyto -> MAPK_active_cyto
+pp2a_4: PDE4_P_cyto ->(0.00166112956810631*Vmax_pp2a_4_pp2a_4*cyto/(KMOLE*(0.00166112956810631*PDE4_P_cyto + 1.0*pp2a_4_Km_pp2a_4))) PDE4_cyto
+pp2a_4_rev: PDE4_cyto -> PDE4_P_cyto
+pp_ptp: PTP_PKA_cyto ->(0.00166112956810631*Vmax_pp_ptp*cyto/(KMOLE*(0.00166112956810631*PTP_PKA_cyto + 1.0*pp_ptp_Km))) PTP_cyto
+pp_ptp_rev: PTP_cyto -> PTP_PKA_cyto
 GRK_bg: iso_BAR_cyto_mem ->(Vmax_GRK_bg_GRK_bg*cyto_mem/(GRK_bg_Km_GRK_bg + iso_BAR_cyto_mem)) iso_BAR_p_cyto_mem
-GRK_bg_rev: iso_BAR_p_cyto_mem ->(0) iso_BAR_cyto_mem
+GRK_bg_rev: iso_BAR_p_cyto_mem -> iso_BAR_cyto_mem
 G_binds_BAR: BAR_cyto_mem + G_protein_cyto ->(0.00166112956810631*G_binds_BAR_Kf_G_binds_BAR*cyto_mem) BAR_G_cyto_mem
 G_binds_BAR_rev: BAR_G_cyto_mem ->(G_binds_BAR_Kr_G_binds_BAR*cyto_mem) BAR_cyto_mem + G_protein_cyto
-PPase_mek: MEK_active_cyto ->(0.00166112956810631*Vmax_PPase_mek*cyto/(KMOLE*(0.00166112956810631*MEK_active_cyto + PPase_mek_Km))) MEK_cyto
-PPase_mek_rev: MEK_cyto ->(0) MEK_active_cyto
+PPase_mek: MEK_active_cyto ->(0.00166112956810631*Vmax_PPase_mek*cyto/(KMOLE*(0.00166112956810631*MEK_active_cyto + 1.0*PPase_mek_Km))) MEK_cyto
+PPase_mek_rev: MEK_cyto -> MEK_active_cyto
 A1: c2_R2C2_cyto + cAMP_cyto ->(2.75935144203706e-6*A1_Kf*cyto/KMOLE) c3_R2C2_cyto
 A1_rev: c3_R2C2_cyto ->(0.00166112956810631*A1_Kr*cyto/KMOLE) c2_R2C2_cyto + cAMP_cyto
