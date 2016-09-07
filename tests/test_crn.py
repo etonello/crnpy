@@ -301,20 +301,6 @@ class TestCrn(unittest.TestCase):
         assert crn2.is_dyn_eq(crn1)
 
 
-    def test_emul(self):
-        crn1 = from_react_file(path.join(input_reactions, "emul/emul_not_isom_1"))
-        crn2 = from_react_file(path.join(input_reactions, "emul/emul_not_isom_2"))
-
-        crn1.print_equations()
-        crn2.print_equations()
-
-        self.assertRaises(ValueError, crn2.is_emul, crn1)
-        self.assertRaises(ValueError, crn2.is_emul, crn1, morphism = {"A": "A"})
-        self.assertFalse(crn2.is_emul(crn1, morphism = {"A": "A", "B": "B", "C": "A"}))
-        self.assertTrue(crn2.is_emul(crn1, morphism = {"A": "A", "B": "B", "C": "B"}))
-        self.assertFalse(crn1.is_dyn_eq(crn2))
-
-
     def test_dynEq2(self):
         reacts1 = ["A ->(k1) B", "B ->(k_1) A", "B ->(k2) C", "C ->(k_2) B"]
         crn1 = from_reacts(parse_reactions(reacts1))
@@ -322,7 +308,6 @@ class TestCrn(unittest.TestCase):
         crn2 = from_reacts(parse_reactions(reacts2))
         crn1.print_equations()
         crn2.print_equations()
-        self.assertTrue(crn1.is_emul(crn2))
         self.assertFalse(crn1.is_dyn_eq(crn2))
 
 

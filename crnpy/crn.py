@@ -805,41 +805,6 @@ class CRN(object):
         return all((eqs[i] - othereqs[net.species.index(self.species[i])]).cancel() == 0 for i in range(self.n_species))
 
 
-    def is_emul(self, net, morphism = None):
-        """Check if the network is an emulation of the second
-        under the provided morphism, i.e. the networks have the
-        same equations modulo a renaming of the variables.
-        See also Cardelli, L. (2014)., Morphisms of reaction networks
-        that couple structure to function. BMC systems biology, 8(1), 84.
-
-        morphim = dictionary species -> species. Default = identity.
-        """
-        if morphism == None:
-            morphism = {}
-            for s in net.species: morphism[s] = s
-
-        # check if morphism maps species of net to species
-        if not (set(morphism.keys()) == set(net.species) and
-                set(morphism.values()).issubset(set(self.species))):
-            raise ValueError("Morphism does not map all species of net to species of crn.")
-
-        ode = self.equations()
-        equations = {}
-        for i in range(self.n_species):
-            equations[self.species[i]] = ode[i]
-
-        net_ode = net.equations()
-        for s in morphism:
-            net_ode = net_ode.subs(sympify(s), sympify(morphism[s]))
-        newequations = {}
-        for i in range(net.n_species):
-            if morphism[net.species[i]] in newequations:
-                if net_ode[i] != newequations[morphism[net.species[i]]]:
-                    return False
-            else: newequations[morphism[net.species[i]]] = net_ode[i]
-        return all([(newequations[s] - equations[s]).cancel() == 0 for s in newequations])
-
-
     ### Sources, sinks, intermediates ###
 
     def _simple_complexes(self):

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>crnpy tutorial &#8212; crnpy 0.0.1 documentation</title>
+    <title>crnpy tutorial &mdash; crnpy 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to crnpy’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -54,12 +54,12 @@
 <h2>Defining a chemical reaction network<a class="headerlink" href="#defining-a-chemical-reaction-network" title="Permalink to this headline">¶</a></h2>
 <p>A chemical reaction network (CRN) object can be created from an SBML
 file:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="o">*</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or a list of reactions:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e + a (k_1)&lt;-&gt;(k1) ea&#39;</span><span class="p">,</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e + a (k_1)&lt;-&gt;(k1) ea&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;e + b (k_2)&lt;-&gt;(k2) eb&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;ea + b (k_3)&lt;-&gt;(k3) eab&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;eb + a (k_4)&lt;-&gt;(k4) eab&#39;</span><span class="p">,</span>
@@ -69,7 +69,7 @@ file:</p>
 </div>
 <p>The list of reactions can be read from a text file, using
 <em>from_react_file</em>:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">another_net</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="n">reactionfilename</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">another_net</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="n">reactionfilename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A string specifying a reaction must contain either the characters &#8220;-&gt;&#8221;
@@ -83,11 +83,11 @@ parenthesis multiplied by the concentrations of the reactant species. In
 alternative, one can specify the rate between parenthesis, and use
 <em>from_react_strings</em> or <em>from_react_file</em> with the option <em>rate =
 True</em>. For example, the network created with the command</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;a + b -&gt;(k1) c&quot;</span><span class="p">])</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;a + b -&gt;(k1) c&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>coincides with the network created by the command</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;a + b -&gt;(k1*a*b) c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;a + b -&gt;(k1*a*b) c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The expression in parenthesis must be a string that can be successfully
@@ -95,20 +95,20 @@ converted to a <em>SymPy</em> expression. Numeric values are of course
 accepted. Stoichiometric coefficients in the reactant and product
 complexes are instead specified by integers preceding the species, as in
 the following example:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;2a + b -&gt;(k*a**2*b/(a+b+c)) 3 c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;2a + b -&gt;(k*a**2*b/(a+b+c)) 3 c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The symbol &#8220;&lt;&#8221; can also be preceded by an expression in parenthesis,
 which will be used to set the rate of the reverse reaction.</p>
 <p>A reaction id can be specified before the reactant, and must be followed
 by a colon. For example, we can specify the last reaction as</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r_in: 2a + b -&gt;(k*a**2*b/(a+b+c)) 3 c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r_in: 2a + b -&gt;(k*a**2*b/(a+b+c)) 3 c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If an id is not specified, reactions are assigned an id of the form
 <em>r_n</em>, with n an integer, starting from 0. If a reversible reaction is
 defined, for example</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r1: a + b &lt;-&gt; c&quot;</span><span class="p">])</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r1: a + b &lt;-&gt; c&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>then two reactions will be created, one with id r1 with a + b as a
@@ -117,7 +117,7 @@ and a + b as product. As shown in the last example, kinetic parameters
 are optional. In the same example, reaction r1 is assigned a parameter
 symbol k_r1, and the reverse reaction is assigned the parameter symbol
 k_r1_rev:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span><span class="o">.</span><span class="n">reactions</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span><span class="o">.</span><span class="n">reactions</span>
 <span class="go">(r1: a + b -&gt;(k_r1) c, r1_rev: c -&gt;(k_r1_rev) a + b)</span>
 </pre></div>
 </div>
@@ -128,16 +128,16 @@ appearing after the hash sign will ignored.</p>
 <h2>Exploring chemical reaction networks<a class="headerlink" href="#exploring-chemical-reaction-networks" title="Permalink to this headline">¶</a></h2>
 <p>Attributes of a CRN object include the network species, complexes, and
 reactions:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">crn</span><span class="o">.</span><span class="n">complexes</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">crn</span><span class="o">.</span><span class="n">complexes</span>
 <span class="go">([&#39;E&#39;, &#39;ES&#39;, &#39;P&#39;, &#39;S&#39;], [&#39;E + S&#39;, &#39;ES&#39;, &#39;E + P&#39;])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq: E + S -&gt;(comp*veq_kon) ES</span>
 <span class="go">veq_rev: ES -&gt;(comp*veq_koff) E + S</span>
 <span class="go">vcat: ES -&gt;(comp*vcat_kcat) E + P</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">r0: a + e -&gt;(k1) ea</span>
 <span class="go">r0_rev: ea -&gt;(k_1) a + e</span>
@@ -157,33 +157,33 @@ Laplacian of the complex graph <em>laplacian</em>, the incidence matrix of the
 complex graph <em>incidence_matrix</em>.</p>
 <p>Special methods are available to print some matrices. For example, for
 the stoichiometry matrix:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;&gt;</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
-      <span class="n">r0</span>  <span class="n">r0_rev</span>  <span class="n">r1</span>  <span class="n">r1_rev</span>  <span class="n">r2</span>  <span class="n">r2_rev</span>  <span class="n">r3</span>  <span class="n">r3_rev</span>  <span class="n">r4</span>
-<span class="n">a</span>   <span class="o">|</span> <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span> <span class="o">|</span>
-<span class="n">b</span>   <span class="o">|</span>  <span class="mi">0</span>       <span class="mi">0</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span> <span class="o">|</span>
-<span class="n">e</span>   <span class="o">|</span> <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">1</span> <span class="o">|</span>
-<span class="n">ea</span>  <span class="o">|</span>  <span class="mi">1</span>      <span class="o">-</span><span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span> <span class="o">|</span>
-<span class="n">eab</span> <span class="o">|</span>  <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">1</span>      <span class="o">-</span><span class="mi">1</span>   <span class="mi">1</span>      <span class="o">-</span><span class="mi">1</span>  <span class="o">-</span><span class="mi">1</span> <span class="o">|</span>
-<span class="n">eb</span>  <span class="o">|</span>  <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">1</span>      <span class="o">-</span><span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">0</span>  <span class="o">-</span><span class="mi">1</span>       <span class="mi">1</span>   <span class="mi">0</span> <span class="o">|</span>
-<span class="n">p</span>   <span class="o">|</span>  <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">1</span> <span class="o">|</span>
+<div class="code python highlight-python"><div class="highlight"><pre>  &gt;&gt;&gt; bi_uni_random.print_stoich_matrix()
+      r0  r0_rev  r1  r1_rev  r2  r2_rev  r3  r3_rev  r4
+a   | -1       1   0       0   0       0  -1       1   0 |
+b   |  0       0  -1       1  -1       1   0       0   0 |
+e   | -1       1  -1       1   0       0   0       0   1 |
+ea  |  1      -1   0       0  -1       1   0       0   0 |
+eab |  0       0   0       0   1      -1   1      -1  -1 |
+eb  |  0       0   1      -1   0       0  -1       1   0 |
+p   |  0       0   0       0   0       0   0       0   1 |
 </pre></div>
 </div>
 <p>Look at the system of ODEs associated to the network, and at the
 conservations:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
 <span class="go">dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff</span>
 <span class="go">dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff</span>
 <span class="go">dP/dt = comp*ES*vcat_kcat</span>
 <span class="go">dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">E + ES</span>
 <span class="go">-E + P + S</span>
 </pre></div>
 </div>
 <p>Get the list of intermediate species:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">intermediate_species</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">intermediate_species</span>
 <span class="go">[&#39;E&#39;, &#39;ES&#39;, &#39;S&#39;]</span>
 </pre></div>
 </div>
@@ -191,16 +191,16 @@ conservations:</p>
 <div class="section" id="reduction">
 <h2>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h2>
 <p>Eliminate the intermediate <em>ES</em> using quasi-steady state approximation:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq_vcat: E + S -&gt;(comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) E + P</span>
 </pre></div>
 </div>
 <p>Use a conservation to eliminate the enzyme, and check the new dynamics:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">conslaw</span> <span class="k">import</span> <span class="n">ConsLaw</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">conslaw</span> <span class="kn">import</span> <span class="n">ConsLaw</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">remove_by_cons</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s1">&#39;E + ES&#39;</span><span class="p">,</span> <span class="s1">&#39;Et&#39;</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq_vcat: S -&gt;(comp*et*vcat_kcat*veq_kon/(s*veq_kon + vcat_kcat + veq_koff)) p</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
@@ -209,37 +209,37 @@ conservations:</p>
 </pre></div>
 </div>
 <p>In alternative, eliminate the constant species:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">constant_species</span>
 <span class="go">[&#39;e&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">remove_all_constants</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq_vcat: S -&gt;(comp*E*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P</span>
 </pre></div>
 </div>
 <p>Use rapid equilibrium instead (and the conservation law):</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">rapid_eq</span><span class="p">((</span><span class="s1">&#39;ES&#39;</span><span class="p">,</span> <span class="s1">&#39;E + S&#39;</span><span class="p">),</span> <span class="n">cons_law</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s1">&#39;E + ES&#39;</span><span class="p">,</span> <span class="s1">&#39;Et&#39;</span><span class="p">)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">vcat: S -&gt;(comp*Et*vcat_kcat*veq_kon/(S*veq_kon + veq_koff)) P</span>
 </pre></div>
 </div>
 <p>Use a combination of the reduction methods:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">rapid_eq</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;ea&#39;</span><span class="p">,</span> <span class="s1">&#39;e + a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eb&#39;</span><span class="p">,</span> <span class="s1">&#39;e + b&#39;</span><span class="p">)],</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">rapid_eq</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;ea&#39;</span><span class="p">,</span> <span class="s1">&#39;e + a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eb&#39;</span><span class="p">,</span> <span class="s1">&#39;e + b&#39;</span><span class="p">)],</span>
 <span class="go">                         qss = [&#39;eab&#39;],</span>
 <span class="go">                         cons_law = (&#39;e&#39;, ConsLaw(&#39;e + ea + eb + eab&#39;, &#39;et&#39;)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">r2_r4: a + b -&gt;(et*k1*k3*k5*k_2/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
 <span class="go">r3_r4: a + b -&gt;(et*k2*k4*k5*k_1/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
 </pre></div>
 </div>
 <p>Merge reactions with the same reactant and product:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">merge_reactions</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">merge_reactions</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">r2_r4r3_r4: a + b -&gt;(et*k5*(k1*k3*k_2 + k2*k4*k_1)/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
 </pre></div>
@@ -248,7 +248,7 @@ conservations:</p>
 <div class="section" id="saving-models">
 <h2>Saving models<a class="headerlink" href="#saving-models" title="Permalink to this headline">¶</a></h2>
 <p>Save the reduced model to an SBML file, and a reaction file:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme_simplified.xml&quot;</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme_simplified.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_reaction_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/enzyme_simplified&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -256,30 +256,30 @@ conservations:</p>
 <div class="section" id="other-features">
 <h2>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h2>
 <p>Create a model and look at its deficiency and elementary modes:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r1: a -&gt;(k1) b + y&#39;</span><span class="p">,</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r1: a -&gt;(k1) b + y&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;r2: y -&gt;(k2) c&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;r3: b + c -&gt;(k3) a&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
 <span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">n_complexes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">n_linkage_classes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">n_complexes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">n_linkage_classes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
 <span class="go">(5, 2, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
 <span class="go">Matrix([[r1 + r2 + r3]])</span>
 </pre></div>
 </div>
 <p>Check if the network is weakly reversible:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <p>We can check how the elementary modes change if <em>y</em> is eliminated:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">reactions</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">reactions</span><span class="p">)</span>
 <span class="go">(r3: b + c -&gt;(k3) a, r1_r2: a -&gt;(k1) b + c)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
 <span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
 <span class="go">Matrix([[r1_r2 + r3]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
 <span class="go">True</span>
@@ -287,19 +287,10 @@ conservations:</p>
 </div>
 <p>Absolute concentration robustness...</p>
 <p>Check if two networks are dynamically equivalent:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) a + 2b&#39;</span><span class="p">])</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) a + 2b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(2*k) a + b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span><span class="o">.</span><span class="n">is_dyn_eq</span><span class="p">(</span><span class="n">net2</span><span class="p">)</span>
 <span class="go">True</span>
-</pre></div>
-</div>
-<p>Check if a network is an emulation of another:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) b + c&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) b&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span><span class="o">.</span><span class="n">is_emul</span><span class="p">(</span><span class="n">net1</span><span class="p">,</span> <span class="n">morphism</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">})</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span><span class="o">.</span><span class="n">is_dyn_eq</span><span class="p">(</span><span class="n">net1</span><span class="p">)</span>
-<span class="go">False</span>
 </pre></div>
 </div>
 </div>
@@ -336,11 +327,14 @@ conservations:</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -359,12 +353,12 @@ conservations:</p>
         <li class="right" >
           <a href="index.html" title="Welcome to crnpy’s documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Elisa Tonello.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+        &copy; Copyright 2016, Elisa Tonello.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

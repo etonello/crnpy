@@ -297,14 +297,3 @@ Check if two networks are dynamically equivalent:
       >>> net2 = from_react_strings(['a ->(2*k) a + b'])
       >>> net1.is_dyn_eq(net2)
       True
-
-Check if a network is an emulation of another:
-
-.. code:: python
-
-      >>> net1 = from_react_strings(['a ->(k) b + c'])
-      >>> net2 = from_react_strings(['a ->(k) b'])
-      >>> net2.is_emul(net1, morphism = {'a': 'a', 'b': 'b', 'c': 'b'})
-      True
-      >>> net2.is_dyn_eq(net1)
-      False
