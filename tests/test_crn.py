@@ -292,19 +292,6 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(2, len(crn.strong_terminal_conn_components()[0]))
 
 
-    def test_detach(self):
-        crn = from_react_file(path.join(input_reactions, "test_detach"))
-        net2 = crn.detach_network([crn.complexes.index(to_complex('D'))])
-        self.assertEqual(set(['P', 'F', 'Q', 'D']), set(net2.species))
-        net2.qss(cons_law = ('F', ConsLaw('F + D', 'Ftot')))
-        for s, f in net2.removed_species: print(s + " = " + str(f))
-        net2.inspect(True, print_matrices = True)
-
-        crn = from_react_file(path.join(input_reactions, "test_detach"))
-        crn.qss(cons_law = ('F', ConsLaw('F + D', 'Ftot')))
-        crn.inspect(True, print_matrices = True)
-
-
     def test_dynEq(self):
         crn1 = from_react_file(path.join(input_reactions, "dynEq/net1"))
         crn2 = from_react_file(path.join(input_reactions, "dynEq/net2"))

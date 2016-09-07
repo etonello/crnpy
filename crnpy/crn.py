@@ -1554,27 +1554,6 @@ class CRN(object):
             self.reactions = self.reactions + network.reactions
 
 
-    def detach_network(self, inter_complexes):
-        """Take a list of complexes, and remove the weakly connected components
-        for these complexes from the network, returning them as a separate network."""
-        connComponents = self.weak_conn_components()[1]
-        involvedComponents = set([connComponents[i] for i in inter_complexes])
-        involvedComplexes = [i for i in range(self.n_complexes) if connComponents[i] in involvedComponents]
-
-        involvedReactions = [r for r in range(self.n_reactions) if list(self.incidence_matrix.col(r)).index(-1) in involvedComplexes \
-                                                                      or list(self.incidence_matrix.col(r)).index(1) in involvedComplexes]
-
-        if len(involvedComplexes) != self.n_complexes:
-            allreactions = self.reactions
-
-            network = CRN.from_reacts([allreactions[r] for r in involvedReactions])
-
-            reactions = [allreactions[r] for r in range(self.n_reactions) if not r in involvedReactions]
-            self.reactions = reactions
-            return network
-        return None
-
-
     def remove_constant(self, const_species, expr = None, debug = False):
         """Remove the species from the network by setting it to constant.
         Give a warning if the species is not constant in the original network.
