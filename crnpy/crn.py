@@ -552,7 +552,8 @@ class CRN(object):
 
 
     def format_deficiency(self):
-        """Return a string 'deficiency delta = n_c - n_lc - stoich_matrix_rank"""
+        """Return a string 'deficiency delta = numer of complexes -
+        number of linkage classes - rank of the stoichiometric matrix'"""
         return "deficiency {} = {} - {} - {}".format(self.deficiency, \
                                                      self.n_complexes, \
                                                      self.n_linkage_classes, \
@@ -1546,12 +1547,6 @@ class CRN(object):
 
         self._removed_species.append((remove, exp))
         if debug: print("Rapid Eq: added to removed_species {}".format(self.removed_species))
-
-
-    def merge_network(self, network):
-        """Add reactions of network."""
-        if len(network.n_reactions) > 0:
-            self.reactions = self.reactions + network.reactions
 
 
     def remove_constant(self, const_species, expr = None, debug = False):
