@@ -54,7 +54,7 @@
 <h2>Defining a chemical reaction network<a class="headerlink" href="#defining-a-chemical-reaction-network" title="Permalink to this headline">¶</a></h2>
 <p>A chemical reaction network (CRN) object can be created from an SBML
 file:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="o">*</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_sbml</span><span class="p">,</span> <span class="n">from_react_strings</span><span class="p">,</span> <span class="n">from_react_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -129,7 +129,7 @@ appearing after the hash sign will ignored.</p>
 <p>Attributes of a CRN object include the network species, complexes, and
 reactions:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">crn</span><span class="o">.</span><span class="n">complexes</span>
-<span class="go">([&#39;E&#39;, &#39;ES&#39;, &#39;P&#39;, &#39;S&#39;], [&#39;E + S&#39;, &#39;ES&#39;, &#39;E + P&#39;])</span>
+<span class="go">((&#39;E&#39;, &#39;ES&#39;, &#39;P&#39;, &#39;S&#39;), (E + S, ES, E + P))</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -153,8 +153,16 @@ reactions:</p>
 <p>Available matrices associated to the reaction network are the
 stoichiometric matric <em>stoich_matrix</em>, the matrix of stoichiometric
 coefficients <em>complex_matrix</em> (often called Y in the literature), the
-Laplacian of the complex graph <em>laplacian</em>, the incidence matrix of the
-complex graph <em>incidence_matrix</em>.</p>
+Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em>kinetic_matrix</em>,
+the incidence matrix of the complex graph <em>incidence_matrix</em>.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="p">()</span>
+<span class="go">Matrix([</span>
+<span class="go">[-1,  1,  1],</span>
+<span class="go">[ 1, -1, -1],</span>
+<span class="go">[ 0,  0,  1],</span>
+<span class="go">[-1,  1,  0]])</span>
+</pre></div>
+</div>
 <p>Special methods are available to print some matrices. For example, for
 the stoichiometry matrix:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;&gt;</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
@@ -168,23 +176,60 @@ the stoichiometry matrix:</p>
 <span class="n">p</span>   <span class="o">|</span>  <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">0</span>       <span class="mi">0</span>   <span class="mi">1</span> <span class="o">|</span>
 </pre></div>
 </div>
-<p>Look at the system of ODEs associated to the network, and at the
-conservations:</p>
+<p>We can look for example at the system of ODEs associated to the network,
+and at the conservation laws:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
 <span class="go">dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff</span>
 <span class="go">dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff</span>
 <span class="go">dP/dt = comp*ES*vcat_kcat</span>
 <span class="go">dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">E + ES</span>
-<span class="go">-E + P + S</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span>
+<span class="go">(E - P - S, ES + P + S)</span>
 </pre></div>
 </div>
-<p>Get the list of intermediate species:</p>
+<p>or get a list of intermediate species:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">intermediate_species</span>
 <span class="go">[&#39;E&#39;, &#39;ES&#39;, &#39;S&#39;]</span>
+</pre></div>
+</div>
+<p>Check if the network is weakly reversible:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">is_weakly_rev</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Other features provided by the CRN class are the calculation of the network deficiency,
+linkage classes, and terminal complexes
+(the following is example S7 in <a class="footnote-reference" href="#id4" id="id1">[1]</a>):</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;X &lt;-&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;A -&gt; Ap&quot;</span><span class="p">,</span> <span class="s2">&quot;Ap &lt;-&gt; Xp&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                          <span class="s2">&quot;Xp + Y &lt;-&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; Bp&quot;</span><span class="p">,</span> <span class="s2">&quot;Bp &lt;-&gt; X + Yp&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                          <span class="s2">&quot;Yp + A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; Cp&quot;</span><span class="p">,</span> <span class="s2">&quot;Cp &lt;-&gt; A + Y&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">deficiency</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">strong_linkage_classes</span>
+<span class="go">[[X, A], [Ap, Xp], [Xp + Y, B], [Bp, X + Yp], [A + Yp, C], [Cp, A + Y]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">linkage_classes</span>
+<span class="go">[[X, A, Ap, Xp], [Xp + Y, B, Bp, X + Yp], [A + Yp, C, Cp, A + Y]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">deficiency</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">terminal_complexes</span>
+<span class="go">[Ap, Xp, Bp, X + Yp, Cp, A + Y]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">non_terminal_complexes</span>
+<span class="go">[X, A, Xp + Y, B, A + Yp, C]</span>
+</pre></div>
+</div>
+<p><em>acr_species</em> looks for species that exhibit absolute concentration robustness using the algorithm in <a class="footnote-reference" href="#id4" id="id2">[1]</a>:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
+<span class="go">[&#39;Yp&#39;]</span>
+</pre></div>
+</div>
+<p>The same method used with the option <em>subnets = True</em> will attempt to find a decomposition of the network
+in subnetworks, using the network elementary modes, and to use this decomposition to
+find species with absolute concentration robustness. For example S30 in <a class="footnote-reference" href="#id4" id="id3">[1]</a>:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
+<span class="go">[&#39;A&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">(</span><span class="n">subnets</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="go">[&#39;A&#39;, &#39;C&#39;, &#39;D&#39;]</span>
 </pre></div>
 </div>
 </div>
@@ -247,7 +292,7 @@ conservations:</p>
 </div>
 <div class="section" id="saving-models">
 <h2>Saving models<a class="headerlink" href="#saving-models" title="Permalink to this headline">¶</a></h2>
-<p>Save the reduced model to an SBML file, and a reaction file:</p>
+<p>Chemical reaction networks can be saved to SBML files, and reaction files:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme_simplified.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_reaction_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/enzyme_simplified&quot;</span><span class="p">)</span>
 </pre></div>
@@ -260,32 +305,30 @@ conservations:</p>
 <span class="gp">... </span>             <span class="s1">&#39;r2: y -&gt;(k2) c&#39;</span><span class="p">,</span>
 <span class="gp">... </span>             <span class="s1">&#39;r3: b + c -&gt;(k3) a&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span>
 <span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">n_complexes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">n_linkage_classes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">n_complexes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">n_linkage_classes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
 <span class="go">(5, 2, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
-<span class="go">Matrix([[r1 + r2 + r3]])</span>
-</pre></div>
-</div>
-<p>Check if the network is weakly reversible:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">elem_modes</span>
+<span class="go">[[1, 1, 0, 1], [0, 1, 1, 0]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
+<span class="go">[[r1 + r2 + r3], [r2 + r2_rev]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <p>We can check how the elementary modes change if <em>y</em> is eliminated:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">reactions</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">reactions</span>
 <span class="go">(r3: b + c -&gt;(k3) a, r1_r2: a -&gt;(k1) b + c)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span>
 <span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">t_invariants</span><span class="p">)</span>
-<span class="go">Matrix([[r1_r2 + r3]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
+<span class="go">[[r1_r2 + r3]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Absolute concentration robustness...</p>
 <p>Check if two networks are dynamically equivalent:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) a + 2b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(2*k) a + b&#39;</span><span class="p">])</span>
@@ -294,6 +337,15 @@ conservations:</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>)</em> Shinar, G., Feinberg, M. (2010), <em>Structural sources of robustness in biochemical reaction networks</em>, Science.</td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -312,6 +364,7 @@ conservations:</p>
 <li><a class="reference internal" href="#other-features">Other features</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 
   <h4>Previous topic</h4>

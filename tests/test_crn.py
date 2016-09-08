@@ -292,6 +292,19 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(2, len(crn.strong_terminal_conn_components()[0]))
 
 
+    def test_linkage_classes(self):
+        crn = from_react_strings(["X <-> A", "A -> Ap", "Ap <-> Xp",
+                                  "Xp + Y <-> B", "B -> Bp", "Bp <-> X + Yp",
+                                  "Yp + A <-> C", "C -> Cp", "Cp <-> A + Y"])
+        X, Y, A, B, C = Complex(X=1), Complex(Y=1), Complex(A=1), Complex(B=1), Complex(C=1)
+        Xp, Yp, Ap, Bp, Cp = Complex(Xp=1), Complex(Yp=1), Complex(Ap=1), Complex(Bp=1), Complex(Cp=1)
+        self.assertEqual(crn.strong_linkage_classes,
+                         [[X, A], [Ap, Xp], [Xp + Y, B], [Bp, X + Yp], [A + Yp, C], [Cp, A + Y]])
+        self.assertEqual(crn.linkage_classes, [[X, A, Ap, Xp], [Xp + Y, B, Bp, X + Yp], [A + Yp, C, Cp, A + Y]])
+        self.assertEqual(crn.terminal_complexes, [Ap, Xp, Bp, X + Yp, Cp, A + Y])
+        self.assertEqual(crn.non_terminal_complexes, [X, A, Xp + Y, B, A + Yp, C])
+
+
     def test_dynEq(self):
         crn1 = from_react_file(path.join(input_reactions, "dynEq/net1"))
         crn2 = from_react_file(path.join(input_reactions, "dynEq/net2"))

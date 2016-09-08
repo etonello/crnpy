@@ -9,7 +9,7 @@ file:
 
 .. code:: python
 
-      >>> from crnpy.crn import *
+      >>> from crnpy.crn import CRN, from_sbml, from_react_strings, from_react_file
       >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
 
 or a list of reactions:
@@ -105,7 +105,7 @@ reactions:
 .. code:: python
 
       >>> crn.species, crn.complexes
-      (['E', 'ES', 'P', 'S'], ['E + S', 'ES', 'E + P'])
+      (('E', 'ES', 'P', 'S'), (E + S, ES, E + P))
 
       >>> for r in crn.reactions: print(r)
       ... 
@@ -128,8 +128,17 @@ reactions:
 Available matrices associated to the reaction network are the
 stoichiometric matric *stoich\_matrix*, the matrix of stoichiometric
 coefficients *complex\_matrix* (often called Y in the literature), the
-Laplacian of the complex graph *laplacian*, the incidence matrix of the
-complex graph *incidence\_matrix*.
+Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_matrix*,
+the incidence matrix of the complex graph *incidence\_matrix*.
+
+.. code:: python
+
+      >>> crn.stoich_matrix()
+      Matrix([
+      [-1,  1,  1],
+      [ 1, -1, -1],
+      [ 0,  0,  1],
+      [-1,  1,  0]])
 
 Special methods are available to print some matrices. For example, for
 the stoichiometry matrix:
@@ -146,8 +155,8 @@ the stoichiometry matrix:
     eb  |  0       0   1      -1   0       0  -1       1   0 |
     p   |  0       0   0       0   0       0   0       0   1 |
 
-Look at the system of ODEs associated to the network, and at the
-conservations:
+We can look for example at the system of ODEs associated to the network,
+and at the conservation laws:
 
 .. code:: python
 
@@ -156,18 +165,65 @@ conservations:
       dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff
       dP/dt = comp*ES*vcat_kcat
       dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff
+      >>> crn.cons_laws
+      (E - P - S, ES + P + S)
 
-      >>> for e in crn.cons_laws: print(e)
-      ... 
-      E + ES
-      -E + P + S
-
-Get the list of intermediate species:
+or get a list of intermediate species:
 
 .. code:: python
 
       >>> crn.intermediate_species
       ['E', 'ES', 'S']
+
+
+Check if the network is weakly reversible:
+
+.. code:: python
+
+    >>> crn.is_weakly_rev
+    False
+
+Other features provided by the CRN class are the calculation of the network deficiency,
+linkage classes, and terminal complexes
+(the following is example S7 in [1]_):
+
+.. code:: python
+
+    >>> net = from_react_strings(["X <-> A", "A -> Ap", "Ap <-> Xp",
+    ...                           "Xp + Y <-> B", "B -> Bp", "Bp <-> X + Yp",
+    ...                           "Yp + A <-> C", "C -> Cp", "Cp <-> A + Y"])
+    >>> net.deficiency
+    1
+    >>> net.strong_linkage_classes
+    [[X, A], [Ap, Xp], [Xp + Y, B], [Bp, X + Yp], [A + Yp, C], [Cp, A + Y]]
+    >>> net.linkage_classes
+    [[X, A, Ap, Xp], [Xp + Y, B, Bp, X + Yp], [A + Yp, C, Cp, A + Y]]
+    >>> net.deficiency
+    1
+    >>> net.terminal_complexes
+    [Ap, Xp, Bp, X + Yp, Cp, A + Y]
+    >>> net.non_terminal_complexes
+    [X, A, Xp + Y, B, A + Yp, C]
+
+*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [1]_:
+
+.. code:: python
+
+    >>> net.acr_species()
+    ['Yp']
+
+The same method used with the option *subnets = True* will attempt to find a decomposition of the network
+in subnetworks, using the network elementary modes, and to use this decomposition to
+find species with absolute concentration robustness. For example S30 in [1]_:
+
+.. code:: python
+
+   >>> net = from_react_strings(["A + B -> 2B", "B -> A", "2A <-> C", "A + C <-> D"])
+   >>> net.acr_species()
+   ['A']
+   >>> net.acr_species(subnets = True)
+   ['A', 'C', 'D']
+
 
 Reduction
 ~~~~~~~~~
@@ -241,7 +297,7 @@ Merge reactions with the same reactant and product:
 Saving models
 ~~~~~~~~~~~~~
 
-Save the reduced model to an SBML file, and a reaction file:
+Chemical reaction networks can be saved to SBML files, and reaction files:
 
 .. code:: python
 
@@ -259,17 +315,14 @@ Create a model and look at its deficiency and elementary modes:
       ...              'r2: y ->(k2) c',
       ...              'r3: b + c ->(k3) a']
       >>> example = from_react_strings(reactions)
-      >>> print(example.deficiency)
+      >>> example.deficiency
       1
-      >>> print(example.n_complexes, example.n_linkage_classes, example.stoich_matrix.rank())
+      >>> example.n_complexes, example.n_linkage_classes, example.stoich_matrix.rank()
       (5, 2, 2)
-      >>> print(example.t_invariants)
-      Matrix([[r1 + r2 + r3]])
-
-Check if the network is weakly reversible:
-
-.. code:: python
-
+      >>> example.elem_modes
+      [[1, 1, 0, 1], [0, 1, 1, 0]]
+      >>> example.format_elem_modes()
+      [[r1 + r2 + r3], [r2 + r2_rev]]
       >>> example.is_weakly_rev
       False
 
@@ -278,16 +331,14 @@ We can check how the elementary modes change if *y* is eliminated:
 .. code:: python
 
       >>> example.qss('y')
-      >>> print(example.reactions)
+      >>> example.reactions
       (r3: b + c ->(k3) a, r1_r2: a ->(k1) b + c)
-      >>> print(example.deficiency)
+      >>> example.deficiency
       0
-      >>> print(example.t_invariants)
-      Matrix([[r1_r2 + r3]])
+      >>> example.format_elem_modes()
+      [[r1_r2 + r3]]
       >>> example.is_weakly_rev
       True
-
-Absolute concentration robustness...
 
 Check if two networks are dynamically equivalent:
 
@@ -297,3 +348,8 @@ Check if two networks are dynamically equivalent:
       >>> net2 = from_react_strings(['a ->(2*k) a + b'])
       >>> net1.is_dyn_eq(net2)
       True
+
+References
+==========
+
+.. [1] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.

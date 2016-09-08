@@ -580,12 +580,6 @@ class CRN(object):
         return sp.Matrix(self.incidence_matrix).rank() - sp.Matrix(self.stoich_matrix).rank()
 
 
-    @property
-    def n_linkage_classes(self):
-        """Number of linkage classes of the graph of complexes."""
-        return self.n_complexes - sp.Matrix(self.incidence_matrix).rank()
-
-
     def format_deficiency(self):
         """Return a string 'deficiency delta = numer of complexes -
         number of linkage classes - rank of the stoichiometric matrix'
@@ -1735,7 +1729,7 @@ class CRN(object):
         stcc, cs = self.strong_terminal_conn_components()
         return [c for c in range(self.n_complexes) if cs[c] in stcc]
 
-
+    @property
     def terminal_complexes(self):
         """Return the list of complexes in the terminal strongly connected components."""
         return [self.complexes[c] for c in self._terminal_complexes()]
@@ -1748,6 +1742,7 @@ class CRN(object):
         return [c for c in range(self.n_complexes) if cs[c] not in stcc]
 
 
+    @property
     def non_terminal_complexes(self):
         """Return the list of complexes in the nonterminal strongly connected components."""
         return [self.complexes[c] for c in self._non_terminal_complexes()]
@@ -1759,6 +1754,13 @@ class CRN(object):
         return connected_components(np.ma.masked_values(self.complex_graph_adj(), 0))
 
 
+    @property
+    def n_linkage_classes(self):
+        """Number of linkage classes of the graph of complexes."""
+        return self.n_complexes - sp.Matrix(self.incidence_matrix).rank()
+
+
+    @property
     def linkage_classes(self):
         """List of complexes grouped by linkage class.
 
@@ -1766,11 +1768,27 @@ class CRN(object):
 
         >>> from crnpy.crn import CRN, from_react_strings
         >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
-        >>> net.linkage_classes()
+        >>> net.linkage_classes
         [[A, B + C], [2B, C, D + E]]
 
         """
         nlc, lcs = self.weak_conn_components()
+        return [[self.complexes[c] for c in range(self.n_complexes) if lcs[c] == lc] for lc in range(nlc)]
+
+
+    @property
+    def strong_linkage_classes(self):
+        """List of complexes grouped by strong linkage class.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B", "C -> F"])
+        >>> net.strong_linkage_classes
+        [[A, B + C], [2B, C, D + E], [F]]
+
+        """
+        nlc, lcs = self.strong_conn_components()
         return [[self.complexes[c] for c in range(self.n_complexes) if lcs[c] == lc] for lc in range(nlc)]
 
 

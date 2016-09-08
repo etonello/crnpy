@@ -624,9 +624,9 @@ It is the negative of the kinetic matrix.</p>
 </table>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="crnpy.crn.CRN.linkage_classes">
-<code class="descname">linkage_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.linkage_classes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">linkage_classes</code><a class="headerlink" href="#crnpy.crn.CRN.linkage_classes" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of complexes grouped by linkage class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -638,7 +638,7 @@ It is the negative of the kinetic matrix.</p>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">linkage_classes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">linkage_classes</span>
 <span class="go">[[A, B + C], [2B, C, D + E]]</span>
 </pre></div>
 </div>
@@ -680,9 +680,9 @@ or if update_model() is called.</p>
 <code class="descname">n_species</code><a class="headerlink" href="#crnpy.crn.CRN.n_species" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="crnpy.crn.CRN.non_terminal_complexes">
-<code class="descname">non_terminal_complexes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.non_terminal_complexes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">non_terminal_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.non_terminal_complexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the list of complexes in the nonterminal strongly connected components.</p>
 </dd></dl>
 
@@ -1217,6 +1217,26 @@ i.e. the rank of the stoichiometric matrix.</p>
 and an array of labels for the strongly connected components.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="crnpy.crn.CRN.strong_linkage_classes">
+<code class="descname">strong_linkage_classes</code><a class="headerlink" href="#crnpy.crn.CRN.strong_linkage_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of complexes grouped by strong linkage class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; F&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">strong_linkage_classes</span>
+<span class="go">[[A, B + C], [2B, C, D + E], [F]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="method">
 <dt id="crnpy.crn.CRN.strong_terminal_conn_components">
 <code class="descname">strong_terminal_conn_components</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.strong_terminal_conn_components" title="Permalink to this definition">¶</a></dt>
@@ -1240,9 +1260,9 @@ Use split_by_ems to look for candidate subnetworks.</p>
 Requires pycddlib.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="crnpy.crn.CRN.terminal_complexes">
-<code class="descname">terminal_complexes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.terminal_complexes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">terminal_complexes</code><a class="headerlink" href="#crnpy.crn.CRN.terminal_complexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the list of complexes in the terminal strongly connected components.</p>
 </dd></dl>
 
