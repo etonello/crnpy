@@ -36,14 +36,6 @@ crnpy.crncomplex module
     :undoc-members:
     :show-inheritance:
 
-crnpy.createmodel module
-------------------------
-
-.. automodule:: crnpy.createmodel
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 crnpy.conslaw module
 --------------------
 
@@ -51,15 +43,6 @@ crnpy.conslaw module
     :members:
     :undoc-members:
     :show-inheritance:
-
-crnpy.matrixfunctions module
-----------------------------
-
-.. automodule:: crnpy.matrixfunctions
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 
 Module contents
 ---------------

@@ -1705,63 +1705,6 @@ containing the stoichiometric cofficients of species in complex.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-crnpy.createmodel">
-<span id="crnpy-createmodel-module"></span><h2>crnpy.createmodel module<a class="headerlink" href="#module-crnpy.createmodel" title="Permalink to this headline">¶</a></h2>
-<p>Functions for creating SBML models
-from SBML or reaction files.</p>
-<dl class="function">
-<dt id="crnpy.createmodel.adjust">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">adjust</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.adjust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change dash, /, parenthesis and other symbols to underscore in
-compartments, species, reaction and parameter ids and names,
-to avoid problems with sympy.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.convert_functions">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">convert_functions</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.convert_functions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace functions with formulas.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.model_from_react_file">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_react_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_react_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an SBML model from a reaction file,
-with one compartment.
-Return model, document and list of species.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.model_from_reacts">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_reacts</code><span class="sig-paren">(</span><em>reactions</em>, <em>level=3</em>, <em>version=1</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_reacts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an SBML model from a list of reactions,
-with one compartment.
-Return model, document and list of species.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.model_from_sbml">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">model_from_sbml</code><span class="sig-paren">(</span><em>sbmlxml</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.model_from_sbml" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a model from an sbml file.
-Return model and document.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.promote_params">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">promote_params</code><span class="sig-paren">(</span><em>model</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.promote_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change parameters to global, so that they are preserved
-when reactions change.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.createmodel.replace_reacts">
-<code class="descclassname">crnpy.createmodel.</code><code class="descname">replace_reacts</code><span class="sig-paren">(</span><em>model</em>, <em>document</em>, <em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.createmodel.replace_reacts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete the current reactions and replace them with reactions.
-Update the species.
-Return document, model and list of species.</p>
-</dd></dl>
-
-</div>
 <div class="section" id="module-crnpy.conslaw">
 <span id="crnpy-conslaw-module"></span><h2>crnpy.conslaw module<a class="headerlink" href="#module-crnpy.conslaw" title="Permalink to this headline">¶</a></h2>
 <p>Conservation Law class.</p>
@@ -1799,61 +1742,6 @@ for example e + es + esi = etot.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-crnpy.matrixfunctions">
-<span id="crnpy-matrixfunctions-module"></span><h2>crnpy.matrixfunctions module<a class="headerlink" href="#module-crnpy.matrixfunctions" title="Permalink to this headline">¶</a></h2>
-<p>Auxiliary functions for sympy matrix manipulations.</p>
-<dl class="function">
-<dt id="crnpy.matrixfunctions.cexp">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">cexp</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.cexp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Componentwise exp.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.clog">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">clog</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.clog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Componentwise logarithm.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.dependent">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">dependent</code><span class="sig-paren">(</span><em>matrix</em>, <em>vector</em>, <em>particular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.dependent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if vector can be written as a linear combination of
-the columns of matrix.
-Return the coeffients if possible, None otherwise.
-If particular = True, use the option &#8216;particular&#8217; of sympy&#8217;s solve(),
-i.e. try to find a particular solution with as many zeros as possible.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.negative">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">negative</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.negative" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a matrix with the negative elements of matrix.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.print_matrix">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">print_matrix</code><span class="sig-paren">(</span><em>matrix</em>, <em>rowlabels</em>, <em>collabels</em>, <em>numeric=False</em>, <em>precision=3</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.print_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print a matrix with rowlabels as first column,
-and collabels as first row.
-If numeric = True, the matrix is converted to a numpy array,
-and precision can be used to format the elements (default is 3).</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.schur_reduction">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">schur_reduction</code><span class="sig-paren">(</span><em>A</em>, <em>rowIndices</em>, <em>colIndices</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.schur_reduction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the Schur complement of the block identified
-by rowIndices and colIndices.
-Works only if this block is square and invertible.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="crnpy.matrixfunctions.sdiag">
-<code class="descclassname">crnpy.matrixfunctions.</code><code class="descname">sdiag</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.matrixfunctions.sdiag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sparse diagonal matrix with vector as diagonal.</p>
-</dd></dl>
-
-</div>
 <div class="section" id="module-crnpy">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-crnpy" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -1873,9 +1761,7 @@ Works only if this block is square and invertible.</p>
 <li><a class="reference internal" href="#module-crnpy.reaction">crnpy.reaction module</a></li>
 <li><a class="reference internal" href="#module-crnpy.parsereaction">crnpy.parsereaction module</a></li>
 <li><a class="reference internal" href="#module-crnpy.crncomplex">crnpy.crncomplex module</a></li>
-<li><a class="reference internal" href="#module-crnpy.createmodel">crnpy.createmodel module</a></li>
 <li><a class="reference internal" href="#module-crnpy.conslaw">crnpy.conslaw module</a></li>
-<li><a class="reference internal" href="#module-crnpy.matrixfunctions">crnpy.matrixfunctions module</a></li>
 <li><a class="reference internal" href="#module-crnpy">Module contents</a></li>
 </ul>
 </li>

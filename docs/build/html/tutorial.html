@@ -236,7 +236,8 @@ find species with absolute concentration robustness. For example S30 in <a class
 <div class="section" id="reduction">
 <h2>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h2>
 <p>Eliminate the intermediate <em>ES</em> using quasi-steady state approximation:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq_vcat: E + S -&gt;(comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) E + P</span>
@@ -336,6 +337,7 @@ find species with absolute concentration robustness. For example S30 in <a class
 <span class="go">True</span>
 </pre></div>
 </div>
+<p>Groebner basis...</p>
 </div>
 </div>
 <div class="section" id="references">
