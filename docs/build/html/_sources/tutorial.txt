@@ -185,7 +185,7 @@ Check if the network is weakly reversible:
 
 Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
-(the following is example S7 in [1]_):
+(the following is example S7 in [6]_):
 
 .. code:: python
 
@@ -205,7 +205,7 @@ linkage classes, and terminal complexes
     >>> net.non_terminal_complexes
     [X, A, Xp + Y, B, A + Yp, C]
 
-*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [1]_:
+*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [6]_:
 
 .. code:: python
 
@@ -214,7 +214,7 @@ linkage classes, and terminal complexes
 
 The same method used with the option *subnets = True* will attempt to find a decomposition of the network
 in subnetworks, using the network elementary modes, and to use this decomposition to
-find species with absolute concentration robustness. For example S30 in [1]_:
+find species with absolute concentration robustness. For example S30 in [6]_:
 
 .. code:: python
 
@@ -353,6 +353,12 @@ Check if two networks are dynamically equivalent:
 Groebner basis...
 
 References
-==========
+~~~~~~~~~~
 
-.. [1] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
+.. [1] Angeli, D. (2009). *A tutorial on Chemical Reaction Networks dynamics*. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.
+.. [2] Cornish-Bowden, A. (1987). *Fundamentals of Enzyme Kinetics*. Elsevier Science.
+.. [3] Feinberg, M. (1979). *Lectures on chemical reaction networks*. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.
+.. [4] Gunawardena, J. (2003). *Chemical reaction network theory for in-silico biologists*, http://vcp.med.harvard.edu/papers/crnt.pdf.
+.. [5] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
+.. [6] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
+.. [7] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
