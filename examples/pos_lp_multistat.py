@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.join(
 from functools import reduce
 from itertools import combinations
 import networkx as nx
+import numpy as np
 from operator import mul
 
 from crnpy.crn import from_react_file
@@ -37,7 +38,7 @@ def pos_fb_loops_multistat(crn, debug = False):
     for ij in omega:
         M[list(ij).index(1), :] = ij.T
     p = M.det()
-    Gfull = nx.from_numpy_matrix(crn.dsr_graph_adj(), create_using = nx.DiGraph())
+    Gfull = nx.from_numpy_matrix(np.array(crn.dsr_graph_adj().tolist()).astype(np.float64), create_using = nx.DiGraph())
 
     if debug:
         for r in crn.reactions: print(r)
@@ -88,7 +89,7 @@ def pos_fb_loops_multistat(crn, debug = False):
         if debug: print("Term: {}".format(term))
 
         # create graph with elements of Z only involved in term
-        G = nx.from_numpy_matrix(crn.dsr_graph_adj(keep = term.args), create_using = nx.DiGraph())
+        G = nx.from_numpy_matrix(np.array(crn.dsr_graph_adj(keep = term.args).tolist()).astype(np.float64), create_using = nx.DiGraph())
 
         # find the elementary cycles
         cycles = list(nx.simple_cycles(G))
