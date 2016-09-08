@@ -99,6 +99,8 @@ appearing after the hash sign will ignored.
 Exploring chemical reaction networks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The library implements some elements of chemical reaction network theory ([1]_, [3]_, [4]_).
+
 Attributes of a CRN object include the network species, complexes, and
 reactions:
 
@@ -126,7 +128,7 @@ reactions:
     r4: eab ->(k5) e + p
 
 Available matrices associated to the reaction network are the
-stoichiometric matric *stoich\_matrix*, the matrix of stoichiometric
+stoichiometric matrix *stoich\_matrix*, the matrix of stoichiometric
 coefficients *complex\_matrix* (often called Y in the literature), the
 Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_matrix*,
 the incidence matrix of the complex graph *incidence\_matrix*.
@@ -176,7 +178,7 @@ or get a list of intermediate species:
     ['E', 'ES', 'S']
 
 
-Check if the network is weakly reversible:
+We can check if the network is weakly reversible:
 
 .. code:: python
 
@@ -185,7 +187,7 @@ Check if the network is weakly reversible:
 
 Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
-(the following is example S7 in [6]_):
+(the following is example S7 in [8]_):
 
 .. code:: python
 
@@ -205,7 +207,7 @@ linkage classes, and terminal complexes
     >>> net.non_terminal_complexes
     [X, A, Xp + Y, B, A + Yp, C]
 
-*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [6]_:
+*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [8]_:
 
 .. code:: python
 
@@ -214,7 +216,7 @@ linkage classes, and terminal complexes
 
 The same method used with the option *subnets = True* will attempt to find a decomposition of the network
 in subnetworks, using the network elementary modes, and to use this decomposition to
-find species with absolute concentration robustness. For example S30 in [6]_:
+find species with absolute concentration robustness. Consider example S30 in [8]_:
 
 .. code:: python
 
@@ -228,17 +230,23 @@ find species with absolute concentration robustness. For example S30 in [6]_:
 Reduction
 ~~~~~~~~~
 
-Eliminate the intermediate *ES* using quasi-steady state approximation:
+The tool offers some methods for the structural reduction of chemical reaction network
+and the derivation of kinetic rates (the algorithms used in the following examples are described in [9]_).
+
+In the following example, we consider the one-substrate enzyme reaction mechanism,
+and eliminate the intermediate *ES* using quasi-steady state approximation ([2]_, [5]_, [7]_):
 
 .. code:: python
 
     >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
+    >>> crn.reactions
+    (veq: E + S ->(_comp*veq_kon) ES, veq_rev: ES ->(_comp*veq_koff) E + S, vcat: ES ->(_comp*vcat_kcat) E + P)
     >>> crn.qss('ES')
     >>> for r in crn.reactions: print(r)
     ... 
     veq_vcat: E + S ->(comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) E + P
 
-Use a conservation to eliminate the enzyme, and check the new dynamics:
+We can now use a conservation to eliminate the enzyme, and check the new dynamics:
 
 .. code:: python
 
@@ -251,20 +259,20 @@ Use a conservation to eliminate the enzyme, and check the new dynamics:
     dP/dt = comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
     dS/dt = -comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
 
-In alternative, eliminate the constant species:
+In alternative, we could eliminate the constant species:
 
 .. code:: python
 
     >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
     >>> crn.qss('ES')
     >>> crn.constant_species
-    ['e']
+    ['E']
     >>> crn.remove_all_constants()
     >>> for r in crn.reactions: print(r)
     ... 
     veq_vcat: S ->(comp*E*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P
 
-Use rapid equilibrium instead (and the conservation law):
+or use a rapid equilibrium approximation ([2]_, [5]_, [7]_):
 
 .. code:: python
 
@@ -274,19 +282,19 @@ Use rapid equilibrium instead (and the conservation law):
     ... 
     vcat: S ->(comp*Et*vcat_kcat*veq_kon/(S*veq_kon + veq_koff)) P
 
-Use a combination of the reduction methods:
+With the method *remove* we can use a combination of the reduction methods:
 
 .. code:: python
 
     >>> bi_uni_random.remove(rapid_eq = [('ea', 'e + a'), ('eb', 'e + b')], 
-                           qss = ['eab'], 
-                           cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
+                             qss = ['eab'], 
+                             cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
     >>> for r in bi_uni_random.reactions: print(r)
     ... 
     r2_r4: a + b ->(et*k1*k3*k5*k_2/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
     r3_r4: a + b ->(et*k2*k4*k5*k_1/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
 
-Merge reactions with the same reactant and product:
+We can merge reactions with the same reactant and product:
 
 .. code:: python
 
@@ -298,14 +306,20 @@ Merge reactions with the same reactant and product:
 Saving models
 ~~~~~~~~~~~~~
 
-Chemical reaction networks can be saved to SBML files, and reaction files:
+Chemical reaction networks can be saved to SBML files
 
 .. code:: python
 
     >>> crn.save_sbml("examples/data/sbml/enzyme_simplified.xml")
-    >>> crn.save_reaction_file("examples/data/reactions/enzyme_simplified")
 
-Other features
+or as reaction files (by default the strings representing reactions contain the kinetic parameters;
+use *rate = True* to save the reaction rates instead):
+
+.. code:: python
+
+    >>> crn.save_reaction_file("examples/data/reactions/enzyme_simplified", rate = True)
+
+Other examples
 ~~~~~~~~~~~~~~
 
 Create a model and look at its deficiency and elementary modes:
@@ -350,15 +364,54 @@ Check if two networks are dynamically equivalent:
     >>> net1.is_dyn_eq(net2)
     True
 
-Groebner basis...
+We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [6]_:
+
+.. code:: python
+
+    crn = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
+    >>> for r in crn.reactions: print(r)
+    ... 
+    binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
+    binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
+    phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
+    binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
+    binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
+    phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
+    binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
+    binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
+    dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
+    dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
+    dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
+    binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
+    binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
+    dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
+    dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
+    dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
+
+and generate a Gröbner basis for the steady state ideal:
+
+.. code:: python
+
+    >>> crn.groebner()
+    GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain='ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]', order='lex')
 
 References
 ~~~~~~~~~~
 
 .. [1] Angeli, D. (2009). *A tutorial on Chemical Reaction Networks dynamics*. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.
+
 .. [2] Cornish-Bowden, A. (1987). *Fundamentals of Enzyme Kinetics*. Elsevier Science.
+
 .. [3] Feinberg, M. (1979). *Lectures on chemical reaction networks*. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.
+
 .. [4] Gunawardena, J. (2003). *Chemical reaction network theory for in-silico biologists*, http://vcp.med.harvard.edu/papers/crnt.pdf.
-.. [5] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
-.. [6] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
-.. [7] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
+
+.. [5] Ingalls, Brian. (2013). *Mathematical Modelling in Systems Biology: An Introduction.*, https://www.math.uwaterloo.ca/~bingalls/MMSB/.
+
+.. [6] Juty, N., et al. (2015). *BioModels: content, features, functionality, and use.* CPT: pharmacometrics \& systems pharmacology, 4(2), pp.55-68.
+
+.. [7] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
+
+.. [8] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
+
+.. [9] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
