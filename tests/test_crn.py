@@ -305,6 +305,21 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(crn.non_terminal_complexes, [X, A, Xp + Y, B, A + Yp, C])
 
 
+    def test_is_rev(self):
+        crn = from_react_strings(["a <-> b + c", "b <-> 2d"])
+        self.assertTrue(crn.is_rev)
+        self.assertTrue(crn.is_weakly_rev)
+        crn = from_react_strings(["a <-> b + c", "b -> 2d", "2d -> b", "b + c -> a"])
+        self.assertTrue(crn.is_rev)
+        self.assertTrue(crn.is_weakly_rev)
+        crn = from_react_strings(["a -> b + c", "b -> 2d", "2d -> b", "b + c -> e", "e -> a"])
+        self.assertFalse(crn.is_rev)
+        self.assertTrue(crn.is_weakly_rev)
+        crn = from_react_strings(["a -> b + c", "b -> 2d", "2d -> b", "b + c -> e", "e -> "])
+        self.assertFalse(crn.is_rev)
+        self.assertFalse(crn.is_weakly_rev)
+
+
     def test_dynEq(self):
         crn1 = from_react_file(path.join(input_reactions, "dynEq/net1"))
         crn2 = from_react_file(path.join(input_reactions, "dynEq/net2"))

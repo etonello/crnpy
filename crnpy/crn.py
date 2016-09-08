@@ -1684,7 +1684,6 @@ class CRN(object):
     def dsr_graph_adj(self, keep = None):
         """Return the adjacency matrix of the directed species-reaction graph.
 
-
         Optionally remove the variables of the influence matrix not in *keep*.
 
         References:
@@ -1790,6 +1789,14 @@ class CRN(object):
         """
         nlc, lcs = self.strong_conn_components()
         return [[self.complexes[c] for c in range(self.n_complexes) if lcs[c] == lc] for lc in range(nlc)]
+
+
+    @property
+    def is_rev(self):
+        """Return True if for each reaction with reactant c and product c' in the network
+        there is at least one reaction with reactant c' and product c."""
+        adj = self.complex_graph_adj().applyfunc(lambda x: 1 if x else 0)
+        return adj.is_symmetric(simplify = False)
 
 
     @property
