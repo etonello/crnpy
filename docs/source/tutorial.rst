@@ -232,6 +232,7 @@ Eliminate the intermediate *ES* using quasi-steady state approximation:
 
 .. code:: python
 
+      >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
       >>> crn.qss('ES')
       >>> for r in crn.reactions: print(r)
       ... 
