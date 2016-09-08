@@ -275,8 +275,8 @@ find species with absolute concentration robustness. For example S30 in <a class
 </div>
 <p>Use a combination of the reduction methods:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">rapid_eq</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;ea&#39;</span><span class="p">,</span> <span class="s1">&#39;e + a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eb&#39;</span><span class="p">,</span> <span class="s1">&#39;e + b&#39;</span><span class="p">)],</span>
-<span class="go">                         qss = [&#39;eab&#39;],</span>
-<span class="go">                         cons_law = (&#39;e&#39;, ConsLaw(&#39;e + ea + eb + eab&#39;, &#39;et&#39;)))</span>
+<span class="go">                       qss = [&#39;eab&#39;],</span>
+<span class="go">                       cons_law = (&#39;e&#39;, ConsLaw(&#39;e + ea + eb + eab&#39;, &#39;et&#39;)))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">r2_r4: a + b -&gt;(et*k1*k3*k5*k_2/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
