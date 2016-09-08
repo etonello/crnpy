@@ -185,7 +185,9 @@ the stoichiometric coefficient of the i-th species in the j-th complex.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -438,7 +440,9 @@ and 0 otherwise.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -582,7 +586,9 @@ so that the columns sum to zero.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -608,6 +614,14 @@ so that the columns sum to zero.</p>
 <code class="descname">laplacian</code><a class="headerlink" href="#crnpy.crn.CRN.laplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generalised Laplacian of the graph of complexes.
 It is the negative of the kinetic matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -913,8 +927,23 @@ concentration as function of the remaining species.</p>
 <dd><p>Remove the species from the network by setting it to constant.
 Give a warning if the species is not constant in the original network.</p>
 <ul class="simple">
-<li>expr &#8211; optional expression that replaces const_species in rates.</li>
+<li><em>expr</em> &#8211; optional expression that replaces <em>const_species</em> in rates.</li>
 </ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">remove_constant</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;etot&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0: S -&gt;(etot*k1) P, r0_rev: P -&gt;(etot*k_1) S)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -954,8 +983,8 @@ with an optional line of log.</p>
 <dt id="crnpy.crn.CRN.set_params">
 <code class="descname">set_params</code><span class="sig-paren">(</span><em>params_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replace the parameters used in the reaction rates
-with the values in dictionary params_dict.</p>
-<p>params_dict is a dictionary with keys the parameters to replace, and
+with the values in dictionary <em>params_dict</em>.</p>
+<p><em>params_dict</em> is a dictionary with keys the parameters to replace, and
 values the sympy expressions or numeric values that replace them.</p>
 <p>In the following example we set all the kinetic parameters to 0.001:</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -968,7 +997,7 @@ values the sympy expressions or numeric values that replace them.</p>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">kinetic_params</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">kinetic_params</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
 <span class="go">(r0: A1 -&gt;(1.000e-3) A2 + A3, r1: A2 -&gt;(1.000e-3) 2A3)</span>
 </pre></div>
@@ -1079,7 +1108,9 @@ in the reactant of the j-th reaction.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>

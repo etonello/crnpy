@@ -337,9 +337,9 @@ class CRN(object):
 
     def set_params(self, params_dict):
         """Replace the parameters used in the reaction rates
-        with the values in dictionary params_dict.
+        with the values in dictionary *params_dict*.
 
-        params_dict is a dictionary with keys the parameters to replace, and
+        *params_dict* is a dictionary with keys the parameters to replace, and
         values the sympy expressions or numeric values that replace them.
 
         In the following example we set all the kinetic parameters to 0.001:
@@ -348,7 +348,7 @@ class CRN(object):
 
         >>> from crnpy.crn import CRN, from_react_strings
         >>> net = from_react_strings(["A1 ->(k1) A2 + A3", "A2 ->(k2) 2 A3"])
-        >>> net.set_params(dict((k, 1) for k in net.kinetic_params))
+        >>> net.set_params(dict((k, 0.001) for k in net.kinetic_params))
         >>> net.reactions
         (r0: A1 ->(1.000e-3) A2 + A3, r1: A2 ->(1.000e-3) 2A3)
 
@@ -367,6 +367,8 @@ class CRN(object):
         """Complex matrix (usually denoted with Y), i.e. the matrix with dimension
         number of species times number of complexes, with element Yij given by
         the stoichiometric coefficient of the i-th species in the j-th complex.
+
+        :type: sympy SparseMatrix.
 
         :Example:
 
@@ -393,6 +395,8 @@ class CRN(object):
         -1 if the i-th complex is the reactant of the j-th reaction,
         +1 if the i-th complex is the product of the j-th reaction,
         and 0 otherwise.
+
+        :type: sympy SparseMatrix.
 
         :Example:
 
@@ -422,6 +426,8 @@ class CRN(object):
         the stoichiometric coefficient of the i-th species
         in the reactant of the j-th reaction.
 
+        :type: sympy SparseMatrix.
+
         :Example:
 
         >>> from crnpy.crn import CRN, from_react_strings
@@ -449,6 +455,8 @@ class CRN(object):
         when i and j are different. The diagonal elements are defined
         so that the columns sum to zero.
 
+        :type: sympy SparseMatrix.
+
         :Example:
 
         >>> from crnpy.crn import CRN, from_react_strings
@@ -469,6 +477,8 @@ class CRN(object):
     def laplacian(self):
         """Generalised Laplacian of the graph of complexes.
         It is the negative of the kinetic matrix.
+
+        :type: sympy SparseMatrix.
         """
         # -kinetic matrix
         return self.incidence_matrix.multiply(sdiag(self.kinetic_params).multiply(negative(self.incidence_matrix).T))
@@ -1565,7 +1575,15 @@ class CRN(object):
         """Remove the species from the network by setting it to constant.
         Give a warning if the species is not constant in the original network.
 
-        * expr -- optional expression that replaces const_species in rates.
+        * *expr* -- optional expression that replaces *const_species* in rates.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) E + P"])
+        >>> net.remove_constant("E", "etot")
+        >>> net.reactions
+        (r0: S ->(etot*k1) P, r0_rev: P ->(etot*k_1) S)
 
         """
 
