@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>crnpy package &mdash; crnpy 0.0.1 documentation</title>
+    <title>crnpy package &#8212; crnpy 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -72,24 +72,24 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">CRN</span><span class="p">(</span><span class="n">model_from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">))</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">CRN</span><span class="p">(</span><span class="n">model_from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>or equivalently</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;enzyme.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In alternative, a CRN can be created from a list of reactions or strings representing reactions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*a&quot;</span><span class="p">),</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r2&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(),</span> <span class="s2">&quot;k2*b**2&quot;</span><span class="p">)]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*a&quot;</span><span class="p">),</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r2&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(),</span> <span class="s2">&quot;k2*b**2&quot;</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_reacts</span><span class="p">(</span><span class="n">reacts</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or equivalently</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r1: a -&gt;(k1) b&quot;</span><span class="p">,</span> <span class="s2">&quot;r2: 2b -&gt;(k2) &quot;</span><span class="p">])</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r1: a -&gt;(k1) b&quot;</span><span class="p">,</span> <span class="s2">&quot;r2: 2b -&gt;(k2) &quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>One can also create an empty CRN and update the reactions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.parsereaction</span> <span class="kn">import</span> <span class="n">parse_reactions</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.parsereaction</span> <span class="k">import</span> <span class="n">parse_reactions</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span> <span class="o">=</span> <span class="n">CRN</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span><span class="o">.</span><span class="n">species</span>
 <span class="go">()</span>
@@ -124,17 +124,17 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_complexes</span><span class="p">()</span>
 <span class="go">[A]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_complexes</span><span class="p">(</span><span class="n">as_vectors</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_complexes</span><span class="p">(</span><span class="n">as_vectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">[(1, 0, 0, 0)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_complexes</span><span class="p">(</span><span class="n">subnets</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_complexes</span><span class="p">(</span><span class="n">subnets</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">[A**2/C, A*C/D, A]</span>
 </pre></div>
 </div>
-<p>Algorithm based on the presentation in the supplementary material of
-Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.</p>
+<p>References:</p>
+<p>Shinar, G., Feinberg, M. (2010). Structural sources of robustness in biochemical reaction networks. Science.</p>
 </dd></dl>
 
 <dl class="method">
@@ -157,21 +157,22 @@ Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reacti
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
 <span class="go">[&#39;A&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">(</span><span class="n">subnets</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">(</span><span class="n">subnets</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="go">[&#39;A&#39;, &#39;C&#39;, &#39;D&#39;]</span>
 </pre></div>
 </div>
-<p>Algorithm based on the presentation in the supplementary material of
-Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.</p>
+<p>References:</p>
+<p>Shinar, G., Feinberg, M. (2010). Structural sources of robustness in biochemical reaction networks. Science.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.complex_graph_adj">
 <code class="descname">complex_graph_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.complex_graph_adj" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the nc x nc adjacency matrix of the graph of complexes.</p>
+<dd><p>Return the adjacency matrix of the graph of complexes.</p>
+<p>This is a sympy Matrix of dimension number of complexes times number of complexes.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -188,7 +189,7 @@ the stoichiometric coefficient of the i-th species in the j-th complex.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">complex_matrix</span>
 <span class="go">Matrix([</span>
@@ -211,7 +212,7 @@ the stoichiometric coefficient of the i-th species in the j-th complex.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">complexes</span>
 <span class="go">(A1, A2 + A3, A2, 2A3)</span>
@@ -219,6 +220,14 @@ the stoichiometric coefficient of the i-th species in the j-th complex.</p>
 </div>
 <p>The tuple of complexes is read-only, and can change if the reactions are updated,
 or if a reduction method is applied to eliminate some species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of Complex objects.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -233,7 +242,7 @@ or if a reduction method is applied to eliminate some species.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">cons_laws</span>
 <span class="go">(A + B/3 + 2*C/3 + 2*E/3, D - E)</span>
@@ -253,6 +262,20 @@ or if a reduction method is applied to eliminate some species.</p>
 <dd><p>Deficiency of the chemical reaction network,
 calculated as number of complexes, minus number of linkage classes,
 minus the rank of the stoichiometric matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">deficiency</span>
+<span class="go">0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -268,7 +291,7 @@ minus the rank of the stoichiometric matrix.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="s2">&quot;3A + E&quot;</span><span class="p">)</span>
 <span class="go">-3*A*k_r0 + B**2*k_r3_rev + 3*B*C*k_r0_rev + C*k_r2 - D*E*k_r3</span>
@@ -290,9 +313,10 @@ or if update_model() is called.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.dsr_graph_adj">
 <code class="descname">dsr_graph_adj</code><span class="sig-paren">(</span><em>keep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.dsr_graph_adj" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the (ns + nr) x (ns + nr) adjacency matrix
-of the directed species-reaction graph.
-Optionally keep only variables in keep.</p>
+<dd><p>Return the adjacency matrix of the directed species-reaction graph.</p>
+<p>Optionally remove the variables of the influence matrix not in <em>keep</em>.</p>
+<p>References:</p>
+<p>Feliu, E., &amp; Wiuf, C. (2015). Finding the positive feedback loops underlying multi-stationarity. BMC systems biology, 9(1), 1</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -308,7 +332,7 @@ as lists of length the number of reactions.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A -&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;2B + 2C &lt;-&gt; 2D&quot;</span><span class="p">,</span> <span class="s2">&quot;D -&gt; A + C&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">elem_modes</span>
 <span class="go">[[1, 1, 0, 1], [0, 1, 1, 0]]</span>
@@ -328,6 +352,20 @@ as lists of length the number of reactions.</p>
 <code class="descname">format_deficiency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_deficiency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string &#8216;deficiency delta = numer of complexes -
 number of linkage classes - rank of the stoichiometric matrix&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">format_deficiency</span><span class="p">()</span>
+<span class="go">&#39;deficiency 0 = 5 - 2 - 3&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -343,7 +381,7 @@ each representing an elementary mode.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A -&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;B + C &lt;-&gt; D&quot;</span><span class="p">,</span> <span class="s2">&quot;D -&gt; A + C&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
 <span class="go">[[r0 + r1 + r2], [r1 + r1_rev]]</span>
@@ -404,7 +442,7 @@ and 0 otherwise.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">incidence_matrix</span>
 <span class="go">Matrix([</span>
@@ -419,7 +457,8 @@ and 0 otherwise.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.influence_matrix">
 <code class="descname">influence_matrix</code><span class="sig-paren">(</span><em>var=None</em>, <em>state=None</em>, <em>check=False</em>, <em>interval=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.influence_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the n_s x n_r influence matrix.
+<dd><p>Return the influence matrix of the reaction network.
+This is a matrix of dimension number of species times number of reactions.
 The element at position ij is a variable with a plus in front
 if the rate v_j(x) of reaction j increases with x_i,
 a minus if it decreases, and 0 if it is constant in x_i.
@@ -434,6 +473,8 @@ functions of one variable.</p>
 <li>interval &#8211; interval where monotonicity is checked - default is [0, oo).</li>
 <li>params &#8211; values for the kinetic parameters. All set to 1 by default.</li>
 </ul>
+<p>References:</p>
+<p>Feliu, E., &amp; Wiuf, C. (2015). Finding the positive feedback loops underlying multi-stationarity. BMC systems biology, 9(1), 1</p>
 </dd></dl>
 
 <dl class="method">
@@ -545,7 +586,7 @@ so that the columns sum to zero.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">kinetic_matrix</span>
 <span class="go">Matrix([</span>
@@ -581,7 +622,7 @@ It is the negative of the kinetic matrix.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A &lt;-&gt; B + C&quot;</span><span class="p">,</span> <span class="s2">&quot;2B -&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; D + E&quot;</span><span class="p">,</span> <span class="s2">&quot;D + E &lt;-&gt; 2B&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">linkage_classes</span><span class="p">()</span>
 <span class="go">[[A, B + C], [2B, C, D + E]]</span>
@@ -650,7 +691,7 @@ Requires pycddlib.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 (k_2)&lt;-&gt;(k2) 2 A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A3 -&gt;(k3) &quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">print_complex_matrix</span><span class="p">()</span>
 <span class="go">     A1  A2 + A3  A2  2A3  A3</span>
@@ -707,7 +748,7 @@ and precision can be used to format the elements (default is 3).</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 (k_2)&lt;-&gt;(k2) 2 A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A3 -&gt;(k3) &quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
 <span class="go">     r0  r1  r1_rev  r2</span>
@@ -745,6 +786,9 @@ All other species in the conservation are eliminated via quasi-steady state appr
 </li>
 </ul>
 <p>Update remove_species.</p>
+<p>References:</p>
+<p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
+<p>Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).</p>
 </dd></dl>
 
 <dl class="method">
@@ -767,6 +811,8 @@ All other species in the conservation are eliminated via quasi-steady state appr
 </li>
 </ul>
 <p>Update remove_species.</p>
+<p>References:</p>
+<p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
 </dd></dl>
 
 <dl class="method">
@@ -779,7 +825,16 @@ remove and keep are merged in a pool.</p>
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.rates">
 <code class="descname">rates</code><a class="headerlink" href="#crnpy.crn.CRN.rates" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rates of the reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of sympy expressions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.reactionids">
@@ -790,8 +845,16 @@ remove and keep are merged in a pool.</p>
 <dt id="crnpy.crn.CRN.reactions">
 <code class="descname">reactions</code><a class="headerlink" href="#crnpy.crn.CRN.reactions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuple of the network reactions.</p>
-<p>They can be updated. If the network SBML model exists, this is also updated
-when reactions change.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Setter:</th><td class="field-body">Sets the reactions, updating the CRN model and document if they exist.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">tuple of Reaction objects.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -840,6 +903,8 @@ the quasi-steady state approximation is used.</p>
 First replace removed_species in the conservation law with their expression.
 Then use the conservation expression to write the species
 concentration as function of the remaining species.</p>
+<p>References:</p>
+<p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
 </dd></dl>
 
 <dl class="method">
@@ -856,6 +921,14 @@ Give a warning if the species is not constant in the original network.</p>
 <dt id="crnpy.crn.CRN.removed_species">
 <code class="descname">removed_species</code><a class="headerlink" href="#crnpy.crn.CRN.removed_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Couples (species, expression) for species that have been eliminated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of pairs (string, sympy expression).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -893,7 +966,7 @@ values the sympy expressions or numeric values that replace them.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">kinetic_params</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
@@ -952,7 +1025,7 @@ and does not interact with other species.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">species</span>
 <span class="go">(&#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;)</span>
@@ -960,6 +1033,14 @@ and does not interact with other species.</p>
 </div>
 <p>The tuple of species is read-only, and can change if the reactions are updated,
 or if a reduction method is applied to eliminate some species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of strings.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1002,7 +1083,7 @@ in the reactant of the j-th reaction.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A1 -&gt;(k1) A2 + A3&quot;</span><span class="p">,</span> <span class="s2">&quot;A2 -&gt;(k2) 2 A3&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">stoich_matrix</span>
 <span class="go">Matrix([</span>
@@ -1059,20 +1140,21 @@ Requires pycddlib.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.tree_constant">
 <code class="descname">tree_constant</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the constant of Prop. 3 of
-&#8216;&#8217;Toric Dynamical Systems&#8217;&#8217; by Shul et al.,
-associated to index.
-The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in
-&#8216;&#8217;Translated Chemical Reaction Networks&#8217;&#8217; by M. D. Johnston.</p>
+<dd><p>Return the constant of Prop. 3 in [1], associated to <em>index</em>.
+The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
+<p>References:</p>
+<p>[1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.</p>
+<p>[2] Johnston, M. D. (2014). Translated chemical reaction networks. Bulletin of mathematical biology, 76(5), 1081-1116.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.tree_constants">
 <code class="descname">tree_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the constants of Prop. 3 of
-&#8216;&#8217;Toric Dynamical Systems&#8217;&#8217; by Shul et al.
-The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in
-&#8216;&#8217;Translated Chemical Reaction Networks&#8217;&#8217; by M. D. Johnston.</p>
+<dd><p>Return the constants of Prop. 3 in [1].
+The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
+<p>References:</p>
+<p>[1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.</p>
+<p>[2] Johnston, M. D. (2014). Translated chemical reaction networks. Bulletin of mathematical biology, 76(5), 1081-1116.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1132,8 +1214,8 @@ and a string or sympy expression representing the rate.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="kn">import</span> <span class="n">Reaction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="kn">import</span> <span class="n">Complex</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="k">import</span> <span class="n">Complex</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*A*B**2&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
 <span class="go">r1: A + 2B -&gt;(k1) C</span>
@@ -1183,12 +1265,12 @@ To use the rate instead, use rate = True.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="kn">import</span> <span class="n">Reaction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="kn">import</span> <span class="n">Complex</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crncomplex</span> <span class="k">import</span> <span class="n">Complex</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="p">(</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="n">Complex</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Complex</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;k1*A*B**2&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">())</span>
 <span class="go">r_{1}: A + 2 B \xrightarrow{k_{1}} C</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">r_{1}: A + 2 B \xrightarrow{A B^{2} k_{1}} C</span>
 </pre></div>
 </div>
@@ -1231,7 +1313,7 @@ To use the rate instead, use rate = True.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="n">parse_reactions</span><span class="p">([</span><span class="s2">&quot;A + 2B -&gt; A + B&quot;</span><span class="p">,</span> <span class="s2">&quot;A + B + C -&gt; B + C + D&quot;</span><span class="p">])</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="n">parse_reactions</span><span class="p">([</span><span class="s2">&quot;A + 2B -&gt; A + B&quot;</span><span class="p">,</span> <span class="s2">&quot;A + B + C -&gt; B + C + D&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove_react_prod</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">remove_react_prod</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span>
@@ -1258,8 +1340,8 @@ their reaction ids are concatenated.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.parsereaction</span> <span class="kn">import</span> <span class="n">parse_reactions</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="kn">import</span> <span class="n">merge_reactions</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.parsereaction</span> <span class="k">import</span> <span class="n">parse_reactions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.reaction</span> <span class="k">import</span> <span class="n">merge_reactions</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reacts</span> <span class="o">=</span> <span class="n">parse_reactions</span><span class="p">([</span><span class="s2">&quot;a -&gt; b&quot;</span><span class="p">,</span> <span class="s2">&quot;c &lt;-&gt; d + e&quot;</span><span class="p">,</span> <span class="s2">&quot;d + e -&gt; c&quot;</span><span class="p">,</span> <span class="s2">&quot;a -&gt; b&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">merge_reactions</span><span class="p">(</span><span class="n">reacts</span><span class="p">)</span>
 <span class="go">[r0r3: a -&gt;(k_r0 + k_r3) b, r1: c -&gt;(k_r1) d + e, r1_revr2: d + e -&gt;(k_r1_rev + k_r2) c]</span>
@@ -1369,7 +1451,7 @@ A complex can be created from a dictionary or an iterable.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span>
 <span class="go">E + 2S</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="s1">&#39;SSE&#39;</span><span class="p">)</span>
@@ -1399,7 +1481,7 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span><span class="o">.</span><span class="n">ma</span><span class="p">()</span>
 <span class="go">E*S**2</span>
 </pre></div>
@@ -1418,7 +1500,7 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">symp</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">symp</span><span class="p">()</span>
 <span class="go">E + 2*S</span>
 </pre></div>
 </div>
@@ -1437,7 +1519,7 @@ all stoichiometric coefficients by n.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Complex</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">2a + 6b</span>
 </pre></div>
 </div>
@@ -1456,7 +1538,7 @@ containing the stoichiometric cofficients of species in complex.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span><span class="o">.</span><span class="n">to_vector</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">])</span>
 <span class="go">Matrix([</span>
 <span class="go">[1],</span>
@@ -1487,7 +1569,7 @@ containing the stoichiometric cofficients of species in complex.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">to_complex</span><span class="p">(</span><span class="s2">&quot;2*a + b&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">to_complex</span><span class="p">(</span><span class="s2">&quot;2*a + b&quot;</span><span class="p">)</span>
 <span class="go">2a + b</span>
 </pre></div>
 </div>
@@ -1576,7 +1658,7 @@ for example e + es + esi = etot.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span> <span class="o">=</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + ES + ESI&quot;</span><span class="p">,</span> <span class="s2">&quot;Etot&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span> <span class="o">=</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + ES + ESI&quot;</span><span class="p">,</span> <span class="s2">&quot;Etot&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span>
 <span class="go">E + ES + ESI = Etot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cons_law</span><span class="o">.</span><span class="n">expression</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="s2">&quot;ESI&quot;</span><span class="p">,</span> <span class="s2">&quot;ES*I&quot;</span><span class="p">)</span>
@@ -1680,14 +1762,11 @@ Works only if this block is square and invertible.</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1703,12 +1782,12 @@ Works only if this block is square and invertible.</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">crnpy 0.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Elisa Tonello.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2016, Elisa Tonello.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>

@@ -126,13 +126,18 @@ class CRN(object):
 
         The tuple of species is read-only, and can change if the reactions are updated,
         or if a reduction method is applied to eliminate some species.
+
+        :type: tuple of strings.
         """
         return tuple(self._species)
 
 
     @property
     def removed_species(self):
-        """Couples (species, expression) for species that have been eliminated."""
+        """Couples (species, expression) for species that have been eliminated.
+
+        :type: list of pairs (string, sympy expression).
+        """
         return tuple(self._removed_species)
 
 
@@ -149,6 +154,8 @@ class CRN(object):
 
         The tuple of complexes is read-only, and can change if the reactions are updated,
         or if a reduction method is applied to eliminate some species.
+
+        :type: tuple of Complex objects.
         """
         return tuple(self._complexes)
 
@@ -157,8 +164,8 @@ class CRN(object):
     def reactions(self):
         """Tuple of the network reactions.
 
-        They can be updated. If the network SBML model exists, this is also updated
-        when reactions change.
+        :setter: Sets the reactions, updating the CRN model and document if they exist.
+        :type: tuple of Reaction objects.
         """
         return tuple(self._reactions)
     @reactions.setter
@@ -193,6 +200,10 @@ class CRN(object):
 
     @property
     def rates(self):
+        """Rates of the reactions.
+
+        :type: tuple of sympy expressions.
+        """
         return self._rates
 
 
@@ -464,7 +475,8 @@ class CRN(object):
 
 
     def influence_matrix(self, var = None, state = None, check = False, interval = None, params = None):
-        """Return the n_s x n_r influence matrix.
+        """Return the influence matrix of the reaction network.
+        This is a matrix of dimension number of species times number of reactions.
         The element at position ij is a variable with a plus in front
         if the rate v_j(x) of reaction j increases with x_i,
         a minus if it decreases, and 0 if it is constant in x_i.
@@ -479,6 +491,10 @@ class CRN(object):
         * check -- check for monotonicity. Only available for unary functions.
         * interval -- interval where monotonicity is checked - default is [0, oo).
         * params -- values for the kinetic parameters. All set to 1 by default.
+
+        References:
+
+        Feliu, E., & Wiuf, C. (2015). Finding the positive feedback loops underlying multi-stationarity. BMC systems biology, 9(1), 1
 
         """
 
@@ -541,7 +557,16 @@ class CRN(object):
     def deficiency(self):
         """Deficiency of the chemical reaction network,
         calculated as number of complexes, minus number of linkage classes,
-        minus the rank of the stoichiometric matrix."""
+        minus the rank of the stoichiometric matrix.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net.deficiency
+        0
+
+        """
         return sp.Matrix(self.incidence_matrix).rank() - sp.Matrix(self.stoich_matrix).rank()
 
 
@@ -553,7 +578,16 @@ class CRN(object):
 
     def format_deficiency(self):
         """Return a string 'deficiency delta = numer of complexes -
-        number of linkage classes - rank of the stoichiometric matrix'"""
+        number of linkage classes - rank of the stoichiometric matrix'
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["A <-> B + C", "2B -> C", "C -> D + E", "D + E <-> 2B"])
+        >>> net.format_deficiency()
+        'deficiency 0 = 5 - 2 - 3'
+
+        """
         return "deficiency {} = {} - {} - {}".format(self.deficiency, \
                                                      self.n_complexes, \
                                                      self.n_linkage_classes, \
@@ -695,11 +729,16 @@ class CRN(object):
 
 
     def tree_constant(self, index):
-        """Return the constant of Prop. 3 of
-        ''Toric Dynamical Systems'' by Shul et al.,
-        associated to index.
-        The term ''tree constant'' is introduced in
-        ''Translated Chemical Reaction Networks'' by M. D. Johnston."""
+        """Return the constant of Prop. 3 in [1], associated to *index*.
+        The term ''tree constant'' is introduced in [2].
+
+        References:
+
+        [1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.
+
+        [2] Johnston, M. D. (2014). Translated chemical reaction networks. Bulletin of mathematical biology, 76(5), 1081-1116.
+
+        """
         # find the linkage classes
         _, lcs = self.weak_conn_components()
         l = lcs[index]
@@ -708,10 +747,16 @@ class CRN(object):
 
 
     def tree_constants(self):
-        """Return the constants of Prop. 3 of
-        ''Toric Dynamical Systems'' by Shul et al.
-        The term ''tree constant'' is introduced in
-        ''Translated Chemical Reaction Networks'' by M. D. Johnston."""
+        """Return the constants of Prop. 3 in [1].
+        The term ''tree constant'' is introduced in [2].
+
+        References:
+
+        [1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.
+
+        [2] Johnston, M. D. (2014). Translated chemical reaction networks. Bulletin of mathematical biology, 76(5), 1081-1116.
+
+        """
         kinetic_matrix = self.kinetic_matrix
         # find the linkage classes
         _, lcs = self.weak_conn_components()
@@ -999,9 +1044,8 @@ class CRN(object):
         * network_file -- save the reduction steps to file with given path.
 
         Update remove_species.
+
         """
-        # Algorithms from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
 
         if cons_law:
             add_species = [str(c) for c in cons_law[1].species.keys() if c != sympify(cons_law[0])]
@@ -1045,9 +1089,12 @@ class CRN(object):
         First replace removed_species in the conservation law with their expression.
         Then use the conservation expression to write the species
         concentration as function of the remaining species.
+
+        References:
+
+        Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.
+
         """
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
         conservation = cons_law.expression
 
         if debug:
@@ -1090,11 +1137,14 @@ class CRN(object):
         * network_file -- save the reduction steps to file with given path.
 
         Update remove_species.
+
+        References:
+
+        Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.
+
+        Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).
+
         """
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
-        # Algorithm for minimal structure based on Madelaine et al. (2026),
-        # Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).
         return self.remove(qss = ([intermediate] if intermediate else None), cons_law = cons_law,
                            adjust = adjust, minimal = minimal, debug = debug, \
                            network_file = network_file, remove_const = remove_const, merge_reacts = merge_reacts)
@@ -1102,10 +1152,6 @@ class CRN(object):
 
     def _qss(self, intermediates, minimal = False, error_if_missing = True, network_file = None, debug = False):
         """Eliminate the intermediates via quasi-steady state approximation."""
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
-        # Algorithm for minimal structure based on Madelaine et al. (2026),
-        # Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).
 
         if debug: print("Intermediates to remove: {}".format(intermediates))
         if minimal:
@@ -1435,9 +1481,12 @@ class CRN(object):
         * network_file -- save the reduction steps to file with given path.
 
         Update remove_species.
+
+        References:
+
+        Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.
+
         """
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
         return self.remove(rapid_eq = [recouple], cons_law = cons_law, debug = debug, network_file = network_file)
 
 
@@ -1446,8 +1495,6 @@ class CRN(object):
         are assumed at rapid equilibrium.
         The first complex is removed and the second
         replaces it in the network."""
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
 
         remove, keep = couple
         removecomplex, keepcomplex = map(parse_complex, couple)
@@ -1521,8 +1568,6 @@ class CRN(object):
         * expr -- optional expression that replaces const_species in rates.
 
         """
-        # Algorithm from Tonello et al. (2016),
-        # On the elimination of intermediate species in chemical reaction networks.
 
         # check that const_species is a valid species
         # either const_species is in set of species, and has null derivative
@@ -1564,25 +1609,33 @@ class CRN(object):
     ### Graphs ###
 
     def complex_graph_adj(self):
-        """Return the nc x nc adjacency matrix of the graph of complexes."""
+        """Return the adjacency matrix of the graph of complexes.
+
+        This is a sympy Matrix of dimension number of complexes times number of complexes.
+        """
         adjacency = - self.incidence_matrix.multiply(negative(self.incidence_matrix).T)
         for i in range(self.n_complexes): adjacency[i, i] = 0
-        adjacency = np.ma.masked_values(adjacency, 0)
         return adjacency
 
 
     def dsr_graph_adj(self, keep = None):
-        """Return the (ns + nr) x (ns + nr) adjacency matrix
-        of the directed species-reaction graph.
-        Optionally keep only variables in keep."""
+        """Return the adjacency matrix of the directed species-reaction graph.
+
+
+        Optionally remove the variables of the influence matrix not in *keep*.
+
+        References:
+
+        Feliu, E., & Wiuf, C. (2015). Finding the positive feedback loops underlying multi-stationarity. BMC systems biology, 9(1), 1
+
+        """
         A = self.stoich_matrix
         im = self.influence_matrix()
         if keep is not None:
             im = im.applyfunc(lambda x: x if x in keep else 0)
         im = im.applyfunc(lambda x: -1 if str(x)[0] == "-" else (1 if x != 0 else 0))
         adjacency = sp.zeros(im.rows, im.rows).row_join(im).col_join(A.T.row_join(sp.zeros(A.cols, A.cols)))
-        adjacency = np.array(adjacency.tolist()).astype(np.float64)
-        return np.array(adjacency)
+        return adjacency
 
 
     ### Connectivity properties ###
@@ -1590,7 +1643,7 @@ class CRN(object):
     def strong_conn_components(self):
         """Return the number of strongly connected components of the graph of complexes,
         and an array of labels for the strongly connected components."""
-        adjacency = self.complex_graph_adj()
+        adjacency = np.ma.masked_values(self.complex_graph_adj(), 0)
         return connected_components(adjacency, connection = 'strong')
 
 
@@ -1598,7 +1651,7 @@ class CRN(object):
         """Return the list labels for the terminal strongly connected components,
         of the graph of complexes, and the array of labels for the strongly connected components."""
         n, cs = self.strong_conn_components()
-        adjacency = self.complex_graph_adj()
+        adjacency = np.ma.masked_values(self.complex_graph_adj(), 0)
         stcc = []
         for i in range(n):
             complexes = [j for j in range(self.n_complexes) if cs[j] == i]
@@ -1634,7 +1687,7 @@ class CRN(object):
     def weak_conn_components(self):
         """Return the number of weakly connected components of the graph of complexes,
         and an array of labels for the weakly connected components."""
-        return connected_components(self.complex_graph_adj())
+        return connected_components(np.ma.masked_values(self.complex_graph_adj(), 0))
 
 
     def linkage_classes(self):
@@ -1674,11 +1727,11 @@ class CRN(object):
         >>> net.acr_species(subnets = True)
         ['A', 'C', 'D']
 
-        Algorithm based on the presentation in the supplementary material of
-        Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
+        References:
+
+        Shinar, G., Feinberg, M. (2010). Structural sources of robustness in biochemical reaction networks. Science.
+
         """
-        # Algorithm based on the presentation in the supplementary material of
-        # Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
         acr_s = []
         acr_c = self.acr_complexes(as_vectors = True, subnets = subnets)
         if acr_c:
@@ -1705,8 +1758,10 @@ class CRN(object):
         >>> net.acr_complexes(subnets=True)
         [A**2/C, A*C/D, A]
 
-        Algorithm based on the presentation in the supplementary material of
-        Shinar, G., Feinberg, M., Structural sources of robustness in biochemical reaction networks. Science 2010.
+        References:
+
+        Shinar, G., Feinberg, M. (2010). Structural sources of robustness in biochemical reaction networks. Science.
+
         """
         if self.is_ma:
             if subnets:
