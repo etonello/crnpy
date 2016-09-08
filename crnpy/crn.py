@@ -202,7 +202,7 @@ class CRN(object):
     def rates(self):
         """Rates of the reactions.
 
-        :type: tuple of sympy expressions.
+        :type: matrix of sympy expressions.
         """
         return self._rates
 
