@@ -739,7 +739,7 @@ class CRN(object):
 
 
     def tree_constant(self, index):
-        """Return the constant of Prop. 3 in [1], associated to *index*.
+        """Return the expressions of Prop. 3 in [1], associated to *index*.
         The term ''tree constant'' is introduced in [2].
 
         References:
@@ -757,7 +757,7 @@ class CRN(object):
 
 
     def tree_constants(self):
-        """Return the constants of Prop. 3 in [1].
+        """Return the expressions of Prop. 3 in [1].
         The term ''tree constant'' is introduced in [2].
 
         References:
@@ -1055,6 +1055,15 @@ class CRN(object):
 
         Update remove_species.
 
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["s + e (k_1)<->(k1) es", "es ->(k2) e + p", "i + e (k_3)<->(k3) ei", "i + es (k_3)<->(k3) esi", "s + ei (k_1)<->(k1) esi"])
+        >>> cl = ('e', ConsLaw('e + ei + es + esi', 'et'))
+        >>> net.remove(rapid_eq = [('ei', 'e + i'), ('esi', 'e + s + i'), ('es', 's + e')], cons_law = cl)
+        >>> net.reactions
+        (r1: s ->(et*k1*k2*k_3/(i*k1*k3*s + i*k3*k_1 + k1*k_3*s + k_1*k_3)) p,)
+
         """
 
         if cons_law:
@@ -1099,6 +1108,20 @@ class CRN(object):
         First replace removed_species in the conservation law with their expression.
         Then use the conservation expression to write the species
         concentration as function of the remaining species.
+
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) C", "C ->(k2) E + P"])
+        >>> net.qss("C")
+        >>> net.reactions
+        (r0_r1: E + S ->(k1*k2/(k2 + k_1)) E + P,)
+        >>> net.removed_species
+        (('C', E*S*k1/(k2 + k_1)),)
+        >>> cl = ConsLaw("E + C", "etot")
+        >>> net.remove_by_cons("E", cl)
+        >>> net.reactions
+        (r0_r1: S ->(etot*k1*k2/(S*k1 + k2 + k_1)) P,)
 
         References:
 
@@ -1146,13 +1169,28 @@ class CRN(object):
         * adjust -- change the rates so that they reflect the reactant species.
         * network_file -- save the reduction steps to file with given path.
 
-        Update remove_species.
+        :Example:
+
+        >>> from crnpy.crn import CRN, from_react_strings
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) C", "C ->(k2) E + P"])
+        >>> net.qss("C")
+        >>> net.reactions
+        (r0_r1: E + S ->(k1*k2/(k2 + k_1)) E + P,)
+        >>> net.removed_species
+        (('C', E*S*k1/(k2 + k_1)),)
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) C", "C ->(k2) E + P"])
+        >>> net.qss("C", cons_law = ("E", ConsLaw("E + C", "etot")))
+        >>> net.reactions
+        (r0_r1: S ->(etot*k1*k2/(S*k1 + k2 + k_1)) P,)
+
+
+        Update removed_species.
 
         References:
 
         Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.
 
-        Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).
+        Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification (CMSB).
 
         """
         return self.remove(qss = ([intermediate] if intermediate else None), cons_law = cons_law,
@@ -1491,6 +1529,19 @@ class CRN(object):
         * network_file -- save the reduction steps to file with given path.
 
         Update remove_species.
+
+        :Example:
+
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) C", "C ->(k2) E + P"])
+        >>> net.rapid_eq(("C", "E + S"))
+        >>> net.reactions
+        (r1: E + S ->(k1*k2/k_1) E + P,)
+        >>> net.removed_species
+        (('C', E*S*k1/k_1),)
+        >>> net = from_react_strings(["E + S (k_1)<->(k1) C", "C ->(k2) E + P"])
+        >>> net.rapid_eq(("C", "E + S"), cons_law = ("E", ConsLaw("E + C", "etot")))
+        >>> net.reactions
+        (r1: S ->(etot*k1*k2/(S*k1 + k_1)) P,)
 
         References:
 
@@ -1838,7 +1889,7 @@ class CRN(object):
         Return a list of reactions grouped by elementary mode, and the list of reactions
         not taking part in any elementary mode.
 
-        If same_react = True, do not split reactions with the same reactant."""
+        If *same_react* is True, do not split reactions with the same reactant."""
         subnet = {}
         reacts = {}
         tinvs = self.t_invariants

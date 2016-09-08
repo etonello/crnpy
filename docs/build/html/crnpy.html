@@ -799,10 +799,31 @@ All other species in the conservation are eliminated via quasi-steady state appr
 <li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
 </li>
 </ul>
-<p>Update remove_species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt;(k2) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0_r1: E + S -&gt;(k1*k2/(k2 + k_1)) E + P,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">removed_species</span>
+<span class="go">((&#39;C&#39;, E*S*k1/(k2 + k_1)),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt;(k2) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">cons_law</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + C&quot;</span><span class="p">,</span> <span class="s2">&quot;etot&quot;</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0_r1: S -&gt;(etot*k1*k2/(S*k1 + k2 + k_1)) P,)</span>
+</pre></div>
+</div>
+<p>Update removed_species.</p>
 <p>References:</p>
 <p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
-<p>Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification. (CMSB 2016).</p>
+<p>Madelaine et al. (2016), Normalizing Chemical Reaction Networks by Confluent Structural Simplification (CMSB).</p>
 </dd></dl>
 
 <dl class="method">
@@ -825,6 +846,26 @@ All other species in the conservation are eliminated via quasi-steady state appr
 </li>
 </ul>
 <p>Update remove_species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt;(k2) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">rapid_eq</span><span class="p">((</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E + S&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r1: E + S -&gt;(k1*k2/k_1) E + P,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">removed_species</span>
+<span class="go">((&#39;C&#39;, E*S*k1/k_1),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt;(k2) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">rapid_eq</span><span class="p">((</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E + S&quot;</span><span class="p">),</span> <span class="n">cons_law</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + C&quot;</span><span class="p">,</span> <span class="s2">&quot;etot&quot;</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r1: S -&gt;(etot*k1*k2/(S*k1 + k_1)) P,)</span>
+</pre></div>
+</div>
 <p>References:</p>
 <p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
 </dd></dl>
@@ -902,6 +943,22 @@ the quasi-steady state approximation is used.</p>
 </li>
 </ul>
 <p>Update remove_species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;s + e (k_1)&lt;-&gt;(k1) es&quot;</span><span class="p">,</span> <span class="s2">&quot;es -&gt;(k2) e + p&quot;</span><span class="p">,</span> <span class="s2">&quot;i + e (k_3)&lt;-&gt;(k3) ei&quot;</span><span class="p">,</span> <span class="s2">&quot;i + es (k_3)&lt;-&gt;(k3) esi&quot;</span><span class="p">,</span> <span class="s2">&quot;s + ei (k_1)&lt;-&gt;(k1) esi&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s1">&#39;e + ei + es + esi&#39;</span><span class="p">,</span> <span class="s1">&#39;et&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">rapid_eq</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;ei&#39;</span><span class="p">,</span> <span class="s1">&#39;e + i&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;esi&#39;</span><span class="p">,</span> <span class="s1">&#39;e + s + i&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;es&#39;</span><span class="p">,</span> <span class="s1">&#39;s + e&#39;</span><span class="p">)],</span> <span class="n">cons_law</span> <span class="o">=</span> <span class="n">cl</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r1: s -&gt;(et*k1*k2*k_3/(i*k1*k3*s + i*k3*k_1 + k1*k_3*s + k_1*k_3)) p,)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -917,6 +974,27 @@ the quasi-steady state approximation is used.</p>
 First replace removed_species in the conservation law with their expression.
 Then use the conservation expression to write the species
 concentration as function of the remaining species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="k">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_react_strings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;E + S (k_1)&lt;-&gt;(k1) C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt;(k2) E + P&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0_r1: E + S -&gt;(k1*k2/(k2 + k_1)) E + P,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">removed_species</span>
+<span class="go">((&#39;C&#39;, E*S*k1/(k2 + k_1)),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s2">&quot;E + C&quot;</span><span class="p">,</span> <span class="s2">&quot;etot&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">remove_by_cons</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">cl</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">reactions</span>
+<span class="go">(r0_r1: S -&gt;(etot*k1*k2/(S*k1 + k2 + k_1)) P,)</span>
+</pre></div>
+</div>
 <p>References:</p>
 <p>Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.</p>
 </dd></dl>
@@ -1078,7 +1156,7 @@ or if a reduction method is applied to eliminate some species.</p>
 <dd><p>Split reactions according to the elementary modes they take part in.</p>
 <p>Return a list of reactions grouped by elementary mode, and the list of reactions
 not taking part in any elementary mode.</p>
-<p>If same_react = True, do not split reactions with the same reactant.</p>
+<p>If <em>same_react</em> is True, do not split reactions with the same reactant.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1171,7 +1249,7 @@ Requires pycddlib.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.tree_constant">
 <code class="descname">tree_constant</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the constant of Prop. 3 in [1], associated to <em>index</em>.
+<dd><p>Return the expressions of Prop. 3 in [1], associated to <em>index</em>.
 The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
 <p>References:</p>
 <p>[1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.</p>
@@ -1181,7 +1259,7 @@ The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.tree_constants">
 <code class="descname">tree_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.tree_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the constants of Prop. 3 in [1].
+<dd><p>Return the expressions of Prop. 3 in [1].
 The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
 <p>References:</p>
 <p>[1] Craciun, G. et al. (2009), Toric dynamical systems. Journal of Symbolic Computation 44.11: 1551-1565.</p>
