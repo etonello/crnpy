@@ -99,7 +99,7 @@ appearing after the hash sign will ignored.
 Exploring chemical reaction networks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The library implements some elements of chemical reaction network theory ([1]_, [3]_, [4]_).
+The library implements some elements of chemical reaction network theory ([1]_, [3]_, [5]_).
 
 Attributes of a CRN object include the network species, complexes, and
 reactions:
@@ -187,7 +187,7 @@ We can check if the network is weakly reversible:
 
 Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
-(the following is example S7 in [8]_):
+(the following is example S7 in [9]_):
 
 .. code:: python
 
@@ -207,7 +207,7 @@ linkage classes, and terminal complexes
     >>> net.non_terminal_complexes
     [X, A, Xp + Y, B, A + Yp, C]
 
-*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [8]_:
+*acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [9]_:
 
 .. code:: python
 
@@ -216,7 +216,7 @@ linkage classes, and terminal complexes
 
 The same method used with the option *subnets = True* will attempt to find a decomposition of the network
 in subnetworks, using the network elementary modes, and to use this decomposition to
-find species with absolute concentration robustness. Consider example S30 in [8]_:
+find species with absolute concentration robustness. Consider example S30 in [9]_:
 
 .. code:: python
 
@@ -226,15 +226,39 @@ find species with absolute concentration robustness. Consider example S30 in [8]
     >>> net.acr_species(subnets = True)
     ['A', 'C', 'D']
 
+The adjacency matrix for the directed species reaction graph (as defined in [4]_) can be created with *dsr_graph_adj()*:
+
+.. code:: python
+
+    >>> crn = from_react_file("examples/data/reactions/dsr-graph/pos_loops_main")
+    >>> crn.influence_matrix(var = "a")
+    Matrix([
+    [a1_1,    0,    0,    0],
+    [   0, a2_2, a2_3,    0],
+    [   0,    0, a3_3, a3_4]])
+    >>> crn.print_influence_matrix()
+            r1     r2     r3     r4
+    x1 | g_1_1      0      0      0 |
+    x2 |     0  g_2_2  g_2_3      0 |
+    x3 |     0      0  g_3_3  g_3_4 |
+    >>> crn.dsr_graph_adj()
+    Matrix([
+    [ 0,  0,  0, 1, 0, 0, 0],
+    [ 0,  0,  0, 0, 1, 1, 0],
+    [ 0,  0,  0, 0, 0, 1, 1],
+    [-1,  1,  0, 0, 0, 0, 0],
+    [ 1, -1,  0, 0, 0, 0, 0],
+    [ 0, -1,  1, 0, 0, 0, 0],
+    [ 0,  1, -1, 0, 0, 0, 0]])
 
 Reduction
 ~~~~~~~~~
 
 The tool offers some methods for the structural reduction of chemical reaction network
-and the derivation of kinetic rates (the algorithms used in the following examples are described in [9]_).
+and the derivation of kinetic rates (the algorithms used in the following examples are described in [10]_).
 
 In the following example, we consider the one-substrate enzyme reaction mechanism,
-and eliminate the intermediate *ES* using quasi-steady state approximation ([2]_, [5]_, [7]_):
+and eliminate the intermediate *ES* using quasi-steady state approximation ([2]_, [6]_, [8]_):
 
 .. code:: python
 
@@ -272,7 +296,7 @@ In alternative, we could eliminate the constant species:
     ... 
     veq_vcat: S ->(comp*E*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P
 
-or use a rapid equilibrium approximation ([2]_, [5]_, [7]_):
+or use a rapid equilibrium approximation ([2]_, [6]_, [8]_):
 
 .. code:: python
 
@@ -364,7 +388,7 @@ Check if two networks are dynamically equivalent:
     >>> net1.is_dyn_eq(net2)
     True
 
-We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [6]_:
+We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
 
 .. code:: python
 
@@ -404,14 +428,16 @@ References
 
 .. [3] Feinberg, M. (1979). *Lectures on chemical reaction networks*. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.
 
-.. [4] Gunawardena, J. (2003). *Chemical reaction network theory for in-silico biologists*, http://vcp.med.harvard.edu/papers/crnt.pdf.
+.. [4] Feliu, E., & Wiuf, C. (2015). *Finding the positive feedback loops underlying multi-stationarity*. BMC systems biology, 9(1), 1.
 
-.. [5] Ingalls, Brian. (2013). *Mathematical Modelling in Systems Biology: An Introduction.*, https://www.math.uwaterloo.ca/~bingalls/MMSB/.
+.. [5] Gunawardena, J. (2003). *Chemical reaction network theory for in-silico biologists*, http://vcp.med.harvard.edu/papers/crnt.pdf.
 
-.. [6] Juty, N., et al. (2015). *BioModels: content, features, functionality, and use.* CPT: pharmacometrics \& systems pharmacology, 4(2), pp.55-68.
+.. [6] Ingalls, Brian. (2013). *Mathematical Modelling in Systems Biology: An Introduction.*, https://www.math.uwaterloo.ca/~bingalls/MMSB/.
 
-.. [7] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
+.. [7] Juty, N., et al. (2015). *BioModels: content, features, functionality, and use.* CPT: pharmacometrics \& systems pharmacology, 4(2), pp.55-68.
 
-.. [8] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
+.. [8] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
 
-.. [9] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
+.. [9] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
+
+.. [10] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
