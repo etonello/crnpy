@@ -200,8 +200,6 @@ linkage classes, and terminal complexes
     [[X, A], [Ap, Xp], [Xp + Y, B], [Bp, X + Yp], [A + Yp, C], [Cp, A + Y]]
     >>> net.linkage_classes
     [[X, A, Ap, Xp], [Xp + Y, B, Bp, X + Yp], [A + Yp, C, Cp, A + Y]]
-    >>> net.deficiency
-    1
     >>> net.terminal_complexes
     [Ap, Xp, Bp, X + Yp, Cp, A + Y]
     >>> net.non_terminal_complexes
