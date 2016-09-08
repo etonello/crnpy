@@ -2012,9 +2012,9 @@ class CRN(object):
         print_matrix(self.complex_matrix, self.species, list(map(str, self.complexes)))
 
 
-    def print_influence_matrix(self):
+    def print_influence_matrix(self, var = "g_"):
         """Print the influence matrix, with labels for species and reactions."""
-        print_matrix(self.influence_matrix(), self.species, self.reactionids)
+        print_matrix(self.influence_matrix(var), self.species, self.reactionids)
 
 
     def inspect(self, print_reactions = False, print_matrices = False, invariants = False):
