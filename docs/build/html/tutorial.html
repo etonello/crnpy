@@ -126,7 +126,7 @@ appearing after the hash sign will ignored.</p>
 </div>
 <div class="section" id="exploring-chemical-reaction-networks">
 <h2>Exploring chemical reaction networks<a class="headerlink" href="#exploring-chemical-reaction-networks" title="Permalink to this headline">¶</a></h2>
-<p>The library implements some elements of chemical reaction network theory (<a class="footnote-reference" href="#id16" id="id1">[1]</a>, <a class="footnote-reference" href="#id18" id="id2">[3]</a>, <a class="footnote-reference" href="#id20" id="id3">[5]</a>).</p>
+<p>The library implements some elements of chemical reaction network theory (<a class="footnote-reference" href="#id15" id="id1">[1]</a>, <a class="footnote-reference" href="#id17" id="id2">[3]</a>, <a class="footnote-reference" href="#id19" id="id3">[5]</a>).</p>
 <p>Attributes of a CRN object include the network species, complexes, and
 reactions:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">crn</span><span class="o">.</span><span class="n">complexes</span>
@@ -200,7 +200,7 @@ and at the conservation laws:</p>
 </div>
 <p>Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
-(the following is example S7 in <a class="footnote-reference" href="#id24" id="id4">[9]</a>):</p>
+(the following is example S7 in <a class="footnote-reference" href="#id23" id="id4">[9]</a>):</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;X &lt;-&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;A -&gt; Ap&quot;</span><span class="p">,</span> <span class="s2">&quot;Ap &lt;-&gt; Xp&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                          <span class="s2">&quot;Xp + Y &lt;-&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; Bp&quot;</span><span class="p">,</span> <span class="s2">&quot;Bp &lt;-&gt; X + Yp&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                          <span class="s2">&quot;Yp + A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; Cp&quot;</span><span class="p">,</span> <span class="s2">&quot;Cp &lt;-&gt; A + Y&quot;</span><span class="p">])</span>
@@ -216,14 +216,14 @@ linkage classes, and terminal complexes
 <span class="go">[X, A, Xp + Y, B, A + Yp, C]</span>
 </pre></div>
 </div>
-<p><em>acr_species</em> looks for species that exhibit absolute concentration robustness using the algorithm in <a class="footnote-reference" href="#id24" id="id5">[9]</a>:</p>
+<p><em>acr_species</em> looks for species that exhibit absolute concentration robustness using the algorithm in <a class="footnote-reference" href="#id23" id="id5">[9]</a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
 <span class="go">[&#39;Yp&#39;]</span>
 </pre></div>
 </div>
 <p>The same method used with the option <em>subnets = True</em> will attempt to find a decomposition of the network
 in subnetworks, using the network elementary modes, and to use this decomposition to
-find species with absolute concentration robustness. Consider example S30 in <a class="footnote-reference" href="#id24" id="id6">[9]</a>:</p>
+find species with absolute concentration robustness. Consider example S30 in <a class="footnote-reference" href="#id23" id="id6">[9]</a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;A + B -&gt; 2B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;2A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;A + C &lt;-&gt; D&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
 <span class="go">[&#39;A&#39;]</span>
@@ -231,7 +231,7 @@ find species with absolute concentration robustness. Consider example S30 in <a 
 <span class="go">[&#39;A&#39;, &#39;C&#39;, &#39;D&#39;]</span>
 </pre></div>
 </div>
-<p>The adjacency matrix for the directed species reaction graph (as defined in <a class="footnote-reference" href="#id19" id="id7">[4]</a>) can be created with <em>dsr_graph_adj()</em>:</p>
+<p>The adjacency matrix for the directed species reaction graph (as defined in <a class="footnote-reference" href="#id18" id="id7">[4]</a>) can be created with <em>dsr_graph_adj()</em>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/dsr-graph/pos_loops_main&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">influence_matrix</span><span class="p">(</span><span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">Matrix([</span>
@@ -258,9 +258,9 @@ find species with absolute concentration robustness. Consider example S30 in <a 
 <div class="section" id="reduction">
 <h2>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h2>
 <p>The tool offers some methods for the structural reduction of chemical reaction network
-and the derivation of kinetic rates (the algorithms used in the following examples are described in <a class="footnote-reference" href="#id25" id="id8">[10]</a>).</p>
+and the derivation of kinetic rates.</p>
 <p>In the following example, we consider the one-substrate enzyme reaction mechanism,
-and eliminate the intermediate <em>ES</em> using quasi-steady state approximation (<a class="footnote-reference" href="#id17" id="id9">[2]</a>, <a class="footnote-reference" href="#id21" id="id10">[6]</a>, <a class="footnote-reference" href="#id23" id="id11">[8]</a>):</p>
+and eliminate the intermediate <em>ES</em> using quasi-steady state approximation (<a class="footnote-reference" href="#id16" id="id8">[2]</a>, <a class="footnote-reference" href="#id20" id="id9">[6]</a>, <a class="footnote-reference" href="#id22" id="id10">[8]</a>):</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">reactions</span>
 <span class="go">(veq: E + S -&gt;(_comp*veq_kon) ES, veq_rev: ES -&gt;(_comp*veq_koff) E + S, vcat: ES -&gt;(_comp*vcat_kcat) E + P)</span>
@@ -292,7 +292,7 @@ and eliminate the intermediate <em>ES</em> using quasi-steady state approximatio
 <span class="go">veq_vcat: S -&gt;(comp*E*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P</span>
 </pre></div>
 </div>
-<p>or use a rapid equilibrium approximation (<a class="footnote-reference" href="#id17" id="id12">[2]</a>, <a class="footnote-reference" href="#id21" id="id13">[6]</a>, <a class="footnote-reference" href="#id23" id="id14">[8]</a>):</p>
+<p>or use a rapid equilibrium approximation (<a class="footnote-reference" href="#id16" id="id11">[2]</a>, <a class="footnote-reference" href="#id20" id="id12">[6]</a>, <a class="footnote-reference" href="#id22" id="id13">[8]</a>):</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">rapid_eq</span><span class="p">((</span><span class="s1">&#39;ES&#39;</span><span class="p">,</span> <span class="s1">&#39;E + S&#39;</span><span class="p">),</span> <span class="n">cons_law</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">ConsLaw</span><span class="p">(</span><span class="s1">&#39;E + ES&#39;</span><span class="p">,</span> <span class="s1">&#39;Et&#39;</span><span class="p">)))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
@@ -368,7 +368,7 @@ use <em>rate = True</em> to save the reaction rates instead):</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>We can create a chemical reaction network for a network from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id22" id="id15">[7]</a>:</p>
+<p>We can create a chemical reaction network for a network from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id21" id="id14">[7]</a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre>crn = from_react_file(&quot;examples/data/reactions/biomodels/biomd0000000026&quot;)
 &gt;&gt;&gt; for r in crn.reactions: print(r)
 ...
@@ -398,64 +398,58 @@ dissociation_of_MKP_from_MAPK_rev: M + MKP -&gt;(h_6*uVol) M_MKP
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<table class="docutils footnote" frame="void" id="id16" rules="none">
+<table class="docutils footnote" frame="void" id="id15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Angeli, D. (2009). <em>A tutorial on Chemical Reaction Networks dynamics</em>. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id17" rules="none">
+<table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Cornish-Bowden, A. (1987). <em>Fundamentals of Enzyme Kinetics</em>. Elsevier Science.</td></tr>
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> Cornish-Bowden, A. (1987). <em>Fundamentals of Enzyme Kinetics</em>. Elsevier Science.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id18" rules="none">
+<table class="docutils footnote" frame="void" id="id17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Feinberg, M. (1979). <em>Lectures on chemical reaction networks</em>. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[4]</a></td><td>Feliu, E., &amp; Wiuf, C. (2015). <em>Finding the positive feedback loops underlying multi-stationarity</em>. BMC systems biology, 9(1), 1.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id20" rules="none">
+<table class="docutils footnote" frame="void" id="id19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td>Gunawardena, J. (2003). <em>Chemical reaction network theory for in-silico biologists</em>, <a class="reference external" href="http://vcp.med.harvard.edu/papers/crnt.pdf">http://vcp.med.harvard.edu/papers/crnt.pdf</a>.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[6]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Ingalls, Brian. (2013). <em>Mathematical Modelling in Systems Biology: An Introduction.</em>, <a class="reference external" href="https://www.math.uwaterloo.ca/~bingalls/MMSB/">https://www.math.uwaterloo.ca/~bingalls/MMSB/</a>.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[6]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id13">2</a>)</em> Ingalls, Brian. (2013). <em>Mathematical Modelling in Systems Biology: An Introduction.</em>, <a class="reference external" href="https://www.math.uwaterloo.ca/~bingalls/MMSB/">https://www.math.uwaterloo.ca/~bingalls/MMSB/</a>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id14">[7]</a></td><td>Juty, N., et al. (2015). <em>BioModels: content, features, functionality, and use.</em> CPT: pharmacometrics &amp; systems pharmacology, 4(2), pp.55-68.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[7]</a></td><td>Juty, N., et al. (2015). <em>BioModels: content, features, functionality, and use.</em> CPT: pharmacometrics &amp; systems pharmacology, 4(2), pp.55-68.</td></tr>
+<tr><td class="label">[8]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id13">2</a>)</em> Segel, I. H. (1975). <em>Enzyme kinetics</em>. Vol. 957. Wiley, New York.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[8]</td><td><em>(<a class="fn-backref" href="#id11">1</a>, <a class="fn-backref" href="#id14">2</a>)</em> Segel, I. H. (1975). <em>Enzyme kinetics</em>. Vol. 957. Wiley, New York.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id24" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
 <tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id5">2</a>, <a class="fn-backref" href="#id6">3</a>)</em> Shinar, G., Feinberg, M. (2010), <em>Structural sources of robustness in biochemical reaction networks</em>, Science.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id25" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[10]</a></td><td>Tonello, E., Owen, M. R., Farcot, E. (2016). <em>On the elimination of intermediate species in chemical reaction networks</em>.</td></tr>
 </tbody>
 </table>
 </div>

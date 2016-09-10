@@ -253,7 +253,7 @@ Reduction
 ~~~~~~~~~
 
 The tool offers some methods for the structural reduction of chemical reaction network
-and the derivation of kinetic rates (the algorithms used in the following examples are described in [10]_).
+and the derivation of kinetic rates.
 
 In the following example, we consider the one-substrate enzyme reaction mechanism,
 and eliminate the intermediate *ES* using quasi-steady state approximation ([2]_, [6]_, [8]_):
@@ -437,5 +437,3 @@ References
 .. [8] Segel, I. H. (1975). *Enzyme kinetics*. Vol. 957. Wiley, New York.
 
 .. [9] Shinar, G., Feinberg, M. (2010), *Structural sources of robustness in biochemical reaction networks*, Science.
-
-.. [10] Tonello, E., Owen, M. R., Farcot, E. (2016). *On the elimination of intermediate species in chemical reaction networks*.
