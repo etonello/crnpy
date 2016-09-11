@@ -1,8 +1,8 @@
 crnpy tutorial
 ==============
 
-Defining a chemical reaction network
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a chemical reaction network
+------------------------------------
 
 A chemical reaction network (CRN) object can be created from an SBML
 file:
@@ -97,9 +97,13 @@ Comments can be added to a reaction file using the symbol "#". Anything
 appearing after the hash sign will ignored.
 
 Exploring chemical reaction networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
-The library implements some elements of chemical reaction network theory ([1]_, [3]_, [5]_).
+The library implements some elements of chemical reaction network theory
+(see for example [1]_, [3]_, [5]_).
+
+Species, complexes and reactions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Attributes of a CRN object include the network species, complexes, and
 reactions:
@@ -127,7 +131,50 @@ reactions:
     r3_rev: eab ->(k_4) a + eb
     r4: eab ->(k5) e + p
 
-Available matrices associated to the reaction network are the
+While the species are simple strings, the complexes and reactions are special objects of type
+*Complex* and *Reaction* respectively.
+
+An object of type *Complex* is a *Counter*, a python dictionary where the keys are
+the species, and the values are the stoichiometric coefficients of the species
+in the complex.
+Therefore, a complex E + 2S can be defined in crnpy for example as
+
+.. code:: python
+
+    >>> c = Complex({'E': 1, 'S': 2})
+    >>> c
+    E + 2S
+
+or more briefly with
+
+.. code:: python
+
+    >>> c = Complex(E=1, S=2)
+
+A *Reaction* object can be created by specifying a reaction id, a reactant complex,
+a product complex and the reaction rate. The rate must be a SymPy expression,
+or a string that can be successfully converted to a SymPy expression:
+
+.. code:: python
+
+    >>> r = Reaction('r_1', Complex(E=1, S=1), Complex(C=1), "k1*E*S")
+
+One can access for example the reactant, product and rate of the reaction:
+
+.. code:: python
+
+    >>> r.reactant
+    E + S
+    >>> r.product
+    C
+    >>> r.rate
+    E*S*k1
+
+Network matrices
+~~~~~~~~~~~~~~~~
+
+After a CRN object is created, matrices associated to the reaction network can be accessed.
+Available matrices are the
 stoichiometric matrix *stoich\_matrix*, the matrix of stoichiometric
 coefficients *complex\_matrix* (often called Y in the literature), the
 Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_matrix*,
@@ -157,6 +204,9 @@ the stoichiometry matrix:
     eb  |  0       0   1      -1   0       0  -1       1   0 |
     p   |  0       0   0       0   0       0   0       0   1 |
 
+Network dynamics
+~~~~~~~~~~~~~~~~
+
 We can look for example at the system of ODEs associated to the network,
 and at the conservation laws:
 
@@ -177,6 +227,48 @@ or get a list of intermediate species:
     >>> crn.intermediate_species
     ['E', 'ES', 'S']
 
+Check if two networks are dynamically equivalent:
+
+.. code:: python
+
+    >>> net1 = from_react_strings(['a ->(k) a + 2b'])
+    >>> net2 = from_react_strings(['a ->(2*k) a + b'])
+    >>> net1.is_dyn_eq(net2)
+    True
+
+We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
+
+.. code:: python
+
+    crn = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
+    >>> for r in crn.reactions: print(r)
+    ... 
+    binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
+    binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
+    phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
+    binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
+    binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
+    phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
+    binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
+    binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
+    dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
+    dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
+    dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
+    binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
+    binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
+    dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
+    dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
+    dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
+
+and generate a Gröbner basis for the steady state ideal:
+
+.. code:: python
+
+    >>> crn.groebner()
+    GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain='ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]', order='lex')
+
+Deficiency, reversibility and linkage classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We can check if the network is weakly reversible:
 
@@ -184,6 +276,42 @@ We can check if the network is weakly reversible:
 
     >>> crn.is_weakly_rev
     False
+
+Other features
+~~~~~~~~~~~~~~
+Create a model and look at its deficiency and elementary modes:
+
+.. code:: python
+
+    >>> reactions = ['r1: a ->(k1) b + y',
+    ...              'r2: y ->(k2) c',
+    ...              'r3: b + c ->(k3) a']
+    >>> example = from_react_strings(reactions)
+    >>> example.deficiency
+    1
+    >>> example.n_complexes, example.n_linkage_classes, example.stoich_matrix.rank()
+    (5, 2, 2)
+    >>> example.elem_modes
+    [[1, 1, 0, 1], [0, 1, 1, 0]]
+    >>> example.format_elem_modes()
+    [[r1 + r2 + r3], [r2 + r2_rev]]
+    >>> example.is_weakly_rev
+    False
+
+We can check how the elementary modes change if *y* is eliminated:
+
+.. code:: python
+
+    >>> example.qss('y')
+    >>> example.reactions
+    (r3: b + c ->(k3) a, r1_r2: a ->(k1) b + c)
+    >>> example.deficiency
+    0
+    >>> example.format_elem_modes()
+    [[r1_r2 + r3]]
+    >>> example.is_weakly_rev
+    True
+
 
 Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
@@ -250,7 +378,7 @@ The adjacency matrix for the directed species reaction graph (as defined in [4]_
     [ 0,  1, -1, 0, 0, 0, 0]])
 
 Reduction
-~~~~~~~~~
+---------
 
 The tool offers some methods for the structural reduction of chemical reaction network
 and the derivation of kinetic rates.
@@ -326,7 +454,7 @@ We can merge reactions with the same reactant and product:
     r2_r4r3_r4: a + b ->(et*k5*(k1*k3*k_2 + k2*k4*k_1)/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
 
 Saving models
-~~~~~~~~~~~~~
+-------------
 
 Chemical reaction networks can be saved to SBML files
 
@@ -341,84 +469,8 @@ use *rate = True* to save the reaction rates instead):
 
     >>> crn.save_reaction_file("examples/data/reactions/enzyme_simplified", rate = True)
 
-Other examples
-~~~~~~~~~~~~~~
-
-Create a model and look at its deficiency and elementary modes:
-
-.. code:: python
-
-    >>> reactions = ['r1: a ->(k1) b + y',
-    ...              'r2: y ->(k2) c',
-    ...              'r3: b + c ->(k3) a']
-    >>> example = from_react_strings(reactions)
-    >>> example.deficiency
-    1
-    >>> example.n_complexes, example.n_linkage_classes, example.stoich_matrix.rank()
-    (5, 2, 2)
-    >>> example.elem_modes
-    [[1, 1, 0, 1], [0, 1, 1, 0]]
-    >>> example.format_elem_modes()
-    [[r1 + r2 + r3], [r2 + r2_rev]]
-    >>> example.is_weakly_rev
-    False
-
-We can check how the elementary modes change if *y* is eliminated:
-
-.. code:: python
-
-    >>> example.qss('y')
-    >>> example.reactions
-    (r3: b + c ->(k3) a, r1_r2: a ->(k1) b + c)
-    >>> example.deficiency
-    0
-    >>> example.format_elem_modes()
-    [[r1_r2 + r3]]
-    >>> example.is_weakly_rev
-    True
-
-Check if two networks are dynamically equivalent:
-
-.. code:: python
-
-    >>> net1 = from_react_strings(['a ->(k) a + 2b'])
-    >>> net2 = from_react_strings(['a ->(2*k) a + b'])
-    >>> net1.is_dyn_eq(net2)
-    True
-
-We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
-
-.. code:: python
-
-    crn = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
-    >>> for r in crn.reactions: print(r)
-    ... 
-    binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
-    binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
-    phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
-    binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
-    binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
-    phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
-    binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
-    binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
-    dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
-    dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
-    dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
-    binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
-    binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
-    dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
-    dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
-    dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
-
-and generate a Gröbner basis for the steady state ideal:
-
-.. code:: python
-
-    >>> crn.groebner()
-    GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain='ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]', order='lex')
-
 References
-~~~~~~~~~~
+----------
 
 .. [1] Angeli, D. (2009). *A tutorial on Chemical Reaction Networks dynamics*. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.
 
