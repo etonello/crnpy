@@ -275,38 +275,6 @@ dissociation_of_MKP_from_MAPK_rev: M + MKP -&gt;(h_6*uVol) M_MKP
 <span class="go">False</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="other-features">
-<h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
-<p>Create a model and look at its deficiency and elementary modes:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r1: a -&gt;(k1) b + y&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;r2: y -&gt;(k2) c&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;r3: b + c -&gt;(k3) a&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">n_complexes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">n_linkage_classes</span><span class="p">,</span> <span class="n">example</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
-<span class="go">(5, 2, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">elem_modes</span>
-<span class="go">[[1, 1, 0, 1], [0, 1, 1, 0]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
-<span class="go">[[r1 + r2 + r3], [r2 + r2_rev]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>We can check how the elementary modes change if <em>y</em> is eliminated:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">qss</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">reactions</span>
-<span class="go">(r3: b + c -&gt;(k3) a, r1_r2: a -&gt;(k1) b + c)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">deficiency</span>
-<span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">format_elem_modes</span><span class="p">()</span>
-<span class="go">[[r1_r2 + r3]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">is_weakly_rev</span>
-<span class="go">True</span>
-</pre></div>
-</div>
 <p>Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
 (the following is example S7 in <a class="footnote-reference" href="#id23" id="id5">[9]</a>):</p>
@@ -325,6 +293,9 @@ linkage classes, and terminal complexes
 <span class="go">[X, A, Xp + Y, B, A + Yp, C]</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="other-features">
+<h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
 <p><em>acr_species</em> looks for species that exhibit absolute concentration robustness using the algorithm in <a class="footnote-reference" href="#id23" id="id6">[9]</a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">acr_species</span><span class="p">()</span>
 <span class="go">[&#39;Yp&#39;]</span>
@@ -340,7 +311,8 @@ find species with absolute concentration robustness. Consider example S30 in <a 
 <span class="go">[&#39;A&#39;, &#39;C&#39;, &#39;D&#39;]</span>
 </pre></div>
 </div>
-<p>The adjacency matrix for the directed species reaction graph (as defined in <a class="footnote-reference" href="#id18" id="id8">[4]</a>) can be created with <em>dsr_graph_adj()</em>:</p>
+<p>The influence matrix and adjacency matrix for the directed species reaction graph (as defined in <a class="footnote-reference" href="#id18" id="id8">[4]</a>)
+can be created with <em>influence_matrix()</em> and <em>dsr_graph_adj()</em> respectively:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/dsr-graph/pos_loops_main&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">influence_matrix</span><span class="p">(</span><span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">Matrix([</span>

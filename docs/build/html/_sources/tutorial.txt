@@ -277,42 +277,6 @@ We can check if the network is weakly reversible:
     >>> crn.is_weakly_rev
     False
 
-Other features
-~~~~~~~~~~~~~~
-Create a model and look at its deficiency and elementary modes:
-
-.. code:: python
-
-    >>> reactions = ['r1: a ->(k1) b + y',
-    ...              'r2: y ->(k2) c',
-    ...              'r3: b + c ->(k3) a']
-    >>> example = from_react_strings(reactions)
-    >>> example.deficiency
-    1
-    >>> example.n_complexes, example.n_linkage_classes, example.stoich_matrix.rank()
-    (5, 2, 2)
-    >>> example.elem_modes
-    [[1, 1, 0, 1], [0, 1, 1, 0]]
-    >>> example.format_elem_modes()
-    [[r1 + r2 + r3], [r2 + r2_rev]]
-    >>> example.is_weakly_rev
-    False
-
-We can check how the elementary modes change if *y* is eliminated:
-
-.. code:: python
-
-    >>> example.qss('y')
-    >>> example.reactions
-    (r3: b + c ->(k3) a, r1_r2: a ->(k1) b + c)
-    >>> example.deficiency
-    0
-    >>> example.format_elem_modes()
-    [[r1_r2 + r3]]
-    >>> example.is_weakly_rev
-    True
-
-
 Other features provided by the CRN class are the calculation of the network deficiency,
 linkage classes, and terminal complexes
 (the following is example S7 in [9]_):
@@ -333,6 +297,9 @@ linkage classes, and terminal complexes
     >>> net.non_terminal_complexes
     [X, A, Xp + Y, B, A + Yp, C]
 
+Other features
+~~~~~~~~~~~~~~
+
 *acr_species* looks for species that exhibit absolute concentration robustness using the algorithm in [9]_:
 
 .. code:: python
@@ -352,7 +319,8 @@ find species with absolute concentration robustness. Consider example S30 in [9]
     >>> net.acr_species(subnets = True)
     ['A', 'C', 'D']
 
-The adjacency matrix for the directed species reaction graph (as defined in [4]_) can be created with *dsr_graph_adj()*:
+The influence matrix and adjacency matrix for the directed species reaction graph (as defined in [4]_)
+can be created with *influence_matrix()* and *dsr_graph_adj()* respectively:
 
 .. code:: python
 
