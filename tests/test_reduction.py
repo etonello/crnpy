@@ -111,9 +111,7 @@ class TestReduction(unittest.TestCase):
             crn = from_react_file(path.join(folder, reactionFile))
             origspecies = crn.species
             origeqs = crn.equations()
-            crn.print_equations()
             crn.qss('i')
-            crn.print_equations()
 
             # Check that equations are as expected
             self.assertEqual(eqs_match(origeqs, origspecies, crn.removed_species, crn.equations(), crn.species), 0)

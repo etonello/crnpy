@@ -323,8 +323,6 @@ class TestCrn(unittest.TestCase):
     def test_dynEq(self):
         crn1 = from_react_file(path.join(input_reactions, "dynEq/net1"))
         crn2 = from_react_file(path.join(input_reactions, "dynEq/net2"))
-        crn1.print_equations()
-        crn2.print_equations()
         assert crn1.is_dyn_eq(crn2)
         assert crn2.is_dyn_eq(crn1)
 
@@ -334,15 +332,12 @@ class TestCrn(unittest.TestCase):
         crn1 = from_reacts(parse_reactions(reacts1))
         reacts2 = ["->(k_1*(A + B + C)) A", "A ->(k1 + k_1 + k_1 * C/A)", "->(k2*(A + B + C)) C", "C ->(k2 + k_2 + k2 * A/C)"]
         crn2 = from_reacts(parse_reactions(reacts2))
-        crn1.print_equations()
-        crn2.print_equations()
         self.assertFalse(crn1.is_dyn_eq(crn2))
 
 
     def test_derivative(self):
         reacts = ['a -> b + c', '2c -> a + d']
         crn = from_react_strings(reacts)
-        crn.print_equations()
         print
         self.assertRaises(ValueError, crn.derivative, 'b + 3')
         self.assertRaises(ValueError, crn.derivative, 'a**2 + b')

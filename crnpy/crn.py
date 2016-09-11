@@ -780,11 +780,9 @@ class CRN(object):
         return equations
 
 
-    def print_equations(self):
-        """Print the system of ODEs."""
-        odes = self.equations()
-        for s in range(self.n_species):
-            print ("d{}/dt = {}".format(self.species[s], odes[s, 0]))
+    def format_equations(self):
+        """Return strings representing the system of ODEs."""
+        return ["d{}/dt = {}".format(self.species[s], self.equations()[s, 0]) for s in range(self.n_species)]
 
 
     def groebner(self):
@@ -2141,7 +2139,7 @@ class CRN(object):
             print("Kinetic matrix:")
             self.print_kinetic_matrix()
         print("Equations:")
-        self.print_equations()
+        for e in self.format_equations(): print(e)
 
 
     ### Output to file ###

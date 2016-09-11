@@ -212,7 +212,8 @@ and at the conservation laws:
 
 .. code:: python
 
-    >>> crn.print_equations()
+    >>> for e in crn.format_equations(): print(e)
+    ...
     dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff
     dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff
     dP/dt = comp*ES*vcat_kcat
