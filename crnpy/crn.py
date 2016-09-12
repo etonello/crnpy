@@ -776,8 +776,7 @@ class CRN(object):
 
     def equations(self):
         """Return a matrix of expressions for the derivatives of the species concentrations."""
-        equations = self.stoich_matrix * self.rates
-        return equations
+        return self.stoich_matrix * self.rates
 
 
     def odes(self):
@@ -787,7 +786,7 @@ class CRN(object):
         x = [sp.Function(s) for s in self.species]
         derivs = self.equations()
         return [sp.Eq(sp.Derivative(x[j](t), t),
-                                    derivs[j].subs([(sp.sympify(self.species[i]), x[i](t)) for i in range(self.n_species)]))
+                                    derivs[j].subs([(sympify(self.species[i]), x[i](t)) for i in range(self.n_species)]))
                 for j in range(self.n_species)]
 
 
@@ -795,7 +794,7 @@ class CRN(object):
         """Return strings representing the differential equations
         describing the evolution of the species concentrations."""
         eqs = self.equations()
-        return ["d{}/dt = {}".format(self.species[s], eqs()[s, 0]) for s in range(self.n_species)]
+        return ["d{}/dt = {}".format(self.species[s], eqs[s, 0]) for s in range(self.n_species)]
 
 
     def groebner(self):
