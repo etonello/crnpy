@@ -219,18 +219,14 @@ p   |  0       0   0       0   0       0   0       0   1 |
 <h3>Network dynamics<a class="headerlink" href="#network-dynamics" title="Permalink to this headline">¶</a></h3>
 <p>We can look for example at the system of ODEs associated to the network,
 and at the conservation laws:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="gp">...</span>
 <span class="go">dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff</span>
 <span class="go">dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff</span>
 <span class="go">dP/dt = comp*ES*vcat_kcat</span>
 <span class="go">dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span>
 <span class="go">(E - P - S, ES + P + S)</span>
-</pre></div>
-</div>
-<p>or get a list of intermediate species:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">intermediate_species</span>
-<span class="go">[&#39;E&#39;, &#39;ES&#39;, &#39;S&#39;]</span>
 </pre></div>
 </div>
 <p>Check if two networks are dynamically equivalent:</p>

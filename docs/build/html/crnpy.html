@@ -346,7 +346,7 @@ as lists of length the number of reactions.</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.equations">
 <code class="descname">equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.equations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the derivatives of the species concentrations.</p>
+<dd><p>Return a matrix of expressions for the derivatives of the species concentrations.</p>
 </dd></dl>
 
 <dl class="method">
@@ -390,6 +390,13 @@ each representing an elementary mode.</p>
 </pre></div>
 </div>
 <p>Requires pycddlib.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="crnpy.crn.CRN.format_equations">
+<code class="descname">format_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.format_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return strings representing the differential equations
+describing the evolution of the species concentrations.</p>
 </dd></dl>
 
 <dl class="method">
@@ -693,6 +700,13 @@ or if update_model() is called.</p>
 <dd><p>Return the list of complexes in the nonterminal strongly connected components.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="crnpy.crn.CRN.odes">
+<code class="descname">odes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.odes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of differential equations describing the
+evolution of the species concentrations in time.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.p_invariants">
 <code class="descname">p_invariants</code><a class="headerlink" href="#crnpy.crn.CRN.p_invariants" title="Permalink to this definition">¶</a></dt>
@@ -721,12 +735,6 @@ Requires pycddlib.</p>
 <span class="go">A3 |  0        1   0    2   1  0 |</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="method">
-<dt id="crnpy.crn.CRN.print_equations">
-<code class="descname">print_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.print_equations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the system of ODEs.</p>
 </dd></dl>
 
 <dl class="method">
