@@ -190,28 +190,46 @@ or a string that can be successfully converted to a SymPy expression:</p>
 <p>After a CRN object is created, matrices associated to the reaction network can be accessed.
 Available matrices are the
 stoichiometric matrix <em>stoich_matrix</em>, the matrix of stoichiometric
-coefficients <em>complex_matrix</em> (often called Y in the literature), the
-Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em>kinetic_matrix</em>,
-the incidence matrix of the complex graph <em>incidence_matrix</em>.</p>
+coefficients <em>complex_matrix</em> (often called Y in the literature),
+the incidence matrix of the complex graph <em>incidence_matrix</em>.
+the Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em>kinetic_matrix</em>.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="p">()</span>
 <span class="go">Matrix([</span>
 <span class="go">[-1,  1,  1],</span>
 <span class="go">[ 1, -1, -1],</span>
 <span class="go">[ 0,  0,  1],</span>
 <span class="go">[-1,  1,  0]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">complex_matrix</span>
+<span class="go">Matrix([</span>
+<span class="go">[1, 0, 1],</span>
+<span class="go">[0, 1, 0],</span>
+<span class="go">[0, 0, 1],</span>
+<span class="go">[1, 0, 0]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">incidence_matrix</span>
+<span class="go">Matrix([</span>
+<span class="go">[-1,  1,  0],</span>
+<span class="go">[ 1, -1, -1],</span>
+<span class="go">[ 0,  0,  1]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">laplacian</span>
+<span class="go">Matrix([</span>
+<span class="go">[ _comp*veq_kon,                  -_comp*veq_koff, 0],</span>
+<span class="go">[-_comp*veq_kon, _comp*vcat_kcat + _comp*veq_koff, 0],</span>
+<span class="go">[             0,                 -_comp*vcat_kcat, 0]])</span>
 </pre></div>
 </div>
 <p>Special methods are available to print some matrices. For example, for
-the stoichiometry matrix:</p>
-<div class="code python highlight-python"><div class="highlight"><pre>  &gt;&gt;&gt; bi_uni_random.print_stoich_matrix()
-      r0  r0_rev  r1  r1_rev  r2  r2_rev  r3  r3_rev  r4
-a   | -1       1   0       0   0       0  -1       1   0 |
-b   |  0       0  -1       1  -1       1   0       0   0 |
-e   | -1       1  -1       1   0       0   0       0   1 |
-ea  |  1      -1   0       0  -1       1   0       0   0 |
-eab |  0       0   0       0   1      -1   1      -1  -1 |
-eb  |  0       0   1      -1   0       0  -1       1   0 |
-p   |  0       0   0       0   0       0   0       0   1 |
+the stoichiometry matrix and the laplacian:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
+<span class="go">     veq  veq_rev  vcat</span>
+<span class="go">E  |  -1        1     1 |</span>
+<span class="go">ES |   1       -1    -1 |</span>
+<span class="go">P  |   0        0     1 |</span>
+<span class="go">S  |  -1        1     0 |</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_laplacian</span><span class="p">()</span>
+<span class="go">                 E + S                                ES  E + P</span>
+<span class="go">E + S |  _comp*veq_kon                   -_comp*veq_koff      0 |</span>
+<span class="go">ES    | -_comp*veq_kon  _comp*vcat_kcat + _comp*veq_koff      0 |</span>
+<span class="go">E + P |              0                  -_comp*vcat_kcat      0 |</span>
 </pre></div>
 </div>
 </div>

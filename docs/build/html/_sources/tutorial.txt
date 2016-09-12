@@ -176,9 +176,9 @@ Network matrices
 After a CRN object is created, matrices associated to the reaction network can be accessed.
 Available matrices are the
 stoichiometric matrix *stoich\_matrix*, the matrix of stoichiometric
-coefficients *complex\_matrix* (often called Y in the literature), the
-Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_matrix*,
+coefficients *complex\_matrix* (often called Y in the literature),
 the incidence matrix of the complex graph *incidence\_matrix*.
+the Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_matrix*.
 
 .. code:: python
 
@@ -188,21 +188,40 @@ the incidence matrix of the complex graph *incidence\_matrix*.
     [ 1, -1, -1],
     [ 0,  0,  1],
     [-1,  1,  0]])
+    >>> crn.complex_matrix
+    Matrix([
+    [1, 0, 1],
+    [0, 1, 0],
+    [0, 0, 1],
+    [1, 0, 0]])
+    >>> crn.incidence_matrix
+    Matrix([
+    [-1,  1,  0],
+    [ 1, -1, -1],
+    [ 0,  0,  1]])
+    >>> crn.laplacian
+    Matrix([
+    [ _comp*veq_kon,                  -_comp*veq_koff, 0],
+    [-_comp*veq_kon, _comp*vcat_kcat + _comp*veq_koff, 0],
+    [             0,                 -_comp*vcat_kcat, 0]])
+
 
 Special methods are available to print some matrices. For example, for
-the stoichiometry matrix:
+the stoichiometry matrix and the laplacian:
 
 .. code:: python
 
-      >>> bi_uni_random.print_stoich_matrix()
-          r0  r0_rev  r1  r1_rev  r2  r2_rev  r3  r3_rev  r4
-    a   | -1       1   0       0   0       0  -1       1   0 |
-    b   |  0       0  -1       1  -1       1   0       0   0 |
-    e   | -1       1  -1       1   0       0   0       0   1 |
-    ea  |  1      -1   0       0  -1       1   0       0   0 |
-    eab |  0       0   0       0   1      -1   1      -1  -1 |
-    eb  |  0       0   1      -1   0       0  -1       1   0 |
-    p   |  0       0   0       0   0       0   0       0   1 |
+    >>> crn.print_stoich_matrix()
+         veq  veq_rev  vcat
+    E  |  -1        1     1 |
+    ES |   1       -1    -1 |
+    P  |   0        0     1 |
+    S  |  -1        1     0 |
+    >>> crn.print_laplacian()
+                     E + S                                ES  E + P
+    E + S |  _comp*veq_kon                   -_comp*veq_koff      0 |
+    ES    | -_comp*veq_kon  _comp*vcat_kcat + _comp*veq_koff      0 |
+    E + P |              0                  -_comp*vcat_kcat      0 |
 
 Network dynamics
 ~~~~~~~~~~~~~~~~
