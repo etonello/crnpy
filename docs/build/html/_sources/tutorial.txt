@@ -12,29 +12,33 @@ file:
     >>> from crnpy.crn import CRN, from_sbml, from_react_strings, from_react_file
     >>> enz = from_sbml("examples/data/sbml/enzyme.xml")
 
-or a list of reactions:
+or by specifying a list of strings describing reactions in a human-readable format:
 
 .. code:: python
 
-    >>> reactions = ['e + a (k_1)<->(k1) ea',
-    ...              'e + b (k_2)<->(k2) eb',
-    ...              'ea + b (k_3)<->(k3) eab',
-    ...              'eb + a (k_4)<->(k4) eab',
-    ...              'eab ->(k5) e + p']
+    >>> reactions = ['e + a (k_0)<->(k0) ea',
+    ...              'e + b (k_1)<->(k1) eb',
+    ...              'ea + b (k_2)<->(k2) eab',
+    ...              'eb + a (k_3)<->(k3) eab',
+    ...              'eab -> e + p']
     >>> bi_uni_random = from_react_strings(reactions)
 
 The list of reactions can be read from a text file, using
-*from\_react\_file*.
-For example, we can create a chemical reaction network
-for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
+*from\_react\_file*:
 
 .. code:: python
 
     bio26 = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
 
-A string specifying a reaction must contain either the characters "->"
-for unidirectional reactions, or the characters "<->" for reversible
-reactions. Reversible reactions will be converted to two separate
+The folder *examples/data/reactions/* contains examples of networks in human-readable format,
+with the subfolder *biomodels* containing examples
+from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_.
+
+A string in this format contains the reactant and product complexes,
+separated either by the characters "->"
+for unidirectional reactions, or by the characters "<->" for reversible
+reactions.
+Notice however that reversible reactions will always be converted to two separate
 reactions.
 
 The symbol ">" can be followed by an expression in parenthesis, which
@@ -69,34 +73,39 @@ The symbol "<" can also be preceded by an expression in parenthesis,
 which will be used to set the rate of the reverse reaction.
 
 A reaction id can be specified before the reactant, and must be followed
-by a colon. For example, we can specify the last reaction as
+by a colon. For example, we can specify an id for the last reaction with
 
 .. code:: python
 
     >>> one_react_net = from_react_strings(["r_in: 2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
 
 If an id is not specified, reactions are assigned an id of the form
-*r\_n*, with n an integer, starting from 0. If a reversible reaction is
-defined, for example
+*r\_n*, with n an integer, starting from 0.
+For example, for the bi_uni_random example above we have:
 
 .. code:: python
 
-    >>> rev_react_net = from_react_strings(["r1: a + b <-> c"])
+    >>> for r in bi_uni_random.reactions: print(r)
+    ... 
+    r0: a + e ->(k0) ea
+    r0_rev: ea ->(k_0) a + e
+    r1: b + e ->(k1) eb
+    r1_rev: eb ->(k_1) b + e
+    r2: b + ea ->(k2) eab
+    r2_rev: eab ->(k_2) b + ea
+    r3: a + eb ->(k3) eab
+    r3_rev: eab ->(k_3) a + eb
+    r4: eab ->(k_r4) e + p
 
-then two reactions will be created, one with id r1 with a + b as a
-reactant and c as product, and one with id r1\_rev with c as reactant
-and a + b as product. As shown in the last example, kinetic parameters
-are optional. In the same example, reaction r1 is assigned a parameter
-symbol k\_r1, and the reverse reaction is assigned the parameter symbol
-k\_r1\_rev:
+Notice that for each reversible reaction two separate reactions have been created,
+with *_rev* being appendend to the reaction id to form the id of the reverse reaction.
 
-.. code:: python
-
-    >>> rev_react_net.reactions
-    (r1: a + b ->(k_r1) c, r1_rev: c ->(k_r1_rev) a + b)
+As shown in the last example, kinetic parameters are optional:
+since no kinetic parameter was specified for the last reaction,
+it was assigned a parameter equal to *k_* followed by the reaction id.
 
 Comments can be added to a reaction file using the symbol "#". Anything
-appearing after the hash sign will ignored.
+appearing after the hash sign will be ignored.
 
 Exploring chemical reaction networks
 ------------------------------------
@@ -114,25 +123,15 @@ reactions:
 
     >>> enz.species, enz.complexes
     (('E', 'ES', 'P', 'S'), (E + S, ES, E + P))
-
     >>> for r in enz.reactions: print(r)
     ... 
     veq: E + S ->(comp*veq_kon) ES
     veq_rev: ES ->(comp*veq_koff) E + S
     vcat: ES ->(comp*vcat_kcat) E + P
-
-    >>> for r in bi_uni_random.reactions: print(r)
-    ... 
-    r0: a + e ->(k1) ea
-    r0_rev: ea ->(k_1) a + e
-    r1: b + e ->(k2) eb
-    r1_rev: eb ->(k_2) b + e
-    r2: b + ea ->(k3) eab
-    r2_rev: eab ->(k_3) b + ea
-    r3: a + eb ->(k4) eab
-    r3_rev: eab ->(k_4) a + eb
-    r4: eab ->(k5) e + p
-
+    >>> bio26.species
+    ('M', 'MAPKK', 'MKP', 'M_MAPKK', 'M_MKP', 'Mp', 'Mp_MAPKK', 'Mp_MKP', 'Mp_MKP_', 'Mpp', 'Mpp_MKP')
+    >>> bio26.complexes
+    (M + MAPKK, M_MAPKK, MAPKK + Mp, Mp_MAPKK, MAPKK + Mpp, MKP + Mpp, Mpp_MKP, Mp_MKP, MKP + Mp, Mp_MKP_, M_MKP, M + MKP)
     >>> for r in bio26.reactions: print(r)
     ... 
     binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK

@@ -58,25 +58,28 @@ file:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or a list of reactions:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e + a (k_1)&lt;-&gt;(k1) ea&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;e + b (k_2)&lt;-&gt;(k2) eb&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;ea + b (k_3)&lt;-&gt;(k3) eab&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;eb + a (k_4)&lt;-&gt;(k4) eab&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="s1">&#39;eab -&gt;(k5) e + p&#39;</span><span class="p">]</span>
+<p>or by specifying a list of strings describing reactions in a human-readable format:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e + a (k_0)&lt;-&gt;(k0) ea&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="s1">&#39;e + b (k_1)&lt;-&gt;(k1) eb&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="s1">&#39;ea + b (k_2)&lt;-&gt;(k2) eab&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="s1">&#39;eb + a (k_3)&lt;-&gt;(k3) eab&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="s1">&#39;eab -&gt; e + p&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The list of reactions can be read from a text file, using
-<em>from_react_file</em>.
-For example, we can create a chemical reaction network
-for a network from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id21" id="id1">[7]</a>:</p>
+<em>from_react_file</em>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">bio26</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/biomodels/biomd0000000026&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A string specifying a reaction must contain either the characters &#8220;-&gt;&#8221;
-for unidirectional reactions, or the characters &#8220;&lt;-&gt;&#8221; for reversible
-reactions. Reversible reactions will be converted to two separate
+<p>The folder <em>examples/data/reactions/</em> contains examples of networks in human-readable format,
+with the subfolder <em>biomodels</em> containing examples
+from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id21" id="id1">[7]</a>.</p>
+<p>A string in this format contains the reactant and product complexes,
+separated either by the characters &#8220;-&gt;&#8221;
+for unidirectional reactions, or by the characters &#8220;&lt;-&gt;&#8221; for reversible
+reactions.
+Notice however that reversible reactions will always be converted to two separate
 reactions.</p>
 <p>The symbol &#8220;&gt;&#8221; can be followed by an expression in parenthesis, which
 will be, by default, interpreted as a generalised kinetic parameter. In
@@ -103,28 +106,33 @@ the following example:</p>
 <p>The symbol &#8220;&lt;&#8221; can also be preceded by an expression in parenthesis,
 which will be used to set the rate of the reverse reaction.</p>
 <p>A reaction id can be specified before the reactant, and must be followed
-by a colon. For example, we can specify the last reaction as</p>
+by a colon. For example, we can specify an id for the last reaction with</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">one_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r_in: 2a + b -&gt;(k*a**2*b/(a+b+c)) 3 c&quot;</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If an id is not specified, reactions are assigned an id of the form
-<em>r_n</em>, with n an integer, starting from 0. If a reversible reaction is
-defined, for example</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;r1: a + b &lt;-&gt; c&quot;</span><span class="p">])</span>
+<em>r_n</em>, with n an integer, starting from 0.
+For example, for the bi_uni_random example above we have:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">r0: a + e -&gt;(k0) ea</span>
+<span class="go">r0_rev: ea -&gt;(k_0) a + e</span>
+<span class="go">r1: b + e -&gt;(k1) eb</span>
+<span class="go">r1_rev: eb -&gt;(k_1) b + e</span>
+<span class="go">r2: b + ea -&gt;(k2) eab</span>
+<span class="go">r2_rev: eab -&gt;(k_2) b + ea</span>
+<span class="go">r3: a + eb -&gt;(k3) eab</span>
+<span class="go">r3_rev: eab -&gt;(k_3) a + eb</span>
+<span class="go">r4: eab -&gt;(k_r4) e + p</span>
 </pre></div>
 </div>
-<p>then two reactions will be created, one with id r1 with a + b as a
-reactant and c as product, and one with id r1_rev with c as reactant
-and a + b as product. As shown in the last example, kinetic parameters
-are optional. In the same example, reaction r1 is assigned a parameter
-symbol k_r1, and the reverse reaction is assigned the parameter symbol
-k_r1_rev:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rev_react_net</span><span class="o">.</span><span class="n">reactions</span>
-<span class="go">(r1: a + b -&gt;(k_r1) c, r1_rev: c -&gt;(k_r1_rev) a + b)</span>
-</pre></div>
-</div>
+<p>Notice that for each reversible reaction two separate reactions have been created,
+with <em>_rev</em> being appendend to the reaction id to form the id of the reverse reaction.</p>
+<p>As shown in the last example, kinetic parameters are optional:
+since no kinetic parameter was specified for the last reaction,
+it was assigned a parameter equal to <em>k_</em> followed by the reaction id.</p>
 <p>Comments can be added to a reaction file using the symbol &#8220;#&#8221;. Anything
-appearing after the hash sign will ignored.</p>
+appearing after the hash sign will be ignored.</p>
 </div>
 <div class="section" id="exploring-chemical-reaction-networks">
 <h2>Exploring chemical reaction networks<a class="headerlink" href="#exploring-chemical-reaction-networks" title="Permalink to this headline">¶</a></h2>
@@ -136,25 +144,15 @@ appearing after the hash sign will ignored.</p>
 reactions:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">enz</span><span class="o">.</span><span class="n">complexes</span>
 <span class="go">((&#39;E&#39;, &#39;ES&#39;, &#39;P&#39;, &#39;S&#39;), (E + S, ES, E + P))</span>
-
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq: E + S -&gt;(comp*veq_kon) ES</span>
 <span class="go">veq_rev: ES -&gt;(comp*veq_koff) E + S</span>
 <span class="go">vcat: ES -&gt;(comp*vcat_kcat) E + P</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">r0: a + e -&gt;(k1) ea</span>
-<span class="go">r0_rev: ea -&gt;(k_1) a + e</span>
-<span class="go">r1: b + e -&gt;(k2) eb</span>
-<span class="go">r1_rev: eb -&gt;(k_2) b + e</span>
-<span class="go">r2: b + ea -&gt;(k3) eab</span>
-<span class="go">r2_rev: eab -&gt;(k_3) b + ea</span>
-<span class="go">r3: a + eb -&gt;(k4) eab</span>
-<span class="go">r3_rev: eab -&gt;(k_4) a + eb</span>
-<span class="go">r4: eab -&gt;(k5) e + p</span>
-
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bio26</span><span class="o">.</span><span class="n">species</span>
+<span class="go">(&#39;M&#39;, &#39;MAPKK&#39;, &#39;MKP&#39;, &#39;M_MAPKK&#39;, &#39;M_MKP&#39;, &#39;Mp&#39;, &#39;Mp_MAPKK&#39;, &#39;Mp_MKP&#39;, &#39;Mp_MKP_&#39;, &#39;Mpp&#39;, &#39;Mpp_MKP&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bio26</span><span class="o">.</span><span class="n">complexes</span>
+<span class="go">(M + MAPKK, M_MAPKK, MAPKK + Mp, Mp_MAPKK, MAPKK + Mpp, MKP + Mpp, Mpp_MKP, Mp_MKP, MKP + Mp, Mp_MKP_, M_MKP, M + MKP)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bio26</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">binding_MAPK_and_PP_MAPKK: M + MAPKK -&gt;(k1*uVol) M_MAPKK</span>
