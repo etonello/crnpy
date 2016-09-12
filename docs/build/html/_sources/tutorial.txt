@@ -10,7 +10,7 @@ file:
 .. code:: python
 
     >>> from crnpy.crn import CRN, from_sbml, from_react_strings, from_react_file
-    >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
+    >>> enz = from_sbml("examples/data/sbml/enzyme.xml")
 
 or a list of reactions:
 
@@ -24,11 +24,13 @@ or a list of reactions:
     >>> bi_uni_random = from_react_strings(reactions)
 
 The list of reactions can be read from a text file, using
-*from\_react\_file*:
+*from\_react\_file*.
+For example, we can create a chemical reaction network
+for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
 
 .. code:: python
 
-    >>> another_net = from_react_file(reactionfilename)
+    bio26 = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
 
 A string specifying a reaction must contain either the characters "->"
 for unidirectional reactions, or the characters "<->" for reversible
@@ -110,10 +112,10 @@ reactions:
 
 .. code:: python
 
-    >>> crn.species, crn.complexes
+    >>> enz.species, enz.complexes
     (('E', 'ES', 'P', 'S'), (E + S, ES, E + P))
 
-    >>> for r in crn.reactions: print(r)
+    >>> for r in enz.reactions: print(r)
     ... 
     veq: E + S ->(comp*veq_kon) ES
     veq_rev: ES ->(comp*veq_koff) E + S
@@ -130,6 +132,25 @@ reactions:
     r3: a + eb ->(k4) eab
     r3_rev: eab ->(k_4) a + eb
     r4: eab ->(k5) e + p
+
+    >>> for r in bio26.reactions: print(r)
+    ... 
+    binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
+    binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
+    phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
+    binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
+    binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
+    phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
+    binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
+    binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
+    dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
+    dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
+    dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
+    binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
+    binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
+    dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
+    dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
+    dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
 
 While the species are simple strings, the complexes and reactions are special objects of type
 *Complex* and *Reaction* respectively.
@@ -182,24 +203,24 @@ the Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_m
 
 .. code:: python
 
-    >>> crn.stoich_matrix()
+    >>> enz.stoich_matrix()
     Matrix([
     [-1,  1,  1],
     [ 1, -1, -1],
     [ 0,  0,  1],
     [-1,  1,  0]])
-    >>> crn.complex_matrix
+    >>> enz.complex_matrix
     Matrix([
     [1, 0, 1],
     [0, 1, 0],
     [0, 0, 1],
     [1, 0, 0]])
-    >>> crn.incidence_matrix
+    >>> enz.incidence_matrix
     Matrix([
     [-1,  1,  0],
     [ 1, -1, -1],
     [ 0,  0,  1]])
-    >>> crn.laplacian
+    >>> enz.laplacian
     Matrix([
     [ _comp*veq_kon,                  -_comp*veq_koff, 0],
     [-_comp*veq_kon, _comp*vcat_kcat + _comp*veq_koff, 0],
@@ -211,13 +232,13 @@ the stoichiometry matrix and the laplacian:
 
 .. code:: python
 
-    >>> crn.print_stoich_matrix()
+    >>> enz.print_stoich_matrix()
          veq  veq_rev  vcat
     E  |  -1        1     1 |
     ES |   1       -1    -1 |
     P  |   0        0     1 |
     S  |  -1        1     0 |
-    >>> crn.print_laplacian()
+    >>> enz.print_laplacian()
                      E + S                                ES  E + P
     E + S |  _comp*veq_kon                   -_comp*veq_koff      0 |
     ES    | -_comp*veq_kon  _comp*vcat_kcat + _comp*veq_koff      0 |
@@ -231,13 +252,13 @@ and at the conservation laws:
 
 .. code:: python
 
-    >>> for e in crn.format_equations(): print(e)
+    >>> for e in enz.format_equations(): print(e)
     ...
     dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff
     dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff
     dP/dt = comp*ES*vcat_kcat
     dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff
-    >>> crn.cons_laws
+    >>> enz.cons_laws
     (E - P - S, ES + P + S)
 
 Check if two networks are dynamically equivalent:
@@ -249,35 +270,11 @@ Check if two networks are dynamically equivalent:
     >>> net1.is_dyn_eq(net2)
     True
 
-We can create a chemical reaction network for a network from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_:
+We can look for a Gröbner basis for the steady state ideal:
 
 .. code:: python
 
-    crn = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
-    >>> for r in crn.reactions: print(r)
-    ... 
-    binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
-    binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
-    phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
-    binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
-    binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
-    phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
-    binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
-    binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
-    dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
-    dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
-    dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
-    binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
-    binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
-    dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
-    dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
-    dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
-
-and generate a Gröbner basis for the steady state ideal:
-
-.. code:: python
-
-    >>> crn.groebner()
+    >>> bio26.groebner()
     GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain='ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]', order='lex')
 
 Deficiency, reversibility and linkage classes

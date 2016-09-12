@@ -55,7 +55,7 @@
 <p>A chemical reaction network (CRN) object can be created from an SBML
 file:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">crnpy.crn</span> <span class="kn">import</span> <span class="n">CRN</span><span class="p">,</span> <span class="n">from_sbml</span><span class="p">,</span> <span class="n">from_react_strings</span><span class="p">,</span> <span class="n">from_react_file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span> <span class="o">=</span> <span class="n">from_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or a list of reactions:</p>
@@ -68,8 +68,10 @@ file:</p>
 </pre></div>
 </div>
 <p>The list of reactions can be read from a text file, using
-<em>from_react_file</em>:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">another_net</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="n">reactionfilename</span><span class="p">)</span>
+<em>from_react_file</em>.
+For example, we can create a chemical reaction network
+for a network from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id21" id="id1">[7]</a>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">bio26</span> <span class="o">=</span> <span class="n">from_react_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/biomodels/biomd0000000026&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A string specifying a reaction must contain either the characters &#8220;-&gt;&#8221;
@@ -127,15 +129,15 @@ appearing after the hash sign will ignored.</p>
 <div class="section" id="exploring-chemical-reaction-networks">
 <h2>Exploring chemical reaction networks<a class="headerlink" href="#exploring-chemical-reaction-networks" title="Permalink to this headline">¶</a></h2>
 <p>The library implements some elements of chemical reaction network theory
-(see for example <a class="footnote-reference" href="#id15" id="id1">[1]</a>, <a class="footnote-reference" href="#id17" id="id2">[3]</a>, <a class="footnote-reference" href="#id19" id="id3">[5]</a>).</p>
+(see for example <a class="footnote-reference" href="#id15" id="id2">[1]</a>, <a class="footnote-reference" href="#id17" id="id3">[3]</a>, <a class="footnote-reference" href="#id19" id="id4">[5]</a>).</p>
 <div class="section" id="species-complexes-and-reactions">
 <h3>Species, complexes and reactions<a class="headerlink" href="#species-complexes-and-reactions" title="Permalink to this headline">¶</a></h3>
 <p>Attributes of a CRN object include the network species, complexes, and
 reactions:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">crn</span><span class="o">.</span><span class="n">complexes</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">enz</span><span class="o">.</span><span class="n">complexes</span>
 <span class="go">((&#39;E&#39;, &#39;ES&#39;, &#39;P&#39;, &#39;S&#39;), (E + S, ES, E + P))</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq: E + S -&gt;(comp*veq_kon) ES</span>
 <span class="go">veq_rev: ES -&gt;(comp*veq_koff) E + S</span>
@@ -152,6 +154,25 @@ reactions:</p>
 <span class="go">r3: a + eb -&gt;(k4) eab</span>
 <span class="go">r3_rev: eab -&gt;(k_4) a + eb</span>
 <span class="go">r4: eab -&gt;(k5) e + p</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bio26</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">binding_MAPK_and_PP_MAPKK: M + MAPKK -&gt;(k1*uVol) M_MAPKK</span>
+<span class="go">binding_MAPK_and_PP_MAPKK_rev: M_MAPKK -&gt;(k_1*uVol) M + MAPKK</span>
+<span class="go">phosphorylation_of_MAPK: M_MAPKK -&gt;(k2*uVol) MAPKK + Mp</span>
+<span class="go">binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp -&gt;(k3*uVol) Mp_MAPKK</span>
+<span class="go">binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK -&gt;(k_3*uVol) MAPKK + Mp</span>
+<span class="go">phosphorylation_of_P_MAPK: Mp_MAPKK -&gt;(k4*uVol) MAPKK + Mpp</span>
+<span class="go">binding_MKP_and_PP_MAPK: MKP + Mpp -&gt;(h1*uVol) Mpp_MKP</span>
+<span class="go">binding_MKP_and_PP_MAPK_rev: Mpp_MKP -&gt;(h_1*uVol) MKP + Mpp</span>
+<span class="go">dephosphorylation_of_PP_MAPK: Mpp_MKP -&gt;(h2*uVol) Mp_MKP</span>
+<span class="go">dissociation_of_MKP_from_P_MAPK: Mp_MKP -&gt;(h3) MKP + Mp</span>
+<span class="go">dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp -&gt;(h_3) Mp_MKP</span>
+<span class="go">binding_MKP_and_P_MAPK: MKP + Mp -&gt;(h4*uVol) Mp_MKP_</span>
+<span class="go">binding_MKP_and_P_MAPK_rev: Mp_MKP_ -&gt;(h_4*uVol) MKP + Mp</span>
+<span class="go">dephosphorylation_of_P_MAPK: Mp_MKP_ -&gt;(h5*uVol) M_MKP</span>
+<span class="go">dissociation_of_MKP_from_MAPK: M_MKP -&gt;(h6*uVol) M + MKP</span>
+<span class="go">dissociation_of_MKP_from_MAPK_rev: M + MKP -&gt;(h_6*uVol) M_MKP</span>
 </pre></div>
 </div>
 <p>While the species are simple strings, the complexes and reactions are special objects of type
@@ -193,24 +214,24 @@ stoichiometric matrix <em>stoich_matrix</em>, the matrix of stoichiometric
 coefficients <em>complex_matrix</em> (often called Y in the literature),
 the incidence matrix of the complex graph <em>incidence_matrix</em>.
 the Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em>kinetic_matrix</em>.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="p">()</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">stoich_matrix</span><span class="p">()</span>
 <span class="go">Matrix([</span>
 <span class="go">[-1,  1,  1],</span>
 <span class="go">[ 1, -1, -1],</span>
 <span class="go">[ 0,  0,  1],</span>
 <span class="go">[-1,  1,  0]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">complex_matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">complex_matrix</span>
 <span class="go">Matrix([</span>
 <span class="go">[1, 0, 1],</span>
 <span class="go">[0, 1, 0],</span>
 <span class="go">[0, 0, 1],</span>
 <span class="go">[1, 0, 0]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">incidence_matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">incidence_matrix</span>
 <span class="go">Matrix([</span>
 <span class="go">[-1,  1,  0],</span>
 <span class="go">[ 1, -1, -1],</span>
 <span class="go">[ 0,  0,  1]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">laplacian</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">laplacian</span>
 <span class="go">Matrix([</span>
 <span class="go">[ _comp*veq_kon,                  -_comp*veq_koff, 0],</span>
 <span class="go">[-_comp*veq_kon, _comp*vcat_kcat + _comp*veq_koff, 0],</span>
@@ -219,13 +240,13 @@ the Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em
 </div>
 <p>Special methods are available to print some matrices. For example, for
 the stoichiometry matrix and the laplacian:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
 <span class="go">     veq  veq_rev  vcat</span>
 <span class="go">E  |  -1        1     1 |</span>
 <span class="go">ES |   1       -1    -1 |</span>
 <span class="go">P  |   0        0     1 |</span>
 <span class="go">S  |  -1        1     0 |</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_laplacian</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">print_laplacian</span><span class="p">()</span>
 <span class="go">                 E + S                                ES  E + P</span>
 <span class="go">E + S |  _comp*veq_kon                   -_comp*veq_koff      0 |</span>
 <span class="go">ES    | -_comp*veq_kon  _comp*vcat_kcat + _comp*veq_koff      0 |</span>
@@ -237,13 +258,13 @@ the stoichiometry matrix and the laplacian:</p>
 <h3>Network dynamics<a class="headerlink" href="#network-dynamics" title="Permalink to this headline">¶</a></h3>
 <p>We can look for example at the system of ODEs associated to the network,
 and at the conservation laws:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff</span>
 <span class="go">dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff</span>
 <span class="go">dP/dt = comp*ES*vcat_kcat</span>
 <span class="go">dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">cons_laws</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">cons_laws</span>
 <span class="go">(E - P - S, ES + P + S)</span>
 </pre></div>
 </div>
@@ -254,30 +275,8 @@ and at the conservation laws:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>We can create a chemical reaction network for a network from the <a class="reference external" href="http://biomodels.caltech.edu/">BioModels</a> database <a class="footnote-reference" href="#id21" id="id4">[7]</a>:</p>
-<div class="code python highlight-python"><div class="highlight"><pre>crn = from_react_file(&quot;examples/data/reactions/biomodels/biomd0000000026&quot;)
-&gt;&gt;&gt; for r in crn.reactions: print(r)
-...
-binding_MAPK_and_PP_MAPKK: M + MAPKK -&gt;(k1*uVol) M_MAPKK
-binding_MAPK_and_PP_MAPKK_rev: M_MAPKK -&gt;(k_1*uVol) M + MAPKK
-phosphorylation_of_MAPK: M_MAPKK -&gt;(k2*uVol) MAPKK + Mp
-binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp -&gt;(k3*uVol) Mp_MAPKK
-binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK -&gt;(k_3*uVol) MAPKK + Mp
-phosphorylation_of_P_MAPK: Mp_MAPKK -&gt;(k4*uVol) MAPKK + Mpp
-binding_MKP_and_PP_MAPK: MKP + Mpp -&gt;(h1*uVol) Mpp_MKP
-binding_MKP_and_PP_MAPK_rev: Mpp_MKP -&gt;(h_1*uVol) MKP + Mpp
-dephosphorylation_of_PP_MAPK: Mpp_MKP -&gt;(h2*uVol) Mp_MKP
-dissociation_of_MKP_from_P_MAPK: Mp_MKP -&gt;(h3) MKP + Mp
-dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp -&gt;(h_3) Mp_MKP
-binding_MKP_and_P_MAPK: MKP + Mp -&gt;(h4*uVol) Mp_MKP_
-binding_MKP_and_P_MAPK_rev: Mp_MKP_ -&gt;(h_4*uVol) MKP + Mp
-dephosphorylation_of_P_MAPK: Mp_MKP_ -&gt;(h5*uVol) M_MKP
-dissociation_of_MKP_from_MAPK: M_MKP -&gt;(h6*uVol) M + MKP
-dissociation_of_MKP_from_MAPK_rev: M + MKP -&gt;(h_6*uVol) M_MKP
-</pre></div>
-</div>
-<p>and generate a Gröbner basis for the steady state ideal:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">groebner</span><span class="p">()</span>
+<p>We can look for a Gröbner basis for the steady state ideal:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bio26</span><span class="o">.</span><span class="n">groebner</span><span class="p">()</span>
 <span class="go">GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain=&#39;ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]&#39;, order=&#39;lex&#39;)</span>
 </pre></div>
 </div>
@@ -431,7 +430,7 @@ use <em>rate = True</em> to save the reaction rates instead):</p>
 <table class="docutils footnote" frame="void" id="id15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Angeli, D. (2009). <em>A tutorial on Chemical Reaction Networks dynamics</em>. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Angeli, D. (2009). <em>A tutorial on Chemical Reaction Networks dynamics</em>. In Control Conference (ECC), 2009 European (pp. 649-657). IEEE.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id16" rules="none">
@@ -443,7 +442,7 @@ use <em>rate = True</em> to save the reaction rates instead):</p>
 <table class="docutils footnote" frame="void" id="id17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Feinberg, M. (1979). <em>Lectures on chemical reaction networks</em>. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Feinberg, M. (1979). <em>Lectures on chemical reaction networks</em>. Notes of lectures given at the Mathematics Research Center, University of Wisconsin.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id18" rules="none">
@@ -455,7 +454,7 @@ use <em>rate = True</em> to save the reaction rates instead):</p>
 <table class="docutils footnote" frame="void" id="id19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td>Gunawardena, J. (2003). <em>Chemical reaction network theory for in-silico biologists</em>, <a class="reference external" href="http://vcp.med.harvard.edu/papers/crnt.pdf">http://vcp.med.harvard.edu/papers/crnt.pdf</a>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td>Gunawardena, J. (2003). <em>Chemical reaction network theory for in-silico biologists</em>, <a class="reference external" href="http://vcp.med.harvard.edu/papers/crnt.pdf">http://vcp.med.harvard.edu/papers/crnt.pdf</a>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id20" rules="none">
@@ -467,7 +466,7 @@ use <em>rate = True</em> to save the reaction rates instead):</p>
 <table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[7]</a></td><td>Juty, N., et al. (2015). <em>BioModels: content, features, functionality, and use.</em> CPT: pharmacometrics &amp; systems pharmacology, 4(2), pp.55-68.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[7]</a></td><td>Juty, N., et al. (2015). <em>BioModels: content, features, functionality, and use.</em> CPT: pharmacometrics &amp; systems pharmacology, 4(2), pp.55-68.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id22" rules="none">
