@@ -206,7 +206,7 @@ or a string that can be successfully converted to a SymPy expression:</p>
 </div>
 <div class="section" id="network-matrices">
 <h3>Network matrices<a class="headerlink" href="#network-matrices" title="Permalink to this headline">¶</a></h3>
-<p>After a CRN object is created, matrices associated to the reaction network can be accessed.
+<p>Attributes are available to create the main matrices associated to the reaction network.
 Available matrices are the
 stoichiometric matrix <em>stoich_matrix</em>, the matrix of stoichiometric
 coefficients <em>complex_matrix</em> (often called Y in the literature),
@@ -254,26 +254,35 @@ the stoichiometry matrix and the laplacian:</p>
 </div>
 <div class="section" id="network-dynamics">
 <h3>Network dynamics<a class="headerlink" href="#network-dynamics" title="Permalink to this headline">¶</a></h3>
-<p>We can look for example at the system of ODEs associated to the network,
-and at the conservation laws:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<p>The method <em>odes()</em> returns the SymPy differential equations describing the evolution of
+species concentrations. These can be printed more nicely with <em>format_equations()</em>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">odes</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
 <span class="gp">...</span>
-<span class="go">dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff</span>
-<span class="go">dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff</span>
-<span class="go">dP/dt = comp*ES*vcat_kcat</span>
-<span class="go">dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">cons_laws</span>
+<span class="go">Eq(Derivative(E(t), t), _comp*vcat_kcat*ES(t) + _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))</span>
+<span class="go">Eq(Derivative(ES(t), t), -_comp*vcat_kcat*ES(t) - _comp*veq_koff*ES(t) + _comp*veq_kon*E(t)*S(t))</span>
+<span class="go">Eq(Derivative(P(t), t), _comp*vcat_kcat*ES(t))</span>
+<span class="go">Eq(Derivative(S(t), t), _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">dE/dt = -E*S*_comp*veq_kon + ES*_comp*vcat_kcat + ES*_comp*veq_koff</span>
+<span class="go">dES/dt = E*S*_comp*veq_kon - ES*_comp*vcat_kcat - ES*_comp*veq_koff</span>
+<span class="go">dP/dt = ES*_comp*vcat_kcat</span>
+<span class="go">dS/dt = -E*S*_comp*veq_kon + ES*_comp*veq_koff</span>
+</pre></div>
+</div>
+<p>One can also look at the conservation laws:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">cons_laws</span>
 <span class="go">(E - P - S, ES + P + S)</span>
 </pre></div>
 </div>
-<p>Check if two networks are dynamically equivalent:</p>
+<p>or check if two networks are dynamically equivalent:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(k) a + 2b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net2</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s1">&#39;a -&gt;(2*k) a + b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net1</span><span class="o">.</span><span class="n">is_dyn_eq</span><span class="p">(</span><span class="n">net2</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>We can look for a Gröbner basis for the steady state ideal:</p>
+<p>We can look for a Gröbner basis for the steady state ideal with the method <em>groebner()</em>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bio26</span><span class="o">.</span><span class="n">groebner</span><span class="p">()</span>
 <span class="go">GroebnerBasis([M*MAPKK*k1*k2 + Mp_MKP_*(-h5*k2 - h5*k_1), M*MKP*h_6 - M_MKP*h6 + Mp_MKP_*h5, M*Mp_MKP_*(h5*h_6 + h_4*h_6) - M_MKP*Mp*h4*h6 + Mp*Mp_MKP_*h4*h5, M*Mpp_MKP*(h2*k1*k2*k4 + h2*k1*k2*k_3) + Mp*Mp_MKP_*(-h5*k2*k3*k4 - h5*k3*k4*k_1), MAPKK*M_MKP*(h5*h6*k1*k2*k3*k4 + h6*h_4*k1*k2*k3*k4) + MKP*Mp_MKP_*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + MKP*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), MAPKK*Mp*k3*k4 + Mpp_MKP*(-h2*k4 - h2*k_3), MAPKK*Mp_MKP_*(h5*k3*k4 + h_4*k3*k4) + MKP*Mpp_MKP*(-h2*h4*k4 - h2*h4*k_3), MKP*Mp*h4 + Mp_MKP_*(-h5 - h_4), MKP*Mpp*h1 + Mpp_MKP*(-h2 - h_1), M_MAPKK*k2 - Mp_MKP_*h5, M_MKP*Mpp*(h1*h2*h6*k1*k2*k4 + h1*h2*h6*k1*k2*k_3) + Mp*Mp_MKP_*(-h2*h5*h_6*k2*k3*k4 - h2*h5*h_6*k3*k4*k_1 - h5*h_1*h_6*k2*k3*k4 - h5*h_1*h_6*k3*k4*k_1) + Mp_MKP_*Mpp*(-h1*h2*h5*k1*k2*k4 - h1*h2*h5*k1*k2*k_3), M_MKP*Mpp_MKP*(h2*h4*h6*k1*k2*k4 + h2*h4*h6*k1*k2*k_3) + Mp_MKP_**2*(-h5**2*h_6*k2*k3*k4 - h5**2*h_6*k3*k4*k_1 - h5*h_4*h_6*k2*k3*k4 - h5*h_4*h_6*k3*k4*k_1) + Mp_MKP_*Mpp_MKP*(-h2*h4*h5*k1*k2*k4 - h2*h4*h5*k1*k2*k_3), Mp*Mpp_MKP*(h2*h4 + h4*h_1) + Mp_MKP_*Mpp*(-h1*h5 - h1*h_4), Mp_MAPKK*k4 - Mpp_MKP*h2, Mp_MKP*h3*h4 + Mp_MKP_*(-h5*h_3 - h_3*h_4) - Mpp_MKP*h2*h4*uVol], M, MAPKK, MKP, M_MAPKK, M_MKP, Mp, Mp_MAPKK, Mp_MKP, Mp_MKP_, Mpp, Mpp_MKP, domain=&#39;ZZ[h1,h2,h3,h4,h5,h6,k1,k2,k3,k4,h_1,h_3,h_4,h_6,k_1,k_3,uVol]&#39;, order=&#39;lex&#39;)</span>
 </pre></div>

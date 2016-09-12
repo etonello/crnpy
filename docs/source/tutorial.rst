@@ -193,7 +193,7 @@ One can access for example the reactant, product and rate of the reaction:
 Network matrices
 ~~~~~~~~~~~~~~~~
 
-After a CRN object is created, matrices associated to the reaction network can be accessed.
+Attributes are available to create the main matrices associated to the reaction network.
 Available matrices are the
 stoichiometric matrix *stoich\_matrix*, the matrix of stoichiometric
 coefficients *complex\_matrix* (often called Y in the literature),
@@ -246,21 +246,32 @@ the stoichiometry matrix and the laplacian:
 Network dynamics
 ~~~~~~~~~~~~~~~~
 
-We can look for example at the system of ODEs associated to the network,
-and at the conservation laws:
+The method *odes()* returns the SymPy differential equations describing the evolution of
+species concentrations. These can be printed more nicely with *format_equations()*:
 
 .. code:: python
 
-    >>> for e in enz.format_equations(): print(e)
-    ...
-    dE/dt = -comp*E*S*veq_kon + comp*ES*vcat_kcat + comp*ES*veq_koff
-    dES/dt = comp*E*S*veq_kon - comp*ES*vcat_kcat - comp*ES*veq_koff
-    dP/dt = comp*ES*vcat_kcat
-    dS/dt = -comp*E*S*veq_kon + comp*ES*veq_koff
+	>>> for eq in enz.odes(): print(eq)
+	...
+	Eq(Derivative(E(t), t), _comp*vcat_kcat*ES(t) + _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
+	Eq(Derivative(ES(t), t), -_comp*vcat_kcat*ES(t) - _comp*veq_koff*ES(t) + _comp*veq_kon*E(t)*S(t))
+	Eq(Derivative(P(t), t), _comp*vcat_kcat*ES(t))
+	Eq(Derivative(S(t), t), _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
+	>>> for e in enz.format_equations(): print(e)
+	... 
+	dE/dt = -E*S*_comp*veq_kon + ES*_comp*vcat_kcat + ES*_comp*veq_koff
+	dES/dt = E*S*_comp*veq_kon - ES*_comp*vcat_kcat - ES*_comp*veq_koff
+	dP/dt = ES*_comp*vcat_kcat
+	dS/dt = -E*S*_comp*veq_kon + ES*_comp*veq_koff
+
+One can also look at the conservation laws:
+
+.. code:: python
+
     >>> enz.cons_laws
     (E - P - S, ES + P + S)
 
-Check if two networks are dynamically equivalent:
+or check if two networks are dynamically equivalent:
 
 .. code:: python
 
@@ -269,7 +280,7 @@ Check if two networks are dynamically equivalent:
     >>> net1.is_dyn_eq(net2)
     True
 
-We can look for a Gröbner basis for the steady state ideal:
+We can look for a Gröbner basis for the steady state ideal with the method *groebner()*:
 
 .. code:: python
 
