@@ -294,12 +294,18 @@ We can check if the network is weakly reversible:
 
 .. code:: python
 
-    >>> crn.is_weakly_rev
+    >>> enz.is_weakly_rev
     False
 
-Other features provided by the CRN class are the calculation of the network deficiency,
-linkage classes, and terminal complexes
-(the following is example S7 in [9]_):
+or calculate its deficiency:
+
+.. code:: python
+
+    >>> enz.deficiency
+    0
+
+Other features provided by the CRN class are the calculation of the
+strong and weak linkage classes, and terminal and non-terminal complexes (the following is example S7 in [9]_):
 
 .. code:: python
 
@@ -393,7 +399,7 @@ We can now use a conservation to eliminate the enzyme, and check the new dynamic
     >>> for r in crn.reactions: print(r)
     ... 
     veq_vcat: S ->(comp*et*vcat_kcat*veq_kon/(s*veq_kon + vcat_kcat + veq_koff)) p
-    >>> crn.print_equations()
+    >>> for e in crn.format_equations(): print(e)
     dP/dt = comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
     dS/dt = -comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
 
@@ -427,19 +433,19 @@ With the method *remove* we can use a combination of the reduction methods:
     >>> bi_uni_random.remove(rapid_eq = [('ea', 'e + a'), ('eb', 'e + b')], 
                              qss = ['eab'], 
                              cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
-    >>> for r in bi_uni_random.reactions: print(r)
-    ... 
-    r2_r4: a + b ->(et*k1*k3*k5*k_2/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
-    r3_r4: a + b ->(et*k2*k4*k5*k_1/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
+	>>> for r in bi_uni_random.reactions: print(r)
+	... 
+	r2_r4: a + b ->(et*k0*k2*k_1*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
+	r3_r4: a + b ->(et*k1*k3*k_0*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
 
 We can merge reactions with the same reactant and product:
 
 .. code:: python
 
-    >>> bi_uni_random.merge_reactions()
-    >>> for r in bi_uni_random.reactions: print(r)
-    ... 
-    r2_r4r3_r4: a + b ->(et*k5*(k1*k3*k_2 + k2*k4*k_1)/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p
+	>>> bi_uni_random.merge_reactions()
+	>>> for r in bi_uni_random.reactions: print(r)
+	... 
+	r2_r4r3_r4: a + b ->(et*k_r4*(k0*k2*k_1 + k1*k3*k_0)/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
 
 Saving models
 -------------
@@ -450,8 +456,8 @@ Chemical reaction networks can be saved to SBML files
 
     >>> crn.save_sbml("examples/data/sbml/enzyme_simplified.xml")
 
-or as reaction files (by default the strings representing reactions contain the kinetic parameters;
-use *rate = True* to save the reaction rates instead):
+or in the human-readable format using *save_reaction_file*. By default the kinetic parameters will be saved;
+use *rate = True* to save the reaction rates instead:
 
 .. code:: python
 

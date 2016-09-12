@@ -291,13 +291,17 @@ species concentrations. These can be printed more nicely with <em>format_equatio
 <div class="section" id="deficiency-reversibility-and-linkage-classes">
 <h3>Deficiency, reversibility and linkage classes<a class="headerlink" href="#deficiency-reversibility-and-linkage-classes" title="Permalink to this headline">¶</a></h3>
 <p>We can check if the network is weakly reversible:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">is_weakly_rev</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">is_weakly_rev</span>
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>Other features provided by the CRN class are the calculation of the network deficiency,
-linkage classes, and terminal complexes
-(the following is example S7 in <a class="footnote-reference" href="#id23" id="id5">[9]</a>):</p>
+<p>or calculate its deficiency:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">deficiency</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Other features provided by the CRN class are the calculation of the
+strong and weak linkage classes, and terminal and non-terminal complexes (the following is example S7 in <a class="footnote-reference" href="#id23" id="id5">[9]</a>):</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">from_react_strings</span><span class="p">([</span><span class="s2">&quot;X &lt;-&gt; A&quot;</span><span class="p">,</span> <span class="s2">&quot;A -&gt; Ap&quot;</span><span class="p">,</span> <span class="s2">&quot;Ap &lt;-&gt; Xp&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                          <span class="s2">&quot;Xp + Y &lt;-&gt; B&quot;</span><span class="p">,</span> <span class="s2">&quot;B -&gt; Bp&quot;</span><span class="p">,</span> <span class="s2">&quot;Bp &lt;-&gt; X + Yp&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                          <span class="s2">&quot;Yp + A &lt;-&gt; C&quot;</span><span class="p">,</span> <span class="s2">&quot;C -&gt; Cp&quot;</span><span class="p">,</span> <span class="s2">&quot;Cp &lt;-&gt; A + Y&quot;</span><span class="p">])</span>
@@ -378,7 +382,7 @@ and eliminate the intermediate <em>ES</em> using quasi-steady state approximatio
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">veq_vcat: S -&gt;(comp*et*vcat_kcat*veq_kon/(s*veq_kon + vcat_kcat + veq_koff)) p</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">print_equations</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">crn</span><span class="o">.</span><span class="n">format_equations</span><span class="p">():</span> <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="go">dP/dt = comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)</span>
 <span class="go">dS/dt = -comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)</span>
 </pre></div>
@@ -406,17 +410,17 @@ and eliminate the intermediate <em>ES</em> using quasi-steady state approximatio
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">rapid_eq</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;ea&#39;</span><span class="p">,</span> <span class="s1">&#39;e + a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eb&#39;</span><span class="p">,</span> <span class="s1">&#39;e + b&#39;</span><span class="p">)],</span>
 <span class="go">                         qss = [&#39;eab&#39;],</span>
 <span class="go">                         cons_law = (&#39;e&#39;, ConsLaw(&#39;e + ea + eb + eab&#39;, &#39;et&#39;)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">r2_r4: a + b -&gt;(et*k1*k3*k5*k_2/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
-<span class="go">r3_r4: a + b -&gt;(et*k2*k4*k5*k_1/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
+<span class="go">    &gt;&gt;&gt; for r in bi_uni_random.reactions: print(r)</span>
+<span class="go">    ...</span>
+<span class="go">    r2_r4: a + b -&gt;(et*k0*k2*k_1*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p</span>
+<span class="go">    r3_r4: a + b -&gt;(et*k1*k3*k_0*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p</span>
 </pre></div>
 </div>
 <p>We can merge reactions with the same reactant and product:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bi_uni_random</span><span class="o">.</span><span class="n">merge_reactions</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bi_uni_random</span><span class="o">.</span><span class="n">reactions</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">...</span>
-<span class="go">r2_r4r3_r4: a + b -&gt;(et*k5*(k1*k3*k_2 + k2*k4*k_1)/(a*b*k1*k3*k_2 + a*b*k2*k4*k_1 + a*k1*k5*k_2 + a*k1*k_2*k_3 + a*k1*k_2*k_4 + b*k2*k5*k_1 + b*k2*k_1*k_3 + b*k2*k_1*k_4 + k5*k_1*k_2 + k_1*k_2*k_3 + k_1*k_2*k_4)) p</span>
+<span class="go">r2_r4r3_r4: a + b -&gt;(et*k_r4*(k0*k2*k_1 + k1*k3*k_0)/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p</span>
 </pre></div>
 </div>
 </div>
@@ -426,8 +430,8 @@ and eliminate the intermediate <em>ES</em> using quasi-steady state approximatio
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_sbml</span><span class="p">(</span><span class="s2">&quot;examples/data/sbml/enzyme_simplified.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or as reaction files (by default the strings representing reactions contain the kinetic parameters;
-use <em>rate = True</em> to save the reaction rates instead):</p>
+<p>or in the human-readable format using <em>save_reaction_file</em>. By default the kinetic parameters will be saved;
+use <em>rate = True</em> to save the reaction rates instead:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crn</span><span class="o">.</span><span class="n">save_reaction_file</span><span class="p">(</span><span class="s2">&quot;examples/data/reactions/enzyme_simplified&quot;</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
