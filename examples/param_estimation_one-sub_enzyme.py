@@ -60,9 +60,9 @@ def plot_comparison():
 
 if __name__ == "__main__":
     # Given the structure and form of the rates of the network
-    # identified by the qss reduction, what are the best values
-    # for the parameters, to approximate the original network?
-    # Wse the initial network to create "experimental data",
+    # identified by the qss reduction, use parameter estimation
+    # to find parameters for the reduced network.
+    # Use the initial network to create "experimental data",
     # and find the parameters that minimize the distance.
 
     crn = from_react_strings(['s + e (k_1)<->(k1) es', 'es ->(k2) p + e'])
@@ -73,12 +73,12 @@ if __name__ == "__main__":
                 {'s': 2, 'e': 3, 'es': 0, 'p': 0},
                 {'s': 5, 'e': 1, 'es': 0, 'p': 0})
 
-    # times where solution is sampled
+    # times for sampling
     sample_times = np.arange(0, 1, 0.2)
     times = np.arange(start_t, end_t, incr)
     indices = map(lambda x: np.where(times >= x)[0][0], sample_times)
 
-    # similate the original dynamics
+    # simulate the original dynamics
     sols = [simulate(crn, params, initial, start_t, end_t, incr)[0] for initial in initials]
 
     # reduce network and simulate the dynamics
