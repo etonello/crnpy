@@ -1661,7 +1661,7 @@ class CRN(object):
                 reaction._rate = reaction.rate
             if const_species in reaction.product:
                 del reaction.product[const_species]
-            if expr != None: reaction._rate = reaction.rate.subs(sympify(const_species), expr).cancel()
+            if expr != None: reaction._rate = reaction.rate.subs(sympify(const_species), expr).factor()
 
         reactions = [r for r in self.reactions if r.reactant != r.product]
         self.reactions = reactions
