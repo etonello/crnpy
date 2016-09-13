@@ -94,8 +94,15 @@ class TestReduction(unittest.TestCase):
         crn = from_react_file(path.join(input_reactions, "multi_product"))
         origspecies = crn.species
         origeqs = crn.equations()
-        crn._qss_generalised('y')
         self.assertEqual(eqs_match(origeqs, origspecies, crn.removed_species, crn.equations(), crn.species), 0)
+        crn._qss_generalised('y', no_rates = True)
+        reacts = parse_reactions(["r0_3r1: a + 2d ->(k_r0_3r1) 3b + c",
+                                  "r0_3r4: a ->(k_r0_3r4) 3a + 6b + c + d",
+                                  "r2_r1: d + e + f ->(k_r2_r1) b",
+                                  "r2_r4: e + f ->(k_r2_r4) a + 2b",
+                                  "r3_2r1: 2d + 2e ->(k_r3_2r1) 2b + h",
+                                  "r3_2r4: 2e ->(k_r3_2r4) 2a + 4b + h"])
+        self.assertTrue(all(r in reacts for r in crn.reactions) and all(r in crn.reactions for r in reacts))
 
 
     def test_examples(self):
