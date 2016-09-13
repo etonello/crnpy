@@ -1,6 +1,6 @@
-# Structural Sources of Robustness in Biochemical Reaction Networks
-# by Guy Shinar and Martin Feinberg
 # example S7
+# Guy Shinar and Martin Feinberg,
+# Structural Sources of Robustness in Biochemical Reaction Networks, Science, 2010.
 
 x <-> a
 a -> a1

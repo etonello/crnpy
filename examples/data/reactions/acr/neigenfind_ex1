@@ -1,7 +1,6 @@
-# Biochemical network decomposition reveals
-# absolute concentration robustness
-# Neigenfind, Jost; Grimbs, Sergio; Nikoloski, Zoran
 # A.3.1 Example 1
+# Neigenfind, J., Grimbs, S., & Nikoloski, Z. (2011).
+# Biochemical network decomposition reveals absolute concentration robustness. arXiv preprint arXiv:1105.0624.
 
 R1: A + X ->(k1) F + Y
 R2: F + Y ->(k2) A + X
