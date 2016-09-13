@@ -34,7 +34,7 @@ The folder *examples/data/reactions/* contains examples of networks in human-rea
 with the subfolder *biomodels* containing examples
 from the `BioModels <http://biomodels.caltech.edu/>`_ database [7]_.
 
-A string in this format contains the reactant and product complexes,
+A string in the human-readable format compatible with CrnPy contains the reactant and product complexes,
 separated either by the characters "->"
 for unidirectional reactions, or by the characters "<->" for reversible
 reactions.
@@ -44,20 +44,28 @@ reactions.
 The symbol ">" can be followed by an expression in parenthesis, which
 will be, by default, interpreted as a generalised kinetic parameter. In
 other words, the reaction rate will be set to the expression in
-parenthesis multiplied by the concentrations of the reactant species. In
-alternative, one can specify the rate between parenthesis, and use
+parenthesis multiplied by the concentrations of the reactant species:
+
+.. code:: python
+
+    >>> net1 = from_react_strings(["a + b ->(k1) c"])
+    >>> net1.reactions
+    (r0: a + b ->(k1) c,)
+    >>> net1.reactions[0].rate
+    a*b*k1
+
+In alternative, one can specify the rate between parenthesis, and use
 *from\_react\_strings* or *from\_react\_file* with the option *rate =
-True*. For example, the network created with the command
+True*. For example, the network *net1* above coincides with the network
+created as follows:
 
 .. code:: python
 
-    >>> one_react_net = from_react_strings(["a + b ->(k1) c"])
-
-coincides with the network created by the command
-
-.. code:: python
-
-    >>> one_react_net = from_react_strings(["a + b ->(k1*a*b) c"], rate = True)
+    >>> net2 = from_react_strings(["a + b ->(k1*a*b) c"], rate = True)
+    >>> net2.reactions
+    (r0: a + b ->(k1) c,)
+    >>> net2.reactions[0].rate
+    a*b*k1
 
 The expression in parenthesis must be a string that can be successfully
 converted to a *SymPy* expression. Numeric values are of course
@@ -67,17 +75,17 @@ the following example:
 
 .. code:: python
 
-    >>> one_react_net = from_react_strings(["2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
+    >>> net3 = from_react_strings(["2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
 
 The symbol "<" can also be preceded by an expression in parenthesis,
 which will be used to set the rate of the reverse reaction.
 
 A reaction id can be specified before the reactant, and must be followed
-by a colon. For example, we can specify an id for the last reaction with
+by a colon. For example, we can specify an id for the reaction in *net3*:
 
 .. code:: python
 
-    >>> one_react_net = from_react_strings(["r_in: 2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
+    >>> net3 = from_react_strings(["r_in: 2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
 
 If an id is not specified, reactions are assigned an id of the form
 *r\_n*, with n an integer, starting from 0.
@@ -102,7 +110,7 @@ with *_rev* being appendend to the reaction id to form the id of the reverse rea
 
 As shown in the last example, kinetic parameters are optional:
 since no kinetic parameter was specified for the last reaction,
-it was assigned a parameter equal to *k_* followed by the reaction id.
+it was assigned a parameter named *k_* followed by the reaction id.
 
 Comments can be added to a reaction file using the symbol "#". Anything
 appearing after the hash sign will be ignored.
@@ -246,23 +254,23 @@ the stoichiometry matrix and the laplacian:
 Network dynamics
 ~~~~~~~~~~~~~~~~
 
-The method *odes()* returns the SymPy differential equations describing the evolution of
+The method *odes()* returns the SymPy differential equations describing the evolution of the
 species concentrations. These can be printed more nicely with *format_equations()*:
 
 .. code:: python
 
-	>>> for eq in enz.odes(): print(eq)
-	...
-	Eq(Derivative(E(t), t), _comp*vcat_kcat*ES(t) + _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
-	Eq(Derivative(ES(t), t), -_comp*vcat_kcat*ES(t) - _comp*veq_koff*ES(t) + _comp*veq_kon*E(t)*S(t))
-	Eq(Derivative(P(t), t), _comp*vcat_kcat*ES(t))
-	Eq(Derivative(S(t), t), _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
-	>>> for e in enz.format_equations(): print(e)
-	... 
-	dE/dt = -E*S*_comp*veq_kon + ES*_comp*vcat_kcat + ES*_comp*veq_koff
-	dES/dt = E*S*_comp*veq_kon - ES*_comp*vcat_kcat - ES*_comp*veq_koff
-	dP/dt = ES*_comp*vcat_kcat
-	dS/dt = -E*S*_comp*veq_kon + ES*_comp*veq_koff
+  >>> for eq in enz.odes(): print(eq)
+  ...
+  Eq(Derivative(E(t), t), _comp*vcat_kcat*ES(t) + _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
+  Eq(Derivative(ES(t), t), -_comp*vcat_kcat*ES(t) - _comp*veq_koff*ES(t) + _comp*veq_kon*E(t)*S(t))
+  Eq(Derivative(P(t), t), _comp*vcat_kcat*ES(t))
+  Eq(Derivative(S(t), t), _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))
+  >>> for e in enz.format_equations(): print(e)
+  ... 
+  dE/dt = -E*S*_comp*veq_kon + ES*_comp*vcat_kcat + ES*_comp*veq_koff
+  dES/dt = E*S*_comp*veq_kon - ES*_comp*vcat_kcat - ES*_comp*veq_koff
+  dP/dt = ES*_comp*vcat_kcat
+  dS/dt = -E*S*_comp*veq_kon + ES*_comp*veq_koff
 
 One can also look at the conservation laws:
 
@@ -290,7 +298,7 @@ We can look for a Gröbner basis for the steady state ideal with the method *gro
 Deficiency, reversibility and linkage classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We can check if the network is weakly reversible:
+We can check if a network is weakly reversible:
 
 .. code:: python
 
@@ -386,22 +394,21 @@ and eliminate the intermediate *ES* using quasi-steady state approximation ([2]_
     >>> crn.reactions
     (veq: E + S ->(_comp*veq_kon) ES, veq_rev: ES ->(_comp*veq_koff) E + S, vcat: ES ->(_comp*vcat_kcat) E + P)
     >>> crn.qss('ES')
-    >>> for r in crn.reactions: print(r)
-    ... 
-    veq_vcat: E + S ->(comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) E + P
+    >>> crn.reactions
+    (veq_vcat: E + S ->(_comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) E + P,)
 
 We can now use a conservation to eliminate the enzyme, and check the new dynamics:
 
 .. code:: python
 
-    >>> from conslaw import ConsLaw
+    >>> from crnpy.conslaw import ConsLaw
     >>> crn.remove_by_cons('E', ConsLaw('E + ES', 'Et'))
-    >>> for r in crn.reactions: print(r)
-    ... 
-    veq_vcat: S ->(comp*et*vcat_kcat*veq_kon/(s*veq_kon + vcat_kcat + veq_koff)) p
+    >>> crn.reactions
+    (veq_vcat: S ->(Et*_comp*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)) P,)
     >>> for e in crn.format_equations(): print(e)
-    dP/dt = comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
-    dS/dt = -comp*Et*S*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
+    ... 
+    dP/dt = Et*S*_comp*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
+    dS/dt = -Et*S*_comp*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)
 
 In alternative, we could eliminate the constant species:
 
@@ -412,9 +419,8 @@ In alternative, we could eliminate the constant species:
     >>> crn.constant_species
     ['E']
     >>> crn.remove_all_constants()
-    >>> for r in crn.reactions: print(r)
-    ... 
-    veq_vcat: S ->(comp*E*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P
+    >>> crn.reactions
+    (veq_vcat: S ->(E*_comp*vcat_kcat*veq_kon/(vcat_kcat + veq_koff)) P,)
 
 or use a rapid equilibrium approximation ([2]_, [6]_, [8]_):
 
@@ -422,30 +428,30 @@ or use a rapid equilibrium approximation ([2]_, [6]_, [8]_):
 
     >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
     >>> crn.rapid_eq(('ES', 'E + S'), cons_law = ('E', ConsLaw('E + ES', 'Et')))
-    >>> for r in crn.reactions: print(r)
-    ... 
-    vcat: S ->(comp*Et*vcat_kcat*veq_kon/(S*veq_kon + veq_koff)) P
+    >>> crn.reactions
+    (vcat: S ->(Et*_comp*vcat_kcat*veq_kon/(S*veq_kon + veq_koff)) P,)
 
-With the method *remove* we can use a combination of the reduction methods:
+With the method *remove* we can use a combination of the reduction methods.
+The rapid equilibrium approximation is applied before the quasi-steady state approximation.
 
 .. code:: python
 
     >>> bi_uni_random.remove(rapid_eq = [('ea', 'e + a'), ('eb', 'e + b')], 
-                             qss = ['eab'], 
-                             cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
-	>>> for r in bi_uni_random.reactions: print(r)
-	... 
-	r2_r4: a + b ->(et*k0*k2*k_1*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
-	r3_r4: a + b ->(et*k1*k3*k_0*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
+    ...                      qss = ['eab'], 
+    ...                      cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
+    >>> for r in bi_uni_random.reactions: print(r)
+    ... 
+    r2_r4: a + b ->(et*k0*k2*k_1*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
+    r3_r4: a + b ->(et*k1*k3*k_0*k_r4/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
 
 We can merge reactions with the same reactant and product:
 
 .. code:: python
 
-	>>> bi_uni_random.merge_reactions()
-	>>> for r in bi_uni_random.reactions: print(r)
-	... 
-	r2_r4r3_r4: a + b ->(et*k_r4*(k0*k2*k_1 + k1*k3*k_0)/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
+    >>> bi_uni_random.merge_reactions()
+    >>> for r in bi_uni_random.reactions: print(r)
+    ... 
+    r2_r4r3_r4: a + b ->(et*k_r4*(k0*k2*k_1 + k1*k3*k_0)/(a*b*k0*k2*k_1 + a*b*k1*k3*k_0 + a*k0*k_1*k_2 + a*k0*k_1*k_3 + a*k0*k_1*k_r4 + b*k1*k_0*k_2 + b*k1*k_0*k_3 + b*k1*k_0*k_r4 + k_0*k_1*k_2 + k_0*k_1*k_3 + k_0*k_1*k_r4)) p
 
 Saving models
 -------------
