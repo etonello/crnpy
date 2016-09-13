@@ -2,8 +2,7 @@
 # Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
 # 6.1.2
 
-r + l ->(krl) rl
-rl ->(k_rl) r + l
-g + rl ->(kga) ga + gbg + rl
-ga ->(kgd0) gd
-gd + gbg ->(kg1) g
+R + L (kRLm)<->(kRL) RL
+G + RL ->(kGa) Ga + Gbg + RL
+Ga ->(kGd0) Gd
+Gd + Gbg ->(kG1) G
