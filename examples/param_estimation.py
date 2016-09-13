@@ -3,6 +3,11 @@ from simulation import simulate
 import numpy as np
 from scipy.optimize import fmin
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 def distance(x, y):
     """Eucleadian distance."""

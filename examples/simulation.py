@@ -5,6 +5,11 @@ import numpy as np
 from scipy import integrate
 import sympy as sp
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 def plot_simulation(filename, data, t, colors, title):
     """Create a png file with the plot of the simulation."""

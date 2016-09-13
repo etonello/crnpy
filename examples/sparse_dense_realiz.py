@@ -12,6 +12,11 @@ from itertools import product
 from pprint import pprint
 from pulp import *
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 # Algorithm for computing sparse and dense realizations of CRNs based on
 # "Computing sparse and dense realizations of reaction kinetic systems", Gábor Szederkényi (2010)

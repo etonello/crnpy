@@ -11,6 +11,11 @@ from param_estimation import score_distance, estimate_params
 import matplotlib.pyplot as plt
 import numpy as np
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 def create_plot(ni, position, t, data, filename, add_times = None, add_data = None, title = None, ylabel = None):
     colors = {'s': 'darkgreen', 'e': 'red', 'es': 'yellow', 'p': 'blue'}

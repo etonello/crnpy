@@ -7,6 +7,11 @@ from crnpy.crn import CRN, from_react_strings
 
 from simulation import simulate, plot_simulation
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 if __name__ == "__main__":
     # Simulation of one-substrate enzyme kinetics,
