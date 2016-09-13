@@ -14,6 +14,11 @@ from operator import mul
 
 from crnpy.crn import from_react_file
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 # Implementing algorithm for finding positive
 # feedback loops generating multistationarity, from
 # Feliu, E., & Wiuf, C. (2015).

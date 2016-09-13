@@ -7,6 +7,11 @@ import sympy as sp
 
 from crnpy.crn import CRN, from_react_file
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 # Concerted model of cooperativity.
 # Ingalls, Brian. "Mathematical Modelling in Systems Biology: An Introduction.", 2013.
 # 3.7.11

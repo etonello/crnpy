@@ -5,6 +5,11 @@ sys.path.insert(0, os.path.join(
 
 from crnpy.crn import CRN, from_react_file
 
+__author__ = "Elisa Tonello"
+__copyright__ = "Copyright (c) 2016, Elisa Tonello"
+__license__ = "BSD"
+__version__ = "0.0.1"
+
 
 filename = "data/reactions/acr/acr_1"
 crn = from_react_file(filename)
