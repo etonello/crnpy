@@ -164,12 +164,12 @@ def enzyme_reversible():
     crn = from_react_file(os.path.join(input_reactions, "enzyme_reversible"))
 
     crn.qss(cons_law = ('E', ConsLaw('E + C', 'Et')))
-    forward = sympify("Vf*S/Ks/(1 + S/Ks + P/Kp)").subs(sympify("Vf"), sympify("Et*k2"))\
-                                                     .subs(sympify("Ks"), sympify("(k_1+k2)/k1"))\
-                                                     .subs(sympify("Kp"), sympify("(k_1+k2)/k_2")).factor()
-    backward = sympify("Vr*P/Kp/(1 + S/Ks + P/Kp)").subs(sympify("Vr"), sympify("Et*k_1"))\
-                                                      .subs(sympify("Ks"), sympify("(k_1+k2)/k1"))\
-                                                      .subs(sympify("Kp"), sympify("(k_1+k2)/k_2")).factor()
+    forward = sympify("Vf*S/Ks/(1 + S/Ks + P/Kp)").subs("Vf", sympify("Et*k2"))\
+                                                  .subs("Ks", sympify("(k_1+k2)/k1"))\
+                                                  .subs("Kp", sympify("(k_1+k2)/k_2")).factor()
+    backward = sympify("Vr*P/Kp/(1 + S/Ks + P/Kp)").subs("Vr", sympify("Et*k_1"))\
+                                                   .subs("Ks", sympify("(k_1+k2)/k1"))\
+                                                   .subs("Kp", sympify("(k_1+k2)/k_2")).factor()
     fail_if_not_equal(set(crn.rates), set([forward, backward]))
 
 
@@ -187,12 +187,12 @@ def passive_transport():
     print("Passive transport.")
     crn = from_react_file(os.path.join(input_reactions, "passive_transport_simpl"))
     crn.qss(cons_law = ('T', ConsLaw('T + TS', 'Ttot')))
-    forward = sympify("a1*S1/K1/(1 + S1/K1 + S2/K2)").subs(sympify("a1"), sympify("k2*Ttot"))\
-                                                        .subs(sympify("K1"), sympify("(k_1+k2)/k1"))\
-                                                        .subs(sympify("K2"), sympify("(k_1+k2)/k_2")).factor()
-    backward = sympify("a2*S2/K2/(1 + S1/K1 + S2/K2)").subs(sympify("a2"), sympify("k_1*Ttot"))\
-                                                         .subs(sympify("K1"), sympify("(k_1+k2)/k1"))\
-                                                         .subs(sympify("K2"), sympify("(k_1+k2)/k_2")).factor()
+    forward = sympify("a1*S1/K1/(1 + S1/K1 + S2/K2)").subs("a1", sympify("k2*Ttot"))\
+                                                     .subs("K1", sympify("(k_1+k2)/k1"))\
+                                                     .subs("K2", sympify("(k_1+k2)/k_2")).factor()
+    backward = sympify("a2*S2/K2/(1 + S1/K1 + S2/K2)").subs("a2", sympify("k_1*Ttot"))\
+                                                      .subs("K1", sympify("(k_1+k2)/k1"))\
+                                                      .subs("K2", sympify("(k_1+k2)/k_2")).factor()
     fail_if_not_equal(set(crn.rates), set([forward, backward]))
 
     # Rapid equilibrium on transport step
@@ -308,22 +308,19 @@ def two_subs_one_prod_compulsory_rev():
     print("Two substrates, one product compulsory reversible mechanism.")
     crn = from_react_file(os.path.join(input_reactions, "two_subs_one_prod_compul_rev"))
     crn.qss(cons_law = ('e' , ConsLaw('e + ea + eab', 'et')))
-    rateab = sympify("kpluscat*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)")\
-               .subs(sympify("kpluscat"), "k3") \
-               .subs(sympify("kia"), "k_1/k1") \
-               .subs(sympify("kip"), "k3/k_3") \
-               .subs(sympify("Kma"), "k3/k1") \
-               .subs(sympify("Kmb"), "(k_2+k3)/k2") \
-               .subs(sympify("Kmp"), "k_1*(k_2+k3)/(k_3*(k_1+k_2))")
+
+    constants = dict(kpluscat = "k3",
+                     kminuscat = "k_1*k_2/(k_1+k_2)",
+                     kia = "k_1/k1",
+                     kip = "k3/k_3",
+                     Kma = "k3/k1",
+                     Kmb = "(k_2+k3)/k2",
+                     Kmp = "k_1*(k_2+k3)/(k_3*(k_1+k_2))")
+
+    rateab = sympify("kpluscat*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)").subs(constants)
     indab = crn.complexes.index(to_complex('a + b'))
     diffab = (rateab - crn.laplacian[indab,indab]).factor()
-    ratep = sympify("kminuscat*et/Kmp/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)")\
-               .subs(sympify("kminuscat"), "k_1*k_2/(k_1+k_2)") \
-               .subs(sympify("kia"), "k_1/k1") \
-               .subs(sympify("kip"), "k3/k_3") \
-               .subs(sympify("Kma"), "k3/k1") \
-               .subs(sympify("Kmb"), "(k_2+k3)/k2") \
-               .subs(sympify("Kmp"), "k_1*(k_2+k3)/(k_3*(k_1+k_2))")
+    ratep = sympify("kminuscat*et/Kmp/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)").subs(constants)
     indp = crn.complexes.index(to_complex('p'))
     diffp = (ratep - crn.laplacian[indp,indp]).factor()
     fail_if_not_equal(diffab, 0)
@@ -341,17 +338,13 @@ def two_subs_one_prod_random_irr():
                qss = ['eab'], \
                cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
 
-    Vf = sympify("et*k5")
-    Vr = sympify("et*(k_3+k_4)")
-    kia = sympify("k_1/k1")
-    kib = sympify("k_2/k2")
-    Kmb = sympify("k1*k_2*(k5 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)")
-    Kmp = sympify("(k5 + k_3 + k_4)/k_5")
-    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+a*b/(kia*Kmb))")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("Kmb"), Kmb)
+    constants = dict(Vf = sympify("et*k5"),
+                     Vr = sympify("et*(k_3+k_4)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("k_2/k2"),
+                     Kmb = sympify("k1*k_2*(k5 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)"),
+                     Kmp = sympify("(k5 + k_3 + k_4)/k_5"))
+    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+a*b/(kia*Kmb))").subs(constants)
 
     indab = crn.complexes.index(to_complex('a + b'))
     diff = crn.laplacian[indab, indab] - rateab
@@ -368,25 +361,15 @@ def two_subs_one_prod_random_rev():
                          qss = ['eab'], \
                          cons_law = ('e', ConsLaw('e + ea + eb + eab', 'et')))
 
-    Vf = sympify("et*k5")
-    Vr = sympify("et*(k_3+k_4)")
-    kia = sympify("k_1/k1")
-    kib = sympify("k_2/k2")
-    Kmb = sympify("k1*k_2*(k5 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)")
-    Kmp = sympify("(k5 + k_3 + k_4)/k_5")
-    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+a*b/(kia*Kmb)+p/Kmp)")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
+    constants = dict(Vf = sympify("et*k5"),
+                     Vr = sympify("et*(k_3+k_4)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("k_2/k2"),
+                     Kmb = sympify("k1*k_2*(k5 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)"),
+                     Kmp = sympify("(k5 + k_3 + k_4)/k_5"))
 
-    ratep = sympify("Vr/Kmp/(1+a/kia+b/kib+a*b/(kia*Kmb)+p/Kmp)")\
-               .subs(sympify("Vr"), Vr) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
+    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+a*b/(kia*Kmb)+p/Kmp)").subs(constants)
+    ratep = sympify("Vr/Kmp/(1+a/kia+b/kib+a*b/(kia*Kmb)+p/Kmp)").subs(constants)
 
     rateab = rateab.expand().factor().factor()
     ratep = ratep.expand().factor().factor()
@@ -419,40 +402,21 @@ def two_subs_two_prods_compulsory():
     crn = from_react_file(os.path.join(input_reactions, "two_subs_two_prods_compul_ternary"))
     crn.qss(cons_law = ('e' , ConsLaw('e + ea + eq + eab', 'et')))
 
-    Vf = sympify("k3*k4*et/(k3+k4)")
-    Vr = sympify("k_1*k_2*et/(k_1+k_2)")
-    kia = sympify("k_1/k1")
-    kib = sympify("(k_1+k_2)/k2")
-    kip = sympify("(k3+k4)/k_3")
-    kiq = sympify("k4/k_4")
-    Kma = sympify("k3*k4/k1/(k3+k4)")
-    Kmb = sympify("(k_2+k3)*k4/k2/(k3+k4)")
-    Kmp = sympify("k_1*(k_2+k3)/(k_1+k_2)/k_3")
-    Kmq = sympify("k_1*k_2/(k_1+k_2)/k_4")
+    constants = dict(Vf = sympify("k3*k4*et/(k3+k4)"),
+                     Vr = sympify("k_1*k_2*et/(k_1+k_2)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("(k_1+k_2)/k2"),
+                     kip = sympify("(k3+k4)/k_3"),
+                     kiq = sympify("k4/k_4"),
+                     Kma = sympify("k3*k4/k1/(k3+k4)"),
+                     Kmb = sympify("(k_2+k3)*k4/k2/(k3+k4)"),
+                     Kmp = sympify("k_1*(k_2+k3)/(k_1+k_2)/k_3"),
+                     Kmq = sympify("k_1*k_2/(k_1+k_2)/k_4"))
 
     rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b*Kma/(kia*Kmb)+p*Kmq/(kiq*Kmp)+q/kiq+a*b/(kia*Kmb)+Kmq*a*p/(kia*Kmp*kiq)+\
-                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmp*kiq)+a*b*p/(kia*Kmb*kip)+b*p*q/(kib*Kmp*kiq))")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kma"), Kma) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp) \
-               .subs(sympify("Kmq"), Kmq)
-
+                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmp*kiq)+a*b*p/(kia*Kmb*kip)+b*p*q/(kib*Kmp*kiq))").subs(constants)
     ratepq = sympify("Vr/(kiq*Kmp)/(1+a/kia+b*Kma/(kia*Kmb)+p*Kmq/(kiq*Kmp)+q/kiq+a*b/(kia*Kmb)+Kmq*a*p/(kia*Kmp*kiq)+\
-                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmp*kiq)+a*b*p/(kia*Kmb*kip)+b*p*q/(kib*Kmp*kiq))")\
-               .subs(sympify("Vr"), Vr) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kma"), Kma) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp) \
-               .subs(sympify("Kmq"), Kmq)
+                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmp*kiq)+a*b*p/(kia*Kmb*kip)+b*p*q/(kib*Kmp*kiq))").subs(constants)
 
     rateab = rateab.factor()
     ratepq = ratepq.factor()
@@ -476,32 +440,17 @@ def two_subs_two_prods_random():
                cons_law = ('e', ConsLaw('e + ea + eb + ep + eq + eab + epq', 'et')), \
                merge_reacts = True)
 
-    Vf = sympify("et*k9*(k5 + k6)/(k5 + k6 + k9 + k_9)")
-    Vr = sympify("et*k_9*(k_3 + k_4)/(k9 + k_3 + k_4 + k_9)")
-    kia = sympify("k_1/k1")
-    kib = sympify("k_2/k2")
-    kip = sympify("k7/k_7")
-    kiq = sympify("k8/k_8")
-    Kmb = sympify("k1*k_2*(k5*k9 + k5*k_3 + k5*k_4 + k6*k9 + k6*k_3 + k6*k_4 + k_3*k_9 + k_4*k_9)/((k1*k3*k_2 + k2*k4*k_1)*(k5 + k6 + k9 + k_9))")
-    Kmp = sympify("k7*k_8*(k5*k9 + k5*k_3 + k5*k_4 + k6*k9 + k6*k_3 + k6*k_4 + k_3*k_9 + k_4*k_9)/((k8*k_6*k_7 + k7*k_5*k_8)*(k9 + k_3 + k_4 + k_9))")
+    constants = dict(Vf = sympify("et*k9*(k5 + k6)/(k5 + k6 + k9 + k_9)"),
+                     Vr = sympify("et*k_9*(k_3 + k_4)/(k9 + k_3 + k_4 + k_9)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("k_2/k2"),
+                     kip = sympify("k7/k_7"),
+                     kiq = sympify("k8/k_8"),
+                     Kmb = sympify("k1*k_2*(k5*k9 + k5*k_3 + k5*k_4 + k6*k9 + k6*k_3 + k6*k_4 + k_3*k_9 + k_4*k_9)/((k1*k3*k_2 + k2*k4*k_1)*(k5 + k6 + k9 + k_9))"),
+                     Kmp = sympify("k7*k_8*(k5*k9 + k5*k_3 + k5*k_4 + k6*k9 + k6*k_3 + k6*k_4 + k_3*k_9 + k_4*k_9)/((k8*k_6*k_7 + k7*k_5*k_8)*(k9 + k_3 + k_4 + k_9))"))
 
-    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
-
-    ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))")\
-               .subs(sympify("Vr"), Vr) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
+    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
+    ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
 
     indab = crn.complexes.index(to_complex('a + b'))
     indpq = crn.complexes.index(to_complex('p + q'))
@@ -519,32 +468,17 @@ def two_subs_two_prods_random():
                          qss = ['eab'], \
                          cons_law = ('e', ConsLaw('e + ea + eb + ep + eq + eab', 'et')))
 
-    Vf = sympify("et*(k5+k6)")
-    Vr = sympify("et*(k_3+k_4)")
-    kia = sympify("k_1/k1")
-    kib = sympify("k_2/k2")
-    kip = sympify("k7/k_7")
-    kiq = sympify("k8/k_8")
-    Kmb = sympify("k1*k_2*(k5 + k6 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)")
-    Kmp = sympify("k7*k_8*(k5 + k6 + k_3 + k_4)/(k8*k_6*k_7 + k7*k_5*k_8)")
+    constants = dict(Vf = sympify("et*(k5+k6)"),
+                     Vr = sympify("et*(k_3+k_4)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("k_2/k2"),
+                     kip = sympify("k7/k_7"),
+                     kiq = sympify("k8/k_8"),
+                     Kmb = sympify("k1*k_2*(k5 + k6 + k_3 + k_4)/(k1*k3*k_2 + k2*k4*k_1)"),
+                     Kmp = sympify("k7*k_8*(k5 + k6 + k_3 + k_4)/(k8*k_6*k_7 + k7*k_5*k_8)"))
 
-    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
-
-    ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))")\
-               .subs(sympify("Vr"), Vr) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp)
+    rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
+    ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
 
     indab = crn.complexes.index(to_complex('a + b'))
     indpq = crn.complexes.index(to_complex('p + q'))
@@ -562,40 +496,22 @@ def two_subs_two_prods_subs_enzyme():
     crn = from_react_file(os.path.join(input_reactions, "two_subs_two_prods_subs_enzyme"))
     crn.qss(cons_law = ('e' , ConsLaw('e + e1 + ea + e1b', 'et')))
 
-    Vf = sympify("k2*k4*et/(k2+k4)")
-    Vr = sympify("k_1*k_3*et/(k_1+k_3)")
-    kia = sympify("k_1/k1")
-    kib = sympify("k_3/k3")
-    kip = sympify("k2/k_2")
-    kiq = sympify("k4/k_4")
-    Kma = sympify("(k_1+k2)*k4/k1/(k2+k4)")
-    Kmb = sympify("k2/k3*(k_3+k4)/(k2+k4)")
-    Kmp = sympify("k_3/k_2*(k_1+k2)/(k_1+k_3)")
-    Kmq = sympify("k_1/k_4*(k_3+k4)/(k_1+k_3)")
+    constants = dict(Vf = sympify("k2*k4*et/(k2+k4)"),
+                     Vr = sympify("k_1*k_3*et/(k_1+k_3)"),
+                     kia = sympify("k_1/k1"),
+                     kib = sympify("k_3/k3"),
+                     kip = sympify("k2/k_2"),
+                     kiq = sympify("k4/k_4"),
+                     Kma = sympify("(k_1+k2)*k4/k1/(k2+k4)"),
+                     Kmb = sympify("k2/k3*(k_3+k4)/(k2+k4)"),
+                     Kmp = sympify("k_3/k_2*(k_1+k2)/(k_1+k_3)"),
+                     Kmq = sympify("k_1/k_4*(k_3+k4)/(k_1+k_3)"))
 
     rateab = sympify("Vf/(kia*Kmb)/(a/kia+b*Kma/(kia*Kmb)+p/kip+q*Kmp/(kip*Kmq)+a*b/(kia*Kmb)+a*p/(kia*kip)+\
-                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmq*kip))")\
-               .subs(sympify("Vf"), Vf) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kma"), Kma) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp) \
-               .subs(sympify("Kmq"), Kmq)
+                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmq*kip))").subs(constants)
 
     ratepq = sympify("Vr/(kip*Kmq)/(a/kia+b*Kma/(kia*Kmb)+p/kip+q*Kmp/(kip*Kmq)+a*b/(kia*Kmb)+a*p/(kia*kip)+\
-                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmq*kip))")\
-               .subs(sympify("Vr"), Vr) \
-               .subs(sympify("kia"), kia) \
-               .subs(sympify("kib"), kib) \
-               .subs(sympify("kip"), kip) \
-               .subs(sympify("kiq"), kiq) \
-               .subs(sympify("Kma"), Kma) \
-               .subs(sympify("Kmb"), Kmb) \
-               .subs(sympify("Kmp"), Kmp) \
-               .subs(sympify("Kmq"), Kmq)
+                                       Kma*b*q/(kia*Kmb*kiq)+p*q/(Kmq*kip))").subs(constants)
 
     rateab = rateab.expand().factor().factor()
     ratepq = ratepq.expand().factor().factor()
