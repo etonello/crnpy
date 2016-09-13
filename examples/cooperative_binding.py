@@ -16,9 +16,9 @@ print "Creating model..."
 crn = from_react_file("data/reactions/cooperative_binding")
 crn.inspect(True)
 
-print
+print("")
 
-print("Remove ps1, ps2 and ps3 by qss")
-crn.remove(qss = ['ps1', 'ps2', 'ps3'], debug = True)
+print("Remove ps1, ps2 and ps3 by qssa")
+crn.remove(qss = ['ps1', 'ps2', 'ps3'])
 for s, f in crn.removed_species: print(s + " = " + str(f))
 crn.inspect(True)
