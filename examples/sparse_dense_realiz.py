@@ -18,7 +18,7 @@ from pulp import *
 # Journal of Mathematical Chemistry, 47(2), 551-568.
 
 
-def sparse_dense_realiz(crn, params, debug = False, sparse = True):
+def sparse_dense_realiz(crn, params, debug = False, sparse = True, lp_model_file = None):
     m = crn.n_complexes
     n = crn.n_species
     Y = crn.complex_matrix
@@ -59,7 +59,8 @@ def sparse_dense_realiz(crn, params, debug = False, sparse = True):
 
 
     ### Solve ###
-    prob.writeLP("test.lp")
+    if lp_model_file:
+        prob.writeLP("test.lp")
     msg = 0
     if debug: msg = 1
     status = prob.solve(GLPK(msg = msg))
@@ -91,7 +92,7 @@ def compare_realizations(crn, params):
     # find sparse and dense realizations for the given parameters
     print("Original network: {} reactions".format(crn.n_reactions))
     crn.print_laplacian()
-    crn.print_equations()
+    for e in crn.format_equations(): print (e)
     print(crn.format_deficiency())
     print("Weakly reversible: {}".format(crn.is_weakly_rev))
     print('')
@@ -101,14 +102,14 @@ def compare_realizations(crn, params):
 
     crn.print_laplacian(numeric = True)
     pprint(crn.reactions)
-    crn.print_equations()
+    for e in crn.format_equations(): print (e)
     print('')
 
     sparse = sparse_dense_realiz(crn, params, debug = False, sparse = True)
     print("Sparse realization: {} reactions".format(sparse.n_reactions))
     sparse.print_laplacian(numeric = True, precision = 4)
     pprint(sparse.reactions)
-    sparse.print_equations()
+    for e in sparse.format_equations(): print (e)
     print(sparse.format_deficiency())
     print("Weakly reversible: {}".format(sparse.is_weakly_rev))
     print('')
@@ -117,7 +118,7 @@ def compare_realizations(crn, params):
     print("Dense realization: {} reactions".format(dense.n_reactions))
     dense.print_laplacian(numeric = True, precision = 4)
     pprint(dense.reactions)
-    dense.print_equations()
+    for e in dense.format_equations(): print (e)
     print(dense.format_deficiency())
     print("Weakly reversible: {}".format(dense.is_weakly_rev))
 
