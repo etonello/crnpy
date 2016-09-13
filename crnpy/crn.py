@@ -1363,7 +1363,7 @@ class CRN(object):
 
         y = sympify(intermediate)
         expr = y
-        # if there are no reactant of product reactions, species is not an intermediate
+        # if there are no reactant or product reactions, species is not an intermediate
         if len(prodReactions) == 0 or len(reactReactions) == 0:
             raise ValueError("Species is not a valid intermediate.")
         else:
