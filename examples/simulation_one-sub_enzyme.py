@@ -3,7 +3,7 @@ import os
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.realpath(__file__)), '..'))
 
-from crn.crn import CRN, from_react_strings
+from crnpy.crn import CRN, from_react_strings
 
 from simulation import simulate, plot_simulation
 
