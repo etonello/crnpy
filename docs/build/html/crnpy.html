@@ -631,7 +631,16 @@ so that the columns sum to zero.</p>
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.kinetic_params">
 <code class="descname">kinetic_params</code><a class="headerlink" href="#crnpy.crn.CRN.kinetic_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Kinetic parameters of the reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple of sympy expressions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.laplacian">
@@ -1320,7 +1329,9 @@ The term &#8216;&#8217;tree constant&#8217;&#8217; is introduced in [2].</p>
 <dl class="method">
 <dt id="crnpy.crn.CRN.update_model">
 <code class="descname">update_model</code><span class="sig-paren">(</span><em>if_exists=False</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.update_model" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Update the SBML model and document or create them if they do not exist.
+If if_exists is set to True, update only if the model already exists.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.weak_conn_components">

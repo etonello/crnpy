@@ -209,6 +209,10 @@ class CRN(object):
 
     @property
     def kinetic_params(self):
+        """Kinetic parameters of the reactions.
+
+        :rtype: tuple of sympy expressions.
+        """
         return tuple(self._kinetic_params)
 
 
@@ -327,6 +331,8 @@ class CRN(object):
 
 
     def update_model(self, if_exists = False):
+        """Update the SBML model and document or create them if they do not exist.
+        If if_exists is set to True, update only if the model already exists."""
         if (not if_exists) and (not self.model):
             document = SBMLDocument(3, 1)
             self._model, self._document = document.createModel(), document
