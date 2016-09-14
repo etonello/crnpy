@@ -85,8 +85,8 @@ For more information, a tutorial is available as well as some
 example scripts.
 
 
-Getting Started
----------------
+Citation
+--------
 
 If you use crnpy for your work, please cite
 
