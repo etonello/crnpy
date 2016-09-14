@@ -106,7 +106,7 @@ For example, for the bi_uni_random example above we have:
     r4: eab ->(k_r4) e + p
 
 Notice that for each reversible reaction two separate reactions have been created,
-with *_rev* being appendend to the reaction id to form the id of the reverse reaction.
+with *_rev* being appended to the reaction id to form the id of the reverse reaction.
 
 As shown in the last example, kinetic parameters are optional:
 since no kinetic parameter was specified for the last reaction,
@@ -235,7 +235,7 @@ the Laplacian of the graph of complexes *laplacian*, and its negation *kinetic_m
 
 
 Special methods are available to print some matrices. For example, for
-the stoichiometry matrix and the laplacian:
+the stoichiometry matrix and the Laplacian:
 
 .. code:: python
 
@@ -255,7 +255,7 @@ Network dynamics
 ~~~~~~~~~~~~~~~~
 
 The method *odes()* returns the SymPy differential equations describing the evolution of the
-species concentrations. These can be printed more nicely with *format_equations()*:
+species concentrations. These can be printed more compactly with *format_equations()*:
 
 .. code:: python
 

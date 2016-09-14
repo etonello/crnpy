@@ -135,7 +135,7 @@ For example, for the bi_uni_random example above we have:</p>
 </pre></div>
 </div>
 <p>Notice that for each reversible reaction two separate reactions have been created,
-with <em>_rev</em> being appendend to the reaction id to form the id of the reverse reaction.</p>
+with <em>_rev</em> being appended to the reaction id to form the id of the reverse reaction.</p>
 <p>As shown in the last example, kinetic parameters are optional:
 since no kinetic parameter was specified for the last reaction,
 it was assigned a parameter named <em>k_</em> followed by the reaction id.</p>
@@ -245,7 +245,7 @@ the Laplacian of the graph of complexes <em>laplacian</em>, and its negation <em
 </pre></div>
 </div>
 <p>Special methods are available to print some matrices. For example, for
-the stoichiometry matrix and the laplacian:</p>
+the stoichiometry matrix and the Laplacian:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">enz</span><span class="o">.</span><span class="n">print_stoich_matrix</span><span class="p">()</span>
 <span class="go">     veq  veq_rev  vcat</span>
 <span class="go">E  |  -1        1     1 |</span>
@@ -263,7 +263,7 @@ the stoichiometry matrix and the laplacian:</p>
 <div class="section" id="network-dynamics">
 <h3>Network dynamics<a class="headerlink" href="#network-dynamics" title="Permalink to this headline">¶</a></h3>
 <p>The method <em>odes()</em> returns the SymPy differential equations describing the evolution of the
-species concentrations. These can be printed more nicely with <em>format_equations()</em>:</p>
+species concentrations. These can be printed more compactly with <em>format_equations()</em>:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">enz</span><span class="o">.</span><span class="n">odes</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">Eq(Derivative(E(t), t), _comp*vcat_kcat*ES(t) + _comp*veq_koff*ES(t) - _comp*veq_kon*E(t)*S(t))</span>
