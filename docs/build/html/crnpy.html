@@ -1171,7 +1171,16 @@ or if a reduction method is applied to eliminate some species.</p>
 <dd><p>Split reactions according to the elementary modes they take part in.</p>
 <p>Return a list of reactions grouped by elementary mode, and the list of reactions
 not taking part in any elementary mode.</p>
-<p>If <em>same_react</em> is True, do not split reactions with the same reactant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>same_react</strong> (<em>boolean.</em>) &#8211; if True, do not split reactions with the same reactant.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(list of lists reactions, list of reactions).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1265,7 +1274,14 @@ of the graph of complexes, and the array of labels for the strongly connected co
 <dd><p>Try to split the network into subnetworks such that
 the ranks of the subnetworks sum to the rank of the network.
 Use split_by_ems to look for candidate subnetworks.</p>
-<p>Return a list of CRNs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of CRN objects.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">

@@ -1929,7 +1929,7 @@ class CRN(object):
         the ranks of the subnetworks sum to the rank of the network.
         Use split_by_ems to look for candidate subnetworks.
 
-        Return a list of CRNs.
+        :rtype: list of CRN objects.
         """
         reacts, rem_reacts = self.split_by_ems()
         nets = [from_reacts(r) for r in reacts] + ([from_reacts(rem_reacts)] if rem_reacts else [])
@@ -1945,7 +1945,11 @@ class CRN(object):
         Return a list of reactions grouped by elementary mode, and the list of reactions
         not taking part in any elementary mode.
 
-        If *same_react* is True, do not split reactions with the same reactant."""
+        :param same_react: if True, do not split reactions with the same reactant.
+        :type same_react: boolean.
+
+        :rtype: (list of lists reactions, list of reactions).
+        """
         subnet = {}
         reacts = {}
         tinvs = self.t_invariants
