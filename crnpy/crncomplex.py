@@ -70,6 +70,7 @@ class Complex(Counter):
         >>> Complex(a = 1, b = 3).times(2)
         2a + 6b
 
+        :rtype: Complex.
         """
         if not isinstance(n, int):
             raise ValueError("Can only multiply stoichiometric coefficients by integer.")
@@ -88,6 +89,7 @@ class Complex(Counter):
         >>> c1.ma()
         E*S**2
 
+        :rtype: sympy expression.
         """
         if self == {}: return sympify("1")
         return sp.Mul(*(sympify(r)**self[r] for r in self))
@@ -105,6 +107,8 @@ class Complex(Counter):
         [0],
         [2],
         [0]])
+
+        :rtype: sympy Matrix.
         """
         return sp.Matrix([self[s] if s in self else 0 for s in species])
 
@@ -116,6 +120,7 @@ class Complex(Counter):
         >>> Complex({'S': 2, 'E': 1}).symp()
         E + 2*S
 
+        :rtype: sympy expression.
         """
         return sp.Add(*(self[s]*sympify(s) for s in self))
 
@@ -128,6 +133,7 @@ def to_complex(string):
     >>> to_complex("2*a + b")
     2a + b
 
+    :rtype: Complex.
     """
     d = dict((str(k), v) for k, v in sympify(string).as_coefficients_dict().items())
     if '1' in d:
@@ -136,5 +142,8 @@ def to_complex(string):
 
 
 def sympify(s):
-    """Convert s to sympy expression, accepting all symbols in the clashing-symbols dictionaries."""
+    """Convert s to sympy expression, accepting all symbols in the clashing-symbols dictionaries.
+
+    :rtype: sympy expression.
+    """
     return sp.sympify(s, _clash)

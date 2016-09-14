@@ -1391,6 +1391,14 @@ and a string or sympy expression representing the rate.</p>
 reactant complex -&gt;(k) product complex
 where k is the generalised kinetic parameter of the reaction if rate = False,
 otherwise the rate of the reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1409,6 +1417,14 @@ If the reaction has no defined rate, return None.</p>
 <code class="descname">kinetic_param</code><a class="headerlink" href="#crnpy.reaction.Reaction.kinetic_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of the reaction divided by the mass action monomial
 associated to the reactant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy expression.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1434,30 +1450,70 @@ To use the rate instead, use rate = True.</p>
 <span class="go">r_{1}: A + 2 B \xrightarrow{A B^{2} k_{1}} C</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.reaction.Reaction.product">
 <code class="descname">product</code><a class="headerlink" href="#crnpy.reaction.Reaction.product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Product complex of the reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.reaction.Reaction.rate">
 <code class="descname">rate</code><a class="headerlink" href="#crnpy.reaction.Reaction.rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of the reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy expression.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.reaction.Reaction.reactant">
 <code class="descname">reactant</code><a class="headerlink" href="#crnpy.reaction.Reaction.reactant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reactant complex of the reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="crnpy.reaction.Reaction.reactionid">
 <code class="descname">reactionid</code><a class="headerlink" href="#crnpy.reaction.Reaction.reactionid" title="Permalink to this definition">¶</a></dt>
 <dd><p>String id of the reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1507,6 +1563,14 @@ their reaction ids are concatenated.</p>
 <span class="go">[r0r3: a -&gt;(k_r0 + k_r3) b, r1: c -&gt;(k_r1) d + e, r1_revr2: d + e -&gt;(k_r1_rev + k_r2) c]</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of Reactions.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1514,6 +1578,14 @@ their reaction ids are concatenated.</p>
 <code class="descclassname">crnpy.reaction.</code><code class="descname">reaction_path</code><span class="sig-paren">(</span><em>reactions</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.reaction.reaction_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate the reactions so that they can be composed,
 in the given order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of Reactions.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1522,6 +1594,21 @@ in the given order.</p>
 <dd><p>Translate the reaction by c.
 Return the reaction (r + Id_c), where c has been added to both reactant and product.
 The rate is unchanged.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>reaction</strong> (<em>Reaction.</em>) &#8211; reaction to translate.</li>
+<li><strong>c</strong> (<em>string.</em>) &#8211; complex to add to reactant and product.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Reaction.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1715,6 +1802,14 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 <span class="go">E*S**2</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy expression.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1733,6 +1828,14 @@ The Counter class is similar to bags or multisets in other languages.&#8221;</dd
 <span class="go">E + 2*S</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy expression.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1752,6 +1855,14 @@ all stoichiometric coefficients by n.</p>
 <span class="go">2a + 6b</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1776,6 +1887,14 @@ containing the stoichiometric cofficients of species in complex.</p>
 <span class="go">[0]])</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy Matrix.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1784,6 +1903,14 @@ containing the stoichiometric cofficients of species in complex.</p>
 <dt id="crnpy.crncomplex.sympify">
 <code class="descclassname">crnpy.crncomplex.</code><code class="descname">sympify</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crncomplex.sympify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert s to sympy expression, accepting all symbols in the clashing-symbols dictionaries.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy expression.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1802,6 +1929,14 @@ containing the stoichiometric cofficients of species in complex.</p>
 <span class="go">2a + b</span>
 </pre></div>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

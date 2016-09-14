@@ -45,22 +45,34 @@ class Reaction(object):
 
     @property
     def reactionid(self):
-        """String id of the reaction."""
+        """String id of the reaction.
+
+        :type: string.
+        """
         return self._reactionid
 
     @property
     def reactant(self):
-        """Reactant complex of the reaction."""
+        """Reactant complex of the reaction.
+
+        :type: Complex.
+        """
         return self._reactant
 
     @property
     def product(self):
-        """Product complex of the reaction."""
+        """Product complex of the reaction.
+
+        :type: Complex.
+        """
         return self._product
 
     @property
     def rate(self):
-        """Rate of the reaction."""
+        """Rate of the reaction.
+
+        :type: sympy expression.
+        """
         return self._rate
 
     @property
@@ -74,7 +86,10 @@ class Reaction(object):
     @property
     def kinetic_param(self):
         """Rate of the reaction divided by the mass action monomial
-        associated to the reactant."""
+        associated to the reactant.
+
+        :type: sympy expression.
+        """
         return self._kinetic_param
 
     @property
@@ -99,7 +114,10 @@ class Reaction(object):
         """Return a string of the form
         reactant complex ->(k) product complex
         where k is the generalised kinetic parameter of the reaction if rate = False,
-        otherwise the rate of the reaction."""
+        otherwise the rate of the reaction.
+
+        :rtype: string.
+        """
         return "{}: {} ->{} {}".format(self.reactionid,
                                        self.reactant,
                                        "(" + self.format_kinetics(rate, precision) + ")" if self.rate else "",
@@ -139,6 +157,8 @@ class Reaction(object):
         r_{1}: A + 2 B \\xrightarrow{k_{1}} C
         >>> print(r.latex(True))
         r_{1}: A + 2 B \\xrightarrow{A B^{2} k_{1}} C
+
+        :rtype: string.
         """
         return "{}: {} {} {}".format(sp.latex(sympify(self.reactionid)),
                                      sp.latex(self.reactant.symp()),
@@ -238,7 +258,10 @@ class Reaction(object):
 
 def _split_reaction(reaction):
     """Split a reaction into separate reactions, one
-    for each addend in rate (compare to split_reactions_monom)."""
+    for each addend in rate (compare to split_reactions_monom).
+
+    :rtype: list of Reactions.
+    """
     ratenumer, ratedenom = reaction.rate.as_numer_denom()
     ratenumer = ratenumer.expand()
     if ratenumer.func.__name__ == 'Add':
@@ -256,7 +279,10 @@ def _split_reaction(reaction):
 
 def _split_reaction_monom(reaction, species):
     """Split a reaction into separate reactions, one
-    for each monomial in rate (compare to split_reactions)."""
+    for each monomial in rate (compare to split_reactions).
+
+    :rtype: list of Reactions.
+    """
     ratenumer, ratedenom = reaction.rate.cancel().as_numer_denom()
     ratenumer = ratenumer.expand()
     species = map(sympify, species)
@@ -292,6 +318,7 @@ def merge_reactions(reactions):
     >>> merge_reactions(reacts)
     [r0r3: a ->(k_r0 + k_r3) b, r1: c ->(k_r1) d + e, r1_revr2: d + e ->(k_r1_rev + k_r2) c]
 
+    :rtype: list of Reactions.
     """
     react = defaultdict(list)
     newreactions = []
@@ -307,7 +334,10 @@ def merge_reactions(reactions):
 
 
 def _same_denom(reactions):
-    """Change the rates so that they all have the same denominator."""
+    """Change the rates so that they all have the same denominator.
+
+    :rtype: list of Reactions.
+    """
     numers, denoms = zip(*[reaction.rate.as_numer_denom() for reaction in reactions])
     commondenom = reduce(sp.lcm, denoms)
     newreactions = []
@@ -334,14 +364,24 @@ def _same_denom(reactions):
 def translate(reaction, c):
     """Translate the reaction by c.
     Return the reaction (r + Id_c), where c has been added to both reactant and product.
-    The rate is unchanged."""
+    The rate is unchanged.
+
+    :param reaction: reaction to translate.
+    :type reaction: Reaction.
+    :param c: complex to add to reactant and product.
+    :type c: string.
+    :rtype: Reaction.
+    """
     rid = reaction.reactionid + "_" + str(c).replace(" ", "").replace("+", "_").replace("-", "m")
     return Reaction(rid, Complex(reaction.reactant + c), Complex(reaction.product + c), reaction.rate)
 
 
 def reaction_path(reactions):
     """Translate the reactions so that they can be composed,
-    in the given order."""
+    in the given order.
+
+    :rtype: list of Reactions.
+    """
     additions = [reduce(lambda a, b: a + b,
                         [reactions[i].product for i in range(h)] +
                         [reactions[i].reactant for i in range(h+1, len(reactions))])
