@@ -476,14 +476,24 @@ a minus if it decreases, and 0 if it is constant in x_i.
 Every reaction rate v_j is assumed to be strictly monotone in each variable x_i.
 Optional check for monotonicity is available with check = True only for
 functions of one variable.</p>
-<p>Keyword arguments:</p>
-<ul class="simple">
-<li>var &#8211; variable name to use. Default is g_.</li>
-<li>state &#8211; dictionary of the point where the derivatives are evaluated. Default is (1, 1, ..., 1).</li>
-<li>check &#8211; check for monotonicity. Only available for unary functions.</li>
-<li>interval &#8211; interval where monotonicity is checked - default is [0, oo).</li>
-<li>params &#8211; values for the kinetic parameters. All set to 1 by default.</li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>var</strong> (<em>string</em>) &#8211; variable name to use. Default is g_.</li>
+<li><strong>state</strong> (<em>dictionary, key = string, value = numeric</em>) &#8211; dictionary of the point where the derivatives are evaluated. Default is (1, 1, ..., 1).</li>
+<li><strong>check</strong> (<em>boolean</em>) &#8211; check for monotonicity. Only available for unary functions.</li>
+<li><strong>interval</strong> (<em>sympy Interval</em>) &#8211; interval where monotonicity is checked - default is [0, oo).</li>
+<li><strong>params</strong> (<em>dictionary, key = kinetic params, value = numeric</em>) &#8211; values for the kinetic parameters. All set to 1 by default.</li>
 </ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">sympy SparseMatrix.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <p>References:</p>
 <p>Feliu, E., &amp; Wiuf, C. (2015). Finding the positive feedback loops underlying multi-stationarity. BMC systems biology, 9(1), 1</p>
 </dd></dl>
@@ -793,32 +803,24 @@ and precision can be used to format the elements (default is 3).</p>
 <code class="descname">qss</code><span class="sig-paren">(</span><em>intermediate=None</em>, <em>cons_law=None</em>, <em>minimal=False</em>, <em>remove_const=False</em>, <em>merge_reacts=False</em>, <em>adjust=False</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.qss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove an intermediate species via quasi-steady state approximation.</p>
 <p>Keyword arguments:</p>
-<ul>
-<li><p class="first">intermediate &#8211; species to eliminate.</p>
-</li>
-<li><dl class="first docutils">
-<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
-<dd><p class="first last">that will be written as a function of the other species in the conservation.
-All other species in the conservation are eliminated via quasi-steady state approximation.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">minimal &#8211; find network of minimal structure when applying qss.</p>
-</li>
-<li><p class="first">remove_const &#8211; remove any species left constant after the reduction.</p>
-</li>
-<li><p class="first">merge_reacts &#8211; merge reactions with the same reactant and product.</p>
-</li>
-<li><p class="first">adjust &#8211; change the rates so that they reflect the reactant species.</p>
-</li>
-<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
-</li>
-</ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>intermediate</strong> (<em>string</em>) &#8211; species to remove via qssa.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
+If the reduction method is not specified for a species in the conservation,
+the quasi-steady state approximation is used.</li>
+<li><strong>minimal</strong> (<em>boolean</em>) &#8211; find network of minimal structure when applying qss.</li>
+<li><strong>remove_const</strong> (<em>boolean</em>) &#8211; remove any species left constant after the reduction.</li>
+<li><strong>merge_reacts</strong> (<em>boolean</em>) &#8211; merge reactions with the same reactant and product.</li>
+<li><strong>adjust</strong> (<em>boolean</em>) &#8211; change the rates so that they reflect the reactant species.</li>
+<li><strong>network_file</strong> (<em>string</em>) &#8211; save the reduction steps to file with the given path.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -843,23 +845,26 @@ All other species in the conservation are eliminated via quasi-steady state appr
 
 <dl class="method">
 <dt id="crnpy.crn.CRN.rapid_eq">
-<code class="descname">rapid_eq</code><span class="sig-paren">(</span><em>recouple</em>, <em>cons_law=None</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.rapid_eq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rapid_eq</code><span class="sig-paren">(</span><em>species</em>, <em>cmplx</em>, <em>cons_law=None</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.rapid_eq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply the rapid equilibrium approximation to recouple,
 replacing the species in recouple[0] with the complex in recouple[1].</p>
 <p>Keyword arguments:</p>
-<ul>
-<li><p class="first">recouple &#8211; couple (species to eliminate, complex to replace species)</p>
-</li>
-<li><dl class="first docutils">
-<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
-<dd><p class="first last">that will be written as a function of the other species in the conservation.
-All other species in the conservation are eliminated via quasi-steady state approximation.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
-</li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>species</strong> (<em>string</em>) &#8211; species to eliminate.</li>
+<li><strong>complex</strong> (<em>string</em>) &#8211; complex supposed at rapid equilibrium with species.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
+If the reduction method is not specified for a species in the conservation,
+the quasi-steady state approximation is used.</li>
+<li><strong>network_file</strong> (<em>string</em>) &#8211; save the reduction steps to file with the given path.</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
 <p>Update remove_species.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -932,31 +937,26 @@ remove and keep are merged in a pool.</p>
 <code class="descname">remove</code><span class="sig-paren">(</span><em>rapid_eq=None</em>, <em>qss=None</em>, <em>cons_law=None</em>, <em>minimal=False</em>, <em>remove_const=False</em>, <em>merge_reacts=False</em>, <em>adjust=False</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove intermediates either by rapid-equilibrium or
 by quasi-steady state approximation, with an optional conservation law.</p>
-<p>Keyword arguments:</p>
-<ul>
-<li><p class="first">rapid_eq &#8211; list of couples (species to remove, complex to replace species with).</p>
-</li>
-<li><p class="first">qss &#8211; list of species that to remove via qss.</p>
-</li>
-<li><dl class="first docutils">
-<dt>cons_law &#8211; couple (string, ConsLaw), where the first element is the species</dt>
-<dd><p class="first last">that will be written as a function of the other species in the conservation.
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rapid_eq</strong> (<em>list of (string (species), string (complex)).</em>) &#8211; list of pairs species-complexes. The species are to be replaced by complexes using rapid equilibrium approximation.</li>
+<li><strong>qss</strong> (<em>list of strings</em>) &#8211; list of species to remove via qssa.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
 If the reduction method is not specified for a species in the conservation,
-the quasi-steady state approximation is used.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">minimal &#8211; find network of minimal structure when applying qss.</p>
-</li>
-<li><p class="first">remove_const &#8211; remove any species left constant after the reduction.</p>
-</li>
-<li><p class="first">merge_reacts &#8211; merge reactions with the same reactant and product.</p>
-</li>
-<li><p class="first">adjust &#8211; change the rates so that they reflect the reactant species.</p>
-</li>
-<li><p class="first">network_file &#8211; save the reduction steps to file with given path.</p>
-</li>
+the quasi-steady state approximation is used.</li>
+<li><strong>minimal</strong> (<em>boolean</em>) &#8211; find network of minimal structure when applying qss.</li>
+<li><strong>remove_const</strong> (<em>boolean</em>) &#8211; remove any species left constant after the reduction.</li>
+<li><strong>merge_reacts</strong> (<em>boolean</em>) &#8211; merge reactions with the same reactant and product.</li>
+<li><strong>adjust</strong> (<em>boolean</em>) &#8211; change the rates so that they reflect the reactant species.</li>
+<li><strong>network_file</strong> (<em>string</em>) &#8211; save the reduction steps to file with the given path.</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
 <p>Update remove_species.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
