@@ -127,7 +127,7 @@ class CRN(object):
         The tuple of species is read-only, and can change if the reactions are updated,
         or if a reduction method is applied to eliminate some species.
 
-        :type: tuple of strings.
+        :rtype: tuple of strings.
         """
         return tuple(self._species)
 
@@ -136,7 +136,7 @@ class CRN(object):
     def removed_species(self):
         """Couples (species, expression) for species that have been eliminated.
 
-        :type: list of pairs (string, sympy expression).
+        :rtype: list of pairs (string, sympy expression).
         """
         return tuple(self._removed_species)
 
@@ -155,7 +155,7 @@ class CRN(object):
         The tuple of complexes is read-only, and can change if the reactions are updated,
         or if a reduction method is applied to eliminate some species.
 
-        :type: tuple of Complex objects.
+        :rtype: tuple of Complex objects.
         """
         return tuple(self._complexes)
 
@@ -165,7 +165,7 @@ class CRN(object):
         """Tuple of the network reactions.
 
         :setter: Sets the reactions, updating the CRN model and document if they exist.
-        :type: tuple of Reaction objects.
+        :rtype: tuple of Reaction objects.
         """
         return tuple(self._reactions)
     @reactions.setter
@@ -202,7 +202,7 @@ class CRN(object):
     def rates(self):
         """Rates of the reactions.
 
-        :type: matrix of sympy expressions.
+        :rtype: matrix of sympy expressions.
         """
         return self._rates
 
@@ -368,7 +368,7 @@ class CRN(object):
         number of species times number of complexes, with element Yij given by
         the stoichiometric coefficient of the i-th species in the j-th complex.
 
-        :type: sympy SparseMatrix.
+        :rtype: sympy SparseMatrix.
 
         :Example:
 
@@ -396,7 +396,7 @@ class CRN(object):
         +1 if the i-th complex is the product of the j-th reaction,
         and 0 otherwise.
 
-        :type: sympy SparseMatrix.
+        :rtype: sympy SparseMatrix.
 
         :Example:
 
@@ -426,7 +426,7 @@ class CRN(object):
         the stoichiometric coefficient of the i-th species
         in the reactant of the j-th reaction.
 
-        :type: sympy SparseMatrix.
+        :rtype: sympy SparseMatrix.
 
         :Example:
 
@@ -455,7 +455,7 @@ class CRN(object):
         when i and j are different. The diagonal elements are defined
         so that the columns sum to zero.
 
-        :type: sympy SparseMatrix.
+        :rtype: sympy SparseMatrix.
 
         :Example:
 
@@ -478,7 +478,7 @@ class CRN(object):
         """Generalised Laplacian of the graph of complexes.
         It is the negative of the kinetic matrix.
 
-        :type: sympy SparseMatrix.
+        :rtype: sympy SparseMatrix.
         """
         # -kinetic matrix
         return self.incidence_matrix.multiply(sdiag(self.kinetic_params).multiply(negative(self.incidence_matrix).T))

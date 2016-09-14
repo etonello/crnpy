@@ -29,7 +29,12 @@ def parse_reaction(r):
     No spaces are allowed between the parenthesis and <->.
     reactionid is optional. If the reaction is reversible, "_rev"
     is added to the reactionid for the reverse reaction.
-    Everything after a # sign is ignored."""
+    Everything after a # sign is ignored.
+
+    :type r: string
+    :param r: string of the form "reactionid: i1 R1 + ... + in Rn (k\_)<->(k) j1 P1 + ... + jm Pm".
+    :rtype: (Reaction, Reaction/None).
+    """
     # Everything after a # sign is ignored.
     reaction = r.split("#")[0]
 
@@ -71,18 +76,23 @@ def _valid_complex(cexpr):
         raise ValueError("Could not parse complex {}".format(cexpr))
 
 
-def parse_complex(complexString):
+def parse_complex(complex_string):
     """Parse a string representing a complex.
     The string must be of the form "n1 s1 + n2 s2 + ...",
     where the ni are the integer stoichiometric coefficients.
-    Stoichiometric coefficients equal to 1 can be omitted."""
-    complexString = complexString.replace(" ", "").split("+")
+    Stoichiometric coefficients equal to 1 can be omitted.
+
+    :type complex_string: string
+    :param complex_string: string of the form "n1 s1 + n2 s2 + ...".
+    :rtype: Complex.
+    """
+    complex_string = complex_string.replace(" ", "").split("+")
 
     pattern = re.compile("(\d*)(?:\*)?(.*)")
 
     parsedComplex = {}
 
-    for c in complexString:
+    for c in complex_string:
         m = pattern.match(c)
         if m is None: raise ValueError("Unrecognised complex.")
         m = m.groups()
@@ -97,7 +107,11 @@ def parse_complex(complexString):
 
 
 def param_to_rate(reaction):
-    """Multiplies the rate by the reactant mass-action monomial."""
+    """Multiplies the rate by the reactant mass-action monomial.
+
+    :type reaction: Reaction
+    :rtype: Reaction.
+    """
     return Reaction(reaction.reactionid, \
                     reaction.reactant, \
                     reaction.product, \
@@ -122,7 +136,14 @@ def parse_reaction_file(filename, rate = False):
     reaction id and kineticParam if empty.
     If rate is False, the expression enclosed in parenthesis
     is interpreted as rate / reactant mass-action monomial,
-    otherwise as the full rate."""
+    otherwise as the full rate.
+
+    :type filename: string
+    :type rate: boolean
+    :param filename: path to file.
+    :param rate: True if the expressions in parenthesis are rates.
+    :rtype: list of Reactions.
+    """
     with open(filename) as f:
         reactions = parse_reactions(f.readlines(), rate)
     return reactions
@@ -132,7 +153,12 @@ def parse_reactions(rs, rate = False):
     """Parse a list of reaction strings.
     If rate is False, the expression enclosed in parenthesis
     is interpreted as rate / reactant mass-action monomial,
-    otherwise as the full rate."""
+    otherwise as the full rate.
+
+    :type rs: list of strings
+    :param rs: strings representing the reactions.
+    :rtype: list of Reactions.
+    """
     if not isinstance(rs, list):
         raise ValueError("Required list of strings")
     if rate:
@@ -145,7 +171,11 @@ def parse_reactions(rs, rate = False):
 def add_reaction_id(reactions):
     """ Add a reactionid, if missing, of the form
     'ri', where i is the index of the reaction, in the sublist of reactions without reactionid.
-    If there is a reverse reaction, its id is set to ri_rev."""
+    If there is a reverse reaction, its id is set to ri_rev.
+
+    :type reactions: list of Reactions.
+    :rtype: list of Reactions.
+    """
 
     rids = [r[0].reactionid for r in reactions if r[0].reactionid]
     if len(rids) > 0 and len(rids) != len(list(set(rids))):
@@ -170,6 +200,10 @@ def add_reaction_id(reactions):
 
 
 def add_kinetic_param(reaction):
-    """Add a kinetic param of the form 'k_reactionid', if missing."""
+    """Add a kinetic param of the form 'k_reactionid', if missing.
+
+    :type reaction: Reaction.
+    :rtype: Reaction.
+    """
     if not reaction._rate: reaction._rate = sympify("k_" + reaction.reactionid)
     return reaction

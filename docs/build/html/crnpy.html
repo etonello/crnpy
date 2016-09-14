@@ -185,7 +185,7 @@ the stoichiometric coefficient of the i-th species in the j-th complex.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy SparseMatrix.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
@@ -226,7 +226,7 @@ or if a reduction method is applied to eliminate some species.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of Complex objects.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple of Complex objects.</td>
 </tr>
 </tbody>
 </table>
@@ -447,7 +447,7 @@ and 0 otherwise.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy SparseMatrix.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
@@ -600,7 +600,7 @@ so that the columns sum to zero.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy SparseMatrix.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
@@ -632,7 +632,7 @@ It is the negative of the kinetic matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy SparseMatrix.</td>
 </tr>
 </tbody>
 </table>
@@ -900,7 +900,7 @@ remove and keep are merged in a pool.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix of sympy expressions.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">matrix of sympy expressions.</td>
 </tr>
 </tbody>
 </table>
@@ -921,7 +921,7 @@ remove and keep are merged in a pool.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Setter:</th><td class="field-body">Sets the reactions, updating the CRN model and document if they exist.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">tuple of Reaction objects.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple of Reaction objects.</td>
 </tr>
 </tbody>
 </table>
@@ -1047,7 +1047,7 @@ Give a warning if the species is not constant in the original network.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of pairs (string, sympy expression).</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of pairs (string, sympy expression).</td>
 </tr>
 </tbody>
 </table>
@@ -1159,7 +1159,7 @@ or if a reduction method is applied to eliminate some species.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of strings.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple of strings.</td>
 </tr>
 </tbody>
 </table>
@@ -1201,7 +1201,7 @@ in the reactant of the j-th reaction.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">sympy SparseMatrix.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">sympy SparseMatrix.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
 </tr>
@@ -1516,6 +1516,14 @@ The rate is unchanged.</p>
 <dt id="crnpy.parsereaction.add_kinetic_param">
 <code class="descclassname">crnpy.parsereaction.</code><code class="descname">add_kinetic_param</code><span class="sig-paren">(</span><em>reaction</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.add_kinetic_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a kinetic param of the form &#8216;k_reactionid&#8217;, if missing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Reaction.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1524,21 +1532,47 @@ The rate is unchanged.</p>
 <dd><p>Add a reactionid, if missing, of the form
 &#8216;ri&#8217;, where i is the index of the reaction, in the sublist of reactions without reactionid.
 If there is a reverse reaction, its id is set to ri_rev.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of Reactions.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="crnpy.parsereaction.param_to_rate">
 <code class="descclassname">crnpy.parsereaction.</code><code class="descname">param_to_rate</code><span class="sig-paren">(</span><em>reaction</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.param_to_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplies the rate by the reactant mass-action monomial.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Reaction.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="crnpy.parsereaction.parse_complex">
-<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_complex</code><span class="sig-paren">(</span><em>complexString</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_complex" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">crnpy.parsereaction.</code><code class="descname">parse_complex</code><span class="sig-paren">(</span><em>complex_string</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.parsereaction.parse_complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse a string representing a complex.
 The string must be of the form &#8220;n1 s1 + n2 s2 + ...&#8221;,
 where the ni are the integer stoichiometric coefficients.
 Stoichiometric coefficients equal to 1 can be omitted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>complex_string</strong> (<em>string</em>) &#8211; string of the form &#8220;n1 s1 + n2 s2 + ...&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1556,6 +1590,16 @@ No spaces are allowed between the parenthesis and &lt;-&gt;.
 reactionid is optional. If the reaction is reversible, &#8220;_rev&#8221;
 is added to the reactionid for the reverse reaction.
 Everything after a # sign is ignored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>r</strong> (<em>string</em>) &#8211; string of the form &#8220;reactionid: i1 R1 + ... + in Rn (k_)&lt;-&gt;(k) j1 P1 + ... + jm Pm&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(Reaction, Reaction/None).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1566,6 +1610,21 @@ reaction id and kineticParam if empty.
 If rate is False, the expression enclosed in parenthesis
 is interpreted as rate / reactant mass-action monomial,
 otherwise as the full rate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>string</em>) &#8211; path to file.</li>
+<li><strong>rate</strong> (<em>boolean</em>) &#8211; True if the expressions in parenthesis are rates.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of Reactions.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1575,6 +1634,16 @@ otherwise as the full rate.</p>
 If rate is False, the expression enclosed in parenthesis
 is interpreted as rate / reactant mass-action monomial,
 otherwise as the full rate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rs</strong> (<em>list of strings</em>) &#8211; strings representing the reactions.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of Reactions.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
