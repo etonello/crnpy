@@ -70,7 +70,7 @@ class TestReduction(unittest.TestCase):
         filename = path.join(input_sbml, "enzyme.xml")
         crn = from_sbml(filename)
         enzyme_cons_law = ConsLaw('E + ES', 'Et')
-        crn.rapid_eq(('ES', 'S + E'), cons_law = ('E', enzyme_cons_law))
+        crn.rapid_eq('ES', 'S + E', cons_law = ('E', enzyme_cons_law))
         self.assertEqual((crn.kinetic_params[0] - sympify("Et*vcat_kcat*_comp/(S + veq_koff/veq_kon)")).simplify(), 0)
 
 
@@ -106,7 +106,7 @@ class TestReduction(unittest.TestCase):
 
 
     def test_examples(self):
-        """Various examples."""
+        """Examples."""
         folder = path.join(input_reactions, "examples/")
         files = [f for f in listdir(folder) if path.isfile(path.join(folder, f))]
         solFolder = path.join(input_reactions, "examples/sols")
@@ -215,12 +215,12 @@ class TestReduction(unittest.TestCase):
 
     def test_re_errors(self):
         crn = from_react_strings(['a (k_0)<->(k0) b + c', 'b (k_1)<->(k1*c) c', 'd ->(k2) '])
-        self.assertRaises(ValueError, crn.rapid_eq, 'a') # invalid input
-        self.assertRaises(ValueError, crn.rapid_eq, ('a', 'f')) # f not valid complex
-        self.assertRaises(ValueError, crn.rapid_eq, ('a + c', 'b')) # a + c not valid species
-        self.assertRaises(ValueError, crn.rapid_eq, ('c', 'b')) # unable to remove c
+        self.assertRaises(TypeError, crn.rapid_eq, 'a') # invalid input
+        self.assertRaises(ValueError, crn.rapid_eq, 'a', 'f') # f not valid complex
+        self.assertRaises(ValueError, crn.rapid_eq, 'a + c', 'b') # a + c not valid species
+        self.assertRaises(ValueError, crn.rapid_eq, 'c', 'b') # unable to remove c
         crn = from_react_strings(['a (k_0)<->(k0) b + c', 'b (k_1)<->(k1*b) c', 'd ->(k2) '])
-        self.assertRaises(ValueError, crn.rapid_eq, ('b', 'c')) # unable to remove b
+        self.assertRaises(ValueError, crn.rapid_eq, 'b', 'c') # unable to remove b
 
 
     def test_qss_minimal(self):

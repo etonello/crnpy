@@ -494,13 +494,17 @@ class CRN(object):
         Optional check for monotonicity is available with check = True only for
         functions of one variable.
 
-        Keyword arguments:
-
-        * var -- variable name to use. Default is g\_.
-        * state -- dictionary of the point where the derivatives are evaluated. Default is (1, 1, ..., 1).
-        * check -- check for monotonicity. Only available for unary functions.
-        * interval -- interval where monotonicity is checked - default is [0, oo).
-        * params -- values for the kinetic parameters. All set to 1 by default.
+        :param var: variable name to use. Default is g\_.
+        :type var: string
+        :param state: dictionary of the point where the derivatives are evaluated. Default is (1, 1, ..., 1).
+        :type state: dictionary, key = string, value = numeric
+        :param check: check for monotonicity. Only available for unary functions.
+        :type check: boolean
+        :param interval: interval where monotonicity is checked - default is [0, oo).
+        :type interval: sympy Interval
+        :param params: values for the kinetic parameters. All set to 1 by default.
+        :type params: dictionary, key = kinetic params, value = numeric
+        :rtype: sympy SparseMatrix.
 
         References:
 
@@ -1043,19 +1047,24 @@ class CRN(object):
         """Remove intermediates either by rapid-equilibrium or
         by quasi-steady state approximation, with an optional conservation law.
 
-        Keyword arguments:
-
-        * rapid_eq -- list of couples (species to remove, complex to replace species with).
-        * qss -- list of species that to remove via qss.
-        * cons_law -- couple (string, ConsLaw), where the first element is the species
-                      that will be written as a function of the other species in the conservation.
-                      If the reduction method is not specified for a species in the conservation,
-                      the quasi-steady state approximation is used.
-        * minimal -- find network of minimal structure when applying qss.
-        * remove_const -- remove any species left constant after the reduction.
-        * merge_reacts -- merge reactions with the same reactant and product.
-        * adjust -- change the rates so that they reflect the reactant species.
-        * network_file -- save the reduction steps to file with given path.
+        :param rapid_eq: list of pairs species-complexes. The species are to be replaced by complexes using rapid equilibrium approximation.
+        :type rapid_eq: list of (string (species), string (complex)).
+        :param qss: list of species to remove via qssa.
+        :type qss: list of strings
+        :param cons_law: remove a species using a conservation.
+                         If the reduction method is not specified for a species in the conservation,
+                         the quasi-steady state approximation is used.
+        :type cons_law: (string, ConsLaw)
+        :param minimal: find network of minimal structure when applying qss.
+        :type minimal: boolean
+        :param remove_const: remove any species left constant after the reduction.
+        :type remove_const: boolean
+        :param merge_reacts: merge reactions with the same reactant and product.
+        :type merge_reacts: boolean
+        :param adjust: change the rates so that they reflect the reactant species.
+        :type adjust: boolean
+        :param network_file: save the reduction steps to file with the given path.
+        :type network_file: string
 
         Update remove_species.
 
@@ -1163,15 +1172,22 @@ class CRN(object):
 
         Keyword arguments:
 
-        * intermediate -- species to eliminate.
-        * cons_law -- couple (string, ConsLaw), where the first element is the species
-                      that will be written as a function of the other species in the conservation.
-                      All other species in the conservation are eliminated via quasi-steady state approximation.
-        * minimal -- find network of minimal structure when applying qss.
-        * remove_const -- remove any species left constant after the reduction.
-        * merge_reacts -- merge reactions with the same reactant and product.
-        * adjust -- change the rates so that they reflect the reactant species.
-        * network_file -- save the reduction steps to file with given path.
+        :param intermediate: species to remove via qssa.
+        :type intermediate: string
+        :param cons_law: remove a species using a conservation.
+                         If the reduction method is not specified for a species in the conservation,
+                         the quasi-steady state approximation is used.
+        :type cons_law: (string, ConsLaw)
+        :param minimal: find network of minimal structure when applying qss.
+        :type minimal: boolean
+        :param remove_const: remove any species left constant after the reduction.
+        :type remove_const: boolean
+        :param merge_reacts: merge reactions with the same reactant and product.
+        :type merge_reacts: boolean
+        :param adjust: change the rates so that they reflect the reactant species.
+        :type adjust: boolean
+        :param network_file: save the reduction steps to file with the given path.
+        :type network_file: string
 
         :Example:
 
@@ -1520,17 +1536,22 @@ class CRN(object):
             self.remove_by_cons(cons_law[0], cons_law[1], debug)
 
 
-    def rapid_eq(self, recouple, cons_law = None, debug = False, network_file = None):
+    def rapid_eq(self, species, cmplx, cons_law = None, debug = False, network_file = None):
         """Apply the rapid equilibrium approximation to recouple,
         replacing the species in recouple[0] with the complex in recouple[1].
 
         Keyword arguments:
 
-        * recouple -- couple (species to eliminate, complex to replace species)
-        * cons_law -- couple (string, ConsLaw), where the first element is the species
-                      that will be written as a function of the other species in the conservation.
-                      All other species in the conservation are eliminated via quasi-steady state approximation.
-        * network_file -- save the reduction steps to file with given path.
+        :param species: species to eliminate.
+        :type species: string
+        :param complex: complex supposed at rapid equilibrium with species.
+        :type complex: string
+        :param cons_law: remove a species using a conservation.
+                         If the reduction method is not specified for a species in the conservation,
+                         the quasi-steady state approximation is used.
+        :type cons_law: (string, ConsLaw)
+        :param network_file: save the reduction steps to file with the given path.
+        :type network_file: string
 
         Update remove_species.
 
@@ -1552,7 +1573,7 @@ class CRN(object):
         Tonello et al. (2016), On the elimination of intermediate species in chemical reaction networks.
 
         """
-        return self.remove(rapid_eq = [recouple], cons_law = cons_law, debug = debug, network_file = network_file)
+        return self.remove(rapid_eq = [(species, cmplx)], cons_law = cons_law, debug = debug, network_file = network_file)
 
 
     def _rapid_eq(self, couple, debug):

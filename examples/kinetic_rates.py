@@ -154,7 +154,7 @@ def enzyme_kinetics():
     filename = os.path.join(input_sbml, "enzyme.xml")
     crn = from_sbml(filename)
     enzyme_cons_law = ConsLaw('E + ES', 'Et')
-    crn.rapid_eq(('ES', 'S + E'), cons_law = ('E', enzyme_cons_law))
+    crn.rapid_eq('ES', 'S + E', cons_law = ('E', enzyme_cons_law))
     fail_if_not_equal((crn.kinetic_params[0] - sympify("Et*vcat_kcat*_comp/(S + veq_koff/veq_kon)")).factor(), 0)
 
 
