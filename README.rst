@@ -23,11 +23,23 @@ Some example scripts require `NetworkX <http://networkx.github.io/>`_ or `PuLP <
 Getting Started
 ---------------
 
-We can create a small reaction network with one command:
+We can create a network from an SBML file
 
 .. code:: python
 
-      >>> from crnpy.crn import *
+      >>> from crnpy.crn import CRN, from_sbml, from_react_strings, from_react_file
+      >>> crn = from_sbml("examples/data/sbml/enzyme.xml")
+
+from a file containing a list of reactions in human-readable format
+
+.. code:: python
+
+      >>> crn = from_react_file("examples/data/reactions/biomodels/biomd0000000026")
+
+or directly from a list of reaction strings:
+
+.. code:: python
+
       >>> crn = from_react_strings(["A <-> B", "2A + C <-> D", "D -> E", "E -> 2A + C"])
 
 Now we can explore some properties of the network. For example, we can
@@ -71,3 +83,11 @@ satisfied:
 
 For more information, a tutorial is available as well as some
 example scripts.
+
+
+Getting Started
+---------------
+
+If you use crnpy for your work, please cite
+
+Elisa Tonello, CrnPy: a python library for the analysis of chemical reaction networks, 2016.
