@@ -64,7 +64,7 @@ def parse_reaction(r):
             if reactionid != None: reactionidRev = reactionid + "_rev"
             else: reactionidRev = None
             return (Reaction(reactionid, reactants, products, sympify(k)), \
-                    Reaction(reactionidRev, products, reactants, sympify(k_)))
+                    Reaction(reactionidRev, Complex(products), Complex(reactants), sympify(k_)))
         else:
             return (Reaction(reactionid, reactants, products, sympify(k)), None)
 
