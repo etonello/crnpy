@@ -1657,7 +1657,8 @@ class CRN(object):
         """Remove the species from the network by setting it to constant.
         Give a warning if the species is not constant in the original network.
 
-        * *expr* -- optional expression that replaces *const_species* in rates.
+        :param expr: optional expression that replaces *const_species* in rates.
+        :type expr: sympy expression.
 
         :Example:
 
