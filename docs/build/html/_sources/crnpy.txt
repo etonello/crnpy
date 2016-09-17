@@ -1,9 +1,6 @@
 crnpy package
 =============
 
-Submodules
-----------
-
 crnpy.crn module
 ----------------
 
@@ -40,14 +37,6 @@ crnpy.conslaw module
 --------------------
 
 .. automodule:: crnpy.conslaw
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: crnpy
     :members:
     :undoc-members:
     :show-inheritance:
