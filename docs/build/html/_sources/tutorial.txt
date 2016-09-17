@@ -118,7 +118,7 @@ appearing after the hash sign will be ignored.
 Exploring chemical reaction networks
 ------------------------------------
 
-The library implements some elements of chemical reaction network theory
+The library implements some tools of chemical reaction network theory
 (see for example [1]_, [3]_, [5]_).
 
 Species, complexes and reactions

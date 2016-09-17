@@ -855,8 +855,8 @@ the quasi-steady state approximation is used.</li>
 <dl class="method">
 <dt id="crnpy.crn.CRN.rapid_eq">
 <code class="descname">rapid_eq</code><span class="sig-paren">(</span><em>species</em>, <em>cmplx</em>, <em>cons_law=None</em>, <em>debug=False</em>, <em>network_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#crnpy.crn.CRN.rapid_eq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the rapid equilibrium approximation to recouple,
-replacing the species in recouple[0] with the complex in recouple[1].</p>
+<dd><p>Apply the rapid equilibrium approximation to the reaction from species to cmplx,
+replacing the species with the complex cmplx.</p>
 <p>Keyword arguments:</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1051,7 +1051,7 @@ is not constant in the original network.</p>
 <dl class="attribute">
 <dt id="crnpy.crn.CRN.removed_species">
 <code class="descname">removed_species</code><a class="headerlink" href="#crnpy.crn.CRN.removed_species" title="Permalink to this definition">¶</a></dt>
-<dd><p>Couples (species, expression) for species that have been eliminated.</p>
+<dd><p>Pairs (species, expression) for species that have been eliminated.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
