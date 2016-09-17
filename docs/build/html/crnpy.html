@@ -815,9 +815,8 @@ and precision can be used to format the elements (default is 3).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>intermediate</strong> (<em>string</em>) &#8211; species to remove via qssa.</li>
-<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
-If the reduction method is not specified for a species in the conservation,
-the quasi-steady state approximation is used.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation. All other species involved in
+in the conservation are eliminated first, via quasi-steady state approximation.</li>
 <li><strong>minimal</strong> (<em>boolean</em>) &#8211; find network of minimal structure when applying qss.</li>
 <li><strong>remove_const</strong> (<em>boolean</em>) &#8211; remove any species left constant after the reduction.</li>
 <li><strong>merge_reacts</strong> (<em>boolean</em>) &#8211; merge reactions with the same reactant and product.</li>
@@ -862,9 +861,9 @@ replacing the species with the complex cmplx.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>species</strong> (<em>string</em>) &#8211; species to eliminate.</li>
 <li><strong>complex</strong> (<em>string</em>) &#8211; complex supposed at rapid equilibrium with species.</li>
-<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
-If the reduction method is not specified for a species in the conservation,
-the quasi-steady state approximation is used.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation. All other species involved in
+in the conservation are eliminated first, with the exception of <em>species</em>,
+via quasi-steady state approximation.</li>
 <li><strong>network_file</strong> (<em>string</em>) &#8211; save the reduction steps to file with the given path.</li>
 </ul>
 </td>
@@ -950,9 +949,9 @@ by quasi-steady state approximation, with an optional conservation law.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>rapid_eq</strong> (<em>list of (string (species), string (complex)).</em>) &#8211; list of pairs species-complexes. The species are to be replaced by complexes using rapid equilibrium approximation.</li>
 <li><strong>qss</strong> (<em>list of strings</em>) &#8211; list of species to remove via qssa.</li>
-<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation.
-If the reduction method is not specified for a species in the conservation,
-the quasi-steady state approximation is used.</li>
+<li><strong>cons_law</strong> (<em>(string, ConsLaw)</em>) &#8211; remove a species using a conservation. All other species involved in
+in the conservation are eliminated first, via quasi-steady state approximation,
+if not listed in <em>rapid_eq</em>.</li>
 <li><strong>minimal</strong> (<em>boolean</em>) &#8211; find network of minimal structure when applying qss.</li>
 <li><strong>remove_const</strong> (<em>boolean</em>) &#8211; remove any species left constant after the reduction.</li>
 <li><strong>merge_reacts</strong> (<em>boolean</em>) &#8211; merge reactions with the same reactant and product.</li>

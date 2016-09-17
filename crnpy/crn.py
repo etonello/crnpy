@@ -1057,9 +1057,9 @@ class CRN(object):
         :type rapid_eq: list of (string (species), string (complex)).
         :param qss: list of species to remove via qssa.
         :type qss: list of strings
-        :param cons_law: remove a species using a conservation.
-                         If the reduction method is not specified for a species in the conservation,
-                         the quasi-steady state approximation is used.
+        :param cons_law: remove a species using a conservation. All other species involved in
+                         in the conservation are eliminated first, via quasi-steady state approximation,
+                         if not listed in *rapid_eq*.
         :type cons_law: (string, ConsLaw)
         :param minimal: find network of minimal structure when applying qss.
         :type minimal: boolean
@@ -1180,9 +1180,8 @@ class CRN(object):
 
         :param intermediate: species to remove via qssa.
         :type intermediate: string
-        :param cons_law: remove a species using a conservation.
-                         If the reduction method is not specified for a species in the conservation,
-                         the quasi-steady state approximation is used.
+        :param cons_law: remove a species using a conservation. All other species involved in
+                         in the conservation are eliminated first, via quasi-steady state approximation.
         :type cons_law: (string, ConsLaw)
         :param minimal: find network of minimal structure when applying qss.
         :type minimal: boolean
@@ -1552,9 +1551,9 @@ class CRN(object):
         :type species: string
         :param complex: complex supposed at rapid equilibrium with species.
         :type complex: string
-        :param cons_law: remove a species using a conservation.
-                         If the reduction method is not specified for a species in the conservation,
-                         the quasi-steady state approximation is used.
+        :param cons_law: remove a species using a conservation. All other species involved in
+                         in the conservation are eliminated first, with the exception of *species*,
+                         via quasi-steady state approximation.
         :type cons_law: (string, ConsLaw)
         :param network_file: save the reduction steps to file with the given path.
         :type network_file: string
