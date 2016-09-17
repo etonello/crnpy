@@ -68,7 +68,7 @@ created as follows:
     a*b*k1
 
 The expression in parenthesis must be a string that can be successfully
-converted to a *SymPy* expression. Numeric values are of course
+converted to a *SymPy* expression.
 accepted. Stoichiometric coefficients in the reactant and product
 complexes are instead specified by integers preceding the species, as in
 the following example:
@@ -88,7 +88,7 @@ by a colon. For example, we can specify an id for the reaction in *net3*:
     >>> net3 = from_react_strings(["r_in: 2a + b ->(k*a**2*b/(a+b+c)) 3 c"], rate = True)
 
 If an id is not specified, reactions are assigned an id of the form
-*r\_n*, with n an integer, starting from 0.
+*rn*, with n an integer, starting from 0.
 For example, for the bi_uni_random example above we have:
 
 .. code:: python
@@ -201,7 +201,7 @@ One can access for example the reactant, product and rate of the reaction:
 Network matrices
 ~~~~~~~~~~~~~~~~
 
-Attributes are available to create the main matrices associated to the reaction network.
+Attributes are available to create matrices associated to the reaction network.
 Available matrices are the
 stoichiometric matrix *stoich\_matrix*, the matrix of stoichiometric
 coefficients *complex\_matrix* (often called Y in the literature),
