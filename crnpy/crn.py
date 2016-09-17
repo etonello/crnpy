@@ -134,7 +134,7 @@ class CRN(object):
 
     @property
     def removed_species(self):
-        """Couples (species, expression) for species that have been eliminated.
+        """Pairs (species, expression) for species that have been eliminated.
 
         :rtype: list of pairs (string, sympy expression).
         """
@@ -1089,7 +1089,7 @@ class CRN(object):
             add_species = [str(c) for c in cons_law[1].species.keys() if c != sympify(cons_law[0])]
         else: add_species = []
 
-        if rapid_eq != None: rapid_eq_species = [couple[0] for couple in rapid_eq]
+        if rapid_eq != None: rapid_eq_species = [pair[0] for pair in rapid_eq]
         else: rapid_eq_species, rapid_eq = [], []
         if qss != None: qss_species = qss + [a for a in add_species if a not in rapid_eq_species and a not in qss]
         else: qss_species = [a for a in add_species if a not in rapid_eq_species]
@@ -1097,9 +1097,9 @@ class CRN(object):
         if network_file: self.save_to_file(network_file, overwrite = 'w', log = "Original network")
 
         # rapid-equilibrium
-        for couple in rapid_eq:
-            self._rapid_eq(couple, debug)
-            if network_file: self.save_to_file(network_file, log = "Rapid eq. on {}, {}".format(couple[0], couple[1]))
+        for pair in rapid_eq:
+            self._rapid_eq(pair, debug)
+            if network_file: self.save_to_file(network_file, log = "Rapid eq. on {}, {}".format(pair[0], pair[1]))
         if debug: print("removed_species after rapid_eq: {}".format(self.removed_species))
 
         # qss
@@ -1543,8 +1543,8 @@ class CRN(object):
 
 
     def rapid_eq(self, species, cmplx, cons_law = None, debug = False, network_file = None):
-        """Apply the rapid equilibrium approximation to recouple,
-        replacing the species in recouple[0] with the complex in recouple[1].
+        """Apply the rapid equilibrium approximation to the reaction from species to cmplx,
+        replacing the species with the complex cmplx.
 
         Keyword arguments:
 
@@ -1582,14 +1582,14 @@ class CRN(object):
         return self.remove(rapid_eq = [(species, cmplx)], cons_law = cons_law, debug = debug, network_file = network_file)
 
 
-    def _rapid_eq(self, couple, debug):
-        """The reactions between the complexes in couple
+    def _rapid_eq(self, recompls, debug):
+        """The reactions between the complexes in recompls
         are assumed at rapid equilibrium.
         The first complex is removed and the second
         replaces it in the network."""
 
-        remove, keep = couple
-        removecomplex, keepcomplex = map(parse_complex, couple)
+        remove, keep = recompls
+        removecomplex, keepcomplex = map(parse_complex, recompls)
 
         # check that remove is a valid species
         if remove not in self.species:
@@ -1655,10 +1655,11 @@ class CRN(object):
 
     def remove_constant(self, const_species, expr = None, debug = False):
         """Remove the species from the network by setting it to constant.
-        Give a warning if the species is not constant in the original network.
+        Give a warning if the derivative of the species concentration
+        is not constant in the original network.
 
         :param expr: optional expression that replaces *const_species* in rates.
-        :type expr: sympy expression.
+        :type expr: sympy expression
 
         :Example:
 
