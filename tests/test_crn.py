@@ -188,7 +188,6 @@ class TestCrn(unittest.TestCase):
 
     def test_save_sbml(self):
         crn = from_react_strings(["r_123: A -> B + C", "2A ->(0.0012345) E", "r_in: -> E"])
-        print crn.model
         output = path.join(input_sbml, "test_save_sbml.xml")
         compare = path.join(input_sbml, "test_save_sbml_check.xml")
         crn.save_sbml(output)
