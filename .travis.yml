@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+
+before_install:
+  - sudo apt-get install libgmp-dev gfortran libblas-dev liblapack-dev
+  - pip install cython
+  - pip install pycddlib
+
+install:
+  - python setup.py install
+
+script:
+  - python -m "nose"
