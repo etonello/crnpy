@@ -9,3 +9,4 @@ build
 crnpy.egg-info
 dist
 other
+docs/build
