@@ -5,13 +5,12 @@
 from os import path
 import unittest
 
-from context import crnpy
 
 from crnpy.crn import CRN, from_react_file
 from crnpy.crncomplex import Complex, sympify
 from crnpy.parsereaction import parse_reactions, parse_complex, parse_reaction
 from crnpy.reaction import Reaction, translate
-from test_reduction import eqs_match
+from .test_reduction import eqs_match
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"

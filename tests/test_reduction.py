@@ -15,7 +15,6 @@ import sys
 import unittest
 import warnings
 
-from context import crnpy
 
 from crnpy.conslaw import ConsLaw
 from crnpy.crn import CRN, from_sbml, from_react_file, from_react_strings

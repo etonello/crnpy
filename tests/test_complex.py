@@ -4,8 +4,6 @@
 
 import unittest
 
-from context import crnpy
-
 from crnpy.crn import CRN, from_react_file
 from crnpy.crncomplex import *
 from crnpy.parsereaction import parse_complex

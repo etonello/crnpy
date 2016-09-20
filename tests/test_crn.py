@@ -9,7 +9,6 @@ import libsbml
 import sympy as sp
 from os import path
 
-from context import crnpy
 
 from crnpy.conslaw import ConsLaw
 from crnpy.createmodel import model_from_reacts
