@@ -5,3 +5,7 @@
 *_report.txt
 *.pdf
 *.png
+build
+crnpy.egg-info
+dist
+other
