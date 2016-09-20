@@ -1,6 +1,9 @@
 crnpy
 =====
 
+.. image:: https://travis-ci.org/etonello/crnpy.svg?branch=master
+    :target: https://travis-ci.org/etonello/crnpy
+
 crnpy is a python library for the manipulation and analysis of chemical
 reaction networks.
 
