@@ -3,8 +3,6 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-here = path.abspath(path.dirname(__file__))
-
 setup(
     name='crnpy',
 
@@ -38,7 +36,7 @@ setup(
 
     packages=find_packages(exclude=['tests']),
 
-    # run-time dependencies here that will be installed by pip
+    # run-time dependencies that will be installed by pip
     install_requires=['python-libsbml', 'numpy', 'scipy', 'sympy'],
 )
 
