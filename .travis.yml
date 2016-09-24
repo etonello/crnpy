@@ -9,6 +9,8 @@ before_install:
   - sudo apt-get install libgmp-dev gfortran libblas-dev liblapack-dev
   - pip install cython
   - pip install pycddlib
+  - pip install networkx
+  - pip install pulp
 
 install:
   - python setup.py install
