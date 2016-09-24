@@ -14,4 +14,6 @@ install:
   - python setup.py install
 
 script:
-  - python -m "nose"
+  - python -m nose
+  - cd examples
+  - for x in *.py; do python $x; done
