@@ -104,7 +104,7 @@ def _pos_dependent(matrix, vector):
 
 def _pos_generators(matrix):
     """Returns a matrix with rows the extreme rays of
-    the pointed cone `matrix x = 0'."""
+    the pointed cone `matrix x = 0, x >= 0'."""
     import cdd
 
     if matrix == Matrix(): return matrix
@@ -112,20 +112,20 @@ def _pos_generators(matrix):
     S = matrix
     nr = S.cols
 
-    # create the matrix A = | S^t -S^t I|^t
-    # eye is converted to matrix of zeros, create id as list instead
-    id_nr = [[0 if j != i else 1 for j in range(nr)] for i in range(nr)]
-    A = S.col_join(-S)
-    A = [[int(r[i]) for i in range(len(r))] for r in A.tolist()] + id_nr
+    # create the matrix | S^t -S^t I|^t
+    # with an additional first column of zeros for the constant term
+    A = [[0] + [int(r[i]) for i in range(len(r))] for r in S.col_join(-S).tolist()] + \
+        [[0 if j != i else 1 for j in range(nr + 1)] for i in range(nr + 1)]
 
     # create the polyhedron
     A = cdd.Matrix(A, number_type = "fraction")
     A.rep_type = cdd.RepType.INEQUALITY
 
     # find extreme rays
-    ers = Matrix(cdd.Polyhedron(A).get_generators())
+    ers = cdd.Polyhedron(A).get_generators()
+    ers = [er[1:] for er in ers if any(e != 0 for e in er[1:])]
 
-    return ers
+    return Matrix(ers)
 
 
 def _cancel_opposite(a, b):
