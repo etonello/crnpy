@@ -11,6 +11,7 @@ before_install:
   - pip install pycddlib
   - pip install networkx
   - pip install pulp
+  - sudo apt-get install glpk-utils
 
 install:
   - python setup.py install
