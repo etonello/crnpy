@@ -754,8 +754,11 @@ class CRN(object):
 
         """
         # find the linkage classes
-        _, lcs = self.weak_conn_components()
+        slcs, lcs = self.strong_terminal_conn_components()
         l = lcs[index]
+        if l not in slcs:
+            warnings.warn("Complex {} not terminal.".format(self.complexes[index]))
+            return None
         inds = [i for i in range(self.n_complexes) if lcs[i] == l and i != index]
         return (-1)**(self.n_complexes - 1)*self.kinetic_matrix.extract(inds, inds).det()
 
@@ -773,12 +776,15 @@ class CRN(object):
         """
         kinetic_matrix = self.kinetic_matrix
         # find the linkage classes
-        _, lcs = self.weak_conn_components()
+        slcs, lcs = self.strong_terminal_conn_components()
         tree_consts = []
         for index in range(self.n_complexes):
             l = lcs[index]
-            inds = [i for i in range(self.n_complexes) if lcs[i] == l and i != index]
-            tree_consts.append((-1)**(self.n_complexes - 1)*kinetic_matrix.extract(inds, inds).det())
+            if l in slcs:
+                inds = [i for i in range(self.n_complexes) if lcs[i] == l and i != index]
+                tree_consts.append((-1)**(self.n_complexes - 1)*kinetic_matrix.extract(inds, inds).det())
+            else:
+                tree_consts.append(None)
         return tree_consts
 
 
@@ -1765,6 +1771,7 @@ class CRN(object):
         terminal strongly connected components."""
         stcc, cs = self.strong_terminal_conn_components()
         return [c for c in range(self.n_complexes) if cs[c] in stcc]
+
 
     @property
     def terminal_complexes(self):
