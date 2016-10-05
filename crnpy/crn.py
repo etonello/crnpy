@@ -7,6 +7,7 @@ import itertools
 from libsbml import writeSBMLToFile, formulaToL3String, SBMLDocument
 import logging
 import numpy as np
+from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 import sympy as sp
 import warnings
@@ -1749,7 +1750,7 @@ class CRN(object):
     def strong_conn_components(self):
         """Return the number of strongly connected components of the graph of complexes,
         and an array of labels for the strongly connected components."""
-        adjacency = np.ma.masked_values(self.complex_graph_adj(), 0)
+        adjacency = csr_matrix(np.array(self.complex_graph_adj().tolist()).astype(np.int))
         return connected_components(adjacency, connection = 'strong')
 
 
@@ -1757,7 +1758,7 @@ class CRN(object):
         """Return the list labels for the terminal strongly connected components,
         of the graph of complexes, and the array of labels for the strongly connected components."""
         n, cs = self.strong_conn_components()
-        adjacency = np.ma.masked_values(self.complex_graph_adj(), 0)
+        adjacency = csr_matrix(np.array(self.complex_graph_adj().tolist()).astype(np.int))
         stcc = []
         for i in range(n):
             complexes = [j for j in range(self.n_complexes) if cs[j] == i]
@@ -1795,7 +1796,7 @@ class CRN(object):
     def weak_conn_components(self):
         """Return the number of weakly connected components of the graph of complexes,
         and an array of labels for the weakly connected components."""
-        return connected_components(np.ma.masked_values(self.complex_graph_adj(), 0))
+        return connected_components(csr_matrix(np.array(self.complex_graph_adj().tolist()).astype(np.int)))
 
 
     @property
@@ -1953,53 +1954,48 @@ class CRN(object):
             return [self]
 
 
-    def split_by_ems(self, same_react = False):
+    def split_by_ems(self, same_react = False, warn = False):
         """Split reactions according to the elementary modes they take part in.
 
         Return a list of reactions grouped by elementary mode, and the list of reactions
         not taking part in any elementary mode.
 
         :param same_react: if True, do not split reactions with the same reactant.
-        :type same_react: boolean.
+        :type same_react: boolean
+        :param warn: if True, give a warning if not all reactions take part in at least
+                     one elementary mode.
+        :type warn: boolean
 
         :rtype: (list of lists reactions, list of reactions).
         """
         subnet = {}
-        reacts = {}
         tinvs = self.t_invariants
 
         if tinvs.rows == 0:
             print("No elementary modes.")
             return [self.reactions], []
 
-        for r in range(self.n_reactions):
-            if tinvs[0, r] != 0:
-                subnet[r] = 0
-                reacts[str(self.reactions[r].reactant)] = 0
-        for t in range(1, tinvs.rows):
-            inds = [r for r in range(self.n_reactions) if tinvs[t, r] != 0]
-
-            values = [subnet[h] for h in inds if h in subnet]
-            if same_react:
-                values = values + [reacts[str(self.reactions[h].reactant)] for h in inds
-                                   if str(self.reactions[h].reactant) in reacts]
-
-            if len(values) > 0: value = min(values)
-            else: value = max(subnet.values()) + 1
-
-            for h in inds:
-                subnet[h] = value
-                reacts[str(self.reactions[h].reactant)] = value
-
         # case of reactions not taking part in any em
-        reacts_not_ems = []
-        for r in range(self.n_reactions):
-            if r not in subnet:
+        if warn:
+            if any(sum(tinvs[:, c]) == 0 for c in range(tinvs.cols)):
                 warnings.warn("Network not covered by elementary modes.")
-                reacts_not_ems.append(self.reactions[r])
 
-        return [[self.reactions[r] for r in [h for h in range(self.n_reactions) if h in subnet and subnet[h] == sb]]
-                    for sb in range(max(subnet.values()) + 1)], reacts_not_ems
+        a = sp.SparseMatrix(sp.zeros(self.n_reactions))
+        for t in range(tinvs.rows):
+            inds = [r for r in range(self.n_reactions) if tinvs[t, r] != 0]
+            for i in inds:
+                for j in inds:
+                    a[i, j] = 1
+        if same_react:
+            for c in self.complexes:
+                inds = [r for r in range(self.n_reactions) if self.reactions[r].reactant == c]
+                for i in inds:
+                    for j in inds:
+                        a[i, j] = 1
+        ncc, cc = connected_components(csr_matrix(np.array(a.tolist()).astype(np.int)))
+        rcc = [[self.reactions[r] for r in range(self.n_reactions) if cc[r] == l] for l in range(ncc)]
+
+        return [rc for rc in rcc if len(rc) > 1], [rc[0] for rc in rcc if len(rc) == 1]
 
 
     ### Print ###

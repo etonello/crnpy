@@ -431,6 +431,18 @@ class TestCrn(unittest.TestCase):
         self.assertEqual([False, True, True, True], [crn.is_cyclic_ss_flux(v) for v in crn.t_invariants.tolist()])
 
 
+    def test_split_by_ems(self):
+        reacts = ["a -> b", "b + c -> d", "d <-> e", "e <-> a + c", "e -> b + c",
+                  "f <-> g", "a -> h", "h + l -> i", "i -> a + l", "l -> "]
+        crn = from_react_strings(reacts)
+        rss, rf = crn.split_by_ems()
+        self.assertEqual([['r0', 'r1', 'r2', 'r2_rev', 'r3', 'r3_rev', 'r4'], ['r5', 'r5_rev'], ['r6', 'r7', 'r8'], ['r9']],
+                         [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
+        rss, rf = crn.split_by_ems(same_react = True)
+        self.assertEqual([['r0', 'r1', 'r2', 'r2_rev', 'r3', 'r3_rev', 'r4', 'r6', 'r7', 'r8'], ['r5', 'r5_rev'], ['r9']],
+                         [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
+
+
     def test_set_params(self):
         reacts = ["r1: a ->(k1) b", "r2: b + c ->(k2) d", "d (k_3)<->(k3) a + c"]
         crn = from_react_strings(reacts)
