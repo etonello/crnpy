@@ -210,6 +210,8 @@ class TestReduction(unittest.TestCase):
         self.assertRaises(ValueError, crn.qss, 'c') # c not intermediate
         self.assertRaises(ValueError, crn.qss, 'd') # d not intermediate
         self.assertRaises(ValueError, crn.qss, 'e') # e not in valid species
+        crn = from_react_strings(['a -> b', 'a + b -> 2a + c', 'd -> a'])
+        self.assertRaises(ValueError, crn.qss, 'a') # stoichiometry larger than 1
 
 
     def test_re_errors(self):

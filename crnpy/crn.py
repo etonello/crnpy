@@ -1253,6 +1253,10 @@ class CRN(object):
 
             if debug: print("Removing: {}".format(intermediate))
 
+            # Error if species has stoichiometry greater than 1
+            if any(s > 1 for s in self.complex_matrix[self.species.index(intermediate), :]):
+                raise ValueError("Species {} appears with stoichiometry greater than 1.".format(intermediate))
+
             # Error if species has a non linear derivative
             hasLinearDyn = self.has_linear_equation(intermediate)
             if not hasLinearDyn:
