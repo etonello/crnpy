@@ -1124,7 +1124,7 @@ class CRN(object):
         if merge_reacts:
             self.merge_reactions()
             if network_file: self.save_to_file(network_file, log = "Merged reactions")
-        if adjust: self._fix_ma(debug)
+        if adjust: self._fix_ma()
 
         if network_file: self.save_to_file(network_file, rs = True, log = "Final network")
 

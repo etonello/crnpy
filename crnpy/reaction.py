@@ -197,15 +197,14 @@ class Reaction(object):
                     del self.reactant[species]
                     del self.product[species]
         # Adjust kinetic parameter
-        self.__kinetic_param = self.rate / self.reactant.ma()
+        self.__kinetic_param = (self.rate / self.reactant.ma()).cancel()
 
 
     def _fix_ma(self, species = None):
         """Check the numerator of the reaction rate, and adds species
         to reactant and product if they divide the numerator but their
         stoichiometry does not match the degree in the rate."""
-        num, denom = self.rate.as_numer_denom()
-        remainder = (num / self.reactant.ma()).factor()
+        remainder = self.kinetic_param.as_numer_denom()[0].cancel()
 
         if remainder.func.__name__ == 'Mul':
             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
@@ -218,20 +217,20 @@ class Reaction(object):
                         if s in self.product: self.product[s] = self.product[s] + 1
                         else: self.product[s] = 1
                         remainder = remainder / sympify(s)
+                        print remainder
                         remainder = remainder.factor()
                         if remainder.func.__name__ == 'Mul':
                             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
                         else: mulargs = []
             # update the kinetic parameter
-            self.__kinetic_param = self.rate / self.reactant.ma()
+            self.__kinetic_param = (self.rate / self.reactant.ma()).cancel()
 
 
     def _fix_denom(self, species):
         """Remove species that are involved in both reactant and product,
         if their concentration divides the denominator of the rate."""
-        num, denom = (self.kinetic_param).as_numer_denom()
-        remainder = denom.cancel()
+        remainder = self.kinetic_param.as_numer_denom()[1].cancel()
 
         #if remainder.func.__name__ == 'Mul':
         if remainder != 1:
