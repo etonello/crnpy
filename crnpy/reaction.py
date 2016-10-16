@@ -216,9 +216,7 @@ class Reaction(object):
                         else: self.reactant[s] = 1
                         if s in self.product: self.product[s] = self.product[s] + 1
                         else: self.product[s] = 1
-                        remainder = remainder / sympify(s)
-                        print remainder
-                        remainder = remainder.factor()
+                        remainder = (remainder / sympify(s)).factor()
                         if remainder.func.__name__ == 'Mul':
                             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
@@ -243,8 +241,7 @@ class Reaction(object):
                         else: self.reactant[s] = self.reactant[s] - 1
                         if self.product[s] == 1: del self.product[s]
                         else: self.product[s] = self.product[s] - 1
-                        remainder = remainder / sympify(s)
-                        remainder = remainder.factor()
+                        remainder = (remainder / sympify(s)).factor()
                         if remainder.func.__name__ == 'Mul':
                             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
