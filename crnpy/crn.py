@@ -743,9 +743,16 @@ class CRN(object):
         return self.incidence_matrix * sp.Matrix(v) == sp.zeros(self.n_complexes, 1)
 
 
-    def tree_constant(self, index):
+    def tree_constant(self, index, gma = None):
         """Return the expressions of Prop. 3 in [1], associated to *index*.
         The term ''tree constant'' is introduced in [2].
+
+        If a dictionary gma is provided, the network is interpreted as a generalised mass action network
+        with the map between complexes and kinetic complexes provided in gma,
+        and the tree contant is calculated on the resulting kinetic matrix.
+
+        :param gma: dictionary representing the map from complexes to kinetic complexes.
+        :type gma: dictionary, key = string, value = string
 
         References:
 
@@ -761,12 +768,26 @@ class CRN(object):
             warnings.warn("Complex {} not terminal.".format(self.complexes[index]))
             return None
         inds = [i for i in range(self.n_complexes) if lcs[i] == l and i != index]
-        return (-1)**(self.n_complexes - 1)*self.kinetic_matrix.extract(inds, inds).det()
+
+        if gma:
+            kparams = [r.rate / parse_complex(gma[str(r.reactant)]).ma() for r in self.reactions]
+            kinetic_matrix = -self.incidence_matrix.multiply(sdiag(kparams).multiply(negative(self.incidence_matrix).T))
+        else:
+            kinetic_matrix = self.kinetic_matrix
+
+        return (-1)**(self.n_complexes - 1)*kinetic_matrix.extract(inds, inds).det()
 
 
-    def tree_constants(self):
+    def tree_constants(self, gma = None):
         """Return the expressions of Prop. 3 in [1].
         The term ''tree constant'' is introduced in [2].
+
+        If a dictionary gma is provided, the network is interpreted as a generalised mass action network
+        with the map between complexes and kinetic complexes provided in gma,
+        and the tree contants are calculated on the resulting kinetic matrix.
+
+        :param gma: dictionary representing the map from complexes to kinetic complexes.
+        :type gma: dictionary, key = string, value = string
 
         References:
 
@@ -775,7 +796,11 @@ class CRN(object):
         [2] Johnston, M. D. (2014). Translated chemical reaction networks. Bulletin of mathematical biology, 76(5), 1081-1116.
 
         """
-        kinetic_matrix = self.kinetic_matrix
+        if gma:
+            kparams = [r.rate / parse_complex(gma[str(r.reactant)]).ma() for r in self.reactions]
+            kinetic_matrix = -self.incidence_matrix.multiply(sdiag(kparams).multiply(negative(self.incidence_matrix).T))
+        else:
+            kinetic_matrix = self.kinetic_matrix
         # find the linkage classes
         slcs, lcs = self.strong_terminal_conn_components()
         tree_consts = []
