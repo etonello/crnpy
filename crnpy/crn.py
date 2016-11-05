@@ -223,6 +223,8 @@ class CRN(object):
         self._species = [self.model.getSpecies(s).getName()
                         if self.model.getSpecies(s).getName()
                         else self.model.getSpecies(s).getId() for s in range(self.model.getNumSpecies())]
+        if len(self._species) != len(list(set(self._species))):
+            self._species = [self.model.getSpecies(s).getId() for s in range(self.model.getNumSpecies())]
         self._species_ids = dict(zip([self.model.getSpecies(s).getId()
                                       if self.model.getSpecies(s).getId()
                                       else self.model.getSpecies(s).getName() for s in range(self.model.getNumSpecies())], self._species))
@@ -250,33 +252,43 @@ class CRN(object):
             reactant = Complex(dict((s, sc) for s, sc in reactant.items() if sc != 0))
             product = Complex(dict((s, sc) for s, sc in product.items() if sc != 0))
 
-            # in first approximation, we are ignoring function definitions
-            if reaction.getKineticLaw().getMath():
-                kineticlaw = sympify(formulaToL3String(reaction.getKineticLaw().getMath()))
-                # replace species id with species name
-                for sid in self._species_ids:
-                    if sid != self._species_ids[sid]:
-                        kineticlaw = kineticlaw.subs(sympify(sid), sympify(self._species_ids[sid]))
-                # replace parameter id with parameter name
-                params = list(reaction.getKineticLaw().getListOfParameters()) + list(self.model.getListOfParameters())
-                for param in params:
-                    if param.getId() and param.getName():
-                        if param.getId() != param.getName():
-                            kineticlaw = kineticlaw.subs(sympify(param.getId()), sympify(param.getName()))
-
-                if reaction.getReversible():
-                    # if reaction is reversible, we need to split the kineticLaw
-                    # into forward and backward formulas.
-                    # We expand the kineticLaw and assume that the components relating
-                    # to the inverse reaction are those with a minus sign in front.
-                    numer, denom = kineticlaw.as_numer_denom()
-                    negative = numer.expand().coeff(-1)
-                    rate = ((numer + negative) / denom).factor()
-                    raterev = (negative / denom).factor()
+            math = reaction.getKineticLaw().getMath()
+            if math:
+                mathstring = formulaToL3String(math)
+                # Special case for FLUX_VALUE
+                if mathstring[-10:] == "FLUX_VALUE":
+                    rate = sympify(mathstring) * reactant.ma()
+                    if reaction.getReversible():
+                        raterev = sympify(mathstring + "_rev") * product.ma()
                 else:
-                    rate = kineticlaw
+                    kineticlaw = sympify(mathstring)
+                    # replace species id with species name
+                    for sid in self._species_ids:
+                        if sid != self._species_ids[sid]:
+                            kineticlaw = kineticlaw.subs(sympify(sid), sympify(self._species_ids[sid]))
+                    # replace parameter id with parameter name
+                    params = list(reaction.getKineticLaw().getListOfParameters()) + list(self.model.getListOfParameters())
+                    for param in params:
+                        if param.getId() and param.getName():
+                            if param.getId() != param.getName():
+                                kineticlaw = kineticlaw.subs(sympify(param.getId()), sympify(param.getName()))
+
+                    if reaction.getReversible():
+                        # if reaction is reversible, we need to split the kineticLaw
+                        # into forward and backward formulas.
+                        # We expand the kineticLaw and assume that the components relating
+                        # to the inverse reaction are those with a minus sign in front.
+                        numer, denom = kineticlaw.as_numer_denom()
+                        negative = numer.expand().coeff(-1)
+                        rate = ((numer + negative) / denom).factor()
+                        raterev = (negative / denom).factor()
+                    else:
+                        rate = kineticlaw
             else:
-                rate = reaction.reactant.ma() * sympify(reaction.getKineticLaw().getListOfParameters().get(0).getId())
+                param = reaction.getKineticLaw().getListOfParameters().get(0).getId()
+                rate = reactant.ma() * sympify(param)
+                if reaction.getReversible():
+                    raterev = product.ma() * sympify(param + "_rev")
 
             reactions.append(Reaction(reactionid, reactant, product, rate))
             if reaction.getReversible():
