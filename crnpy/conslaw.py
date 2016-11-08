@@ -3,8 +3,9 @@
 """Conservation Law class."""
 
 import logging
+from sympy import Symbol
 
-from .crncomplex import sympify
+from .parsereaction import parse_complex
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -16,7 +17,8 @@ class ConsLaw:
     """Conservation law of the form expression = constant,
     for example e + es + esi = etot.
 
-    The parameters expression and constant are strings or sympy expressions.
+    Expression is a string representing a complex, e.g. 2e + es.
+    Constant is a string.
 
     Attributes:
         * expression: the conservation expression converted to sympy expression.
@@ -36,8 +38,8 @@ class ConsLaw:
     def __init__(self, expression, constant):
         self.logger = logging.getLogger("crn.conservation_law")
         self.logger.info("Creating an instance of conservation law.")
-        self.expression = sympify(expression)
-        self.constant = sympify(constant)
+        self.expression = parse_complex(expression).symp()
+        self.constant = Symbol(constant)
         self.species = self.expression.as_coefficients_dict()
 
     def __str__(self):

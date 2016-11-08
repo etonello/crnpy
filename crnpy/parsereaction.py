@@ -2,12 +2,13 @@
 
 """Parser for reaction strings and files."""
 
+import libsbml
 import re
 import sympy as sp
 from sympy.abc import _clash
 
+from .crncomplex import Complex
 from .reaction import Reaction
-from .crncomplex import Complex, sympify
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -63,10 +64,10 @@ def parse_reaction(r):
         if inv == "<":
             if reactionid != None: reactionidRev = reactionid + "_rev"
             else: reactionidRev = None
-            return (Reaction(reactionid, reactants, products, sympify(k)), \
-                    Reaction(reactionidRev, Complex(products), Complex(reactants), sympify(k_)))
+            return (Reaction(reactionid, reactants, products, parse_expr(k)), \
+                    Reaction(reactionidRev, Complex(products), Complex(reactants), parse_expr(k_)))
         else:
-            return (Reaction(reactionid, reactants, products, sympify(k)), None)
+            return (Reaction(reactionid, reactants, products, parse_expr(k)), None)
 
 
 def _valid_species(cexpr):
@@ -207,3 +208,95 @@ def add_kinetic_param(reaction):
     """
     if not reaction._rate: reaction._rate = sp.Symbol("k_" + reaction.reactionid)
     return reaction
+
+
+def ast_to_sympy_expr(math, debug = False):
+    """Create a sympy expression from a libsbml AST.
+
+    :type math: libsbml.ASTNode
+    :rtype: sympy expression
+    """
+    t = math.getType()
+    if debug:
+        print("Node of type {}, {}".format(dtypes[t], math.getName()))
+    if t == libsbml.AST_NAME:
+        if debug:
+            print("None name: {}".format(math.getName()))
+        return sp.Symbol(math.getName())
+
+    if t == libsbml.AST_NAME_TIME:
+        return sp.Symbol('time')
+
+    if t == libsbml.AST_CONSTANT_PI:
+        # using same symbol as in SBML formula, rather than sp.pi
+        return sp.Symbol("Pi")
+    if t == libsbml.AST_CONSTANT_E:
+        return sp.E
+
+    if math.isInteger():
+        return math.getInteger()
+    if math.isRational():
+        return math.getNumerator() / math.getDenominator()
+    if math.isReal():
+        return math.getReal()
+
+    nc = math.getNumChildren()
+    children = [ast_to_sympy_expr(math.getChild(c)) for c in range(nc)]
+
+    if t == libsbml.AST_PLUS:
+        return sp.Add(*children)
+
+    if t == libsbml.AST_TIMES:
+        return sp.Mul(*children)
+
+    if t == libsbml.AST_POWER or t == libsbml.AST_FUNCTION_POWER:
+        if len(children) != 2:
+            raise ValueError("Error parsing SBML kineticLaw: {}", t)
+        return children[0]**children[1]
+
+    if t == libsbml.AST_MINUS:
+        if len(children) != 1 and len(children) != 2:
+            raise ValueError("Error parsing SBML kineticLaw: {}", t)
+        if len(children) == 1:
+            return - children[0]
+        else:
+            return children[0] - children[1]
+
+    if t == libsbml.AST_DIVIDE:
+        if len(children) != 2:
+            raise ValueError("Error parsing SBML kineticLaw: {}", t)
+        return children[0] / children[1]
+
+    if t == libsbml.AST_FUNCTION_EXP:
+        if len(children) != 1:
+            raise ValueError("Error parsing SBML kineticLaw: {}", t)
+        return sp.E**children[0]
+
+    if t == libsbml.AST_FUNCTION_DELAY:
+        return sp.Function('delay')(*children)
+
+    if math.isFunction():
+        return sp.Function(math.getName())(*children)
+
+    raise NotImplementedError("Type {} of AST Node not supported.", t)
+
+
+def parse_expr(s):
+    """Try to convert a string to a sympy expression,
+    reading the string using the SBML formula parser first,
+    and converting the libSBML AST to a sympy expression.
+    """
+    if not s:
+        return None
+    s = s.replace('**', '^')
+    ast_tree = libsbml.parseL3Formula(s)
+    if ast_tree:
+        return ast_to_sympy_expr(ast_tree)
+    else:
+        raise ValueError("Could not parse expression.")
+
+
+def flux_value(math):
+    if math.getType() == libsbml.AST_NAME and \
+       math.getName()[-10:] == "FLUX_VALUE":
+        return math.getName()

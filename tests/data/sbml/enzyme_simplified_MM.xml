@@ -16,11 +16,11 @@
       </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment id="_comp" spatialDimensions="3" size="1e-14" units="litre" constant="true"/>
+      <compartment id="comp" spatialDimensions="3" size="1e-14" units="litre" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="S" compartment="_comp" initialAmount="1e-20" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="P" compartment="_comp" initialAmount="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="S" compartment="comp" initialAmount="1e-20" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="P" compartment="comp" initialAmount="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="veq_koff" value="0.2" units="per_second" constant="true"/>
@@ -43,7 +43,7 @@
                 <times/>
                 <ci> Et </ci>
                 <ci> S </ci>
-                <ci> _comp </ci>
+                <ci> comp </ci>
                 <ci> vcat_kcat </ci>
                 <ci> veq_kon </ci>
               </apply>

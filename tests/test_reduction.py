@@ -18,8 +18,7 @@ import warnings
 
 from crnpy.conslaw import ConsLaw
 from crnpy.crn import CRN, from_sbml, from_react_file, from_react_strings
-from crnpy.crncomplex import sympify
-from crnpy.parsereaction import parse_reactions, parse_complex
+from crnpy.parsereaction import parse_reactions, parse_complex, parse_expr
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -40,7 +39,7 @@ class TestReduction(unittest.TestCase):
         crn.save_sbml(path.join(input_sbml, "enzyme_original.xml"))
         crn = from_sbml(path.join(input_sbml, "enzyme_original.xml"))
 
-        rate = sympify("_comp*E*vcat_kcat*veq_kon*S/(vcat_kcat + veq_koff)")
+        rate = parse_expr("comp*E*vcat_kcat*veq_kon*S/(vcat_kcat + veq_koff)")
 
         crn.qss('ES')
         self.assertEqual((crn.rates[0] - rate).simplify(), 0)
@@ -54,7 +53,7 @@ class TestReduction(unittest.TestCase):
         crn = from_sbml(filename)
         enzyme_cons_law = ConsLaw('E + ES', 'Et')
         crn.qss(cons_law = ('E', enzyme_cons_law))
-        rate = sympify("_comp*Et*vcat_kcat*veq_kon*S/(vcat_kcat + veq_koff + veq_kon*S)")
+        rate = parse_expr("comp*Et*vcat_kcat*veq_kon*S/(vcat_kcat + veq_koff + veq_kon*S)")
         self.assertEqual((crn.rates[0] - rate).simplify(), 0)
         crn.save_sbml(path.join(input_sbml, "enzyme_simplified_MM.xml"))
         crn.save_reaction_file(path.join(input_reactions, "enzyme_simplified_MM"))
@@ -70,7 +69,7 @@ class TestReduction(unittest.TestCase):
         crn = from_sbml(filename)
         enzyme_cons_law = ConsLaw('E + ES', 'Et')
         crn.rapid_eq('ES', 'S + E', cons_law = ('E', enzyme_cons_law))
-        self.assertEqual((crn.kinetic_params[0] - sympify("Et*vcat_kcat*_comp/(S + veq_koff/veq_kon)")).simplify(), 0)
+        self.assertEqual((crn.kinetic_params[0] - parse_expr("Et*vcat_kcat*comp/(S + veq_koff/veq_kon)")).simplify(), 0)
 
 
     def test_enzyme_reversible(self):
@@ -78,12 +77,12 @@ class TestReduction(unittest.TestCase):
         crn = from_react_file(path.join(input_reactions, "enzyme_reversible"))
 
         crn.qss(cons_law = ('E', ConsLaw('E + C', 'Et')))
-        forward = sympify("Vf*S/Ks/(1 + S/Ks + P/Kp)").subs(sympify("Vf"), sympify("Et*k2"))\
-                                                         .subs(sympify("Ks"), sympify("(k_1+k2)/k1"))\
-                                                         .subs(sympify("Kp"), sympify("(k_1+k2)/k_2")).simplify()
-        backward = sympify("Vr*P/Kp/(1 + S/Ks + P/Kp)").subs(sympify("Vr"), sympify("Et*k_1"))\
-                                                          .subs(sympify("Ks"), sympify("(k_1+k2)/k1"))\
-                                                          .subs(sympify("Kp"), sympify("(k_1+k2)/k_2")).simplify()
+        forward = parse_expr("Vf*S/Ks/(1 + S/Ks + P/Kp)").subs(parse_expr("Vf"), parse_expr("Et*k2"))\
+                                                         .subs(parse_expr("Ks"), parse_expr("(k_1+k2)/k1"))\
+                                                         .subs(parse_expr("Kp"), parse_expr("(k_1+k2)/k_2")).simplify()
+        backward = parse_expr("Vr*P/Kp/(1 + S/Ks + P/Kp)").subs(parse_expr("Vr"), parse_expr("Et*k_1"))\
+                                                          .subs(parse_expr("Ks"), parse_expr("(k_1+k2)/k1"))\
+                                                          .subs(parse_expr("Kp"), parse_expr("(k_1+k2)/k_2")).simplify()
         self.assertEqual(set(crn.rates), set([forward, backward]))
 
 
@@ -139,14 +138,14 @@ class TestReduction(unittest.TestCase):
         crn = from_react_file(path.join(input_reactions, "basic1"))
         crn.qss('b')
         inda = crn.complexes.index(parse_complex('a'))
-        self.assertEqual((crn.laplacian[inda,inda]-sympify("k1*k2/(k2 + k_1)")).simplify(), 0)
+        self.assertEqual((crn.laplacian[inda,inda]-parse_expr("k1*k2/(k2 + k_1)")).simplify(), 0)
 
 
     def test_qss2(self):
         """QSS test 2 (Ingalls, section 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic2"))
         crn.qss('a')
-        rates = map(sympify, ["k0", "k2 * b"])
+        rates = map(parse_expr, ["k0", "k2 * b"])
         self.assertEqual(set(rates), set(crn.rates))
 
 
@@ -155,21 +154,21 @@ class TestReduction(unittest.TestCase):
         crn = from_react_file(path.join(input_reactions, "basic3"))
         crn.qss('a')
         indb = crn.complexes.index(parse_complex('b'))
-        self.assertEqual((crn.laplacian[indb,indb]-sympify("(k0*k_1/(k0 + k1)+k2)")).simplify(), 0)
+        self.assertEqual((crn.laplacian[indb,indb]-parse_expr("(k0*k_1/(k0 + k1)+k2)")).simplify(), 0)
 
 
     def test_rapid_eq1(self):
         """Rapid equilibrium with pooling test 1 (Ingalls, section 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic1"))
         crn.rapid_eq_with_pool('b', 'a', pool_name = "c")
-        self.assertEqual(sp.simplify(crn.laplacian[0,0] - sympify("k2 * k1 / (k_1 + k1)")), 0)
+        self.assertEqual(sp.simplify(crn.laplacian[0,0] - parse_expr("k2 * k1 / (k_1 + k1)")), 0)
 
 
     def test_rapid_eq2(self):
         """Rapid equilibrium with pooling test 2 (Ingalls, section 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic2"))
         crn.rapid_eq_with_pool('b', 'a', pool_name = "c")
-        rates = map(sympify, ["k0", "k2 * k1 * c / (k_1 + k1)"])
+        rates = map(parse_expr, ["k0", "k2 * k1 * c / (k_1 + k1)"])
         self.assertEqual(set(rates), set(crn.rates))
 
 
@@ -177,7 +176,7 @@ class TestReduction(unittest.TestCase):
         """Rapid equilibrium with pooling test 3 (Ingalls, exercise 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic3"))
         crn.rapid_eq_with_pool('b', 'a', pool_name = "c")
-        self.assertEqual(sp.simplify(crn.laplacian[0,0] - sympify("(k0 * k_1 + k2 * k1)/(k_1 + k1)")), 0)
+        self.assertEqual(sp.simplify(crn.laplacian[0,0] - parse_expr("(k0 * k_1 + k2 * k1)/(k_1 + k1)")), 0)
 
 
     def test_rapid_eq4(self):

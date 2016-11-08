@@ -4,7 +4,6 @@
 
 from collections import Counter
 import sympy as sp
-from sympy.abc import _clash
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -123,11 +122,3 @@ class Complex(Counter):
         :rtype: sympy expression.
         """
         return sp.Add(*(self[s]*sp.Symbol(s) for s in self))
-
-
-def sympify(s):
-    """Convert s to sympy expression, accepting all symbols in the clashing-symbols dictionaries.
-
-    :rtype: sympy expression.
-    """
-    return sp.sympify(s, _clash)

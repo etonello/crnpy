@@ -3,10 +3,11 @@
 """Tests for Reaction class."""
 
 import unittest
+import sympy as sp
 
 from crnpy.crn import CRN, from_react_file
-from crnpy.crncomplex import *
-from crnpy.parsereaction import parse_complex
+from crnpy.crncomplex import Complex
+from crnpy.parsereaction import parse_complex, parse_expr
 
 
 __author__ = "Elisa Tonello"
@@ -17,8 +18,8 @@ __version__ = "0.0.1"
 
 class TestComplex(unittest.TestCase):
     def test_ma(self):
-        self.assertEqual(parse_complex('2a + b').ma(), sympify('a**2*b'))
-        self.assertEqual(parse_complex('a + 3d + b').ma(), sympify('d**3*a*b'))
+        self.assertEqual(parse_complex('2a + b').ma(), parse_expr('a**2*b'))
+        self.assertEqual(parse_complex('a + 3d + b').ma(), parse_expr('d**3*a*b'))
         self.assertEqual(parse_complex('').ma(), 1)
 
 
@@ -28,7 +29,7 @@ class TestComplex(unittest.TestCase):
 
 
     def test_symp(self):
-        self.assertEqual(Complex({'a': 1, 'b': 2, 's': 1}).symp(), sp.sympify('a + 2*b + s'))
+        self.assertEqual(Complex({'a': 1, 'b': 2, 's': 1}).symp(), parse_expr('a + 2*b + s'))
 
 
     def test_times(self):
@@ -40,8 +41,7 @@ class TestComplex(unittest.TestCase):
                          Complex({'a': -1, 'b': -2, 's': -1}))
         self.assertRaises(ValueError, Complex({'a': 1, 'b': 2}).times, '2*a')
         self.assertRaises(ValueError, Complex({'a': 1, 'b': 2}).times, '2')
-        self.assertRaises(ValueError, Complex({'a': 1, 'b': 2}).times, sp.sympify('2*a'))
-        self.assertRaises(ValueError, Complex({'a': 1, 'b': 2}).times, sp.sympify('2'))
+        self.assertRaises(ValueError, Complex({'a': 1, 'b': 2}).times, parse_expr('2*a'))
 
 
     def test_order(self):

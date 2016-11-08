@@ -5,8 +5,8 @@ from SBML or reaction files."""
 
 import keyword as kw
 import libsbml
+import sympy as sp
 
-from .crncomplex import sympify
 from .parsereaction import parse_reaction_file
 
 __author__ = "Elisa Tonello"
@@ -158,7 +158,7 @@ def replace_reacts(model, document, reactions):
         rate = reaction.rate
         for s in rate.free_symbols:
             if str(s) in current_map:
-                rate = rate.subs(s, sympify(current_map[str(s)]))
+                rate = rate.subs(s, sp.Symbol(current_map[str(s)]))
         math_ast = libsbml.parseL3Formula(str(rate).replace('**', '^'))
         kinetic_law = r.createKineticLaw()
         kinetic_law.setMath(math_ast)
@@ -182,7 +182,6 @@ def model_from_sbml(sbmlxml):
         raise SystemExit("Error retrieving model.")
 
     promote_params(model, document)
-    _adjust(model, document)
     convert_functions(model, document)
     return model, document
 
@@ -205,147 +204,3 @@ def promote_params(model, document):
     convProps.addOption("promoteLocalParameters", True, "Promotes all Local Parameters to Global ones")
     if (document.convert(convProps) != libsbml.LIBSBML_OPERATION_SUCCESS):
         raise SystemExit("Error promoting local parameters to global.")
-
-
-def _fix_name(name):
-    # replace some characters
-    symbols = ["-", "+", " ", ".", "/", "`", "~", "!",
-               "(", ")", "[", "]", "{", "}", "<", ">",
-               "'", ",", "*", "^", ":", "#", "@", "&"]
-    for symbol in symbols:
-        name = name.replace(symbol, "_")
-
-    # sympy does not like symbols starting with a number
-    if name[0].isdigit():
-        name = "_" + name
-
-    # avoid keywords
-    kwlist = kw.kwlist + ['source', 're', 'factor', 'EmptySet', 'E1', 'CC', 'ff', 'GF', 'Gt', 'LC', 'lcm', 'comp']
-    while name in kwlist:
-        name = "_" + name
-    return name
-
-
-def _adjust(model, document):
-    """Change dash, /, parenthesis and other symbols to underscore in
-    compartments, species, reaction and parameter ids and names,
-    to avoid problems with sympy."""
-
-    # species
-    for s in range(model.getNumSpecies()):
-        original = model.getSpecies(s).getName()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                model.getSpecies(s).setName(fixed)
-
-        original = model.getSpecies(s).getId()
-        if original:
-            fixed = _fix_name(original)
-            model.getSpecies(s).setId(fixed)
-
-        original = model.getSpecies(s).getCompartment()
-        if original:
-            fixed = _fix_name(original)
-            model.getSpecies(s).setCompartment(fixed)
-
-    # reactions
-    for s in range(model.getNumReactions()):
-        original = model.getReaction(s).getName()
-        if original:
-            fixed = _fix_name(original)
-            model.getReaction(s).setName(fixed)
-
-        original = model.getReaction(s).getId()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                model.getReaction(s).setId(fixed)
-
-        kl = model.getReaction(s).getKineticLaw().getMath()
-        fix = False
-        if kl:
-            for i in range(model.getReaction(s).getNumReactants()):
-                original = model.getReaction(s).getReactant(i).getSpecies()
-                if original:
-                    fixed = _fix_name(original)
-                    if original != fixed:
-                        fix = True
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(s).getReactant(i).setSpecies(fixed)
-
-            for i in range(model.getReaction(s).getNumProducts()):
-                original = model.getReaction(s).getProduct(i).getSpecies()
-                if original:
-                    fixed = _fix_name(original)
-                    if original != fixed:
-                        fix = True
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(s).getProduct(i).setSpecies(fixed)
-
-            for i in range(model.getReaction(s).getNumModifiers()):
-                original = model.getReaction(s).getModifier(i).getSpecies()
-                if original:
-                    fixed = _fix_name(original)
-                    if original != fixed:
-                        fix = True
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(s).getModifier(i).setSpecies(fixed)
-
-            if model.getReaction(s).getCompartment():
-                original = model.getReaction(s).getCompartment()
-                fixed = _fix_name(original)
-                if original != fixed:
-                    fix = True
-                    kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                    model.getReaction(s).setCompartment(fixed)
-
-            if fix: model.getReaction(s).getKineticLaw().setMath(kl)
-
-    # parameters
-    for s in range(model.getNumParameters()):
-        original = model.getParameter(s).getName()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                for r in range(model.getNumReactions()):
-                    kl = model.getReaction(r).getKineticLaw().getMath()
-                    if kl:
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(r).getKineticLaw().setMath(kl)
-                model.getParameter(s).setName(fixed)
-
-        original = model.getParameter(s).getId()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                for r in range(model.getNumReactions()):
-                    kl = model.getReaction(r).getKineticLaw().getMath()
-                    if kl:
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(r).getKineticLaw().setMath(kl)
-                model.getParameter(s).setId(fixed)
-
-    # compartments
-    for s in range(model.getNumCompartments()):
-        original = model.getCompartment(s).getName()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                for r in range(model.getNumReactions()):
-                    kl = model.getReaction(r).getKineticLaw().getMath()
-                    if kl:
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(r).getKineticLaw().setMath(kl)
-                model.getCompartment(s).setName(fixed)
-
-        original = model.getCompartment(s).getId()
-        if original:
-            fixed = _fix_name(original)
-            if original != fixed:
-                for r in range(model.getNumReactions()):
-                    kl = model.getReaction(r).getKineticLaw().getMath()
-                    if kl:
-                        kl.replaceArgument(original, libsbml.ASTNode(libsbml.parseL3Formula(fixed)))
-                        model.getReaction(r).getKineticLaw().setMath(kl)
-                model.getCompartment(s).setId(fixed)

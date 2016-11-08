@@ -2,7 +2,7 @@
 
 """Auxiliary functions for sympy matrix manipulations."""
 
-from sympy import Matrix, log, exp, factor, expand, SparseMatrix, solve, sympify
+from sympy import Matrix, log, exp, factor, expand, SparseMatrix, solve, Symbol
 from numpy import array, float64
 
 __author__ = "Elisa Tonello"
@@ -80,7 +80,7 @@ def dependent(matrix, vector, particular = False):
     Return the coeffients if possible, None otherwise.
     If particular = True, use the option 'particular' of sympy's solve(),
     i.e. try to find a particular solution with as many zeros as possible."""
-    coeffs = Matrix(list(map(lambda i: sympify("x" + str(i)), range(len(matrix)))))
+    coeffs = Matrix(list(map(lambda i: Symbol("x" + str(i)), range(len(matrix)))))
     sols = solve(Matrix(matrix).T * coeffs - Matrix(vector), coeffs, dict = True, particular = particular)
     if len(sols) > 0: return [sols[0][s] if s in sols[0] else 0 for s in coeffs]
     return None
@@ -95,7 +95,7 @@ def _pos_dependent(matrix, vector):
     #x, rnorm = nnls(A, b)
     #return rnorm < 0.0000001, x
     if len(matrix) > 0:
-        coeffs = Matrix(list(map(lambda i: sympify("x" + str(i)), range(len(matrix)))))
+        coeffs = Matrix(list(map(lambda i: Symbol("x" + str(i)), range(len(matrix)))))
         sols = solve(Matrix(matrix).T * coeffs - Matrix(vector), coeffs, dict = True, particular = True)
         for sol in sols:
             if all([sol[s] >= 0 for s in sol]): return [sol[s] if s in sol else 0 for s in coeffs]

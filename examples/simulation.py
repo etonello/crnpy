@@ -46,7 +46,7 @@ def simulate(crn, par, initial_cond, start_t, end_t, incr):
     eqs = map(lambda e: e.subs(par.items()), crn.equations())
 
     # integration
-    sol = integrate.odeint(lambda x, t: odes(x, t, map(sp.sympify, crn.species), eqs),
+    sol = integrate.odeint(lambda x, t: odes(x, t, map(sp.Symbol, crn.species), eqs),
                            [initial_cond[s] for s in crn.species],
                            times)
     return dict(zip(crn.species, np.transpose(sol))), times

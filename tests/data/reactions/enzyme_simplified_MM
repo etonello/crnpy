@@ -1,1 +1,1 @@
-veq_vcat: S ->(Et*_comp*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)) P
+veq_vcat: S ->(Et*comp*vcat_kcat*veq_kon/(S*veq_kon + vcat_kcat + veq_koff)) P

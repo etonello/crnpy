@@ -15,8 +15,8 @@ import warnings
 from .conslaw import ConsLaw
 from .createmodel import model_from_reacts, model_from_sbml, replace_reacts
 from .matrixfunctions import negative, sdiag, print_matrix, _pos_dependent, _pos_generators, dependent
-from .crncomplex import Complex, sympify
-from .parsereaction import parse_reaction_file, parse_complex, parse_reactions
+from .crncomplex import Complex
+from .parsereaction import parse_reaction_file, parse_complex, parse_reactions, ast_to_sympy_expr, flux_value
 from .reaction import Reaction, _split_reaction_monom, merge_reactions, _same_denom
 
 __author__ = "Elisa Tonello"
@@ -220,14 +220,7 @@ class CRN(object):
     def _species_from_sbml(self):
         """Extract species from SBML model."""
         # species
-        self._species = [self.model.getSpecies(s).getName()
-                        if self.model.getSpecies(s).getName()
-                        else self.model.getSpecies(s).getId() for s in range(self.model.getNumSpecies())]
-        if len(self._species) != len(list(set(self._species))):
-            self._species = [self.model.getSpecies(s).getId() for s in range(self.model.getNumSpecies())]
-        self._species_ids = dict(zip([self.model.getSpecies(s).getId()
-                                      if self.model.getSpecies(s).getId()
-                                      else self.model.getSpecies(s).getName() for s in range(self.model.getNumSpecies())], self._species))
+        self._species = [self.model.getSpecies(s).getId() for s in range(self.model.getNumSpecies())]
         self._species = sorted(self.species)
         self._n_species = len(self.species)
 
@@ -236,16 +229,14 @@ class CRN(object):
         """Extract reactions from SBML model."""
         nr = self.model.getNumReactions()
         reactions = []
-        self.__reactionids = []
 
         for r in range(nr):
             reaction = self.model.getReaction(r)
-            reactionid = reaction.getName() if reaction.getName() else reaction.getId()
-            self.__reactionids.append(reaction.getId() if reaction.getId() else reaction.getName())
+            reactionid = reaction.getId()
 
-            reactant = Complex(dict((self._species_ids[c.getSpecies()], 1 if np.isnan(c.getStoichiometry()) else int(c.getStoichiometry())) \
+            reactant = Complex(dict((c.getSpecies(), 1 if np.isnan(c.getStoichiometry()) else int(c.getStoichiometry())) \
                                for c in reaction.getListOfReactants()))
-            product = Complex(dict((self._species_ids[c.getSpecies()], 1 if np.isnan(c.getStoichiometry()) else int(c.getStoichiometry())) \
+            product = Complex(dict((c.getSpecies(), 1 if np.isnan(c.getStoichiometry()) else int(c.getStoichiometry())) \
                               for c in reaction.getListOfProducts()))
 
             # remove species with stoichiometric coefficient equal to 0
@@ -254,24 +245,14 @@ class CRN(object):
 
             math = reaction.getKineticLaw().getMath()
             if math:
-                mathstring = formulaToL3String(math)
                 # Special case for FLUX_VALUE
-                if mathstring[-10:] == "FLUX_VALUE":
-                    rate = sympify(mathstring) * reactant.ma()
+                fv = flux_value(math)
+                if flux_value(math):
+                    rate = sp.Symbol(fv) * reactant.ma()
                     if reaction.getReversible():
-                        raterev = sympify(mathstring + "_rev") * product.ma()
+                        raterev = sp.Symbol(fv + "_rev") * product.ma()
                 else:
-                    kineticlaw = sympify(mathstring)
-                    # replace species id with species name
-                    for sid in self._species_ids:
-                        if sid != self._species_ids[sid]:
-                            kineticlaw = kineticlaw.subs(sympify(sid), sympify(self._species_ids[sid]))
-                    # replace parameter id with parameter name
-                    params = list(reaction.getKineticLaw().getListOfParameters()) + list(self.model.getListOfParameters())
-                    for param in params:
-                        if param.getId() and param.getName():
-                            if param.getId() != param.getName():
-                                kineticlaw = kineticlaw.subs(sympify(param.getId()), sympify(param.getName()))
+                    kineticlaw = ast_to_sympy_expr(math)
 
                     if reaction.getReversible():
                         # if reaction is reversible, we need to split the kineticLaw
@@ -285,15 +266,17 @@ class CRN(object):
                     else:
                         rate = kineticlaw
             else:
-                param = reaction.getKineticLaw().getListOfParameters().get(0).getId()
-                rate = reactant.ma() * sympify(param)
+                param = "k_" + reaction.reactionid
+                rate = reactant.ma() * sp.Symbol(param)
                 if reaction.getReversible():
-                    raterev = product.ma() * sympify(param + "_rev")
+                    raterev = product.ma() * sp.Symbol(param + "_rev")
 
             reactions.append(Reaction(reactionid, reactant, product, rate))
             if reaction.getReversible():
-                reactions.append(Reaction(reactionid + "_rev", product, reactant, raterev))
-                self.__reactionids.append(reaction.getId() + "_rev" if reaction.getId() else reaction.getName() + "_rev")
+                revid = reactionid + "_rev"
+                if not raterev:
+                    raterev = product.ma() * sp.Symbol("k_" + revid)
+                reactions.append(Reaction(revid, product, reactant, raterev))
         self._reactions = reactions
 
 
@@ -545,7 +528,6 @@ class CRN(object):
                 # set kinetic parameters to 1
                 if not params:
                     params = {}
-                params = dict((sympify(f), params[f]) for f in params)
                 sbs = [f for f in v.free_symbols if str(f) not in self.species]
                 for f in sbs:
                     if f not in params:
@@ -562,13 +544,13 @@ class CRN(object):
                     else:
                         warnings.warn("Check for monotonicity not implemented for multivariate expressions.")
 
-                deriv = sp.ratsimp(sp.diff(v, sympify(s)))
+                deriv = sp.ratsimp(sp.diff(v, sp.Symbol(s)))
 
                 # if no state is provided, use (1, 1, ..., 1)
                 # and set kinetic parameters to 1
                 if not state:
                     state = {}
-                state = dict((sympify(f), state[f]) for f in state)
+                state = dict((f, state[f]) for f in state)
                 for f in deriv.free_symbols:
                     if f not in state:
                         state[f] = 1
@@ -578,9 +560,9 @@ class CRN(object):
 
                 if deriv != 0:
                     if deriv > 0:
-                        im[i, j] = sympify(var + str(i + 1) + "_" + str(j + 1))
+                        im[i, j] = sp.Symbol(var + str(i + 1) + "_" + str(j + 1))
                     else:
-                        im[i, j] = sympify("-" + var + str(i + 1) + "_" + str(j + 1))
+                        im[i, j] = -sp.Symbol(var + str(i + 1) + "_" + str(j + 1))
         return im
 
 
@@ -624,7 +606,7 @@ class CRN(object):
     @property
     def is_ma(self):
         """Return True if the network has mass-action kinetics."""
-        return all(sympify(s) not in k.cancel().atoms() for s in self.species for k in self.kinetic_params)
+        return all(sp.Symbol(s) not in k.cancel().atoms() for s in self.species for k in self.kinetic_params)
 
 
     @property
@@ -668,7 +650,7 @@ class CRN(object):
         >>> net.cons_laws
         (A + B/3 + 2*C/3 + 2*E/3, D - E)
         """
-        return tuple((v.T * sp.Matrix(list(map(sympify, self.species))))[0, 0] for v in self._cons_laws())
+        return tuple((v.T * sp.Matrix(list(map(sp.Symbol, self.species))))[0, 0] for v in self._cons_laws())
 
 
     @property
@@ -684,7 +666,7 @@ class CRN(object):
         Requires pycddlib."""
         pinv = self.p_invariants
         if len(pinv) > 0:
-            return (pinv * sp.Matrix(list(map(sympify, self.species)))).tolist()
+            return (pinv * sp.Matrix(list(map(sp.Symbol, self.species)))).tolist()
         else:
             return []
 
@@ -702,7 +684,7 @@ class CRN(object):
         Requires pycddlib."""
         tinv = self.t_invariants
         if len(tinv) > 0:
-            return (tinv * sp.Matrix(list(map(sympify, self.reactionids)))).tolist()
+            return (tinv * sp.Matrix(list(map(sp.Symbol, self.reactionids)))).tolist()
         else:
             return []
 
@@ -840,7 +822,7 @@ class CRN(object):
         x = [sp.Function(s) for s in self.species]
         derivs = self.equations()
         return [sp.Eq(sp.Derivative(x[j](t), t),
-                                    derivs[j].subs([(sympify(self.species[i]), x[i](t)) for i in range(self.n_species)]))
+                                    derivs[j].subs([(sp.Symbol(self.species[i]), x[i](t)) for i in range(self.n_species)]))
                 for j in range(self.n_species)]
 
 
@@ -854,7 +836,7 @@ class CRN(object):
     def groebner(self):
         """Return a groebner basis for the steady state ideal."""
         return sp.groebner([sp.ratsimp(e).as_numer_denom()[0] for e in self.equations()],
-                           *[sympify(s) for s in self.species])
+                           *[sp.Symbol(s) for s in self.species])
 
 
     def _constant_species(self):
@@ -887,7 +869,7 @@ class CRN(object):
 
         """
         c = parse_complex(cplx)
-        der = sympify(0)
+        der = 0
         # sum the derivative of each species, multiplied by the stoichiometry
         for s in c:
             if str(s) not in self.species:
@@ -905,7 +887,7 @@ class CRN(object):
     def has_linear_equation(self, species):
         """Check if the equation ds/dt = 0 is linear in s."""
         expr = sp.ratsimp((self.stoich_matrix[self.species.index(species), :] * self.rates)[0]).as_numer_denom()[0]
-        return sp.degree(expr, sympify(species)) == 1
+        return sp.degree(expr, sp.Symbol(species)) == 1
 
 
     def is_dyn_eq(self, net):
@@ -1130,7 +1112,7 @@ class CRN(object):
         """
 
         if cons_law:
-            add_species = [str(c) for c in cons_law[1].species.keys() if c != sympify(cons_law[0])]
+            add_species = [str(c) for c in cons_law[1].species.keys() if c != sp.Symbol(cons_law[0])]
         else: add_species = []
 
         if rapid_eq != None: rapid_eq_species = [pair[0] for pair in rapid_eq]
@@ -1206,9 +1188,9 @@ class CRN(object):
                 print
 
         # The next is quicker, but not always applicable
-        #conservation = (conservation / sympify(species)).cancel()
+        #conservation = (conservation / sp.Symbol(species)).cancel()
         #exp = cons_law.constant / conservation
-        exp = sp.solve(conservation - cons_law.constant, sympify(species))[0]
+        exp = sp.solve(conservation - cons_law.constant, sp.Symbol(species))[0]
 
         # remove species
         self.remove_constant(species, expr = exp)
@@ -1320,7 +1302,7 @@ class CRN(object):
                         if minimal:
                             gens.append(fvs[reactions[r].reactionid])
 
-            y = sympify(intermediate)
+            y = sp.Symbol(intermediate)
             expr = y
             # if there are no reactant or product reactions, species is not an intermediate
             if len(prodReactions) == 0 or len(reactReactions) == 0:
@@ -1359,7 +1341,7 @@ class CRN(object):
                             if coeffs[i] != 0:
                                 newreactions[i]._rate = (newreactions[i].rate + \
                                                         r1.rate * r2.rate / denom * \
-                                                        sp.nsimplify(sympify(coeffs[i]), rational = True)).cancel()
+                                                        sp.nsimplify(coeffs[i], rational = True)).cancel()
                     else:
                         newreactions.append(combine(r1, r2))
                         if minimal:
@@ -1430,7 +1412,7 @@ class CRN(object):
                 else:
                     newreactions.append(reactions[r])
 
-        y = sympify(intermediate)
+        y = sp.Symbol(intermediate)
         expr = y
         # if there are no reactant or product reactions, species is not an intermediate
         if len(prodReactions) == 0 or len(reactReactions) == 0:
@@ -1465,7 +1447,7 @@ class CRN(object):
                         newreactions.append(Reaction(newid, \
                                                      newreactant, \
                                                      newproduct, \
-                                                     sympify("k_" + newid) * newreactant.ma() if no_rates
+                                                     sp.Symbol("k_" + newid) * newreactant.ma() if no_rates
                                                      else (sp.gcd(n, m) * r1.rate * r2.rate / denom).cancel()))
 
             for r in range(len(newreactions)):
@@ -1553,10 +1535,10 @@ class CRN(object):
 
         # find pool is keep + remove
         # find remove and keep as functions of pool
-        keep_pool = sympify(pool_name) / (1 + exp / sympify(str(keep)))
-        keep_factor = (1 / (1 + exp / sympify(str(keep)))).cancel()
-        remove_pool = keep_pool * exp / sympify(str(keep))
-        remove_factor = (keep_factor * exp / sympify(str(keep))).cancel()
+        keep_pool = sp.Symbol(pool_name) / (1 + exp / sp.Symbol(str(keep)))
+        keep_factor = (1 / (1 + exp / sp.Symbol(str(keep)))).cancel()
+        remove_pool = keep_pool * exp / sp.Symbol(str(keep))
+        remove_factor = (keep_factor * exp / sp.Symbol(str(keep))).cancel()
 
         reactions = []
         for reaction in self.reactions:
@@ -1569,10 +1551,10 @@ class CRN(object):
                 product = reaction.product
             if reaction.reactant == keep:
                 reactant = pool_complex
-                rate = (keep_factor * rate * pool_complex.ma() / sympify(str(keep))).cancel()
+                rate = (keep_factor * rate * pool_complex.ma() / sp.Symbol(str(keep))).cancel()
             if str(reaction.reactant) == remove:
                 reactant = pool_complex
-                rate = (remove_factor * rate * pool_complex.ma() / sympify(remove)).cancel()
+                rate = (remove_factor * rate * pool_complex.ma() / sp.Symbol(remove)).cancel()
             if reactant != product:
                 reactions.append(Reaction(reaction.reactionid, \
                                           reactant, \
@@ -1692,7 +1674,7 @@ class CRN(object):
                                              newrate))
 
         for r in range(len(newreactions)):
-            newreactions[r]._rate = (newreactions[r].rate).subs(sympify(remove), exp)
+            newreactions[r]._rate = (newreactions[r].rate).subs(sp.Symbol(remove), exp)
 
         self.reactions = newreactions
 
@@ -1737,11 +1719,11 @@ class CRN(object):
                 reaction._rate = reaction.rate
             if const_species in reaction.product:
                 del reaction.product[const_species]
-            if expr != None: reaction._rate = reaction.rate.subs(sympify(const_species), expr).factor()
+            if expr != None: reaction._rate = reaction.rate.subs(sp.Symbol(const_species), expr).factor()
 
         reactions = [r for r in self.reactions if r.reactant != r.product]
         self.reactions = reactions
-        self._removed_species = self._removed_species + [(const_species, expr if expr else sympify(const_species))]
+        self._removed_species = self._removed_species + [(const_species, expr if expr else sp.Symbol(const_species))]
 
 
     def remove_all_constants(self, debug = False):

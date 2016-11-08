@@ -13,8 +13,8 @@ from os import path
 from crnpy.conslaw import ConsLaw
 from crnpy.createmodel import model_from_reacts
 from crnpy.crn import CRN, from_sbml, from_react_file, from_reacts, from_react_strings
-from crnpy.crncomplex import Complex, sympify
-from crnpy.parsereaction import parse_reaction_file, parse_reactions
+from crnpy.crncomplex import Complex
+from crnpy.parsereaction import parse_reaction_file, parse_reactions, parse_expr
 from crnpy.reaction import Reaction
 
 __author__ = "Elisa Tonello"
@@ -84,7 +84,7 @@ class TestCrn(unittest.TestCase):
         model, document, _ = model_from_reacts(list(map(lambda x: Reaction(x[0], \
                                                                   Complex(x[1]), \
                                                                   Complex(x[2]), \
-                                                                  rate = sp.sympify(x[3])), reactions)))
+                                                                  rate = parse_expr(x[3])), reactions)))
         success = libsbml.writeSBMLToFile(document, filename)
         self.assertTrue(success)
 
@@ -123,7 +123,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(("r0", "r1", "r1_rev"), net.reactionids)
         self.assertEqual(sorted(["A", "2B", "B", "C + D"]), sorted(list(map(str, net.complexes))))
         self.assertEqual(("r0: A ->(k_r0) 2B", "r1: B ->(k_r1) C + D", "r1_rev: C + D ->(k_r1_rev) B"), tuple(map(str, net.reactions)))
-        self.assertEqual(sp.Matrix([sympify("k_r0*A"), sympify("k_r1*B"), sympify("k_r1_rev*C*D")]), net.rates)
+        self.assertEqual(sp.Matrix([parse_expr("k_r0*A"), parse_expr("k_r1*B"), parse_expr("k_r1_rev*C*D")]), net.rates)
         S = sp.Matrix([[-1,  0,  0], [ 2, -1,  1], [ 0,  1, -1], [ 0,  1, -1]])
         self.assertEqual(S, net.stoich_matrix)
         Y = sp.Matrix([[1, 0, 0, 0], [0, 2, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1]])
@@ -148,7 +148,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(("r0", "r1", "r1_rev"), net.reactionids)
         self.assertEqual(sorted(["A", "2B", "B", "C + D"]), sorted(list(map(str, net.complexes))))
         self.assertEqual(("r0: A ->(k_r0) 2B", "r1: B ->(k_r1) C + D", "r1_rev: C + D ->(k_r1_rev) B"), tuple(map(str, net.reactions)))
-        self.assertEqual(sp.Matrix([sympify("k_r0*A"), sympify("k_r1*B"), sympify("k_r1_rev*C*D")]), net.rates)
+        self.assertEqual(sp.Matrix([parse_expr("k_r0*A"), parse_expr("k_r1*B"), parse_expr("k_r1_rev*C*D")]), net.rates)
         S = sp.Matrix([[-1,  0,  0], [ 2, -1,  1], [ 0,  1, -1], [ 0,  1, -1]])
         self.assertEqual(S, net.stoich_matrix)
         Y = sp.Matrix([[1, 0, 0, 0], [0, 2, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1]])
@@ -173,7 +173,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(("r_id_1: E ->(k_r_id_1) F", "r_id_2: A + F ->(k_r_id_2) 3G"), tuple(map(str, net.reactions)))
         k_r_id_1, k_r_id_2 = sp.symbols("k_r_id_1, k_r_id_2")
         self.assertEqual((k_r_id_1, k_r_id_2), net.kinetic_params)
-        self.assertEqual(sp.Matrix([sympify("k_r_id_1*E"), sympify("k_r_id_2*A*F")]), net.rates)
+        self.assertEqual(sp.Matrix([parse_expr("k_r_id_1*E"), parse_expr("k_r_id_2*A*F")]), net.rates)
         S = sp.Matrix([[ 0, -1], [-1,  0], [ 1, -1], [ 0,  3]])
         self.assertEqual(S, net.stoich_matrix)
         Y = sp.Matrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 1, 0], [0, 0, 0, 3]])
@@ -340,7 +340,7 @@ class TestCrn(unittest.TestCase):
         self.assertRaises(ValueError, crn.derivative, 'b + 3')
         self.assertRaises(ValueError, crn.derivative, 'a**2 + b')
         self.assertRaises(ValueError, crn.derivative, '2 a + f')
-        self.assertEqual(0, (sp.sympify('k_r0*a + k_r1*c**2') - crn.derivative('a + 2b')).simplify())
+        self.assertEqual(0, (parse_expr('k_r0*a + k_r1*c**2') - crn.derivative('a + 2b')).simplify())
 
 
     def test_im(self):
@@ -392,7 +392,7 @@ class TestCrn(unittest.TestCase):
         self.assertEqual(['a'], crn.acr_species())
 
         crn = from_react_file(path.join(input_reactions, "acr/acr_complex"))
-        self.assertEqual([sp.sympify('A*B')], crn.acr_complexes())
+        self.assertEqual([parse_expr('A*B')], crn.acr_complexes())
         self.assertEqual(['C'], crn.acr_species(subnets = True))
 
         crn = from_react_file(path.join(input_reactions, "acr/neigenfind_ex1"))
@@ -404,7 +404,7 @@ class TestCrn(unittest.TestCase):
 
     def test_tree_constants(self):
         crn = from_react_strings(['A1 (k2)<->(k1) A2', 'A2 (k4+k1*k5/k2)<->(k3) A3'])
-        tconstants = list(map(sp.sympify, ['k2*k4+k1*k5', 'k1/k2*(k2*k4+k1*k5)', 'k1*k3']))
+        tconstants = list(map(parse_expr, ['k2*k4+k1*k5', 'k1/k2*(k2*k4+k1*k5)', 'k1*k3']))
         tree_consts = crn.tree_constants()
         for i in range(crn.n_complexes):
             self.assertEqual((crn.tree_constant(i) - tconstants[i]).simplify(), 0)

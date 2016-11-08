@@ -4,10 +4,11 @@
 
 from collections import defaultdict
 from functools import reduce
+from libsbml import formulaToL3String, parseL3Formula
 import sympy as sp
 import copy
 
-from .crncomplex import Complex, sympify
+from .crncomplex import Complex
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -80,7 +81,7 @@ class Reaction(object):
         return self.__rate
     @_rate.setter
     def _rate(self, value):
-        self.__rate = sympify(value)
+        self.__rate = value
         if value is not None: self.__kinetic_param = self.rate / self.reactant.ma()
 
     @property
@@ -97,7 +98,7 @@ class Reaction(object):
         return self.__kinetic_param
     @_kinetic_param.setter
     def _kinetic_param(self, value):
-        self._rate = (sympify(value) * self.reactant.ma()).cancel()
+        self._rate = (value * self.reactant.ma()).cancel()
 
     def __str__(self):
         return self.format()
@@ -108,7 +109,8 @@ class Reaction(object):
     def __eq__(self, reaction):
         return self.reactant == reaction.reactant and \
                self.product == reaction.product and \
-               (self.rate - reaction.rate).cancel() == 0
+               (((self.rate - reaction.rate) == 0) or
+                ((self.rate - reaction.rate).cancel() == 0))
 
     def format(self, rate = False, precision = 3):
         """Return a string of the form
@@ -160,7 +162,7 @@ class Reaction(object):
 
         :rtype: string.
         """
-        return "{}: {} {} {}".format(sp.latex(sympify(self.reactionid)),
+        return "{}: {} {} {}".format(sp.latex(self.reactionid),
                                      sp.latex(self.reactant.symp()),
                                      str("\\xrightarrow{" + sp.latex(self.rate if rate else self.kinetic_param) + "}") if self.rate else str("\\rightarrow"),
                                      sp.latex(self.product.symp()))
@@ -209,14 +211,14 @@ class Reaction(object):
         if remainder.func.__name__ == 'Mul':
             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
-            while any(sympify(s) in mulargs for s in species):
+            while any(sp.Symbol(s) in mulargs for s in species):
                 for s in species:
-                    if sympify(s) in mulargs:
+                    if sp.Symbol(s) in mulargs:
                         if s in self.reactant: self.reactant[s] = self.reactant[s] + 1
                         else: self.reactant[s] = 1
                         if s in self.product: self.product[s] = self.product[s] + 1
                         else: self.product[s] = 1
-                        remainder = (remainder / sympify(s)).factor()
+                        remainder = (remainder / sp.Symbol(s)).factor()
                         if remainder.func.__name__ == 'Mul':
                             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
@@ -234,14 +236,14 @@ class Reaction(object):
         if remainder != 1:
             mulargs = [remainder] + list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                          + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
-            while any(sympify(s) in mulargs and s in self.reactant and s in self.product for s in species):
+            while any(sp.Symbol(s) in mulargs and s in self.reactant and s in self.product for s in species):
                 for s in species:
-                    if sympify(s) in mulargs and s in self.reactant and s in self.product:
+                    if sp.Symbol(s) in mulargs and s in self.reactant and s in self.product:
                         if self.reactant[s] == 1: del self.reactant[s]
                         else: self.reactant[s] = self.reactant[s] - 1
                         if self.product[s] == 1: del self.product[s]
                         else: self.product[s] = self.product[s] - 1
-                        remainder = (remainder / sympify(s)).factor()
+                        remainder = (remainder / sp.Symbol(s)).factor()
                         if remainder.func.__name__ == 'Mul':
                             mulargs = list(remainder.args) + [i.args[0] for i in remainder.args if i.func.__name__ == 'Mul'] \
                                                            + [i.args[0] for i in remainder.args if i.func.__name__ == 'Pow']
@@ -281,7 +283,7 @@ def _split_reaction_monom(reaction, species):
     """
     ratenumer, ratedenom = reaction.rate.cancel().as_numer_denom()
     ratenumer = ratenumer.expand()
-    species = map(sympify, species)
+    species = map(sp.Symbol, species)
     ratendict = sp.Poly(ratenumer, *species).as_dict()
     if len(ratendict) > 1:
         reactions = []

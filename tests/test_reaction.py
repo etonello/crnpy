@@ -7,8 +7,8 @@ import unittest
 
 
 from crnpy.crn import CRN, from_react_file
-from crnpy.crncomplex import Complex, sympify
-from crnpy.parsereaction import parse_reactions, parse_complex, parse_reaction
+from crnpy.crncomplex import Complex
+from crnpy.parsereaction import parse_reactions, parse_complex, parse_reaction, parse_expr
 from crnpy.reaction import Reaction, translate
 from .test_reduction import eqs_match
 
@@ -27,19 +27,19 @@ class TestReaction(unittest.TestCase):
         self.assertEqual(r.product, Complex({'c': 3}))
         self.assertEqual(r_.reactant, Complex({'c': 3}))
         self.assertEqual(r_.product, Complex({'a': 1, 'b': 2}))
-        self.assertEqual(r.rate, sympify('k1*a*b**2/(k2+a)'))
+        self.assertEqual(r.rate, parse_expr('k1*a*b**2/(k2+a)'))
 
         r, r_ = parse_reactions(["a + 2b <->(k1/(k2+a)) 3c"])
         self.assertEqual(r.reactant, Complex({'a': 1, 'b': 2}))
         self.assertEqual(r.product, Complex({'c': 3}))
         self.assertEqual(r_.reactant, Complex({'c': 3}))
         self.assertEqual(r_.product, Complex({'a': 1, 'b': 2}))
-        self.assertEqual(r.rate, sympify('k1*a*b**2/(k2+a)'))
-        self.assertEqual(r_.kinetic_param, sympify('k_r0_rev'))
+        self.assertEqual(r.rate, parse_expr('k1*a*b**2/(k2+a)'))
+        self.assertEqual(r_.kinetic_param, parse_expr('k_r0_rev'))
 
         r, r_ = parse_reactions(["a + 2b <->(k1/(k2+a)) 3c"], rate = True)
-        self.assertEqual(r.rate, sympify('k1/(k2+a)'))
-        self.assertEqual(r_.kinetic_param, sympify('k_r0_rev/c**3'))
+        self.assertEqual(r.rate, parse_expr('k1/(k2+a)'))
+        self.assertEqual(r_.kinetic_param, parse_expr('k_r0_rev/c**3'))
 
         self.assertEqual(1, len(parse_reactions(['a -> b'])))
         self.assertRaises(ValueError, parse_reactions, ['a b'])
@@ -55,9 +55,9 @@ class TestReaction(unittest.TestCase):
 
 
     def test_format(self):
-        r = Reaction("r_123", Complex({"A": 1, "B": 2}), Complex({"B": 1, "C": 3}), sympify("k_123*A*B**2/(A+B+1)"))
-        self.assertEqual((sympify("k_123/(A+B+1)") - sympify(r.format_kinetics())).cancel(), 0)
-        self.assertEqual((sympify("k_123*A*B**2/(A+B+1)") - sympify(r.format_kinetics(rate = True))).cancel(), 0)
+        r = Reaction("r_123", Complex({"A": 1, "B": 2}), Complex({"B": 1, "C": 3}), parse_expr("k_123*A*B**2/(A+B+1)"))
+        self.assertEqual((parse_expr("k_123/(A+B+1)") - parse_expr(r.format_kinetics())).cancel(), 0)
+        self.assertEqual((parse_expr("k_123*A*B**2/(A+B+1)") - parse_expr(r.format_kinetics(rate = True))).cancel(), 0)
         r._kinetic_param = 0.00012345
         self.assertEqual(str(r), "r_123: A + 2B ->(1.234e-4) B + 3C")
         self.assertEqual(r.format(precision = 4), "r_123: A + 2B ->(1.2345e-4) B + 3C")
@@ -116,9 +116,9 @@ class TestReaction(unittest.TestCase):
 
 
     def test_translate(self):
-        r = Reaction('', parse_complex('x1 + x2'), parse_complex('2x1 + x3'), sympify('k*x1*x2'))
-        r1 = Reaction('', parse_complex('4x1 + x2 + x4'), parse_complex('5x1 + x3 + x4'), sympify('k*x1*x2'))
-        r2 = Reaction('', parse_complex('x2 + x4'), parse_complex('x1 + x3 + x4'), sympify('k*x1*x2'))
+        r = Reaction('', parse_complex('x1 + x2'), parse_complex('2x1 + x3'), parse_expr('k*x1*x2'))
+        r1 = Reaction('', parse_complex('4x1 + x2 + x4'), parse_complex('5x1 + x3 + x4'), parse_expr('k*x1*x2'))
+        r2 = Reaction('', parse_complex('x2 + x4'), parse_complex('x1 + x3 + x4'), parse_expr('k*x1*x2'))
         self.assertEqual(r2, translate(r, Complex({'x1': -1, 'x4': 1})))
 
 
