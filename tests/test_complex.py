@@ -8,7 +8,6 @@ from crnpy.crn import CRN, from_react_file
 from crnpy.crncomplex import *
 from crnpy.parsereaction import parse_complex
 
-from sympy import SympifyError
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -17,22 +16,14 @@ __version__ = "0.0.1"
 
 
 class TestComplex(unittest.TestCase):
-    def test_to_complex(self):
-        self.assertEqual(to_complex('2*a + b'), Complex({'a': 2, 'b': 1}))
-        self.assertRaises(SympifyError, to_complex, '2a + b')
-        self.assertRaises(ValueError, to_complex, '2*a + 3')
-
-
     def test_ma(self):
-        self.assertEqual(to_complex('2*a + b').ma(), sympify('a**2*b'))
-        self.assertEqual(to_complex('a + 3*d + b').ma(), sympify('d**3*a*b'))
         self.assertEqual(parse_complex('2a + b').ma(), sympify('a**2*b'))
         self.assertEqual(parse_complex('a + 3d + b').ma(), sympify('d**3*a*b'))
-        self.assertEqual(parse_complex('').ma(), sympify('1'))
+        self.assertEqual(parse_complex('').ma(), 1)
 
 
     def test_to_vector(self):
-        self.assertEqual(to_complex('2*a + b').to_vector(['s', 'a', 'b', 'c']),
+        self.assertEqual(parse_complex('2a + b').to_vector(['s', 'a', 'b', 'c']),
                          sp.Matrix([0, 2, 1, 0]))
 
 

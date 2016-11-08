@@ -18,8 +18,8 @@ import warnings
 
 from crnpy.conslaw import ConsLaw
 from crnpy.crn import CRN, from_sbml, from_react_file, from_react_strings
-from crnpy.crncomplex import to_complex, sympify
-from crnpy.parsereaction import parse_reactions
+from crnpy.crncomplex import sympify
+from crnpy.parsereaction import parse_reactions, parse_complex
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -138,7 +138,7 @@ class TestReduction(unittest.TestCase):
         """QSS test 1 (Ingalls, section 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic1"))
         crn.qss('b')
-        inda = crn.complexes.index(to_complex('a'))
+        inda = crn.complexes.index(parse_complex('a'))
         self.assertEqual((crn.laplacian[inda,inda]-sympify("k1*k2/(k2 + k_1)")).simplify(), 0)
 
 
@@ -154,7 +154,7 @@ class TestReduction(unittest.TestCase):
         """QSS test 3 (Ingalls, section 2.2.1)."""
         crn = from_react_file(path.join(input_reactions, "basic3"))
         crn.qss('a')
-        indb = crn.complexes.index(to_complex('b'))
+        indb = crn.complexes.index(parse_complex('b'))
         self.assertEqual((crn.laplacian[indb,indb]-sympify("(k0*k_1/(k0 + k1)+k2)")).simplify(), 0)
 
 

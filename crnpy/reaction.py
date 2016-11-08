@@ -7,7 +7,7 @@ from functools import reduce
 import sympy as sp
 import copy
 
-from .crncomplex import Complex, to_complex, sympify
+from .crncomplex import Complex, sympify
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"

@@ -13,7 +13,7 @@ from os import path
 from crnpy.conslaw import ConsLaw
 from crnpy.createmodel import model_from_reacts
 from crnpy.crn import CRN, from_sbml, from_react_file, from_reacts, from_react_strings
-from crnpy.crncomplex import Complex, to_complex, sympify
+from crnpy.crncomplex import Complex, sympify
 from crnpy.parsereaction import parse_reaction_file, parse_reactions
 from crnpy.reaction import Reaction
 

@@ -7,7 +7,7 @@ import sympy as sp
 from sympy.abc import _clash
 
 from .reaction import Reaction
-from .crncomplex import Complex, to_complex, sympify
+from .crncomplex import Complex, sympify
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -69,9 +69,9 @@ def parse_reaction(r):
             return (Reaction(reactionid, reactants, products, sympify(k)), None)
 
 
-def _valid_complex(cexpr):
+def _valid_species(cexpr):
     try:
-        sympify(cexpr)
+        sp.Symbol(cexpr)
     except:
         raise ValueError("Could not parse complex {}".format(cexpr))
 
@@ -96,7 +96,7 @@ def parse_complex(complex_string):
         m = pattern.match(c)
         if m is None: raise ValueError("Unrecognised complex.")
         m = m.groups()
-        if m[1] != '': _valid_complex(m[1])
+        if m[1] != '': _valid_species(m[1])
         if m[0] == '' and m[1] != '':
             parsedComplex[m[1]] = 1
         else:
@@ -205,5 +205,5 @@ def add_kinetic_param(reaction):
     :type reaction: Reaction.
     :rtype: Reaction.
     """
-    if not reaction._rate: reaction._rate = sympify("k_" + reaction.reactionid)
+    if not reaction._rate: reaction._rate = sp.Symbol("k_" + reaction.reactionid)
     return reaction

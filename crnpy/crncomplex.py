@@ -91,8 +91,8 @@ class Complex(Counter):
 
         :rtype: sympy expression.
         """
-        if self == {}: return sympify("1")
-        return sp.Mul(*(sympify(r)**self[r] for r in self))
+        if self == {}: return 1
+        return sp.Mul(*(sp.Symbol(r)**self[r] for r in self))
 
     def to_vector(self, species):
         """Return a vector (sympy matrix of dimentions (number of species) times 1)
@@ -122,23 +122,7 @@ class Complex(Counter):
 
         :rtype: sympy expression.
         """
-        return sp.Add(*(self[s]*sympify(s) for s in self))
-
-
-def to_complex(string):
-    """Convert a sympy-compatible string to a complex
-
-    :Example:
-
-    >>> to_complex("2*a + b")
-    2a + b
-
-    :rtype: Complex.
-    """
-    d = dict((str(k), v) for k, v in sympify(string).as_coefficients_dict().items())
-    if '1' in d:
-        raise ValueError("Invalid complex.")
-    return Complex(d)
+        return sp.Add(*(self[s]*sp.Symbol(s) for s in self))
 
 
 def sympify(s):

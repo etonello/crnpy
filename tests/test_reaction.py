@@ -44,7 +44,6 @@ class TestReaction(unittest.TestCase):
         self.assertEqual(1, len(parse_reactions(['a -> b'])))
         self.assertRaises(ValueError, parse_reactions, ['a b'])
         self.assertRaises(ValueError, parse_reactions, 'a -> b')
-        self.assertRaises(ValueError, parse_reaction, 'a -> (k) b')
 
 
     def test_rids(self):

@@ -19,8 +19,8 @@ import warnings
 
 from crnpy.conslaw import ConsLaw
 from crnpy.crn import CRN, from_sbml, from_react_file, from_react_strings
-from crnpy.crncomplex import to_complex, sympify
-from crnpy.parsereaction import parse_reactions
+from crnpy.crncomplex import sympify
+from crnpy.parsereaction import parse_reactions, parse_complex
 
 __author__ = "Elisa Tonello"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
@@ -80,7 +80,7 @@ def allosteric_activation():
     crn.qss(cons_law = ('E', ConsLaw('E + ER + ERS', 'Etot')), \
             remove_const = True, merge_reacts = True)
     #crn.remove_all_constants()
-    inds = crn.complexes.index(to_complex('S'))
+    inds = crn.complexes.index(parse_complex('S'))
     fail_if_not_equal(sp.factor(crn.laplacian[inds,inds] - sympify("R*k3*Etot/(R * (k_2 + k3)/k2 + k_1*(k_2 + k3)/(k1*k2) + S*R)")), 0)
 
 
@@ -92,7 +92,7 @@ def atp_substrate_inhibitor():
     # Removing eatpi and eatp using conservation law
     crn.remove(qss = ['eatpi', 'eatp'],
                cons_law = ('e', ConsLaw('e + eatp + eatpi', 'et')))
-    indatp = crn.complexes.index(to_complex('atp'))
+    indatp = crn.complexes.index(parse_complex('atp'))
     fail_if_not_equal(sp.factor(crn.laplacian[indatp,indatp] - sympify("(k2 * et)/((k_1 + k2) / k1 + atp + atp**2 / (k_3 / k3))")), 0)
 
     # Saving and reading
@@ -225,8 +225,8 @@ def ternary_compulsory():
     ratep_s = sympify('k_1*k_2*k_3*k_4/k4*et*q/((1+k1*a/k_1+k1*k2*a*b/(k_1*k_2)+k_4*q/k4)*(k_1*(k_2+k3)+k2*k3*b))')
     ratea_s = ratea_s.expand().factor().factor()
     ratep_s = ratep_s.expand().factor().factor()
-    inda_s = crn.complexes.index(to_complex('a_s'))
-    indp_s = crn.complexes.index(to_complex('p_s'))
+    inda_s = crn.complexes.index(parse_complex('a_s'))
+    indp_s = crn.complexes.index(parse_complex('p_s'))
     diffa_s = crn.laplacian[inda_s, inda_s] - ratea_s
     diffa_s = diffa_s.factor()
     diffp_s = crn.laplacian[indp_s, indp_s] - ratep_s
@@ -298,7 +298,7 @@ def two_subs_one_prod_compulsory_irr():
     rateab = sympify("k3*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia))").subs(sympify("kia"), "k_1/k1") \
                                                                                   .subs(sympify("Kma"), "k3/k1") \
                                                                                   .subs(sympify("Kmb"), "(k_2+k3)/k2")
-    indab = crn.complexes.index(to_complex('a + b'))
+    indab = crn.complexes.index(parse_complex('a + b'))
     fail_if_not_equal((rateab - crn.laplacian[indab,indab]).factor(), 0)
 
 
@@ -318,10 +318,10 @@ def two_subs_one_prod_compulsory_rev():
                      Kmp = "k_1*(k_2+k3)/(k_3*(k_1+k_2))")
 
     rateab = sympify("kpluscat*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)").subs(constants)
-    indab = crn.complexes.index(to_complex('a + b'))
+    indab = crn.complexes.index(parse_complex('a + b'))
     diffab = (rateab - crn.laplacian[indab,indab]).factor()
     ratep = sympify("kminuscat*et/Kmp/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)").subs(constants)
-    indp = crn.complexes.index(to_complex('p'))
+    indp = crn.complexes.index(parse_complex('p'))
     diffp = (ratep - crn.laplacian[indp,indp]).factor()
     fail_if_not_equal(diffab, 0)
     fail_if_not_equal(diffp, 0)
@@ -346,7 +346,7 @@ def two_subs_one_prod_random_irr():
                      Kmp = sympify("(k5 + k_3 + k_4)/k_5"))
     rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+a*b/(kia*Kmb))").subs(constants)
 
-    indab = crn.complexes.index(to_complex('a + b'))
+    indab = crn.complexes.index(parse_complex('a + b'))
     diff = crn.laplacian[indab, indab] - rateab
     diff = diff.factor()
     fail_if_not_equal(diff, 0)
@@ -373,8 +373,8 @@ def two_subs_one_prod_random_rev():
 
     rateab = rateab.expand().factor().factor()
     ratep = ratep.expand().factor().factor()
-    indab = crn.complexes.index(to_complex('a + b'))
-    indp = crn.complexes.index(to_complex('p'))
+    indab = crn.complexes.index(parse_complex('a + b'))
+    indp = crn.complexes.index(parse_complex('p'))
     diffab = crn.laplacian[indab, indab] - rateab
     diffab = diffab.factor()
     diffp = crn.laplacian[indp, indp] - ratep
@@ -420,8 +420,8 @@ def two_subs_two_prods_compulsory():
 
     rateab = rateab.factor()
     ratepq = ratepq.factor()
-    indab = crn.complexes.index(to_complex('a + b'))
-    indpq = crn.complexes.index(to_complex('p + q'))
+    indab = crn.complexes.index(parse_complex('a + b'))
+    indpq = crn.complexes.index(parse_complex('p + q'))
     diffab = crn.laplacian[indab, indab] - rateab
     diffab = diffab.factor()
     diffpq = crn.laplacian[indpq, indpq] - ratepq
@@ -452,8 +452,8 @@ def two_subs_two_prods_random():
     rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
     ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
 
-    indab = crn.complexes.index(to_complex('a + b'))
-    indpq = crn.complexes.index(to_complex('p + q'))
+    indab = crn.complexes.index(parse_complex('a + b'))
+    indpq = crn.complexes.index(parse_complex('p + q'))
     diffab = crn.laplacian[indab, indab] - rateab
     diffab = diffab.factor()
     diffpq = crn.laplacian[indpq, indpq] - ratepq
@@ -480,8 +480,8 @@ def two_subs_two_prods_random():
     rateab = sympify("Vf/(kia*Kmb)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
     ratepq = sympify("Vr/(Kmp*kiq)/(1+a/kia+b/kib+p/kip+q/kiq+a*b/(kia*Kmb)+p*q/(Kmp*kiq))").subs(constants)
 
-    indab = crn.complexes.index(to_complex('a + b'))
-    indpq = crn.complexes.index(to_complex('p + q'))
+    indab = crn.complexes.index(parse_complex('a + b'))
+    indpq = crn.complexes.index(parse_complex('p + q'))
     diffab = crn.laplacian[indab, indab] - rateab
     diffab = diffab.factor()
     diffpq = crn.laplacian[indpq, indpq] - ratepq
@@ -515,8 +515,8 @@ def two_subs_two_prods_subs_enzyme():
 
     rateab = rateab.expand().factor().factor()
     ratepq = ratepq.expand().factor().factor()
-    indab = crn.complexes.index(to_complex('a + b'))
-    indpq = crn.complexes.index(to_complex('p + q'))
+    indab = crn.complexes.index(parse_complex('a + b'))
+    indpq = crn.complexes.index(parse_complex('p + q'))
     diffab = crn.laplacian[indab, indab] - rateab
     diffab = diffab.factor()
     diffpq = crn.laplacian[indpq, indpq] - ratepq
