@@ -1,12 +1,12 @@
-R1: Mad1_C_Mad2 + O_Mad2 ->(Cytoplasm*k1f*u) Mad1_C_Mad2_O_Mad2_
-R1_rev: Mad1_C_Mad2_O_Mad2_ ->(Cytoplasm*k1r) Mad1_C_Mad2 + O_Mad2
-R2: Cdc20 + Mad1_C_Mad2_O_Mad2_ ->(Cytoplasm*k2f*u) Cdc20_C_Mad2 + Mad1_C_Mad2
-R3: Cdc20_C_Mad2 ->(Cytoplasm*k3f) Cdc20 + O_Mad2
-R4: Bub3_BubR1 + Cdc20_C_Mad2 ->(Cytoplasm*k4f*u) MCC
-R4_rev: MCC ->(Cytoplasm*k4r) Bub3_BubR1 + Cdc20_C_Mad2
+R1: Mad1_CMad2 + OMad2 ->(Cytoplasm*k1f*u) Mad1_CMad2_OMad2
+R1_rev: Mad1_CMad2_OMad2 ->(Cytoplasm*k1r) Mad1_CMad2 + OMad2
+R2: Cdc20 + Mad1_CMad2_OMad2 ->(Cytoplasm*k2f*u) Cdc20_CMad2 + Mad1_CMad2
+R3: Cdc20_CMad2 ->(Cytoplasm*k3f) Cdc20 + OMad2
+R4: Bub3_BubR1 + Cdc20_CMad2 ->(Cytoplasm*k4f*u) MCC
+R4_rev: MCC ->(Cytoplasm*k4r) Bub3_BubR1 + Cdc20_CMad2
 R5: Bub3_BubR1 + Cdc20 ->(Cytoplasm*k5f*u) Bub3_BubR1_Cdc20
 R5_rev: Bub3_BubR1_Cdc20 ->(Cytoplasm*k5r) Bub3_BubR1 + Cdc20
-R6: Cdc20 + O_Mad2 ->(Cytoplasm*kf6) Cdc20_C_Mad2
+R6: Cdc20 + OMad2 ->(Cytoplasm*kf6) Cdc20_CMad2
 R7: APC + MCC ->(Cytoplasm*k7f*u) MCC_APC
 R7a: MCC_APC ->(Cytoplasm*k7r*u_prime) APC + MCC
 R8: APC + Cdc20 ->(Cytoplasm*k8f) APC_Cdc20

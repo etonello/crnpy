@@ -1,17 +1,17 @@
 PIP2_synthesis: PIP_PM ->(PM*(Rate_PIP2SynStim_PIP2_synthesis + Rate_PIP2Synbasal_PIP2_synthesis)) PIP2_PM
-PIP2_synthesis_rev: PIP2_PM -> PIP_PM
-Shc_phosphorylation: Shc_PM ->(PM*Vmax_Shc_phosphorylation/(Shc_PM + Shc_phosphorylation_Km)) Shc_star_PM
-Shc_phosphorylation_rev: Shc_star_PM -> Shc_PM
+PIP2_synthesis_rev: PIP2_PM ->(k_PIP2_synthesis_rev) PIP_PM
+Shc_phosphorylation: Shc_PM ->(1.0*PM*Vmax_Shc_phosphorylation/(Shc_PM + Shc_phosphorylation_Km)) Shc_star_PM
+Shc_phosphorylation_rev: Shc_star_PM ->(k_Shc_phosphorylation_rev) Shc_PM
 Ca_bind_CAPRI: CAPRI_cyt + Ca ->(2.75935144203706e-6*Ca_bind_CAPRI_Kf*cyt/KMOLE) CaCAPRI_cyt
 Ca_bind_CAPRI_rev: CaCAPRI_cyt ->(0.00166112956810631*Ca_bind_CAPRI_Kr*cyt/KMOLE) CAPRI_cyt + Ca
 IP3_degradation: IP3 ->(0.00166112956810631*IP3_degradation_kIP3deg*cyt/KMOLE) 
-IP3_degradation_rev:  ->(IP3_degradation_IP3_basal*IP3_degradation_kIP3deg*cyt/KMOLE) IP3
+IP3_degradation_rev:  ->(1.0*IP3_degradation_IP3_basal*IP3_degradation_kIP3deg*cyt/KMOLE) IP3
 RasGTP_depal_translocate: RasGTP_depal_cyt ->(0.00166112956810631*GM*RasGTP_depal_translocate_Kf) RasGTP_Golgi_GM
 RasGTP_depal_translocate_rev: RasGTP_Golgi_GM ->(GM*RasGTP_depal_translocate_Kr) RasGTP_depal_cyt
 ca_bind_rasGRP: Ca + RasGRP_cyt ->(2.75935144203706e-6*ca_bind_rasGRP_Kf*cyt/KMOLE) CaRasGRP1_cyt
 ca_bind_rasGRP_rev: CaRasGRP1_cyt ->(0.00166112956810631*ca_bind_rasGRP_Kr*cyt/KMOLE) Ca + RasGRP_cyt
-RasGRP_DAG_GEF: RasGDP_Golgi_GM ->(GM*Vmax_RasGRP_DAG_GEF/(RasGDP_Golgi_GM + RasGRP_DAG_GEF_Km)) RasGTP_Golgi_GM
-RasGRP_DAG_GEF_rev: RasGTP_Golgi_GM -> RasGDP_Golgi_GM
+RasGRP_DAG_GEF: RasGDP_Golgi_GM ->(1.0*GM*Vmax_RasGRP_DAG_GEF/(RasGDP_Golgi_GM + RasGRP_DAG_GEF_Km)) RasGTP_Golgi_GM
+RasGRP_DAG_GEF_rev: RasGTP_Golgi_GM ->(k_RasGRP_DAG_GEF_rev) RasGDP_Golgi_GM
 rasGTP_pal_translocation: RasGTP_pal_cyt ->(0.00166112956810631*PM*rasGTP_pal_translocation_Kf) RasGTP_PM
 rasGTP_pal_translocation_rev: RasGTP_PM ->(PM*rasGTP_pal_translocation_Kr) RasGTP_pal_cyt
 PLCg_dephos: PLC_act_PM ->(PLCg_dephos_Kf*PM) PLC_PM
@@ -24,8 +24,8 @@ reaction5: DAG_GM_GM + RasGRP_cyt ->(0.00166112956810631*GM*reaction5_Kf) RasGRP
 reaction5_rev: RasGRP_DAG_GM ->(GM*reaction5_Kr) DAG_GM_GM + RasGRP_cyt
 RasGDP_pal: RasGDP_Golgi_GM ->(GM*RasGDP_pal_Kf) RasGDP_pal_cyt
 RasGDP_pal_rev: RasGDP_pal_cyt ->(0.00166112956810631*GM*RasGDP_pal_Kr) RasGDP_Golgi_GM
-CAPRI_GAP: RasGTP_PM ->(PM*Vmax_CAPRI_GAP/(CAPRI_GAP_Km + RasGTP_PM)) RasGDP_PM
-CAPRI_GAP_rev: RasGDP_PM -> RasGTP_PM
+CAPRI_GAP: RasGTP_PM ->(1.0*PM*Vmax_CAPRI_GAP/(CAPRI_GAP_Km + RasGTP_PM)) RasGDP_PM
+CAPRI_GAP_rev: RasGDP_PM ->(k_CAPRI_GAP_rev) RasGTP_PM
 RasGDPpal_translocation: RasGDP_pal_cyt ->(0.00166112956810631*PM*RasGDPpal_translocation_Kf) RasGDP_PM
 RasGDPpal_translocation_rev: RasGDP_PM ->(PM*RasGDPpal_translocation_Kr) RasGDP_pal_cyt
 sos_grb2_binding: Grb2_cyt + Sos_cyt ->(2.75935144203706e-6*cyt*sos_grb2_binding_Kf/KMOLE) SosGrb2_cyt
@@ -39,21 +39,21 @@ RasPal_basal_GAP_rev: RasGDP_pal_cyt ->(0.00166112956810631*RasPal_basal_GAP_Kr*
 basal_cyt_depal_GEF: RasGTP_depal_cyt ->(0.00166112956810631*basal_cyt_depal_GEF_Kf*cyt/KMOLE) RasGDP_depal_cyt
 basal_cyt_depal_GEF_rev: RasGDP_depal_cyt ->(0.00166112956810631*basal_cyt_depal_GEF_Kr*cyt/KMOLE) RasGTP_depal_cyt
 caPLCe_gen_DAG: PIP2_GM_GM ->(GM*Ras_CaPLCe_GM*caPLCe_gen_DAG_kact) DAG_GM_GM + IP3
-caPLCe_gen_DAG_rev: DAG_GM_GM + IP3 -> PIP2_GM_GM
-CaRasGRP_act_RasGM: RasGDP_Golgi_GM ->(GM*Vmax_CaRasGRP_act_RasGM/(CaRasGRP_act_RasGM_Km + RasGDP_Golgi_GM)) RasGTP_Golgi_GM
-CaRasGRP_act_RasGM_rev: RasGTP_Golgi_GM -> RasGDP_Golgi_GM
+caPLCe_gen_DAG_rev: DAG_GM_GM + IP3 ->(k_caPLCe_gen_DAG_rev) PIP2_GM_GM
+CaRasGRP_act_RasGM: RasGDP_Golgi_GM ->(1.0*GM*Vmax_CaRasGRP_act_RasGM/(CaRasGRP_act_RasGM_Km + RasGDP_Golgi_GM)) RasGTP_Golgi_GM
+CaRasGRP_act_RasGM_rev: RasGTP_Golgi_GM ->(k_CaRasGRP_act_RasGM_rev) RasGDP_Golgi_GM
 PIP2_hydrolysis: PIP2_PM ->(PIP2_hydrolysis_k_PIP2hyd*PLC_act_PM*PM) DAG_PM + IP3
-PIP2_hydrolysis_rev: DAG_PM + IP3 -> PIP2_PM
+PIP2_hydrolysis_rev: DAG_PM + IP3 ->(k_PIP2_hydrolysis_rev) PIP2_PM
 Sos_activation: Shc_star_PM + SosGrb2_cyt ->(0.00166112956810631*PM*Sos_activation_Kf) SGS_PM
 Sos_activation_rev: SGS_PM ->(PM*Sos_activation_Kr) Shc_star_PM + SosGrb2_cyt
 PIP_synthesis: PI_PM ->(PM*(Ratebasal_PIPsyn_PIP_synthesis + Ratestim_PIPsyn_PIP_synthesis)) PIP_PM
-PIP_synthesis_rev: PIP_PM -> PI_PM
+PIP_synthesis_rev: PIP_PM ->(k_PIP_synthesis_rev) PI_PM
 EGF_internalization: Activated_EGFR_PM ->(EGF_internalization_Kf*PM) 
-EGF_internalization_rev:  -> Activated_EGFR_PM
+EGF_internalization_rev:  ->(k_EGF_internalization_rev) Activated_EGFR_PM
 calcium_buffer: Ca + buffer_cyt ->(2.75935144203706e-6*calcium_buffer_Kf*cyt/KMOLE) ca_buffer_cyt
 calcium_buffer_rev: ca_buffer_cyt ->(0.00166112956810631*calcium_buffer_Kr*cyt/KMOLE) Ca + buffer_cyt
-RasGM_basal_GAP: RasGTP_Golgi_GM ->(GM*RasGM_basal_GAP_Vmax/(RasGM_basal_GAP_Km + RasGTP_Golgi_GM)) RasGDP_Golgi_GM
-RasGM_basal_GAP_rev: RasGDP_Golgi_GM -> RasGTP_Golgi_GM
+RasGM_basal_GAP: RasGTP_Golgi_GM ->(1.0*GM*RasGM_basal_GAP_Vmax/(RasGM_basal_GAP_Km + RasGTP_Golgi_GM)) RasGDP_Golgi_GM
+RasGM_basal_GAP_rev: RasGDP_Golgi_GM ->(k_RasGM_basal_GAP_rev) RasGTP_Golgi_GM
 reaction0: Shc_star_PM ->(PM*reaction0_Kf) Shc_PM
 reaction0_rev: Shc_PM ->(PM*reaction0_Kr) Shc_star_PM
 EGFR_binding: EGFR_PM + EGF_EC ->(0.00166112956810631*EGFR_binding_Kf*PM) Activated_EGFR_PM
@@ -68,18 +68,18 @@ CaRasGRP_translocation: CaRasGRP1_cyt ->(0.00166112956810631*CaRasGRP_translocat
 CaRasGRP_translocation_rev: Ca_RasGRP_GM_GM ->(CaRasGRP_translocation_Kr*GM) CaRasGRP1_cyt
 reaction2: Ca + Rinh ->(0.00166112956810631*Kon_reaction2*erMembrane) RinhCa
 reaction2_rev: RinhCa ->(Koff_reaction2*erMembrane) Ca + Rinh
-EGF_act_PLCgamma: PLC_PM ->(PM*Vmax_EGF_act_PLCgamma/(EGF_act_PLCgamma_Km + PLC_PM)) PLC_act_PM
-EGF_act_PLCgamma_rev: PLC_act_PM -> PLC_PM
+EGF_act_PLCgamma: PLC_PM ->(1.0*PM*Vmax_EGF_act_PLCgamma/(EGF_act_PLCgamma_Km + PLC_PM)) PLC_act_PM
+EGF_act_PLCgamma_rev: PLC_act_PM ->(k_EGF_act_PLCgamma_rev) PLC_PM
 Ca_binds_IP3R: Ca + Ract ->(0.00166112956810631*Ca_binds_IP3R_Kf*erMembrane) RactCa
 Ca_binds_IP3R_rev: RactCa ->(Kr_Ca_binds_IP3R*erMembrane) Ca + Ract
 reaction7: DAG_GM_GM ->(GM*reaction7_Kf) 
-reaction7_rev:  -> DAG_GM_GM
-Sos_act_RasPM: RasGDP_PM ->(PM*Vmax_Sos_act_RasPM/(RasGDP_PM + Sos_act_RasPM_Km)) RasGTP_PM
-Sos_act_RasPM_rev: RasGTP_PM -> RasGDP_PM
+reaction7_rev:  ->(k_reaction7_rev) DAG_GM_GM
+Sos_act_RasPM: RasGDP_PM ->(1.0*PM*Vmax_Sos_act_RasPM/(RasGDP_PM + Sos_act_RasPM_Km)) RasGTP_PM
+Sos_act_RasPM_rev: RasGTP_PM ->(k_Sos_act_RasPM_rev) RasGDP_PM
 flux1: Ca ->(2.75935144203706e-6*Ca*ER_erMembrane*erMembrane*flux1_vP*serca/(KMOLE*(2.75935144203706e-6*Ca**2 + 1.0*flux1_kP**2))) Ca_ER
-flux1_rev: Ca_ER -> Ca
-flux0: Ca ->(1.90350509516799e-12*ER_erMembrane*IP3**3*RactCa**3*Rinh**3*erMembrane*flux0_singleChanFlux/(KMOLE*(0.00166112956810631*IP3 + 1.0*flux0_dI)**3*(Ract + RactCa)**2*(Rinh + RinhCa)**3)) Ca_ER
-flux0_rev: Ca_ER ->(1.90350509516799e-12*ER_erMembrane*IP3**3*RactCa**3*Rinh**3*erMembrane*flux0_singleChanFlux/(KMOLE*(0.00166112956810631*IP3 + 1.0*flux0_dI)**3*(Ract + RactCa)**2*(Rinh + RinhCa)**3)) Ca
+flux1_rev: Ca_ER ->(k_flux1_rev) Ca
+flux0: Ca ->(1.90350509516799e-12*ER_erMembrane*erMembrane*flux0_singleChanFlux*(IP3*RactCa*Rinh/(0.00166112956810631*IP3*Ract*Rinh + 0.00166112956810631*IP3*Ract*RinhCa + 0.00166112956810631*IP3*RactCa*Rinh + 0.00166112956810631*IP3*RactCa*RinhCa + Ract*Rinh*flux0_dI + Ract*RinhCa*flux0_dI + RactCa*Rinh*flux0_dI + RactCa*RinhCa*flux0_dI))**3.0*(Ract + RactCa)/KMOLE) Ca_ER
+flux0_rev: Ca_ER ->(1.90350509516799e-12*ER_erMembrane*erMembrane*flux0_singleChanFlux*(IP3*RactCa*Rinh/(0.00166112956810631*IP3*Ract*Rinh + 0.00166112956810631*IP3*Ract*RinhCa + 0.00166112956810631*IP3*RactCa*Rinh + 0.00166112956810631*IP3*RactCa*RinhCa + Ract*Rinh*flux0_dI + Ract*RinhCa*flux0_dI + RactCa*Rinh*flux0_dI + RactCa*RinhCa*flux0_dI))**3.0*(Ract + RactCa)/KMOLE) Ca
 flux2: Ca ->(0.00166112956810631*ER_erMembrane*erMembrane*flux2_vL/KMOLE) Ca_ER
 flux2_rev: Ca_ER ->(0.00166112956810631*ER_erMembrane*erMembrane*flux2_vL/KMOLE) Ca
 Ras_PM_depal1: RasGTP_PM ->(PM*Ras_PM_depal1_Kf) RasGTP_depal_cyt

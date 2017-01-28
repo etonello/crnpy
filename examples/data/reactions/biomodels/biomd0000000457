@@ -1,200 +1,200 @@
-reaction1: eIF2B + eIF2_GDP ->(compartment_1*k1) eIF2_GDP_eIF2B
-reaction1_rev: eIF2_GDP_eIF2B ->(compartment_1*k2) eIF2B + eIF2_GDP
-reaction2: eIF2_GDP_eIF2B ->(compartment_1*k1) eIF2B + eIF2_GTP
-reaction2_rev: eIF2B + eIF2_GTP ->(compartment_1*k2) eIF2_GDP_eIF2B
-reaction3: Met_tRNA + eIF2_GTP ->(compartment_1*k1) eIF2_GTP_Met_tRNA
-reaction3_rev: eIF2_GTP_Met_tRNA ->(compartment_1*k2) Met_tRNA + eIF2_GTP
-reaction4: eIF3 + eIF5 ->(compartment_1*k1) eIF3_eIF5
-reaction4_rev: eIF3_eIF5 ->(compartment_1*k2) eIF3 + eIF5
-reaction5: eIF2_GTP_Met_tRNA + eIF3_eIF5 ->(compartment_1*k1) eIF3_eIF5_eIF2_GTP_Met_tRNA
-reaction5_rev: eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k2) eIF2_GTP_Met_tRNA + eIF3_eIF5
-reaction6: eIF1 + eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k1) eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA
-reaction6_rev: eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k2) eIF1 + eIF3_eIF5_eIF2_GTP_Met_tRNA
-reaction7: _40S + eIF1A ->(compartment_1*k1) _40S_eIF1A
-reaction8: _40S_eIF1A + eIF1_eIF3_eIF5_eIF2_GTP_Met_tRNA ->(compartment_1*k1) _43S
-reaction9: eIF4E + eIF4G ->(compartment_1*k1) eIF4E_eIF4G
-reaction9_rev: eIF4E_eIF4G ->(compartment_1*k2) eIF4E + eIF4G
-reaction10: Pab1 + mRNA_cap ->(compartment_1*k1) mRNA_Pab1
-reaction10_rev: mRNA_Pab1 ->(compartment_1*k2) Pab1 + mRNA_cap
-reaction11: eIF4E_eIF4G + mRNA_Pab1 ->(compartment_1*k1) eIF4E_eIF4G_mRNA_Pab1
-reaction11_rev: eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k2) eIF4E_eIF4G + mRNA_Pab1
-reaction12: eIF4A + eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k1) eIF4A_eIF4E_eIF4G_mRNA_Pab1
-reaction12_rev: eIF4A_eIF4E_eIF4G_mRNA_Pab1 ->(compartment_1*k2) eIF4A + eIF4E_eIF4G_mRNA_Pab1
-reaction13: eIF4A_eIF4E_eIF4G_mRNA_Pab1 + eIF4B ->(compartment_1*k1) eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B
-reaction13_rev: eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B ->(compartment_1*k2) eIF4A_eIF4E_eIF4G_mRNA_Pab1 + eIF4B
-reaction14: _43S + eIF4E_eIF4G_mRNA_Pab1_eIF4A_eIF4B ->(compartment_1*k1) _48S
-reaction15: Ded1 + _48S ->(compartment_1*k1) _48S_Ded1
-reaction15_rev: _48S_Ded1 ->(compartment_1*k2) Ded1 + _48S
-reaction16: eIF5B_GDP ->(compartment_1*k1) eIF5B_GTP
-reaction16_rev: eIF5B_GTP ->(compartment_1*k2) eIF5B_GDP
-reaction17: _48S_Ded1 + eIF5B_GTP ->(compartment_1*k1) _48S_Ded1_eIF5B_GTP
-reaction17_rev: _48S_Ded1_eIF5B_GTP ->(compartment_1*k2) _48S_Ded1 + eIF5B_GTP
-reaction18: _48S_Ded1_eIF5B_GTP + _60S ->(-compartment_1*k*(_80S_1 + _80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_2 + _80S_3 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_1 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_2 + _80S_aa_tRNA_3 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_1 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_2 + _80S_aa_tRNA_eEF1A_GTP_3 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_1 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_2 + _80S_aa_tRNA_eEF2_GTP_3 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_2 + _80S_tRNA_3 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_2 + _80S_tRNA_eEF3_GTP_3 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) Ded1 + Pab1 + _80S_1 + eIF1 + eIF1A + eIF2_GDP + eIF3 + eIF4A + eIF4B + eIF4E + eIF4G + eIF5 + eIF5B_GDP + mRNA_cap
-reaction19: eEF1A_GDP + eEF1B ->(compartment_1*k1) eEF1A_GDP_eEF1B
-reaction19_rev: eEF1A_GDP_eEF1B ->(compartment_1*k2) eEF1A_GDP + eEF1B
-reaction20: eEF1A_GDP_eEF1B ->(compartment_1*k1) eEF1A_GTP + eEF1B
-reaction20_rev: eEF1A_GTP + eEF1B ->(compartment_1*k2) eEF1A_GDP_eEF1B
-reaction21: aa_tRNA + eEF1A_GTP ->(compartment_1*k1) aa_tRNA_eEF1A_GTP
-reaction21_rev: aa_tRNA_eEF1A_GTP ->(compartment_1*k2) aa_tRNA + eEF1A_GTP
-reaction24: eEF2_GDP ->(compartment_1*k1) eEF2_GTP
-reaction24_rev: eEF2_GTP ->(compartment_1*k2) eEF2_GDP
-reaction27: eEF3_GDP ->(compartment_1*k1) eEF3_GTP
-reaction27_rev: eEF3_GTP ->(compartment_1*k2) eEF3_GDP
-reaction22_1: _80S_1 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_1
-reaction22_1_rev: _80S_aa_tRNA_eEF1A_GTP_1 ->(compartment_1*k22b) _80S_1 + aa_tRNA_eEF1A_GTP
-reaction23_1: _80S_aa_tRNA_eEF1A_GTP_1 ->(compartment_1*k23f) _80S_aa_tRNA_1 + eEF1A_GDP
-reaction25_1: _80S_aa_tRNA_1 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_1
-reaction25_1_rev: _80S_aa_tRNA_eEF2_GTP_1 ->(compartment_1*k25b) _80S_aa_tRNA_1 + eEF2_GTP
-reaction26_1: _80S_aa_tRNA_eEF2_GTP_1 ->(compartment_1*k26f*(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_2 + _80S_3 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_2 + _80S_aa_tRNA_3 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_2 + _80S_aa_tRNA_eEF1A_GTP_3 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_2 + _80S_aa_tRNA_eEF2_GTP_3 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_2 + _80S_tRNA_3 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_2 + _80S_tRNA_eEF3_GTP_3 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)/(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_2 + _80S_3 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_2 + _80S_aa_tRNA_3 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_2 + _80S_aa_tRNA_eEF1A_GTP_3 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_2 + _80S_aa_tRNA_eEF2_GTP_3 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_2 + _80S_tRNA_3 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_2 + _80S_tRNA_eEF3_GTP_3 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) _80S_tRNA_2 + eEF2_GDP
-reaction22_2: _80S_2 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_2
-reaction22_2_rev: _80S_aa_tRNA_eEF1A_GTP_2 ->(compartment_1*k22b) _80S_2 + aa_tRNA_eEF1A_GTP
-reaction23_2: _80S_aa_tRNA_eEF1A_GTP_2 ->(compartment_1*k23f) _80S_aa_tRNA_2 + eEF1A_GDP
-reaction25_2: _80S_aa_tRNA_2 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_2
-reaction25_2_rev: _80S_aa_tRNA_eEF2_GTP_2 ->(compartment_1*k25b) _80S_aa_tRNA_2 + eEF2_GTP
-reaction26_2: _80S_aa_tRNA_eEF2_GTP_2 ->(compartment_1*k26f*(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_3 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_3 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_3 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_3 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_3 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_3 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)/(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_3 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_3 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_3 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_3 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_3 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_3 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) _80S_tRNA_3 + eEF2_GDP
-reaction28_2: _80S_tRNA_2 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_2
-reaction29_2: _80S_tRNA_eEF3_GTP_2 ->(compartment_1*k29f) _80S_2 + eEF3_GDP + tRNA
-reaction22_3: _80S_3 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_3
-reaction22_3_rev: _80S_aa_tRNA_eEF1A_GTP_3 ->(compartment_1*k22b) _80S_3 + aa_tRNA_eEF1A_GTP
-reaction23_3: _80S_aa_tRNA_eEF1A_GTP_3 ->(compartment_1*k23f) _80S_aa_tRNA_3 + eEF1A_GDP
-reaction25_3: _80S_aa_tRNA_3 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_3
-reaction25_3_rev: _80S_aa_tRNA_eEF2_GTP_3 ->(compartment_1*k25b) _80S_aa_tRNA_3 + eEF2_GTP
-reaction26_3: _80S_aa_tRNA_eEF2_GTP_3 ->(compartment_1*k26f*(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_18 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_18 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_18 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_18 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_18 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_18 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)/(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_4 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_4 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_4 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_4 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_4 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_4 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) _80S_tRNA_4 + eEF2_GDP
-reaction28_3: _80S_tRNA_3 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_3
-reaction29_3: _80S_tRNA_eEF3_GTP_3 ->(compartment_1*k29f) _80S_3 + eEF3_GDP + tRNA
-reaction22_4: _80S_4 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_4
-reaction22_4_rev: _80S_aa_tRNA_eEF1A_GTP_4 ->(compartment_1*k22b) _80S_4 + aa_tRNA_eEF1A_GTP
-reaction23_4: _80S_aa_tRNA_eEF1A_GTP_4 ->(compartment_1*k23f) _80S_aa_tRNA_4 + eEF1A_GDP
-reaction25_4: _80S_aa_tRNA_4 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_4
-reaction25_4_rev: _80S_aa_tRNA_eEF2_GTP_4 ->(compartment_1*k25b) _80S_aa_tRNA_4 + eEF2_GTP
-reaction26_4: _80S_aa_tRNA_eEF2_GTP_4 ->(compartment_1*k26f*(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_18 + _80S_19 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_18 + _80S_aa_tRNA_19 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_18 + _80S_aa_tRNA_eEF1A_GTP_19 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_18 + _80S_aa_tRNA_eEF2_GTP_19 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_18 + _80S_tRNA_19 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_18 + _80S_tRNA_eEF3_GTP_19 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)/(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_18 + _80S_5 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_18 + _80S_aa_tRNA_5 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_18 + _80S_aa_tRNA_eEF1A_GTP_5 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_18 + _80S_aa_tRNA_eEF2_GTP_5 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_18 + _80S_tRNA_5 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_18 + _80S_tRNA_eEF3_GTP_5 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) _80S_tRNA_5 + eEF2_GDP
-reaction28_4: _80S_tRNA_4 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_4
-reaction29_4: _80S_tRNA_eEF3_GTP_4 ->(compartment_1*k29f) _80S_4 + eEF3_GDP + tRNA
-reaction22_5: _80S_5 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_5
-reaction22_5_rev: _80S_aa_tRNA_eEF1A_GTP_5 ->(compartment_1*k22b) _80S_5 + aa_tRNA_eEF1A_GTP
-reaction23_5: _80S_aa_tRNA_eEF1A_GTP_5 ->(compartment_1*k23f) _80S_aa_tRNA_5 + eEF1A_GDP
-reaction25_5: _80S_aa_tRNA_5 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_5
-reaction25_5_rev: _80S_aa_tRNA_eEF2_GTP_5 ->(compartment_1*k25b) _80S_aa_tRNA_5 + eEF2_GTP
-reaction26_5: _80S_aa_tRNA_eEF2_GTP_5 ->(compartment_1*k26f*(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_18 + _80S_19 + _80S_20 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_18 + _80S_aa_tRNA_19 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_18 + _80S_aa_tRNA_eEF1A_GTP_19 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_18 + _80S_aa_tRNA_eEF2_GTP_19 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_18 + _80S_tRNA_19 + _80S_tRNA_20 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_18 + _80S_tRNA_eEF3_GTP_19 + _80S_tRNA_eEF3_GTP_20 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)/(_80S_10 + _80S_11 + _80S_12 + _80S_13 + _80S_14 + _80S_15 + _80S_16 + _80S_17 + _80S_18 + _80S_19 + _80S_6 + _80S_7 + _80S_8 + _80S_9 + _80S_aa_tRNA_10 + _80S_aa_tRNA_11 + _80S_aa_tRNA_12 + _80S_aa_tRNA_13 + _80S_aa_tRNA_14 + _80S_aa_tRNA_15 + _80S_aa_tRNA_16 + _80S_aa_tRNA_17 + _80S_aa_tRNA_18 + _80S_aa_tRNA_19 + _80S_aa_tRNA_6 + _80S_aa_tRNA_7 + _80S_aa_tRNA_8 + _80S_aa_tRNA_9 + _80S_aa_tRNA_eEF1A_GTP_10 + _80S_aa_tRNA_eEF1A_GTP_11 + _80S_aa_tRNA_eEF1A_GTP_12 + _80S_aa_tRNA_eEF1A_GTP_13 + _80S_aa_tRNA_eEF1A_GTP_14 + _80S_aa_tRNA_eEF1A_GTP_15 + _80S_aa_tRNA_eEF1A_GTP_16 + _80S_aa_tRNA_eEF1A_GTP_17 + _80S_aa_tRNA_eEF1A_GTP_18 + _80S_aa_tRNA_eEF1A_GTP_19 + _80S_aa_tRNA_eEF1A_GTP_6 + _80S_aa_tRNA_eEF1A_GTP_7 + _80S_aa_tRNA_eEF1A_GTP_8 + _80S_aa_tRNA_eEF1A_GTP_9 + _80S_aa_tRNA_eEF2_GTP_10 + _80S_aa_tRNA_eEF2_GTP_11 + _80S_aa_tRNA_eEF2_GTP_12 + _80S_aa_tRNA_eEF2_GTP_13 + _80S_aa_tRNA_eEF2_GTP_14 + _80S_aa_tRNA_eEF2_GTP_15 + _80S_aa_tRNA_eEF2_GTP_16 + _80S_aa_tRNA_eEF2_GTP_17 + _80S_aa_tRNA_eEF2_GTP_18 + _80S_aa_tRNA_eEF2_GTP_19 + _80S_aa_tRNA_eEF2_GTP_6 + _80S_aa_tRNA_eEF2_GTP_7 + _80S_aa_tRNA_eEF2_GTP_8 + _80S_aa_tRNA_eEF2_GTP_9 + _80S_tRNA_10 + _80S_tRNA_11 + _80S_tRNA_12 + _80S_tRNA_13 + _80S_tRNA_14 + _80S_tRNA_15 + _80S_tRNA_16 + _80S_tRNA_17 + _80S_tRNA_18 + _80S_tRNA_19 + _80S_tRNA_6 + _80S_tRNA_7 + _80S_tRNA_8 + _80S_tRNA_9 + _80S_tRNA_eEF3_GTP_10 + _80S_tRNA_eEF3_GTP_11 + _80S_tRNA_eEF3_GTP_12 + _80S_tRNA_eEF3_GTP_13 + _80S_tRNA_eEF3_GTP_14 + _80S_tRNA_eEF3_GTP_15 + _80S_tRNA_eEF3_GTP_16 + _80S_tRNA_eEF3_GTP_17 + _80S_tRNA_eEF3_GTP_18 + _80S_tRNA_eEF3_GTP_19 + _80S_tRNA_eEF3_GTP_6 + _80S_tRNA_eEF3_GTP_7 + _80S_tRNA_eEF3_GTP_8 + _80S_tRNA_eEF3_GTP_9 - mRNA_tot)) _80S_tRNA_6 + eEF2_GDP
-reaction28_5: _80S_tRNA_5 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_5
-reaction29_5: _80S_tRNA_eEF3_GTP_5 ->(compartment_1*k29f) _80S_5 + eEF3_GDP + tRNA
-reaction22_6: _80S_6 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_6
-reaction22_6_rev: _80S_aa_tRNA_eEF1A_GTP_6 ->(compartment_1*k22b) _80S_6 + aa_tRNA_eEF1A_GTP
-reaction23_6: _80S_aa_tRNA_eEF1A_GTP_6 ->(compartment_1*k23f) _80S_aa_tRNA_6 + eEF1A_GDP
-reaction25_6: _80S_aa_tRNA_6 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_6
-reaction25_6_rev: _80S_aa_tRNA_eEF2_GTP_6 ->(compartment_1*k25b) _80S_aa_tRNA_6 + eEF2_GTP
-reaction26_6: _80S_aa_tRNA_eEF2_GTP_6 ->(compartment_1*k26f) _80S_tRNA_7 + eEF2_GDP
-reaction28_6: _80S_tRNA_6 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_6
-reaction29_6: _80S_tRNA_eEF3_GTP_6 ->(compartment_1*k29f) _80S_6 + eEF3_GDP + tRNA
-reaction22_7: _80S_7 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_7
-reaction22_7_rev: _80S_aa_tRNA_eEF1A_GTP_7 ->(compartment_1*k22b) _80S_7 + aa_tRNA_eEF1A_GTP
-reaction23_7: _80S_aa_tRNA_eEF1A_GTP_7 ->(compartment_1*k23f) _80S_aa_tRNA_7 + eEF1A_GDP
-reaction25_7: _80S_aa_tRNA_7 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_7
-reaction25_7_rev: _80S_aa_tRNA_eEF2_GTP_7 ->(compartment_1*k25b) _80S_aa_tRNA_7 + eEF2_GTP
-reaction26_7: _80S_aa_tRNA_eEF2_GTP_7 ->(compartment_1*k26f) _80S_tRNA_8 + eEF2_GDP
-reaction28_7: _80S_tRNA_7 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_7
-reaction29_7: _80S_tRNA_eEF3_GTP_7 ->(compartment_1*k29f) _80S_7 + eEF3_GDP + tRNA
-reaction22_8: _80S_8 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_8
-reaction22_8_rev: _80S_aa_tRNA_eEF1A_GTP_8 ->(compartment_1*k22b) _80S_8 + aa_tRNA_eEF1A_GTP
-reaction23_8: _80S_aa_tRNA_eEF1A_GTP_8 ->(compartment_1*k23f) _80S_aa_tRNA_8 + eEF1A_GDP
-reaction25_8: _80S_aa_tRNA_8 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_8
-reaction25_8_rev: _80S_aa_tRNA_eEF2_GTP_8 ->(compartment_1*k25b) _80S_aa_tRNA_8 + eEF2_GTP
-reaction26_8: _80S_aa_tRNA_eEF2_GTP_8 ->(compartment_1*k26f) _80S_tRNA_9 + eEF2_GDP
-reaction28_8: _80S_tRNA_8 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_8
-reaction29_8: _80S_tRNA_eEF3_GTP_8 ->(compartment_1*k29f) _80S_8 + eEF3_GDP + tRNA
-reaction22_9: _80S_9 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_9
-reaction22_9_rev: _80S_aa_tRNA_eEF1A_GTP_9 ->(compartment_1*k22b) _80S_9 + aa_tRNA_eEF1A_GTP
-reaction23_9: _80S_aa_tRNA_eEF1A_GTP_9 ->(compartment_1*k23f) _80S_aa_tRNA_9 + eEF1A_GDP
-reaction25_9: _80S_aa_tRNA_9 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_9
-reaction25_9_rev: _80S_aa_tRNA_eEF2_GTP_9 ->(compartment_1*k25b) _80S_aa_tRNA_9 + eEF2_GTP
-reaction26_9: _80S_aa_tRNA_eEF2_GTP_9 ->(compartment_1*k26f) _80S_tRNA_10 + eEF2_GDP
-reaction28_9: _80S_tRNA_9 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_9
-reaction29_9: _80S_tRNA_eEF3_GTP_9 ->(compartment_1*k29f) _80S_9 + eEF3_GDP + tRNA
-reaction22_10: _80S_10 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_10
-reaction22_10_rev: _80S_aa_tRNA_eEF1A_GTP_10 ->(compartment_1*k22b) _80S_10 + aa_tRNA_eEF1A_GTP
-reaction23_10: _80S_aa_tRNA_eEF1A_GTP_10 ->(compartment_1*k23f) _80S_aa_tRNA_10 + eEF1A_GDP
-reaction25_10: _80S_aa_tRNA_10 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_10
-reaction25_10_rev: _80S_aa_tRNA_eEF2_GTP_10 ->(compartment_1*k25b) _80S_aa_tRNA_10 + eEF2_GTP
-reaction26_10: _80S_aa_tRNA_eEF2_GTP_10 ->(compartment_1*k26f) _80S_tRNA_11 + eEF2_GDP
-reaction28_10: _80S_tRNA_10 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_10
-reaction29_10: _80S_tRNA_eEF3_GTP_10 ->(compartment_1*k29f) _80S_10 + eEF3_GDP + tRNA
-reaction22_11: _80S_11 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_11
-reaction22_11_rev: _80S_aa_tRNA_eEF1A_GTP_11 ->(compartment_1*k22b) _80S_11 + aa_tRNA_eEF1A_GTP
-reaction23_11: _80S_aa_tRNA_eEF1A_GTP_11 ->(compartment_1*k23f) _80S_aa_tRNA_11 + eEF1A_GDP
-reaction25_11: _80S_aa_tRNA_11 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_11
-reaction25_11_rev: _80S_aa_tRNA_eEF2_GTP_11 ->(compartment_1*k25b) _80S_aa_tRNA_11 + eEF2_GTP
-reaction26_11: _80S_aa_tRNA_eEF2_GTP_11 ->(compartment_1*k26f) _80S_tRNA_12 + eEF2_GDP
-reaction28_11: _80S_tRNA_11 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_11
-reaction29_11: _80S_tRNA_eEF3_GTP_11 ->(compartment_1*k29f) _80S_11 + eEF3_GDP + tRNA
-reaction22_12: _80S_12 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_12
-reaction22_12_rev: _80S_aa_tRNA_eEF1A_GTP_12 ->(compartment_1*k22b) _80S_12 + aa_tRNA_eEF1A_GTP
-reaction23_12: _80S_aa_tRNA_eEF1A_GTP_12 ->(compartment_1*k23f) _80S_aa_tRNA_12 + eEF1A_GDP
-reaction25_12: _80S_aa_tRNA_12 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_12
-reaction25_12_rev: _80S_aa_tRNA_eEF2_GTP_12 ->(compartment_1*k25b) _80S_aa_tRNA_12 + eEF2_GTP
-reaction26_12: _80S_aa_tRNA_eEF2_GTP_12 ->(compartment_1*k26f) _80S_tRNA_13 + eEF2_GDP
-reaction28_12: _80S_tRNA_12 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_12
-reaction29_12: _80S_tRNA_eEF3_GTP_12 ->(compartment_1*k29f) _80S_12 + eEF3_GDP + tRNA
-reaction22_13: _80S_13 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_13
-reaction22_13_rev: _80S_aa_tRNA_eEF1A_GTP_13 ->(compartment_1*k22b) _80S_13 + aa_tRNA_eEF1A_GTP
-reaction23_13: _80S_aa_tRNA_eEF1A_GTP_13 ->(compartment_1*k23f) _80S_aa_tRNA_13 + eEF1A_GDP
-reaction25_13: _80S_aa_tRNA_13 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_13
-reaction25_13_rev: _80S_aa_tRNA_eEF2_GTP_13 ->(compartment_1*k25b) _80S_aa_tRNA_13 + eEF2_GTP
-reaction26_13: _80S_aa_tRNA_eEF2_GTP_13 ->(compartment_1*k26f) _80S_tRNA_14 + eEF2_GDP
-reaction28_13: _80S_tRNA_13 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_13
-reaction29_13: _80S_tRNA_eEF3_GTP_13 ->(compartment_1*k29f) _80S_13 + eEF3_GDP + tRNA
-reaction22_14: _80S_14 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_14
-reaction22_14_rev: _80S_aa_tRNA_eEF1A_GTP_14 ->(compartment_1*k22b) _80S_14 + aa_tRNA_eEF1A_GTP
-reaction23_14: _80S_aa_tRNA_eEF1A_GTP_14 ->(compartment_1*k23f) _80S_aa_tRNA_14 + eEF1A_GDP
-reaction25_14: _80S_aa_tRNA_14 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_14
-reaction25_14_rev: _80S_aa_tRNA_eEF2_GTP_14 ->(compartment_1*k25b) _80S_aa_tRNA_14 + eEF2_GTP
-reaction26_14: _80S_aa_tRNA_eEF2_GTP_14 ->(compartment_1*k26f) _80S_tRNA_15 + eEF2_GDP
-reaction28_14: _80S_tRNA_14 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_14
-reaction29_14: _80S_tRNA_eEF3_GTP_14 ->(compartment_1*k29f) _80S_14 + eEF3_GDP + tRNA
-reaction22_15: _80S_15 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_15
-reaction22_15_rev: _80S_aa_tRNA_eEF1A_GTP_15 ->(compartment_1*k22b) _80S_15 + aa_tRNA_eEF1A_GTP
-reaction23_15: _80S_aa_tRNA_eEF1A_GTP_15 ->(compartment_1*k23f) _80S_aa_tRNA_15 + eEF1A_GDP
-reaction25_15: _80S_aa_tRNA_15 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_15
-reaction25_15_rev: _80S_aa_tRNA_eEF2_GTP_15 ->(compartment_1*k25b) _80S_aa_tRNA_15 + eEF2_GTP
-reaction26_15: _80S_aa_tRNA_eEF2_GTP_15 ->(compartment_1*k26f) _80S_tRNA_16 + eEF2_GDP
-reaction28_15: _80S_tRNA_15 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_15
-reaction29_15: _80S_tRNA_eEF3_GTP_15 ->(compartment_1*k29f) _80S_15 + eEF3_GDP + tRNA
-reaction22_16: _80S_16 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_16
-reaction22_16_rev: _80S_aa_tRNA_eEF1A_GTP_16 ->(compartment_1*k22b) _80S_16 + aa_tRNA_eEF1A_GTP
-reaction23_16: _80S_aa_tRNA_eEF1A_GTP_16 ->(compartment_1*k23f) _80S_aa_tRNA_16 + eEF1A_GDP
-reaction25_16: _80S_aa_tRNA_16 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_16
-reaction25_16_rev: _80S_aa_tRNA_eEF2_GTP_16 ->(compartment_1*k25b) _80S_aa_tRNA_16 + eEF2_GTP
-reaction26_16: _80S_aa_tRNA_eEF2_GTP_16 ->(compartment_1*k26f) _80S_tRNA_17 + eEF2_GDP
-reaction28_16: _80S_tRNA_16 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_16
-reaction29_16: _80S_tRNA_eEF3_GTP_16 ->(compartment_1*k29f) _80S_16 + eEF3_GDP + tRNA
-reaction22_17: _80S_17 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_17
-reaction22_17_rev: _80S_aa_tRNA_eEF1A_GTP_17 ->(compartment_1*k22b) _80S_17 + aa_tRNA_eEF1A_GTP
-reaction23_17: _80S_aa_tRNA_eEF1A_GTP_17 ->(compartment_1*k23f) _80S_aa_tRNA_17 + eEF1A_GDP
-reaction25_17: _80S_aa_tRNA_17 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_17
-reaction25_17_rev: _80S_aa_tRNA_eEF2_GTP_17 ->(compartment_1*k25b) _80S_aa_tRNA_17 + eEF2_GTP
-reaction26_17: _80S_aa_tRNA_eEF2_GTP_17 ->(compartment_1*k26f) _80S_tRNA_18 + eEF2_GDP
-reaction28_17: _80S_tRNA_17 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_17
-reaction29_17: _80S_tRNA_eEF3_GTP_17 ->(compartment_1*k29f) _80S_17 + eEF3_GDP + tRNA
-reaction22_18: _80S_18 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_18
-reaction22_18_rev: _80S_aa_tRNA_eEF1A_GTP_18 ->(compartment_1*k22b) _80S_18 + aa_tRNA_eEF1A_GTP
-reaction23_18: _80S_aa_tRNA_eEF1A_GTP_18 ->(compartment_1*k23f) _80S_aa_tRNA_18 + eEF1A_GDP
-reaction25_18: _80S_aa_tRNA_18 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_18
-reaction25_18_rev: _80S_aa_tRNA_eEF2_GTP_18 ->(compartment_1*k25b) _80S_aa_tRNA_18 + eEF2_GTP
-reaction26_18: _80S_aa_tRNA_eEF2_GTP_18 ->(compartment_1*k26f) _80S_tRNA_19 + eEF2_GDP
-reaction28_18: _80S_tRNA_18 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_18
-reaction29_18: _80S_tRNA_eEF3_GTP_18 ->(compartment_1*k29f) _80S_18 + eEF3_GDP + tRNA
-reaction22_19: _80S_19 + aa_tRNA_eEF1A_GTP ->(compartment_1*k22f) _80S_aa_tRNA_eEF1A_GTP_19
-reaction22_19_rev: _80S_aa_tRNA_eEF1A_GTP_19 ->(compartment_1*k22b) _80S_19 + aa_tRNA_eEF1A_GTP
-reaction23_19: _80S_aa_tRNA_eEF1A_GTP_19 ->(compartment_1*k23f) _80S_aa_tRNA_19 + eEF1A_GDP
-reaction25_19: _80S_aa_tRNA_19 + eEF2_GTP ->(compartment_1*k25f) _80S_aa_tRNA_eEF2_GTP_19
-reaction25_19_rev: _80S_aa_tRNA_eEF2_GTP_19 ->(compartment_1*k25b) _80S_aa_tRNA_19 + eEF2_GTP
-reaction26_19: _80S_aa_tRNA_eEF2_GTP_19 ->(compartment_1*k26f) _80S_tRNA_20 + eEF2_GDP
-reaction28_19: _80S_tRNA_19 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_19
-reaction29_19: _80S_tRNA_eEF3_GTP_19 ->(compartment_1*k29f) _80S_19 + eEF3_GDP + tRNA
-reaction28_20: _80S_tRNA_20 + eEF3_GTP ->(compartment_1*k28f) _80S_tRNA_eEF3_GTP_20
-reaction29_20: _80S_tRNA_eEF3_GTP_20 ->(compartment_1*k29f) _80S_20 + eEF3_GDP + tRNA
-reaction30: eRF3_GDP ->(compartment_1*k1) eRF3_GTP
-reaction30_rev: eRF3_GTP ->(compartment_1*k2) eRF3_GDP
-reaction31: eRF1 + eRF3_GTP ->(compartment_1*k1) eRF1_eRF3_GTP
-reaction31_rev: eRF1_eRF3_GTP ->(compartment_1*k2) eRF1 + eRF3_GTP
-reaction32: _80S_20 + eRF1_eRF3_GTP ->(compartment_1*k1) _80S_eRF1_eRF3_GTP
-reaction33: _80S_eRF1_eRF3_GTP ->(compartment_1*k1) _40S + _60S + eRF1 + eRF3_GDP
+reaction_1: species_1 + species_2 ->(compartment_1*reaction_1_k1) species_3
+reaction_1_rev: species_3 ->(compartment_1*reaction_1_k2) species_1 + species_2
+reaction_2: species_3 ->(compartment_1*reaction_2_k1) species_2 + species_4
+reaction_2_rev: species_2 + species_4 ->(compartment_1*reaction_2_k2) species_3
+reaction_3: species_4 + species_5 ->(compartment_1*reaction_3_k1) species_6
+reaction_3_rev: species_6 ->(compartment_1*reaction_3_k2) species_4 + species_5
+reaction_4: species_7 + species_8 ->(compartment_1*reaction_4_k1) species_9
+reaction_4_rev: species_9 ->(compartment_1*reaction_4_k2) species_7 + species_8
+reaction_5: species_6 + species_9 ->(compartment_1*reaction_5_k1) species_10
+reaction_5_rev: species_10 ->(compartment_1*reaction_5_k2) species_6 + species_9
+reaction_6: species_10 + species_11 ->(compartment_1*reaction_6_k1) species_12
+reaction_6_rev: species_12 ->(compartment_1*reaction_6_k2) species_10 + species_11
+reaction_7: species_13 + species_14 ->(compartment_1*reaction_7_k1) species_15
+reaction_8: species_12 + species_15 ->(compartment_1*reaction_8_k1) species_16
+reaction_9: species_17 + species_18 ->(compartment_1*reaction_9_k1) species_19
+reaction_9_rev: species_19 ->(compartment_1*reaction_9_k2) species_17 + species_18
+reaction_10: species_20 + species_21 ->(compartment_1*reaction_10_k1) species_22
+reaction_10_rev: species_22 ->(compartment_1*reaction_10_k2) species_20 + species_21
+reaction_11: species_19 + species_22 ->(compartment_1*reaction_11_k1) species_23
+reaction_11_rev: species_23 ->(compartment_1*reaction_11_k2) species_19 + species_22
+reaction_12: species_23 + species_24 ->(compartment_1*reaction_12_k1) species_166
+reaction_12_rev: species_166 ->(compartment_1*reaction_12_k2) species_23 + species_24
+reaction_13: species_166 + species_25 ->(compartment_1*reaction_13_k1) species_27
+reaction_13_rev: species_27 ->(compartment_1*reaction_13_k2) species_166 + species_25
+reaction_14: species_16 + species_27 ->(compartment_1*reaction_14_k1) species_28
+reaction_15: species_28 + species_29 ->(compartment_1*reaction_15_k1) species_30
+reaction_15_rev: species_30 ->(compartment_1*reaction_15_k2) species_28 + species_29
+reaction_16: species_31 ->(compartment_1*reaction_16_k1) species_32
+reaction_16_rev: species_32 ->(compartment_1*reaction_16_k2) species_31
+reaction_17: species_30 + species_32 ->(compartment_1*reaction_17_k1) species_33
+reaction_17_rev: species_33 ->(compartment_1*reaction_17_k2) species_30 + species_32
+reaction_18: species_33 + species_34 ->(compartment_1*reaction_18_k*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_46 - species_47 - species_48 - species_49 - species_50 - species_51 - species_52 - species_53 - species_54 - species_55 - species_56 - species_57 - species_58 - species_59 - species_60 - species_61 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_1 + species_11 + species_14 + species_17 + species_18 + species_20 + species_21 + species_24 + species_25 + species_29 + species_31 + species_46 + species_7 + species_8
+reaction_19: species_35 + species_36 ->(compartment_1*reaction_19_k1) species_37
+reaction_19_rev: species_37 ->(compartment_1*reaction_19_k2) species_35 + species_36
+reaction_20: species_37 ->(compartment_1*reaction_20_k1) species_36 + species_38
+reaction_20_rev: species_36 + species_38 ->(compartment_1*reaction_20_k2) species_37
+reaction_21: species_38 + species_39 ->(compartment_1*reaction_21_k1) species_40
+reaction_21_rev: species_40 ->(compartment_1*reaction_21_k2) species_38 + species_39
+reaction_22: species_41 ->(compartment_1*reaction_22_k1) species_42
+reaction_22_rev: species_42 ->(compartment_1*reaction_22_k2) species_41
+reaction_23: species_43 ->(compartment_1*reaction_23_k1) species_44
+reaction_23_rev: species_44 ->(compartment_1*reaction_23_k2) species_43
+reaction_24: species_40 + species_46 ->(compartment_1*parameter_2) species_47
+reaction_24_rev: species_47 ->(compartment_1*parameter_3) species_40 + species_46
+reaction_25: species_47 ->(compartment_1*parameter_4) species_35 + species_48
+reaction_26: species_42 + species_48 ->(compartment_1*parameter_5) species_49
+reaction_26_rev: species_49 ->(compartment_1*parameter_6) species_42 + species_48
+reaction_27: species_49 ->(compartment_1*parameter_7*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_50 - species_51 - species_52 - species_53 - species_54 - species_55 - species_56 - species_57 - species_58 - species_59 - species_60 - species_61 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)/(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_50 - species_51 - species_52 - species_53 - species_54 - species_55 - species_56 - species_57 - species_58 - species_59 - species_60 - species_61 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_41 + species_54
+reaction_28: species_40 + species_50 ->(compartment_1*parameter_2) species_51
+reaction_28_rev: species_51 ->(compartment_1*parameter_3) species_40 + species_50
+reaction_29: species_51 ->(compartment_1*parameter_4) species_35 + species_52
+reaction_30: species_42 + species_52 ->(compartment_1*parameter_5) species_53
+reaction_30_rev: species_53 ->(compartment_1*parameter_6) species_42 + species_52
+reaction_31: species_53 ->(compartment_1*parameter_7*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_56 - species_57 - species_58 - species_59 - species_60 - species_61 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)/(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_56 - species_57 - species_58 - species_59 - species_60 - species_61 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_41 + species_60
+reaction_32: species_44 + species_54 ->(compartment_1*parameter_8) species_55
+reaction_33: species_55 ->(compartment_1*parameter_9) species_43 + species_45 + species_50
+reaction_34: species_40 + species_56 ->(compartment_1*parameter_2) species_57
+reaction_34_rev: species_57 ->(compartment_1*parameter_3) species_40 + species_56
+reaction_35: species_57 ->(compartment_1*parameter_4) species_35 + species_58
+reaction_36: species_42 + species_58 ->(compartment_1*parameter_5) species_59
+reaction_36_rev: species_59 ->(compartment_1*parameter_6) species_42 + species_58
+reaction_37: species_59 ->(compartment_1*parameter_7*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_146 - species_147 - species_148 - species_149 - species_150 - species_151 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)/(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_62 - species_63 - species_64 - species_65 - species_66 - species_67 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_41 + species_66
+reaction_38: species_44 + species_60 ->(compartment_1*parameter_8) species_61
+reaction_39: species_61 ->(compartment_1*parameter_9) species_43 + species_45 + species_56
+reaction_40: species_40 + species_62 ->(compartment_1*parameter_2) species_63
+reaction_40_rev: species_63 ->(compartment_1*parameter_3) species_40 + species_62
+reaction_41: species_63 ->(compartment_1*parameter_4) species_35 + species_64
+reaction_42: species_42 + species_64 ->(compartment_1*parameter_5) species_65
+reaction_42_rev: species_65 ->(compartment_1*parameter_6) species_42 + species_64
+reaction_43: species_65 ->(compartment_1*parameter_7*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_146 - species_147 - species_148 - species_149 - species_150 - species_151 - species_152 - species_153 - species_154 - species_155 - species_156 - species_157 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)/(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_146 - species_147 - species_148 - species_149 - species_150 - species_151 - species_68 - species_69 - species_70 - species_71 - species_72 - species_73 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_41 + species_72
+reaction_44: species_44 + species_66 ->(compartment_1*parameter_8) species_67
+reaction_45: species_67 ->(compartment_1*parameter_9) species_43 + species_45 + species_62
+reaction_46: species_40 + species_68 ->(compartment_1*parameter_2) species_69
+reaction_46_rev: species_69 ->(compartment_1*parameter_3) species_40 + species_68
+reaction_47: species_69 ->(compartment_1*parameter_4) species_35 + species_70
+reaction_48: species_42 + species_70 ->(compartment_1*parameter_5) species_71
+reaction_48_rev: species_71 ->(compartment_1*parameter_6) species_42 + species_70
+reaction_49: species_71 ->(compartment_1*parameter_7*(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_146 - species_147 - species_148 - species_149 - species_150 - species_151 - species_152 - species_153 - species_154 - species_155 - species_156 - species_157 - species_158 - species_159 - species_160 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)/(parameter_1 - species_100 - species_101 - species_102 - species_103 - species_104 - species_105 - species_106 - species_107 - species_108 - species_109 - species_110 - species_111 - species_112 - species_113 - species_114 - species_115 - species_116 - species_117 - species_118 - species_119 - species_120 - species_121 - species_122 - species_123 - species_124 - species_125 - species_126 - species_127 - species_128 - species_129 - species_130 - species_131 - species_132 - species_133 - species_134 - species_135 - species_136 - species_137 - species_138 - species_139 - species_140 - species_141 - species_142 - species_143 - species_144 - species_145 - species_146 - species_147 - species_148 - species_149 - species_150 - species_151 - species_152 - species_153 - species_154 - species_155 - species_156 - species_157 - species_74 - species_75 - species_76 - species_77 - species_78 - species_79 - species_80 - species_81 - species_82 - species_83 - species_84 - species_85 - species_86 - species_87 - species_88 - species_89 - species_90 - species_91 - species_92 - species_93 - species_94 - species_95 - species_96 - species_97 - species_98 - species_99)) species_41 + species_78
+reaction_50: species_44 + species_72 ->(compartment_1*parameter_8) species_73
+reaction_51: species_73 ->(compartment_1*parameter_9) species_43 + species_45 + species_68
+reaction_52: species_40 + species_74 ->(compartment_1*parameter_2) species_75
+reaction_52_rev: species_75 ->(compartment_1*parameter_3) species_40 + species_74
+reaction_53: species_75 ->(compartment_1*parameter_4) species_35 + species_76
+reaction_54: species_42 + species_76 ->(compartment_1*parameter_5) species_77
+reaction_54_rev: species_77 ->(compartment_1*parameter_6) species_42 + species_76
+reaction_55: species_77 ->(compartment_1*parameter_7) species_41 + species_84
+reaction_56: species_44 + species_78 ->(compartment_1*parameter_8) species_79
+reaction_57: species_79 ->(compartment_1*parameter_9) species_43 + species_45 + species_74
+reaction_58: species_40 + species_80 ->(compartment_1*parameter_2) species_81
+reaction_58_rev: species_81 ->(compartment_1*parameter_3) species_40 + species_80
+reaction_59: species_81 ->(compartment_1*parameter_4) species_35 + species_82
+reaction_60: species_42 + species_82 ->(compartment_1*parameter_5) species_83
+reaction_60_rev: species_83 ->(compartment_1*parameter_6) species_42 + species_82
+reaction_61: species_83 ->(compartment_1*parameter_7) species_41 + species_90
+reaction_62: species_44 + species_84 ->(compartment_1*parameter_8) species_85
+reaction_63: species_85 ->(compartment_1*parameter_9) species_43 + species_45 + species_80
+reaction_64: species_40 + species_86 ->(compartment_1*parameter_2) species_87
+reaction_64_rev: species_87 ->(compartment_1*parameter_3) species_40 + species_86
+reaction_65: species_87 ->(compartment_1*parameter_4) species_35 + species_88
+reaction_66: species_42 + species_88 ->(compartment_1*parameter_5) species_89
+reaction_66_rev: species_89 ->(compartment_1*parameter_6) species_42 + species_88
+reaction_67: species_89 ->(compartment_1*parameter_7) species_41 + species_96
+reaction_68: species_44 + species_90 ->(compartment_1*parameter_8) species_91
+reaction_69: species_91 ->(compartment_1*parameter_9) species_43 + species_45 + species_86
+reaction_70: species_40 + species_92 ->(compartment_1*parameter_2) species_93
+reaction_70_rev: species_93 ->(compartment_1*parameter_3) species_40 + species_92
+reaction_71: species_93 ->(compartment_1*parameter_4) species_35 + species_94
+reaction_72: species_42 + species_94 ->(compartment_1*parameter_5) species_95
+reaction_72_rev: species_95 ->(compartment_1*parameter_6) species_42 + species_94
+reaction_73: species_95 ->(compartment_1*parameter_7) species_102 + species_41
+reaction_74: species_44 + species_96 ->(compartment_1*parameter_8) species_97
+reaction_75: species_97 ->(compartment_1*parameter_9) species_43 + species_45 + species_92
+reaction_76: species_40 + species_98 ->(compartment_1*parameter_2) species_99
+reaction_76_rev: species_99 ->(compartment_1*parameter_3) species_40 + species_98
+reaction_77: species_99 ->(compartment_1*parameter_4) species_100 + species_35
+reaction_78: species_100 + species_42 ->(compartment_1*parameter_5) species_101
+reaction_78_rev: species_101 ->(compartment_1*parameter_6) species_100 + species_42
+reaction_79: species_101 ->(compartment_1*parameter_7) species_108 + species_41
+reaction_80: species_102 + species_44 ->(compartment_1*parameter_8) species_103
+reaction_81: species_103 ->(compartment_1*parameter_9) species_43 + species_45 + species_98
+reaction_82: species_104 + species_40 ->(compartment_1*parameter_2) species_105
+reaction_82_rev: species_105 ->(compartment_1*parameter_3) species_104 + species_40
+reaction_83: species_105 ->(compartment_1*parameter_4) species_106 + species_35
+reaction_84: species_106 + species_42 ->(compartment_1*parameter_5) species_107
+reaction_84_rev: species_107 ->(compartment_1*parameter_6) species_106 + species_42
+reaction_85: species_107 ->(compartment_1*parameter_7) species_114 + species_41
+reaction_86: species_108 + species_44 ->(compartment_1*parameter_8) species_109
+reaction_87: species_109 ->(compartment_1*parameter_9) species_104 + species_43 + species_45
+reaction_88: species_110 + species_40 ->(compartment_1*parameter_2) species_111
+reaction_88_rev: species_111 ->(compartment_1*parameter_3) species_110 + species_40
+reaction_89: species_111 ->(compartment_1*parameter_4) species_112 + species_35
+reaction_90: species_112 + species_42 ->(compartment_1*parameter_5) species_113
+reaction_90_rev: species_113 ->(compartment_1*parameter_6) species_112 + species_42
+reaction_91: species_113 ->(compartment_1*parameter_7) species_120 + species_41
+reaction_92: species_114 + species_44 ->(compartment_1*parameter_8) species_115
+reaction_93: species_115 ->(compartment_1*parameter_9) species_110 + species_43 + species_45
+reaction_94: species_116 + species_40 ->(compartment_1*parameter_2) species_117
+reaction_94_rev: species_117 ->(compartment_1*parameter_3) species_116 + species_40
+reaction_95: species_117 ->(compartment_1*parameter_4) species_118 + species_35
+reaction_96: species_118 + species_42 ->(compartment_1*parameter_5) species_119
+reaction_96_rev: species_119 ->(compartment_1*parameter_6) species_118 + species_42
+reaction_97: species_119 ->(compartment_1*parameter_7) species_126 + species_41
+reaction_98: species_120 + species_44 ->(compartment_1*parameter_8) species_121
+reaction_99: species_121 ->(compartment_1*parameter_9) species_116 + species_43 + species_45
+reaction_100: species_122 + species_40 ->(compartment_1*parameter_2) species_123
+reaction_100_rev: species_123 ->(compartment_1*parameter_3) species_122 + species_40
+reaction_101: species_123 ->(compartment_1*parameter_4) species_124 + species_35
+reaction_102: species_124 + species_42 ->(compartment_1*parameter_5) species_125
+reaction_102_rev: species_125 ->(compartment_1*parameter_6) species_124 + species_42
+reaction_103: species_125 ->(compartment_1*parameter_7) species_132 + species_41
+reaction_104: species_126 + species_44 ->(compartment_1*parameter_8) species_127
+reaction_105: species_127 ->(compartment_1*parameter_9) species_122 + species_43 + species_45
+reaction_106: species_128 + species_40 ->(compartment_1*parameter_2) species_129
+reaction_106_rev: species_129 ->(compartment_1*parameter_3) species_128 + species_40
+reaction_107: species_129 ->(compartment_1*parameter_4) species_130 + species_35
+reaction_108: species_130 + species_42 ->(compartment_1*parameter_5) species_131
+reaction_108_rev: species_131 ->(compartment_1*parameter_6) species_130 + species_42
+reaction_109: species_131 ->(compartment_1*parameter_7) species_138 + species_41
+reaction_110: species_132 + species_44 ->(compartment_1*parameter_8) species_133
+reaction_111: species_133 ->(compartment_1*parameter_9) species_128 + species_43 + species_45
+reaction_112: species_134 + species_40 ->(compartment_1*parameter_2) species_135
+reaction_112_rev: species_135 ->(compartment_1*parameter_3) species_134 + species_40
+reaction_113: species_135 ->(compartment_1*parameter_4) species_136 + species_35
+reaction_114: species_136 + species_42 ->(compartment_1*parameter_5) species_137
+reaction_114_rev: species_137 ->(compartment_1*parameter_6) species_136 + species_42
+reaction_115: species_137 ->(compartment_1*parameter_7) species_144 + species_41
+reaction_116: species_138 + species_44 ->(compartment_1*parameter_8) species_139
+reaction_117: species_139 ->(compartment_1*parameter_9) species_134 + species_43 + species_45
+reaction_118: species_140 + species_40 ->(compartment_1*parameter_2) species_141
+reaction_118_rev: species_141 ->(compartment_1*parameter_3) species_140 + species_40
+reaction_119: species_141 ->(compartment_1*parameter_4) species_142 + species_35
+reaction_120: species_142 + species_42 ->(compartment_1*parameter_5) species_143
+reaction_120_rev: species_143 ->(compartment_1*parameter_6) species_142 + species_42
+reaction_121: species_143 ->(compartment_1*parameter_7) species_150 + species_41
+reaction_122: species_144 + species_44 ->(compartment_1*parameter_8) species_145
+reaction_123: species_145 ->(compartment_1*parameter_9) species_140 + species_43 + species_45
+reaction_124: species_146 + species_40 ->(compartment_1*parameter_2) species_147
+reaction_124_rev: species_147 ->(compartment_1*parameter_3) species_146 + species_40
+reaction_125: species_147 ->(compartment_1*parameter_4) species_148 + species_35
+reaction_126: species_148 + species_42 ->(compartment_1*parameter_5) species_149
+reaction_126_rev: species_149 ->(compartment_1*parameter_6) species_148 + species_42
+reaction_127: species_149 ->(compartment_1*parameter_7) species_156 + species_41
+reaction_128: species_150 + species_44 ->(compartment_1*parameter_8) species_151
+reaction_129: species_151 ->(compartment_1*parameter_9) species_146 + species_43 + species_45
+reaction_130: species_152 + species_40 ->(compartment_1*parameter_2) species_153
+reaction_130_rev: species_153 ->(compartment_1*parameter_3) species_152 + species_40
+reaction_131: species_153 ->(compartment_1*parameter_4) species_154 + species_35
+reaction_132: species_154 + species_42 ->(compartment_1*parameter_5) species_155
+reaction_132_rev: species_155 ->(compartment_1*parameter_6) species_154 + species_42
+reaction_133: species_155 ->(compartment_1*parameter_7) species_159 + species_41
+reaction_134: species_156 + species_44 ->(compartment_1*parameter_8) species_157
+reaction_135: species_157 ->(compartment_1*parameter_9) species_152 + species_43 + species_45
+reaction_136: species_159 + species_44 ->(compartment_1*parameter_8) species_160
+reaction_137: species_160 ->(compartment_1*parameter_9) species_158 + species_43 + species_45
+reaction_138: species_161 ->(compartment_1*reaction_138_k1) species_162
+reaction_138_rev: species_162 ->(compartment_1*reaction_138_k2) species_161
+reaction_139: species_162 + species_163 ->(compartment_1*reaction_139_k1) species_164
+reaction_139_rev: species_164 ->(compartment_1*reaction_139_k2) species_162 + species_163
+reaction_140: species_158 + species_164 ->(compartment_1*reaction_140_k1) species_165
+reaction_141: species_165 ->(compartment_1*reaction_141_k1) species_13 + species_161 + species_163 + species_34

@@ -1,2 +1,2 @@
-cytosolic_free_Ca2__concentration:  ->(cell*fcyt*(jer + jmem)) cytosolic_free_ca_concentration
-ER_Ca2__concentration:  ->(-cell*fer*jer*vcytver) ER_ca_concentration
+reaction_0000005:  ->(cell*fcyt*(jer + jmem)) c
+reaction_0000006:  ->(-cell*fer*jer*vcytver) cer

@@ -1,55 +1,55 @@
-re3: iSrw1 ->(-(Srw1 - Srw1T)*(Slp1A*kasrw_ + kasrw)/(iSrw1*(Jasrw - Srw1 + Srw1T))) Srw1
-re4: Srw1 ->((Cdc13*kisrw__ + Cig1*kisrw____ + Cig2*kisrw_ + Puc1*kisrw___ + kisrw)/(Jisrw + Srw1)) iSrw1
-re5: iIE ->((IE - 1)*(Cdc13*kaie + Cig1*kaie_)/(iIE*(IE - Jaie - 1))) IE
-re6: IE ->(kiie/(IE + Jiie)) iIE
-re7: iSlp1 ->(-IE*kaslp*(Slp1A - Slp1T)/(iSlp1*(Jaslp - Slp1A + Slp1T))) Slp1A
-re8: Slp1A ->(kislp/(Jislp + Slp1A)) iSlp1
-Cdc13_Synthesis: cdc13_ ->(kscyc/cdc13_) Cdc13
-Trim_Dissociation_Rum1degradation: Cdc13p_Rum1 ->(Vdrum) pCdc13 + sa161_degraded
-re15: Cdc13_Rum1 ->(Vdcyc) Rum1 + sa4_degraded
-Trim_Dissociation_Rum1degradation: Cdc13_Rum1 ->(Vdrum) Cdc13 + sa161_degraded
-re17: Cdc13p_Rum1 ->(Vdcyc) Rum1 + sa4_degraded
-Cdc13_Dephosphorylation: Cdc13p_Rum1 ->(k25 + kpyp2) Cdc13_Rum1
-Cdc13_Synthesis: cig2_ ->((Cdc10*kscig_ + Cdc10T*kscig)/cig2_) Cig2
-Cdc13_Phosphorylation: Cig2 ->(Mik1*kmik__) Cig2p
-Cdc13_Dephosphorylation: Cig2p ->((UDNA*beta*k25*k255 + k25*k255 + kpyp)/(UDNA*beta + 1)) Cig2
-Rum1_Cdc13_association: Cig2 + Rum1 ->(lcp) Cig2_Rum1
-Rum1_Cdc13_association_rev: Cig2_Rum1 ->(_lcm) Cig2 + Rum1
-re23: Cig2_Rum1 ->(Slp1A*kdcig_ + kdcig) Rum1 + sa44_degraded
-Rum1_Cdc13_association: Cig2p + Rum1 ->(lcp) Cig2p_Rum1
-Rum1_Cdc13_association_rev: Cig2p_Rum1 ->(_lcm) Cig2p + Rum1
-re25: Cig2p_Rum1 ->(Slp1A*kdcig_ + kdcig) Rum1 + sa44_degraded
-Cdc13_Dephosphorylation: Cig2p_Rum1 ->((UDNA*beta*k25*k255 + k25*k255 + kpyp)/(UDNA*beta + 1)) Cig2_Rum1
-re28: Cig2 ->(Slp1A*kdcig_ + kdcig) sa44_degraded
-re29: Cig2p_Rum1 ->(Vdrum) Cig2p
-re30: Cig2_Rum1 ->(Vdrum) Cig2 + sa161_degraded
-re31: Cig2p ->(Slp1A*kdcig_ + kdcig) sa44_degraded
-re32: Cdc10 ->((Cig2*kic10_ + kic10)/(Cdc10 + Jic10)) iCdc10
-re33: iCdc10 ->(kac10*(Cdc10 - Cdc10T)/(iCdc10*(Cdc10 - Cdc10T - Jac10))) Cdc10
-re34: mik1_ ->((Cdc10*Vamik_ + Cdc10T*Vamik)/mik1_) Mik1
-re35: Mik1 ->(Cdc13*Vimik__ + Cig2*Vimik_ + Vimik + Vimik___*pCdc13) sa347_degraded
-re36: cig1_ ->(ksci1/cig1_) Cig1
-re37: Cig1 ->(Slp1A*kdci1_ + Srw1*kdci1__ + kdci1) sa353_degraded
-re38: Clp1_ ->((Slp1A*ksflp_ + ksflp)/Clp1_) Clp1
-re39: iWee1 ->(-(Wee1 - Wee1T)*(Clp1*Vawee__ + Vawee_)/(iWee1*(Jawee - Wee1 + Wee1T))) Wee1
-re40: Wee1 ->((Cdc13*Viwee__ + Viwee_)/(Jiwee + Wee1)) iWee1
-re41: pCdc13 ->(Vdcyc) sa4_degraded
-re42: Cdc13 ->(Vdcyc) sa4_degraded
-re43: Cdc13_Rum1 ->(Mik1*kmik_ + kwee) Cdc13p_Rum1
-re44: Cig2_Rum1 ->(Mik1*kmik__) Cig2p_Rum1
-re45: iCdc25 ->(Cdc13*Va25__*(Cdc25 - Cdc25T)/(iCdc25*(Cdc25 - Cdc25T - Ja25))) Cdc25
-re46: Cdc25 ->((Clp1*Vi25__ + UDNA*Vi25 + Vi25_)/(Cdc25 + Ji25)) iCdc25
-re47: cdc18_ ->((Cdc10*ksc18_ + Cdc10T*ksc18)/cdc18_) Cdc18T
-re48: Cdc18T ->(Vdc18) sa386_degraded
-re53: Clp1 ->(kdflp) sa370_degraded
-re54: Cdc13 + Rum1 ->(lp) Cdc13_Rum1
-re54_rev: Cdc13_Rum1 ->(lm) Cdc13 + Rum1
-re56: pCdc13 ->(k25 + kpyp2) Cdc13
-re57: Cdc13 ->(Mik1*kmik_ + kwee) pCdc13
-re58: Rum1 + pCdc13 ->(lp) Cdc13p_Rum1
-re58_rev: Cdc13p_Rum1 ->(lm) Rum1 + pCdc13
-re60: Rum1 ->(Vdrum) sa161_degraded
-re62: rum1_ ->(ksrum/rum1_) Rum1
-re66: preRC ->(Cdc13*kini_dash + Cig2*kini__ + Cig2p*kini___) postRC
-re67: repldna ->(kori/((Cdc13*kipre/Jipre + Cig2*kipre_/Jipre)**n + 1)) irepldna
-re68: postRC ->(krepl) repldna
+re3: s65 ->((Srw1T - s47)*(kasrw + kasrw_dash*s48)/(s65*(Jasrw + Srw1T - s47))) s47
+re4: s47 ->((Puc1*kisrw_dash3 + kisrw + kisrw_dash*s67 + kisrw_dash2*s56 + kisrw_dash4*s75)/(Jisrw + s47)) s65
+re5: s51 ->((-s50 + 1)*(kaie*s56 + kaie_dash*s75)/(s51*(Jaie - s50 + 1))) s50
+re6: s50 ->(kiie/(Jiie + s50)) s51
+re7: s66 ->(kaslp*s50*(Slp1T - s48)/(s66*(Jaslp + Slp1T - s48))) s48
+re8: s48 ->(kislp/(Jislp + s48)) s66
+re12: s57 ->(kscyc/s57) s56
+re14: s137 ->(Vdrum) s60 + s61
+re15: s161 ->(Vdcyc) s166 + s46
+re16: s161 ->(Vdrum) s56 + s61
+re17: s137 ->(Vdcyc) s166 + s46
+re18: s137 ->(k25 + kpyp2) s161
+re19: s55 ->((Cdc10T*kscig + kscig_dash*s71)/s55) s67
+re20: s67 ->(kmik_dash2*s72) s63
+re21: s63 ->((k25*k255*s63 + kpyp*s63/(UDNA*beta + 1))/s63) s67
+re22: s166 + s67 ->(lcp) s149
+re22_rev: s149 ->(lcm) s166 + s67
+re23: s149 ->(kdcig + kdcig_dash*s48) s166 + s94
+re24: s166 + s63 ->(lcp) s153
+re24_rev: s153 ->(lcm) s166 + s63
+re25: s153 ->(kdcig + kdcig_dash*s48) s166 + s94
+re27: s153 ->((k25*k255*s153 + kpyp*s153/(UDNA*beta + 1))/s153) s149
+re28: s67 ->(kdcig + kdcig_dash*s48) s94
+re29: s153 ->(Vdrum) s63
+re30: s149 ->(Vdrum) s61 + s67
+re31: s63 ->(kdcig + kdcig_dash*s48) s94
+re32: s71 ->((kic10 + kic10_dash*s67)/(Jic10 + s71)) s70
+re33: s70 ->(kac10*(Cdc10T - s71)/(s70*(Cdc10T + Jac10 - s71))) s71
+re34: s73 ->((Cdc10T*Vamik + Vamik_dash*s71)/s73) s72
+re35: s72 ->(Vimik + Vimik_dash*s67 + Vimik_dash2*s56 + Vimik_dash3*s60) s74
+re36: s76 ->(ksci1/s76) s75
+re37: s75 ->(kdci1 + kdci1_dash*s48 + kdci1_dash2*s47) s77
+re38: s78 ->((ksflp + ksflp_dash*s48)/s78) s81
+re39: s79 ->((Vawee_dash + Vawee_dash2*s81)*(Wee1T - s80)/(s79*(Jawee + Wee1T - s80))) s80
+re40: s80 ->((Viwee_dash + Viwee_dash2*s56)/(Jiwee + s80)) s79
+re41: s60 ->(Vdcyc) s46
+re42: s56 ->(Vdcyc) s46
+re43: s161 ->(kmik_dash*s72 + kwee) s137
+re44: s149 ->(kmik_dash2*s72) s153
+re45: s82 ->(Va25_dash2*s56*(Cdc25T - s83)/(s82*(Cdc25T + Ja25 - s83))) s83
+re46: s83 ->((UDNA*Vi25 + Vi25_dash + Vi25_dash2*s81)/(Ji25 + s83)) s82
+re47: s85 ->((Cdc10T*ksc18 + ksc18_dash*s71)/s85) s84
+re48: s84 ->(Vdc18) s88
+re53: s81 ->(kdflp) s93
+re54: s166 + s56 ->(lp) s161
+re54_rev: s161 ->(lm) s166 + s56
+re56: s60 ->(k25 + kpyp2) s56
+re57: s56 ->(kmik_dash*s72 + kwee) s60
+re58: s166 + s60 ->(lp) s137
+re58_rev: s137 ->(lm) s166 + s60
+re60: s166 ->(Vdrum) s61
+re62: s52 ->(ksrum/s52) s166
+re66: s89 ->(preRC*(kini_dash*s56 + kini_dash2*s67 + kini_dash3*s63)/s89) s90
+re67: s91 ->(kori/(((kipre*s56 + kipre_dash*s67)/Jipre)**n + 1)) s92
+re68: s90 ->(krepl) s91

@@ -1,6 +1,6 @@
-reaction1: x1 ->(alpha*compartment_1/(x1*(Shalve**n + x1**n))) x1 + x3
-reaction2: x2 ->(alpha*compartment_1/(x2*(Shalve**n + x2**n))) x1 + x2
-reaction3: x3 ->(alpha*compartment_1/(x3*(Shalve**n + x3**n))) x2 + x3
-reaction4: x1 ->(compartment_1/(beta + x1)) 
-reaction5: x2 ->(compartment_1/(beta + x2)) 
-reaction6: x3 ->(compartment_1/(beta + x3)) 
+reaction_1: species_1 ->(compartment_1*parameter_1/(species_1*(reaction_1_Shalve**parameter_3 + species_1**parameter_3))) species_1 + species_3
+reaction_2: species_2 ->(compartment_1*parameter_1/(species_2*(reaction_2_Shalve**parameter_3 + species_2**parameter_3))) species_1 + species_2
+reaction_3: species_3 ->(compartment_1*parameter_1/(species_3*(reaction_3_Shalve**parameter_3 + species_3**parameter_3))) species_2 + species_3
+reaction_4: species_1 ->(compartment_1/(parameter_2*(1.0 + species_1/parameter_2))) 
+reaction_5: species_2 ->(compartment_1/(parameter_2*(1.0 + species_2/parameter_2))) 
+reaction_6: species_3 ->(compartment_1/(parameter_2*(1.0 + species_3/parameter_2))) 

@@ -1,242 +1,242 @@
-v1: EGF + EGFR ->(k1) EGF_EGFR
-v1_rev: EGF_EGFR ->(kr1) EGF + EGFR
-v2: 2EGF_EGFR ->(k2) EGF_EGFR_2
-v2_rev: EGF_EGFR_2 ->(kr2) 2EGF_EGFR
-v3: EGF_EGFR_2 ->(k3) EGF_EGFR__2
-v3_rev: EGF_EGFR__2 ->(kr3) EGF_EGFR_2
-v4: EGF_EGFR__2_GAP_Grb2 + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Prot
-v4_rev: EGF_EGFR__2_GAP_Grb2_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2 + Prot
-v5: EGF_EGFR__2_GAP_Grb2_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2 + Proti
-v5_rev: EGF_EGFRi__2_GAP_Grb2 + Proti -> EGF_EGFR__2_GAP_Grb2_Prot
-v6: EGFR ->(k6) EGFRi
-v6_rev: EGFRi ->(kr6) EGFR
-v7: EGF_EGFR__2 ->(k7) EGF_EGFRi__2
-v8: EGF_EGFR__2 + GAP ->(k8) EGF_EGFR__2_GAP
-v8_rev: EGF_EGFR__2_GAP ->(kr8) EGF_EGFR__2 + GAP
-v9: EGF_EGFR__2_GAP_Grb2 ->(k7) EGF_EGFRi__2_GAP_Grb2
-v10: EGFRi + EGFi ->(k10) EGF_EGFRi
-v10_rev: EGF_EGFRi ->(kr10) EGFRi + EGFi
-v11: 2EGF_EGFRi ->(k2) EGF_EGFRi_2
-v11_rev: EGF_EGFRi_2 ->(kr2) 2EGF_EGFRi
-v12: EGF_EGFRi_2 ->(k3) EGF_EGFRi__2
-v12_rev: EGF_EGFRi__2 ->(kr3) EGF_EGFRi_2
-v13:  ->(k13) EGFR
-v14: EGF_EGFRi__2 + GAP ->(k14) EGF_EGFRi__2_GAP
-v14_rev: EGF_EGFRi__2_GAP ->(kr14) EGF_EGFRi__2 + GAP
-v15: Proti ->(k15) Prot
-v16: EGF_EGFR__2_GAP + Grb2 ->(k16) EGF_EGFR__2_GAP_Grb2
-v16_rev: EGF_EGFR__2_GAP_Grb2 ->(kr16) EGF_EGFR__2_GAP + Grb2
-v17: EGF_EGFR__2_GAP_Grb2 + Sos ->(k17) EGF_EGFR__2_GAP_Grb2_Sos
-v17_rev: EGF_EGFR__2_GAP_Grb2_Sos ->(kr17) EGF_EGFR__2_GAP_Grb2 + Sos
-v18: EGF_EGFR__2_GAP_Grb2_Sos + Ras_GDP ->(k18) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP
-v18_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP ->(kr18) EGF_EGFR__2_GAP_Grb2_Sos + Ras_GDP
-v19: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP ->(k19) EGF_EGFR__2_GAP_Grb2_Sos + Ras_GTP
-v19_rev: EGF_EGFR__2_GAP_Grb2_Sos + Ras_GTP ->(kr19) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP
-v20: EGF_EGFR__2_GAP_Grb2_Sos + Ras_GTP_ ->(k20) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP
-v20_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP ->(kr20) EGF_EGFR__2_GAP_Grb2_Sos + Ras_GTP_
-v21: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP ->(k21) EGF_EGFR__2_GAP_Grb2_Sos + Ras_GDP
-v21_rev: EGF_EGFR__2_GAP_Grb2_Sos + Ras_GDP ->(kr21) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP
-v22: EGF_EGFR__2_GAP + Shc ->(k22) EGF_EGFR__2_GAP_Shc
-v22_rev: EGF_EGFR__2_GAP_Shc ->(kr22) EGF_EGFR__2_GAP + Shc
-v23: EGF_EGFR__2_GAP_Shc ->(k23) EGF_EGFR__2_GAP_Shc_
-v23_rev: EGF_EGFR__2_GAP_Shc_ ->(kr23) EGF_EGFR__2_GAP_Shc
-v24: EGF_EGFR__2_GAP_Shc_ + Grb2 ->(k24) EGF_EGFR__2_GAP_Shc__Grb2
-v24_rev: EGF_EGFR__2_GAP_Shc__Grb2 ->(kr24) EGF_EGFR__2_GAP_Shc_ + Grb2
-v25: EGF_EGFR__2_GAP_Shc__Grb2 + Sos ->(k25) EGF_EGFR__2_GAP_Shc__Grb2_Sos
-v25_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(kr25) EGF_EGFR__2_GAP_Shc__Grb2 + Sos
-v26: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GDP ->(k18) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v26_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(kr18) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GDP
-v27: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(k19) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GTP
-v27_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GTP ->(kr19) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v28: Raf + Ras_GTP ->(k28) Raf_Ras_GTP
-v28_rev: Raf_Ras_GTP ->(kr28) Raf + Ras_GTP
-v29: Raf_Ras_GTP ->(k29) Raf_ + Ras_GTP_
-v29_rev: Raf_ + Ras_GTP_ ->(kr29) Raf_Ras_GTP
-v30: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GTP_ ->(k20) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v30_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(kr20) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GTP_
-v31: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(k21) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GDP
-v31_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Ras_GDP ->(kr21) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v32: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(k32) EGF_EGFR__2_GAP + Shc__Grb2_Sos
-v32_rev: EGF_EGFR__2_GAP + Shc__Grb2_Sos ->(kr32) EGF_EGFR__2_GAP_Shc__Grb2_Sos
-v33: Shc__Grb2_Sos ->(k33) Grb2_Sos + Shc_
-v33_rev: Grb2_Sos + Shc_ ->(kr33) Shc__Grb2_Sos
-v34: EGF_EGFR__2_GAP_Grb2_Sos ->(k34) EGF_EGFR__2_GAP + Grb2_Sos
-v34_rev: EGF_EGFR__2_GAP + Grb2_Sos ->(kr34) EGF_EGFR__2_GAP_Grb2_Sos
-v35: Grb2_Sos ->(k35) Grb2 + Sos
-v35_rev: Grb2 + Sos ->(kr35) Grb2_Sos
-v36: Shc_ ->(Vm36/(Km36 + Shc_)) Shc
-v37: EGF_EGFR__2_GAP_Shc_ ->(k37) EGF_EGFR__2_GAP + Shc_
-v37_rev: EGF_EGFR__2_GAP + Shc_ ->(kr37) EGF_EGFR__2_GAP_Shc_
-v38: Grb2 + Shc_ ->(k24) Shc__Grb2
-v38_rev: Shc__Grb2 ->(kr24) Grb2 + Shc_
-v39: EGF_EGFR__2_GAP_Shc__Grb2 ->(k37) EGF_EGFR__2_GAP + Shc__Grb2
-v39_rev: EGF_EGFR__2_GAP + Shc__Grb2 ->(kr37) EGF_EGFR__2_GAP_Shc__Grb2
-v40: Shc__Grb2 + Sos ->(k40) Shc__Grb2_Sos
-v40_rev: Shc__Grb2_Sos ->(kr40) Shc__Grb2 + Sos
-v41: EGF_EGFR__2_GAP_Shc_ + Grb2_Sos ->(k41) EGF_EGFR__2_GAP_Shc__Grb2_Sos
-v41_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(kr41) EGF_EGFR__2_GAP_Shc_ + Grb2_Sos
-v42: Phosphotase1 + Raf_ ->(k42) Raf__P_ase
-v42_rev: Raf__P_ase ->(kr42) Phosphotase1 + Raf_
-v43: Raf__P_ase ->(k43) Phosphotase1 + Raf
-v43_rev: Phosphotase1 + Raf -> Raf__P_ase
-v44: MEK + Raf_ ->(k44) MEK_Raf_
-v44_rev: MEK_Raf_ ->(kr44) MEK + Raf_
-v45: MEK_Raf_ ->(k45) MEK_P + Raf_
-v45_rev: MEK_P + Raf_ -> MEK_Raf_
-v46: MEK_P + Raf_ ->(k44) MEK_P_Raf_
-v46_rev: MEK_P_Raf_ ->(kr44) MEK_P + Raf_
-v47: MEK_P_Raf_ ->(k47) MEK_PP + Raf_
-v47_rev: MEK_PP + Raf_ -> MEK_P_Raf_
-v48: MEK_PP + Phosphatase2 ->(k48*t_MEK_PP/MEK_PP) MEK_PP_P_ase2
-v48_rev: MEK_PP_P_ase2 ->(kr48) MEK_PP + Phosphatase2
-v49: MEK_PP_P_ase2 ->(k49) MEK_P + Phosphatase2
-v49_rev: MEK_P + Phosphatase2 -> MEK_PP_P_ase2
-v50: MEK_P + Phosphatase2 ->(k50) MEK_P_P_ase2
-v50_rev: MEK_P_P_ase2 ->(kr50) MEK_P + Phosphatase2
-v51: MEK_P_P_ase2 ->(k49) MEK + Phosphatase2
-v51_rev: MEK + Phosphatase2 -> MEK_P_P_ase2
-v52: ERK + MEK_PP ->(k52*t_MEK_PP/MEK_PP) ERK_MEK_PP
-v52_rev: ERK_MEK_PP ->(kr52) ERK + MEK_PP
-v53: ERK_MEK_PP ->(k53) ERK_P + MEK_PP
-v53_rev: ERK_P + MEK_PP -> ERK_MEK_PP
-v54: ERK_P + MEK_PP ->(k52*t_MEK_PP/MEK_PP) ERK_P_MEK_PP
-v54_rev: ERK_P_MEK_PP ->(kr52) ERK_P + MEK_PP
-v55: ERK_P_MEK_PP ->(k55) ERK_PP + MEK_PP
-v55_rev: ERK_PP + MEK_PP -> ERK_P_MEK_PP
-v56: ERK_PP + Phosphotase3 ->(k56*t_ERK_PP/ERK_PP) ERK_PP_P_ase3
-v56_rev: ERK_PP_P_ase3 ->(kr56) ERK_PP + Phosphotase3
-v57: ERK_PP_P_ase3 ->(k57) ERK_P + Phosphotase3
-v57_rev: ERK_P + Phosphotase3 -> ERK_PP_P_ase3
-v58: ERK_P + Phosphotase3 ->(k58) ERK_P_P_ase3
-v58_rev: ERK_P_P_ase3 ->(kr58) ERK_P + Phosphotase3
-v59: ERK_P_P_ase3 ->(k59) ERK + Phosphotase3
-v59_rev: ERK + Phosphotase3 -> ERK_P_P_ase3
-v60: EGFRi ->(k60) EGFRideg
-v61: EGFi ->(k61) EGFideg
-v62: EGF_EGFRi__2 ->(k60) EGF_EGFRi__2deg
-v63: EGF_EGFRi__2_GAP + Grb2 ->(k16) EGF_EGFRi__2_GAP_Grb2
-v63_rev: EGF_EGFRi__2_GAP_Grb2 ->(kr16) EGF_EGFRi__2_GAP + Grb2
-v64: EGF_EGFRi__2_GAP_Grb2 + Sos ->(k17) EGF_EGFRi__2_GAP_Grb2_Sos
-v64_rev: EGF_EGFRi__2_GAP_Grb2_Sos ->(kr17) EGF_EGFRi__2_GAP_Grb2 + Sos
-v65: EGF_EGFRi__2_GAP_Grb2_Sos + Ras_GDP ->(k18) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP
-v65_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP ->(kr18) EGF_EGFRi__2_GAP_Grb2_Sos + Ras_GDP
-v66: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP ->(k19) EGF_EGFRi__2_GAP_Grb2_Sos + Rasi_GTP
-v66_rev: EGF_EGFRi__2_GAP_Grb2_Sos + Rasi_GTP ->(kr19) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP
-v67: EGF_EGFRi__2_GAP_Grb2_Sos + Rasi_GTP_ ->(k20) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP
-v67_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP ->(kr20) EGF_EGFRi__2_GAP_Grb2_Sos + Rasi_GTP_
-v68: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP ->(k21) EGF_EGFRi__2_GAP_Grb2_Sos + Ras_GDP
-v68_rev: EGF_EGFRi__2_GAP_Grb2_Sos + Ras_GDP ->(kr21) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP
-v69: EGF_EGFRi__2_GAP + Shc ->(k22) EGF_EGFRi__2_GAP_Shc
-v69_rev: EGF_EGFRi__2_GAP_Shc ->(kr22) EGF_EGFRi__2_GAP + Shc
-v70: EGF_EGFRi__2_GAP_Shc ->(k23) EGF_EGFRi__2_GAP_Shc_
-v70_rev: EGF_EGFRi__2_GAP_Shc_ ->(kr23) EGF_EGFRi__2_GAP_Shc
-v71: EGF_EGFRi__2_GAP_Shc_ + Grb2 ->(k24) EGF_EGFRi__2_GAP_Shc__Grb2
-v71_rev: EGF_EGFRi__2_GAP_Shc__Grb2 ->(kr24) EGF_EGFRi__2_GAP_Shc_ + Grb2
-v72: EGF_EGFRi__2_GAP_Shc__Grb2 + Sos ->(k25) EGF_EGFRi__2_GAP_Shc__Grb2_Sos
-v72_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(kr25) EGF_EGFRi__2_GAP_Shc__Grb2 + Sos
-v73: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Ras_GDP ->(k18) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v73_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(kr18) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Ras_GDP
-v74: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(k19) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Rasi_GTP
-v74_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Rasi_GTP ->(kr19) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v75: Raf + Rasi_GTP ->(k28) Rafi_Rasi_GTP
-v75_rev: Rafi_Rasi_GTP ->(kr28) Raf + Rasi_GTP
-v76: Rafi_Rasi_GTP ->(k29) Rafi_ + Rasi_GTP_
-v76_rev: Rafi_ + Rasi_GTP_ ->(kr29) Rafi_Rasi_GTP
-v77: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Rasi_GTP_ ->(k20) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v77_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(kr20) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Rasi_GTP_
-v78: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(k21) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Ras_GDP
-v78_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Ras_GDP ->(kr21) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v79: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(k32) EGF_EGFRi__2_GAP + Shc__Grb2_Sos
-v79_rev: EGF_EGFRi__2_GAP + Shc__Grb2_Sos ->(kr32) EGF_EGFRi__2_GAP_Shc__Grb2_Sos
-v80: EGF_EGFRi__2_GAP_Grb2_Sos ->(k34) EGF_EGFRi__2_GAP + Grb2_Sos
-v80_rev: EGF_EGFRi__2_GAP + Grb2_Sos ->(kr34) EGF_EGFRi__2_GAP_Grb2_Sos
-v81: EGF_EGFRi__2_GAP_Shc_ ->(k37) EGF_EGFRi__2_GAP + Shc_
-v81_rev: EGF_EGFRi__2_GAP + Shc_ ->(kr37) EGF_EGFRi__2_GAP_Shc_
-v82: EGF_EGFRi__2_GAP_Shc__Grb2 ->(k37) EGF_EGFRi__2_GAP + Shc__Grb2
-v82_rev: EGF_EGFRi__2_GAP + Shc__Grb2 ->(kr37) EGF_EGFRi__2_GAP_Shc__Grb2
-v83: EGF_EGFRi__2_GAP_Shc_ + Grb2_Sos ->(k41) EGF_EGFRi__2_GAP_Shc__Grb2_Sos
-v83_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(kr41) EGF_EGFRi__2_GAP_Shc_ + Grb2_Sos
-v84: Phosphotase1 + Rafi_ ->(k42) Rafi__P_ase
-v84_rev: Rafi__P_ase ->(kr42) Phosphotase1 + Rafi_
-v85: Rafi__P_ase ->(k43) Phosphotase1 + Raf
-v85_rev: Phosphotase1 + Raf -> Rafi__P_ase
-v86: MEK + Rafi_ ->(k44) MEKi_Rafi_
-v86_rev: MEKi_Rafi_ ->(kr44) MEK + Rafi_
-v87: MEKi_Rafi_ ->(k45) MEKi_P + Rafi_
-v87_rev: MEKi_P + Rafi_ -> MEKi_Rafi_
-v88: MEKi_P + Rafi_ ->(k44) MEKi_P_Rafi_
-v88_rev: MEKi_P_Rafi_ ->(kr44) MEKi_P + Rafi_
-v89: MEKi_P_Rafi_ ->(k47) MEKi_PP + Rafi_
-v89_rev: MEKi_PP + Rafi_ -> MEKi_P_Rafi_
-v90: MEKi_PP + Phosphatase2 ->(k48) MEKi_PP_P_ase2i
-v90_rev: MEKi_PP_P_ase2i ->(kr48) MEKi_PP + Phosphatase2
-v91: MEKi_PP_P_ase2i ->(k49) MEKi_P + Phosphatase2
-v91_rev: MEKi_P + Phosphatase2 -> MEKi_PP_P_ase2i
-v92: MEKi_P + Phosphatase2 ->(k50) MEKi_P_P_ase2i
-v92_rev: MEKi_P_P_ase2i ->(kr50) MEKi_P + Phosphatase2
-v93: MEKi_P_P_ase2i ->(k49) MEK + Phosphatase2
-v93_rev: MEK + Phosphatase2 -> MEKi_P_P_ase2i
-v94: ERK + MEKi_PP ->(k52) ERKi_MEKi_PP
-v94_rev: ERKi_MEKi_PP ->(kr52) ERK + MEKi_PP
-v95: ERKi_MEKi_PP ->(k53) ERKi_P + MEKi_PP
-v95_rev: ERKi_P + MEKi_PP -> ERKi_MEKi_PP
-v96: ERKi_P + MEKi_PP ->(k52) ERKi_P_MEKi_PP
-v96_rev: ERKi_P_MEKi_PP ->(kr52) ERKi_P + MEKi_PP
-v97: ERKi_P_MEKi_PP ->(k55) ERKi_PP + MEKi_PP
-v97_rev: ERKi_PP + MEKi_PP -> ERKi_P_MEKi_PP
-v98: ERKi_PP + Phosphotase3 ->(k56) ERKi_PP_P_ase3i
-v98_rev: ERKi_PP_P_ase3i ->(kr56) ERKi_PP + Phosphotase3
-v99: ERKi_PP_P_ase3i ->(k57) ERKi_P + Phosphotase3
-v99_rev: ERKi_P + Phosphotase3 -> ERKi_PP_P_ase3i
-v100: ERKi_P + Phosphotase3 ->(k58) ERKi_P_P_ase3i
-v100_rev: ERKi_P_P_ase3i ->(kr58) ERKi_P + Phosphotase3
-v101: ERKi_P_P_ase3i ->(k59) ERK + Phosphotase3
-v101_rev: ERK + Phosphotase3 -> ERKi_P_P_ase3i
-v102: EGF_EGFR__2_GAP ->(k6) EGF_EGFRi__2_GAP
-v102_rev: EGF_EGFRi__2_GAP ->(kr6) EGF_EGFR__2_GAP
-v103: EGF_EGFR__2_GAP_Shc ->(k6) EGF_EGFRi__2_GAP_Shc
-v103_rev: EGF_EGFRi__2_GAP_Shc ->(kr6) EGF_EGFR__2_GAP_Shc
-v104: EGF_EGFR__2_GAP_Shc_ ->(k6) EGF_EGFRi__2_GAP_Shc_
-v104_rev: EGF_EGFRi__2_GAP_Shc_ ->(kr6) EGF_EGFR__2_GAP_Shc_
-v105: EGF_EGFR__2_GAP_Grb2_Sos ->(k6) EGF_EGFRi__2_GAP_Grb2_Sos
-v105_rev: EGF_EGFRi__2_GAP_Grb2_Sos ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos
-v106: EGF_EGFR__2_GAP_Grb2_Sos + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Prot
-v106_rev: EGF_EGFR__2_GAP_Grb2_Sos_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos + Prot
-v107: EGF_EGFR__2_GAP_Grb2_Sos_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos + Proti
-v107_rev: EGF_EGFRi__2_GAP_Grb2_Sos + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Prot
-v108: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP ->(k6) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP
-v108_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP
-v109: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot
-v109_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP + Prot
-v110: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP + Proti
-v110_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GDP + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Ras_GDP_Prot
-v111: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP ->(k6) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP
-v111_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP ->(kr6) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP
-v112: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP + Prot ->(k4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot
-v112_rev: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot ->(kr4) EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP + Prot
-v113: EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot ->(k5) EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP + Proti
-v113_rev: EGF_EGFRi__2_GAP_Grb2_Sos_Ras_GTP + Proti -> EGF_EGFR__2_GAP_Grb2_Sos_Ras_GTP_Prot
-v114: EGF_EGFR__2_GAP_Shc__Grb2 ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2
-v114_rev: EGF_EGFRi__2_GAP_Shc__Grb2 ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2
-v115: EGF_EGFR__2_GAP_Shc__Grb2 + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Prot
-v115_rev: EGF_EGFR__2_GAP_Shc__Grb2_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2 + Prot
-v116: EGF_EGFR__2_GAP_Shc__Grb2_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2 + Proti
-v116_rev: EGF_EGFRi__2_GAP_Shc__Grb2 + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Prot
-v117: EGF_EGFR__2_GAP_Shc__Grb2_Sos ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos
-v117_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos
-v118: EGF_EGFR__2_GAP_Shc__Grb2_Sos + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot
-v118_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos + Prot
-v119: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Proti
-v119_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Prot
-v120: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v120_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP
-v121: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot
-v121_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP + Prot
-v122: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP + Proti
-v122_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GDP + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GDP_Prot
-v123: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(k6) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v123_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP ->(kr6) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP
-v124: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP + Prot ->(k4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot
-v124_rev: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot ->(kr4) EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP + Prot
-v125: EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot ->(k5) EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP + Proti
-v125_rev: EGF_EGFRi__2_GAP_Shc__Grb2_Sos_Ras_GTP + Proti -> EGF_EGFR__2_GAP_Shc__Grb2_Sos_Ras_GTP_Prot
+v1: x1 + x2 ->(k1) x3
+v1_rev: x3 ->(kr1) x1 + x2
+v2: 2x3 ->(k2) x4
+v2_rev: x4 ->(kr2) 2x3
+v3: x4 ->(k3) x5
+v3_rev: x5 ->(kr3) x4
+v4: x12 + x23 ->(k4) x7
+v4_rev: x7 ->(kr4) x12 + x23
+v5: x7 ->(k5) x18 + x9
+v5_rev: x18 + x9 ->(k_v5_rev) x7
+v6: x2 ->(k6) x6
+v6_rev: x6 ->(kr6) x2
+v7: x5 ->(k7) x8
+v8: x14 + x5 ->(k8) x15
+v8_rev: x15 ->(kr8) x14 + x5
+v9: x23 ->(k7) x18
+v10: x16 + x6 ->(k10) x10
+v10_rev: x10 ->(kr10) x16 + x6
+v11: 2x10 ->(k2) x11
+v11_rev: x11 ->(kr2) 2x10
+v12: x11 ->(k3) x8
+v12_rev: x8 ->(kr3) x11
+v13:  ->(k13) x2
+v14: x14 + x8 ->(k14) x17
+v14_rev: x17 ->(kr14) x14 + x8
+v15: x9 ->(k15) x12
+v16: x15 + x22 ->(k16) x23
+v16_rev: x23 ->(kr16) x15 + x22
+v17: x23 + x24 ->(k17) x25
+v17_rev: x25 ->(kr17) x23 + x24
+v18: x25 + x26 ->(k18) x27
+v18_rev: x27 ->(kr18) x25 + x26
+v19: x27 ->(k19) x25 + x28
+v19_rev: x25 + x28 ->(kr19) x27
+v20: x25 + x43 ->(k20) x29
+v20_rev: x29 ->(kr20) x25 + x43
+v21: x29 ->(k21) x25 + x26
+v21_rev: x25 + x26 ->(kr21) x29
+v22: x15 + x31 ->(k22) x32
+v22_rev: x32 ->(kr22) x15 + x31
+v23: x32 ->(k23) x33
+v23_rev: x33 ->(kr23) x32
+v24: x22 + x33 ->(k24) x34
+v24_rev: x34 ->(kr24) x22 + x33
+v25: x24 + x34 ->(k25) x35
+v25_rev: x35 ->(kr25) x24 + x34
+v26: x26 + x35 ->(k18) x36
+v26_rev: x36 ->(kr18) x26 + x35
+v27: x36 ->(k19) x28 + x35
+v27_rev: x28 + x35 ->(kr19) x36
+v28: x28 + x41 ->(k28) x42
+v28_rev: x42 ->(kr28) x28 + x41
+v29: x42 ->(k29) x43 + x45
+v29_rev: x43 + x45 ->(kr29) x42
+v30: x35 + x43 ->(k20) x37
+v30_rev: x37 ->(kr20) x35 + x43
+v31: x37 ->(k21) x26 + x35
+v31_rev: x26 + x35 ->(kr21) x37
+v32: x35 ->(k32) x15 + x38
+v32_rev: x15 + x38 ->(kr32) x35
+v33: x38 ->(k33) x30 + x40
+v33_rev: x30 + x40 ->(kr33) x38
+v34: x25 ->(k34) x15 + x30
+v34_rev: x15 + x30 ->(kr34) x25
+v35: x30 ->(k35) x22 + x24
+v35_rev: x22 + x24 ->(kr35) x30
+v36: x40 ->(Vm36/(Km36 + x40)) x31
+v37: x33 ->(k37) x15 + x40
+v37_rev: x15 + x40 ->(kr37) x33
+v38: x22 + x40 ->(k24) x39
+v38_rev: x39 ->(kr24) x22 + x40
+v39: x34 ->(k37) x15 + x39
+v39_rev: x15 + x39 ->(kr37) x34
+v40: x24 + x39 ->(k40) x38
+v40_rev: x38 ->(kr40) x24 + x39
+v41: x30 + x33 ->(k41) x35
+v41_rev: x35 ->(kr41) x30 + x33
+v42: x44 + x45 ->(k42) x46
+v42_rev: x46 ->(kr42) x44 + x45
+v43: x46 ->(k43) x41 + x44
+v43_rev: x41 + x44 ->(k_v43_rev) x46
+v44: x45 + x47 ->(k44) x48
+v44_rev: x48 ->(kr44) x45 + x47
+v45: x48 ->(k45) x45 + x49
+v45_rev: x45 + x49 ->(k_v45_rev) x48
+v46: x45 + x49 ->(k44) x50
+v46_rev: x50 ->(kr44) x45 + x49
+v47: x50 ->(k47) x45 + x51
+v47_rev: x45 + x51 ->(k_v47_rev) x50
+v48: x51 + x53 ->(k48) x52
+v48_rev: x52 ->(kr48) x51 + x53
+v49: x52 ->(k49) x49 + x53
+v49_rev: x49 + x53 ->(k_v49_rev) x52
+v50: x49 + x53 ->(k50) x54
+v50_rev: x54 ->(kr50) x49 + x53
+v51: x54 ->(k49) x47 + x53
+v51_rev: x47 + x53 ->(k_v51_rev) x54
+v52: x51 + x55 ->(k52) x56
+v52_rev: x56 ->(kr52) x51 + x55
+v53: x56 ->(k53) x51 + x57
+v53_rev: x51 + x57 ->(k_v53_rev) x56
+v54: x51 + x57 ->(k52) x58
+v54_rev: x58 ->(kr52) x51 + x57
+v55: x58 ->(k55) x51 + x59
+v55_rev: x51 + x59 ->(k_v55_rev) x58
+v56: x59 + x60 ->(k56) x61
+v56_rev: x61 ->(kr56) x59 + x60
+v57: x61 ->(k57) x57 + x60
+v57_rev: x57 + x60 ->(k_v57_rev) x61
+v58: x57 + x60 ->(k58) x62
+v58_rev: x62 ->(kr58) x57 + x60
+v59: x62 ->(k59) x55 + x60
+v59_rev: x55 + x60 ->(k_v59_rev) x62
+v60: x6 ->(k60) x86
+v61: x16 ->(k61) x13
+v62: x8 ->(k60) x87
+v63: x17 + x22 ->(k16) x18
+v63_rev: x18 ->(kr16) x17 + x22
+v64: x18 + x24 ->(k17) x19
+v64_rev: x19 ->(kr17) x18 + x24
+v65: x19 + x26 ->(k18) x20
+v65_rev: x20 ->(kr18) x19 + x26
+v66: x20 ->(k19) x19 + x69
+v66_rev: x19 + x69 ->(kr19) x20
+v67: x19 + x71 ->(k20) x21
+v67_rev: x21 ->(kr20) x19 + x71
+v68: x21 ->(k21) x19 + x26
+v68_rev: x19 + x26 ->(kr21) x21
+v69: x17 + x31 ->(k22) x63
+v69_rev: x63 ->(kr22) x17 + x31
+v70: x63 ->(k23) x64
+v70_rev: x64 ->(kr23) x63
+v71: x22 + x64 ->(k24) x65
+v71_rev: x65 ->(kr24) x22 + x64
+v72: x24 + x65 ->(k25) x66
+v72_rev: x66 ->(kr25) x24 + x65
+v73: x26 + x66 ->(k18) x67
+v73_rev: x67 ->(kr18) x26 + x66
+v74: x67 ->(k19) x66 + x69
+v74_rev: x66 + x69 ->(kr19) x67
+v75: x41 + x69 ->(k28) x70
+v75_rev: x70 ->(kr28) x41 + x69
+v76: x70 ->(k29) x71 + x72
+v76_rev: x71 + x72 ->(kr29) x70
+v77: x66 + x71 ->(k20) x68
+v77_rev: x68 ->(kr20) x66 + x71
+v78: x68 ->(k21) x26 + x66
+v78_rev: x26 + x66 ->(kr21) x68
+v79: x66 ->(k32) x17 + x38
+v79_rev: x17 + x38 ->(kr32) x66
+v80: x19 ->(k34) x17 + x30
+v80_rev: x17 + x30 ->(kr34) x19
+v81: x64 ->(k37) x17 + x40
+v81_rev: x17 + x40 ->(kr37) x64
+v82: x65 ->(k37) x17 + x39
+v82_rev: x17 + x39 ->(kr37) x65
+v83: x30 + x64 ->(k41) x66
+v83_rev: x66 ->(kr41) x30 + x64
+v84: x44 + x72 ->(k42) x73
+v84_rev: x73 ->(kr42) x44 + x72
+v85: x73 ->(k43) x41 + x44
+v85_rev: x41 + x44 ->(k_v85_rev) x73
+v86: x47 + x72 ->(k44) x74
+v86_rev: x74 ->(kr44) x47 + x72
+v87: x74 ->(k45) x72 + x75
+v87_rev: x72 + x75 ->(k_v87_rev) x74
+v88: x72 + x75 ->(k44) x76
+v88_rev: x76 ->(kr44) x72 + x75
+v89: x76 ->(k47) x72 + x77
+v89_rev: x72 + x77 ->(k_v89_rev) x76
+v90: x53 + x77 ->(k48) x78
+v90_rev: x78 ->(kr48) x53 + x77
+v91: x78 ->(k49) x53 + x75
+v91_rev: x53 + x75 ->(k_v91_rev) x78
+v92: x53 + x75 ->(k50) x79
+v92_rev: x79 ->(kr50) x53 + x75
+v93: x79 ->(k49) x47 + x53
+v93_rev: x47 + x53 ->(k_v93_rev) x79
+v94: x55 + x77 ->(k52) x80
+v94_rev: x80 ->(kr52) x55 + x77
+v95: x80 ->(k53) x77 + x81
+v95_rev: x77 + x81 ->(k_v95_rev) x80
+v96: x77 + x81 ->(k52) x82
+v96_rev: x82 ->(kr52) x77 + x81
+v97: x82 ->(k55) x77 + x83
+v97_rev: x77 + x83 ->(k_v97_rev) x82
+v98: x60 + x83 ->(k56) x84
+v98_rev: x84 ->(kr56) x60 + x83
+v99: x84 ->(k57) x60 + x81
+v99_rev: x60 + x81 ->(k_v99_rev) x84
+v100: x60 + x81 ->(k58) x85
+v100_rev: x85 ->(kr58) x60 + x81
+v101: x85 ->(k59) x55 + x60
+v101_rev: x55 + x60 ->(k_v101_rev) x85
+v102: x15 ->(k6) x17
+v102_rev: x17 ->(kr6) x15
+v103: x32 ->(k6) x63
+v103_rev: x63 ->(kr6) x32
+v104: x33 ->(k6) x64
+v104_rev: x64 ->(kr6) x33
+v105: x25 ->(k6) x19
+v105_rev: x19 ->(kr6) x25
+v106: x12 + x25 ->(k4) x88
+v106_rev: x88 ->(kr4) x12 + x25
+v107: x88 ->(k5) x19 + x9
+v107_rev: x19 + x9 ->(k_v107_rev) x88
+v108: x27 ->(k6) x20
+v108_rev: x20 ->(kr6) x27
+v109: x12 + x27 ->(k4) x89
+v109_rev: x89 ->(kr4) x12 + x27
+v110: x89 ->(k5) x20 + x9
+v110_rev: x20 + x9 ->(k_v110_rev) x89
+v111: x29 ->(k6) x21
+v111_rev: x21 ->(kr6) x29
+v112: x12 + x29 ->(k4) x90
+v112_rev: x90 ->(kr4) x12 + x29
+v113: x90 ->(k5) x21 + x9
+v113_rev: x21 + x9 ->(k_v113_rev) x90
+v114: x34 ->(k6) x65
+v114_rev: x65 ->(kr6) x34
+v115: x12 + x34 ->(k4) x91
+v115_rev: x91 ->(kr4) x12 + x34
+v116: x91 ->(k5) x65 + x9
+v116_rev: x65 + x9 ->(k_v116_rev) x91
+v117: x35 ->(k6) x66
+v117_rev: x66 ->(kr6) x35
+v118: x12 + x35 ->(k4) x92
+v118_rev: x92 ->(kr4) x12 + x35
+v119: x92 ->(k5) x66 + x9
+v119_rev: x66 + x9 ->(k_v119_rev) x92
+v120: x36 ->(k6) x67
+v120_rev: x67 ->(kr6) x36
+v121: x12 + x36 ->(k4) x93
+v121_rev: x93 ->(kr4) x12 + x36
+v122: x93 ->(k5) x67 + x9
+v122_rev: x67 + x9 ->(k_v122_rev) x93
+v123: x37 ->(k6) x68
+v123_rev: x68 ->(kr6) x37
+v124: x12 + x37 ->(k4) x94
+v124_rev: x94 ->(kr4) x12 + x37
+v125: x94 ->(k5) x68 + x9
+v125_rev: x68 + x9 ->(k_v125_rev) x94

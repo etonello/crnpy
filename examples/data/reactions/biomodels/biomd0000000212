@@ -1,25 +1,25 @@
-Aspartate_kinase_1_react_: Aspartate ->(AK1*Vak1_AK1_kforward_app_exp*c1/(Aspartate*((Lysine*S_adenosyl_methionine/(Vak1_AK1_AdoMet_Ka_app_exp*Vak1_AK1_Lys_Ki_app_exp) + Lysine/Vak1_AK1_Lys_Ki_app_exp)**Vak1_AK1_nH_exp + 1))) Aspartyl_P
-Aspartate_kinase_1_react__rev: Aspartyl_P ->(AK1*Vak1_AK1_kreverse_app_exp*c1/((Lysine*S_adenosyl_methionine/(Vak1_AK1_AdoMet_Ka_app_exp*Vak1_AK1_Lys_Ki_app_exp) + Lysine/Vak1_AK1_Lys_Ki_app_exp)**Vak1_AK1_nH_exp + 1)) Aspartate
-Aspartate_kinase_2_react_: Aspartate ->(AK2*Vak2_AK2_kforward_app_exp*c1/(Aspartate*((Lysine/Vak2_AK2_Lys_Ki_app_exp)**Vak2_AK2_nH_exp + 1))) Aspartyl_P
-Aspartate_kinase_2_react__rev: Aspartyl_P ->(AK2*Vak2_AK2_kreverse_app_exp*c1/((Lysine/Vak2_AK2_Lys_Ki_app_exp)**Vak2_AK2_nH_exp + 1)) Aspartate
-aspartate_kinase_react___AKI_HSDHI_: Aspartate ->(AKI_HSDHI*VakI_AKI_kforward_app_exp*c1/(Aspartate*((Threonine/VakI_AKI_Thr_Ki_app_exp)**VakI_AKI_nH_exp + 1))) Aspartyl_P
-aspartate_kinase_react___AKI_HSDHI__rev: Aspartyl_P ->(AKI_HSDHI*VakI_AKI_kreverse_app_exp*c1/((Threonine/VakI_AKI_Thr_Ki_app_exp)**VakI_AKI_nH_exp + 1)) Aspartate
-aspartate_kinase_react___AKII_HSDHII_: Aspartate ->(AKII_HSDHII*VakII_AKII_kforward_app_exp*c1/(Aspartate*((Threonine/VakII_AKII_Thr_Ki_app_exp)**VakII_AKII_nH_exp + 1))) Aspartyl_P
-aspartate_kinase_react___AKII_HSDHII__rev: Aspartyl_P ->(AKII_HSDHII*VakII_AKII_kreverse_app_exp*c1/((Threonine/VakII_AKII_Thr_Ki_app_exp)**VakII_AKII_nH_exp + 1)) Aspartate
-Aspartate_semialdehyde_dehydrogenase_react_: Aspartyl_P ->(ASADH*Vasadh_ASADH_kforward_app_exp*c1) Aspartate_semialdehyde
-Aspartate_semialdehyde_dehydrogenase_react__rev: Aspartate_semialdehyde ->(ASADH*Vasadh_ASADH_kreverse_app_exp*c1) Aspartyl_P
-DHDPS1_react_: Aspartate_semialdehyde ->(DHDPS1*Vdhdps1_DHDPS1_k_app_exp*c1/((Lysine/Vdhdps1_DHDPS1_Lys_Ki_app_exp)**Vdhdps1_DHDPS1_nH_exp + 1)) Lysine
-DHDPS2_react_: Aspartate_semialdehyde ->(DHDPS2*Vdhdps2_DHDPS2_k_app_exp*c1/((Lysine/Vdhdps2_DHDPS2_Lys_Ki_app_exp)**Vdhdps2_DHDPS2_nH_exp + 1)) Lysine
-homoserine_dehydrogenase_react___AKI_HSDHI_: Aspartate_semialdehyde ->(AKI_HSDHI*Vhsdh1_HSDHI_kforward_app_exp*c1*(Threonine*Vhsdh1_HSDHI_Thr_relative_residual_activity_app_exp + Vhsdh1_HSDHI_Thr_Ki_app_exp*Vhsdh1_HSDHI_Thr_relative_inhibition_app_exp + Vhsdh1_HSDHI_Thr_Ki_app_exp*Vhsdh1_HSDHI_Thr_relative_residual_activity_app_exp)/(Threonine + Vhsdh1_HSDHI_Thr_Ki_app_exp)) Homoserine
-homoserine_dehydrogenase_react___AKI_HSDHI__rev: Homoserine -> Aspartate_semialdehyde
-homoserine_dehydrogenase_react___AKII_HSDHII_: Aspartate_semialdehyde ->(AKII_HSDHII*Vhsdh2_HSDHII_kforward_app_exp*c1*(Threonine*Vhsdh2_HSDHII_Thr_relative_residual_activity_app_exp + Vhsdh2_HSDHII_Thr_Ki_app_exp*Vhsdh2_HSDHII_Thr_relative_inhibition_app_exp + Vhsdh2_HSDHII_Thr_Ki_app_exp*Vhsdh2_HSDHII_Thr_relative_residual_activity_app_exp)/(Threonine + Vhsdh2_HSDHII_Thr_Ki_app_exp)) Homoserine
-homoserine_dehydrogenase_react___AKII_HSDHII__rev: Homoserine -> Aspartate_semialdehyde
-homoserine_kinase_react_: Homoserine ->(HSK*Vhsk_HSK_kcat_app_exp*c1/(Homoserine + Vhsk_HSK_Hser_app_exp)) Phosphohomoserine
-Threonine_synthase_react___TS1_: Phosphohomoserine ->(TS1*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_Phosphate_Ki_exp*c1*(S_adenosyl_methionine + Vts1_TS1_AdoMet_Ka3_exp)*(S_adenosyl_methionine**Vts1_TS1_nH_exp + Vts1_TS1_AdoMet_Ka4_exp)*(S_adenosyl_methionine**Vts1_TS1_nH_exp*Vts1_TS1_AdoMet_kcatmax_exp + Vts1_TS1_AdoMet_Ka1_exp*Vts1_TS1_kcatmin_exp)/((S_adenosyl_methionine**Vts1_TS1_nH_exp + Vts1_TS1_AdoMet_Ka1_exp)*(Phosphate*S_adenosyl_methionine*Vts1_TS1_AdoMEt_Km_no_AdoMet_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_AdoMet_Ka4_exp + Phosphate*Vts1_TS1_AdoMEt_Km_no_AdoMet_exp*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_AdoMet_Ka4_exp + Phosphohomoserine*S_adenosyl_methionine*S_adenosyl_methionine**Vts1_TS1_nH_exp*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_Phosphate_Ki_exp + Phosphohomoserine*S_adenosyl_methionine*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_AdoMet_Ka4_exp*Vts1_TS1_Phosphate_Ki_exp + Phosphohomoserine*S_adenosyl_methionine**Vts1_TS1_nH_exp*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_Phosphate_Ki_exp + Phosphohomoserine*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_AdoMet_Ka4_exp*Vts1_TS1_Phosphate_Ki_exp + S_adenosyl_methionine*Vts1_TS1_AdoMEt_Km_no_AdoMet_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_AdoMet_Ka4_exp*Vts1_TS1_Phosphate_Ki_exp + Vts1_TS1_AdoMEt_Km_no_AdoMet_exp*Vts1_TS1_AdoMet_Ka2_exp*Vts1_TS1_AdoMet_Ka3_exp*Vts1_TS1_AdoMet_Ka4_exp*Vts1_TS1_Phosphate_Ki_exp))) Threonine
-Cystathionine_gamma_synthase_react_: Phosphohomoserine ->(CGS*Cysteine*Vcgs_CGS_Phosphate_Ki_exp*Vcgs_CGS_kcat_exp*c1/(Cysteine*Phosphate*Vcgs_CGS_Phser_Km_exp + Cysteine*Phosphohomoserine*Vcgs_CGS_Phosphate_Ki_exp + Cysteine*Vcgs_CGS_Phosphate_Ki_exp*Vcgs_CGS_Phser_Km_exp + Phosphohomoserine*Vcgs_CGS_Cys_Km_exp*Vcgs_CGS_Phosphate_Ki_exp)) Cystathione
-Threonine_deaminase_react_: Threonine ->(TD*Vtd_TD_k_app_exp*c1/((Isoleucine*Valine/(Valine*Vtd_TD_Ile_Ki_no_Val_app_exp + Valine*Vtd_TD_Val_Ka1_app_exp + Vtd_TD_Ile_Ki_no_Val_app_exp*Vtd_TD_Val_Ka2_app_exp) + Isoleucine*Vtd_TD_Val_Ka2_app_exp/(Valine*Vtd_TD_Ile_Ki_no_Val_app_exp + Valine*Vtd_TD_Val_Ka1_app_exp + Vtd_TD_Ile_Ki_no_Val_app_exp*Vtd_TD_Val_Ka2_app_exp))**Vtd_TD_nH_app_exp + 1)) Isoleucine
-Lys_aminoacyl_tRNA_synthetase_react_: Lysine ->(V_Lys_RS*c1/(Lysine + VlysTRNA_Lys_tRNAS_Lys_Km)) Lys_tRNA
-Thr_aminoacyl_tRNA_synthetase_react_: Threonine ->(V_Thr_RS*c1/(Threonine + VthrTRNA_Thr_tRNAS_Thr_Km)) Thr_tRNA
-Ile_aminoacyl_tRNA_synthetase_react_: Isoleucine ->(V_Ile_RS*c1/(Isoleucine + VileTRNA_Ile_tRNAS_Ile_Km)) Ile_tRNA
-Lys_ketoglutarate_reductase_react_: Lysine ->(LKR*VlysKR_LKR_kcat_exp*c1/(Lysine + VlysKR_LKR_Lys_Km_exp)) Saccharopine
-Thr_aldolase_react_: Threonine ->(THA*Vtha_THA_kcat_exp*c1/(Threonine + Vtha_THA_Thr_Km_exp)) Glycine
+Vak1: Asp ->(1.0*AK1*Vak1_AK1_kforward_app_exp*c1/(Asp*(1.0*(AdoMet*Lys/(Vak1_AK1_AdoMet_Ka_app_exp*Vak1_AK1_Lys_Ki_app_exp) + 1.0*Lys/Vak1_AK1_Lys_Ki_app_exp)**Vak1_AK1_nH_exp + 1.0))) AspP
+Vak1_rev: AspP ->(1.0*AK1*Vak1_AK1_kreverse_app_exp*c1/(1.0*(AdoMet*Lys/(Vak1_AK1_AdoMet_Ka_app_exp*Vak1_AK1_Lys_Ki_app_exp) + 1.0*Lys/Vak1_AK1_Lys_Ki_app_exp)**Vak1_AK1_nH_exp + 1.0)) Asp
+Vak2: Asp ->(1.0*AK2*Vak2_AK2_kforward_app_exp*c1/(Asp*(1.0*(Lys/Vak2_AK2_Lys_Ki_app_exp)**Vak2_AK2_nH_exp + 1.0))) AspP
+Vak2_rev: AspP ->(1.0*AK2*Vak2_AK2_kreverse_app_exp*c1/(1.0*(Lys/Vak2_AK2_Lys_Ki_app_exp)**Vak2_AK2_nH_exp + 1.0)) Asp
+VakI: Asp ->(1.0*AKHSDHI*VakI_AKI_kforward_app_exp*c1/(Asp*(1.0*(Thr/VakI_AKI_Thr_Ki_app_exp)**VakI_AKI_nH_exp + 1.0))) AspP
+VakI_rev: AspP ->(1.0*AKHSDHI*VakI_AKI_kreverse_app_exp*c1/(1.0*(Thr/VakI_AKI_Thr_Ki_app_exp)**VakI_AKI_nH_exp + 1.0)) Asp
+VakII: Asp ->(1.0*AKHSDHII*VakII_AKII_kforward_app_exp*c1/(Asp*(1.0*(Thr/VakII_AKII_Thr_Ki_app_exp)**VakII_AKII_nH_exp + 1.0))) AspP
+VakII_rev: AspP ->(1.0*AKHSDHII*VakII_AKII_kreverse_app_exp*c1/(1.0*(Thr/VakII_AKII_Thr_Ki_app_exp)**VakII_AKII_nH_exp + 1.0)) Asp
+Vasadh: AspP ->(ASADH*Vasadh_ASADH_kforward_app_exp*c1) ASA
+Vasadh_rev: ASA ->(ASADH*Vasadh_ASADH_kreverse_app_exp*c1) AspP
+Vdhdps1: ASA ->(1.0*DHDPS1*Vdhdps1_DHDPS1_k_app_exp*c1/((Lys/Vdhdps1_DHDPS1_Lys_Ki_app_exp)**Vdhdps1_DHDPS1_nH_exp + 1.0)) Lys
+Vdhdps2: ASA ->(1.0*DHDPS2*Vdhdps2_DHDPS2_k_app_exp*c1/((Lys/Vdhdps2_DHDPS2_Lys_Ki_app_exp)**Vdhdps2_DHDPS2_nH_exp + 1.0)) Lys
+Vhsdh1: ASA ->(1.0*AKHSDHI*Vhsdh1_HSDHI_kforward_app_exp*c1*(1.0*Thr*Vhsdh1_HSDHI_Thr_relative_residual_activity_app_exp + 1.0*Vhsdh1_HSDHI_Thr_Ki_app_exp*Vhsdh1_HSDHI_Thr_relative_inhibition_app_exp + 1.0*Vhsdh1_HSDHI_Thr_Ki_app_exp*Vhsdh1_HSDHI_Thr_relative_residual_activity_app_exp)/(1.0*Thr + 1.0*Vhsdh1_HSDHI_Thr_Ki_app_exp)) Hser
+Vhsdh1_rev: Hser ->(k_Vhsdh1_rev) ASA
+Vhsdh2: ASA ->(1.0*AKHSDHII*Vhsdh2_HSDHII_kforward_app_exp*c1*(1.0*Thr*Vhsdh2_HSDHII_Thr_relative_residual_activity_app_exp + 1.0*Vhsdh2_HSDHII_Thr_Ki_app_exp*Vhsdh2_HSDHII_Thr_relative_inhibition_app_exp + 1.0*Vhsdh2_HSDHII_Thr_Ki_app_exp*Vhsdh2_HSDHII_Thr_relative_residual_activity_app_exp)/(1.0*Thr + 1.0*Vhsdh2_HSDHII_Thr_Ki_app_exp)) Hser
+Vhsdh2_rev: Hser ->(k_Vhsdh2_rev) ASA
+Vhsk: Hser ->(HSK*Vhsk_HSK_kcat_app_exp*c1/(Hser + Vhsk_HSK_Hser_app_exp)) PHser
+Vts1: PHser ->(TS1*c1*(AdoMet**Vts1_TS1_nH_exp*Vts1_TS1_AdoMet_kcatmax_exp/Vts1_TS1_AdoMet_Ka1_exp + Vts1_TS1_kcatmin_exp)/((PHser + Vts1_TS1_AdoMEt_Km_no_AdoMet_exp*(AdoMet/Vts1_TS1_AdoMet_Ka2_exp + 1.0)*(Phosphate/Vts1_TS1_Phosphate_Ki_exp + 1.0)/((AdoMet/Vts1_TS1_AdoMet_Ka3_exp + 1.0)*(AdoMet**Vts1_TS1_nH_exp/Vts1_TS1_AdoMet_Ka4_exp + 1.0)))*(AdoMet**Vts1_TS1_nH_exp/Vts1_TS1_AdoMet_Ka1_exp + 1.0))) Thr
+Vcgs: PHser ->(CGS*Vcgs_CGS_kcat_exp*c1/((1.0 + Vcgs_CGS_Cys_Km_exp/Cys)*(PHser + Vcgs_CGS_Phser_Km_exp*(Phosphate/Vcgs_CGS_Phosphate_Ki_exp + 1.0)/(1.0 + Vcgs_CGS_Cys_Km_exp/Cys)))) Cysta
+Vtd: Thr ->(TD*Vtd_TD_k_app_exp*c1/((Ile/(Val*Vtd_TD_Val_Ka1_app_exp/(Val + Vtd_TD_Val_Ka2_app_exp) + Vtd_TD_Ile_Ki_no_Val_app_exp))**Vtd_TD_nH_app_exp + 1.0)) Ile
+VlysTRNA: Lys ->(V_Lys_RS*c1/(Lys + VlysTRNA_Lys_tRNAS_Lys_Km)) LysTRNA
+VthrTRNA: Thr ->(V_Thr_RS*c1/(Thr + VthrTRNA_Thr_tRNAS_Thr_Km)) ThrTRNA
+VileTRNA: Ile ->(V_Ile_RS*c1/(Ile + VileTRNA_Ile_tRNAS_Ile_Km)) IleTRNA
+VlysKR: Lys ->(LKR*VlysKR_LKR_kcat_exp*c1/(Lys + VlysKR_LKR_Lys_Km_exp)) Sacc
+Vtha: Thr ->(THA*Vtha_THA_kcat_exp*c1/(Thr + Vtha_THA_Thr_Km_exp)) Gly

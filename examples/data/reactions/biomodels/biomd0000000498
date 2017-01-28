@@ -1,44 +1,44 @@
-Fpn_Export: 2LIP ->(Fpn**n*a/(LIP*(Fpn**n + K**n))) Tf_Fe_intercell
-TfR1_expression:  ->(IRP**n*a*compartment_3/(IRP**n + K**n)) TfR
-TfR1_degradation: TfR ->(compartment_3*k1) 
-Ferroportin_Expression:  ->(K**n*a*compartment_1/(IRP**n + K**n)) Fpn
-IRP_expresion:  ->(K**n*a*compartment_1/(K**n + LIP**n)) IRP
-IRP_degradation: IRP ->(compartment_1*k1) 
-Fpn_degradation: Fpn ->(Hamp**n*a*compartment_1/(Hamp**n + K**n)) 
-HFE_degradation: HFE ->(compartment_3*k1) 
-HFE_expression:  ->(compartment_3*v) HFE
-TfR2_expression:  ->(compartment_3*v) TfR2
-TfR2_degradation: TfR2 ->(K**n*a*compartment_3/(K**n + Tf_Fe_intercell**n)) 
-Hepcidin_expression:  ->(compartment_1*(K**n*K1*basal + K**n*_2_Tf_Fe__TfR2*a1 + K**n*_2_Tf_Fe__TfR2*basal + K1*_2HFE_TfR2**n*a + K1*_2HFE_TfR2**n*basal + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*a + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*a1 + _2HFE_TfR2**n*_2_Tf_Fe__TfR2*basal)/((K**n + _2HFE_TfR2**n)*(K1 + _2_Tf_Fe__TfR2))) Hamp
-Hepcidin_degradation: Hamp ->(compartment_1*k1) 
-HFE_TfR1_binding: HFE + TfR ->(compartment_3*k1) HFE_TfR
-HFE_TfR1_release: HFE_TfR ->(compartment_3*k1) HFE + TfR
-TfR1_binding: TfR + Tf_Fe_intercell ->(compartment_3*k1) Tf_Fe_TfR1
-TfR1_release: Tf_Fe_TfR1 ->(compartment_3*k1) TfR + Tf_Fe_intercell
-HFE_TfR2_binding: 2HFE + TfR2 ->(compartment_3*k1) _2HFE_TfR2
-HFE_TfR2_release: _2HFE_TfR2 ->(compartment_3*k1) 2HFE + TfR2
-TfR2_binding: TfR2 + Tf_Fe_intercell ->(compartment_3*k1) Tf_Fe_TfR2
-TfR2_release: Tf_Fe_TfR2 ->(compartment_3*k1) TfR2 + Tf_Fe_intercell
-TfR1_binding_2: Tf_Fe_TfR1 + Tf_Fe_intercell ->(compartment_3*k1) _2_Tf_Fe__TfR1
-TfR1_release_2: _2_Tf_Fe__TfR1 ->(compartment_3*k1) Tf_Fe_TfR1 + Tf_Fe_intercell
-HFE_TfR1_binding_2: HFE + HFE_TfR ->(compartment_3*k1) _2HFE_TfR
-HFE_TfR1_release_2: _2HFE_TfR ->(compartment_3*k1) HFE + HFE_TfR
-TfR2_binding_2: Tf_Fe_TfR2 + Tf_Fe_intercell ->(compartment_3*k1) _2_Tf_Fe__TfR2
-TfR2_release_2: _2_Tf_Fe__TfR2 ->(compartment_3*k1) Tf_Fe_TfR2 + Tf_Fe_intercell
-TfR1_iron_internalisation: _2_Tf_Fe__TfR1 ->(k1) 4LIP + TfR
-TfR2_iron_internalisation: _2_Tf_Fe__TfR2 ->(k1) 4LIP + TfR2
-outFlow: LIP ->(compartment_1*k1) 
-Ferritin_Iron_binding: FT + LIP ->(compartment_1*k1) Fe_FT
-Ferritin_Iron_release: Fe_FT ->(compartment_1*k1) FT + LIP
-Ferritin_Iron_internalisation: Fe_FT ->(compartment_1*k1) FT + FT1
-Ferritin_internalised_iron_release: FT1 ->(1.0*compartment_1*kloss*(1.0*FT + 1.048*FT1)/(FT + FT1)) LIP
-ferritin_expression:  ->(K**n*a*compartment_1/(IRP**n + K**n)) FT
-Ferritin_Degredation_Full: FT ->(compartment_1*k1) 
-Ferritin_Degredation_Full_Iron_Release: FT1 ->(K*compartment_1) LIP
-HFETfR_degradation: _2HFE_TfR ->(compartment_3*k1) 
-HFETfR2_degradation: _2HFE_TfR2 ->(compartment_3*k1) 
-Heme_uptake: Heme_intercell ->(V/(Heme_intercell + Km)) Heme
-Heme_export: Heme ->(V/(Heme + Km)) Heme_intercell
-HO1_exp:  ->(Heme*a*compartment_1/(Heme + K)) HO_1
-HO1_Deg: HO_1 ->(compartment_1*k1) 
-Heme_oxygenation: Heme ->(C*HO_1*compartment_1/(Heme + K)) LIP
+reaction_1: 2species_2 ->(reaction_1_a*species_4**reaction_1_n/(species_2*(reaction_1_K**reaction_1_n + species_4**reaction_1_n))) species_43
+reaction_2:  ->(compartment_3*reaction_2_a*species_6**reaction_2_n/(reaction_2_K**reaction_2_n + species_6**reaction_2_n)) species_3
+reaction_3: species_3 ->(compartment_3*reaction_3_k1) 
+reaction_4:  ->(compartment_1*reaction_4_a*(-species_6**reaction_4_n/(reaction_4_K**reaction_4_n + species_6**reaction_4_n) + 1.0)) species_4
+reaction_8:  ->(compartment_1*reaction_8_a*(-species_2**reaction_8_n/(reaction_8_K**reaction_8_n + species_2**reaction_8_n) + 1.0)) species_6
+reaction_9: species_6 ->(compartment_1*reaction_9_k1) 
+reaction_11: species_4 ->(compartment_1*reaction_11_a*species_7**reaction_11_n/(reaction_11_K**reaction_11_n + species_7**reaction_11_n)) 
+reaction_12: species_8 ->(compartment_3*reaction_12_k1) 
+reaction_13:  ->(compartment_3*reaction_13_v) species_8
+reaction_14:  ->(compartment_3*reaction_14_v) species_10
+reaction_15: species_10 ->(compartment_3*reaction_15_a*(-species_43**reaction_15_n/(reaction_15_K**reaction_15_n + species_43**reaction_15_n) + 1.0)) 
+reaction_17:  ->(compartment_1*(reaction_17_a*species_18**reaction_17_n/(reaction_17_K**reaction_17_n + species_18**reaction_17_n) + reaction_17_a1*species_19/(reaction_17_K1 + species_19) + reaction_17_basal)) species_7
+reaction_18: species_7 ->(compartment_1*reaction_18_k1) 
+reaction_21: species_3 + species_8 ->(compartment_3*reaction_21_k1) species_9
+reaction_22: species_9 ->(compartment_3*reaction_22_k1) species_3 + species_8
+reaction_23: species_3 + species_43 ->(compartment_3*reaction_23_k1) species_12
+reaction_24: species_12 ->(compartment_3*reaction_24_k1) species_3 + species_43
+reaction_25: species_10 + 2species_8 ->(compartment_3*reaction_25_k1) species_18
+reaction_26: species_18 ->(compartment_3*reaction_26_k1) species_10 + 2species_8
+reaction_27: species_10 + species_43 ->(compartment_3*reaction_27_k1) species_15
+reaction_28: species_15 ->(compartment_3*reaction_28_k1) species_10 + species_43
+reaction_29: species_12 + species_43 ->(compartment_3*reaction_29_k1) species_16
+reaction_30: species_16 ->(compartment_3*reaction_30_k1) species_12 + species_43
+reaction_31: species_8 + species_9 ->(compartment_3*reaction_31_k1) species_17
+reaction_32: species_17 ->(compartment_3*reaction_32_k1) species_8 + species_9
+reaction_35: species_15 + species_43 ->(compartment_3*reaction_35_k1) species_19
+reaction_36: species_19 ->(compartment_3*reaction_36_k1) species_15 + species_43
+reaction_6: species_16 ->(reaction_6_k1) 4species_2 + species_3
+reaction_7: species_19 ->(reaction_7_k1) species_10 + 4species_2
+reaction_44: species_2 ->(compartment_1*reaction_44_k1) 
+reaction_45: species_2 + species_25 ->(compartment_1*reaction_45_k1) species_24
+reaction_46: species_24 ->(compartment_1*reaction_46_k1) species_2 + species_25
+reaction_47: species_24 ->(compartment_1*reaction_47_k1) species_25 + species_26
+reaction_48: species_26 ->(compartment_1*reaction_48_kloss*(1.0 + 0.048*species_26/(species_25*(1.0 + species_26/species_25)))) species_2
+reaction_49:  ->(compartment_1*reaction_49_a*(-species_6**reaction_49_n/(reaction_49_K**reaction_49_n + species_6**reaction_49_n) + 1.0)) species_25
+reaction_67: species_25 ->(compartment_1*reaction_67_k1) 
+reaction_73: species_26 ->(compartment_1*reaction_73_K) species_2
+reaction_5: species_17 ->(compartment_3*reaction_5_k1) 
+reaction_10: species_18 ->(compartment_3*reaction_10_k1) 
+reaction_16: species_11 ->(reaction_16_V/(reaction_16_Km + species_11)) species_5
+reaction_19: species_5 ->(reaction_19_V/(reaction_19_Km + species_5)) species_11
+reaction_20:  ->(compartment_1*reaction_20_a*species_5/(reaction_20_K + species_5)) species_1
+reaction_33: species_1 ->(compartment_1*reaction_33_k1) 
+reaction_34: species_5 ->(compartment_1*reaction_34_C*species_1/(reaction_34_K + species_5)) species_2

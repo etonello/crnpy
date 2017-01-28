@@ -1,18 +1,18 @@
-SHMT: serine + tetrahydrofolate ->(SHMT_Vm*cell/((SHMT_Km1 + tetrahydrofolate)*(SHMT_Km2 + serine))) _5_10_methylene_tetrahydrofolate
-SHMTr: _5_10_methylene_tetrahydrofolate ->(SHMTr_Vm*cell*glycine/((SHMTr_Km1 + _5_10_methylene_tetrahydrofolate)*(SHMTr_Km2 + glycine))) tetrahydrofolate
-HCHOtoCH2FH4: HCHO + tetrahydrofolate ->(HCHOtoCH2FH4_hp*cell) _5_10_methylene_tetrahydrofolate
-CH2FH4toHCHO: _5_10_methylene_tetrahydrofolate ->(CH2FH4toHCHO_hl*cell) HCHO + tetrahydrofolate
-MTHFR: NADPH + _5_10_methylene_tetrahydrofolate ->(MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Vm*cell/((MTHFR_Km2 + NADPH)*(MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Km1 + MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*_5_10_methylene_tetrahydrofolate + MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Km1*MTX5 + MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki25*MTHFR_Km1*MTX4 + MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Km1*MTX3 + MTHFR_Ki1*MTHFR_Ki21*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Km1*MTX2 + MTHFR_Ki1*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Km1*MTX1 + MTHFR_Ki21*MTHFR_Ki22*MTHFR_Ki23*MTHFR_Ki24*MTHFR_Ki25*MTHFR_Km1*dihydrofolate_free))) _5_methyl_tetrahydrofolate
-MTR: _5_methyl_tetrahydrofolate + homocysteine ->(MTR_Vm*cell/((MTR_Km1 + _5_methyl_tetrahydrofolate)*(MTR_Km2 + homocysteine))) tetrahydrofolate
-HCOOHtoCHOFH4: ATP + formate + tetrahydrofolate ->(HCOOHtoCHOFH4_Vm*cell/((ATP + HCOOHtoCHOFH4_Km2)*(HCOOHtoCHOFH4_Km1 + tetrahydrofolate)*(HCOOHtoCHOFH4_Km3 + formate))) _10_formyl_tetrahydrofolate
-GARFT: GAR + _10_formyl_tetrahydrofolate ->(GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Vm*cell/((GAR + GARFT_Km2)*(GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Km1 + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*_10_formyl_tetrahydrofolate + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Km1*MTX5 + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki25*GARFT_Km1*MTX4 + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki24*GARFT_Ki25*GARFT_Km1*MTX3 + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki21*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Km1*MTX2 + GARFT_Ki1*GARFT_Ki1f*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Km1*MTX1 + GARFT_Ki1*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Km1*_10_formyl_dihydrofolate + GARFT_Ki1f*GARFT_Ki21*GARFT_Ki22*GARFT_Ki23*GARFT_Ki24*GARFT_Ki25*GARFT_Km1*dihydrofolate_free))) FGAR + tetrahydrofolate
-ATIC7: AICAR + _10_formyl_tetrahydrofolate ->(ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Vm*cell/((AICAR + ATIC7_Km2)*(ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1 + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*_10_formyl_tetrahydrofolate + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Km1*MTX5 + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki25*ATIC7_Km1*MTX4 + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1*MTX3 + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1*MTX2 + ATIC7_Ki1*ATIC7_Ki1f*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1*MTX1 + ATIC7_Ki1*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1*_10_formyl_dihydrofolate + ATIC7_Ki1f*ATIC7_Ki21*ATIC7_Ki22*ATIC7_Ki23*ATIC7_Ki24*ATIC7_Ki25*ATIC7_Km1*dihydrofolate_free))) tetrahydrofolate
-MTHFD: NADP + _5_10_methylene_tetrahydrofolate ->(MTHFD_Vm*cell/((MTHFD_Km1 + _5_10_methylene_tetrahydrofolate)*(MTHFD_Km2 + NADP))) _10_formyl_tetrahydrofolate
-TYMS: _5_10_methylene_tetrahydrofolate + dUMP ->(TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Vm*cell/(MTX1*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP + MTX1*TYMS_Ki1*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + MTX2*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*TYMS_Km2 + MTX2*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*dUMP + MTX2*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP + MTX2*TYMS_Ki1*TYMS_Ki21*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + MTX3*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*TYMS_Km2 + MTX3*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*dUMP + MTX3*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki24*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP + MTX3*TYMS_Ki1*TYMS_Ki21*TYMS_Ki22*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + MTX4*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki25*TYMS_Km1*TYMS_Km2 + MTX4*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki25*TYMS_Km1*dUMP + MTX4*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP + MTX4*TYMS_Ki1*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + MTX5*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Km1*TYMS_Km2 + MTX5*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Km1*dUMP + MTX5*TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*_5_10_methylene_tetrahydrofolate*dUMP + MTX5*TYMS_Ki1*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*TYMS_Km2 + TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*dUMP + TYMS_Ki1*TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP + TYMS_Ki1*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP + TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*TYMS_Km2*dihydrofolate_free + TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*dUMP*dihydrofolate_free + TYMS_Ki1f*TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*_5_10_methylene_tetrahydrofolate*dUMP*dihydrofolate_free + TYMS_Ki21*TYMS_Ki22*TYMS_Ki23*TYMS_Ki24*TYMS_Ki25*TYMS_Km1*_10_formyl_dihydrofolate*dUMP*dihydrofolate_free)) dihydrofolate_free
-DHFReductase: dihydrofolate_free ->(DHFReductase_kter*cell*dihydrofolate_bound/dihydrofolate_free) tetrahydrofolate
-FFH2syn: dihydrofolate_free ->(FFH2syn_Vm*cell) _10_formyl_dihydrofolate
-ATIC12: AICAR + _10_formyl_dihydrofolate ->(ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Vm*cell/((AICAR + ATIC12_Km2)*(ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1 + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*_10_formyl_dihydrofolate + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Km1*MTX5 + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki25*ATIC12_Km1*MTX4 + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1*MTX3 + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1*MTX2 + ATIC12_Ki1*ATIC12_Ki1f*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1*MTX1 + ATIC12_Ki1*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1*_10_formyl_dihydrofolate + ATIC12_Ki1f*ATIC12_Ki21*ATIC12_Ki22*ATIC12_Ki23*ATIC12_Ki24*ATIC12_Ki25*ATIC12_Km1*dihydrofolate_free))) dihydrofolate_free
-AICARsyn: FGAR ->(AICARsyn_Vm*cell*glutamine/((AICARsyn_Km1 + glutamine)*(AICARsyn_Km2 + FGAR))) AICAR
+SHMT: FH4 + serine ->(SHMT_Vm*cell/(SHMT_Km1*SHMT_Km2*(1.0 + serine/SHMT_Km2)*(FH4/SHMT_Km1 + 1.0))) CH2FH4
+SHMTr: CH2FH4 ->(SHMTr_Vm*cell*glycine/(SHMTr_Km1*SHMTr_Km2*(1.0 + glycine/SHMTr_Km2)*(CH2FH4/SHMTr_Km1 + 1.0))) FH4
+HCHOtoCH2FH4: FH4 + HCHO ->(HCHOtoCH2FH4_hp*cell) CH2FH4
+CH2FH4toHCHO: CH2FH4 ->(CH2FH4toHCHO_hl*cell) FH4 + HCHO
+MTHFR: CH2FH4 + NADPH ->(MTHFR_Vm*cell/(CH2FH4*MTHFR_Km2 + CH2FH4*NADPH + MTHFR_Km1*(MTHFR_Km2 + NADPH)*(FH2f/MTHFR_Ki1 + 1.0 + MTX5/MTHFR_Ki25 + MTX4/MTHFR_Ki24 + MTX3/MTHFR_Ki23 + MTX2/MTHFR_Ki22 + MTX1/MTHFR_Ki21))) CH3FH4
+MTR: CH3FH4 + homocysteine ->(MTR_Vm*cell/(MTR_Km1*MTR_Km2*(1.0 + homocysteine/MTR_Km2)*(CH3FH4/MTR_Km1 + 1.0))) FH4
+HCOOHtoCHOFH4: ATP + FH4 + formate ->(HCOOHtoCHOFH4_Vm*cell/(ATP*FH4*formate*(1.0 + HCOOHtoCHOFH4_Km2/ATP)*(1.0 + HCOOHtoCHOFH4_Km1/FH4)*(HCOOHtoCHOFH4_Km3/formate + 1.0))) CHOFH4
+GARFT: CHOFH4 + GAR ->(GARFT_Vm*cell/(CHOFH4*GAR + CHOFH4*GARFT_Km2 + GARFT_Km1*(GAR + GARFT_Km2)*(FFH2/GARFT_Ki1f + FH2f/GARFT_Ki1 + 1.0 + MTX5/GARFT_Ki25 + MTX4/GARFT_Ki24 + MTX3/GARFT_Ki23 + MTX2/GARFT_Ki22 + MTX1/GARFT_Ki21))) FGAR + FH4
+ATIC7: AICAR + CHOFH4 ->(ATIC7_Vm*cell/(AICAR*CHOFH4 + ATIC7_Km1*(AICAR + ATIC7_Km2)*(1.0 + MTX5/ATIC7_Ki25 + MTX4/ATIC7_Ki24 + MTX3/ATIC7_Ki23 + MTX2/ATIC7_Ki22 + MTX1/ATIC7_Ki21 + FFH2/ATIC7_Ki1f + FH2f/ATIC7_Ki1) + ATIC7_Km2*CHOFH4)) FH4
+MTHFD: CH2FH4 + NADP ->(MTHFD_Vm*cell/(MTHFD_Km1*MTHFD_Km2*(1.0 + NADP/MTHFD_Km2)*(CH2FH4/MTHFD_Km1 + 1.0))) CHOFH4
+TYMS: CH2FH4 + dUMP ->(TYMS_Vm*cell/(CH2FH4*dUMP*(FH2f/TYMS_Ki1 + MTX1/TYMS_Ki21 + MTX2/TYMS_Ki22 + MTX3/TYMS_Ki23 + MTX4/TYMS_Ki24 + MTX5/TYMS_Ki25 + 1.0) + TYMS_Km1*TYMS_Km2*(FH2f/TYMS_Ki1 + MTX2/TYMS_Ki22 + MTX3/TYMS_Ki23 + MTX4/TYMS_Ki24 + MTX5/TYMS_Ki25 + 1.0) + TYMS_Km1*dUMP*(FFH2*MTX1/(TYMS_Ki1f*TYMS_Ki21) + (FFH2/TYMS_Ki1f + 1.0)*(FH2f/TYMS_Ki1 + MTX2/TYMS_Ki22 + MTX3/TYMS_Ki23 + MTX4/TYMS_Ki24 + MTX5/TYMS_Ki25 + 1.0)))) FH2f
+DHFReductase: FH2f ->(DHFReductase_kter*FH2b*cell/FH2f) FH4
+FFH2syn: FH2f ->(FFH2syn_Vm*cell) FFH2
+ATIC12: AICAR + FFH2 ->(ATIC12_Vm*cell/(AICAR*FFH2 + ATIC12_Km1*(AICAR + ATIC12_Km2)*(1.0 + MTX5/ATIC12_Ki25 + MTX4/ATIC12_Ki24 + MTX3/ATIC12_Ki23 + MTX2/ATIC12_Ki22 + MTX1/ATIC12_Ki21 + FFH2/ATIC12_Ki1f + FH2f/ATIC12_Ki1) + ATIC12_Km2*FFH2)) FH2f
+AICARsyn: FGAR ->(AICARsyn_Vm*cell*glutamine/(AICARsyn_Km1*AICARsyn_Km2*(1.0 + glutamine/AICARsyn_Km1)*(1.0 + FGAR/AICARsyn_Km2))) AICAR
 FPGS12: MTX1 ->(FPGS12_Vm*cell) MTX2
 FPGS23: MTX2 ->(FPGS23_Vm*cell) MTX3
 FPGS34: MTX3 ->(FPGS34_Vm*cell) MTX4
@@ -27,19 +27,19 @@ MTX2export: MTX2 ->(MTX2export_Vm*cell)
 MTX3export: MTX3 ->(MTX3export_Vm*cell) 
 MTX4export: MTX4 ->(MTX4export_Vm*cell) 
 MTX5export: MTX5 ->(MTX5export_Vm*cell) 
-MTX1on: MTX1 + dihydrofolate_reductase_free ->(MTX1on_Vm*cell) MTX1b
-MTX2on: MTX2 + dihydrofolate_reductase_free ->(MTX2on_Vm*cell) MTX2b
-MTX3on: MTX3 + dihydrofolate_reductase_free ->(MTX3on_Vm*cell) MTX3b
-MTX4on: MTX4 + dihydrofolate_reductase_free ->(MTX4on_Vm*cell) MTX4b
-MTX5on: MTX5 + dihydrofolate_reductase_free ->(MTX5on_Vm*cell) MTX5b
-MTX1off: MTX1b ->(MTX1off_Vm*cell) MTX1 + dihydrofolate_reductase_free
-MTX2off: MTX2b ->(MTX2off_Vm*cell) MTX2 + dihydrofolate_reductase_free
-MTX3off: MTX3b ->(MTX3off_Vm*cell) MTX3 + dihydrofolate_reductase_free
-MTX4off: MTX4b ->(MTX4off_Vm*cell) MTX4 + dihydrofolate_reductase_free
-MTX5off: MTX5b ->(MTX5off_Vm*cell) MTX5 + dihydrofolate_reductase_free
-DHFRfsyn:  ->(cell*(DHFRfsyn_k0 + DHFRfsyn_k1*EMTX)) dihydrofolate_reductase_free
-DHFRdeg: dihydrofolate_reductase_free ->(DHFRdeg_Vm*cell*(dihydrofolate_bound + dihydrofolate_reductase_free)/dihydrofolate_reductase_free) 
-FH2bdeg:  ->(FH2bdeg_Vm*cell*dihydrofolate_bound) dihydrofolate_free
+MTX1on: DHFRf + MTX1 ->(MTX1on_Vm*cell) MTX1b
+MTX2on: DHFRf + MTX2 ->(MTX2on_Vm*cell) MTX2b
+MTX3on: DHFRf + MTX3 ->(MTX3on_Vm*cell) MTX3b
+MTX4on: DHFRf + MTX4 ->(MTX4on_Vm*cell) MTX4b
+MTX5on: DHFRf + MTX5 ->(MTX5on_Vm*cell) MTX5b
+MTX1off: MTX1b ->(MTX1off_Vm*cell) DHFRf + MTX1
+MTX2off: MTX2b ->(MTX2off_Vm*cell) DHFRf + MTX2
+MTX3off: MTX3b ->(MTX3off_Vm*cell) DHFRf + MTX3
+MTX4off: MTX4b ->(MTX4off_Vm*cell) DHFRf + MTX4
+MTX5off: MTX5b ->(MTX5off_Vm*cell) DHFRf + MTX5
+DHFRfsyn:  ->(cell*(DHFRfsyn_k0 + DHFRfsyn_k1*EMTX)) DHFRf
+DHFRdeg: DHFRf ->(DHFRdeg_Vm*cell*(DHFRf + FH2b)/DHFRf) 
+FH2bdeg:  ->(FH2b*FH2bdeg_Vm*cell) FH2f
 MTX1deg: MTX1b ->(MTX1deg_Vm*cell) MTX1
 MTX2deg: MTX2b ->(MTX2deg_Vm*cell) MTX2
 MTX3deg: MTX3b ->(MTX3deg_Vm*cell) MTX3

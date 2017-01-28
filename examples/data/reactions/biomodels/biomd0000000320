@@ -1,16 +1,16 @@
-L_Dopa_absorption_from_gut: A_dopa ->(F_c*ka_c) C_dopa
-hepatic_and_blood_L_Dopa_clearance: A_dopa ->(-ka_c*(F_c - 1)) 
-ro_04_5127_absorption_from_gut: A_M ->(ka_m) C1_M
-benserazide_absorption_from_gut: A_B ->(F_B*ka_b) C1_B
-benserazide_clearance_from_gut: A_B ->(-ka_b*(F_B - 1)) 
-L_Dopa_clearance_via_AADC_: C_dopa ->(CL_AADC) 
-L_Dopa_clearance_via_COMT: C_dopa ->(CL_COMT) C_3_OMD
-rest_clearance_of_L_Dopa: C_dopa ->(CL_rest) 
-_3_OMD_clearance: C_3_OMD ->(CL_3_OMD) 
-benserazide_clearance: C1_B ->(CL_B) 
-benserazide_metabolism_to_ro_04_5127: C1_B ->(-CL_B*fm/(fm - 1)) C1_M
-ro_04_5127_clearance: C1_M ->(CL_M) 
-benserazide_distribution: C1_B ->(CL_dB) C2_B
-benserazide_distribution_rev: C2_B ->(CL_dB) C1_B
-ro_04_5127_distribution: C1_M ->(CL_dM) C2_M
-ro_04_5127_distribution_rev: C2_M ->(CL_dM) C1_M
+l_dopa_absorption: A_dopa ->(F_c*ka_c) C_dopa
+l_dopa_blood_hepa_clearance: A_dopa ->(ka_c*(-F_c + 1)) 
+ro_04_5127_absorption: A_M ->(ka_M) C1_M
+benserazide_absorption: A_B ->(F_B*ka_B) C1_B
+benserazide_gut_clearance: A_B ->(ka_B*(-F_B + 1)) 
+AADC_clearance: C_dopa ->(CL_AADC) 
+COMT_clearance: C_dopa ->(CL_COMT) C_OMD
+rest_clearance: C_dopa ->(CL_rest) 
+_3_OMD_clearance: C_OMD ->(CL_OMD) 
+bens_clearance: C1_B ->(CL_B) 
+bens_metabolism: C1_B ->(CL_B*fm/(-fm + 1)) C1_M
+ro_clearance: C1_M ->(CL_M) 
+bens_distribution: C1_B ->(CL_dB) C2_B
+bens_distribution_rev: C2_B ->(CL_dB) C1_B
+ro_distribution: C1_M ->(CL_dM) C2_M
+ro_distribution_rev: C2_M ->(CL_dM) C1_M

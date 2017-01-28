@@ -1,20 +1,20 @@
-Sodium_leak:  ->(S_V*compartment_1*gNa*(RT_F*log(Na_extracellular*compartment_1/Na_) - Vm)/F) Na_
-Na_K___pump: ATP + 3Na_ ->(Km_pump*S_V*k_pump/(Na_**2*(ATP + Km_pump*compartment_1))) ADP
-Blood_brain_transport_of_glucose: 100GLC ->(Kt_GLC*Tmax_GLC*(compartment_1 - compartment_3)/(GLC**99*(GLC + Kt_GLC*compartment_1)*(GLC + Kt_GLC*compartment_3))) GLC
-Hexokinase_phosphofructokinase_system: ATP + GLC ->(kHK_PFK/((GLC + Kg*compartment_1)*((ATP/(KI_ATP*compartment_1))**nH + 1))) ADP + 2GAP
-Phosphoglycerate_kinase: GAP + NAD_ ->(ADP*kPGK/(NADH*compartment_1)) NADH + PEP
-Pyruvate_kinase: ADP + PEP ->(kPK/compartment_1) ATP + PYR
-Lactate_dehydrogenase: NADH + PYR ->(k_LDH/compartment_1) LAC + NAD_
-Lactate_dehydrogenase_rev: LAC + NAD_ ->(k_LDH/compartment_1) NADH + PYR
-Blood_brain_transport_of_lactate: LAC ->(-Kt_LAC*Tmax_LAC*(compartment_1 - compartment_3)/((Kt_LAC*compartment_1 + LAC)*(Kt_LAC*compartment_3 + LAC))) 100LAC
-Creatine_Kinase: ADP + PCr ->(k_CK/compartment_1) ATP + Cr
-Creatine_Kinase_rev: ATP + Cr ->(k_CK/compartment_1) ADP + PCr
-Blood_brain_transport_of_oxygen: 100O2 ->(-PS_V*(-KO2*compartment_1 + O2*(Hb_OP*compartment_3/O2 - 1)**(1/nh))*(Hb_OP*compartment_3/O2 - 1)**(-1/nh)/(O2**100*compartment_1)) O2
-Blood_flow_contribution_to_O2_variation: O2 ->(-2*F_in*(compartment_2 - compartment_3)/(V_cap*compartment_2*compartment_3)) O2
-Blood_flow_contribution_to_GLC_c_variation: GLC ->(-2*F_in*(compartment_2 - compartment_3)/(V_cap*compartment_2*compartment_3)) GLC
-Blood_flow_contribution_to_LAC_c_variation: LAC ->(-2*F_in*(compartment_2 - compartment_3)/(V_cap*compartment_2*compartment_3)) LAC
-mitochondrial_respiration: NADH + 3O2 + PYR ->(compartment_1*v_Mito_H3/(NADH*O2**3*PYR)) ATP
-ATPases: ATP ->(compartment_1*v/ATP) 
-Na__inflow_after_stimulation:  ->(compartment_1*v_stim_constant) Na_
-inflow_of_dHb:  ->(-2*F_in*O2*(compartment_2 - compartment_3)/compartment_2) dHb
+reaction_1:  ->(compartment_1*parameter_1*parameter_2*(parameter_4*ln(compartment_1*parameter_6/species_1) - parameter_5)/parameter_3) species_1
+reaction_2: 3species_1 + species_2 ->(parameter_1*parameter_8/(compartment_1*species_1**2*(1.0 + species_2/(compartment_1*parameter_9)))) species_3
+reaction_3: 100species_17 ->(parameter_14*(species_17/(compartment_3*(parameter_15 + species_17/compartment_3)) - species_4/(compartment_1*(parameter_15 + species_4/compartment_1)))/species_17**100) species_4
+reaction_4: species_2 + species_4 ->(parameter_16/(compartment_1*(parameter_19 + species_4/compartment_1)*((species_2/(compartment_1*parameter_17))**parameter_18 + 1.0))) species_3 + 2species_5
+reaction_5: species_5 + species_6 ->(parameter_20*species_3/(compartment_1*species_7)) species_7 + species_9
+reaction_6: species_3 + species_9 ->(parameter_23/compartment_1) species_2 + species_8
+reaction_7: species_7 + species_8 ->(parameter_24/compartment_1) species_10 + species_6
+reaction_7_rev: species_10 + species_6 ->(parameter_25/compartment_1) species_7 + species_8
+reaction_8: species_10 ->(parameter_26*(-species_18/(compartment_3*(parameter_27 + species_18/compartment_3)) + species_10/(compartment_1*(parameter_27 + species_10/compartment_1)))/species_10) 100species_18
+reaction_9: species_11 + species_3 ->(parameter_29/compartment_1) species_12 + species_2
+reaction_9_rev: species_12 + species_2 ->(parameter_30/compartment_1) species_11 + species_3
+reaction_10: 100species_19 ->(parameter_32*(parameter_33*(compartment_3*parameter_34/species_19 - 1.0)**(-1.0/parameter_35) - species_13/compartment_1)/species_19**100) species_13
+reaction_11: species_14 ->(2.0*parameter_37*(-species_19/compartment_3 + species_14/compartment_2)/(parameter_38*species_14)) species_19
+reaction_12: species_15 ->(2.0*parameter_37*(-species_17/compartment_3 + species_15/compartment_2)/(parameter_38*species_15)) species_17
+reaction_13: species_16 ->(2.0*parameter_37*(-species_18/compartment_3 + species_16/compartment_2)/(parameter_38*species_16)) species_18
+mitochondrial_respiration: 3species_13 + species_7 + species_8 ->(compartment_1*v_Mito_H3/(species_13**3*species_7*species_8)) species_2
+ATPases: species_2 ->(ATPases_v*compartment_1/species_2) 
+Na__inflow_after_stimulation:  ->(compartment_1*v_stim_constant) species_1
+inflow_of_dHb:  ->(2.0*compartment_3*parameter_37*(-species_19/compartment_3 + species_14/compartment_2)) dHb
 outflow_of_dHb: dHb ->(F_out/compartment_4) 

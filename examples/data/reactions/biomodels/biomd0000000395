@@ -1,21 +1,21 @@
-r52: Complex_br__Sap18_Su_fu___br_Cubitus_space_interruptus_space_repressor_ ->((Complex_br__Sap18_Su_fu___br_Cubitus_space_interruptus_space_repressor_*kass_r52 - Hedgehog_target_gene*kdiss_r52)/Complex_br__Sap18_Su_fu___br_Cubitus_space_interruptus_space_repressor_) Hedgehog_target_gene
-r55: Complex_br__CBP_Cubitus_ ->(kass_r55) Hedgehog_target_gene
-r7: Hedgehog + Patched ->(kass_r7) Complex_br__Patched_Hedgehog_
-r7_rev: Complex_br__Patched_Hedgehog_ ->(kdiss_r7) Hedgehog + Patched
-r14: Complex_br__Costal2_Fused__br_Smoothened_ ->(Complex_br__Patched_Hedgehog_*kM_r14_s46*kcatp_r14/(Complex_br__Costal2_Fused__br_Smoothened_*kM_r14_s46 + Complex_br__Costal2_Fused__br_Smoothened_*kM_r14_s69 + kM_r14_s46*kM_r14_s69)) Complex_br__Costal2_Fused__br_Smoothened_
-r14_rev: Complex_br__Costal2_Fused__br_Smoothened_ ->(Complex_br__Patched_Hedgehog_*kM_r14_s69*kcatn_r14/(Complex_br__Costal2_Fused__br_Smoothened_*kM_r14_s46 + Complex_br__Costal2_Fused__br_Smoothened_*kM_r14_s69 + kM_r14_s46*kM_r14_s69)) Complex_br__Costal2_Fused__br_Smoothened_
-r51: Complex_br__Cubitus_space_interruptus_space_repressor_Su_fu__ + Sap18 ->(kass_r51) Complex_br__Sap18_Su_fu___br_Cubitus_space_interruptus_space_repressor_
-r51_rev: Complex_br__Sap18_Su_fu___br_Cubitus_space_interruptus_space_repressor_ ->(kdiss_r51) Complex_br__Cubitus_space_interruptus_space_repressor_Su_fu__ + Sap18
-r53: Cubitus_space_interruptus ->(Complex_br__Costal2_Smoothened__br_Fused_*kcatp_r53/(2*Cubitus_space_interruptus + kM_r53_s70)) Cubitus_space_interruptus
-r53_rev: Cubitus_space_interruptus ->(Complex_br__Costal2_Smoothened__br_Fused_*kcatn_r53/(2*Cubitus_space_interruptus + kM_r53_s70)) Cubitus_space_interruptus
-re24: complex + smoothened ->(kass_re24_s157*sag) Complex_br__Costal2_Fused____microtubule_
-r15: ATP + Complex_br__Costal2_Fused__br_Smoothened_ ->(Complex_br__Patched_Hedgehog_*kass_r15_s21) ADP + Complex_br__Costal2_Smoothened__br_Fused_
-r15_rev: ADP + Complex_br__Costal2_Smoothened__br_Fused_ ->(Complex_br__Patched_Hedgehog_*kdiss_r15_s21) ATP + Complex_br__Costal2_Fused__br_Smoothened_
-r23: Complex_br__Costal2_Fused____microtubule_ ->(Complex_br__Patched_Hedgehog_*kass_r23_s21) Complex_br__Su_fu__Fused_____br_Smoothened_ + Microtubule
-r23_rev: Complex_br__Su_fu__Fused_____br_Smoothened_ + Microtubule ->(Complex_br__Patched_Hedgehog_*kdiss_r23_s21) Complex_br__Costal2_Fused____microtubule_
-r54: CBP + Cubitus_space_interruptus ->(kass_r54) Complex_br__CBP_Cubitus_
-r54_rev: Complex_br__CBP_Cubitus_ ->(kdiss_r54) CBP + Cubitus_space_interruptus
-r26: Complex_br__Su_fu__Cubitus_ ->(kass_r26) Cubitus_space_interruptus
-r26_rev: Cubitus_space_interruptus ->(kdiss_r26) Complex_br__Su_fu__Cubitus_
-r25: Complex_br__Su_fu__Fused_____br_Smoothened_ ->(kass_r25) Complex_br__Costal2_Fused__br_Smoothened_ + Complex_br__Su_fu__Cubitus_
-r25_rev: Complex_br__Costal2_Fused__br_Smoothened_ + Complex_br__Su_fu__Cubitus_ ->(kdiss_r25) Complex_br__Su_fu__Fused_____br_Smoothened_
+r52: s140 ->((kass_r52*s140 - kdiss_r52*s75)/s140) s75
+r55: s158 ->(kass_r55) s75
+r7: s1 + s7 ->(kass_r7) s21
+r7_rev: s21 ->(kdiss_r7) s1 + s7
+r14: s69 ->(kM_r14_s46*kcatp_r14*s21/(kM_r14_s46*kM_r14_s69 + kM_r14_s46*s69 + kM_r14_s69*s46)) s46
+r14_rev: s46 ->(kM_r14_s69*kcatn_r14*s21/(kM_r14_s46*kM_r14_s69 + kM_r14_s46*s69 + kM_r14_s69*s46)) s69
+r51: s128 + s135 ->(kass_r51) s140
+r51_rev: s140 ->(kdiss_r51) s128 + s135
+r53: s70 ->(kcatp_r53*s48/(kM_r53_s70 + 2*s70)) s70
+r53_rev: s70 ->(kcatn_r53*s48/(kM_r53_s70 + 2*s70)) s70
+re24: s148 + s150 ->(kass_re24_s157*s157) s159
+r15: s46 + s9 ->(kass_r15_s21*s21) s10 + s48
+r15_rev: s10 + s48 ->(kdiss_r15_s21*s21) s46 + s9
+r23: s159 ->(kass_r23_s21*s21) s160 + s68
+r23_rev: s160 + s68 ->(kdiss_r23_s21*s21) s159
+r54: s70 + s71 ->(kass_r54) s158
+r54_rev: s158 ->(kdiss_r54) s70 + s71
+r26: s161 ->(kass_r26) s70
+r26_rev: s70 ->(kdiss_r26) s161
+r25: s160 ->(kass_r25) s161 + s69
+r25_rev: s161 + s69 ->(kdiss_r25) s160

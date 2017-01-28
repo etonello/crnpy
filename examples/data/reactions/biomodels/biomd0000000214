@@ -1,25 +1,25 @@
-MFtrn:  ->((WC_1**m*WC_1_**n*a1*b1*b3 + WC_1**m*WC_1_**n*a1*b1*l_Frq + WC_1**m*WC_1_**n*a1*b1*s_Frq + WC_1**m*WC_1_**n*a2*b1*b3 + WC_1**m*WC_1_**n*a2*b3*l_Frq + WC_1**m*WC_1_**n*a2*b3*s_Frq + WC_1**m*a2*b1*b2**n*b3 + WC_1**m*a2*b2**n*b3*l_Frq + WC_1**m*a2*b2**n*b3*s_Frq + WC_1_**n*a1*b1*b3*b4**m + WC_1_**n*a1*b1*b4**m*l_Frq + WC_1_**n*a1*b1*b4**m*s_Frq)/((WC_1**m + b4**m)*(WC_1_**n + b2**n)*(b1 + l_Frq + s_Frq)*(b3 + l_Frq + s_Frq))) Frq_mRNA
-MFdeg: Frq_mRNA ->(d1/(Frq_mRNA + b5)) 
-E1Ftrl:  ->(Frq_mRNA*a3) s_Frq_1
-E1Fdeg: s_Frq_1 ->(gam1) 
-E2Ftrl: s_Frq_1 ->(f1) s_Frq_2
-E2Fdeg: s_Frq_2 ->(gam1) 
-PFtrl: s_Frq_2 ->(f1) s_Frq
-PFdeg: s_Frq ->(d2) 
-MWtrn:  ->((WC_1_**k*a4 + WC_1_**k*a5 + a4*b7**k)/(WC_1_**k + b7**k)) WC_1_mRNA
-MWdeg: WC_1_mRNA ->(d3/(WC_1_mRNA + b8)) 
-E1Wtrl:  ->(WC_1_mRNA*(a6 + a7*l_Frq + a7*s_Frq)) WC_1_1
-E1Wdeg: WC_1_1 ->(gam2) 
-E2Wtrl: WC_1_1 ->(f2) WC_1_2
-E2Wdeg: WC_1_2 ->(gam2) 
-PWtrl: WC_1_2 ->(f2) WC_1
-PWdeg: WC_1 ->(d4/(WC_1 + b9)) 
-PWtrs: WC_1 ->(amp*r1*(tanh(-24*dawn + 24*time - 576*floor(time/24)) + 1)/4) WC_1_
-PWtrs_rev: WC_1_ ->((WC_1*amp*r1*tanh(-24*dawn + 24*time - 576*floor(time/24))*tanh(-24*dusk + 24*time - 576*floor(time/24)) + WC_1*amp*r1*tanh(-24*dusk + 24*time - 576*floor(time/24)) + 4*WC_1_*r2)/(4*WC_1_)) WC_1
-PWLdeg: WC_1_ ->(d5/(WC_1_ + b10)) 
-E1Fptrl:  ->(Frq_mRNA*a3p) l_Frq_1
-E1Fpdeg: l_Frq_1 ->(gam1p) 
-E2Fptrl: l_Frq_1 ->(f1p) l_Frq_2
-E2Fpdeg: l_Frq_2 ->(gam1p) 
-PFptrl: l_Frq_2 ->(f1p) l_Frq
-PFpdeg: l_Frq ->(d2p) 
+MFtrn:  ->(PW**m*a2/((1 + (PF + PFp)/b3)*(PW**m + b4**m)) + PWL**n*a1/((1 + (PF + PFp)/b1)*(PWL**n + b2**n))) MF
+MFdeg: MF ->(d1/(MF + b5)) 
+E1Ftrl:  ->(MF*a3) E1F
+E1Fdeg: E1F ->(gam1) 
+E2Ftrl: E1F ->(f1) E2F
+E2Fdeg: E2F ->(gam1) 
+PFtrl: E2F ->(f1) PF
+PFdeg: PF ->(d2) 
+MWtrn:  ->(PWL**k*a5/(PWL**k + b7**k) + a4) MW
+MWdeg: MW ->(d3/(MW + b8)) 
+E1Wtrl:  ->(MW*(a6 + a7*(PF + PFp))) E1W
+E1Wdeg: E1W ->(gam2) 
+E2Wtrl: E1W ->(f2) E2W
+E2Wdeg: E2W ->(gam2) 
+PWtrl: E2W ->(f2) PW
+PWdeg: PW ->(d4/(PW + b9)) 
+PWtrs: PW ->(amp*r1*(tanh(-24*dawn + 24*time - 576*floor(time/24)) + 1)/4) PWL
+PWtrs_rev: PWL ->((PW*amp*r1*tanh(-24*dawn + 24*time - 576*floor(time/24))*tanh(-24*dusk + 24*time - 576*floor(time/24)) + PW*amp*r1*tanh(-24*dusk + 24*time - 576*floor(time/24)) + 4*PWL*r2)/(4*PWL)) PW
+PWLdeg: PWL ->(d5/(PWL + b10)) 
+E1Fptrl:  ->(MF*a3p) E1Fp
+E1Fpdeg: E1Fp ->(gam1p) 
+E2Fptrl: E1Fp ->(f1p) E2Fp
+E2Fpdeg: E2Fp ->(gam1p) 
+PFptrl: E2Fp ->(f1p) PFp
+PFpdeg: PFp ->(d2p) 

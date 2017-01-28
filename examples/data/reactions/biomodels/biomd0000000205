@@ -1,313 +1,313 @@
-R1: EGF + EGFR ->(compartment_0*reaction_0_k1) EGF_EGFR
-R1_rev: EGF_EGFR ->(compartment_0*reaction_0_k2) EGF + EGFR
-R2: 2EGF_EGFR ->(compartment_0*reaction_1_k1) EGF_EGFR_2
-R2_rev: EGF_EGFR_2 ->(compartment_0*reaction_1_k2) 2EGF_EGFR
-R3: EGF_EGFR_2 ->(compartment_0*reaction_2_k1) EGF_pEGFR_2
-R4: EGF_pEGFR_2 + SHP ->(compartment_0*reaction_3_k1) EGF_pEGFR_2_SHP
-R4_rev: EGF_pEGFR_2_SHP ->(compartment_0*reaction_3_k2) EGF_pEGFR_2 + SHP
-R5: EGF_pEGFR_2_SHP ->(compartment_0*reaction_4_k1) EGF_EGFR_2 + SHP
-R6: EGF_pEGFR_2 + Shc ->(compartment_0*reaction_5_k1) EGF_pEGFR_2_Shc
-R6_rev: EGF_pEGFR_2_Shc ->(compartment_0*reaction_5_k2) EGF_pEGFR_2 + Shc
-R7: EGF_pEGFR_2_Shc ->(compartment_0*reaction_6_k1) EGF_pEGFR_2_pShc
-R8: EGF_pEGFR_2_pShc ->(compartment_0*reaction_7_k1) EGF_pEGFR_2 + pShc
-R8_rev: EGF_pEGFR_2 + pShc ->(compartment_0*reaction_7_k2) EGF_pEGFR_2_pShc
-R9: SHP + pShc ->(compartment_0*reaction_8_k1) pShc_SHP
-R9_rev: pShc_SHP ->(compartment_0*reaction_8_k2) SHP + pShc
-R10: pShc_SHP ->(compartment_0*reaction_9_k1) SHP + Shc
-R11: EGF_pEGFR_2_pShc + Grb2 ->(compartment_0*reaction_10_k1) EGF_pEGFR_2_pShc_Grb2
-R11_rev: EGF_pEGFR_2_pShc_Grb2 ->(compartment_0*reaction_10_k2) EGF_pEGFR_2_pShc + Grb2
-R12: EGF_pEGFR_2_pShc_Grb2 + SOS ->(compartment_0*reaction_11_k1) EGF_pEGFR_2_pShc_Grb2_SOS
-R12_rev: EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_11_k2) EGF_pEGFR_2_pShc_Grb2 + SOS
-R13: Grb2 + SOS ->(compartment_0*reaction_12_k1) Grb2_SOS
-R13_rev: Grb2_SOS ->(compartment_0*reaction_12_k2) Grb2 + SOS
-R14: EGF_pEGFR_2_pShc + Grb2_SOS ->(compartment_0*reaction_13_k1) EGF_pEGFR_2_pShc_Grb2_SOS
-R14_rev: EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_13_k2) EGF_pEGFR_2_pShc + Grb2_SOS
-R15: EGF_pEGFR_2_pShc_Grb2_SOS + RasGDP ->(compartment_0*reaction_14_k1) EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP
-R15_rev: EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP ->(compartment_0*reaction_14_k2) EGF_pEGFR_2_pShc_Grb2_SOS + RasGDP
-R16: EGF_pEGFR_2_pShc_Grb2_SOS_RasGDP ->(compartment_0*reaction_15_k1) EGF_pEGFR_2_pShc_Grb2_SOS + RasGTP
-R17: EGF_pEGFR_2 + Grb2 ->(compartment_0*reaction_16_k1) EGF_pEGFR_2_Grb2
-R17_rev: EGF_pEGFR_2_Grb2 ->(compartment_0*reaction_16_k2) EGF_pEGFR_2 + Grb2
-R18: EGF_pEGFR_2_Grb2 + SOS ->(compartment_0*reaction_17_k1) EGF_pEGFR_2_Grb2_SOS
-R18_rev: EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_17_k2) EGF_pEGFR_2_Grb2 + SOS
-R19: EGF_pEGFR_2 + Grb2_SOS ->(compartment_0*reaction_18_k1) EGF_pEGFR_2_Grb2_SOS
-R19_rev: EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_18_k2) EGF_pEGFR_2 + Grb2_SOS
-R20: EGF_pEGFR_2_Grb2_SOS + RasGDP ->(compartment_0*reaction_19_k1) EGF_pEGFR_2_Grb2_SOS_RasGDP
-R20_rev: EGF_pEGFR_2_Grb2_SOS_RasGDP ->(compartment_0*reaction_19_k2) EGF_pEGFR_2_Grb2_SOS + RasGDP
-R21: EGF_pEGFR_2_Grb2_SOS_RasGDP ->(compartment_0*reaction_20_k1) EGF_pEGFR_2_Grb2_SOS + RasGTP
-R22: Raf + RasGTP ->(compartment_0*reaction_21_k1) Raf_RasGTP
-R22_rev: Raf_RasGTP ->(compartment_0*reaction_21_k2) Raf + RasGTP
-R23: Raf_RasGTP ->(compartment_0*reaction_22_k1) RasGTP + pRaf
-R24: MEK + pRaf ->(compartment_0*reaction_23_k1) pRaf_MEK
-R24_rev: pRaf_MEK ->(compartment_0*reaction_23_k2) MEK + pRaf
-R25: pRaf_MEK ->(compartment_0*reaction_24_k1) pMEK + pRaf
-R26: pMEK + pRaf ->(compartment_0*reaction_25_k1) pRaf_pMEK
-R26_rev: pRaf_pMEK ->(compartment_0*reaction_25_k2) pMEK + pRaf
-R27: pRaf_pMEK ->(compartment_0*reaction_26_k1) pRaf + ppMEK
-R28: ERK + ppMEK ->(compartment_0*reaction_27_k1) ppMEK_ERK
-R28_rev: ppMEK_ERK ->(compartment_0*reaction_27_k2) ERK + ppMEK
-R29: ppMEK_ERK ->(compartment_0*reaction_28_k1) pERK + ppMEK
-R30: pERK + ppMEK ->(compartment_0*reaction_29_k1) ppMEK_pERK
-R30_rev: ppMEK_pERK ->(compartment_0*reaction_29_k2) pERK + ppMEK
-R31: ppMEK_pERK ->(compartment_0*reaction_30_k1) ppERK + ppMEK
-R32: Pase + pRaf ->(compartment_0*reaction_31_k1) pRaf_Pase
-R32_rev: pRaf_Pase ->(compartment_0*reaction_31_k2) Pase + pRaf
-R33: pRaf_Pase ->(compartment_0*reaction_32_k1) Pase + Raf
-R34: PP2A + ppMEK ->(compartment_0*reaction_33_k1) ppMEK_PP2A
-R34_rev: ppMEK_PP2A ->(compartment_0*reaction_33_k2) PP2A + ppMEK
-R35: ppMEK_PP2A ->(compartment_0*reaction_34_k1) PP2A + pMEK
-R36: PP2A + pMEK ->(compartment_0*reaction_35_k1) pMEK_PP2A
-R36_rev: pMEK_PP2A ->(compartment_0*reaction_35_k2) PP2A + pMEK
-R37: pMEK_PP2A ->(compartment_0*reaction_36_k1) MEK + PP2A
-R38: MKP3 + ppERK ->(compartment_0*reaction_37_k1) ppERK_MKP3
-R38_rev: ppERK_MKP3 ->(compartment_0*reaction_37_k2) MKP3 + ppERK
-R39: ppERK_MKP3 ->(compartment_0*reaction_38_k1) MKP3 + pERK
-R40: MKP3 + pERK ->(compartment_0*reaction_39_k1) pERK_MKP3
-R40_rev: pERK_MKP3 ->(compartment_0*reaction_39_k2) MKP3 + pERK
-R41: pERK_MKP3 ->(compartment_0*reaction_40_k1) ERK + MKP3
-R42: RasGTP ->(compartment_0*reaction_41_k1) RasGDP
-R43: RasGAP + RasGTP ->(compartment_0*reaction_42_k1) RasGTP_RasGAP
-R43_rev: RasGTP_RasGAP ->(compartment_0*reaction_42_k2) RasGAP + RasGTP
-R44: RasGTP_RasGAP ->(compartment_0*reaction_43_k1) RasGAP + RasGDP
-R45: EGF_pEGFR_2_pShc_Grb2_SOS + ppERK ->(compartment_0*reaction_44_k1) ppERK_EGF_pEGFR_2_pShc_Grb2_SOS
-R45_rev: ppERK_EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_44_k2) EGF_pEGFR_2_pShc_Grb2_SOS + ppERK
-R46: ppERK_EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_45_k1) EGF_pEGFR_2 + Grb2 + pSOS + pShc + ppERK
-R47: EGF_pEGFR_2_Grb2_SOS + ppERK ->(compartment_0*reaction_46_k1) ppERK_EGF_pEGFR_2_Grb2_SOS
-R47_rev: ppERK_EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_46_k2) EGF_pEGFR_2_Grb2_SOS + ppERK
-R48: ppERK_EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_47_k1) EGF_pEGFR_2 + Grb2 + pSOS + ppERK
-R49: pSOS ->(compartment_0*reaction_48_k1) SOS
-R50: EGF_pEGFR_2 + PI3K ->(compartment_0*reaction_49_k1) EGF_pEGFR_2_PI3K
-R50_rev: EGF_pEGFR_2_PI3K ->(compartment_0*reaction_49_k2) EGF_pEGFR_2 + PI3K
-R51: EGF_pEGFR_2_PI3K ->(compartment_0*reaction_50_k1) EGF_pEGFF_2 + pPI3K
-R52: TP4 + pPI3K ->(compartment_0*reaction_51_k1) pPI3K_TP4
-R52_rev: pPI3K_TP4 ->(compartment_0*reaction_51_k2) TP4 + pPI3K
-R53: pPI3K_TP4 ->(compartment_0*reaction_52_k1) PI3K + TP4
-R54: PIP2 + pPI3K ->(compartment_0*reaction_53_k1) pPI3K_PIP2
-R54_rev: pPI3K_PIP2 ->(compartment_0*reaction_53_k2) PIP2 + pPI3K
-R55: pPI3K_PIP2 ->(compartment_0*reaction_54_k1) PIP3 + pPI3K
-R56: Akt + PIP3 ->(compartment_0*reaction_55_k1) Akt_PIP3
-R56_rev: Akt_PIP3 ->(compartment_0*reaction_55_k2) Akt + PIP3
-R57: Akt_PIP3 + PDK1 ->(compartment_0*reaction_56_k1) Akt_PIP3_PDK1
-R57_rev: Akt_PIP3_PDK1 ->(compartment_0*reaction_56_k2) Akt_PIP3 + PDK1
-R58: Akt_PIP3_PDK1 ->(compartment_0*reaction_57_k1) PDK1 + pAkt_PIP3
-R59: pAkt_PIP3 ->(compartment_0*reaction_58_k1) PIP3 + pAkt
-R59_rev: PIP3 + pAkt ->(compartment_0*reaction_58_k2) pAkt_PIP3
-R60: Takt + pAkt_PIP3 ->(compartment_0*reaction_59_k1) pAkt_PIP3_Takt
-R60_rev: pAkt_PIP3_Takt ->(compartment_0*reaction_59_k2) Takt + pAkt_PIP3
-R61: pAkt_PIP3_Takt ->(compartment_0*reaction_60_k1) Akt_PIP3 + Takt
-R62: pAkt_PIP3 + pRaf ->(compartment_0*reaction_61_k1) pRaf_pAkt_PIP3
-R62_rev: pRaf_pAkt_PIP3 ->(compartment_0*reaction_61_k2) pAkt_PIP3 + pRaf
-R63: pRaf_pAkt_PIP3 ->(compartment_0*reaction_62_k1) pAkt_PIP3 + ppRaf
-R64: ppRaf ->(compartment_0*reaction_63_k1) pRaf
-R65: PTEN + pROK ->(compartment_0*reaction_64_k1) pROK_PTEN
-R65_rev: pROK_PTEN ->(compartment_0*reaction_64_k2) PTEN + pROK
-R66: pROK_PTEN ->(compartment_0*reaction_65_k1) pPTEN + pROK
-R67: PIP3 + pPTEN ->(compartment_0*reaction_66_k1) pPTEN_PIP3
-R67_rev: pPTEN_PIP3 ->(compartment_0*reaction_66_k2) PIP3 + pPTEN
-R68: pPTEN_PIP3 ->(compartment_0*reaction_67_k1) PIP2 + pPTEN
-R69: pPTEN ->(compartment_0*reaction_68_k1) PTEN
-R70: PIP3 ->(compartment_0*reaction_69_k1) PIP2
-R71: PIP3 + RacGEF ->(compartment_0*reaction_70_k1) PIP3_RacGEF
-R71_rev: PIP3_RacGEF ->(compartment_0*reaction_70_k2) PIP3 + RacGEF
-R72: PIP3_RacGEF + RacGDP ->(compartment_0*reaction_71_k1) PIP3_RacGEF_RacGDP
-R72_rev: PIP3_RacGEF_RacGDP ->(compartment_0*reaction_71_k2) PIP3_RacGEF + RacGDP
-R73: PIP3_RacGEF_RacGDP ->(compartment_0*reaction_72_k1) PIP3_RacGEF + RacGTP
-R74: RacGDP + RhoGDI ->(compartment_0*reaction_73_k1) RhoGDI_RacGDP
-R74_rev: RhoGDI_RacGDP ->(compartment_0*reaction_73_k2) RacGDP + RhoGDI
-R75: RacGTP ->(compartment_0*reaction_74_k1) RacGDP
-R76: RacGAP + RacGTP ->(compartment_0*reaction_75_k1) RacGTP_RacGAP
-R76_rev: RacGTP_RacGAP ->(compartment_0*reaction_75_k2) RacGAP + RacGTP
-R77: RacGTP_RacGAP ->(compartment_0*reaction_76_k1) RacGAP + RacGDP
-R78: RhoGDI + RhoGDP ->(compartment_0*reaction_77_k1) RhoGDP_RhoGDI
-R78_rev: RhoGDP_RhoGDI ->(compartment_0*reaction_77_k2) RhoGDI + RhoGDP
-R79: RhoGDP + pRhoGEF ->(compartment_0*reaction_78_k1) RhoGDP_pRhoGEF
-R79_rev: RhoGDP_pRhoGEF ->(compartment_0*reaction_78_k2) RhoGDP + pRhoGEF
-R80: RhoGDP_pRhoGEF ->(compartment_0*reaction_79_k1) RhoGTP + pRhoGEF
-R81: RhoGTP ->(compartment_0*reaction_80_k1) RhoGDP
-R82: EGF_pEGFR_2 + RasGAP ->(compartment_0*reaction_81_k1) EGF_pEGFR_2_RasGAP
-R82_rev: EGF_pEGFR_2_RasGAP ->(compartment_0*reaction_81_k2) EGF_pEGFR_2 + RasGAP
-R83: EGF_pEGFR_2_RasGAP + RasGTP ->(compartment_0*reaction_82_k1) EGF_pEGFR_2_RasGAP_RasGTP
-R83_rev: EGF_pEGFR_2_RasGAP_RasGTP ->(compartment_0*reaction_82_k2) EGF_pEGFR_2_RasGAP + RasGTP
-R84: EGF_pEGFR_2_RasGAP_RasGTP ->(compartment_0*reaction_83_k1) EGF_pEGFR2_RasGAP + RasGDP
-R85: EGF_pEGFR_2_pShc_Grb2 + SHP2 ->(compartment_0*reaction_84_k1) EGF_pEGFR_2_pShc_Grb2_SHP2
-R85_rev: EGF_pEGFR_2_pShc_Grb2_SHP2 ->(compartment_0*reaction_84_k2) EGF_pEGFR_2_pShc_Grb2 + SHP2
-R86: EGF_pEGFR_2_Grb2 + SHP2 ->(compartment_0*reaction_85_k1) EGF_pEGFR_2_Grb2_SHP2
-R86_rev: EGF_pEGFR_2_Grb2_SHP2 ->(compartment_0*reaction_85_k2) EGF_pEGFR_2_Grb2 + SHP2
-R87: EGF_pEGFR_2_pShc_Grb2_SHP2 ->(compartment_0*reaction_86_k1) EGF_EGFR_2 + Grb2 + SHP2 + pShc
-R88: EGF_pEGFR_2_Grb2_SHP2 ->(compartment_0*reaction_87_k1) EGF_EGFR_2 + Grb2 + SHP2
-R89: EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGEF ->(compartment_0*reaction_88_k1) EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF
-R89_rev: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_88_k2) EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGEF
-R90: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_89_k1) EGF_pEGFR_2_pShc_Grb2_SHP2 + RhoGEF
-R91: EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGAP ->(compartment_0*reaction_90_k1) EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP
-R91_rev: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_90_k2) EGF_pEGFR_2_pShc_Grb2_SHP2 + pRhoGAP
-R92: EGF_pEGFR_2_pShc_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_91_k1) EGF_pEGFR_2_pShc_Grb2_SHP2 + RhoGAP
-R93: EGF_pEGFR_2_Grb2_SHP2 + pRhoGEF ->(compartment_0*reaction_92_k1) EGF_pEGFR_2_Grb2_SHP2_pRhoGEF
-R93_rev: EGF_pEGFR_2_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_92_k2) EGF_pEGFR_2_Grb2_SHP2 + pRhoGEF
-R94: EGF_pEGFR_2_Grb2_SHP2_pRhoGEF ->(compartment_0*reaction_93_k1) EGF_pEGFR_2_Grb2_SHP2 + RhoGEF
-R95: EGF_pEGFR_2_Grb2_SHP2 + pRhoGAP ->(compartment_0*reaction_94_k1) EGF_pEGFR_2_Grb2_SHP2_pRhoGAP
-R95_rev: EGF_pEGFR_2_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_94_k2) EGF_pEGFR_2_Grb2_SHP2 + pRhoGAP
-R96: EGF_pEGFR_2_Grb2_SHP2_pRhoGAP ->(compartment_0*reaction_95_k1) EGF_pEGFR_2_Grb2_SHP2 + RhoGAP
-R97: EGF_pEGFR_2_RasGAP + SHP2 ->(compartment_0*reaction_96_k1) EGF_pEGFR_2_RasGAP_SHP2
-R97_rev: EGF_pEGFR_2_RasGAP_SHP2 ->(compartment_0*reaction_96_k2) EGF_pEGFR_2_RasGAP + SHP2
-R98: EGF_pEGFR_2_RasGAP_SHP2 ->(compartment_0*reaction_97_k1) EGF_EGFR_2 + RasGAP + SHP2
-R99: RhoGEF + pSrc ->(compartment_0*reaction_98_k1) pSrc_RhoGEF
-R99_rev: pSrc_RhoGEF ->(compartment_0*reaction_98_k2) RhoGEF + pSrc
-R100: pSrc_RhoGEF ->(compartment_0*reaction_99_k1) pRhoGEF + pSrc
-R101: pRhoGEF ->(compartment_0*reaction_100_k1) RhoGEF
-R102: RhoGAP + pSrc ->(compartment_0*reaction_101_k1) pSrc_RhoGAP
-R102_rev: pSrc_RhoGAP ->(compartment_0*reaction_101_k2) RhoGAP + pSrc
-R103: pSrc_RhoGAP ->(compartment_0*reaction_102_k1) pRhoGAP + pSrc
-R104: RhoGTP + pRhoGAP ->(compartment_0*reaction_103_k1) pRhoGAP_RhoGTP
-R104_rev: pRhoGAP_RhoGTP ->(compartment_0*reaction_103_k2) RhoGTP + pRhoGAP
-R105: pRhoGAP_RhoGTP ->(compartment_0*reaction_104_k1) RhoGDP + pRhoGAP
-R106: ROK + RhoGTP ->(compartment_0*reaction_105_k1) RhoGTP_ROK
-R106_rev: RhoGTP_ROK ->(compartment_0*reaction_105_k2) ROK + RhoGTP
-R107: RhoGTP_ROK ->(compartment_0*reaction_106_k1) RhoGTP + pROK
-R108: EGF_pEGFR_2 + Src ->(compartment_0*reaction_107_k1) EGF_pEGFR_2_Src
-R108_rev: EGF_pEGFR_2_Src ->(compartment_0*reaction_107_k2) EGF_pEGFR_2 + Src
-R109: EGF_pEGFR_2_Src ->(compartment_0*reaction_108_k1) EGF_pEGFR_2_pSrc
-R110: EGF_pEGFR_2 ->(compartment_0*reaction_109_k1) EGF_pEGRF_2 + pSrc
-R110_rev: EGF_pEGRF_2 + pSrc ->(compartment_0*reaction_109_k2) EGF_pEGFR_2
-R111: TP7 + pSrc ->(compartment_0*reaction_110_k1) pSrc_TP7
-R111_rev: pSrc_TP7 ->(compartment_0*reaction_110_k2) TP7 + pSrc
-R112: pSrc_TP7 ->(compartment_0*reaction_111_k1) Src_TP7
-R113: Src_TP7 ->(compartment_0*reaction_112_k1) Src + TP7
-R113_rev: Src + TP7 ->(compartment_0*reaction_112_k2) Src_TP7
-R114: Cbl_CIN85 + EGF_pEGFR_2_pShc_Grb2_SOS ->(compartment_0*reaction_113_k1) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85
-R114_rev: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 ->(compartment_0*reaction_113_k2) Cbl_CIN85 + EGF_pEGFR_2_pShc_Grb2_SOS
-R115: Cbl_CIN85 + EGF_pEGFR_2_Grb2_SOS ->(compartment_0*reaction_114_k1) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85
-R115_rev: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 ->(compartment_0*reaction_114_k2) Cbl_CIN85 + EGF_pEGFR_2_Grb2_SOS
-R116: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 + EPn ->(compartment_0*reaction_115_k1) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn
-R116_rev: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_115_k2) EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85 + EPn
-R117: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 + EPn ->(compartment_0*reaction_116_k1) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn
-R117_rev: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_116_k2) EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85 + EPn
-R118: EGF_pEGFR_2_pShc_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_117_k1) Cbl_CIN85 + EGF_pEGFR_2_degrade + EPn + pShc_Grb2_SOS
-R119: EGF_pEGFR_2_Grb2_SOS_Cbl_CIN85_EPn ->(compartment_0*reaction_118_k1) Cbl_CIN85 + EGF_pEGFR_2_degrade + EPn + Grb2_SOS
-R120: Pro_EGFR ->(compartment_0*reaction_119_k1) EGFR
-R121: EPn + pROK ->(compartment_0*reaction_120_k1) pROK_EPn
-R121_rev: pROK_EPn ->(compartment_0*reaction_120_k2) EPn + pROK
-R122: pROK_EPn ->(compartment_0*reaction_121_k1) pEPn + pROK
-R123: MPase + pEPn ->(compartment_0*reaction_122_k1) pEPn_MPase
-R123_rev: pEPn_MPase ->(compartment_0*reaction_122_k2) MPase + pEPn
-R124: pEPn_Mpase ->(compartment_0*reaction_123_k1) EPn + MPase
-R125: RasGTP + RhoGEF ->(compartment_0*reaction_124_k1) Ras_GTP_RhoGEF
-R125_rev: Ras_GTP_RhoGEF ->(compartment_0*reaction_124_k2) RasGTP + RhoGEF
-R126: Ras_GTP_RhoGEF ->(compartment_0*reaction_125_k1) RasGTP + pRhoGEF
-R127: pROK + ppERK ->(compartment_0*reaction_126_k1) ppERK_pROK
-R127_rev: ppERK_pROK ->(compartment_0*reaction_126_k2) pROK + ppERK
-R128: ppERK_pROK ->(compartment_0*reaction_127_k1) ROK + ppERK
-R129: Grb2 + MEKK1abcdef ->(compartment_0*reaction_128_k1) Grb2_MEKK1abcdef
-R129_rev: Grb2_MEKK1abcdef ->(compartment_0*reaction_128_k2) Grb2 + MEKK1abcdef
-R130: EGF_pEGFR_2_pShc + Grb2_MEKK1abcdef ->(compartment_0*reaction_129_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef
-R130_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef ->(compartment_0*reaction_129_k2) EGF_pEGFR_2_pShc + Grb2_MEKK1abcdef
-R131: EGF_pEGFR_2 + Grb2_MEKK1abcdef ->(compartment_0*reaction_130_k1) EGF_pEGFR_2_Grb2_MEKK1abcdef
-R131_rev: EGF_pEGFR_2_Grb2_MEKK1abcdef ->(compartment_0*reaction_130_k2) EGF_pEGFR_2 + Grb2_MEKK1abcdef
-R132: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + MEK ->(compartment_0*reaction_131_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef
-R132_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_131_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + MEK
-R133: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_132_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdef
-R134: EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdef ->(compartment_0*reaction_133_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef
-R135: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef ->(compartment_0*reaction_134_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + ppMEK
-R135_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + ppMEK ->(compartment_0*reaction_134_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef
-R136: EGF_pEGFR_2_Grb2_MEKK1abcdef + MEK ->(compartment_0*reaction_135_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdef
-R136_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_135_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + MEK
-R137: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef ->(compartment_0*reaction_136_k1) EGF_pEGFR_2_Grb2_MEKK1abpMEKcdef
-R138: EGF_pEGFR_2_Grb2_MEKK1abpMEKcdef ->(compartment_0*reaction_137_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef
-R139: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef ->(compartment_0*reaction_138_k1) EGF_pEGFR_2_Grb2_MEKK1abcdef + ppMEK
-R139_rev: EGF_pEGFR_2_Grb2_MEKK1abcdef + ppMEK ->(compartment_0*reaction_138_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef
-R140: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + Raf ->(compartment_0*reaction_139_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef
-R140_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef ->(compartment_0*reaction_139_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + Raf
-R141: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + MEK ->(compartment_0*reaction_140_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef
-R141_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_140_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + MEK
-R142: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_141_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbpMEKcdef
-R143: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbpMEKcdef ->(compartment_0*reaction_142_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef
-R144: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef ->(compartment_0*reaction_143_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + ppMEK
-R144_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + ppMEK ->(compartment_0*reaction_143_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef
-R145: EGF_pEGFR_2_Grb2_MEKK1abcdef + Raf ->(compartment_0*reaction_144_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef
-R145_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef ->(compartment_0*reaction_144_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + Raf
-R146: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + MEK ->(compartment_0*reaction_145_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef
-R146_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_145_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + MEK
-R147: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef ->(compartment_0*reaction_146_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbpMEKcdef
-R148: EGF_pEGFR_2_Grb2_MEKK1aRafbpMEKcdef ->(compartment_0*reaction_147_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef
-R149: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef ->(compartment_0*reaction_148_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + ppMEK
-R149_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + ppMEK ->(compartment_0*reaction_148_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef
-R150: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + RasGTP ->(compartment_0*reaction_149_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP
-R150_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP ->(compartment_0*reaction_149_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + RasGTP
-R151: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + MEK ->(compartment_0*reaction_150_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP
-R151_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_150_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + MEK
-R152: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_151_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdefRasGTP
-R153: EGF_pEGFR_2_pShc_Grb2_MEKK1abpMEKcdefRasGTP ->(compartment_0*reaction_152_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP
-R154: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP ->(compartment_0*reaction_153_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + ppMEK
-R154_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdefRasGTP + ppMEK ->(compartment_0*reaction_153_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP
-R155: EGF_pEGFR_2_Grb2_MEKK1abcdef + RasGTP ->(compartment_0*reaction_154_k1) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP
-R155_rev: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP ->(compartment_0*reaction_154_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + RasGTP
-R156: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + MEK ->(compartment_0*reaction_155_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP
-R156_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_155_k2) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + MEK
-R157: EGF_pEGFR_2_Grb2_MEKK1abMEKcdefRasGTP ->(compartment_0*reaction_156_k1) EGF_pEGFR_2_Grb2_MEKK1abpMEKcdefRasGTP
-R158: EGF_pEGFR_2_Grb2_MEKK1abpMEKcdefRasGTP ->(compartment_0*reaction_157_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP
-R159: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP ->(compartment_0*reaction_158_k1) EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + ppMEK
-R159_rev: EGF_pEGFR_2_Grb2_MEKK1abcdefRasGTP + ppMEK ->(compartment_0*reaction_158_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP
-R160: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ERK ->(compartment_0*reaction_159_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP
-R160_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_159_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ERK
-R161: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_160_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdefRasGTP
-R162: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdefRasGTP ->(compartment_0*reaction_161_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdefRasGTP
-R163: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdefRasGTP ->(compartment_0*reaction_162_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdefRasGTP + ppERK
-R164: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ERK ->(compartment_0*reaction_163_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP
-R164_rev: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_163_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ERK
-R165: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdefRasGTP ->(compartment_0*reaction_164_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdefRasGTP
-R166: EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdefRasGTP ->(compartment_0*reaction_165_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdefRasGTP
-R167: EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdefRasGTP ->(compartment_0*reaction_166_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdefRasGTP + ppERK
-R168: EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + pRaf ->(compartment_0*reaction_167_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef
-R168_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef ->(compartment_0*reaction_167_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abcdef + pRaf
-R169: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + MEK ->(compartment_0*reaction_168_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef
-R169_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_168_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + MEK
-R170: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_169_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbpMEKcdef
-R171: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbpMEKcdef ->(compartment_0*reaction_170_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef
-R172: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef ->(compartment_0*reaction_171_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + ppMEK
-R172_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbcdef + ppMEK ->(compartment_0*reaction_171_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1apRafbppMEKcdef
-R173: EGF_pEGFR_2_Grb2_MEKK1abcdef + pRaf ->(compartment_0*reaction_172_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef
-R173_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef ->(compartment_0*reaction_172_k2) EGF_pEGFR_2_Grb2_MEKK1abcdef + pRaf
-R174: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + MEK ->(compartment_0*reaction_173_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef
-R174_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_173_k2) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + MEK
-R175: EGF_pEGFR_2_Grb2_MEKK1apRafbMEKcdef ->(compartment_0*reaction_174_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbpMEKcdef
-R176: EGF_pEGFR_2_Grb2_MEKK1apRafbpMEKcdef ->(compartment_0*reaction_175_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef
-R177: EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef ->(compartment_0*reaction_176_k1) EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + ppMEK
-R177_rev: EGF_pEGFR_2_Grb2_MEKK1apRafbcdef + ppMEK ->(compartment_0*reaction_176_k2) EGF_pEGFR_2_Grb2_MEKK1apRafbppMEKcdef
-R178: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef + RhoGTP ->(compartment_0*reaction_177_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdRhoGTPef
-R178_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdRhoGTPef ->(compartment_0*reaction_177_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abMEKcdef + RhoGTP
-R179: EGF_pEGFR_2_Grb2_MEKK1abMEKcdef + RhoGTP ->(compartment_0*reaction_178_k1) EGF_pEGFR_2_Grb2_MEKK1abMEKcdRhoGTPef
-R179_rev: EGF_pEGFR_2_Grb2_MEKK1abMEKcdRhoGTPef ->(compartment_0*reaction_178_k2) EGF_pEGFR_2_Grb2_MEKK1abMEKcdef + RhoGTP
-R180: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef + RhoGTP ->(compartment_0*reaction_179_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdRhoGTPef
-R180_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdRhoGTPef ->(compartment_0*reaction_179_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbMEKcdef + RhoGTP
-R181: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef + RhoGTP ->(compartment_0*reaction_180_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdRhoGTPef
-R181_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdRhoGTPef ->(compartment_0*reaction_180_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbMEKcdef + RhoGTP
-R182: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ERK ->(compartment_0*reaction_181_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef
-R182_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_181_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ERK
-R183: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_182_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdef
-R184: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcpERKdef ->(compartment_0*reaction_183_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdef
-R185: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcppERKdef ->(compartment_0*reaction_184_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdef + ppERK
-R186: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ERK ->(compartment_0*reaction_185_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef
-R186_rev: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_185_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ERK
-R187: EGF_pEGFR_2_Grb2_MEKK1abppMEKcERKdef ->(compartment_0*reaction_186_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdef
-R188: EGF_pEGFR_2_Grb2_MEKK1abppMEKcpERKdef ->(compartment_0*reaction_187_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdef
-R189: EGF_pEGFR_2_Grb2_MEKK1abppMEKcppERKdef ->(compartment_0*reaction_188_k1) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdef + ppERK
-R190: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ERK ->(compartment_0*reaction_189_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef
-R190_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_189_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ERK
-R191: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_190_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcpERKdef
-R192: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcpERKdef ->(compartment_0*reaction_191_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcppERKdef
-R193: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcppERKdef ->(compartment_0*reaction_192_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + ppERK
-R194: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ERK ->(compartment_0*reaction_193_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef
-R194_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_193_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ERK
-R195: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcERKdef ->(compartment_0*reaction_194_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcpERKdef
-R196: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcpERKdef ->(compartment_0*reaction_195_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcppERKdef
-R197: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcppERKdef ->(compartment_0*reaction_196_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + ppERK
-R198: EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_197_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf
-R198_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_197_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP
-R199: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_198_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbppMEKcdef + RhoGDP + pRhoGAP
-R200: EGF_pEGFR_2_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_199_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf
-R200_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_199_k2) EGF_pEGFR_2_Grb2_MEKK1abppMEKcdRhoGTPef + pRhoGAP
-R201: EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdRhoGTPepRhoGAPf ->(compartment_0*reaction_200_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbppMEKcdef + RhoGDP + pRhoGAP
-R202: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_201_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf
-R202_rev: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_201_k2) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP
-R203: EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_202_k1) EGF_pEGFR_2_pShc_Grb2_MEKK1aRafbcdef + RhoGDP + pRhoGAP
-R204: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP ->(compartment_0*reaction_203_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf
-R204_rev: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_203_k2) EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPef + pRhoGAP
-R205: EGF_pEGFR_2_Grb2_MEKK1aRafbcdRhoGTPepRhoGAPf ->(compartment_0*reaction_204_k1) EGF_pEGFR_2_Grb2_MEKK1aRafbcdef + RhoGDP + pRhoGAP
+reaction_0: species_0 + species_1 ->(compartment_0*reaction_0_k1) species_2
+reaction_0_rev: species_2 ->(compartment_0*reaction_0_k2) species_0 + species_1
+reaction_1: 2species_2 ->(compartment_0*reaction_1_k1) species_3
+reaction_1_rev: species_3 ->(compartment_0*reaction_1_k2) 2species_2
+reaction_2: species_3 ->(compartment_0*reaction_2_k1) species_4
+reaction_3: species_4 + species_5 ->(compartment_0*reaction_3_k1) species_6
+reaction_3_rev: species_6 ->(compartment_0*reaction_3_k2) species_4 + species_5
+reaction_4: species_6 ->(compartment_0*reaction_4_k1) species_3 + species_5
+reaction_5: species_4 + species_7 ->(compartment_0*reaction_5_k1) species_8
+reaction_5_rev: species_8 ->(compartment_0*reaction_5_k2) species_4 + species_7
+reaction_6: species_8 ->(compartment_0*reaction_6_k1) species_9
+reaction_7: species_9 ->(compartment_0*reaction_7_k1) species_10 + species_4
+reaction_7_rev: species_10 + species_4 ->(compartment_0*reaction_7_k2) species_9
+reaction_8: species_10 + species_5 ->(compartment_0*reaction_8_k1) species_11
+reaction_8_rev: species_11 ->(compartment_0*reaction_8_k2) species_10 + species_5
+reaction_9: species_11 ->(compartment_0*reaction_9_k1) species_5 + species_7
+reaction_10: species_12 + species_9 ->(compartment_0*reaction_10_k1) species_13
+reaction_10_rev: species_13 ->(compartment_0*reaction_10_k2) species_12 + species_9
+reaction_11: species_13 + species_14 ->(compartment_0*reaction_11_k1) species_15
+reaction_11_rev: species_15 ->(compartment_0*reaction_11_k2) species_13 + species_14
+reaction_12: species_12 + species_14 ->(compartment_0*reaction_12_k1) species_16
+reaction_12_rev: species_16 ->(compartment_0*reaction_12_k2) species_12 + species_14
+reaction_13: species_16 + species_9 ->(compartment_0*reaction_13_k1) species_15
+reaction_13_rev: species_15 ->(compartment_0*reaction_13_k2) species_16 + species_9
+reaction_14: species_15 + species_17 ->(compartment_0*reaction_14_k1) species_18
+reaction_14_rev: species_18 ->(compartment_0*reaction_14_k2) species_15 + species_17
+reaction_15: species_18 ->(compartment_0*reaction_15_k1) species_15 + species_19
+reaction_16: species_12 + species_4 ->(compartment_0*reaction_16_k1) species_20
+reaction_16_rev: species_20 ->(compartment_0*reaction_16_k2) species_12 + species_4
+reaction_17: species_14 + species_20 ->(compartment_0*reaction_17_k1) species_21
+reaction_17_rev: species_21 ->(compartment_0*reaction_17_k2) species_14 + species_20
+reaction_18: species_16 + species_4 ->(compartment_0*reaction_18_k1) species_21
+reaction_18_rev: species_21 ->(compartment_0*reaction_18_k2) species_16 + species_4
+reaction_19: species_17 + species_21 ->(compartment_0*reaction_19_k1) species_22
+reaction_19_rev: species_22 ->(compartment_0*reaction_19_k2) species_17 + species_21
+reaction_20: species_22 ->(compartment_0*reaction_20_k1) species_19 + species_21
+reaction_21: species_19 + species_23 ->(compartment_0*reaction_21_k1) species_24
+reaction_21_rev: species_24 ->(compartment_0*reaction_21_k2) species_19 + species_23
+reaction_22: species_24 ->(compartment_0*reaction_22_k1) species_19 + species_25
+reaction_23: species_25 + species_26 ->(compartment_0*reaction_23_k1) species_27
+reaction_23_rev: species_27 ->(compartment_0*reaction_23_k2) species_25 + species_26
+reaction_24: species_27 ->(compartment_0*reaction_24_k1) species_25 + species_28
+reaction_25: species_25 + species_28 ->(compartment_0*reaction_25_k1) species_29
+reaction_25_rev: species_29 ->(compartment_0*reaction_25_k2) species_25 + species_28
+reaction_26: species_29 ->(compartment_0*reaction_26_k1) species_25 + species_30
+reaction_27: species_30 + species_31 ->(compartment_0*reaction_27_k1) species_32
+reaction_27_rev: species_32 ->(compartment_0*reaction_27_k2) species_30 + species_31
+reaction_28: species_32 ->(compartment_0*reaction_28_k1) species_30 + species_33
+reaction_29: species_30 + species_33 ->(compartment_0*reaction_29_k1) species_34
+reaction_29_rev: species_34 ->(compartment_0*reaction_29_k2) species_30 + species_33
+reaction_30: species_34 ->(compartment_0*reaction_30_k1) species_30 + species_35
+reaction_31: species_25 + species_36 ->(compartment_0*reaction_31_k1) species_37
+reaction_31_rev: species_37 ->(compartment_0*reaction_31_k2) species_25 + species_36
+reaction_32: species_37 ->(compartment_0*reaction_32_k1) species_23 + species_36
+reaction_33: species_30 + species_38 ->(compartment_0*reaction_33_k1) species_39
+reaction_33_rev: species_39 ->(compartment_0*reaction_33_k2) species_30 + species_38
+reaction_34: species_39 ->(compartment_0*reaction_34_k1) species_28 + species_38
+reaction_35: species_28 + species_38 ->(compartment_0*reaction_35_k1) species_40
+reaction_35_rev: species_40 ->(compartment_0*reaction_35_k2) species_28 + species_38
+reaction_36: species_40 ->(compartment_0*reaction_36_k1) species_26 + species_38
+reaction_37: species_35 + species_41 ->(compartment_0*reaction_37_k1) species_42
+reaction_37_rev: species_42 ->(compartment_0*reaction_37_k2) species_35 + species_41
+reaction_38: species_42 ->(compartment_0*reaction_38_k1) species_33 + species_41
+reaction_39: species_33 + species_41 ->(compartment_0*reaction_39_k1) species_43
+reaction_39_rev: species_43 ->(compartment_0*reaction_39_k2) species_33 + species_41
+reaction_40: species_43 ->(compartment_0*reaction_40_k1) species_31 + species_41
+reaction_41: species_19 ->(compartment_0*reaction_41_k1) species_17
+reaction_42: species_19 + species_44 ->(compartment_0*reaction_42_k1) species_45
+reaction_42_rev: species_45 ->(compartment_0*reaction_42_k2) species_19 + species_44
+reaction_43: species_45 ->(compartment_0*reaction_43_k1) species_17 + species_44
+reaction_44: species_15 + species_35 ->(compartment_0*reaction_44_k1) species_46
+reaction_44_rev: species_46 ->(compartment_0*reaction_44_k2) species_15 + species_35
+reaction_45: species_46 ->(compartment_0*reaction_45_k1) species_10 + species_12 + species_35 + species_4 + species_47
+reaction_46: species_21 + species_35 ->(compartment_0*reaction_46_k1) species_48
+reaction_46_rev: species_48 ->(compartment_0*reaction_46_k2) species_21 + species_35
+reaction_47: species_48 ->(compartment_0*reaction_47_k1) species_12 + species_35 + species_4 + species_47
+reaction_48: species_47 ->(compartment_0*reaction_48_k1) species_14
+reaction_49: species_4 + species_49 ->(compartment_0*reaction_49_k1) species_50
+reaction_49_rev: species_50 ->(compartment_0*reaction_49_k2) species_4 + species_49
+reaction_50: species_50 ->(compartment_0*reaction_50_k1) species_51 + species_52
+reaction_51: species_52 + species_53 ->(compartment_0*reaction_51_k1) species_54
+reaction_51_rev: species_54 ->(compartment_0*reaction_51_k2) species_52 + species_53
+reaction_52: species_54 ->(compartment_0*reaction_52_k1) species_49 + species_53
+reaction_53: species_52 + species_55 ->(compartment_0*reaction_53_k1) species_56
+reaction_53_rev: species_56 ->(compartment_0*reaction_53_k2) species_52 + species_55
+reaction_54: species_56 ->(compartment_0*reaction_54_k1) species_52 + species_57
+reaction_55: species_57 + species_58 ->(compartment_0*reaction_55_k1) species_59
+reaction_55_rev: species_59 ->(compartment_0*reaction_55_k2) species_57 + species_58
+reaction_56: species_59 + species_60 ->(compartment_0*reaction_56_k1) species_61
+reaction_56_rev: species_61 ->(compartment_0*reaction_56_k2) species_59 + species_60
+reaction_57: species_61 ->(compartment_0*reaction_57_k1) species_60 + species_62
+reaction_58: species_62 ->(compartment_0*reaction_58_k1) species_57 + species_63
+reaction_58_rev: species_57 + species_63 ->(compartment_0*reaction_58_k2) species_62
+reaction_59: species_62 + species_64 ->(compartment_0*reaction_59_k1) species_65
+reaction_59_rev: species_65 ->(compartment_0*reaction_59_k2) species_62 + species_64
+reaction_60: species_65 ->(compartment_0*reaction_60_k1) species_59 + species_64
+reaction_61: species_25 + species_62 ->(compartment_0*reaction_61_k1) species_66
+reaction_61_rev: species_66 ->(compartment_0*reaction_61_k2) species_25 + species_62
+reaction_62: species_66 ->(compartment_0*reaction_62_k1) species_62 + species_67
+reaction_63: species_67 ->(compartment_0*reaction_63_k1) species_25
+reaction_64: species_68 + species_69 ->(compartment_0*reaction_64_k1) species_70
+reaction_64_rev: species_70 ->(compartment_0*reaction_64_k2) species_68 + species_69
+reaction_65: species_70 ->(compartment_0*reaction_65_k1) species_68 + species_71
+reaction_66: species_57 + species_71 ->(compartment_0*reaction_66_k1) species_72
+reaction_66_rev: species_72 ->(compartment_0*reaction_66_k2) species_57 + species_71
+reaction_67: species_72 ->(compartment_0*reaction_67_k1) species_55 + species_71
+reaction_68: species_71 ->(compartment_0*reaction_68_k1) species_69
+reaction_69: species_57 ->(compartment_0*reaction_69_k1) species_55
+reaction_70: species_57 + species_73 ->(compartment_0*reaction_70_k1) species_74
+reaction_70_rev: species_74 ->(compartment_0*reaction_70_k2) species_57 + species_73
+reaction_71: species_74 + species_75 ->(compartment_0*reaction_71_k1) species_76
+reaction_71_rev: species_76 ->(compartment_0*reaction_71_k2) species_74 + species_75
+reaction_72: species_76 ->(compartment_0*reaction_72_k1) species_74 + species_77
+reaction_73: species_75 + species_78 ->(compartment_0*reaction_73_k1) species_79
+reaction_73_rev: species_79 ->(compartment_0*reaction_73_k2) species_75 + species_78
+reaction_74: species_77 ->(compartment_0*reaction_74_k1) species_75
+reaction_75: species_77 + species_80 ->(compartment_0*reaction_75_k1) species_81
+reaction_75_rev: species_81 ->(compartment_0*reaction_75_k2) species_77 + species_80
+reaction_76: species_81 ->(compartment_0*reaction_76_k1) species_75 + species_80
+reaction_77: species_78 + species_82 ->(compartment_0*reaction_77_k1) species_83
+reaction_77_rev: species_83 ->(compartment_0*reaction_77_k2) species_78 + species_82
+reaction_78: species_82 + species_84 ->(compartment_0*reaction_78_k1) species_85
+reaction_78_rev: species_85 ->(compartment_0*reaction_78_k2) species_82 + species_84
+reaction_79: species_85 ->(compartment_0*reaction_79_k1) species_84 + species_86
+reaction_80: species_86 ->(compartment_0*reaction_80_k1) species_82
+reaction_81: species_4 + species_44 ->(compartment_0*reaction_81_k1) species_87
+reaction_81_rev: species_87 ->(compartment_0*reaction_81_k2) species_4 + species_44
+reaction_82: species_19 + species_87 ->(compartment_0*reaction_82_k1) species_88
+reaction_82_rev: species_88 ->(compartment_0*reaction_82_k2) species_19 + species_87
+reaction_83: species_88 ->(compartment_0*reaction_83_k1) species_17 + species_89
+reaction_84: species_13 + species_90 ->(compartment_0*reaction_84_k1) species_91
+reaction_84_rev: species_91 ->(compartment_0*reaction_84_k2) species_13 + species_90
+reaction_85: species_20 + species_90 ->(compartment_0*reaction_85_k1) species_92
+reaction_85_rev: species_92 ->(compartment_0*reaction_85_k2) species_20 + species_90
+reaction_86: species_91 ->(compartment_0*reaction_86_k1) species_10 + species_12 + species_3 + species_90
+reaction_87: species_92 ->(compartment_0*reaction_87_k1) species_12 + species_3 + species_90
+reaction_88: species_84 + species_91 ->(compartment_0*reaction_88_k1) species_93
+reaction_88_rev: species_93 ->(compartment_0*reaction_88_k2) species_84 + species_91
+reaction_89: species_93 ->(compartment_0*reaction_89_k1) species_91 + species_94
+reaction_90: species_91 + species_95 ->(compartment_0*reaction_90_k1) species_96
+reaction_90_rev: species_96 ->(compartment_0*reaction_90_k2) species_91 + species_95
+reaction_91: species_96 ->(compartment_0*reaction_91_k1) species_91 + species_97
+reaction_92: species_84 + species_92 ->(compartment_0*reaction_92_k1) species_98
+reaction_92_rev: species_98 ->(compartment_0*reaction_92_k2) species_84 + species_92
+reaction_93: species_98 ->(compartment_0*reaction_93_k1) species_92 + species_94
+reaction_94: species_92 + species_95 ->(compartment_0*reaction_94_k1) species_99
+reaction_94_rev: species_99 ->(compartment_0*reaction_94_k2) species_92 + species_95
+reaction_95: species_99 ->(compartment_0*reaction_95_k1) species_92 + species_97
+reaction_96: species_87 + species_90 ->(compartment_0*reaction_96_k1) species_100
+reaction_96_rev: species_100 ->(compartment_0*reaction_96_k2) species_87 + species_90
+reaction_97: species_100 ->(compartment_0*reaction_97_k1) species_3 + species_44 + species_90
+reaction_98: species_101 + species_94 ->(compartment_0*reaction_98_k1) species_102
+reaction_98_rev: species_102 ->(compartment_0*reaction_98_k2) species_101 + species_94
+reaction_99: species_102 ->(compartment_0*reaction_99_k1) species_101 + species_84
+reaction_100: species_84 ->(compartment_0*reaction_100_k1) species_94
+reaction_101: species_101 + species_97 ->(compartment_0*reaction_101_k1) species_103
+reaction_101_rev: species_103 ->(compartment_0*reaction_101_k2) species_101 + species_97
+reaction_102: species_103 ->(compartment_0*reaction_102_k1) species_101 + species_95
+reaction_103: species_86 + species_95 ->(compartment_0*reaction_103_k1) species_104
+reaction_103_rev: species_104 ->(compartment_0*reaction_103_k2) species_86 + species_95
+reaction_104: species_104 ->(compartment_0*reaction_104_k1) species_82 + species_95
+reaction_105: species_105 + species_86 ->(compartment_0*reaction_105_k1) species_106
+reaction_105_rev: species_106 ->(compartment_0*reaction_105_k2) species_105 + species_86
+reaction_106: species_106 ->(compartment_0*reaction_106_k1) species_68 + species_86
+reaction_107: species_107 + species_4 ->(compartment_0*reaction_107_k1) species_108
+reaction_107_rev: species_108 ->(compartment_0*reaction_107_k2) species_107 + species_4
+reaction_108: species_108 ->(compartment_0*reaction_108_k1) species_109
+reaction_109: species_4 ->(compartment_0*reaction_109_k1) species_101 + species_110
+reaction_109_rev: species_101 + species_110 ->(compartment_0*reaction_109_k2) species_4
+reaction_110: species_101 + species_111 ->(compartment_0*reaction_110_k1) species_112
+reaction_110_rev: species_112 ->(compartment_0*reaction_110_k2) species_101 + species_111
+reaction_111: species_112 ->(compartment_0*reaction_111_k1) species_113
+reaction_112: species_113 ->(compartment_0*reaction_112_k1) species_107 + species_111
+reaction_112_rev: species_107 + species_111 ->(compartment_0*reaction_112_k2) species_113
+reaction_113: species_114 + species_15 ->(compartment_0*reaction_113_k1) species_115
+reaction_113_rev: species_115 ->(compartment_0*reaction_113_k2) species_114 + species_15
+reaction_114: species_114 + species_21 ->(compartment_0*reaction_114_k1) species_116
+reaction_114_rev: species_116 ->(compartment_0*reaction_114_k2) species_114 + species_21
+reaction_115: species_115 + species_117 ->(compartment_0*reaction_115_k1) species_118
+reaction_115_rev: species_118 ->(compartment_0*reaction_115_k2) species_115 + species_117
+reaction_116: species_116 + species_117 ->(compartment_0*reaction_116_k1) species_119
+reaction_116_rev: species_119 ->(compartment_0*reaction_116_k2) species_116 + species_117
+reaction_117: species_118 ->(compartment_0*reaction_117_k1) species_114 + species_117 + species_120 + species_121
+reaction_118: species_119 ->(compartment_0*reaction_118_k1) species_114 + species_117 + species_120 + species_16
+reaction_119: species_122 ->(compartment_0*reaction_119_k1) species_1
+reaction_120: species_117 + species_68 ->(compartment_0*reaction_120_k1) species_123
+reaction_120_rev: species_123 ->(compartment_0*reaction_120_k2) species_117 + species_68
+reaction_121: species_123 ->(compartment_0*reaction_121_k1) species_124 + species_68
+reaction_122: species_124 + species_125 ->(compartment_0*reaction_122_k1) species_126
+reaction_122_rev: species_126 ->(compartment_0*reaction_122_k2) species_124 + species_125
+reaction_123: species_127 ->(compartment_0*reaction_123_k1) species_117 + species_125
+reaction_124: species_19 + species_94 ->(compartment_0*reaction_124_k1) species_128
+reaction_124_rev: species_128 ->(compartment_0*reaction_124_k2) species_19 + species_94
+reaction_125: species_128 ->(compartment_0*reaction_125_k1) species_19 + species_84
+reaction_126: species_35 + species_68 ->(compartment_0*reaction_126_k1) species_129
+reaction_126_rev: species_129 ->(compartment_0*reaction_126_k2) species_35 + species_68
+reaction_127: species_129 ->(compartment_0*reaction_127_k1) species_105 + species_35
+reaction_128: species_12 + species_130 ->(compartment_0*reaction_128_k1) species_131
+reaction_128_rev: species_131 ->(compartment_0*reaction_128_k2) species_12 + species_130
+reaction_129: species_131 + species_9 ->(compartment_0*reaction_129_k1) species_132
+reaction_129_rev: species_132 ->(compartment_0*reaction_129_k2) species_131 + species_9
+reaction_130: species_131 + species_4 ->(compartment_0*reaction_130_k1) species_133
+reaction_130_rev: species_133 ->(compartment_0*reaction_130_k2) species_131 + species_4
+reaction_131: species_132 + species_26 ->(compartment_0*reaction_131_k1) species_134
+reaction_131_rev: species_134 ->(compartment_0*reaction_131_k2) species_132 + species_26
+reaction_132: species_134 ->(compartment_0*reaction_132_k1) species_135
+reaction_133: species_135 ->(compartment_0*reaction_133_k1) species_136
+reaction_134: species_136 ->(compartment_0*reaction_134_k1) species_132 + species_30
+reaction_134_rev: species_132 + species_30 ->(compartment_0*reaction_134_k2) species_136
+reaction_135: species_133 + species_26 ->(compartment_0*reaction_135_k1) species_137
+reaction_135_rev: species_137 ->(compartment_0*reaction_135_k2) species_133 + species_26
+reaction_136: species_137 ->(compartment_0*reaction_136_k1) species_138
+reaction_137: species_138 ->(compartment_0*reaction_137_k1) species_139
+reaction_138: species_139 ->(compartment_0*reaction_138_k1) species_133 + species_30
+reaction_138_rev: species_133 + species_30 ->(compartment_0*reaction_138_k2) species_139
+reaction_139: species_132 + species_23 ->(compartment_0*reaction_139_k1) species_140
+reaction_139_rev: species_140 ->(compartment_0*reaction_139_k2) species_132 + species_23
+reaction_140: species_140 + species_26 ->(compartment_0*reaction_140_k1) species_141
+reaction_140_rev: species_141 ->(compartment_0*reaction_140_k2) species_140 + species_26
+reaction_141: species_141 ->(compartment_0*reaction_141_k1) species_142
+reaction_142: species_142 ->(compartment_0*reaction_142_k1) species_143
+reaction_143: species_143 ->(compartment_0*reaction_143_k1) species_140 + species_30
+reaction_143_rev: species_140 + species_30 ->(compartment_0*reaction_143_k2) species_143
+reaction_144: species_133 + species_23 ->(compartment_0*reaction_144_k1) species_144
+reaction_144_rev: species_144 ->(compartment_0*reaction_144_k2) species_133 + species_23
+reaction_145: species_144 + species_26 ->(compartment_0*reaction_145_k1) species_145
+reaction_145_rev: species_145 ->(compartment_0*reaction_145_k2) species_144 + species_26
+reaction_146: species_145 ->(compartment_0*reaction_146_k1) species_146
+reaction_147: species_146 ->(compartment_0*reaction_147_k1) species_147
+reaction_148: species_147 ->(compartment_0*reaction_148_k1) species_144 + species_30
+reaction_148_rev: species_144 + species_30 ->(compartment_0*reaction_148_k2) species_147
+reaction_149: species_132 + species_19 ->(compartment_0*reaction_149_k1) species_148
+reaction_149_rev: species_148 ->(compartment_0*reaction_149_k2) species_132 + species_19
+reaction_150: species_148 + species_26 ->(compartment_0*reaction_150_k1) species_149
+reaction_150_rev: species_149 ->(compartment_0*reaction_150_k2) species_148 + species_26
+reaction_151: species_149 ->(compartment_0*reaction_151_k1) species_150
+reaction_152: species_150 ->(compartment_0*reaction_152_k1) species_151
+reaction_153: species_151 ->(compartment_0*reaction_153_k1) species_148 + species_30
+reaction_153_rev: species_148 + species_30 ->(compartment_0*reaction_153_k2) species_151
+reaction_154: species_133 + species_19 ->(compartment_0*reaction_154_k1) species_152
+reaction_154_rev: species_152 ->(compartment_0*reaction_154_k2) species_133 + species_19
+reaction_155: species_152 + species_26 ->(compartment_0*reaction_155_k1) species_153
+reaction_155_rev: species_153 ->(compartment_0*reaction_155_k2) species_152 + species_26
+reaction_156: species_153 ->(compartment_0*reaction_156_k1) species_154
+reaction_157: species_154 ->(compartment_0*reaction_157_k1) species_155
+reaction_158: species_155 ->(compartment_0*reaction_158_k1) species_152 + species_30
+reaction_158_rev: species_152 + species_30 ->(compartment_0*reaction_158_k2) species_155
+reaction_159: species_151 + species_31 ->(compartment_0*reaction_159_k1) species_156
+reaction_159_rev: species_156 ->(compartment_0*reaction_159_k2) species_151 + species_31
+reaction_160: species_156 ->(compartment_0*reaction_160_k1) species_157
+reaction_161: species_157 ->(compartment_0*reaction_161_k1) species_158
+reaction_162: species_158 ->(compartment_0*reaction_162_k1) species_151 + species_35
+reaction_163: species_155 + species_31 ->(compartment_0*reaction_163_k1) species_159
+reaction_163_rev: species_159 ->(compartment_0*reaction_163_k2) species_155 + species_31
+reaction_164: species_159 ->(compartment_0*reaction_164_k1) species_160
+reaction_165: species_160 ->(compartment_0*reaction_165_k1) species_161
+reaction_166: species_161 ->(compartment_0*reaction_166_k1) species_155 + species_35
+reaction_167: species_132 + species_25 ->(compartment_0*reaction_167_k1) species_162
+reaction_167_rev: species_162 ->(compartment_0*reaction_167_k2) species_132 + species_25
+reaction_168: species_162 + species_26 ->(compartment_0*reaction_168_k1) species_163
+reaction_168_rev: species_163 ->(compartment_0*reaction_168_k2) species_162 + species_26
+reaction_169: species_163 ->(compartment_0*reaction_169_k1) species_164
+reaction_170: species_164 ->(compartment_0*reaction_170_k1) species_165
+reaction_171: species_165 ->(compartment_0*reaction_171_k1) species_162 + species_30
+reaction_171_rev: species_162 + species_30 ->(compartment_0*reaction_171_k2) species_165
+reaction_172: species_133 + species_25 ->(compartment_0*reaction_172_k1) species_166
+reaction_172_rev: species_166 ->(compartment_0*reaction_172_k2) species_133 + species_25
+reaction_173: species_166 + species_26 ->(compartment_0*reaction_173_k1) species_167
+reaction_173_rev: species_167 ->(compartment_0*reaction_173_k2) species_166 + species_26
+reaction_174: species_167 ->(compartment_0*reaction_174_k1) species_168
+reaction_175: species_168 ->(compartment_0*reaction_175_k1) species_169
+reaction_176: species_169 ->(compartment_0*reaction_176_k1) species_166 + species_30
+reaction_176_rev: species_166 + species_30 ->(compartment_0*reaction_176_k2) species_169
+reaction_177: species_134 + species_86 ->(compartment_0*reaction_177_k1) species_170
+reaction_177_rev: species_170 ->(compartment_0*reaction_177_k2) species_134 + species_86
+reaction_178: species_137 + species_86 ->(compartment_0*reaction_178_k1) species_172
+reaction_178_rev: species_172 ->(compartment_0*reaction_178_k2) species_137 + species_86
+reaction_179: species_141 + species_86 ->(compartment_0*reaction_179_k1) species_174
+reaction_179_rev: species_174 ->(compartment_0*reaction_179_k2) species_141 + species_86
+reaction_180: species_145 + species_86 ->(compartment_0*reaction_180_k1) species_176
+reaction_180_rev: species_176 ->(compartment_0*reaction_180_k2) species_145 + species_86
+reaction_181: species_136 + species_31 ->(compartment_0*reaction_181_k1) species_178
+reaction_181_rev: species_178 ->(compartment_0*reaction_181_k2) species_136 + species_31
+reaction_182: species_178 ->(compartment_0*reaction_182_k1) species_179
+reaction_183: species_179 ->(compartment_0*reaction_183_k1) species_180
+reaction_184: species_180 ->(compartment_0*reaction_184_k1) species_136 + species_35
+reaction_185: species_139 + species_31 ->(compartment_0*reaction_185_k1) species_181
+reaction_185_rev: species_181 ->(compartment_0*reaction_185_k2) species_139 + species_31
+reaction_186: species_181 ->(compartment_0*reaction_186_k1) species_182
+reaction_187: species_182 ->(compartment_0*reaction_187_k1) species_183
+reaction_188: species_183 ->(compartment_0*reaction_188_k1) species_139 + species_35
+reaction_189: species_143 + species_31 ->(compartment_0*reaction_189_k1) species_184
+reaction_189_rev: species_184 ->(compartment_0*reaction_189_k2) species_143 + species_31
+reaction_190: species_184 ->(compartment_0*reaction_190_k1) species_185
+reaction_191: species_185 ->(compartment_0*reaction_191_k1) species_186
+reaction_192: species_186 ->(compartment_0*reaction_192_k1) species_143 + species_35
+reaction_193: species_147 + species_31 ->(compartment_0*reaction_193_k1) species_187
+reaction_193_rev: species_187 ->(compartment_0*reaction_193_k2) species_147 + species_31
+reaction_194: species_187 ->(compartment_0*reaction_194_k1) species_188
+reaction_195: species_188 ->(compartment_0*reaction_195_k1) species_189
+reaction_196: species_189 ->(compartment_0*reaction_196_k1) species_147 + species_35
+reaction_197: species_171 + species_95 ->(compartment_0*reaction_197_k1) species_190
+reaction_197_rev: species_190 ->(compartment_0*reaction_197_k2) species_171 + species_95
+reaction_198: species_190 ->(compartment_0*reaction_198_k1) species_143 + species_82 + species_95
+reaction_199: species_173 + species_95 ->(compartment_0*reaction_199_k1) species_191
+reaction_199_rev: species_191 ->(compartment_0*reaction_199_k2) species_173 + species_95
+reaction_200: species_191 ->(compartment_0*reaction_200_k1) species_147 + species_82 + species_95
+reaction_201: species_175 + species_95 ->(compartment_0*reaction_201_k1) species_192
+reaction_201_rev: species_192 ->(compartment_0*reaction_201_k2) species_175 + species_95
+reaction_202: species_192 ->(compartment_0*reaction_202_k1) species_140 + species_82 + species_95
+reaction_203: species_177 + species_95 ->(compartment_0*reaction_203_k1) species_193
+reaction_203_rev: species_193 ->(compartment_0*reaction_203_k2) species_177 + species_95
+reaction_204: species_193 ->(compartment_0*reaction_204_k1) species_144 + species_82 + species_95

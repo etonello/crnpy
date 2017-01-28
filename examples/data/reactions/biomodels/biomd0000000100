@@ -1,10 +1,10 @@
-Calcium_Influx: Extracellular_Calcium ->(extracellular*(beta*v1 + v0)/Extracellular_Calcium) Cytosolic_Calcium
-Calcium_transport_to_internal_store: Cytosolic_Calcium ->(Cytosolic_Calcium*Vm2*cytosol/(Cytosolic_Calcium**2 + K2**2)) Intravesicular_Calcium
-Calcium_transport_to_cytosol: Intravesicular_Calcium ->(Cytosolic_Calcium**m*IP3**4*Intravesicular_Calcium*Vm3*intravesicular/((Cytosolic_Calcium**m + Kz**m)*(IP3**4 + Ka**4)*(Intravesicular_Calcium**2 + Ky**2))) Cytosolic_Calcium
-Calcium_leak: Intravesicular_Calcium ->(Kf*intravesicular) Cytosolic_Calcium
-Calcium_efflux: Cytosolic_Calcium ->(K*cytosol) Extracellular_Calcium
-Agonist_stimulated_production_of_IP3:  ->(V4*beta*cytosol) IP3
-Ca_dependant_IP3_degradation: IP3 ->(Cytosolic_Calcium**n*IP3**p*Vm5*cytosol/(IP3*(Cytosolic_Calcium**n + Kd**n)*(IP3**p + K5**p))) 
-Ca_independent_IP3_degradation: IP3 ->(cytosol*epsilon) 
-Phosphorylase_kinase_activity:  ->(Vpm1*cytosol*(Cytosolic_Calcium**4 + Ka6**4)*(Glycogen_Phosphorylase - 1)*(Cytosolic_Calcium**4*gamma + Cytosolic_Calcium**4 + Ka5**4)/((Cytosolic_Calcium**4 + Ka5**4)*(Cytosolic_Calcium**4*Glycogen_Phosphorylase - Cytosolic_Calcium**4 + Glycogen_Phosphorylase*Ka6**4 - K1*Ka6**4 - Ka6**4))) Glycogen_Phosphorylase
-Phosphatase_activity: Glycogen_Phosphorylase ->(Vpm2*cytosol*(G + Ka2)*(G*alpha + G + Ka1)/((G + Ka1)*(G*Glycogen_Phosphorylase + Glycogen_Phosphorylase*Ka2 + Ka2*Kp2))) 
+vin: EC ->(extracellular*(beta*v1 + v0)/EC) Z
+R2: Z ->(Vm2*Z*cytosol/(K2**2 + Z**2)) Y
+R3: Y ->(A**4*Vm3*Y*Z**m*intravesicular/((A**4 + Ka**4)*(Ky**2 + Y**2)*(Kz**m + Z**m))) Z
+Rkf: Y ->(Kf*intravesicular) Z
+Rkz: Z ->(K*cytosol) EC
+R4:  ->(V4*beta*cytosol) A
+R5: A ->(A**p*Vm5*Z**n*cytosol/(A*(A**p + K5**p)*(Kd**n + Z**n))) 
+R6: A ->(cytosol*epsilon) 
+R7:  ->(Vpm1*cytosol*(-GP + 1)*(Z**4*gamma/(Ka5**4 + Z**4) + 1)/(-GP + K1/(1 + Z**4/Ka6**4) + 1)) GP
+R8: GP ->(Vpm2*cytosol*(G*alpha/(G + Ka1) + 1)/(GP + Kp2/(G/Ka2 + 1))) 

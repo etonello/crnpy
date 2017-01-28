@@ -1,16 +1,16 @@
-Basal_mRNA_Synthesis:  ->(cell*gamma_0) mRNA
-mRNA_Degradation: mRNA ->(cell*(gamma_M + mu)) 
-allolactose_controlled_mRNA_synthesis: PartialmRNA ->(cell/tau_M) mRNA
-allolactose_controlled_partial_mRNA_synthesis:  ->(alpha_M*cell*(K_1*allolactose**2 + exp(2*mu*tau_M))/(K*exp(2*mu*tau_M) + K_1*allolactose**2)) PartialmRNA
-Beta_galactosidase_Degradation: Betagalactosidase ->(cell*(gamma_B + mu)) 
-Beta_galactosidase_synthesis: PartialBetagalactosidase ->(cell/tau_B) Betagalactosidase
-Partial_Beta_galactosidase_synthesis:  ->(alpha_B*cell*mRNA*exp(-mu*tau_B)) PartialBetagalactosidase
-Basal_Allolactose_Degradation: allolactose ->(cell*(gamma_A + mu)) 
-Betagalactosidase_mediated_Allolactose_Degradation: allolactose ->(Betagalactosidase*beta_A*cell/(K_A + allolactose)) 
-Beta_galactosidase_reaction: lactose_internal ->(Betagalactosidase*alpha_A*cell/(K_L + lactose_internal)) allolactose
-lactose_degradation: lactose_internal ->(cell*(gamma_L + mu)) 
-Lactose_transport_out: lactose_internal ->(beta_L1*cell*permease/(K_L1 + lactose_internal)) 
-Lactose_transport_in:  ->(External_Lactose*alpha_L*cell*permease/(External_Lactose + K_Le)) lactose_internal
-permease_degradation: permease ->(cell*(gamma_P + mu)) 
-permease_synthesis: PartialPermease ->(cell/(tau_B + tau_P)) permease
-partial_permease_synthesis:  ->(alpha_P*cell*mRNA*exp(-mu*tau_B)*exp(-mu*tau_P)) PartialPermease
+r_m1:  ->(cell*gamma_0) M
+r_m2: M ->(cell*(gamma_M + mu)) 
+r_m3_i1: I1 ->(cell/tau_M) M
+r_i1:  ->(alpha_M*cell*(A**2*K_1*exp(-2*mu*tau_M) + 1)/(A**2*K_1*exp(-2*mu*tau_M) + K)) I1
+r_b1: B ->(cell*(gamma_B + mu)) 
+r_b2_i2: I2 ->(cell/tau_B) B
+r_i2:  ->(M*alpha_B*cell*exp(-mu*tau_B)) I2
+r_a1: A ->(cell*(gamma_A + mu)) 
+r_a2: A ->(B*beta_A*cell/(A + K_A)) 
+r_a3_l1: L ->(B*alpha_A*cell/(K_L + L)) A
+r_l2: L ->(cell*(gamma_L + mu)) 
+r_l3: L ->(P*beta_L1*cell/(K_L1 + L)) 
+r_l4:  ->(L_e*P*alpha_L*cell/(K_Le + L_e)) L
+r_p1: P ->(cell*(gamma_P + mu)) 
+r_p2_i3: I3 ->(cell/(tau_B + tau_P)) P
+r_i3:  ->(M*alpha_P*cell*exp(-mu*(tau_B + tau_P))) I3

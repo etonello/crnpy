@@ -1,5 +1,5 @@
-transcription: _EmptySet ->(-4*CYTOPLASM*TC_Pcrit**2*TC_Vm*((8*Pt*TC_Keq + 1)**0.5 + 1)**2/(_EmptySet*(2*Pt**2*(8*Pt*TC_Keq + 1)**0.5 - Pt**2*(8*Pt*TC_Keq + 1)**1.0 - Pt**2 - 8*TC_Pcrit**2*(8*Pt*TC_Keq + 1)**0.5 - 4*TC_Pcrit**2*(8*Pt*TC_Keq + 1)**1.0 - 4*TC_Pcrit**2))) M
-translation: _EmptySet ->(CYTOPLASM*M*Vp/_EmptySet) Pt
-mRNA_degradation: M ->(CYTOPLASM*km) _EmptySet
-protein_degradation: Pt ->(CYTOPLASM*kp3) _EmptySet
-Per_phosphorylation_and_degradation: Pt ->(CYTOPLASM*(2*kp1 + kp2*(8*DBT_Keq*Pt + 1)**0.5 + kp2)/((Jp + Pt)*((8*DBT_Keq*Pt + 1)**0.5 + 1))) _EmptySet
+TC: EmptySet ->(CYTOPLASM*TC_Vm/(EmptySet*(0.25*(P*(1.0 - 2.0/((8.0*P*TC_Keq + 1.0)**0.5 + 1.0))/TC_Pcrit)**2.0 + 1.0))) M
+TL: EmptySet ->(CYTOPLASM*M*TL_V/EmptySet) P
+mRNAD: M ->(CYTOPLASM*mRNAD_D) EmptySet
+ProteinD: P ->(CYTOPLASM*ProteinD_D) EmptySet
+DBT: P ->(CYTOPLASM*(2.0*DBT_k1*P/((8.0*DBT_Keq*P + 1.0)**0.5 + 1.0) + DBT_k2*P)/(P*(DBT_J + P))) EmptySet

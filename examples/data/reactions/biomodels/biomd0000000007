@@ -1,34 +1,34 @@
-Cdc13_Cdc2_creation:  ->(k1) Cdc13_Cdc2
-Cig2_Cdc2_creation:  ->(k5) Cig2_Cdc2
-Cdc2_phosphorylation: Cdc13_Cdc2 ->(kwee) Cdc13_P_Cdc2
-Cdc2_phosphorylation_rev: Cdc13_P_Cdc2 ->(k25) Cdc13_Cdc2
-binding_of_Rum1_with_Cdc13_Cdc2: Cdc13_Cdc2 + FreeRum1 ->(k7) Cdc13_Cdc2_Rum1
-binding_of_Rum1_with_Cdc13_Cdc2_rev: Cdc13_Cdc2_Rum1 ->(k7r) Cdc13_Cdc2 + FreeRum1
-binding_of_Rum1_with_Cdc13_P_Cdc2: Cdc13_P_Cdc2 + FreeRum1 ->(k7) Cdc13_P_Cdc2_Rum1
-binding_of_Rum1_with_Cdc13_P_Cdc2_rev: Cdc13_P_Cdc2_Rum1 ->(k7r) Cdc13_P_Cdc2 + FreeRum1
-Rum1_degradation_in_Rum1_Cdc13_Cdc2: Cdc13_Cdc2_Rum1 ->(k4) Cdc13_Cdc2
-Rum1_degradation_in_solution: FreeRum1 ->(k4) 
-Rum1_degradation_in_Rum1_Cdc13_P_Cdc2: Cdc13_P_Cdc2_Rum1 ->(k4) Cdc13_P_Cdc2
-Rum1_degradation_in_Rum1_Cig2_Cdc2: Cig2_Cdc2_Rum1 ->(k4) Cig2_Cdc2
-Cdc13_degradation_in_Cdc13_Cdc2: Cdc13_Cdc2 ->(k2) 
-Cdc13_degradation_in_Cdc13_P_Cdc2: Cdc13_P_Cdc2 ->(k2) 
-Cig2_degradation_in_Cig2_Cdc2: Cig2_Cdc2 ->(k6) 
-Cdc13_degradation_in_Rum1_Cdc13_P_Cdc2: Cdc13_P_Cdc2_Rum1 ->(k2_) FreeRum1
-Cdc13_degradation_in_Rum1_Cdc13_Cdc2: Cdc13_Cdc2_Rum1 ->(k2_) FreeRum1
-Cig2_degradation_in_Rum1_Cig2_Cdc2: Cig2_Cdc2_Rum1 ->(k6_) FreeRum1
-Binding_of_Rum1_to_Cig2_Cdc2: Cig2_Cdc2 + FreeRum1 ->(k8) Cig2_Cdc2_Rum1
-Binding_of_Rum1_to_Cig2_Cdc2_rev: Cig2_Cdc2_Rum1 ->(k8r) Cig2_Cdc2 + FreeRum1
-UbE_mediated_degradation_of_Cdc13_Cdc2_in_Rum1_Cdc13_Cdc2: Cdc13_Cdc2_Rum1 ->(k2) FreeRum1
-UbE_mediated_degradation_of_Cdc13_Cdc2_in_Rum1_Cdc13_P_Cdc2: Cdc13_P_Cdc2_Rum1 ->(k2) FreeRum1
-Rum1_creation:  ->(k3) FreeRum1
-Rum1_degradation_by_SPF: FreeRum1 ->(Mass*S_phasePromotingFactor*kp/(FreeRum1 + Kmp)) 
-IE_production___degradation: BoundIntermediaryEnzyme ->(M_phasePromotingFactor*ki/(BoundIntermediaryEnzyme + Kmi)) IntermediaryEnzyme
-IE_production___degradation_rev: IntermediaryEnzyme ->(kir/(IntermediaryEnzyme + Kmir)) BoundIntermediaryEnzyme
-UbE_production___degradation: BoundUbiquitinProtease1 ->(IntermediaryEnzyme*ku/(BoundUbiquitinProtease1 + Kmu)) ubiquitinProtease1
-UbE_production___degradation_rev: ubiquitinProtease1 ->(kur/(Kmur + ubiquitinProtease1)) BoundUbiquitinProtease1
-UbE2_production___degradation: BoundUbiquitinProtease2 ->(M_phasePromotingFactor*ku2/(BoundUbiquitinProtease2 + Kmu2)) ubiquitinProtease2
-UbE2_production___degradation_rev: ubiquitinProtease2 ->(kur2/(Kmur2 + ubiquitinProtease2)) BoundUbiquitinProtease2
-Wee1_production___degradation: BoundWee1 ->(kwr/(BoundWee1 + Kmwr)) Wee1
-Wee1_production___degradation_rev: Wee1 ->(M_phasePromotingFactor*kw/(Kmw + Wee1)) BoundWee1
-Cdc25_production___degradation: BoundCdc25 ->(M_phasePromotingFactor*kc/(BoundCdc25 + Kmc)) Cdc25
-Cdc25_production___degradation_rev: Cdc25 ->(kcr/(Cdc25 + Kmcr)) BoundCdc25
+G2K_Creation:  ->(k1) G2K
+G1K_Creation:  ->(k5) G1K
+Cdc2Phos: G2K ->(kwee) PG2
+Cdc2Phos_rev: PG2 ->(k25) G2K
+G2R_Creation: G2K + R ->(k7) G2R
+G2R_Creation_rev: G2R ->(k7r) G2K + R
+PG2R_Creation: PG2 + R ->(k7) PG2R
+PG2R_Creation_rev: PG2R ->(k7r) PG2 + R
+Rum1DegInG2R: G2R ->(k4) G2K
+Rum1Deg: R ->(k4) 
+Rum1DegInPG2R: PG2R ->(k4) PG2
+RumDegInG1R: G1R ->(k4) G1K
+G2K_dissoc: G2K ->(k2) 
+PG2_dissoc: PG2 ->(k2) 
+G1K_Dissociation: G1K ->(k6) 
+PG2R_Dissociation: PG2R ->(k2prime) R
+G2R_Dissociation: G2R ->(k2prime) R
+G1R_Dissociation: G1R ->(k6prime) R
+G1R_Binding: G1K + R ->(k8) G1R
+G1R_Binding_rev: G1R ->(k8r) G1K + R
+G2R_Dissociation_UbE: G2R ->(k2) R
+PG2R_Dissociation_UbE: PG2R ->(k2) R
+Rum1_Production:  ->(k3) R
+Rum1_Deg_SPF: R ->(Mass*SPF*kp/(Kmp + R)) 
+IE_Reaction: IEB ->(MPF*ki/(IEB + Kmi)) IE
+IE_Reaction_rev: IE ->(kir/(IE + Kmir)) IEB
+UbE_Reaction: UbEB ->(IE*ku/(Kmu + UbEB)) UbE
+UbE_Reaction_rev: UbE ->(kur/(Kmur + UbE)) UbEB
+UbE2_Reaction: UbE2B ->(MPF*ku2/(Kmu2 + UbE2B)) UbE2
+UbE2_Reaction_rev: UbE2 ->(kur2/(Kmur2 + UbE2)) UbE2B
+Wee1_Reaction: Wee1B ->(kwr/(Kmwr + Wee1B)) Wee1
+Wee1_Reaction_rev: Wee1 ->(MPF*kw/(Kmw + Wee1)) Wee1B
+Cdc25_Reaction: Cdc25B ->(MPF*kc/(Cdc25B + Kmc)) Cdc25
+Cdc25_Reaction_rev: Cdc25 ->(kcr/(Cdc25 + Kmcr)) Cdc25B

@@ -1,6 +1,6 @@
-___r1:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1)) P1
+___r1:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1.0)) P1
 ___r2: P1 ->(___r2___RATE__) 
-___r3:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1)) P2
+___r3:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1.0)) P2
 ___r4: P2 ->(___r4___RATE__) 
-___r5:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1)) Target
+___r5:  ->(ks*(k0 + (dsp1p2kd/ka)**h)/((dsp1p2kd/ka)**h + 1.0)) Target
 ___r6: Target ->(___r6___RATE__) 

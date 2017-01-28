@@ -7,6 +7,6 @@ v3_rev: y2 ->(v3_e3/(x1 + y2 + 1)) x1
 v4: x1 ->(v4_e4*v4_p4/(x1 + y3 + 1)) y3
 v4_rev: y3 ->(v4_e4/(x1 + y3 + 1)) x1
 v6: y7 ->(v6_e6*v6_p6) x4
-v6_rev: x4 -> y7
+v6_rev: x4 ->(k_v6_rev) y7
 v7: x4 ->(v7_e7*v7_p7/x4) y8
-v7_rev: y8 -> x4
+v7_rev: y8 ->(k_v7_rev) x4

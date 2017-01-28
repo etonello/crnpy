@@ -1,54 +1,54 @@
-Synthesis_of_MPFc:  ->(cytoplasm*ksc) MPFc
-Activation_of_MPFc: preMPFc ->(cytoplasm*(StgPc*kstgpp + kstgp)) MPFc
-Inactivation_of_MPFc: MPFc ->(cytoplasm*(Wee1c*kweepp + kweep)) preMPFc
-Degradation_of_cyclin: preMPFc ->(cytoplasm*kdcp) 
-degradation_of_cyclin: MPFc ->(cytoplasm*kdcp) 
-Inactivation_of_Wee1c: Wee1c ->(cytoplasm*(MPFc*kiweepp + kiweep)/(Jiwee + Wee1c)) Wee1Pc
-Activation_of_Wee1c: Wee1Pc ->(cytoplasm*kawee/(Jawee + Wee1Pc)) Wee1c
-mRNA_of_Stg: Stgm ->(nuclei*(Jm*Xp*kdmpp + Stgm*Xp*kdmpp + kdmp)/(Jm + Stgm)) 
-Synthesis_of_Stg:  ->(Stgm*cytoplasm*ksstg) Stgc
-activation_of_Stgc: Stgc ->(cytoplasm*(MPFc*kastgpp + kastgp)/(Jastg + Stgc)) StgPc
-inactivation_of_Stgc: StgPc ->(cytoplasm*kistg/(Jistg + StgPc)) Stgc
-degradation_of_Stgc: Stgc ->(cytoplasm*kdstg) 
-degradation_of_active_Stgc: StgPc ->(cytoplasm*kdstg) 
-export_of_MPF_from_cytoplasm: MPFc ->(-E*N*cytoplasm*kin/(E*N - 1)) 
-import_of_MPF_into_cytoplasm:  ->(-E*MPFn*N*kout*nuclei/(E*N - 1)) MPFc
-import_of_MPF_into_nucleus:  ->(MPFc*cytoplasm*kin) MPFn
-export_of_MPF_from_nucleus: MPFn ->(kout*nuclei) 
-import_of_preMPF_into_cytoplasm:  ->(-E*N*kout*nuclei*preMPFn/(E*N - 1)) preMPFc
-export_of_preMPF_from_cytoplasm: preMPFc ->(-E*N*cytoplasm*kin/(E*N - 1)) 
-import_of_preMPF_into_nucleus:  ->(cytoplasm*kin*preMPFc) preMPFn
-export_of_preMPFn_from_nucleus: preMPFn ->(kout*nuclei) 
-export_of_Wee1P_from_nucleus: Wee1Pn ->(koutw*nuclei) 
-import_of__Wee1P_into_cytoplasm:  ->(-E*N*Wee1Pn*koutw*nuclei/(E*N - 1)) Wee1Pc
-export_of_Wee1P_from_cytoplasm: Wee1Pc ->(-E*N*cytoplasm*kinw/(E*N - 1)) 
-import_of_Wee1P_into_nucleus:  ->(Wee1Pc*cytoplasm*kinw) Wee1Pn
-export_of_Wee1_from_nucleus: Wee1n ->(koutw*nuclei) 
-import_of_Wee1_into_cytoplasm:  ->(-E*N*Wee1n*koutw*nuclei/(E*N - 1)) Wee1c
-export_of_Wee1c_from_cytoplasm: Wee1c ->(-E*N*cytoplasm*kinw/(E*N - 1)) 
-import_of_Wee1_into_nucleus:  ->(Wee1c*cytoplasm*kinw) Wee1n
-export_of_StgP_from_nucleus: StgPn ->(kouts*nuclei) 
-import_of_StgP_into_cytoplasm:  ->(-E*N*StgPn*kouts*nuclei/(E*N - 1)) StgPc
-export_of_StgP_from_cytoplasm: StgPc ->(-E*N*cytoplasm*kins/(E*N - 1)) 
-import_of_StgP_into_nucleus:  ->(StgPc*cytoplasm*kins) StgPn
-export_of_Stg_from_nucleus: Stgn ->(kouts*nuclei) 
-import_of_Stg_into_cytoplasm:  ->(-E*N*Stgn*kouts*nuclei/(E*N - 1)) Stgc
-export_of_Stg_from_cytoplasm: Stgc ->(-E*N*cytoplasm*kins/(E*N - 1)) 
-import_of_Stg_into_nucleus:  ->(Stgc*cytoplasm*kins) Stgn
-activation_of_MPFn: preMPFn ->(nuclei*(StgPn*kstgpp + kstgp)) MPFn
-inactivation_of_MPFn: MPFn ->(nuclei*(Wee1n*kweepp + kweep)) preMPFn
-degradation_of_preMPFn: preMPFn ->(nuclei*(FZYa*kdnpp + kdnp)) 
-degradation_of_MPFn: MPFn ->(nuclei*(FZYa*kdnpp + kdnp)) 
-activation_of_intermediary_enzyme: IEa_1 ->(kiie*nuclei/(IEa_1 + Jiie)) 
-inactivation_of_intermediary_enzyme:  ->(MPFn*kaie*nuclei*(IEa_1 - 1)/(IEa_1 - Jaie - 1)) IEa_1
-activation_of_FZY:  ->(IEa_1*kafzy*nuclei*(FZYa - 1)/(FZYa - Jafzy - 1)) FZYa
-inactivation_of_FZY: FZYa ->(kifzy*nuclei/(FZYa + Jifzy)) 
-inactivation_of_Wee1n: Wee1n ->(nuclei*(MPFn*kiweepp + kiweep)/(Jiwee + Wee1n)) Wee1Pn
-activation_of_Wee1n: Wee1Pn ->(kawee*nuclei/(Jawee + Wee1Pn)) Wee1n
-activation_of_StgPn: Stgn ->(nuclei*(MPFn*kastgpp + kastgp)/(Jastg + Stgn)) StgPn
-inactivation_of_StgPn: StgPn ->(kistg*nuclei/(Jistg + StgPn)) Stgn
-degradation_of_Stgn: Stgn ->(kdstg*nuclei) 
-degradation_of_StgPn: StgPn ->(kdstg*nuclei) 
-Nuclei:  -> N
-Zygotic_mRNA:  ->(N*ksxm*nuclei) Xm
-Zygotic_proteins:  ->(Xm*cytoplasm*ksxp) Xp
+R_1:  ->(cytoplasm*ksc) MPFc
+R_2: preMPFc ->(cytoplasm*(StgPc*kstg + kstgp)) MPFc
+R_3: MPFc ->(cytoplasm*(Wee1c*kwee + kweep)) preMPFc
+R_6: preMPFc ->(cytoplasm*kdc) 
+R_7: MPFc ->(cytoplasm*kdc) 
+R_8: Wee1c ->(cytoplasm*(MPFc*kiwee + kiweep)/(Jiwee + Wee1c)) Wee1Pc
+R_9: Wee1Pc ->(cytoplasm*kawee/(Jawee + Wee1Pc)) Wee1c
+R_10: Stgm ->(nuclei*(Stgm*Xp*kdm + Stgm*kdmp/(Jm + Stgm))/Stgm) 
+R_12:  ->(Stgm*cytoplasm*ksstg) Stgc
+R_13: Stgc ->(cytoplasm*(MPFc*kastg + kastgp)/(Jastg + Stgc)) StgPc
+R_14: StgPc ->(cytoplasm*kistg/(Jistg + StgPc)) Stgc
+R_15: Stgc ->(cytoplasm*kdstg) 
+R_16: StgPc ->(cytoplasm*kdstg) 
+R_19: MPFc ->(E_1*N*cytoplasm*kt/(-E_1*N + 1)) 
+importofMPFintocytoplasm_1:  ->(E_1*MPFn*N*kout_1*nuclei/(-E_1*N + 1)) MPFc
+_16:  ->(MPFc*cytoplasm*kt) MPFn
+exportofMPFfromnucleus_1: MPFn ->(kout_1*nuclei) 
+importofpreMPFintocytoplaslm_1:  ->(E_1*N*kout_1*nuclei*preMPFn/(-E_1*N + 1)) preMPFc
+R_20: preMPFc ->(E_1*N*cytoplasm*kt/(-E_1*N + 1)) 
+_18:  ->(cytoplasm*kt*preMPFc) preMPFn
+exportofpreMPFnfromnucleus_1: preMPFn ->(kout_1*nuclei) 
+R_21: Wee1Pn ->(koutw_1*nuclei) 
+_182_1:  ->(E_1*N*Wee1Pn*koutw_1*nuclei/(-E_1*N + 1)) Wee1Pc
+R_22: Wee1Pc ->(E_1*N*cytoplasm*kinw_1/(-E_1*N + 1)) 
+_20:  ->(Wee1Pc*cytoplasm*kinw_1) Wee1Pn
+R_23: Wee1n ->(koutw_1*nuclei) 
+_22:  ->(E_1*N*Wee1n*koutw_1*nuclei/(-E_1*N + 1)) Wee1c
+R_24: Wee1c ->(E_1*N*cytoplasm*kinw_1/(-E_1*N + 1)) 
+_24:  ->(Wee1c*cytoplasm*kinw_1) Wee1n
+R_25: StgPn ->(kouts_1*nuclei) 
+_26:  ->(E_1*N*StgPn*kouts_1*nuclei/(-E_1*N + 1)) StgPc
+R_26: StgPc ->(E_1*N*cytoplasm*kins_1/(-E_1*N + 1)) 
+_28:  ->(StgPc*cytoplasm*kins_1) StgPn
+R_27: Stgn ->(kouts_1*nuclei) 
+_30:  ->(E_1*N*Stgn*kouts_1*nuclei/(-E_1*N + 1)) Stgc
+R_28: Stgc ->(E_1*N*cytoplasm*kins_1/(-E_1*N + 1)) 
+_32:  ->(Stgc*cytoplasm*kins_1) Stgn
+R_29: preMPFn ->(nuclei*(StgPn*kstg + kstgp)) MPFn
+R_30: MPFn ->(nuclei*(Wee1n*kwee + kweep)) preMPFn
+R_33: preMPFn ->(nuclei*(FZYa*kdn + kdnp)) 
+R_34: MPFn ->(nuclei*(FZYa*kdn + kdnp)) 
+R_37: IEa_1 ->(kiie*nuclei/(IEa_1 + Jiie)) 
+R_38:  ->(MPFn*kaie*nuclei*(-IEa_1 + 1)/(-IEa_1 + Jaie + 1)) IEa_1
+R_39:  ->(IEa_1*kafzy*nuclei*(-FZYa + 1)/(-FZYa + Jafzy + 1)) FZYa
+R_40: FZYa ->(kifzy*nuclei/(FZYa + Jifzy)) 
+R_41: Wee1n ->(nuclei*(MPFn*kiwee + kiweep)/(Jiwee + Wee1n)) Wee1Pn
+R_42: Wee1Pn ->(kawee*nuclei/(Jawee + Wee1Pn)) Wee1n
+R_43: Stgn ->(nuclei*(MPFn*kastg + kastgp)/(Jastg + Stgn)) StgPn
+R_44: StgPn ->(kistg*nuclei/(Jistg + StgPn)) Stgn
+R_45: Stgn ->(kdstg*nuclei) 
+R_46: StgPn ->(kdstg*nuclei) 
+Nuclei_1:  -> N
+_50:  ->(N*ksxm_1*nuclei) Xm
+_51:  ->(Xm*cytoplasm*ksxp_1) Xp

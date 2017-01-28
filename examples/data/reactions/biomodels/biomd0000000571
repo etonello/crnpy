@@ -43,11 +43,11 @@ binding_IIA_P_CYA_rev: IIA_P_CYA ->(cyt*fast) CYA + IIA_P
 transcription_CRP_cAMP_CRPsite_cyaA_cyaA:  ->(cyaA*cyt*transcription_CRP_cAMP_CRPsite_cyaA_cyaA_km) mRNA_cyaA
 transcription_CRP_cAMP_CRPsite_cyaA_cyaA_rev: mRNA_cyaA ->(CRP_cAMP_CRPsite_cyaA*cyaA*cyt*transcription_CRP_cAMP_CRPsite_cyaA_cyaA_km/(TCRPsite_cyaA*mRNA_cyaA)) 
 transcription_cyaA_basal:  ->(cyaA_basal*cyt*transcription_cyaA_basal_km) mRNA_cyaA
-transcription_cyaA_basal_rev: mRNA_cyaA -> 
+transcription_cyaA_basal_rev: mRNA_cyaA ->(k_transcription_cyaA_basal_rev) 
 transcription_CRP_cAMP_CRPsiteI_crp_CRP_cAMP_CRPsiteII_crp_crp:  ->(crp*cyt*transcription_CRP_cAMP_CRPsiteI_crp_CRP_cAMP_CRPsiteII_crp_crp_km*(CRP_cAMP_CRPsiteII_crp*transcription_CRP_cAMP_CRPsiteI_crp_CRP_cAMP_CRPsiteII_crp_crp_RelativeactivityatTCRPsiteII_crp + TCRPsiteII_crp)/TCRPsiteII_crp) mRNA_crp
 transcription_CRP_cAMP_CRPsiteI_crp_CRP_cAMP_CRPsiteII_crp_crp_rev: mRNA_crp ->(CRP_cAMP_CRPsiteI_crp*crp*cyt*transcription_CRP_cAMP_CRPsiteI_crp_CRP_cAMP_CRPsiteII_crp_crp_km/(TCRPsiteI_crp*mRNA_crp)) 
 transcription_crp_basal:  ->(crp_basal*cyt*transcription_crp_basal_km) mRNA_crp
-transcription_crp_basal_rev: mRNA_crp -> 
+transcription_crp_basal_rev: mRNA_crp ->(k_transcription_crp_basal_rev) 
 transcription_CRP_cAMP_CRPsite_ptsGp1_Mlc_Mlcsite_ptsGp1_ptsGp1:  ->(CRP_cAMP_CRPsite_ptsGp1*cyt*ptsGp1*transcription_CRP_cAMP_CRPsite_ptsGp1_Mlc_Mlcsite_ptsGp1_ptsGp1_km/TCRPsite_ptsGp1) mRNA_ptsG
 transcription_CRP_cAMP_CRPsite_ptsGp1_Mlc_Mlcsite_ptsGp1_ptsGp1_rev: mRNA_ptsG ->(CRP_cAMP_CRPsite_ptsGp1*Mlc_Mlcsite_ptsGp1*cyt*ptsGp1*transcription_CRP_cAMP_CRPsite_ptsGp1_Mlc_Mlcsite_ptsGp1_ptsGp1_km/(TCRPsite_ptsGp1*TMlcsite_ptsGp1*mRNA_ptsG)) 
 transcription_CRP_cAMP_CRPsite_ptsGp2_Mlc_Mlcsite_ptsGp2_ptsGp2:  ->(CRP_cAMP_CRPsite_ptsGp2*cyt*ptsGp2*transcription_CRP_cAMP_CRPsite_ptsGp2_Mlc_Mlcsite_ptsGp2_ptsGp2_km/TCRPsite_ptsGp2) mRNA_ptsG
@@ -55,130 +55,130 @@ transcription_CRP_cAMP_CRPsite_ptsGp2_Mlc_Mlcsite_ptsGp2_ptsGp2_rev: mRNA_ptsG -
 transcription_CRP_cAMP_CRPsite_ptsHp0_Mlc_Mlcsite_ptsHp0_ptsHp0:  ->(CRP_cAMP_CRPsite_ptsHp0*cyt*ptsHp0*transcription_CRP_cAMP_CRPsite_ptsHp0_Mlc_Mlcsite_ptsHp0_ptsHp0_km/TCRPsite_ptsHp0) mRNA_ptsH
 transcription_CRP_cAMP_CRPsite_ptsHp0_Mlc_Mlcsite_ptsHp0_ptsHp0_rev: mRNA_ptsH ->(CRP_cAMP_CRPsite_ptsHp0*Mlc_Mlcsite_ptsHp0*cyt*ptsHp0*transcription_CRP_cAMP_CRPsite_ptsHp0_Mlc_Mlcsite_ptsHp0_ptsHp0_km/(TCRPsite_ptsHp0*TMlcsite_ptsHp0*mRNA_ptsH)) 
 transcription_CRP_cAMP_CRPsite_ptsHp1_ptsHp1:  ->(CRP_cAMP_CRPsite_ptsHp1*cyt*ptsHp1*transcription_CRP_cAMP_CRPsite_ptsHp1_ptsHp1_km/TCRPsite_ptsHp1) mRNA_ptsH
-transcription_CRP_cAMP_CRPsite_ptsHp1_ptsHp1_rev: mRNA_ptsH -> 
+transcription_CRP_cAMP_CRPsite_ptsHp1_ptsHp1_rev: mRNA_ptsH ->(k_transcription_CRP_cAMP_CRPsite_ptsHp1_ptsHp1_rev) 
 transcription_CRP_cAMP_CRPsite_ptsIp0_Mlc_Mlcsite_ptsIp0_ptsIp0:  ->(CRP_cAMP_CRPsite_ptsIp0*cyt*ptsIp0*transcription_CRP_cAMP_CRPsite_ptsIp0_Mlc_Mlcsite_ptsIp0_ptsIp0_km/TCRPsite_ptsIp0) mRNA_ptsI
 transcription_CRP_cAMP_CRPsite_ptsIp0_Mlc_Mlcsite_ptsIp0_ptsIp0_rev: mRNA_ptsI ->(CRP_cAMP_CRPsite_ptsIp0*Mlc_Mlcsite_ptsIp0*cyt*ptsIp0*transcription_CRP_cAMP_CRPsite_ptsIp0_Mlc_Mlcsite_ptsIp0_ptsIp0_km/(TCRPsite_ptsIp0*TMlcsite_ptsIp0*mRNA_ptsI)) 
 transcription_CRP_cAMP_CRPsite_ptsIp1_ptsIp1:  ->(CRP_cAMP_CRPsite_ptsIp1*cyt*ptsIp1*transcription_CRP_cAMP_CRPsite_ptsIp1_ptsIp1_km/TCRPsite_ptsIp1) mRNA_ptsI
-transcription_CRP_cAMP_CRPsite_ptsIp1_ptsIp1_rev: mRNA_ptsI -> 
+transcription_CRP_cAMP_CRPsite_ptsIp1_ptsIp1_rev: mRNA_ptsI ->(k_transcription_CRP_cAMP_CRPsite_ptsIp1_ptsIp1_rev) 
 transcription_crr:  ->(crr*cyt*transcription_crr_km) mRNA_crr
-transcription_crr_rev: mRNA_crr -> 
+transcription_crr_rev: mRNA_crr ->(k_transcription_crr_rev) 
 transcription_CRP_cAMP_CRPsite_mlcp1_Mlc_Mlcsite_mlcp1_mlcp1:  ->(cyt*mlcp1*transcription_CRP_cAMP_CRPsite_mlcp1_Mlc_Mlcsite_mlcp1_mlcp1_km*(CRP_cAMP_CRPsite_mlcp1*Mlc_Mlcsite_mlcp1 + TCRPsite_mlcp1*TMlcsite_mlcp1)/(TCRPsite_mlcp1*TMlcsite_mlcp1)) mRNA_mlc
 transcription_CRP_cAMP_CRPsite_mlcp1_Mlc_Mlcsite_mlcp1_mlcp1_rev: mRNA_mlc ->(cyt*mlcp1*transcription_CRP_cAMP_CRPsite_mlcp1_Mlc_Mlcsite_mlcp1_mlcp1_km*(CRP_cAMP_CRPsite_mlcp1*TMlcsite_mlcp1 + Mlc_Mlcsite_mlcp1*TCRPsite_mlcp1)/(TCRPsite_mlcp1*TMlcsite_mlcp1*mRNA_mlc)) 
 transcription_CRP_cAMP_CRPsite_mlcp2_Mlc_Mlcsite_mlcp2_mlcp2:  ->(CRP_cAMP_CRPsite_mlcp2*cyt*mlcp2*transcription_CRP_cAMP_CRPsite_mlcp2_Mlc_Mlcsite_mlcp2_mlcp2_km/TCRPsite_mlcp2) mRNA_mlc
 transcription_CRP_cAMP_CRPsite_mlcp2_Mlc_Mlcsite_mlcp2_mlcp2_rev: mRNA_mlc ->(CRP_cAMP_CRPsite_mlcp2*Mlc_Mlcsite_mlcp2*cyt*mlcp2*transcription_CRP_cAMP_CRPsite_mlcp2_Mlc_Mlcsite_mlcp2_mlcp2_km/(TCRPsite_mlcp2*TMlcsite_mlcp2*mRNA_mlc)) 
 decomposition_mRNA_cyaA: mRNA_cyaA ->(cyt*decomposition_mRNA_cyaA_kmd) 
-decomposition_mRNA_cyaA_rev:  -> mRNA_cyaA
+decomposition_mRNA_cyaA_rev:  ->(k_decomposition_mRNA_cyaA_rev) mRNA_cyaA
 decomposition_mRNA_crp: mRNA_crp ->(cyt*decomposition_mRNA_crp_kmd) 
-decomposition_mRNA_crp_rev:  -> mRNA_crp
+decomposition_mRNA_crp_rev:  ->(k_decomposition_mRNA_crp_rev) mRNA_crp
 decomposition_mRNA_ptsG: mRNA_ptsG ->(cyt*decomposition_mRNA_ptsG_kmd) 
-decomposition_mRNA_ptsG_rev:  -> mRNA_ptsG
+decomposition_mRNA_ptsG_rev:  ->(k_decomposition_mRNA_ptsG_rev) mRNA_ptsG
 decomposition_mRNA_ptsH: mRNA_ptsH ->(cyt*decomposition_mRNA_ptsH_kmd) 
-decomposition_mRNA_ptsH_rev:  -> mRNA_ptsH
+decomposition_mRNA_ptsH_rev:  ->(k_decomposition_mRNA_ptsH_rev) mRNA_ptsH
 decomposition_mRNA_ptsI: mRNA_ptsI ->(cyt*decomposition_mRNA_ptsI_kmd) 
-decomposition_mRNA_ptsI_rev:  -> mRNA_ptsI
+decomposition_mRNA_ptsI_rev:  ->(k_decomposition_mRNA_ptsI_rev) mRNA_ptsI
 decomposition_mRNA_crr: mRNA_crr ->(cyt*decomposition_mRNA_crr_kmd) 
-decomposition_mRNA_crr_rev:  -> mRNA_crr
+decomposition_mRNA_crr_rev:  ->(k_decomposition_mRNA_crr_rev) mRNA_crr
 decomposition_mRNA_mlc: mRNA_mlc ->(cyt*decomposition_mRNA_mlc_kmd) 
-decomposition_mRNA_mlc_rev:  -> mRNA_mlc
+decomposition_mRNA_mlc_rev:  ->(k_decomposition_mRNA_mlc_rev) mRNA_mlc
 translation_mRNA_cyaA:  ->(cyt*mRNA_cyaA*translation_mRNA_cyaA_kp) CYA
-translation_mRNA_cyaA_rev: CYA -> 
+translation_mRNA_cyaA_rev: CYA ->(k_translation_mRNA_cyaA_rev) 
 translation_mRNA_crp:  ->(cyt*mRNA_crp*translation_mRNA_crp_kp) CRP
-translation_mRNA_crp_rev: CRP -> 
+translation_mRNA_crp_rev: CRP ->(k_translation_mRNA_crp_rev) 
 translation_mRNA_ptsG:  ->(cyt*mRNA_ptsG*translation_mRNA_ptsG_kp) IICB
-translation_mRNA_ptsG_rev: IICB -> 
+translation_mRNA_ptsG_rev: IICB ->(k_translation_mRNA_ptsG_rev) 
 translation_mRNA_ptsH:  ->(cyt*mRNA_ptsH*translation_mRNA_ptsH_kp) HPr
-translation_mRNA_ptsH_rev: HPr -> 
+translation_mRNA_ptsH_rev: HPr ->(k_translation_mRNA_ptsH_rev) 
 translation_mRNA_ptsI:  ->(cyt*mRNA_ptsI*translation_mRNA_ptsI_kp) EI
-translation_mRNA_ptsI_rev: EI -> 
+translation_mRNA_ptsI_rev: EI ->(k_translation_mRNA_ptsI_rev) 
 translation_mRNA_crr:  ->(cyt*mRNA_crr*translation_mRNA_crr_kp) IIA
-translation_mRNA_crr_rev: IIA -> 
+translation_mRNA_crr_rev: IIA ->(k_translation_mRNA_crr_rev) 
 translation_mlc:  ->(cyt*mRNA_mlc*translation_mlc_kp) Mlc
-translation_mlc_rev: Mlc -> 
+translation_mlc_rev: Mlc ->(k_translation_mlc_rev) 
 decomposition_CYA: CYA ->(cyt*decomposition_CYA_kpd) 
-decomposition_CYA_rev:  -> CYA
+decomposition_CYA_rev:  ->(k_decomposition_CYA_rev) CYA
 decomposition_CRP: CRP ->(cyt*decomposition_CRP_kpd) 
-decomposition_CRP_rev:  -> CRP
+decomposition_CRP_rev:  ->(k_decomposition_CRP_rev) CRP
 decomposition_Mlc: Mlc ->(cyt*decomposition_Mlc_kpd) 
-decomposition_Mlc_rev:  -> Mlc
+decomposition_Mlc_rev:  ->(k_decomposition_Mlc_rev) Mlc
 decomposition_cAMP: cAMP ->(cyt*decomposition_cAMP_kpd) 
-decomposition_cAMP_rev:  -> cAMP
+decomposition_cAMP_rev:  ->(k_decomposition_cAMP_rev) cAMP
 decomposition_CRP_cAMP: CRP_cAMP ->(cyt*decomposition_CRP_cAMP_kpd) 
-decomposition_CRP_cAMP_rev:  -> CRP_cAMP
+decomposition_CRP_cAMP_rev:  ->(k_decomposition_CRP_cAMP_rev) CRP_cAMP
 decomposition_CRP_cAMP_CRPsite_cyaA: CRP_cAMP_CRPsite_cyaA ->(cyt*decomposition_CRP_cAMP_CRPsite_cyaA_kpd) CRPsite_cyaA
-decomposition_CRP_cAMP_CRPsite_cyaA_rev: CRPsite_cyaA -> CRP_cAMP_CRPsite_cyaA
+decomposition_CRP_cAMP_CRPsite_cyaA_rev: CRPsite_cyaA ->(k_decomposition_CRP_cAMP_CRPsite_cyaA_rev) CRP_cAMP_CRPsite_cyaA
 decomposition_CRP_cAMP_CRPsiteI_crp: CRP_cAMP_CRPsiteI_crp ->(cyt*decomposition_CRP_cAMP_CRPsiteI_crp_kpd) CRPsiteI_crp
-decomposition_CRP_cAMP_CRPsiteI_crp_rev: CRPsiteI_crp -> CRP_cAMP_CRPsiteI_crp
+decomposition_CRP_cAMP_CRPsiteI_crp_rev: CRPsiteI_crp ->(k_decomposition_CRP_cAMP_CRPsiteI_crp_rev) CRP_cAMP_CRPsiteI_crp
 decomposition_CRP_cAMP_CRPsiteII_crp: CRP_cAMP_CRPsiteII_crp ->(cyt*decomposition_CRP_cAMP_CRPsiteII_crp_kpd) CRPsiteII_crp
-decomposition_CRP_cAMP_CRPsiteII_crp_rev: CRPsiteII_crp -> CRP_cAMP_CRPsiteII_crp
+decomposition_CRP_cAMP_CRPsiteII_crp_rev: CRPsiteII_crp ->(k_decomposition_CRP_cAMP_CRPsiteII_crp_rev) CRP_cAMP_CRPsiteII_crp
 decomposition_CRP_cAMP_CRPsite_ptsGp1: CRP_cAMP_CRPsite_ptsGp1 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsGp1_kpd) CRPsite_ptsGp1
-decomposition_CRP_cAMP_CRPsite_ptsGp1_rev: CRPsite_ptsGp1 -> CRP_cAMP_CRPsite_ptsGp1
+decomposition_CRP_cAMP_CRPsite_ptsGp1_rev: CRPsite_ptsGp1 ->(k_decomposition_CRP_cAMP_CRPsite_ptsGp1_rev) CRP_cAMP_CRPsite_ptsGp1
 decomposition_CRP_cAMP_CRPsite_ptsGp2: CRP_cAMP_CRPsite_ptsGp2 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsGp2_kpd) CRPsite_ptsGp2
-decomposition_CRP_cAMP_CRPsite_ptsGp2_rev: CRPsite_ptsGp2 -> CRP_cAMP_CRPsite_ptsGp2
+decomposition_CRP_cAMP_CRPsite_ptsGp2_rev: CRPsite_ptsGp2 ->(k_decomposition_CRP_cAMP_CRPsite_ptsGp2_rev) CRP_cAMP_CRPsite_ptsGp2
 decomposition_CRP_cAMP_CRPsite_ptsHp0: CRP_cAMP_CRPsite_ptsHp0 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsHp0_kpd) CRPsite_ptsHp0
-decomposition_CRP_cAMP_CRPsite_ptsHp0_rev: CRPsite_ptsHp0 -> CRP_cAMP_CRPsite_ptsHp0
+decomposition_CRP_cAMP_CRPsite_ptsHp0_rev: CRPsite_ptsHp0 ->(k_decomposition_CRP_cAMP_CRPsite_ptsHp0_rev) CRP_cAMP_CRPsite_ptsHp0
 decomposition_CRP_cAMP_CRPsite_ptsHp1: CRP_cAMP_CRPsite_ptsHp1 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsHp1_kpd) CRPsite_ptsHp1
-decomposition_CRP_cAMP_CRPsite_ptsHp1_rev: CRPsite_ptsHp1 -> CRP_cAMP_CRPsite_ptsHp1
+decomposition_CRP_cAMP_CRPsite_ptsHp1_rev: CRPsite_ptsHp1 ->(k_decomposition_CRP_cAMP_CRPsite_ptsHp1_rev) CRP_cAMP_CRPsite_ptsHp1
 decomposition_CRP_cAMP_CRPsite_ptsIp0: CRP_cAMP_CRPsite_ptsIp0 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsIp0_kpd) CRPsite_ptsIp0
-decomposition_CRP_cAMP_CRPsite_ptsIp0_rev: CRPsite_ptsIp0 -> CRP_cAMP_CRPsite_ptsIp0
+decomposition_CRP_cAMP_CRPsite_ptsIp0_rev: CRPsite_ptsIp0 ->(k_decomposition_CRP_cAMP_CRPsite_ptsIp0_rev) CRP_cAMP_CRPsite_ptsIp0
 decomposition_CRP_cAMP_CRPsite_ptsIp1: CRP_cAMP_CRPsite_ptsIp1 ->(cyt*decomposition_CRP_cAMP_CRPsite_ptsIp1_kpd) CRPsite_ptsIp1
-decomposition_CRP_cAMP_CRPsite_ptsIp1_rev: CRPsite_ptsIp1 -> CRP_cAMP_CRPsite_ptsIp1
+decomposition_CRP_cAMP_CRPsite_ptsIp1_rev: CRPsite_ptsIp1 ->(k_decomposition_CRP_cAMP_CRPsite_ptsIp1_rev) CRP_cAMP_CRPsite_ptsIp1
 decomposition_CRP_cAMP_CRPsite_mlcp1: CRP_cAMP_CRPsite_mlcp1 ->(cyt*decomposition_CRP_cAMP_CRPsite_mlcp1_kpd) CRPsite_mlcp1
-decomposition_CRP_cAMP_CRPsite_mlcp1_rev: CRPsite_mlcp1 -> CRP_cAMP_CRPsite_mlcp1
+decomposition_CRP_cAMP_CRPsite_mlcp1_rev: CRPsite_mlcp1 ->(k_decomposition_CRP_cAMP_CRPsite_mlcp1_rev) CRP_cAMP_CRPsite_mlcp1
 decomposition_CRP_cAMP_CRPsite_mlcp2: CRP_cAMP_CRPsite_mlcp2 ->(cyt*decomposition_CRP_cAMP_CRPsite_mlcp2_kpd) CRPsite_mlcp2
-decomposition_CRP_cAMP_CRPsite_mlcp2_rev: CRPsite_mlcp2 -> CRP_cAMP_CRPsite_mlcp2
+decomposition_CRP_cAMP_CRPsite_mlcp2_rev: CRPsite_mlcp2 ->(k_decomposition_CRP_cAMP_CRPsite_mlcp2_rev) CRP_cAMP_CRPsite_mlcp2
 decomposition_CRP_cAMP_CRPsite_genome: CRP_cAMP_CRPsite_genome ->(cyt*decomposition_CRP_cAMP_CRPsite_genome_kpd) CRPsite_genome
-decomposition_CRP_cAMP_CRPsite_genome_rev: CRPsite_genome -> CRP_cAMP_CRPsite_genome
+decomposition_CRP_cAMP_CRPsite_genome_rev: CRPsite_genome ->(k_decomposition_CRP_cAMP_CRPsite_genome_rev) CRP_cAMP_CRPsite_genome
 decomposition_Mlc_Mlcsite_ptsGp1: Mlc_Mlcsite_ptsGp1 ->(cyt*decomposition_Mlc_Mlcsite_ptsGp1_kpd) Mlcsite_ptsGp1
-decomposition_Mlc_Mlcsite_ptsGp1_rev: Mlcsite_ptsGp1 -> Mlc_Mlcsite_ptsGp1
+decomposition_Mlc_Mlcsite_ptsGp1_rev: Mlcsite_ptsGp1 ->(k_decomposition_Mlc_Mlcsite_ptsGp1_rev) Mlc_Mlcsite_ptsGp1
 decomposition_Mlc_Mlcsite_ptsGp2: Mlc_Mlcsite_ptsGp2 ->(cyt*decomposition_Mlc_Mlcsite_ptsGp2_kpd) Mlcsite_ptsGp2
-decomposition_Mlc_Mlcsite_ptsGp2_rev: Mlcsite_ptsGp2 -> Mlc_Mlcsite_ptsGp2
+decomposition_Mlc_Mlcsite_ptsGp2_rev: Mlcsite_ptsGp2 ->(k_decomposition_Mlc_Mlcsite_ptsGp2_rev) Mlc_Mlcsite_ptsGp2
 decomposition_Mlc_Mlcsite_ptsHp0: Mlc_Mlcsite_ptsHp0 ->(cyt*decomposition_Mlc_Mlcsite_ptsHp0_kpd) Mlcsite_ptsHp0
-decomposition_Mlc_Mlcsite_ptsHp0_rev: Mlcsite_ptsHp0 -> Mlc_Mlcsite_ptsHp0
+decomposition_Mlc_Mlcsite_ptsHp0_rev: Mlcsite_ptsHp0 ->(k_decomposition_Mlc_Mlcsite_ptsHp0_rev) Mlc_Mlcsite_ptsHp0
 decomposition_Mlc_Mlcsite_ptsIp0: Mlc_Mlcsite_ptsIp0 ->(cyt*decomposition_Mlc_Mlcsite_ptsIp0_kpd) Mlcsite_ptsIp0
-decomposition_Mlc_Mlcsite_ptsIp0_rev: Mlcsite_ptsIp0 -> Mlc_Mlcsite_ptsIp0
+decomposition_Mlc_Mlcsite_ptsIp0_rev: Mlcsite_ptsIp0 ->(k_decomposition_Mlc_Mlcsite_ptsIp0_rev) Mlc_Mlcsite_ptsIp0
 decomposition_Mlc_Mlcsite_mlcp1: Mlc_Mlcsite_mlcp1 ->(cyt*decomposition_Mlc_Mlcsite_mlcp1_kpd) Mlcsite_mlcp1
-decomposition_Mlc_Mlcsite_mlcp1_rev: Mlcsite_mlcp1 -> Mlc_Mlcsite_mlcp1
+decomposition_Mlc_Mlcsite_mlcp1_rev: Mlcsite_mlcp1 ->(k_decomposition_Mlc_Mlcsite_mlcp1_rev) Mlc_Mlcsite_mlcp1
 decomposition_Mlc_Mlcsite_mlcp2: Mlc_Mlcsite_mlcp2 ->(cyt*decomposition_Mlc_Mlcsite_mlcp2_kpd) Mlcsite_mlcp2
-decomposition_Mlc_Mlcsite_mlcp2_rev: Mlcsite_mlcp2 -> Mlc_Mlcsite_mlcp2
+decomposition_Mlc_Mlcsite_mlcp2_rev: Mlcsite_mlcp2 ->(k_decomposition_Mlc_Mlcsite_mlcp2_rev) Mlc_Mlcsite_mlcp2
 decomposition_IICB_Mlc: IICB_Mlc ->(cyt*decomposition_IICB_Mlc_kpd) 
-decomposition_IICB_Mlc_rev:  -> IICB_Mlc
+decomposition_IICB_Mlc_rev:  ->(k_decomposition_IICB_Mlc_rev) IICB_Mlc
 decomposition_EI_P: EI_P ->(cyt*decomposition_EI_P_kpd) 
-decomposition_EI_P_rev:  -> EI_P
+decomposition_EI_P_rev:  ->(k_decomposition_EI_P_rev) EI_P
 decomposition_EI: EI ->(cyt*decomposition_EI_kpd) 
-decomposition_EI_rev:  -> EI
+decomposition_EI_rev:  ->(k_decomposition_EI_rev) EI
 decomposition_HPr_P: HPr_P ->(cyt*decomposition_HPr_P_kpd) 
-decomposition_HPr_P_rev:  -> HPr_P
+decomposition_HPr_P_rev:  ->(k_decomposition_HPr_P_rev) HPr_P
 decomposition_HPr: HPr ->(cyt*decomposition_HPr_kpd) 
-decomposition_HPr_rev:  -> HPr
+decomposition_HPr_rev:  ->(k_decomposition_HPr_rev) HPr
 decomposition_IIA_P: IIA_P ->(cyt*decomposition_IIA_P_kpd) 
-decomposition_IIA_P_rev:  -> IIA_P
+decomposition_IIA_P_rev:  ->(k_decomposition_IIA_P_rev) IIA_P
 decomposition_IIA: IIA ->(cyt*decomposition_IIA_kpd) 
-decomposition_IIA_rev:  -> IIA
+decomposition_IIA_rev:  ->(k_decomposition_IIA_rev) IIA
 decomposition_IICB_P: IICB_P ->(cyt*decomposition_IICB_P_kpd) 
-decomposition_IICB_P_rev:  -> IICB_P
+decomposition_IICB_P_rev:  ->(k_decomposition_IICB_P_rev) IICB_P
 decomposition_IICB: IICB ->(cyt*decomposition_IICB_kpd) 
-decomposition_IICB_rev:  -> IICB
+decomposition_IICB_rev:  ->(k_decomposition_IICB_rev) IICB
 PTS2for: EI_P + HPr ->(PTS2for_kx*cyt) EI + HPr_P
-PTS2for_rev: EI + HPr_P -> EI_P + HPr
+PTS2for_rev: EI + HPr_P ->(k_PTS2for_rev) EI_P + HPr
 PTS2rev: EI + HPr_P ->(PTS2rev_kx*cyt) EI_P + HPr
-PTS2rev_rev: EI_P + HPr -> EI + HPr_P
+PTS2rev_rev: EI_P + HPr ->(k_PTS2rev_rev) EI + HPr_P
 PTS3for: HPr_P + IIA ->(PTS3for_kx*cyt) HPr + IIA_P
-PTS3for_rev: HPr + IIA_P -> HPr_P + IIA
+PTS3for_rev: HPr + IIA_P ->(k_PTS3for_rev) HPr_P + IIA
 PTS3rev: HPr + IIA_P ->(PTS3rev_kx*cyt) HPr_P + IIA
-PTS3rev_rev: HPr_P + IIA -> HPr + IIA_P
+PTS3rev_rev: HPr_P + IIA ->(k_PTS3rev_rev) HPr + IIA_P
 PTS4for: IIA_P + IICB ->(PTS4for_kx*cyt) IIA + IICB_P
-PTS4for_rev: IIA + IICB_P -> IIA_P + IICB
+PTS4for_rev: IIA + IICB_P ->(k_PTS4for_rev) IIA_P + IICB
 PTS4rev: IIA + IICB_P ->(PTS4rev_kx*cyt) IIA_P + IICB
-PTS4rev_rev: IIA_P + IICB -> IIA + IICB_P
+PTS4rev_rev: IIA_P + IICB ->(k_PTS4rev_rev) IIA + IICB_P
 reaction_CYA_ATP: ATP ->(CYA*cyt*reaction_CYA_ATP_Q/(ATP + reaction_CYA_ATP_Kmich)) cAMP
-reaction_CYA_ATP_rev: cAMP -> ATP
+reaction_CYA_ATP_rev: cAMP ->(k_reaction_CYA_ATP_rev) ATP
 reaction_IIA_P_CYA_ATP: ATP ->(IIA_P_CYA*cyt*reaction_IIA_P_CYA_ATP_Q/(ATP + reaction_IIA_P_CYA_ATP_Kmich)) cAMP
-reaction_IIA_P_CYA_ATP_rev: cAMP -> ATP
+reaction_IIA_P_CYA_ATP_rev: cAMP ->(k_reaction_IIA_P_CYA_ATP_rev) ATP
 reaction_EI_PEP: EI + PEP ->(2*PEP*cyt*reaction_EI_PEP_Q/(PEP**2 + reaction_EI_PEP_Kmich**2)) EI_P + Pyr
-reaction_EI_PEP_rev: EI_P + Pyr -> EI + PEP
+reaction_EI_PEP_rev: EI_P + Pyr ->(k_reaction_EI_PEP_rev) EI + PEP
 reaction_EIP_Pyr: EI_P + Pyr ->(2*Pyr*cyt*reaction_EIP_Pyr_Q/(Pyr**2 + reaction_EIP_Pyr_Kmich**2)) EI + PEP
-reaction_EIP_Pyr_rev: EI + PEP -> EI_P + Pyr
+reaction_EIP_Pyr_rev: EI + PEP ->(k_reaction_EIP_Pyr_rev) EI_P + Pyr
 reaction_IICB_P_Glucose: Glucose + IICB_P ->(cyt*reaction_IICB_P_Glucose_Q/(Glucose + reaction_IICB_P_Glucose_Kmich)) Glc6P + IICB
-reaction_IICB_P_Glucose_rev: Glc6P + IICB -> Glucose + IICB_P
+reaction_IICB_P_Glucose_rev: Glc6P + IICB ->(k_reaction_IICB_P_Glucose_rev) Glucose + IICB_P
 reaction_IICB_Glc6P: Glc6P + IICB ->(cyt*reaction_IICB_Glc6P_Q/(Glc6P + reaction_IICB_Glc6P_Kmich)) Glucose + IICB_P
-reaction_IICB_Glc6P_rev: Glucose + IICB_P -> Glc6P + IICB
+reaction_IICB_Glc6P_rev: Glucose + IICB_P ->(k_reaction_IICB_Glc6P_rev) Glc6P + IICB

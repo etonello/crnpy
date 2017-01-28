@@ -1,44 +1,44 @@
-AA_production:  ->(Kcat_PLA2_*PLA2*cell*ks*lin*(KI19*KI20*KI21*KI22 + KI19*KI20*KI21*_5_HETE + KI19*KI20*KI22*LTB4 + KI19*KI21*KI22*_15_HPETE + KI20*KI21*KI22*_12_HPETE)/(KI19*KI20*KI21*KI22*(AA*Km_PLA2_ + Km_PLA2_*ks + ks*lin))) AA
-_15_HPETE_production: AA ->(Kcat_15_LOX_*_15_LOX*cell*ks/(AA*ks + Km_15_LOX_*_15_HPETE + Km_15_LOX_*ks)) _15_HPETE
-_15_HPETE_production_rev: _15_HPETE -> AA
-_15_HETE_production: _15_HPETE ->(Kcat_PHGPx_*PHGPx*cell*ks/(Km_PHGPx_*_15_HETE + Km_PHGPx_*ks + _15_HPETE*ks)) _15_HETE
-_15_HETE_production_rev: _15_HETE -> _15_HPETE
-_12_HPETE_production: AA ->(Kcat_12_LOX_*_12_LOX*cell*ki16*ki18*ks/(AA*ki16*ki18*ks + Km_12_LOX_*_12_HPETE*ki16*ki18 + Km_12_LOX_*_12_HPETE*ki16*ks + Km_12_LOX_*_15_HETE*ki18*ks + Km_12_LOX_*ki16*ki18*ks)) _12_HPETE
-_12_HPETE_production_rev: _12_HPETE -> AA
-_12_HETE_production: _12_HPETE ->(Kcat_PHGPx_*PHGPx*cell*ks/(Km_PHGPx_*_12_HETE + Km_PHGPx_*ks + _12_HPETE*ks)) _12_HETE
-_12_HETE_production_rev: _12_HETE -> _12_HPETE
-PGH2_production: AA ->(COX_2*Kcat_COX_2_*cell*ki3*ks/(AA*ki3*ks + Km_COX_2_*PGE2*ks + Km_COX_2_*PGH2*ki3 + Km_COX_2_*ki3*ks)) PGH2
-PGH2_production_rev: PGH2 -> AA
-PGE2_production: PGH2 ->(Kcat_PGES_*PGES*cell*ki1*ki2*ks/(AA*Km_PGES_*ki2*ks + Km_PGES_*PGE2*ki1*ki2 + Km_PGES_*_15_HETE*ki1*ks + Km_PGES_*ki1*ki2*ks + PGH2*ki1*ki2*ks)) PGE2
-PGE2_production_rev: PGE2 -> PGH2
-TXA2_production: PGH2 ->(Kcat_TXAS_*TXAS*cell*ks/(Km_TXAS_*TXA2 + Km_TXAS_*ks + PGH2*ks)) TXA2
-TXA2_production_rev: TXA2 -> PGH2
-TXB2_production:  ->(TXA2*cell*kd8) TXB2
-_5_HPETE_production: AA ->(Kcat_5_LOX_*_5_LOX*cell*ki11*ki12*ki7*ki8*ks/(AA*ki11*ki12*ki7*ki8*ks + Km_5_LOX_*PGE2*ki12*ki7*ki8*ks + Km_5_LOX_*_12_HETE*ki11*ki12*ki8*ks + Km_5_LOX_*_15_HETE*ki11*ki12*ki7*ks + Km_5_LOX_*_5_HETE*ki11*ki7*ki8*ks + Km_5_LOX_*_5_HPETE*ki11*ki12*ki7*ki8 + Km_5_LOX_*ki11*ki12*ki7*ki8*ks)) _5_HPETE
-_5_HPETE_production_rev: _5_HPETE -> AA
-_5_HETE_production: _5_HPETE ->(Kcat_PHGPx_*PHGPx*cell*ks/(Km_PHGPx_*_5_HETE + Km_PHGPx_*ks + _5_HPETE*ks)) _5_HETE
-_5_HETE_production_rev: _5_HETE -> _5_HPETE
-LTA4_production: _5_HPETE ->(Kcat_5_LOX_*_5_LOX*cell*ki11*ki12*ki7*ki8*ks/(Km_5_LOX_*LTA4*ki11*ki12*ki7*ki8 + Km_5_LOX_*PGE2*ki12*ki7*ki8*ks + Km_5_LOX_*_12_HETE*ki11*ki12*ki8*ks + Km_5_LOX_*_15_HETE*ki11*ki12*ki7*ks + Km_5_LOX_*_5_HETE*ki11*ki7*ki8*ks + Km_5_LOX_*ki11*ki12*ki7*ki8*ks + _5_HPETE*ki11*ki12*ki7*ki8*ks)) LTA4
-LTA4_production_rev: LTA4 -> _5_HPETE
-LTB4_production: LTA4 ->(Kcat_LTA4H_*LTA4H*cell*ks/(Km_LTA4H_*LTB4 + Km_LTA4H_*ks + LTA4*ks)) LTB4
-LTB4_production_rev: LTB4 -> LTA4
-_20_OH_LTB4_production: LTB4 ->(CYP4F3*Kcat_CYP4F3_*cell*ki14*ki15*ks/(Km_CYP4F3_*_12_HETE*ki15*ks + Km_CYP4F3_*_5_HETE*ki14*ks + Km_CYP4F3_*ki14*ki15*ks + Km_CYP4F3_*ki14*ki15*w_LTB4 + LTB4*ki14*ki15*ks)) w_LTB4
-_20_OH_LTB4_production_rev: w_LTB4 -> LTB4
-_15_LOX_upregulation:  ->(PGE2**2*a24*cell/(KI24**2 + PGE2**2)) _15_LOX
-_12_LOX_inhibition: _12_LOX ->(_15_HPETE*cell*ki17) 
-TXAS_inhibition: TXAS ->(_15_HPETE*cell*ki4) 
-_5_LOX_upregulation:  ->(KI23*LTB4*_5_LOX*cell) _5_LOX
-LTA4H_inhibition: LTA4H ->(Kcat_LTA4H_*LTA4*cell/(129*(Km_LTA4H_ + LTA4))) 
-TXB2_decay: TXB2 ->(cell*kd9) 
-TXAS_inhibition_by_PGH2: TXAS ->(PGH2*cell*ki5) 
-TAX2_decay: TXA2 ->(cell*kd8) 
-LTB4_decay: LTB4 ->(cell*kd13) 
-LTA4_decay: LTA4 ->(cell*kd12) 
-_15_HETE_decay: _15_HETE ->(cell*kd3) 
-_15_HPETE_decay: _15_HPETE ->(cell*kd2) 
-_15_LOX_decay: _15_LOX ->(cell*kd16) 
-_5_HETE_decay: _5_HETE ->(cell*kd11) 
-_5_LOX_inhibition_by_x12: _5_LOX ->(LTA4*cell*ki9) 
-_5_LOX_inhibition_by_x10: _5_LOX ->(_5_HPETE*cell*ki10) 
-_5_LOX_inhibition_by_x2: _5_LOX ->(_15_HPETE*cell*ki6) 
-AA_decay: AA ->(0.1*cell) 
+R1:  ->(K15*cell*lin*x15*(1 + x11/KI22 + x13/KI21 + x2/KI20 + x4/KI19)/(k15*(1 + x1/ks) + lin)) x1
+R2: x1 ->(K16*cell*ks*x16/(k16*ks + k16*x2 + ks*x1)) x2
+R2_rev: x2 ->(k_R2_rev) x1
+R3: x2 ->(K24*cell*ks*x24/(k24*ks + k24*x3 + ks*x2)) x3
+R3_rev: x3 ->(k_R3_rev) x2
+R4: x1 ->(K17*cell*ki16*ki18*ks*x17/(k17*ki16*ki18*ks + k17*ki16*ki18*x4 + k17*ki16*ks*x4 + k17*ki18*ks*x3 + ki16*ki18*ks*x1)) x4
+R4_rev: x4 ->(k_R4_rev) x1
+R5: x4 ->(K24*cell*ks*x24/(k24*ks + k24*x5 + ks*x4)) x5
+R5_rev: x5 ->(k_R5_rev) x4
+R6: x1 ->(K18*cell*ki3*ks*x18/(k18*ki3*ks + k18*ki3*x6 + k18*ks*x7 + ki3*ks*x1)) x6
+R6_rev: x6 ->(k_R6_rev) x1
+R7: x6 ->(K19*cell*ki1*ki2*ks*x19/(k19*ki1*ki2*ks + k19*ki1*ki2*x7 + k19*ki1*ks*x3 + k19*ki2*ks*x1 + ki1*ki2*ks*x6)) x7
+R7_rev: x7 ->(k_R7_rev) x6
+R8: x6 ->(K20*cell*ks*x20/(k20*ks + k20*x8 + ks*x6)) x8
+R8_rev: x8 ->(k_R8_rev) x6
+R9:  ->(cell*kd8*x8) x9
+R10: x1 ->(K21*cell*ki11*ki12*ki7*ki8*ks*x21/(k21*ki11*ki12*ki7*ki8*ks + k21*ki11*ki12*ki7*ki8*x10 + k21*ki11*ki12*ki7*ks*x3 + k21*ki11*ki12*ki8*ks*x5 + k21*ki11*ki7*ki8*ks*x11 + k21*ki12*ki7*ki8*ks*x7 + ki11*ki12*ki7*ki8*ks*x1)) x10
+R10_rev: x10 ->(k_R10_rev) x1
+R11: x10 ->(K24*cell*ks*x24/(k24*ks + k24*x11 + ks*x10)) x11
+R11_rev: x11 ->(k_R11_rev) x10
+R12: x10 ->(K21*cell*ki11*ki12*ki7*ki8*ks*x21/(k21*ki11*ki12*ki7*ki8*ks + k21*ki11*ki12*ki7*ki8*x12 + k21*ki11*ki12*ki7*ks*x3 + k21*ki11*ki12*ki8*ks*x5 + k21*ki11*ki7*ki8*ks*x11 + k21*ki12*ki7*ki8*ks*x7 + ki11*ki12*ki7*ki8*ks*x10)) x12
+R12_rev: x12 ->(k_R12_rev) x10
+R13: x12 ->(K22*cell*ks*x22/(k22*ks + k22*x13 + ks*x12)) x13
+R13_rev: x13 ->(k_R13_rev) x12
+R14: x13 ->(K23*cell*ki14*ki15*ks*x23/(k23*ki14*ki15*ks + k23*ki14*ki15*x14 + k23*ki14*ks*x11 + k23*ki15*ks*x5 + ki14*ki15*ks*x13)) x14
+R14_rev: x14 ->(k_R14_rev) x13
+R16:  ->(a24*cell*x7**2/(KI24**2 + x7**2)) x16
+R17: x17 ->(cell*ki17*x2) 
+R20: x20 ->(cell*ki4*x2) 
+R21:  ->(KI23*cell*x13*x21) x21
+R22: x22 ->(K22*cell*x12/(129*k22 + 129*x12)) 
+R18: x9 ->(cell*kd9) 
+R19: x20 ->(cell*ki5*x6) 
+R25: x8 ->(cell*kd8) 
+R24: x13 ->(cell*kd13) 
+R23: x12 ->(cell*kd12) 
+R26: x3 ->(cell*kd3) 
+R27: x2 ->(cell*kd2) 
+R28: x16 ->(cell*kd16) 
+R29: x11 ->(cell*kd11) 
+R30: x21 ->(cell*ki9*x12) 
+R31: x21 ->(cell*ki10*x10) 
+R32: x21 ->(cell*ki6*x2) 
+R34: x1 ->(0.1*cell) 

@@ -1,10 +1,10 @@
-MAPKKK_activation: Mos ->(J0_V1*uVol/((J0_K1 + Mos)*((Erk2_PP/J0_Ki)**J0_n + 1))) Mos_P
-MAPKKK_inactivation: Mos_P ->(J1_V2*uVol/(J1_KK2 + Mos_P)) Mos
-phosphorylation_of_MAPKK: Mek1 ->(J2_k3*Mos_P*uVol/(J2_KK3 + Mek1)) Mek1_P
-phosphorylation_of_MAPKK_P: Mek1_P ->(J3_k4*Mos_P*uVol/(J3_KK4 + Mek1_P)) Mek1_PP
-dephosphorylation_of_MAPKK_PP: Mek1_PP ->(J4_V5*uVol/(J4_KK5 + Mek1_PP)) Mek1_P
-dephosphorylation_of_MAPKK_P: Mek1_P ->(J5_V6*uVol/(J5_KK6 + Mek1_P)) Mek1
-phosphorylation_of_MAPK: Erk2 ->(J6_k7*Mek1_PP*uVol/(Erk2 + J6_KK7)) Erk2_P
-phosphorylation_of_MAPK_P: Erk2_P ->(J7_k8*Mek1_PP*uVol/(Erk2_P + J7_KK8)) Erk2_PP
-dephosphorylation_of_MAPK_PP: Erk2_PP ->(J8_V9*uVol/(Erk2_PP + J8_KK9)) Erk2_P
-dephosphorylation_of_MAPK_P: Erk2_P ->(J9_V10*uVol/(Erk2_P + J9_KK10)) Erk2
+J0: MKKK ->(J0_V1*uVol/((J0_K1 + MKKK)*((MAPK_PP/J0_Ki)**J0_n + 1))) MKKK_P
+J1: MKKK_P ->(J1_V2*uVol/(J1_KK2 + MKKK_P)) MKKK
+J2: MKK ->(J2_k3*MKKK_P*uVol/(J2_KK3 + MKK)) MKK_P
+J3: MKK_P ->(J3_k4*MKKK_P*uVol/(J3_KK4 + MKK_P)) MKK_PP
+J4: MKK_PP ->(J4_V5*uVol/(J4_KK5 + MKK_PP)) MKK_P
+J5: MKK_P ->(J5_V6*uVol/(J5_KK6 + MKK_P)) MKK
+J6: MAPK ->(J6_k7*MKK_PP*uVol/(J6_KK7 + MAPK)) MAPK_P
+J7: MAPK_P ->(J7_k8*MKK_PP*uVol/(J7_KK8 + MAPK_P)) MAPK_PP
+J8: MAPK_PP ->(J8_V9*uVol/(J8_KK9 + MAPK_PP)) MAPK_P
+J9: MAPK_P ->(J9_V10*uVol/(J9_KK10 + MAPK_P)) MAPK

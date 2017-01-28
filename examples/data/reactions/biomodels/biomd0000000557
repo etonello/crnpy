@@ -19,7 +19,7 @@ reaction_13: ppERK_DUSPn ->(kd3_ppERKn*nucleus) DUSPn + pERKn
 reaction_14: DUSPn + pERKn ->(4.54545454545455*kd1_pERKn*nucleus**2) pERK_DUSPn
 reaction_14_rev: pERK_DUSPn ->(kd2_pERKn*nucleus) DUSPn + pERKn
 reaction_15: pERK_DUSPn ->(kd3_pERKn*nucleus) DUSPn + ERKn
-reaction_16:  ->(0.693*duspn_basal*(Kduspn**2 + duspn_ind*ppERKn**2 + nucleus*ppERKn**2)/(Tduspn*(Kduspn**2 + nucleus*ppERKn**2))) duspn
+reaction_16:  ->(0.693*duspn_basal*(duspn_ind*ppERKn**2.0/(Kduspn**2.0 + nucleus*ppERKn**2.0) + 1.0)/Tduspn) duspn
 reaction_17: duspn ->(0.693*nucleus/Tduspn) 
 reaction_18:  ->(3.15*duspn*nucleus*v2/TDUSPn) DUSPn
 reaction_19: DUSPn ->(0.693*nucleus/TDUSPn) 

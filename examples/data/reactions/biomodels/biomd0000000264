@@ -1,21 +1,21 @@
-EGF_EGFR: EGF + EGFR ->(Cell*EGF_binding_kf) EGF_EGFR
-EGF_EGFR_rev: EGF_EGFR ->(Cell*EGF_binding_kb) EGF + EGFR
-pEGFR_Akt: Akt + pEGFR ->(Cell*k1) pEGFR_Akt
-pEGFR_Akt_rev: pEGFR_Akt ->(Cell*k2) Akt + pEGFR
-Akt_phosphorylation: pEGFR_Akt ->(Cell*k1) pAkt + pEGFR
-pEGFR_degradation: pEGFR ->(Cell*k1) 
-pAkt_S6: S6 + pAkt ->(Cell*k1) pAkt_S6
-pAkt_S6_rev: pAkt_S6 ->(Cell*k2) S6 + pAkt
-S6_phosphorylation: pAkt_S6 ->(Cell*k1) pAkt + pS6
-pAkt_dephospho: pAkt ->(Cell*k1) Akt
-pS6_dephospho: pS6 ->(Cell*k1) S6
-EGFR_synthesis: pro_EGFR ->(Cell*EGFR_turnover) EGFR
-EGFR_phosphorylation: EGF_EGFR ->(Cell*k1) pEGFR
-EGFR_degradation: EGFR ->(Cell*EGFR_turnover) 
-EGFR_i: EGFR + Inhibitor ->(Cell*inhibitor_binding_kf) EGFR_i
-EGFR_i_rev: EGFR_i ->(Cell*inhibitor_binding_kb) EGFR + Inhibitor
-EGF_EGFR_i: EGF_EGFR + Inhibitor ->(Cell*inhibitor_binding_kf) EGF_EGFR_i
-EGF_EGFR_i_rev: EGF_EGFR_i ->(Cell*inhibitor_binding_kb) EGF_EGFR + Inhibitor
-EGF_EGFR_i: EGF + EGFR_i ->(Cell*EGF_binding_kf) EGF_EGFR_i
-EGF_EGFR_i_rev: EGF_EGFR_i ->(Cell*EGF_binding_kb) EGF + EGFR_i
-EGFR_i_degradation: EGFR_i ->(Cell*EGFR_turnover) 
+reaction_1: EGF + EGFR ->(Cell*EGF_binding_kf) EGF_EGFR
+reaction_1_rev: EGF_EGFR ->(Cell*EGF_binding_kb) EGF + EGFR
+reaction_2: Akt + pEGFR ->(Cell*reaction_2_k1) pEGFR_Akt
+reaction_2_rev: pEGFR_Akt ->(Cell*reaction_2_k2) Akt + pEGFR
+reaction_3: pEGFR_Akt ->(Cell*reaction_3_k1) pAkt + pEGFR
+reaction_4: pEGFR ->(Cell*reaction_4_k1) 
+reaction_5: S6 + pAkt ->(Cell*reaction_5_k1) pAkt_S6
+reaction_5_rev: pAkt_S6 ->(Cell*reaction_5_k2) S6 + pAkt
+reaction_6: pAkt_S6 ->(Cell*reaction_6_k1) pAkt + pS6
+reaction_7: pAkt ->(Cell*reaction_7_k1) Akt
+reaction_8: pS6 ->(Cell*reaction_8_k1) S6
+reaction_9: pro_EGFR ->(Cell*EGFR_turnover) EGFR
+reaction_10: EGF_EGFR ->(Cell*reaction_10_k1) pEGFR
+reaction_11: EGFR ->(Cell*EGFR_turnover) 
+reaction_12: EGFR + Inhibitor ->(Cell*inhibitor_binding_kf) EGFR_i
+reaction_12_rev: EGFR_i ->(Cell*inhibitor_binding_kb) EGFR + Inhibitor
+reaction_13: EGF_EGFR + Inhibitor ->(Cell*inhibitor_binding_kf) EGF_EGFR_i
+reaction_13_rev: EGF_EGFR_i ->(Cell*inhibitor_binding_kb) EGF_EGFR + Inhibitor
+reaction_14: EGF + EGFR_i ->(Cell*EGF_binding_kf) EGF_EGFR_i
+reaction_14_rev: EGF_EGFR_i ->(Cell*EGF_binding_kb) EGF + EGFR_i
+reaction_15: EGFR_i ->(Cell*EGFR_turnover) 

@@ -12,8 +12,8 @@ GSK3p53Binding: GSK3b + p53 ->(kbinGSK3bp53) GSK3b_p53
 GSK3p53Release: GSK3b_p53 ->(krelGSK3bp53) GSK3b + p53
 GSK3p53PBinding: GSK3b + p53_P ->(kbinGSK3bp53) GSK3b_p53_P
 GSK3_p53PRelease: GSK3b_p53_P ->(krelGSK3bp53) GSK3b + p53_P
-E1UbBinding: ATP + Ub + _E1 ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
-E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E2_Ub + _E1
+E1UbBinding: ATP + E1 + Ub ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E1 + E2_Ub
 Mdm2Ubiquitination: E2_Ub + Mdm2 ->(kMdm2Ub) E2 + Mdm2_Ub
 Mdm2polyUbiquitination1: E2_Ub + Mdm2_Ub ->(kMdm2PolyUb) E2 + Mdm2_Ub2
 Mdm2polyUbiquitination2: E2_Ub + Mdm2_Ub2 ->(kMdm2PolyUb) E2 + Mdm2_Ub3

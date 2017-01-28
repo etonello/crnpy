@@ -1,10 +1,10 @@
-Forming_DR: D + R ->(Reaction_1_k1*cell) DR
-Forming_DR_rev: DR ->(Reaction_1_k7*cell) D + R
-DR_Binding_with_G_GDP_produce_DRG_GDP: DR + G_GDP ->(Reaction_2_k2*cell) DRG_GDP
-DR_Binding_with_G_GDP_produce_DRG_GDP_rev: DRG_GDP ->(Reaction_2_k8*cell) DR + G_GDP
-GDP_Releasing: DRG_GDP ->(Reaction_3_k3*cell) DRG + GDP
-GDP_Releasing_rev: DRG + GDP ->(Reaction_3_k9*cell) DRG_GDP
-GTP_binding_with_DRG: DRG + GTP ->(Reaction_4_k4*cell) DRG_GTP
-GTP_binding_with_DRG_rev: DRG_GTP ->(Reaction_4_k10*cell) DRG + GTP
-G_protein_activation: DRG_GTP ->(Reaction_5_k5*cell) DR + G_GTP
-Hydrolysis_of_GTP_to_GDP: G_GTP ->(Reaction_6_k6*cell) G_GDP
+Reaction_1: D + R ->(Reaction_1_k1*cell) DR
+Reaction_1_rev: DR ->(Reaction_1_k7*cell) D + R
+Reaction_2: DR + G_GDP ->(Reaction_2_k2*cell) DRG_GDP
+Reaction_2_rev: DRG_GDP ->(Reaction_2_k8*cell) DR + G_GDP
+Reaction_3: DRG_GDP ->(Reaction_3_k3*cell) DRG + GDP
+Reaction_3_rev: DRG + GDP ->(Reaction_3_k9*cell) DRG_GDP
+Reaction_4: DRG + GTP ->(Reaction_4_k4*cell) DRG_GTP
+Reaction_4_rev: DRG_GTP ->(Reaction_4_k10*cell) DRG + GTP
+Reaction_5: DRG_GTP ->(Reaction_5_k5*cell) DR + G_GTP
+Reaction_6: G_GTP ->(Reaction_6_k6*cell) G_GDP

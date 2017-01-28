@@ -1,26 +1,26 @@
-sumrc1ODE:  ->(2*c2*kminusx + kt) sumrc1
-sumrc1ODE_rev: sumrc1 ->((2*c1**2*kxR0 + kt*sumrc1)/sumrc1) 
-c2ODE:  ->(c1**2*kxR0) c2
+sumrc1ODE:  ->(1.0*(2.0*c2*kminusx + 1.0*kt)) sumrc1
+sumrc1ODE_rev: sumrc1 ->(1.0*(2.0*c1**2.0*kxR0 + 1.0*kt*sumrc1)/sumrc1) 
+c2ODE:  ->(c1**2.0*kxR0) c2
 c2ODE_rev: c2 ->(ke + kminusx) 
 m3PIODE:  ->(ePI3K*k3PI) m3PI
 m3PIODE_rev: m3PI ->(k3PI) 
-mRasODE:  ->(eGEF*kRas*(Gamma + 1)) mRas
-mRasODE_rev: mRas ->(kRas*(Gamma*eGEF + 1)) 
+mRasODE:  ->(eGEF*kRas*(1.0*Gamma + 1.0)) mRas
+mRasODE_rev: mRas ->(1.0*kRas*(1.0*Gamma*eGEF + 1.0)) 
 x1ODE:  ->(kdx1*mRas) x1
-x1ODE_rev: x1 ->(KMx11*KMx12*kdx1/(KMx11*KMx12 + KMx11*yp + KMx12*y)) 
-x2ODE:  ->(kdx2*m3PI*(Kx2 + 1)/(Kx2*m3PI + 1)) x2
-x2ODE_rev: x2 ->(KMx21*KMx22*kdx2/(KMx21*KMx22 + KMx21*yp + KMx22*y)) 
-yODE:  ->(KMyph1*KMyph2*VmaxOVERKMyph1*yp/(KMyph1*KMyph2 + KMyph1*ypp + KMyph2*yp)) y
-yODE_rev: y ->((KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx11*x1 + KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx21*x2 + KMx11*KMx12*KMx21*VmaxOVERKMx11*x1*yp + KMx11*KMx12*KMx22*VmaxOVERKMx11*x1*y + KMx11*KMx21*KMx22*VmaxOVERKMx21*x2*yp + KMx12*KMx21*KMx22*VmaxOVERKMx21*x2*y)/((KMx11*KMx12 + KMx11*yp + KMx12*y)*(KMx21*KMx22 + KMx21*yp + KMx22*y))) 
-yppODE:  ->(yp*(KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx12*x1 + KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx22*x2 + KMx11*KMx12*KMx21*VmaxOVERKMx12*x1*yp + KMx11*KMx12*KMx22*VmaxOVERKMx12*x1*y + KMx11*KMx21*KMx22*VmaxOVERKMx22*x2*yp + KMx12*KMx21*KMx22*VmaxOVERKMx22*x2*y)/((KMx11*KMx12 + KMx11*yp + KMx12*y)*(KMx21*KMx22 + KMx21*yp + KMx22*y))) ypp
-yppODE_rev: ypp ->(KMy1*KMy2*KMyph1*KMyph2*VmaxOVERKMyph2/(KMy1*KMy2*KMyph1*KMyph2 + KMy1*KMy2*KMyph1*ypp + KMy1*KMy2*KMyph2*yp + KMy1*KMyph1*KMyph2*zp + KMy1*KMyph2*yp*zp + KMy2*KMyph1*KMyph2*z + KMy2*KMyph2*yp*z)) 
-zODE:  ->(KMzph1*KMzph2*VmaxOVERKMzph1*eph*zp/(KMzph1*KMzph2 + KMzph1*zpp + KMzph2*zp)) z
-zODE_rev: z ->(KMy1*KMy2*VmaxOVERKMy1*ypp/(KMy1*KMy2 + KMy1*zp + KMy2*z)) 
-zppODE:  ->(KMy1*KMy2*VmaxOVERKMy2*ypp*zp/(KMy1*KMy2 + KMy1*zp + KMy2*z)) zpp
-zppODE_rev: zpp ->(KMzph1*KMzph2*VmaxOVERKMzph2*eph/(KMzph1*KMzph2 + KMzph1*zpp + KMzph2*zp)) 
-fGEFODE:  ->(kFBf/Kf) fGEF
+x1ODE_rev: x1 ->(1.0*KMx11*KMx12*kdx1/(1.0*KMx11*KMx12 + 1.0*KMx11*yp + 1.0*KMx12*y)) 
+x2ODE:  ->(kdx2*m3PI*(1.0*Kx2 + 1.0)/(1.0*Kx2*m3PI + 1.0)) x2
+x2ODE_rev: x2 ->(1.0*KMx21*KMx22*kdx2/(1.0*KMx21*KMx22 + 1.0*KMx21*yp + 1.0*KMx22*y)) 
+yODE:  ->(KMyph1*KMyph2*VmaxOVERKMyph1*yp/(1.0*KMyph1*KMyph2 + 1.0*KMyph1*ypp + 1.0*KMyph2*yp)) y
+yODE_rev: y ->(1.0*(1.0*KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx11*x1 + 1.0*KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx21*x2 + 1.0*KMx11*KMx12*KMx21*VmaxOVERKMx11*x1*yp + 1.0*KMx11*KMx12*KMx22*VmaxOVERKMx11*x1*y + 1.0*KMx11*KMx21*KMx22*VmaxOVERKMx21*x2*yp + 1.0*KMx12*KMx21*KMx22*VmaxOVERKMx21*x2*y)/((1.0*KMx11*KMx12 + 1.0*KMx11*yp + 1.0*KMx12*y)*(1.0*KMx21*KMx22 + 1.0*KMx21*yp + 1.0*KMx22*y))) 
+yppODE:  ->(yp*(1.0*KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx12*x1 + 1.0*KMx11*KMx12*KMx21*KMx22*VmaxOVERKMx22*x2 + 1.0*KMx11*KMx12*KMx21*VmaxOVERKMx12*x1*yp + 1.0*KMx11*KMx12*KMx22*VmaxOVERKMx12*x1*y + 1.0*KMx11*KMx21*KMx22*VmaxOVERKMx22*x2*yp + 1.0*KMx12*KMx21*KMx22*VmaxOVERKMx22*x2*y)/((1.0*KMx11*KMx12 + 1.0*KMx11*yp + 1.0*KMx12*y)*(1.0*KMx21*KMx22 + 1.0*KMx21*yp + 1.0*KMx22*y))) ypp
+yppODE_rev: ypp ->(1.0*KMy1*KMy2*KMyph1*KMyph2*VmaxOVERKMyph2/(1.0*KMy1*KMy2*KMyph1*KMyph2 + 1.0*KMy1*KMy2*KMyph1*ypp + 1.0*KMy1*KMy2*KMyph2*yp + 1.0*KMy1*KMyph1*KMyph2*zp + 1.0*KMy1*KMyph2*yp*zp + 1.0*KMy2*KMyph1*KMyph2*z + 1.0*KMy2*KMyph2*yp*z)) 
+zODE:  ->(KMzph1*KMzph2*VmaxOVERKMzph1*eph*zp/(1.0*KMzph1*KMzph2 + 1.0*KMzph1*zpp + 1.0*KMzph2*zp)) z
+zODE_rev: z ->(1.0*KMy1*KMy2*VmaxOVERKMy1*ypp/(1.0*KMy1*KMy2 + 1.0*KMy1*zp + 1.0*KMy2*z)) 
+zppODE:  ->(KMy1*KMy2*VmaxOVERKMy2*ypp*zp/(1.0*KMy1*KMy2 + 1.0*KMy1*zp + 1.0*KMy2*z)) zpp
+zppODE_rev: zpp ->(1.0*KMzph1*KMzph2*VmaxOVERKMzph2*eph/(1.0*KMzph1*KMzph2 + 1.0*KMzph1*zpp + 1.0*KMzph2*zp)) 
+fGEFODE:  ->(1.0*kFBf*(1.0*Zf**n + 1.0*zpp**n)/(Kf*(Zf**n + zpp**n))) fGEF
 fGEFODE_rev: fGEF ->(kFBf*(Kf*zpp**n + Zf**n + zpp**n)/(Kf*(Zf**n + zpp**n))) 
 wODE:  ->(kdw*zpp) w
 wODE_rev: w ->(kdw) 
-ephODE:  ->(kFBph*(Kph*w**p + Wph**p + w**p)/(Kph*(Wph**p + w**p))) eph
+ephODE:  ->(1.0*kFBph*(1.0*Kph*w**p + 1.0*Wph**p + 1.0*w**p)/(Kph*(Wph**p + w**p))) eph
 ephODE_rev: eph ->(kFBph/Kph) 

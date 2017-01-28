@@ -1,17 +1,17 @@
-PAMP_recognition: PAMP + PRR ->(k1) PRR_
-PAMP_recognition_rev: PRR_ ->(k2) PAMP + PRR
-Effector_recognition: E_int + R ->(Cell*k1) R_
-Effector_recognition_rev: R_ ->(Cell*k2) E_int + R
-Effector_removal: E ->(Apoplast*k1) 
-PAMP_removal: PAMP ->(Cell*k1) 
-Pathogen_arrival: Path_bulk ->(Apoplast*k1) Path + Path_bulk
-Pathogen_removal: Path ->(Apoplast*k1) 
-PAMP_production: Path ->(k1) PAMP + Path
-Effector_production: Path ->(Apoplast*k1) E + Path
-E_int_removal: E_int ->(Cell*k1) 
-ETI: Path + R_ ->(k1) R_
-Effector_translocation: E ->(Ki*V/(Callose*Km + E*Ki + Ki*Km)) E_int
-Callose_production: PRR_ ->(k1) Callose + PRR_
-Callose_removal: Callose ->(Cell*k1) 
-PTI: Callose + Path ->(k1) Callose
-Callose_suppression: Callose + E_int ->(Cell*k1) E_int
+PAMP_recognition: PAMP + PRR_0 ->(PAMP_recognition_k1) PRR
+PAMP_recognition_rev: PRR ->(PAMP_recognition_k2) PAMP + PRR_0
+Effector_recognition: E_int + R ->(Cell*Effector_recognition_k1) R_0
+Effector_recognition_rev: R_0 ->(Cell*Effector_recognition_k2) E_int + R
+Effector_removal: E ->(Apoplast*Effector_removal_k1) 
+PAMP_removal: PAMP ->(Cell*PAMP_removal_k1) 
+Pathogen_arrival: Path_bulk ->(Apoplast*Pathogen_arrival_k1) Path + Path_bulk
+Pathogen_removal: Path ->(Apoplast*Pathogen_removal_k1) 
+PAMP_production: Path ->(PAMP_production_k1) PAMP + Path
+Effector_production: Path ->(Apoplast*Effector_production_k1) E + Path
+E_int_removal: E_int ->(Cell*E_int_removal_k1) 
+ETI: Path + R_0 ->(ETI_k1) R_0
+Effector_translocation: E ->(Effector_translocation_V/(Callose*Effector_translocation_Km/Effector_translocation_Ki + E + Effector_translocation_Km)) E_int
+Callose_production: PRR ->(Callose_production_k1) Callose + PRR
+Callose_removal: Callose ->(Callose_removal_k1*Cell) 
+PTI: Callose + Path ->(PTI_k1) Callose
+Callose_suppression: Callose + E_int ->(Callose_suppression_k1*Cell) E_int

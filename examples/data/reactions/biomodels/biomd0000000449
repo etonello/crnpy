@@ -24,7 +24,7 @@ v4c: PKB308p ->(k4c*mTORC2a) PKB308p473p
 v4e: PKB473p ->(IRS1p307*k4e) PKB308p473p
 v4f: PKB308p473p ->(k4f) PKB473p
 v4h: PKB473p ->(k4h) PKB
-v6f1: AS160 ->((PKB308p473p*PKB473p**n6*k6f1 + PKB308p473p*k6f1*km6**n6 + PKB473p**n6*k6f2)/(PKB473p**n6 + km6**n6)) AS160p
+v6f1: AS160 ->(PKB308p473p*k6f1 + PKB473p**n6*k6f2/(PKB473p**n6 + km6**n6)) AS160p
 v6b1: AS160p ->(k6b) AS160
 v7f: GLUT4 ->(AS160p*k7f) GLUT4m
 v7b: GLUT4m ->(k7b) GLUT4

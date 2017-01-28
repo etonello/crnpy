@@ -1,35 +1,35 @@
-Ingestion: DC ->(k1) IC
-Intestinal_Cholesterol_Synthesis: ICS ->(ICSmax/(ICS*((IC/ICt)**IS + 1))) IC
-Bile_Salt_Release: HBS ->(k1) IBS
-Bile_Salt_Return: IBS ->(k1) HBS
-Bile_Salt_Excretion: IBS ->(k1) EBS
-Bile_Salt_Synthesis: HFC ->(k5/HBS) HBS
-Cholesterol_Absorption: IC ->(IBS*k6) HFC
-Cholesterol_Excretion: IC ->(IBS*k7) EC
-Intestinal_Nascent_HDL_Synthesis: INHDLS ->(PFC*k8/INHDLS) NHDL
-Billary_Cholesterol_Release: HFC ->(BCRmax/(HFC*((BCRt/HFC)**BS + 1))) IC
-Hepatic_Cholesterol_Synthesis: HCS ->(HCSmax/(HCS*((HFC/HCSt)**HS + 1))) HFC
-Hepatic_Cholesterol_Storage: HFC ->(ACAT*k9) HCE
-Release_of_Stored_Cholesterol: HCE ->(CEH*k10) HFC
-Hepatic_Nascent_HDL_Synthesis: HNHDLS ->(PFC*k11/HNHDLS) NHDL
-VLDL_Cholesterol_Formation: HFC ->(k1) VLDLC
-Hepatic_LDLR_Synthesis: HLDLRsS ->(khrs/HFC) HLDLRs
-Hepatic_LDL_Receptor_Degradation: HLDLRs ->(k1) HLDLRD
-VLDL_Cholesterol_ReUptake: VLDLC ->(k1) HFC
-IDL_Cholesterol_Formation: VLDLC ->(LPL*k15) IDLC
-IDL_Cholesterol_ReUptake: IDLC ->(k1) HFC
-LDL_Cholesterol_Formation: IDLC ->(HSL*k17) LDLC
-Receptor_Dependent_Hepatic_Uptake: LDLC ->(HLDLRs*k18) HFC
-Receptor_Independent_Hepatic_Uptake: LDLC ->(k1) HFC
-Receptor_Dependent_Peripheral_Uptake: LDLC ->(PLDLRs*k20) PFC
-Receptor_Independent_Peripheral_Uptake: LDLC ->(k1) PFC
-Peripheral_LDLR_Synthesis: PLDLRsS ->(kprs/PFC) PLDLRs
-Peripheral_LDL_Receptor_Degradation: PLDLRs ->(k1) PLDLRD
-Peripheral_Cholesterol_Storage: PFC ->(ACAT*k23) PCE
-Release_of_Stored_Peripheral_Cholesterol: PCE ->(CEH*k24) PFC
-Peripheral_Steroid_Production: PFC ->(k1) PSS
-HDL_Cholesterol_Formation: NHDL + PFC ->(LCAT*k26) HDLC
-Peripheral_Cholesterol_Synthesis: PCS ->(PCSmax/(PCS*((PFC/PPCt)**PCSS + 1))) PFC
-CETP_Mediated_Transfer_To_VLDL: HDLC ->(CETP*k27) VLDLC
-CETP_Mediated_TransferTo_LDL: HDLC ->(CETP*k28) LDLC
-Reverse_Cholesterol_Transport: HDLC ->(SRB1*k29) HFC
+reaction_1: species_1 ->(reaction_1_k1) species_2
+reaction_2: species_3 ->(reaction_2_ICSmax/(species_3*((species_2/reaction_2_ICt)**reaction_2_IS + 1.0))) species_2
+reaction_3: species_4 ->(reaction_3_k1) species_5
+reaction_4: species_5 ->(reaction_4_k1) species_4
+reaction_5: species_5 ->(reaction_5_k1) species_6
+reaction_6: species_7 ->(reaction_6_k5/species_4) species_4
+reaction_7: species_2 ->(reaction_7_k6*species_5) species_7
+reaction_8: species_2 ->(reaction_8_k7*species_5) species_8
+reaction_9: species_9 ->(reaction_9_k8*species_11/species_9) species_10
+reaction_10: species_7 ->(reaction_10_BCRmax/(species_7*((reaction_10_BCRt/species_7)**reaction_10_BS + 1.0))) species_2
+reaction_11: species_12 ->(reaction_11_HCSmax/(species_12*((species_7/reaction_11_HCSt)**reaction_11_HS + 1.0))) species_7
+reaction_12: species_7 ->(reaction_12_k9*species_14) species_13
+reaction_13: species_13 ->(reaction_13_k10*species_15) species_7
+reaction_14: species_16 ->(reaction_14_k11*species_11/species_16) species_10
+reaction_15: species_7 ->(reaction_15_k1) species_17
+reaction_16: species_19 ->(reaction_16_khrs/species_7) species_18
+reaction_17: species_18 ->(reaction_17_k1) species_20
+reaction_18: species_17 ->(reaction_18_k1) species_7
+reaction_19: species_17 ->(reaction_19_k15*species_22) species_21
+reaction_20: species_21 ->(reaction_20_k1) species_7
+reaction_21: species_21 ->(reaction_21_k17*species_24) species_23
+reaction_22: species_23 ->(reaction_22_k18*species_18) species_7
+reaction_23: species_23 ->(reaction_23_k1) species_7
+reaction_24: species_23 ->(reaction_24_k20*species_25) species_11
+reaction_25: species_23 ->(reaction_25_k1) species_11
+reaction_26: species_26 ->(reaction_26_kprs/species_11) species_25
+reaction_27: species_25 ->(reaction_27_k1) species_27
+reaction_28: species_11 ->(reaction_28_k23*species_14) species_28
+reaction_29: species_28 ->(reaction_29_k24*species_15) species_11
+reaction_30: species_11 ->(reaction_30_k1) species_29
+reaction_31: species_10 + species_11 ->(reaction_31_k26*species_31) species_30
+reaction_32: species_32 ->(reaction_32_PCSmax/(species_32*((species_11/reaction_32_PPCt)**reaction_32_PCSS + 1.0))) species_11
+reaction_33: species_30 ->(reaction_33_k27*species_33) species_17
+reaction_34: species_30 ->(reaction_34_k28*species_33) species_23
+reaction_35: species_30 ->(reaction_35_k29*species_34) species_7

@@ -1,14 +1,14 @@
-reac_DIA: ARF + Aux_IAA ->(k_IA) Aux_IAA_ARF
-reac_DIA_rev: Aux_IAA_ARF ->(kprime_IA) ARF + Aux_IAA
-reac_DII: Aux_IAA ->(Aux_IAA*k_II) Aux_IAA_Aux_IAA
-reac_DII_rev: Aux_IAA_Aux_IAA ->(kprime_II) Aux_IAA
-reac_degrI: Aux_IAA ->(K_aux*auxin*d_I*gamma_I/(K_aux*auxin + 1)) 
-reac_degrA: ARF ->(d_A) 
-reac_degrDIA: Aux_IAA_ARF ->(d_IA) 
-reac_degrDII: Aux_IAA_Aux_IAA ->(d_II) 
-reac_DIAxA: Aux_IAA_ARF ->(K_aux*auxin*d_I*gamma_I/(K_aux*auxin + 1)) ARF
-reac_DIIxI: Aux_IAA_Aux_IAA ->(K_aux*auxin*d_I*gamma_I/(K_aux*auxin + 1)) Aux_IAA
-reac_degrR: mRNA ->(d_r) 
-reac_prodI:  ->(mRNA*pi_I) Aux_IAA
-reac_prodA:  ->(pi_A) ARF
-reac_prodR:  ->(K_IA*(ARF**2*f_A*f_c*w_A + ARF*B_d*f_c + B_d**2)/(ARF**2*K_IA*w_A + ARF*Aux_IAA*B_d*w_I + ARF*B_d*K_IA + Aux_IAA_ARF*B_d*K_IA*w_D + B_d**2*K_IA*k_Am + B_d**2*K_IA)) mRNA
+reac_DIA: A + I ->(k_IA) D_IA
+reac_DIA_rev: D_IA ->(kprime_IA) A + I
+reac_DII: I ->(I*k_II) D_II
+reac_DII_rev: D_II ->(kprime_II) I
+reac_degrI: I ->(K_aux*aux*d_I*gamma_I/(K_aux*aux + 1.0)) 
+reac_degrA: A ->(d_A) 
+reac_degrDIA: D_IA ->(d_IA) 
+reac_degrDII: D_II ->(d_II) 
+reac_DIAxA: D_IA ->(K_aux*aux*d_I*gamma_I/(K_aux*aux + 1.0)) A
+reac_DIIxI: D_II ->(K_aux*aux*d_I*gamma_I/(K_aux*aux + 1.0)) I
+reac_degrR: R ->(d_r) 
+reac_prodI:  ->(R*pi_I) I
+reac_prodA:  ->(pi_A) A
+reac_prodR:  ->((A*f_c*(A*f_A*w_A/B_d + 1.0)/B_d + 1.0)/(A*I*w_I/(B_d*K_IA) + A*(A*w_A/B_d + 1.0)/B_d + k_Am + 1.0 + D_IA*w_D/B_d)) R

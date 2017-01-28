@@ -1,40 +1,40 @@
-Time: time ->(1/time) T
-re01: frq_gene ->((K_01**H_01*L_WCC*k_01a + L_WCC*active_hypoWCCn**H_01*k_01a + active_hypoWCCn**H_01*k_01)/(frq_gene*(K_01**H_01 + active_hypoWCCn**H_01))) frq_mRNA
-re02: wc1_gene ->((L_WCC*k_02a02 + active_hypoWCCn*k_02a01 + k_02)/wc1_gene) wc1_mRNA
-re03: wc2_gene ->((hypoFRQn*hypoWCCn*k_03a*k_03i + hypoFRQn*k_03a + k_03)/(wc2_gene*(hypoWCCn*k_03i + 1))) wc2_mRNA
-re04: vvd_gene ->(L_WCC*k_04/vvd_gene) vvd_mRNA
-re05: frq_mRNA ->(k_05) hypoFRQc
-re06: wc1_mRNA ->(k_06) WC1c
-re07: wc2_mRNA ->(k_07) WC2c
-re08: vvd_mRNA ->(k_08) VVDc
-re09: frq_mRNA ->(hypoFRQc*k_09a + k_09) degraded_frq_mRNA
-re10: wc1_mRNA ->(k_10) degraded_wc1_mRNA
-re11: wc2_mRNA ->(k_11) degraded_wc2_mRNA
-re12: vvd_mRNA ->(k_12) degraded_vvd_mRNA
-re13: WC1c + WC2c ->(k_13) hypoWCCc
-re14: hypoFRQc ->(k_14) hypoFRQn
-re15: hypoWCCc ->(k_15) hypoWCCn
-re16: VVDc ->(k_16) VVDn
-re17: hypoFRQn ->(k_17) hypoFRQc
-re18: hyperFRQn ->(k_18) hyperFRQc
-re19: hyperWCCn ->(k_19) hyperWCCc
-re20: hypoFRQc ->(k_20) hyperFRQc
-re21: hypoFRQn ->(k_21) hyperFRQn
-re22: hypoWCCc ->(k_22) hyperWCCc
-re23: hypoWCCn ->(hypoFRQn**H_02*k_23/(K_02**H_02 + hypoFRQn**H_02)) hyperWCCn
-re24: hyperWCCc ->(k_24) hypoWCCc
-re25: hypoWCCn ->(k_25) active_hypoWCCn
-re26: hypoWCCn ->(k_26) L_WCC
-re27: L_WCC + VVDn ->(k_27) L_WCCVVDn
-re28: L_WCCVVDn ->(k_28) VVDn + hypoWCCn
-re29: hyperFRQc ->(k_29) degraded_hyperFRQc
-re30: hyperFRQn ->(k_30) degraded_hyperFFCn
-re31: WC1c ->(k_31) degraded_WC1c
-re32: WC2c ->(k_32) degraded_WC2c
-re33: hyperWCCc ->(k_33) degraded_hyperWCCc
-re34: hyperWCCn ->(k_34) degraded_hyperWCCn
-re35: active_hypoWCCn ->(k_35) degraded_active_hypoWCCn
-re36: L_WCC ->(k_36) degraded_L_WCCCVVDn
-re37: VVDc ->(k_37) degraded_VVDc
-re38: VVDn ->(k_38) degraded_VVDn
-re39: L_WCCVVDn ->(k_39) degraded_L_WCCCVVDn
+re45: time ->(1/time) T
+frq_transcription: frq_gene ->((L_WCC*kadd_light_frq + active_hypoWCCn**A_active_hypoWCCn_frq*kmax_frq/(Km_frq**A_active_hypoWCCn_frq + active_hypoWCCn**A_active_hypoWCCn_frq))/frq_gene) frq_mRNA
+wc1_transcription: wc1_gene ->((L_WCC*kadd_L_wc1 + active_hypoWCCn*kadd_wc1 + k_min_wc1)/wc1_gene) wc1_mRNA
+wc2_transcription: wc2_gene ->((hypoFRQn*kadd_wc2_transcription_hypoFRQn + kmax_wc2/(hypoWCCn*ki_wc2_transcription + 1))/wc2_gene) wc2_mRNA
+vvd_transcription: vvd_gene ->(L_WCC*kadd_vvd_light_mRNA/vvd_gene) vvd_mRNA
+frq_translation: frq_mRNA ->(k_hypoFRQc) hypoFRQc
+wc1_translation: wc1_mRNA ->(k_WC1c) WC1c
+wc2_translation: wc2_mRNA ->(k_WC2c) WC2c
+vvd_translation: vvd_mRNA ->(k_VVDc) VVDc
+frq_mRNA_degradation: frq_mRNA ->(hypoFRQc*kdfrq_hypoFRQc + kd_frq) degraded_frq_mRNA
+wc1_mRNA_degradation: wc1_mRNA ->(kd_wc1) degraded_wc1_mRNA
+wc2_mRNA_degradation: wc2_mRNA ->(kd_wc2) degraded_wc2_mRNA
+vvd_mRNA_degradation: vvd_mRNA ->(kd_vvd_mRNA) degraded_vvd_mRNA
+hypoWCCc_formation: WC1c + WC2c ->(k_hypoWCCc) hypoWCCc
+hypoFRQc_translocation_in_nucleus: hypoFRQc ->(kin_hypoFRQc) hypoFRQn
+hypoWCCc_translocation_in_nucleus: hypoWCCc ->(kin_hypoWCCc) hypoWCCn
+VVD_nuclear_localisation: VVDc ->(kin_VVDc) VVDn
+hypoFRQn_translocation_out_nucleus: hypoFRQn ->(kout_hypoFRQn) hypoFRQc
+hyperFRQn_translocation_out_nucleus: hyperFRQn ->(kout_hyperFRQn) hyperFRQc
+hyperWCCn_translocation_out_nucleus: hyperWCCn ->(kout_hyperWCCn) hyperWCCc
+hypoFRQc_phosphorylation: hypoFRQc ->(kp_hypoFRQc) hyperFRQc
+hypoFRQn_phosphorylation: hypoFRQn ->(kp_hypoFRQn) hyperFRQn
+hypoWCCc_phosphorylation: hypoWCCc ->(kp_hypoWCCc) hyperWCCc
+hypoWCCn_phosphorylation: hypoWCCn ->(hypoFRQn**I_hypoFRQn_hyperWCCn*kmaxp_hypoWCCn/(Kmp_hypoFRQn_hyperWCCn**I_hypoFRQn_hyperWCCn + hypoFRQn**I_hypoFRQn_hyperWCCn)) hyperWCCn
+hyperWCCc_dephosphorylation: hyperWCCc ->(kdp_hyperWCCc) hypoWCCc
+hypoWCCn_activation: hypoWCCn ->(kact_hypoWCCn) active_hypoWCCn
+L_WCC_formation: hypoWCCn ->(kact_L_WCC) L_WCC
+WCCVVD_complex_formation: L_WCC + VVDn ->(k_WCCVVD) L_WCCVVDn
+WCCVVD_complex_disassociation: L_WCCVVDn ->(k_dis_WCCVVD) VVDn + hypoWCCn
+hyperFRQc_degradation: hyperFRQc ->(kd_hyperFRQc) degraded_hyperFRQc
+hyperFFCn_degradation: hyperFRQn ->(kd_hyperFRQn) degraded_hyperFFCn
+WC1c_degradation: WC1c ->(kd_WC1c) degraded_WC1c
+WC2c_degradation: WC2c ->(kd_WC2c) degraded_WC2c
+hyperWCCc_degradation: hyperWCCc ->(kd_hyperWCCc) degraded_hyperWCCc
+hyperWCCn_degradation: hyperWCCn ->(kd_hyperWCCn) degraded_hyperWCCn
+active_hypoWCCn_degradation: active_hypoWCCn ->(kd_active_hypoWCCn) degraded_active_hypoWCCn
+L_WCC_degradation: L_WCC ->(kd_L_WCC) degraded_L_WCCCVVDn
+VVDc_degradation: VVDc ->(kd_VVDc) degraded_VVDc
+VVDn_degradation: VVDn ->(kd_VVDn) degraded_VVDn
+L_WCCVVD_degradation: L_WCCVVDn ->(kd_WCCVVD) degraded_L_WCCCVVDn

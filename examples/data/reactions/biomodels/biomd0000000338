@@ -1,99 +1,99 @@
-r1_: VIII ->(IIa*compartment_1*v/(IIa + k)) VIIIa
-r2_: VIIIa ->(APC_PS*compartment_1*v/(APC_PS + k)) 
-r3_: IX ->(XIa*compartment_1*v/(XIa + k)) IXa
-r4_: XI ->(XIIa*compartment_1*v/(XIIa + k)) XIa
-r5_: XI ->(IIa*compartment_1*v/(IIa + k)) XIa
-r6_: VII ->(IIa*compartment_1*v/(IIa + k)) VIIa
-r7_: X ->(IXa*compartment_1*v/(IXa + k)) Xa
-r8_: X ->(IXa_VIIIa*compartment_1*v/(IXa_VIIIa + k)) Xa
-r9_: X ->(VIIa*compartment_1*v/(VIIa + k)) Xa
-r10: V ->(IIa*compartment_1*v/(IIa + k)) Va
-r11: Va ->(APC_PS*compartment_1*v/(APC_PS + k)) 
-r12: II ->(Va_Xa*compartment_1*v/(Va_Xa + k)) IIa
-r13: II ->(Xa*compartment_1*v/(Xa + k)) IIa
-r14: Fg ->(IIa*compartment_1*v/(IIa + k)) F
-r15: Fg ->(P*compartment_1*v/(P + k)) FDP
-r16: F ->(XIIIa*compartment_1*v/(XIIIa + k)) XF
-r17: F ->(P*compartment_1*v/(P + k)) FDP
-r18: XF ->(P*compartment_1*v/(P + k)) D
-r19: XF ->(APC_PS*compartment_1*v/(APC_PS + k)) D
-r20: XIII ->(IIa*compartment_1*v/(IIa + k)) XIIIa
-r21: Pg ->(IIa*compartment_1*v/(IIa + k)) P
-r22: Pg ->(F*compartment_1*v/(F + k)) P
-r23: Pg ->(APC_PS*compartment_1*v/(APC_PS + k)) P
-r24: PC ->(IIa_Tmod*compartment_1*v/(IIa_Tmod + k)) APC
-r25: Va_Xa ->(APC_PS*compartment_1*v/(APC_PS + k)) 
-r26: IXa + VIIIa ->(compartment_1/c) IXa_VIIIa
-r27: Va + Xa ->(compartment_1/c) Va_Xa
-r28: IIa + Tmod ->(compartment_1/c) IIa_Tmod
-r29: TF + VIIa ->(compartment_1/c) VIIa_TF
-r30: TF + VII ->(compartment_1/c) VII_TF
-r31: VIIa_TF + Xa_TFPI ->(compartment_1/c) VIIa_TF_Xa_TFPI
-r32: TFPI + Xa ->(compartment_1/c) Xa_TFPI
-r33: VII_TF ->(Xa*compartment_1*v/(Xa + k)) VIIa_TF
-r34: X ->(VIIa_TF*compartment_1*v/(VIIa_TF + k)) Xa
-r35: IX ->(VIIa_TF*compartment_1*v/(VIIa_TF + k)) IXa
-r36: VII_TF ->(TF*compartment_1*v/(TF + k)) VIIa_TF
-r37: APC + PS ->(compartment_1/c) APC_PS
-r38: VII ->(Xa*compartment_1*v/(Xa + k)) VIIa
-r39: VII ->(VIIa_TF*compartment_1*v/(VIIa_TF + k)) VIIa
-r40: VII ->(IXa*compartment_1*v/(IXa + k)) VIIa
-r41: XII ->(CA*compartment_1*v/(CA + k)) XIIa
-r42: XII ->(K*compartment_1*v/(K + k)) XIIa
-r43: Pk ->(XIIa*compartment_1*v/(XIIa + k)) K
+r1_: VIII ->(IIa*compartment_1*r1__v/(IIa + r1__k)) VIIIa
+r2_: VIIIa ->(APC_PS*compartment_1*r2__v/(APC_PS + r2__k)) 
+r3_: IX ->(XIa*compartment_1*r3__v/(XIa + r3__k)) IXa
+r4_: XI ->(XIIa*compartment_1*r4__v/(XIIa + r4__k)) XIa
+r5_: XI ->(IIa*compartment_1*r5__v/(IIa + r5__k)) XIa
+r6_: VII ->(IIa*compartment_1*r6__v/(IIa + r6__k)) VIIa
+r7_: X ->(IXa*compartment_1*r7__v/(IXa + r7__k)) Xa
+r8_: X ->(IXa_VIIIa*compartment_1*r8__v/(IXa_VIIIa + r8__k)) Xa
+r9_: X ->(VIIa*compartment_1*r9__v/(VIIa + r9__k)) Xa
+r10: V ->(IIa*compartment_1*r10_v/(IIa + r10_k)) Va
+r11: Va ->(APC_PS*compartment_1*r11_v/(APC_PS + r11_k)) 
+r12: II ->(Va_Xa*compartment_1*r12_v/(Va_Xa + r12_k)) IIa
+r13: II ->(Xa*compartment_1*r13_v/(Xa + r13_k)) IIa
+r14: Fg ->(IIa*compartment_1*r14_v/(IIa + r14_k)) F
+r15: Fg ->(P*compartment_1*r15_v/(P + r15_k)) FDP
+r16: F ->(XIIIa*compartment_1*r16_v/(XIIIa + r16_k)) XF
+r17: F ->(P*compartment_1*r17_v/(P + r17_k)) FDP
+r18: XF ->(P*compartment_1*r18_v/(P + r18_k)) D
+r19: XF ->(APC_PS*compartment_1*r19_v/(APC_PS + r19_k)) D
+r20: XIII ->(IIa*compartment_1*r20_v/(IIa + r20_k)) XIIIa
+r21: Pg ->(IIa*compartment_1*r21_v/(IIa + r21_k)) P
+r22: Pg ->(F*compartment_1*r22_v/(F + r22_k)) P
+r23: Pg ->(APC_PS*compartment_1*r23_v/(APC_PS + r23_k)) P
+r24: PC ->(IIa_Tmod*compartment_1*r24_v/(IIa_Tmod + r24_k)) APC
+r25: Va_Xa ->(APC_PS*compartment_1*r25_v/(APC_PS + r25_k)) 
+r26: IXa + VIIIa ->(compartment_1/r26_c) IXa_VIIIa
+r27: Va + Xa ->(compartment_1/r27_c) Va_Xa
+r28: IIa + Tmod ->(compartment_1/r28_c) IIa_Tmod
+r29: TF + VIIa ->(compartment_1/r29_c) VIIa_TF
+r30: TF + VII ->(compartment_1/r30_c) VII_TF
+r31: VIIa_TF + Xa_TFPI ->(compartment_1/r31_c) VIIa_TF_Xa_TFPI
+r32: TFPI + Xa ->(compartment_1/r32_c) Xa_TFPI
+r33: VII_TF ->(Xa*compartment_1*r33_v/(Xa + r33_k)) VIIa_TF
+r34: X ->(VIIa_TF*compartment_1*r34_v/(VIIa_TF + r34_k)) Xa
+r35: IX ->(VIIa_TF*compartment_1*r35_v/(VIIa_TF + r35_k)) IXa
+r36: VII_TF ->(TF*compartment_1*r36_v/(TF + r36_k)) VIIa_TF
+r37: APC + PS ->(compartment_1/r37_c) APC_PS
+r38: VII ->(Xa*compartment_1*r38_v/(Xa + r38_k)) VIIa
+r39: VII ->(VIIa_TF*compartment_1*r39_v/(VIIa_TF + r39_k)) VIIa
+r40: VII ->(IXa*compartment_1*r40_v/(IXa + r40_k)) VIIa
+r41: XII ->(CA*compartment_1*r41_v/(CA + r41_k)) XIIa
+r42: XII ->(K*compartment_1*r42_v/(K + r42_k)) XIIa
+r43: Pk ->(XIIa*compartment_1*r43_v/(XIIa + r43_k)) K
 r44: ATIII_Heparin + IIa ->(compartment_1/c44) IIa_ATIII_Heparin
 r45: ATIII_Heparin + Xa ->(compartment_1/c45) Xa_ATIII_Heparin
 r46: ATIII_Heparin + IXa ->(compartment_1/c46) IXa_ATIII_Heparin
-r47: VK ->(-compartment_1*d_VK2*(C_warf*I_max - C_warf - IC50)/(C_warf + IC50)) VKH2
-r48: VKO ->(-compartment_1*d_VKO*(C_warf*I_max - C_warf - IC50)/(C_warf + IC50)) VK
-pII_VKH2:  ->(II_0_*VKH2*compartment_1*d_II/VKH2_0_) II
-pVII_VKH2:  ->(VII_0_*VKH2*compartment_1*d_VII/VKH2_0_) VII
-pIX_VKH2:  ->(IX_0_*VKH2*compartment_1*d_IX/VKH2_0_) IX
-pX_VKH2:  ->(VKH2*X_0_*compartment_1*d_X/VKH2_0_) X
-pPC_VKH2:  ->(PC_0_*VKH2*compartment_1*d_PC/VKH2_0_) PC
-pPS_VKH2:  ->(PS_0_*VKH2*compartment_1*d_PS/VKH2_0_) PS
+r47: VK ->(compartment_1*d_VK2*(-C_warf*I_max/(C_warf + IC50) + 1.0)) VKH2
+r48: VKO ->(compartment_1*d_VKO*(-C_warf*I_max/(C_warf + IC50) + 1.0)) VK
+pII_VKH2:  ->(II0*VKH2*compartment_1*d_II/VKH20) II
+pVII_VKH2:  ->(VII0*VKH2*compartment_1*d_VII/VKH20) VII
+pIX_VKH2:  ->(IX0*VKH2*compartment_1*d_IX/VKH20) IX
+pX_VKH2:  ->(VKH2*X0*compartment_1*d_X/VKH20) X
+pPC_VKH2:  ->(PC0*VKH2*compartment_1*d_PC/VKH20) PC
+pPS_VKH2:  ->(PS0*VKH2*compartment_1*d_PS/VKH20) PS
 dFg: Fg ->(compartment_1*d_Fg) FDP
-dF: F ->(compartment_1*k1) FDP
-dXF: XF ->(compartment_1*k1) D
+dF: F ->(compartment_1*dF_k1) FDP
+dXF: XF ->(compartment_1*dXF_k1) D
 dII: II ->(compartment_1*d_II) 
-dIIa: IIa ->(compartment_1*k1) TAT
-dTF: TF ->(compartment_1*k1) 
+dIIa: IIa ->(compartment_1*dIIa_k1) TAT
+dTF: TF ->(compartment_1*dTF_k1) 
 dV: V ->(compartment_1*d_V) 
-dVa: Va ->(compartment_1*k1) 
+dVa: Va ->(compartment_1*dVa_k1) 
 dVII: VII ->(compartment_1*d_VII) 
-dVIIa: VIIa ->(compartment_1*k1) 
+dVIIa: VIIa ->(compartment_1*dVIIa_k1) 
 dVIII: VIII ->(compartment_1*d_VIII) 
-dVIIIa: VIIIa ->(compartment_1*k1) 
+dVIIIa: VIIIa ->(compartment_1*dVIIIa_k1) 
 dX: X ->(compartment_1*d_X) 
-dXa: Xa ->(compartment_1*k1) 
+dXa: Xa ->(compartment_1*dXa_k1) 
 dIX: IX ->(compartment_1*d_IX) 
-dIXa: IXa ->(compartment_1*k1) 
+dIXa: IXa ->(compartment_1*dIXa_k1) 
 dXII: XII ->(compartment_1*d_XII) 
-dXIIa: XIIa ->(compartment_1*k1) 
+dXIIa: XIIa ->(compartment_1*dXIIa_k1) 
 dXIII: XIII ->(compartment_1*d_XIII) 
-dXIIIa: XIIIa ->(compartment_1*k1) 
+dXIIIa: XIIIa ->(compartment_1*dXIIIa_k1) 
 dPk: Pk ->(compartment_1*d_Pk) 
-dK: K ->(compartment_1*k1) 
+dK: K ->(compartment_1*dK_k1) 
 dPg: Pg ->(compartment_1*d_Pg) 
-dP: P ->(compartment_1*k1) 
+dP: P ->(compartment_1*dP_k1) 
 dPC: PC ->(compartment_1*d_PC) 
-dAPC: APC ->(compartment_1*k1) 
+dAPC: APC ->(compartment_1*dAPC_k1) 
 dPS: PS ->(compartment_1*d_PS) 
-dFDP: FDP ->(compartment_1*k1) 
-dD: D ->(compartment_1*k1) 
+dFDP: FDP ->(compartment_1*dFDP_k1) 
+dD: D ->(compartment_1*dD_k1) 
 dTFPI: TFPI ->(compartment_1*d_TFPI) 
-dVIIa_TF: VIIa_TF ->(compartment_1*k1) 
-dVII_TF: VII_TF ->(compartment_1*k1) 
-dAPC_PS: APC_PS ->(compartment_1*k1) 
-dVa_Xa: Va_Xa ->(compartment_1*k1) 
-dIXa_VIIIa: IXa_VIIIa ->(compartment_1*k1) 
+dVIIa_TF: VIIa_TF ->(compartment_1*dVIIa_TF_k1) 
+dVII_TF: VII_TF ->(compartment_1*dVII_TF_k1) 
+dAPC_PS: APC_PS ->(compartment_1*dAPC_PS_k1) 
+dVa_Xa: Va_Xa ->(compartment_1*dVa_Xa_k1) 
+dIXa_VIIIa: IXa_VIIIa ->(compartment_1*dIXa_VIIIa_k1) 
 dTmod: Tmod ->(compartment_1*d_Tmod) 
-dIIa_Tmod: IIa_Tmod ->(compartment_1*k1) 
-dXa_TFPI: Xa_TFPI ->(compartment_1*k1) 
-dVIIa_TF_Xa_TFPI: VIIa_TF_Xa_TFPI ->(compartment_1*k1) 
-dTAT: TAT ->(compartment_1*k1) 
-dCA: CA ->(compartment_1*k1) 
-dXIa: XIa ->(compartment_1*k1) 
+dIIa_Tmod: IIa_Tmod ->(compartment_1*dIIa_Tmod_k1) 
+dXa_TFPI: Xa_TFPI ->(compartment_1*dXa_TFPI_k1) 
+dVIIa_TF_Xa_TFPI: VIIa_TF_Xa_TFPI ->(compartment_1*dVIIa_TF_Xa_TFPI_k1) 
+dTAT: TAT ->(compartment_1*dTAT_k1) 
+dCA: CA ->(compartment_1*dCA_k1) 
+dXIa: XIa ->(compartment_1*dXIa_k1) 
 dVKH2: VKH2 ->(compartment_1*d_VKH2) VKO
 VK_transport: VK ->(VitaminK_k12*compartment_1) VK_p
 VK_transport_rev: VK_p ->(VitaminK_k21_Vc*compartment_1) VK
@@ -101,16 +101,16 @@ eHeparin: ATIII_Heparin ->(Heparin_ke*compartment_1)
 eHeparinXa: Xa_ATIII_Heparin ->(Heparin_ke*compartment_1) 
 eHeparinIXa: IXa_ATIII_Heparin ->(Heparin_ke*compartment_1) 
 eHeparinIIa: IIa_ATIII_Heparin ->(Heparin_ke*compartment_1) 
-dXI: XI ->(compartment_1*k1) 
-pXII:  ->(XII_0_*compartment_1*d_XII) XII
-pVIII:  ->(VIII_0_*compartment_1*d_VIII) VIII
-pXI:  ->(XI_0_*compartment_1*d_XI) XI
-pV:  ->(V_0_*compartment_1*d_V) V
-pFg:  ->(Fg_0_*compartment_1*d_Fg) Fg
-pXIII:  ->(XIII_0_*compartment_1*d_XIII) XIII
-pPg:  ->(Pg_0_*compartment_1*d_Pg) Pg
-pTmod:  ->(Tmod_0_*compartment_1*d_Tmod) Tmod
-pTFPI:  ->(TFPI_0_*compartment_1*d_TFPI) TFPI
-pPk:  ->(Pk_0_*compartment_1*d_Pk) Pk
-pVK:  ->(VK_0_*compartment_1*d_VK) VK
+dXI: XI ->(compartment_1*dXI_k1) 
+pXII:  ->(XII0*compartment_1*d_XII) XII
+pVIII:  ->(VIII0*compartment_1*d_VIII) VIII
+pXI:  ->(XI0*compartment_1*d_XI) XI
+pV:  ->(V0*compartment_1*d_V) V
+pFg:  ->(Fg0*compartment_1*d_Fg) Fg
+pXIII:  ->(XIII0*compartment_1*d_XIII) XIII
+pPg:  ->(Pg0*compartment_1*d_Pg) Pg
+pTmod:  ->(Tmod0*compartment_1*d_Tmod) Tmod
+pTFPI:  ->(TFPI0*compartment_1*d_TFPI) TFPI
+pPk:  ->(Pk0*compartment_1*d_Pk) Pk
+pVK:  ->(VK0*compartment_1*d_VK) VK
 dVK: VK ->(compartment_1*d_VK) 

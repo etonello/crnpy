@@ -1,96 +1,96 @@
-re2: IL18R + eIL18 ->(K**Hill_Coeficient*Vf/(K**Hill_Coeficient + STAT6_P**Hill_Coeficient)) IL18_IL18R
-re2_rev: IL18_IL18R ->(Vr) IL18R + eIL18
-re3: IRAK1 ->(Vf*c1*(2*IL18_IL18R**Hill_Coeficient + K**Hill_Coeficient)/(IL18_IL18R**Hill_Coeficient + K**Hill_Coeficient)) IRAK1_P
-re3_rev: IRAK1_P ->(Vr*c1) IRAK1
-re6: IL12 ->(k1) eIL12
-re8: IL12R + eIL12 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf/((K1**Hill_Coeficient + STAT6_P**Hill_Coeficient)*(K2**Hill_Coeficient + L_PPARg**Hill_Coeficient))) IL12_IL12R
-re8_rev: IL12_IL12R ->(Vr) IL12R + eIL12
-re9: p50 + p65 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*c1*(2*IRAK1_P**Hill_Coeficient + K3**Hill_Coeficient)/((IRAK1_P**Hill_Coeficient + K3**Hill_Coeficient)*(K1**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K2**Hill_Coeficient + acetylated_FOXP3**Hill_Coeficient))) p50_p65_dimer
-re9_rev: p50_p65_dimer ->(Vr*c1) p50 + p65
-re10: STAT4 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*c1*(2*IL12_IL12R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient + IL12_IL12R**Hill_Coeficient*K4**Hill_Coeficient + IL23_IL23R**Hill_Coeficient*K3**Hill_Coeficient)/((GATA3_P**Hill_Coeficient + K2**Hill_Coeficient)*(IL12_IL12R**Hill_Coeficient + K3**Hill_Coeficient)*(IL21_IL21R**Hill_Coeficient + K1**Hill_Coeficient)*(IL23_IL23R**Hill_Coeficient + K4**Hill_Coeficient))) STAT4_P
-re10_rev: STAT4_P ->(Vr*c1) STAT4
-re11: IFNgR + eIFNg ->(K**Hill_Coeficient*Vf/(K**Hill_Coeficient + SOCS1_JAKs**Hill_Coeficient)) IFNg_IFNgR
-re11_rev: IFNg_IFNgR ->(Vr) IFNgR + eIFNg
-re12: IFNg ->(k1) eIFNg
-re13: STAT1 ->(K**Hill_Coeficient*Vf*c1*(3*IFNg_IFNgR**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*JAK1_P**Hill_Coeficient + 2*IFNg_IFNgR**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*K3**Hill_Coeficient + 2*IFNg_IFNgR**Hill_Coeficient*JAK1_P**Hill_Coeficient*K1**Hill_Coeficient + IFNg_IFNgR**Hill_Coeficient*K1**Hill_Coeficient*K3**Hill_Coeficient + 2*IL21_IL21R**Hill_Coeficient*JAK1_P**Hill_Coeficient*K2**Hill_Coeficient + IL21_IL21R**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient + JAK1_P**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient)/((IFNg_IFNgR**Hill_Coeficient + K2**Hill_Coeficient)*(IL21_IL21R**Hill_Coeficient + K1**Hill_Coeficient)*(JAK1_P**Hill_Coeficient + K3**Hill_Coeficient)*(K**Hill_Coeficient + L_PPARg**Hill_Coeficient))) STAT1_P
-re13_rev: STAT1_P ->(Vr*c1) STAT1
-re14: pIFNg ->(K1**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient*Vf*c1*(K4**Hill_Coeficient*K5**Hill_Coeficient*Tbet_P**Hill_Coeficient + K4**Hill_Coeficient*K6**Hill_Coeficient*p50_p65_dimer**Hill_Coeficient + 2*K4**Hill_Coeficient*Tbet_P**Hill_Coeficient*p50_p65_dimer**Hill_Coeficient + K5**Hill_Coeficient*K6**Hill_Coeficient*STAT4_P**Hill_Coeficient + 2*K5**Hill_Coeficient*STAT4_P**Hill_Coeficient*Tbet_P**Hill_Coeficient + 2*K6**Hill_Coeficient*STAT4_P**Hill_Coeficient*p50_p65_dimer**Hill_Coeficient + 3*STAT4_P**Hill_Coeficient*Tbet_P**Hill_Coeficient*p50_p65_dimer**Hill_Coeficient)/((K1**Hill_Coeficient + anti_IFNg**Hill_Coeficient)*(K2**Hill_Coeficient + STAT3_P**Hill_Coeficient)*(K3**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K4**Hill_Coeficient + STAT4_P**Hill_Coeficient)*(K5**Hill_Coeficient + p50_p65_dimer**Hill_Coeficient)*(K6**Hill_Coeficient + Tbet_P**Hill_Coeficient))) IFNg
-re14_rev: IFNg ->(Vr*c1) pIFNg
-re15: Tbet ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*c1*(K3**Hill_Coeficient*K4**Hill_Coeficient*Tbet_P**Hill_Coeficient + K3**Hill_Coeficient*K5**Hill_Coeficient*STAT1_P**Hill_Coeficient + 2*K3**Hill_Coeficient*STAT1_P**Hill_Coeficient*Tbet_P**Hill_Coeficient + K4**Hill_Coeficient*K5**Hill_Coeficient*STAT4_P**Hill_Coeficient + 2*K4**Hill_Coeficient*STAT4_P**Hill_Coeficient*Tbet_P**Hill_Coeficient + 2*K5**Hill_Coeficient*STAT1_P**Hill_Coeficient*STAT4_P**Hill_Coeficient + 3*STAT1_P**Hill_Coeficient*STAT4_P**Hill_Coeficient*Tbet_P**Hill_Coeficient)/((K1**Hill_Coeficient + TGFb_TGFbR**Hill_Coeficient)*(K2**Hill_Coeficient + STAT3_P**Hill_Coeficient)*(K3**Hill_Coeficient + STAT4_P**Hill_Coeficient)*(K4**Hill_Coeficient + STAT1_P**Hill_Coeficient)*(K5**Hill_Coeficient + Tbet_P**Hill_Coeficient))) Tbet_P
-re15_rev: Tbet_P ->(Vr*c1) Tbet
-re16: JAK1 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*c1*(2*IFNg_IFNgR**Hill_Coeficient + K3**Hill_Coeficient)/((IFNg_IFNgR**Hill_Coeficient + K3**Hill_Coeficient)*(K1**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K2**Hill_Coeficient + SOCS1_JAKs**Hill_Coeficient))) JAK1_P
-re16_rev: JAK1_P ->(Vr*c1) JAK1
-re17: SOCS1 ->(STAT1_P**Hill_Coeficient*Tbet_P**Hill_Coeficient*Vf*c1/((K1**Hill_Coeficient + STAT1_P**Hill_Coeficient)*(K2**Hill_Coeficient + Tbet_P**Hill_Coeficient))) SOCS1_JAKs
-re17_rev: SOCS1_JAKs ->(Vr*c1) SOCS1
-re18: IL4 ->(k1) eIL4
-re19: IL4R + eIL4 ->(K**Hill_Coeficient*Vf/(K**Hill_Coeficient + SOCS1_JAKs**Hill_Coeficient)) IL4_IL4R
-re19_rev: IL4_IL4R ->(Vr) IL4R + eIL4
-re20: pIL4 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*(2*GATA3_P**Hill_Coeficient*IL4**Hill_Coeficient*K5**Hill_Coeficient + 3*GATA3_P**Hill_Coeficient*IL4**Hill_Coeficient*STAT5_P**Hill_Coeficient + GATA3_P**Hill_Coeficient*K3**Hill_Coeficient*K5**Hill_Coeficient + 2*GATA3_P**Hill_Coeficient*K3**Hill_Coeficient*STAT5_P**Hill_Coeficient + IL4**Hill_Coeficient*K4**Hill_Coeficient*K5**Hill_Coeficient + 2*IL4**Hill_Coeficient*K4**Hill_Coeficient*STAT5_P**Hill_Coeficient + K3**Hill_Coeficient*K4**Hill_Coeficient*STAT5_P**Hill_Coeficient)/((GATA3_P**Hill_Coeficient + K4**Hill_Coeficient)*(IL4**Hill_Coeficient + K3**Hill_Coeficient)*(K1**Hill_Coeficient + STAT1_P**Hill_Coeficient)*(K2**Hill_Coeficient + anti_IL4**Hill_Coeficient)*(K5**Hill_Coeficient + STAT5_P**Hill_Coeficient))) IL4
-re20_rev: IL4 ->(Vr) pIL4
-re23: GATA3 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient*Vf*c1*(K4**Hill_Coeficient*L_PPARg**Hill_Coeficient + K5**Hill_Coeficient*STAT6_P**Hill_Coeficient + 2*L_PPARg**Hill_Coeficient*STAT6_P**Hill_Coeficient)/((K1**Hill_Coeficient + Tbet_P**Hill_Coeficient)*(K2**Hill_Coeficient + STAT3_P**Hill_Coeficient)*(K3**Hill_Coeficient + TGFb_TGFbR**Hill_Coeficient)*(K4**Hill_Coeficient + STAT6_P**Hill_Coeficient)*(K5**Hill_Coeficient + L_PPARg**Hill_Coeficient))) GATA3_P
-re23_rev: GATA3_P ->(Vr*c1) GATA3
-re24: STAT6 ->(IL4_IL4R**n1*K**Hill_Coeficient*Vf*c1/((IFNg_IFNgR**Hill_Coeficient + K**Hill_Coeficient)*(IL4_IL4R**n1 + K1**n1))) STAT6_P
-re24_rev: STAT6_P ->(Vr*c1) STAT6
-re25: IL2R + eIL2 ->(k1) IL2_IL2R
-re25_rev: IL2_IL2R ->(k2) IL2R + eIL2
-re26: STAT5 ->(Vf*c1*(2*IL2_IL2R**Hill_Coeficient + K**Hill_Coeficient)/(IL2_IL2R**Hill_Coeficient + K**Hill_Coeficient)) STAT5_P
-re26_rev: STAT5_P ->(Vr*c1) STAT5
-re27: FOXP3 ->(K1**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient*Vf*c1*(K4**Hill_Coeficient*K5**Hill_Coeficient*K6**Hill_Coeficient*L_PPARg**Hill_Coeficient + K4**Hill_Coeficient*K5**Hill_Coeficient*K7**Hill_Coeficient*STAT5_P**Hill_Coeficient + 2*K4**Hill_Coeficient*K5**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient + K4**Hill_Coeficient*K6**Hill_Coeficient*K7**Hill_Coeficient*STAT1_P**Hill_Coeficient + 2*K4**Hill_Coeficient*K6**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT1_P**Hill_Coeficient + 2*K4**Hill_Coeficient*K7**Hill_Coeficient*STAT1_P**Hill_Coeficient*STAT5_P**Hill_Coeficient + 3*K4**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT1_P**Hill_Coeficient*STAT5_P**Hill_Coeficient + K5**Hill_Coeficient*K6**Hill_Coeficient*K7**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 2*K5**Hill_Coeficient*K6**Hill_Coeficient*L_PPARg**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 2*K5**Hill_Coeficient*K7**Hill_Coeficient*STAT5_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 3*K5**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 2*K6**Hill_Coeficient*K7**Hill_Coeficient*STAT1_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 3*K6**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT1_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 3*K7**Hill_Coeficient*STAT1_P**Hill_Coeficient*STAT5_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + 4*L_PPARg**Hill_Coeficient*STAT1_P**Hill_Coeficient*STAT5_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient)/((IL6_IL6R**Hill_Coeficient + K3**Hill_Coeficient)*(K1**Hill_Coeficient + STAT6_P**Hill_Coeficient)*(K2**Hill_Coeficient + STAT3_P**Hill_Coeficient)*(K4**Hill_Coeficient + TGFb_TGFbR**Hill_Coeficient)*(K5**Hill_Coeficient + STAT1_P**Hill_Coeficient)*(K6**Hill_Coeficient + STAT5_P**Hill_Coeficient)*(K7**Hill_Coeficient + L_PPARg**Hill_Coeficient))) acetylated_FOXP3
-re27_rev: acetylated_FOXP3 ->(Vr*c1) FOXP3
-re28: TGFbR + eTGFb ->(k1) TGFb_TGFbR
-re28_rev: TGFb_TGFbR ->(k2) TGFbR + eTGFb
-re29: IL6R + eIL6 ->(k1) IL6_IL6R
-re29_rev: IL6_IL6R ->(k2) IL6R + eIL6
-re30: STAT3 ->(K**Hill_Coeficient*Vf*c1*(4*IL10_IL10R**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient + 3*IL10_IL10R**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*K4**Hill_Coeficient + 3*IL10_IL10R**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K2**Hill_Coeficient + 2*IL10_IL10R**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*K2**Hill_Coeficient*K4**Hill_Coeficient + 3*IL10_IL10R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K1**Hill_Coeficient + 2*IL10_IL10R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*K1**Hill_Coeficient*K4**Hill_Coeficient + 2*IL10_IL10R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient + IL10_IL10R**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient*K4**Hill_Coeficient + 3*IL21_IL21R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K3**Hill_Coeficient + 2*IL21_IL21R**Hill_Coeficient*IL23_IL23R**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient + 2*IL21_IL21R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient + IL21_IL21R**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient + 2*IL23_IL23R**Hill_Coeficient*IL6_IL6R**Hill_Coeficient*K1**Hill_Coeficient*K3**Hill_Coeficient + IL23_IL23R**Hill_Coeficient*K1**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient + IL6_IL6R**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient)/((IL10_IL10R**Hill_Coeficient + K3**Hill_Coeficient)*(IL21_IL21R**Hill_Coeficient + K1**Hill_Coeficient)*(IL23_IL23R**Hill_Coeficient + K2**Hill_Coeficient)*(IL6_IL6R**Hill_Coeficient + K4**Hill_Coeficient)*(K**Hill_Coeficient + L_PPARg**Hill_Coeficient))) STAT3_P
-re30_rev: STAT3_P ->(Vr*c1) STAT3
-re31: RORgt ->(K1**Hill_Coeficient*K2**Hill_Coeficient*Vf*c1*(K3**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient + K4**Hill_Coeficient*STAT3_P**Hill_Coeficient + 2*STAT3_P**Hill_Coeficient*TGFb_TGFbR**Hill_Coeficient)/((K1**Hill_Coeficient + acetylated_FOXP3**Hill_Coeficient)*(K2**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K3**Hill_Coeficient + STAT3_P**Hill_Coeficient)*(K4**Hill_Coeficient + TGFb_TGFbR**Hill_Coeficient))) RORgt_ligand
-re31_rev: RORgt_ligand ->(Vr*c1) RORgt
-re32: IL21R + eIL21 ->(K**Hill_Coeficient*Vf*(2*IL17_IL17R**Hill_Coeficient + K1**Hill_Coeficient)/((IL17_IL17R**Hill_Coeficient + K1**Hill_Coeficient)*(K**Hill_Coeficient + STAT5_P**Hill_Coeficient))) IL21_IL21R
-re32_rev: IL21_IL21R ->(Vr) IL21R + eIL21
-re33: IL21 ->(k1) eIL21
-re34: eIL23 ->(k1) p40_p19_dimer
-re34_rev: p40_p19_dimer ->(k2) eIL23
-re35: IL23R + p40_p19_dimer ->(K**Hill_Coeficient*Vf*c1/(K**Hill_Coeficient + Tbet_P**Hill_Coeficient)) IL23_IL23R
-re35_rev: IL23_IL23R ->(Vr*c1) IL23R + p40_p19_dimer
-re36: p19 + p40 ->(K**Hill_Coeficient*Vf*c1*(2*IL6_IL6R**Hill_Coeficient + K1**Hill_Coeficient)/((IL6_IL6R**Hill_Coeficient + K1**Hill_Coeficient)*(K**Hill_Coeficient + L_PPARg**Hill_Coeficient))) p40_p19_dimer
-re36_rev: p40_p19_dimer ->(Vr*c1) p19 + p40
-re37: pIL21 ->(Vf*c1*(K**Hill_Coeficient + 2*STAT3_P**Hill_Coeficient)/(K**Hill_Coeficient + STAT3_P**Hill_Coeficient)) IL21
-re37_rev: IL21 ->(Vr*c1) pIL21
-re38: IL10R + eIL10 ->(k1) IL10_IL10R
-re38_rev: IL10_IL10R ->(k2) IL10R + eIL10
-re42: Ligand + PPARg ->(K**Hill_Coeficient*Vf*c1*(2*IL4_IL4R**Hill_Coeficient + K1**Hill_Coeficient)/((IFNg_IFNgR**Hill_Coeficient + K**Hill_Coeficient)*(IL4_IL4R**Hill_Coeficient + K1**Hill_Coeficient))) L_PPARg
-re42_rev: L_PPARg ->(Vr*c1) Ligand + PPARg
-re44: TGFb ->(k1) eTGFb
-re45: IL2 ->(k1) eIL2
-re46: IL6 ->(k1) eIL6
-re48: IL10 ->(k1) eIL10
-re49: IL17 ->(k1) eIL17
-re50: IL17R + eIL17 ->(k1) IL17_IL17R
-re50_rev: IL17_IL17R ->(k2) IL17R + eIL17
-re47: IL18 ->(k1) eIL18
-re51: pIL17 ->(K**Hill_Coeficient*Vf*c1*(IL23_IL23R**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient + 2*IL23_IL23R**Hill_Coeficient*K2**Hill_Coeficient*STAT4_P**Hill_Coeficient + 2*IL23_IL23R**Hill_Coeficient*K3**Hill_Coeficient*RORgt_ligand**Hill_Coeficient + 3*IL23_IL23R**Hill_Coeficient*RORgt_ligand**Hill_Coeficient*STAT4_P**Hill_Coeficient + K1**Hill_Coeficient*K2**Hill_Coeficient*STAT4_P**Hill_Coeficient + K1**Hill_Coeficient*K3**Hill_Coeficient*RORgt_ligand**Hill_Coeficient + 2*K1**Hill_Coeficient*RORgt_ligand**Hill_Coeficient*STAT4_P**Hill_Coeficient)/((IL23_IL23R**Hill_Coeficient + K1**Hill_Coeficient)*(K**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K2**Hill_Coeficient + RORgt_ligand**Hill_Coeficient)*(K3**Hill_Coeficient + STAT4_P**Hill_Coeficient))) IL17
-re51_rev: IL17 ->(Vr*c1) pIL17
-IL18_pool: IL18_pool ->(1.0*IL18_pool**Hill_Coeficient*V*default/(IL18_pool*(1.0*IL18_pool**Hill_Coeficient + 1.0*eIL18**Hill_Coeficient + 0.001))) eIL18
-IL18_pool_rev: eIL18 ->(V*default*k) IL18_pool
-IL12_pool: IL12_pool ->(1.0*IL12_pool**Hill_Coeficient*V*default/(IL12_pool*(1.0*IL12_pool**Hill_Coeficient + 1.0*eIL12**Hill_Coeficient + 0.001))) eIL12
-IL12_pool_rev: eIL12 ->(V*default*k) IL12_pool
-IFNg_pool: IFNg_pool ->(1.0*IFNg_pool**Hill_Coeficient*V*default/(IFNg_pool*(1.0*IFNg_pool**Hill_Coeficient + 1.0*eIFNg**Hill_Coeficient + 0.001))) eIFNg
-IFNg_pool_rev: eIFNg ->(V*default*k) IFNg_pool
-IL21_pool: IL21_pool ->(1.0*IL21_pool**Hill_Coeficient*V*default/(IL21_pool*(1.0*IL21_pool**Hill_Coeficient + 1.0*eIL21**Hill_Coeficient + 0.001))) eIL21
-IL21_pool_rev: eIL21 ->(V*default*k) IL21_pool
-IL23_pool: IL23_pool ->(1.0*IL23_pool**Hill_Coeficient*V*default/(IL23_pool*(1.0*IL23_pool**Hill_Coeficient + 1.0*eIL23**Hill_Coeficient + 0.001))) eIL23
-IL23_pool_rev: eIL23 ->(V*default*k) IL23_pool
-IL17_pool: IL17_pool ->(1.0*IL17_pool**Hill_Coeficient*V/(IL17_pool*(1.0*IL17**Hill_Coeficient + 1.0*IL17_pool**Hill_Coeficient + 0.001))) IL17
-IL17_pool_rev: IL17 ->(V*k) IL17_pool
-IL10_pool: IL10_pool ->(1.0*IL10_pool**Hill_Coeficient*V*default/(IL10_pool*(1.0*IL10_pool**Hill_Coeficient + 1.0*eIL10**Hill_Coeficient + 0.001))) eIL10
-IL10_pool_rev: eIL10 ->(V*default*k) IL10_pool
-IL6_pool: IL6_pool ->(1.0*IL6_pool**Hill_Coeficient*V*default/(IL6_pool*(1.0*IL6_pool**Hill_Coeficient + 1.0*eIL6**Hill_Coeficient + 0.001))) eIL6
-IL6_pool_rev: eIL6 ->(V*default*k) IL6_pool
-IL2_pool: IL2_pool ->(1.0*IL2_pool**Hill_Coeficient*V*default/(IL2_pool*(1.0*IL2_pool**Hill_Coeficient + 1.0*eIL2**Hill_Coeficient + 0.001))) eIL2
-IL2_pool_rev: eIL2 ->(V*default*k) IL2_pool
-TGFb_pool: TGFb_pool ->(1.0*TGFb_pool**Hill_Coeficient*V*default/(TGFb_pool*(1.0*TGFb_pool**Hill_Coeficient + 1.0*eTGFb**Hill_Coeficient + 0.001))) eTGFb
-TGFb_pool_rev: eTGFb ->(V*default*k) TGFb_pool
-IL4_pool: IL4_pool ->(1.0*IL4_pool**Hill_Coeficient*V*default/(IL4_pool*(1.0*IL4_pool**Hill_Coeficient + 1.0*eIL4**Hill_Coeficient + 0.001))) eIL4
-IL4_pool_rev: eIL4 ->(V*default*k) IL4_pool
-re52: pIL10 ->(K**Hill_Coeficient*Vf*(2*GATA3_P**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*K1**Hill_Coeficient*K4**Hill_Coeficient + 3*GATA3_P**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*K1**Hill_Coeficient*STAT5_P**Hill_Coeficient + 3*GATA3_P**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*K4**Hill_Coeficient*L_PPARg**Hill_Coeficient + 4*GATA3_P**Hill_Coeficient*IL21_IL21R**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient + GATA3_P**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient*K4**Hill_Coeficient + 2*GATA3_P**Hill_Coeficient*K1**Hill_Coeficient*K2**Hill_Coeficient*STAT5_P**Hill_Coeficient + 2*GATA3_P**Hill_Coeficient*K2**Hill_Coeficient*K4**Hill_Coeficient*L_PPARg**Hill_Coeficient + 3*GATA3_P**Hill_Coeficient*K2**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient + IL21_IL21R**Hill_Coeficient*K1**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient + 2*IL21_IL21R**Hill_Coeficient*K1**Hill_Coeficient*K3**Hill_Coeficient*STAT5_P**Hill_Coeficient + 2*IL21_IL21R**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient*L_PPARg**Hill_Coeficient + 3*IL21_IL21R**Hill_Coeficient*K3**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient + K1**Hill_Coeficient*K2**Hill_Coeficient*K3**Hill_Coeficient*STAT5_P**Hill_Coeficient + K2**Hill_Coeficient*K3**Hill_Coeficient*K4**Hill_Coeficient*L_PPARg**Hill_Coeficient + 2*K2**Hill_Coeficient*K3**Hill_Coeficient*L_PPARg**Hill_Coeficient*STAT5_P**Hill_Coeficient)/((GATA3_P**Hill_Coeficient + K3**Hill_Coeficient)*(IL21_IL21R**Hill_Coeficient + K2**Hill_Coeficient)*(IL23_IL23R**Hill_Coeficient + K**Hill_Coeficient)*(K1**Hill_Coeficient + L_PPARg**Hill_Coeficient)*(K4**Hill_Coeficient + STAT5_P**Hill_Coeficient))) IL10
-re52_rev: IL10 ->(Vr) pIL10
+re2: s2 + species_12 ->(re2_K**parameter_1*re2_Vf/(re2_K**parameter_1 + s34**parameter_1)) s3
+re2_rev: s3 ->(re2_Vr) s2 + species_12
+re3: s65 ->(c1*re3_Vf*(1.0*re3_K**parameter_1 + 2.0*s3**parameter_1)/(re3_K**parameter_1 + s3**parameter_1)) s10
+re3_rev: s10 ->(c1*re3_Vr) s65
+re6: s12 ->(re6_k1) s11
+re8: s11 + s13 ->(re8_K1**parameter_1*re8_K2**parameter_1*re8_Vf/((re8_K1**parameter_1 + s34**parameter_1)*(re8_K2**parameter_1 + s83**parameter_1))) s14
+re8_rev: s14 ->(re8_Vr) s11 + s13
+re9: species_10 + species_11 ->(c1*re9_K1**parameter_1*re9_K2**parameter_1*re9_Vf*(1.0*re9_K3**parameter_1 + 2.0*s10**parameter_1)/((re9_K1**parameter_1 + s83**parameter_1)*(re9_K2**parameter_1 + s40**parameter_1)*(re9_K3**parameter_1 + s10**parameter_1))) s20
+re9_rev: s20 ->(c1*re9_Vr) species_10 + species_11
+re10: s67 ->(c1*re10_K1**parameter_1*re10_K2**parameter_1*re10_Vf*(re10_K3**parameter_1*s59**parameter_1 + re10_K4**parameter_1*s14**parameter_1 + 2*s14**parameter_1*s59**parameter_1)/((re10_K1**parameter_1 + s54**parameter_1)*(re10_K2**parameter_1 + s35**parameter_1)*(re10_K3**parameter_1 + s14**parameter_1)*(re10_K4**parameter_1 + s59**parameter_1))) s21
+re10_rev: s21 ->(c1*re10_Vr) s67
+re11: s22 + s24 ->(re11_K**parameter_1*re11_Vf/(re11_K**parameter_1 + s29**parameter_1)) s25
+re11_rev: s25 ->(re11_Vr) s22 + s24
+re12: s68 ->(re12_k1) s22
+re13: s70 ->(c1*re13_K**parameter_1*re13_Vf*(re13_K1**parameter_1*re13_K2**parameter_1*s28**parameter_1 + re13_K1**parameter_1*re13_K3**parameter_1*s25**parameter_1 + 2*re13_K1**parameter_1*s25**parameter_1*s28**parameter_1 + re13_K2**parameter_1*re13_K3**parameter_1*s54**parameter_1 + 2*re13_K2**parameter_1*s28**parameter_1*s54**parameter_1 + 2*re13_K3**parameter_1*s25**parameter_1*s54**parameter_1 + 3*s25**parameter_1*s28**parameter_1*s54**parameter_1)/((re13_K**parameter_1 + s83**parameter_1)*(re13_K1**parameter_1 + s54**parameter_1)*(re13_K2**parameter_1 + s25**parameter_1)*(re13_K3**parameter_1 + s28**parameter_1))) s26
+re13_rev: s26 ->(c1*re13_Vr) s70
+re14: species_5 ->(c1*re14_K1**parameter_1*re14_K2**parameter_1*re14_K3**parameter_1*re14_Vf*(re14_K4**parameter_1*re14_K5**parameter_1*s27**parameter_1 + re14_K4**parameter_1*re14_K6**parameter_1*s20**parameter_1 + 2*re14_K4**parameter_1*s20**parameter_1*s27**parameter_1 + re14_K5**parameter_1*re14_K6**parameter_1*s21**parameter_1 + 2*re14_K5**parameter_1*s21**parameter_1*s27**parameter_1 + 2*re14_K6**parameter_1*s20**parameter_1*s21**parameter_1 + 3*s20**parameter_1*s21**parameter_1*s27**parameter_1)/((re14_K1**parameter_1 + species_14**parameter_1)*(re14_K2**parameter_1 + s49**parameter_1)*(re14_K3**parameter_1 + s83**parameter_1)*(re14_K4**parameter_1 + s21**parameter_1)*(re14_K5**parameter_1 + s20**parameter_1)*(re14_K6**parameter_1 + s27**parameter_1))) s68
+re14_rev: s68 ->(c1*re14_Vr) species_5
+re15: s80 ->(c1*re15_K1**parameter_1*re15_K2**parameter_1*re15_Vf*(re15_K3**parameter_1*re15_K4**parameter_1*s27**parameter_1 + re15_K3**parameter_1*re15_K5**parameter_1*s26**parameter_1 + 2*re15_K3**parameter_1*s26**parameter_1*s27**parameter_1 + re15_K4**parameter_1*re15_K5**parameter_1*s21**parameter_1 + 2*re15_K4**parameter_1*s21**parameter_1*s27**parameter_1 + 2*re15_K5**parameter_1*s21**parameter_1*s26**parameter_1 + 3*s21**parameter_1*s26**parameter_1*s27**parameter_1)/((re15_K1**parameter_1 + s45**parameter_1)*(re15_K2**parameter_1 + s49**parameter_1)*(re15_K3**parameter_1 + s21**parameter_1)*(re15_K4**parameter_1 + s26**parameter_1)*(re15_K5**parameter_1 + s27**parameter_1))) s27
+re15_rev: s27 ->(c1*re15_Vr) s80
+re16: s69 ->(c1*re16_K1**parameter_1*re16_K2**parameter_1*re16_Vf*(1.0*re16_K3**parameter_1 + 2.0*s25**parameter_1)/((re16_K1**parameter_1 + s83**parameter_1)*(re16_K2**parameter_1 + s29**parameter_1)*(re16_K3**parameter_1 + s25**parameter_1))) s28
+re16_rev: s28 ->(c1*re16_Vr) s69
+re17: s79 ->(c1*re17_Vf*s26**parameter_1*s27**parameter_1/((re17_K1**parameter_1 + s26**parameter_1)*(re17_K2**parameter_1 + s27**parameter_1))) s29
+re17_rev: s29 ->(c1*re17_Vr) s79
+re18: s31 ->(re18_k1) s30
+re19: s30 + s32 ->(re19_K**parameter_1*re19_Vf/(re19_K**parameter_1 + s29**parameter_1)) s33
+re19_rev: s33 ->(re19_Vr) s30 + s32
+re20: species_15 ->(re20_K1**parameter_1*re20_K2**parameter_1*re20_Vf*(re20_K3**parameter_1*re20_K4**parameter_1*s39**parameter_1 + re20_K3**parameter_1*re20_K5**parameter_1*s35**parameter_1 + 2*re20_K3**parameter_1*s35**parameter_1*s39**parameter_1 + re20_K4**parameter_1*re20_K5**parameter_1*s31**parameter_1 + 2*re20_K4**parameter_1*s31**parameter_1*s39**parameter_1 + 2*re20_K5**parameter_1*s31**parameter_1*s35**parameter_1 + 3*s31**parameter_1*s35**parameter_1*s39**parameter_1)/((re20_K1**parameter_1 + s26**parameter_1)*(re20_K2**parameter_1 + species_13**parameter_1)*(re20_K3**parameter_1 + s31**parameter_1)*(re20_K4**parameter_1 + s35**parameter_1)*(re20_K5**parameter_1 + s39**parameter_1))) s31
+re20_rev: s31 ->(re20_Vr) species_15
+re23: s81 ->(c1*re23_K1**parameter_1*re23_K2**parameter_1*re23_K3**parameter_1*re23_Vf*(re23_K4**parameter_1*s83**parameter_1 + re23_K5**parameter_1*s34**parameter_1 + 2*s34**parameter_1*s83**parameter_1)/((re23_K1**parameter_1 + s27**parameter_1)*(re23_K2**parameter_1 + s49**parameter_1)*(re23_K3**parameter_1 + s45**parameter_1)*(re23_K4**parameter_1 + s34**parameter_1)*(re23_K5**parameter_1 + s83**parameter_1))) s35
+re23_rev: s35 ->(c1*re23_Vr) s81
+re24: s82 ->(c1*re24_K**parameter_1*re24_Vf*s33**re24_n1/((re24_K**parameter_1 + s25**parameter_1)*(re24_K1**re24_n1 + s33**re24_n1))) s34
+re24_rev: s34 ->(c1*re24_Vr) s82
+re25: s37 + s89 ->(re25_k1) s38
+re25_rev: s38 ->(re25_k2) s37 + s89
+re26: s77 ->(c1*re26_Vf*(1.0*re26_K**parameter_1 + 2.0*s38**parameter_1)/(re26_K**parameter_1 + s38**parameter_1)) s39
+re26_rev: s39 ->(c1*re26_Vr) s77
+re27: s78 ->(c1*re27_K1**parameter_1*re27_K2**parameter_1*re27_K3**parameter_1*re27_Vf*(re27_K4**parameter_1*re27_K5**parameter_1*re27_K6**parameter_1*s83**parameter_1 + re27_K4**parameter_1*re27_K5**parameter_1*re27_K7**parameter_1*s39**parameter_1 + 2*re27_K4**parameter_1*re27_K5**parameter_1*s39**parameter_1*s83**parameter_1 + re27_K4**parameter_1*re27_K6**parameter_1*re27_K7**parameter_1*s26**parameter_1 + 2*re27_K4**parameter_1*re27_K6**parameter_1*s26**parameter_1*s83**parameter_1 + 2*re27_K4**parameter_1*re27_K7**parameter_1*s26**parameter_1*s39**parameter_1 + 3*re27_K4**parameter_1*s26**parameter_1*s39**parameter_1*s83**parameter_1 + re27_K5**parameter_1*re27_K6**parameter_1*re27_K7**parameter_1*s45**parameter_1 + 2*re27_K5**parameter_1*re27_K6**parameter_1*s45**parameter_1*s83**parameter_1 + 2*re27_K5**parameter_1*re27_K7**parameter_1*s39**parameter_1*s45**parameter_1 + 3*re27_K5**parameter_1*s39**parameter_1*s45**parameter_1*s83**parameter_1 + 2*re27_K6**parameter_1*re27_K7**parameter_1*s26**parameter_1*s45**parameter_1 + 3*re27_K6**parameter_1*s26**parameter_1*s45**parameter_1*s83**parameter_1 + 3*re27_K7**parameter_1*s26**parameter_1*s39**parameter_1*s45**parameter_1 + 4*s26**parameter_1*s39**parameter_1*s45**parameter_1*s83**parameter_1)/((re27_K1**parameter_1 + s34**parameter_1)*(re27_K2**parameter_1 + s49**parameter_1)*(re27_K3**parameter_1 + s48**parameter_1)*(re27_K4**parameter_1 + s45**parameter_1)*(re27_K5**parameter_1 + s26**parameter_1)*(re27_K6**parameter_1 + s39**parameter_1)*(re27_K7**parameter_1 + s83**parameter_1))) s40
+re27_rev: s40 ->(c1*re27_Vr) s78
+re28: s44 + s87 ->(re28_k1) s45
+re28_rev: s45 ->(re28_k2) s44 + s87
+re29: s47 + s90 ->(re29_k1) s48
+re29_rev: s48 ->(re29_k2) s47 + s90
+re30: s76 ->(c1*re30_K**parameter_1*re30_Vf*(re30_K1**parameter_1*re30_K2**parameter_1*re30_K3**parameter_1*s48**parameter_1 + re30_K1**parameter_1*re30_K2**parameter_1*re30_K4**parameter_1*s63**parameter_1 + 2*re30_K1**parameter_1*re30_K2**parameter_1*s48**parameter_1*s63**parameter_1 + re30_K1**parameter_1*re30_K3**parameter_1*re30_K4**parameter_1*s59**parameter_1 + 2*re30_K1**parameter_1*re30_K3**parameter_1*s48**parameter_1*s59**parameter_1 + 2*re30_K1**parameter_1*re30_K4**parameter_1*s59**parameter_1*s63**parameter_1 + 3*re30_K1**parameter_1*s48**parameter_1*s59**parameter_1*s63**parameter_1 + re30_K2**parameter_1*re30_K3**parameter_1*re30_K4**parameter_1*s54**parameter_1 + 2*re30_K2**parameter_1*re30_K3**parameter_1*s48**parameter_1*s54**parameter_1 + 2*re30_K2**parameter_1*re30_K4**parameter_1*s54**parameter_1*s63**parameter_1 + 3*re30_K2**parameter_1*s48**parameter_1*s54**parameter_1*s63**parameter_1 + 2*re30_K3**parameter_1*re30_K4**parameter_1*s54**parameter_1*s59**parameter_1 + 3*re30_K3**parameter_1*s48**parameter_1*s54**parameter_1*s59**parameter_1 + 3*re30_K4**parameter_1*s54**parameter_1*s59**parameter_1*s63**parameter_1 + 4*s48**parameter_1*s54**parameter_1*s59**parameter_1*s63**parameter_1)/((re30_K**parameter_1 + s83**parameter_1)*(re30_K1**parameter_1 + s54**parameter_1)*(re30_K2**parameter_1 + s59**parameter_1)*(re30_K3**parameter_1 + s63**parameter_1)*(re30_K4**parameter_1 + s48**parameter_1))) s49
+re30_rev: s49 ->(c1*re30_Vr) s76
+re31: s75 ->(c1*re31_K1**parameter_1*re31_K2**parameter_1*re31_Vf*(re31_K3**parameter_1*s45**parameter_1 + re31_K4**parameter_1*s49**parameter_1 + 2*s45**parameter_1*s49**parameter_1)/((re31_K1**parameter_1 + s40**parameter_1)*(re31_K2**parameter_1 + s83**parameter_1)*(re31_K3**parameter_1 + s49**parameter_1)*(re31_K4**parameter_1 + s45**parameter_1))) s50
+re31_rev: s50 ->(c1*re31_Vr) s75
+re32: s51 + s53 ->(re32_K**parameter_1*re32_Vf*(1.0*re32_K1**parameter_1 + 2.0*species_3**parameter_1)/((re32_K**parameter_1 + s39**parameter_1)*(re32_K1**parameter_1 + species_3**parameter_1))) s54
+re32_rev: s54 ->(re32_Vr) s51 + s53
+re33: s52 ->(re33_k1) s51
+re34: s55 ->(re34_k1) s57
+re34_rev: s57 ->(re34_k2) s55
+re35: s57 + s58 ->(c1*re35_K**parameter_1*re35_Vf/(re35_K**parameter_1 + s27**parameter_1)) s59
+re35_rev: s59 ->(c1*re35_Vr) s57 + s58
+re36: species_8 + species_9 ->(c1*re36_K**parameter_1*re36_Vf*(1.0*re36_K1**parameter_1 + 2.0*s48**parameter_1)/((re36_K**parameter_1 + s83**parameter_1)*(re36_K1**parameter_1 + s48**parameter_1))) s57
+re36_rev: s57 ->(c1*re36_Vr) species_8 + species_9
+re37: species_6 ->(c1*re37_Vf*(1.0*re37_K**parameter_1 + 2.0*s49**parameter_1)/(re37_K**parameter_1 + s49**parameter_1)) s52
+re37_rev: s52 ->(c1*re37_Vr) species_6
+re39: s62 + species_2 ->(re39_k1) s63
+re39_rev: s63 ->(re39_k2) s62 + species_2
+re42: s85 + s86 ->(c1*re42_K**parameter_1*re42_Vf*(1.0*re42_K1**parameter_1 + 2.0*s33**parameter_1)/((re42_K**parameter_1 + s25**parameter_1)*(re42_K1**parameter_1 + s33**parameter_1))) s83
+re42_rev: s83 ->(c1*re42_Vr) s85 + s86
+re44: s43 ->(re44_k1) s87
+re45: s36 ->(re45_k1) s89
+re46: s46 ->(re46_k1) s90
+reaction_1: s74 ->(reaction_1_k1) species_2
+reaction_2: s73 ->(reaction_2_k1) species_1
+reaction_3: species_1 + species_4 ->(reaction_3_k1) species_3
+reaction_3_rev: species_3 ->(reaction_3_k2) species_1 + species_4
+reaction_4: s1 ->(reaction_4_k1) species_12
+reaction_5: species_7 ->(c1*reaction_5_K**parameter_1*reaction_5_Vf*(reaction_5_K1**parameter_1*reaction_5_K2**parameter_1*s21**parameter_1 + reaction_5_K1**parameter_1*reaction_5_K3**parameter_1*s50**parameter_1 + 2*reaction_5_K1**parameter_1*s21**parameter_1*s50**parameter_1 + reaction_5_K2**parameter_1*reaction_5_K3**parameter_1*s59**parameter_1 + 2*reaction_5_K2**parameter_1*s21**parameter_1*s59**parameter_1 + 2*reaction_5_K3**parameter_1*s50**parameter_1*s59**parameter_1 + 3*s21**parameter_1*s50**parameter_1*s59**parameter_1)/((reaction_5_K**parameter_1 + s83**parameter_1)*(reaction_5_K1**parameter_1 + s59**parameter_1)*(reaction_5_K2**parameter_1 + s50**parameter_1)*(reaction_5_K3**parameter_1 + s21**parameter_1))) s73
+reaction_5_rev: s73 ->(c1*reaction_5_Vr) species_7
+reaction_6: species_16 ->(1.0*default*reaction_6_V*species_16**parameter_1/(species_16*(1.0*species_12**parameter_1 + 1.0*species_16**parameter_1 + 0.001))) species_12
+reaction_6_rev: species_12 ->(default*reaction_6_V*reaction_6_k) species_16
+reaction_7: species_17 ->(1.0*default*reaction_7_V*species_17**parameter_1/(species_17*(1.0*s11**parameter_1 + 1.0*species_17**parameter_1 + 0.001))) s11
+reaction_7_rev: s11 ->(default*reaction_7_V*reaction_7_k) species_17
+reaction_8: species_18 ->(1.0*default*reaction_8_V*species_18**parameter_1/(species_18*(1.0*s22**parameter_1 + 1.0*species_18**parameter_1 + 0.001))) s22
+reaction_8_rev: s22 ->(default*reaction_8_V*reaction_8_k) species_18
+reaction_9: species_19 ->(1.0*default*reaction_9_V*species_19**parameter_1/(species_19*(1.0*s51**parameter_1 + 1.0*species_19**parameter_1 + 0.001))) s51
+reaction_9_rev: s51 ->(default*reaction_9_V*reaction_9_k) species_19
+reaction_10: species_20 ->(1.0*default*reaction_10_V*species_20**parameter_1/(species_20*(1.0*s55**parameter_1 + 1.0*species_20**parameter_1 + 0.001))) s55
+reaction_10_rev: s55 ->(default*reaction_10_V*reaction_10_k) species_20
+reaction_11: species_21 ->(1.0*reaction_11_V*species_21**parameter_1/(species_21*(1.0*s73**parameter_1 + 1.0*species_21**parameter_1 + 0.001))) s73
+reaction_11_rev: s73 ->(reaction_11_V*reaction_11_k) species_21
+reaction_12: species_22 ->(1.0*default*reaction_12_V*species_22**parameter_1/(species_22*(1.0*species_2**parameter_1 + 1.0*species_22**parameter_1 + 0.001))) species_2
+reaction_12_rev: species_2 ->(default*reaction_12_V*reaction_12_k) species_22
+reaction_13: species_23 ->(1.0*default*reaction_13_V*species_23**parameter_1/(species_23*(1.0*s90**parameter_1 + 1.0*species_23**parameter_1 + 0.001))) s90
+reaction_13_rev: s90 ->(default*reaction_13_V*reaction_13_k) species_23
+reaction_14: species_24 ->(1.0*default*reaction_14_V*species_24**parameter_1/(species_24*(1.0*s89**parameter_1 + 1.0*species_24**parameter_1 + 0.001))) s89
+reaction_14_rev: s89 ->(default*reaction_14_V*reaction_14_k) species_24
+reaction_15: species_25 ->(1.0*default*reaction_15_V*species_25**parameter_1/(species_25*(1.0*s87**parameter_1 + 1.0*species_25**parameter_1 + 0.001))) s87
+reaction_15_rev: s87 ->(default*reaction_15_V*reaction_15_k) species_25
+reaction_16: species_26 ->(1.0*default*reaction_16_V*species_26**parameter_1/(species_26*(1.0*s30**parameter_1 + 1.0*species_26**parameter_1 + 0.001))) s30
+reaction_16_rev: s30 ->(default*reaction_16_V*reaction_16_k) species_26
+reaction_17: species_27 ->(reaction_17_K**parameter_1*reaction_17_Vf*(reaction_17_K1**parameter_1*reaction_17_K2**parameter_1*reaction_17_K3**parameter_1*s39**parameter_1 + reaction_17_K1**parameter_1*reaction_17_K2**parameter_1*reaction_17_K4**parameter_1*s35**parameter_1 + 2*reaction_17_K1**parameter_1*reaction_17_K2**parameter_1*s35**parameter_1*s39**parameter_1 + reaction_17_K1**parameter_1*reaction_17_K3**parameter_1*reaction_17_K4**parameter_1*s54**parameter_1 + 2*reaction_17_K1**parameter_1*reaction_17_K3**parameter_1*s39**parameter_1*s54**parameter_1 + 2*reaction_17_K1**parameter_1*reaction_17_K4**parameter_1*s35**parameter_1*s54**parameter_1 + 3*reaction_17_K1**parameter_1*s35**parameter_1*s39**parameter_1*s54**parameter_1 + reaction_17_K2**parameter_1*reaction_17_K3**parameter_1*reaction_17_K4**parameter_1*s83**parameter_1 + 2*reaction_17_K2**parameter_1*reaction_17_K3**parameter_1*s39**parameter_1*s83**parameter_1 + 2*reaction_17_K2**parameter_1*reaction_17_K4**parameter_1*s35**parameter_1*s83**parameter_1 + 3*reaction_17_K2**parameter_1*s35**parameter_1*s39**parameter_1*s83**parameter_1 + 2*reaction_17_K3**parameter_1*reaction_17_K4**parameter_1*s54**parameter_1*s83**parameter_1 + 3*reaction_17_K3**parameter_1*s39**parameter_1*s54**parameter_1*s83**parameter_1 + 3*reaction_17_K4**parameter_1*s35**parameter_1*s54**parameter_1*s83**parameter_1 + 4*s35**parameter_1*s39**parameter_1*s54**parameter_1*s83**parameter_1)/((reaction_17_K**parameter_1 + s59**parameter_1)*(reaction_17_K1**parameter_1 + s83**parameter_1)*(reaction_17_K2**parameter_1 + s54**parameter_1)*(reaction_17_K3**parameter_1 + s35**parameter_1)*(reaction_17_K4**parameter_1 + s39**parameter_1))) s74
+reaction_17_rev: s74 ->(reaction_17_Vr) species_27

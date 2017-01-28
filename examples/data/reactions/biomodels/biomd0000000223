@@ -83,13 +83,13 @@ reaction_63: tRas ->(cell*kcat63*(IRp_RasGAP + Rp_RasGAP + bRasGAP + mGABp_RasGA
 reaction_64: PI3K + tRas ->(cell*(PI3K*k64*tRas - k_64*tRas_PI3K)/(PI3K*tRas)) tRas_PI3K
 reaction_65: Raf ->(cell*kcat65*tRas/(Km65 + Raf)) aRaf
 reaction_66: aRaf ->(aSrc*cell*kcat66/(Km66 + aRaf)) aaRaf
-reaction_67: aaRaf ->(cell*(Km67*alpha67*beta67*ppAkt + Km67*alpha67*pAkt + PKA*kcat67 + aaRaf*alpha67*beta67*ppAkt + aaRaf*alpha67*pAkt)/(Km67 + aaRaf)) Raf
+reaction_67: aaRaf ->(cell*(PKA*aaRaf*kcat67/(Km67 + aaRaf) + aaRaf*alpha67*(beta67*ppAkt + pAkt))/aaRaf) Raf
 reaction_68: Mek ->(aaRaf*cell*kcat68/(Km68 + Mek)) ppMek
 reaction_69: ppMek ->(V69*cell/(Km69 + ppMek)) Mek
-reaction_70: Erk ->(Km71*cell*kcat70*ppMek/(Erk*Km71 + Km70*Km71 + Km70*pErk)) pErk
-reaction_71: pErk ->(Km70*cell*kcat71*ppMek/(Erk*Km71 + Km70*Km71 + Km70*pErk)) ppErk
-reaction_72: ppErk ->(Km73*V72*cell/(Km72*Km73 + Km72*pErk + Km73*ppErk)) pErk
-reaction_73: pErk ->(Km72*V73*cell/(Km72*Km73 + Km72*pErk + Km73*ppErk)) Erk
+reaction_70: Erk ->(cell*kcat70*ppMek/(Erk + Km70 + Km70*pErk/Km71)) pErk
+reaction_71: pErk ->(cell*kcat71*ppMek/(Erk*Km71/Km70 + Km71 + pErk)) ppErk
+reaction_72: ppErk ->(V72*cell/(Km72 + Km72*pErk/Km73 + ppErk)) pErk
+reaction_73: pErk ->(V73*cell/(Km73 + pErk + Km73*ppErk/Km72)) Erk
 reaction_74: PDK1 + PIP3 ->(cell*k74) mPDK1
 reaction_74_rev: mPDK1 ->(cell*k_74) PDK1 + PIP3
 reaction_75: Akt ->(cell*kcat75*mPDK1/(Akt + Km75)) pAkt
@@ -147,6 +147,6 @@ reaction_112: Rp_RasGAP ->(cell*k111*(mGABp_SHP2 + mGABp_pSHP2 + mGABp_pSHP2_GS)
 reaction_113: IRp_RasGAP ->(cell*k111*(mGABp_SHP2 + mGABp_pSHP2 + mGABp_pSHP2_GS)) IRp + RasGAP
 reaction_114: Rp_RasGAP ->(cell*k111*mIRSp_SHP2) RasGAP + Rp
 reaction_115: IRp_RasGAP ->(cell*k111*mIRSp_SHP2) IRp + RasGAP
-reaction_117: mGABp ->(2*cell*kcat80*ppErk/(Km80 + mGABp)) imGABp
+reaction_117: mGABp ->(2.0*cell*kcat80*ppErk/(Km80 + mGABp)) imGABp
 reaction_117_rev: imGABp ->(cell*k_80) mGABp
 reaction_118: imGABp ->(cell*k118) imGAB

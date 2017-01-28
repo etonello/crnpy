@@ -1,12 +1,12 @@
-degradation_of_LacI_transcripts: LacI_mRNA ->(kd_mRNA) 
-degradation_of_TetR_transcripts: TetR_mRNA ->(kd_mRNA) 
-degradation_of_CI_transcripts: cI_mRNA ->(kd_mRNA) 
-translation_of_LacI:  ->(LacI_mRNA*k_tl) LacI_protein
-translation_of_TetR:  ->(TetR_mRNA*k_tl) TetR_protein
-translation_of_CI:  ->(cI_mRNA*k_tl) cI_protein
-degradation_of_LacI: LacI_protein ->(kd_prot) 
-degradation_of_TetR: TetR_protein ->(kd_prot) 
-degradation_of_CI: cI_protein ->(kd_prot) 
-transcription_of_LacI:  ->((KM**n*a0_tr + KM**n*a_tr + a0_tr*cI_protein**n)/(KM**n + cI_protein**n)) LacI_mRNA
-transcription_of_TetR:  ->((KM**n*a0_tr + KM**n*a_tr + LacI_protein**n*a0_tr)/(KM**n + LacI_protein**n)) TetR_mRNA
-transcription_of_CI:  ->((KM**n*a0_tr + KM**n*a_tr + TetR_protein**n*a0_tr)/(KM**n + TetR_protein**n)) cI_mRNA
+Reaction1: X ->(kd_mRNA) 
+Reaction2: Y ->(kd_mRNA) 
+Reaction3: Z ->(kd_mRNA) 
+Reaction4:  ->(X*k_tl) PX
+Reaction5:  ->(Y*k_tl) PY
+Reaction6:  ->(Z*k_tl) PZ
+Reaction7: PX ->(kd_prot) 
+Reaction8: PY ->(kd_prot) 
+Reaction9: PZ ->(kd_prot) 
+Reaction10:  ->(KM**n*a_tr/(KM**n + PZ**n) + a0_tr) X
+Reaction11:  ->(KM**n*a_tr/(KM**n + PX**n) + a0_tr) Y
+Reaction12:  ->(KM**n*a_tr/(KM**n + PY**n) + a0_tr) Z

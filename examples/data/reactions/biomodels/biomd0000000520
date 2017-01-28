@@ -1,7 +1,7 @@
-N0_death: N0 ->(d0) 
-N0_differentiation: N0 ->((N0*b0 + N0*c0 + b0*m0)/(N0 + m0)) N0 + N1
-N0_renewal: N0 ->(a0) 2N0
-N1_death: N1 ->(d1) 
-N1_differentiation: N1 ->((N1*b1 + N1*c1 + b1*m1)/(N1 + m1)) N1 + N2
-N1_renewal: N1 ->(a1) 2N1
-N2_death: N2 ->(d2) 
+R0X: N0 ->(d0) 
+R01: N0 ->(N0*c0/(N0 + m0) + b0) N0 + N1
+R00: N0 ->(a0) 2N0
+R1X: N1 ->(d1) 
+R12: N1 ->(N1*c1/(N1 + m1) + b1) N1 + N2
+R11: N1 ->(a1) 2N1
+R2X: N2 ->(d2) 

@@ -1,1 +1,1 @@
-reaction_0000004:  ->(-_ff*cell*(alpha*ica + calcium_concentration*kc)) calcium_concentration
+reaction_0000004:  ->(-cell*ff*(alpha*ica + c*kc)) c

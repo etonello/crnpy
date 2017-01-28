@@ -1,48 +1,48 @@
-Glucose_Mixed_flow_to_extracellular_medium: Mixed_flow_glucose ->(extracellular*vinGlc_k0) Extracellular_glucose
-Glucose_Mixed_flow_to_extracellular_medium_rev: Extracellular_glucose ->(extracellular*vinGlc_k0) Mixed_flow_glucose
-Glucose_uptake: Extracellular_glucose ->(extracellular*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_V2f*(Cytosolic_glucose*vGlcTrans_P2 + vGlcTrans_K2Glc)/(vGlcTrans_Yvol*(Cytosolic_glucose*Extracellular_glucose*Glucose_6_Phosphate*vGlcTrans_K2IG6P*vGlcTrans_P2 + 2*Cytosolic_glucose*Extracellular_glucose*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Cytosolic_glucose*Glucose_6_Phosphate*vGlcTrans_K2Glc*vGlcTrans_K2IG6P + Cytosolic_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Cytosolic_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + Extracellular_glucose*Glucose_6_Phosphate*vGlcTrans_K2Glc*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Extracellular_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Extracellular_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + Glucose_6_Phosphate*vGlcTrans_K2Glc**2*vGlcTrans_K2IIG6P + 2*vGlcTrans_K2Glc**2*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P))) 59Cytosolic_glucose
-Glucose_uptake_rev: 59Cytosolic_glucose ->(cytosol*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_V2r*(Extracellular_glucose*vGlcTrans_P2 + vGlcTrans_K2Glc)/(Cytosolic_glucose**58*vGlcTrans_Yvol*(Cytosolic_glucose*Extracellular_glucose*Glucose_6_Phosphate*vGlcTrans_K2IG6P*vGlcTrans_P2 + 2*Cytosolic_glucose*Extracellular_glucose*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Cytosolic_glucose*Glucose_6_Phosphate*vGlcTrans_K2Glc*vGlcTrans_K2IG6P + Cytosolic_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Cytosolic_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + Extracellular_glucose*Glucose_6_Phosphate*vGlcTrans_K2Glc*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Extracellular_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Extracellular_glucose*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + Glucose_6_Phosphate*vGlcTrans_K2Glc**2*vGlcTrans_K2IIG6P + 2*vGlcTrans_K2Glc**2*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P))) Extracellular_glucose
-Hexokinase: ATP + Cytosolic_glucose ->(cytosol*vHK_V3m/(ATP*Cytosolic_glucose + ATP*vHK_K3Glc + Cytosolic_glucose*vHK_K3ATP + vHK_K3ATP*vHK_K3DGlc)) ADP + Glucose_6_Phosphate
-Hexokinase_rev: ADP + Glucose_6_Phosphate -> ATP + Cytosolic_glucose
-Phosphoglucoisomerase: Glucose_6_Phosphate ->(cytosol*vPGI_K4F6P*vPGI_V4f/(Fructose_6_Phosphate*vPGI_K4G6P + Glucose_6_Phosphate*vPGI_K4F6P + vPGI_K4F6P*vPGI_K4G6P)) Fructose_6_Phosphate
-Phosphoglucoisomerase_rev: Fructose_6_Phosphate ->(cytosol*vPGI_K4F6P*vPGI_V4r/(vPGI_K4eq*(Fructose_6_Phosphate*vPGI_K4G6P + Glucose_6_Phosphate*vPGI_K4F6P + vPGI_K4F6P*vPGI_K4G6P))) Glucose_6_Phosphate
-Phosphofructokinase: ATP + Fructose_6_Phosphate ->(AMP**2*Fructose_6_Phosphate*cytosol*vPFK_V5m/(ATP*(AMP**2*Fructose_6_Phosphate**2 + AMP**2*vPFK_K5 + ATP**2*vPFK_K5*vPFK_kappa5))) ADP + Fructose_1_6_bisphosphate
-Phosphofructokinase_rev: ADP + Fructose_1_6_bisphosphate -> ATP + Fructose_6_Phosphate
-Aldolase: Fructose_1_6_bisphosphate ->(cytosol*vALD_K6IGAP*vALD_K6eq*vALD_V6f*vALD_ratio6/(Dihydroxyacetone_phosphate*Glyceraldehyde_3_phosphate*vALD_K6IGAP + Dihydroxyacetone_phosphate*vALD_K6GAP*vALD_K6IGAP + Fructose_1_6_bisphosphate*Glyceraldehyde_3_phosphate*vALD_K6eq*vALD_ratio6 + Fructose_1_6_bisphosphate*vALD_K6IGAP*vALD_K6eq*vALD_ratio6 + Glyceraldehyde_3_phosphate*vALD_K6DHAP*vALD_K6IGAP + vALD_K6FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6)) Dihydroxyacetone_phosphate + Glyceraldehyde_3_phosphate
-Aldolase_rev: Dihydroxyacetone_phosphate + Glyceraldehyde_3_phosphate ->(cytosol*vALD_K6IGAP*vALD_V6f*vALD_ratio6/(Dihydroxyacetone_phosphate*Glyceraldehyde_3_phosphate*vALD_K6IGAP + Dihydroxyacetone_phosphate*vALD_K6GAP*vALD_K6IGAP + Fructose_1_6_bisphosphate*Glyceraldehyde_3_phosphate*vALD_K6eq*vALD_ratio6 + Fructose_1_6_bisphosphate*vALD_K6IGAP*vALD_K6eq*vALD_ratio6 + Glyceraldehyde_3_phosphate*vALD_K6DHAP*vALD_K6IGAP + vALD_K6FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6)) Fructose_1_6_bisphosphate
-Triosephosphate_isomerase: Dihydroxyacetone_phosphate ->(cytosol*vTIM_K7GAP*vTIM_V7f/(Dihydroxyacetone_phosphate*vTIM_K7GAP + Glyceraldehyde_3_phosphate*vTIM_K7DHAP + vTIM_K7DHAP*vTIM_K7GAP)) Glyceraldehyde_3_phosphate
-Triosephosphate_isomerase_rev: Glyceraldehyde_3_phosphate ->(cytosol*vTIM_K7GAP*vTIM_V7r/(vTIM_K7eq*(Dihydroxyacetone_phosphate*vTIM_K7GAP + Glyceraldehyde_3_phosphate*vTIM_K7DHAP + vTIM_K7DHAP*vTIM_K7GAP))) Dihydroxyacetone_phosphate
-Glyceraldehyde_3_phosphate_dehydrogenase: Glyceraldehyde_3_phosphate + NAD ->(cytosol*vGAPDH_K8BPG*vGAPDH_K8NADH*vGAPDH_V8f/((Glyceraldehyde_3_phosphate*vGAPDH_K8BPG + _1_3_Bisphosphoglycerate*vGAPDH_K8GAP + vGAPDH_K8BPG*vGAPDH_K8GAP)*(NAD*vGAPDH_K8NADH + NADH*vGAPDH_K8NAD + vGAPDH_K8NAD*vGAPDH_K8NADH))) NADH + _1_3_Bisphosphoglycerate
-Glyceraldehyde_3_phosphate_dehydrogenase_rev: NADH + _1_3_Bisphosphoglycerate ->(cytosol*vGAPDH_K8BPG*vGAPDH_K8NADH*vGAPDH_V8r/(vGAPDH_K8eq*(Glyceraldehyde_3_phosphate*vGAPDH_K8BPG + _1_3_Bisphosphoglycerate*vGAPDH_K8GAP + vGAPDH_K8BPG*vGAPDH_K8GAP)*(NAD*vGAPDH_K8NADH + NADH*vGAPDH_K8NAD + vGAPDH_K8NAD*vGAPDH_K8NADH))) Glyceraldehyde_3_phosphate + NAD
-Phosphoenolpyruvate_synthesis: ADP + _1_3_Bisphosphoglycerate ->(cytosol*vlpPEP_k9f) ATP + Phosphoenolpyruvate
-Phosphoenolpyruvate_synthesis_rev: ATP + Phosphoenolpyruvate ->(cytosol*vlpPEP_k9r) ADP + _1_3_Bisphosphoglycerate
-Pyruvate_kinase: ADP + Phosphoenolpyruvate ->(cytosol*vPK_V10m/((ADP + vPK_K10ADP)*(Phosphoenolpyruvate + vPK_K10PEP))) ATP + Pyruvate
-Pyruvate_kinase_rev: ATP + Pyruvate -> ADP + Phosphoenolpyruvate
-Pyruvate_decarboxylase: Pyruvate ->(cytosol*vPDC_V11m/(Pyruvate + vPDC_K11)) Acetaldehyde
-Pyruvate_decarboxylase_rev: Acetaldehyde -> Pyruvate
-Alcohol_dehydrogenase: Acetaldehyde + NADH ->(cytosol*vADH_V12m/((Acetaldehyde + vADH_K12ACA)*(NADH + vADH_K12NADH))) EtOH + NAD
-Alcohol_dehydrogenase_rev: EtOH + NAD -> Acetaldehyde + NADH
-Ethanol_out: 59EtOH ->(cytosol*vdifEtOH_k13/(EtOH**58*vdifEtOH_Yvol)) Extracellular_ethanol
-Ethanol_out_rev: Extracellular_ethanol ->(extracellular*vdifEtOH_k13/vdifEtOH_Yvol) 59EtOH
-Ethanol_flow: Extracellular_ethanol ->(extracellular*voutEtOH_k0) P
-Ethanol_flow_rev: P -> Extracellular_ethanol
-Glycerol_synthesis: Dihydroxyacetone_phosphate + NADH ->(cytosol*vlpGlyc_K15INAD*vlpGlyc_V15m/(Dihydroxyacetone_phosphate*NAD*vlpGlyc_K15NADH + Dihydroxyacetone_phosphate*NADH*vlpGlyc_K15INAD + Dihydroxyacetone_phosphate*vlpGlyc_K15INAD*vlpGlyc_K15NADH + NAD*vlpGlyc_K15DHAP*vlpGlyc_K15INADH + NADH*vlpGlyc_K15DHAP*vlpGlyc_K15INAD + vlpGlyc_K15DHAP*vlpGlyc_K15INAD*vlpGlyc_K15INADH)) Glycerol + NAD
-Glycerol_synthesis_rev: Glycerol + NAD -> Dihydroxyacetone_phosphate + NADH
-Glycerol_out: 59Glycerol ->(cytosol*vdifGlyc_k16/(Glycerol**58*vdifGlyc_Yvol)) Extracellular_glycerol
-Glycerol_out_rev: Extracellular_glycerol ->(extracellular*vdifGlyc_k16/vdifGlyc_Yvol) 59Glycerol
-Glycerol_flow: Extracellular_glycerol ->(extracellular*voutGlyc_k0) P
-Glycerol_flow_rev: P -> Extracellular_glycerol
-Acetaldehyde_out: 59Acetaldehyde ->(cytosol*vdifACA_k18/(Acetaldehyde**58*vdifACA_Yvol)) Extracellular_acetaldehyde
-Acetaldehyde_out_rev: Extracellular_acetaldehyde ->(extracellular*vdifACA_k18/vdifACA_Yvol) 59Acetaldehyde
-Acetaldehyde_flow: Extracellular_acetaldehyde ->(extracellular*voutACA_k0) P
-Acetaldehyde_flow_rev: P -> Extracellular_acetaldehyde
-Cyanide_Acetaldehyde_flow: Extracellular_acetaldehyde + Extracellular_cyanide ->(extracellular*vlacto_k20) P
-Cyanide_Acetaldehyde_flow_rev: P -> Extracellular_acetaldehyde + Extracellular_cyanide
-Cyanide_flow: Mixed_flow_cyanide ->(extracellular*vinCN_k0) Extracellular_cyanide
-Cyanide_flow_rev: Extracellular_cyanide ->(extracellular*vinCN_k0) Mixed_flow_cyanide
-Storage: ATP + Glucose_6_Phosphate ->(cytosol*vstorage_k22) ADP
-Storage_rev: ADP -> ATP + Glucose_6_Phosphate
-ATP_consumption: ATP ->(cytosol*vconsum_k23) ADP
-ATP_consumption_rev: ADP -> ATP
-Adenylate_kinase: AMP + ATP ->(cytosol*vAK_k24f) 2ADP
-Adenylate_kinase_rev: 2ADP ->(cytosol*vAK_k24r) AMP + ATP
+vinGlc: GlcX0 ->(extracellular*vinGlc_k0) GlcX
+vinGlc_rev: GlcX ->(extracellular*vinGlc_k0) GlcX0
+vGlcTrans: GlcX ->(extracellular*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_V2f*(Glc*vGlcTrans_P2 + vGlcTrans_K2Glc)/(vGlcTrans_Yvol*(G6P*Glc*GlcX*vGlcTrans_K2IG6P*vGlcTrans_P2 + G6P*Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P + G6P*GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IIG6P*vGlcTrans_P2 + G6P*vGlcTrans_K2Glc**2*vGlcTrans_K2IIG6P + 2*Glc*GlcX*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + 2*vGlcTrans_K2Glc**2*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P))) 59Glc
+vGlcTrans_rev: 59Glc ->(cytosol*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_V2r*(GlcX*vGlcTrans_P2 + vGlcTrans_K2Glc)/(Glc**58*vGlcTrans_Yvol*(G6P*Glc*GlcX*vGlcTrans_K2IG6P*vGlcTrans_P2 + G6P*Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P + G6P*GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IIG6P*vGlcTrans_P2 + G6P*vGlcTrans_K2Glc**2*vGlcTrans_K2IIG6P + 2*Glc*GlcX*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + Glc*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P*vGlcTrans_P2 + GlcX*vGlcTrans_K2Glc*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P + 2*vGlcTrans_K2Glc**2*vGlcTrans_K2IG6P*vGlcTrans_K2IIG6P))) GlcX
+vHK: ATP + Glc ->(cytosol*vHK_V3m/(ATP*Glc + ATP*vHK_K3Glc + Glc*vHK_K3ATP + vHK_K3ATP*vHK_K3DGlc)) ADP + G6P
+vHK_rev: ADP + G6P ->(k_vHK_rev) ATP + Glc
+vPGI: G6P ->(cytosol*vPGI_K4F6P*vPGI_V4f/(F6P*vPGI_K4G6P + G6P*vPGI_K4F6P + vPGI_K4F6P*vPGI_K4G6P)) F6P
+vPGI_rev: F6P ->(cytosol*vPGI_K4F6P*vPGI_V4r/(vPGI_K4eq*(F6P*vPGI_K4G6P + G6P*vPGI_K4F6P + vPGI_K4F6P*vPGI_K4G6P))) G6P
+vPFK: ATP + F6P ->(AMP**2*F6P*cytosol*vPFK_V5m/(ATP*(AMP**2*F6P**2 + AMP**2*vPFK_K5 + ATP**2*vPFK_K5*vPFK_kappa5))) ADP + FBP
+vPFK_rev: ADP + FBP ->(k_vPFK_rev) ATP + F6P
+vALD: FBP ->(cytosol*vALD_K6IGAP*vALD_K6eq*vALD_V6f*vALD_ratio6/(DHAP*GAP*vALD_K6IGAP + DHAP*vALD_K6GAP*vALD_K6IGAP + FBP*GAP*vALD_K6eq*vALD_ratio6 + FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6 + GAP*vALD_K6DHAP*vALD_K6IGAP + vALD_K6FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6)) DHAP + GAP
+vALD_rev: DHAP + GAP ->(cytosol*vALD_K6IGAP*vALD_V6f*vALD_ratio6/(DHAP*GAP*vALD_K6IGAP + DHAP*vALD_K6GAP*vALD_K6IGAP + FBP*GAP*vALD_K6eq*vALD_ratio6 + FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6 + GAP*vALD_K6DHAP*vALD_K6IGAP + vALD_K6FBP*vALD_K6IGAP*vALD_K6eq*vALD_ratio6)) FBP
+vTIM: DHAP ->(cytosol*vTIM_K7GAP*vTIM_V7f/(DHAP*vTIM_K7GAP + GAP*vTIM_K7DHAP + vTIM_K7DHAP*vTIM_K7GAP)) GAP
+vTIM_rev: GAP ->(cytosol*vTIM_K7GAP*vTIM_V7r/(vTIM_K7eq*(DHAP*vTIM_K7GAP + GAP*vTIM_K7DHAP + vTIM_K7DHAP*vTIM_K7GAP))) DHAP
+vGAPDH: GAP + NAD ->(cytosol*vGAPDH_K8BPG*vGAPDH_K8NADH*vGAPDH_V8f/((BPG*vGAPDH_K8GAP + GAP*vGAPDH_K8BPG + vGAPDH_K8BPG*vGAPDH_K8GAP)*(NAD*vGAPDH_K8NADH + NADH*vGAPDH_K8NAD + vGAPDH_K8NAD*vGAPDH_K8NADH))) BPG + NADH
+vGAPDH_rev: BPG + NADH ->(cytosol*vGAPDH_K8BPG*vGAPDH_K8NADH*vGAPDH_V8r/(vGAPDH_K8eq*(BPG*vGAPDH_K8GAP + GAP*vGAPDH_K8BPG + vGAPDH_K8BPG*vGAPDH_K8GAP)*(NAD*vGAPDH_K8NADH + NADH*vGAPDH_K8NAD + vGAPDH_K8NAD*vGAPDH_K8NADH))) GAP + NAD
+vlpPEP: ADP + BPG ->(cytosol*vlpPEP_k9f) ATP + PEP
+vlpPEP_rev: ATP + PEP ->(cytosol*vlpPEP_k9r) ADP + BPG
+vPK: ADP + PEP ->(cytosol*vPK_V10m/((ADP + vPK_K10ADP)*(PEP + vPK_K10PEP))) ATP + Pyr
+vPK_rev: ATP + Pyr ->(k_vPK_rev) ADP + PEP
+vPDC: Pyr ->(cytosol*vPDC_V11m/(Pyr + vPDC_K11)) ACA
+vPDC_rev: ACA ->(k_vPDC_rev) Pyr
+vADH: ACA + NADH ->(cytosol*vADH_V12m/((ACA + vADH_K12ACA)*(NADH + vADH_K12NADH))) EtOH + NAD
+vADH_rev: EtOH + NAD ->(k_vADH_rev) ACA + NADH
+vdifEtOH: 59EtOH ->(cytosol*vdifEtOH_k13/(EtOH**58*vdifEtOH_Yvol)) EtOHX
+vdifEtOH_rev: EtOHX ->(extracellular*vdifEtOH_k13/vdifEtOH_Yvol) 59EtOH
+voutEtOH: EtOHX ->(extracellular*voutEtOH_k0) P
+voutEtOH_rev: P ->(k_voutEtOH_rev) EtOHX
+vlpGlyc: DHAP + NADH ->(cytosol*vlpGlyc_K15INAD*vlpGlyc_V15m/(DHAP*NAD*vlpGlyc_K15NADH + DHAP*NADH*vlpGlyc_K15INAD + DHAP*vlpGlyc_K15INAD*vlpGlyc_K15NADH + NAD*vlpGlyc_K15DHAP*vlpGlyc_K15INADH + NADH*vlpGlyc_K15DHAP*vlpGlyc_K15INAD + vlpGlyc_K15DHAP*vlpGlyc_K15INAD*vlpGlyc_K15INADH)) Glyc + NAD
+vlpGlyc_rev: Glyc + NAD ->(k_vlpGlyc_rev) DHAP + NADH
+vdifGlyc: 59Glyc ->(cytosol*vdifGlyc_k16/(Glyc**58*vdifGlyc_Yvol)) GlycX
+vdifGlyc_rev: GlycX ->(extracellular*vdifGlyc_k16/vdifGlyc_Yvol) 59Glyc
+voutGlyc: GlycX ->(extracellular*voutGlyc_k0) P
+voutGlyc_rev: P ->(k_voutGlyc_rev) GlycX
+vdifACA: 59ACA ->(cytosol*vdifACA_k18/(ACA**58*vdifACA_Yvol)) ACAX
+vdifACA_rev: ACAX ->(extracellular*vdifACA_k18/vdifACA_Yvol) 59ACA
+voutACA: ACAX ->(extracellular*voutACA_k0) P
+voutACA_rev: P ->(k_voutACA_rev) ACAX
+vlacto: ACAX + CNX ->(extracellular*vlacto_k20) P
+vlacto_rev: P ->(k_vlacto_rev) ACAX + CNX
+vinCN: CNX0 ->(extracellular*vinCN_k0) CNX
+vinCN_rev: CNX ->(extracellular*vinCN_k0) CNX0
+vstorage: ATP + G6P ->(cytosol*vstorage_k22) ADP
+vstorage_rev: ADP ->(k_vstorage_rev) ATP + G6P
+vconsum: ATP ->(cytosol*vconsum_k23) ADP
+vconsum_rev: ADP ->(k_vconsum_rev) ATP
+vAK: AMP + ATP ->(cytosol*vAK_k24f) 2ADP
+vAK_rev: 2ADP ->(cytosol*vAK_k24r) AMP + ATP

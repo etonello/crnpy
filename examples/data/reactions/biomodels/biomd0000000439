@@ -1,21 +1,21 @@
-Receptor_Ligand_association: L + R ->(compartment*k1) RL
-Receptor_Gprotein_association: Gabg + R ->(compartment*k2) RGabg
-RL_Gprotein_association: Gabg + RL ->(compartment*k3) RGabgL
-RGabg_Ligand_association: L + RGabg ->(compartment*k4) RGabgL
-Galpha_activation_by_receptor: RGabgL ->(compartment*k5) GaGTP + Gbg + RL
-Galpha_activation_spontaneous: Gabg ->(compartment*k6) GaGTP + Gbg
-Galpha_RGS_association: GaGTP + RGS ->(compartment*k7) RGSGaGTP
-Galpha_deactivation_by_RGS: RGSGaGTP ->(compartment*k8) GaGDPP + RGS
-Galpha_deactivation_spontaneous: GaGTP ->(compartment*k9) GaGDPP
-Galpha_Effector_association: Effector + GaGTP ->(compartment*k10) GaGTPEffector
-Galpha_becomes_inert: GaGTPEffector ->(compartment*k11) Effector + inertGaGTP
-inertGalpha_RGS_association: RGS + inertGaGTP ->(compartment*k12) RGSinertGaGTP
-inertGalpha_deactivation_by_RGS: RGSinertGaGTP ->(compartment*k13) GaGDPP + RGS
-inertGalpha_deactivation_spontaneous: inertGaGTP ->(compartment*k14) GaGDPP
-Phosphate_release: GaGDPP ->(compartment*k15) GaGDP + P
-Gprotein_subunits_association: GaGDP + Gbg ->(compartment*k16) Gabg
-Phosphate_degradation: P ->(compartment*k17) 
-Delay_1:  ->(GaGTPEffector*compartment*ka) z1
-Delay_2: z1 ->(compartment*ka) z2
-Delay_3: z2 ->(compartment*ka) z3
-Delay_4: z3 ->(compartment*ka) 
+R1: L + R ->(R1_k1*compartment) RL
+R2: Gabg + R ->(R2_k2*compartment) RGabg
+R3: Gabg + RL ->(R3_k3*compartment) RGabgL
+R4: L + RGabg ->(R4_k4*compartment) RGabgL
+R5: RGabgL ->(R5_k5*compartment) GaGTP + Gbg + RL
+R6: Gabg ->(R6_k6*compartment) GaGTP + Gbg
+R7: GaGTP + RGS ->(R7_k7*compartment) RGSGaGTP
+R8: RGSGaGTP ->(R8_k8*compartment) GaGDPP + RGS
+R9: GaGTP ->(R9_k9*compartment) GaGDPP
+R10: Effector + GaGTP ->(R10_k10*compartment) GaGTPEffector
+R11: GaGTPEffector ->(R11_k11*compartment) Effector + inertGaGTP
+R12: RGS + inertGaGTP ->(R12_k12*compartment) RGSinertGaGTP
+R13: RGSinertGaGTP ->(R13_k13*compartment) GaGDPP + RGS
+R14: inertGaGTP ->(R14_k14*compartment) GaGDPP
+R15: GaGDPP ->(R15_k15*compartment) GaGDP + P
+R16: GaGDP + Gbg ->(R16_k16*compartment) Gabg
+R17: P ->(R17_k17*compartment) 
+R18:  ->(GaGTPEffector*compartment*ka) z1
+R19: z1 ->(compartment*ka) z2
+R20: z2 ->(compartment*ka) z3
+R21: z3 ->(compartment*ka) 

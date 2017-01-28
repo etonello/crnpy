@@ -1,10 +1,10 @@
-re1: Ca_B ->(-(B_T*Ca_c*k6 - Ca_B*Ca_c*k6 - Ca_B*k7)/Ca_B) Ca_c
-re4: s5 ->(-k_CCE*(Ca_ex - Ca_s)*(Ca_s*Cao + Ca_s*K3 - Cao*fracK)/(s5*(Cao + K3))) Ca_s
-re5: s7 ->(Ca_c*R_T*k1*(-2*half*tau_I*exp(TimeT/tau_II) + 2*half*tau_II*exp(TimeT/tau_I) + tau_I*exp(TimeT/tau_I)*exp(TimeT/tau_II) - tau_II*exp(TimeT/tau_I)*exp(TimeT/tau_II))*exp(-TimeT/tau_I)*exp(-TimeT/tau_II)/(s7*(Ca_c + K1)*(tau_I - tau_II))) IP3
-re6: IP3 ->(k2) s8
-re7: Ca_s ->((Ca_c**3*Ca_s**2*IP3**3*k5 + 3*Ca_c**3*Ca_s**2*IP3**2*K2*k5 + 3*Ca_c**3*Ca_s**2*IP3*K2**2*k5 + Ca_c**3*Ca_s**2*K2**3*k5 + Ca_c**3*Ca_s*IP3**3*k3*k_CICR - Ca_c**3*IP3**3*k4 - 3*Ca_c**3*IP3**2*K2*k4 - 3*Ca_c**3*IP3*K2**2*k4 - Ca_c**3*K2**3*k4 + 2*Ca_c**2*Ca_s**2*IP3**3*K3*k5 + Ca_c**2*Ca_s**2*IP3**3*K_CICR*k5 + 6*Ca_c**2*Ca_s**2*IP3**2*K2*K3*k5 + 3*Ca_c**2*Ca_s**2*IP3**2*K2*K_CICR*k5 + 6*Ca_c**2*Ca_s**2*IP3*K2**2*K3*k5 + 3*Ca_c**2*Ca_s**2*IP3*K2**2*K_CICR*k5 + 2*Ca_c**2*Ca_s**2*K2**3*K3*k5 + Ca_c**2*Ca_s**2*K2**3*K_CICR*k5 + 2*Ca_c**2*Ca_s*IP3**3*K3*k3*k_CICR - Ca_c**2*IP3**3*K_CICR*k4 - 3*Ca_c**2*IP3**2*K2*K_CICR*k4 - 3*Ca_c**2*IP3*K2**2*K_CICR*k4 - Ca_c**2*K2**3*K_CICR*k4 + Ca_c*Ca_s**2*IP3**3*K3**2*k5 + 2*Ca_c*Ca_s**2*IP3**3*K3*K_CICR*k5 + 3*Ca_c*Ca_s**2*IP3**2*K2*K3**2*k5 + 6*Ca_c*Ca_s**2*IP3**2*K2*K3*K_CICR*k5 + 3*Ca_c*Ca_s**2*IP3*K2**2*K3**2*k5 + 6*Ca_c*Ca_s**2*IP3*K2**2*K3*K_CICR*k5 + Ca_c*Ca_s**2*K2**3*K3**2*k5 + 2*Ca_c*Ca_s**2*K2**3*K3*K_CICR*k5 + Ca_c*Ca_s*IP3**3*K3**2*k3*k_CICR + Ca_s**2*IP3**3*K3**2*K_CICR*k5 + 3*Ca_s**2*IP3**2*K2*K3**2*K_CICR*k5 + 3*Ca_s**2*IP3*K2**2*K3**2*K_CICR*k5 + Ca_s**2*K2**3*K3**2*K_CICR*k5)/(Ca_s*(Ca_c + K3)**2*(Ca_c + K_CICR)*(IP3 + K2)**3)) Ca_c
-re8: Ca_c ->(Ca_c**3*dot_Vhi/(Ca_c**4 + K_hi**4)) s9
-re9: Ca_c ->(dot_Vex/(Ca_c + K5)) s10
-re10: s11 ->(dot_q_inpass/s11) Ca_c
-re11: s13 ->(re11_unisec/s13) TimeT
-re12: Ca_c ->(Ca_c*dot_Vp/(Ca_c**2 + K4**2)) s9
+re3: s4 ->((-k6*s3*(B_T - s4) + k7*s4)/s4) s3
+re4: s5 ->(k_CCE*(s1 - s2)*(Cao*fracK/(Cao + K3) - s2)/s5) s2
+re5: s7 ->(k1*s3*(-R_T*half*(exp(-s12/tau_II) + exp(-s12/tau_I) + (tau_I + tau_II)*(-exp(-s12/tau_II) + exp(-s12/tau_I))/(tau_I - tau_II)) + R_T)/(s7*(K1 + s3))) s6
+re6: s6 ->(k2) s8
+re7: s2 ->((k3*k_CICR*s2*s3*s6**3/((K2 + s6)**3*(K_CICR + s3)) - k4*s3**2/(K3 + s3)**2 + k5*s2**2)/s2) s3
+re8: s3 ->(dot_Vhi*s3**3/(K_hi**4 + s3**4)) s9
+re9: s3 ->(dot_Vex/(K5 + s3)) s10
+re10: s11 ->(dot_q_inpass/s11) s3
+re11: s13 ->(re11_unisec/s13) s12
+re12: s3 ->(dot_Vp*s3/(K4**2 + s3**2)) s9

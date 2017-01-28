@@ -1,30 +1,30 @@
-Free_cyclin_synthesis:  ->(cell*k1) Free_cyclin
-Cyclin_binding_with_CDK: Free_cyclin ->(Free_CDK*cell*k3) _Inactive_Cyclin_CDK_complex
-Cyclin_binding_with_CDK_rev: _Inactive_Cyclin_CDK_complex ->(cell*k4) Free_cyclin
-Cyclin_degradation: Free_cyclin ->(cell*(Active_SKP2_or_APC*k2u + k2)) 
-z0_phosphorylation: Unphosphorylated_CDC25 ->(cell*(Active_Cyclin_CDK_complex*cz + bz)) One_site_phosphorylated_CDC25
-z0_phosphorylation_rev: One_site_phosphorylated_CDC25 ->(az*cell) Unphosphorylated_CDC25
-x_phosphorylation: Active_Cyclin_CDK_complex ->(cell*(Unphosphorylated_wee1 + k6)) _Inactive_Cyclin_CDK_complex
-x_phosphorylation_rev: _Inactive_Cyclin_CDK_complex ->(cell*(Two_site_phosphorylated_CDC25 + k5)) Active_Cyclin_CDK_complex
-z1_phosphorylation: One_site_phosphorylated_CDC25 ->(cell*(Active_Cyclin_CDK_complex*cz + bz)) Two_site_phosphorylated_CDC25
-z1_phosphorylation_rev: Two_site_phosphorylated_CDC25 ->(az*cell) One_site_phosphorylated_CDC25
-unphosphorylated_wee1_synthesis:  ->(cell*k10) Unphosphorylated_wee1
-wee1_phosphorylation: Unphosphorylated_wee1 ->(cell*(Active_Cyclin_CDK_complex*cw + bw)) phosphorylated_wee1
-wee1_phosphorylation_rev: phosphorylated_wee1 ->(aw*cell) Unphosphorylated_wee1
-SKP2_synthesis:  ->(Active_Cyclin_CDK_complex**2*cell/(Tau*(Active_Cyclin_CDK_complex**2 + a**2))) Active_SKP2_or_APC
-CKI_synthesis:  ->(cell*k12) Free_CKI
-CKI_binding_to_Active_Cyclin_CDK_complex: Active_Cyclin_CDK_complex + Free_CKI ->(cell*k14) Cyclin_CDK_CKI_complex_with_CKI_unphosphorylated
-CKI_binding_to_Active_Cyclin_CDK_complex_rev: Cyclin_CDK_CKI_complex_with_CKI_unphosphorylated ->(cell*k15) Active_Cyclin_CDK_complex + Free_CKI
-ix_phosphorylation: Cyclin_CDK_CKI_complex_with_CKI_unphosphorylated ->(cell*(Active_Cyclin_CDK_complex*ci + bi)) Cyclin_CDK_CKI_complex_with_CKI_phosphorylated
-ix_phosphorylation_rev: Cyclin_CDK_CKI_complex_with_CKI_phosphorylated ->(ai*cell) Cyclin_CDK_CKI_complex_with_CKI_unphosphorylated
-SKP2_degradation: Active_SKP2_or_APC ->(cell/Tau) 
-CKI_degradation: Free_CKI ->(cell*k13) 
-Cyclin_CDK_CKIp_degradation: Cyclin_CDK_CKI_complex_with_CKI_phosphorylated ->(cell*k16*k16u) Active_Cyclin_CDK_complex
-unphosphorylated_wee1_degradation: Unphosphorylated_wee1 ->(cell*k11) 
-phosphorylated_wee1_degradation: phosphorylated_wee1 ->(cell*k11) 
-Unphosphorylated_CDC25_degradation: Unphosphorylated_CDC25 ->(cell*k9) 
-One_site_phosphorylated_CDC25_degradaton: One_site_phosphorylated_CDC25 ->(cell*k9) 
-Two_site_phosphorylated_CDC25_degradation: Two_site_phosphorylated_CDC25 ->(cell*k9) 
-Two_site_phosphorylated_CDC25_degradation_rev:  -> Two_site_phosphorylated_CDC25
-Unphosphorylation_CDC25_synthesis:  ->(cell*k8) Unphosphorylated_CDC25
-Active_cyclin_CDK_complex_degradation: Active_Cyclin_CDK_complex ->(cell*(Active_SKP2_or_APC*k7u + k7)) 
+reaction_0000001:  ->(cell*k1) y
+reaction_0000002: y ->(c*cell*k3) x1
+reaction_0000002_rev: x1 ->(cell*k4) y
+reaction_0000003: y ->(cell*(k2 + k2u*u)) 
+reaction_0000004: z0 ->(cell*(bz + cz*x)) z1
+reaction_0000004_rev: z1 ->(az*cell) z0
+reaction_0000005: x ->(cell*(k6 + w0)) x1
+reaction_0000005_rev: x1 ->(cell*(k5 + z2)) x
+reaction_0000006: z1 ->(cell*(bz + cz*x)) z2
+reaction_0000006_rev: z2 ->(az*cell) z1
+reaction_0000007:  ->(cell*k10) w0
+reaction_000008: w0 ->(cell*(bw + cw*x)) w1
+reaction_000008_rev: w1 ->(aw*cell) w0
+reaction_000009:  ->(cell*x**2/(Tau*(a**2 + x**2))) u
+reaction_0000010:  ->(cell*k12) i
+reaction_0000011: i + x ->(cell*k14) ix
+reaction_0000011_rev: ix ->(cell*k15) i + x
+reaction_0000014: ix ->(cell*(bi + ci*x)) ixp
+reaction_0000014_rev: ixp ->(ai*cell) ix
+reaction_0000013: u ->(cell/Tau) 
+reaction_0000015: i ->(cell*k13) 
+reaction_0000016: ixp ->(cell*k16*k16u) x
+reaction_0000017: w0 ->(cell*k11) 
+reaction_0000018: w1 ->(cell*k11) 
+reaction_0000019: z0 ->(cell*k9) 
+reaction_0000020: z1 ->(cell*k9) 
+reaction_0000021: z2 ->(cell*k9) 
+reaction_0000021_rev:  ->(k_reaction_0000021_rev) z2
+reaction_0000022:  ->(cell*k8) z0
+reaction_0000023: x ->(cell*(k7 + k7u*u)) 

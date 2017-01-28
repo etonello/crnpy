@@ -1,57 +1,57 @@
-re1: FTAx + Promp105_RNAP ->((FTAx*Promp105_RNAP*kf32 - Promp105_RNAP_FTAX*kr32)/(FTAx*Promp105_RNAP)) Promp105_RNAP_FTAX
-re8: NFkB + Promp105_RNAP_FTAX ->((NFkB*Promp105_RNAP_FTAX*kf64 - Promp105_RNAP1_FTAx_p50p65*kr64)/(NFkB*Promp105_RNAP_FTAX)) Promp105_RNAP1_FTAx_p50p65
-re14: NFkB + PromIkBa_RNAP3_FTAz ->(-(IkBa_RNAP3_FTAz_p50p65*kr56 - NFkB*PromIkBa_RNAP3_FTAz*kf56)/(NFkB*PromIkBa_RNAP3_FTAz)) IkBa_RNAP3_FTAz_p50p65
-re15: IkB_alpha + PromIkBa_RNAP3_p50p65 ->((IkB_alpha*PromIkBa_RNAP3_p50p65*kf57 - PromIkBa_RNAP3_p50p65_IkBa*kr57)/(IkB_alpha*PromIkBa_RNAP3_p50p65)) PromIkBa_RNAP3_p50p65_IkBa
-re19: NFkB + Promp105_RNAP ->((NFkB*Promp105_RNAP*kf63 - Promp105_RNAP1_p50p65*kr63)/(NFkB*Promp105_RNAP)) Promp105_RNAP1_p50p65
-re20: IkB_alpha + Promp105_RNAP1_p50p65 ->((IkB_alpha*Promp105_RNAP1_p50p65*kf65 - Promp105_RNAP1_p50p65_IkBa*kr65)/(IkB_alpha*Promp105_RNAP1_p50p65)) Promp105_RNAP1_p50p65_IkBa
-re21: NFkB + PromIkBa_RNAP3 ->((NFkB*PromIkBa_RNAP3*kf55 - PromIkBa_RNAP3_p50p65*kr55)/(NFkB*PromIkBa_RNAP3)) PromIkBa_RNAP3_p50p65
-re22: IkB_alpha + Promp105_RNAP1_FTAx_p50p65 ->((IkB_alpha*Promp105_RNAP1_FTAx_p50p65*kf66 - Promp105_RNAP1_FTAx_p50p65_IkBa*kr66)/(IkB_alpha*Promp105_RNAP1_FTAx_p50p65)) Promp105_RNAP1_FTAx_p50p65_IkBa
-re23: IkB_alpha + IkBa_RNAP3_FTAz_p50p65 ->((IkB_alpha*IkBa_RNAP3_FTAz_p50p65*kf58 - PromIkBa_RNAP3_FTAz_p50p65_IkB_alpha*kr58)/(IkB_alpha*IkBa_RNAP3_FTAz_p50p65)) PromIkBa_RNAP3_FTAz_p50p65_IkB_alpha
-re24: FTAz + PromIkBa_RNAP3 ->((FTAz*PromIkBa_RNAP3*kf48 - PromIkBa_RNAP3_FTAz*kr48)/(FTAz*PromIkBa_RNAP3)) PromIkBa_RNAP3_FTAz
-re25: Promp105_RNAP1_p50p65_IkBa ->(-(NFkB_IkB_alpha*Promp105_RNAP*kr67 - Promp105_RNAP1_p50p65_IkBa*kf67)/Promp105_RNAP1_p50p65_IkBa) NFkB_IkB_alpha + Promp105_RNAP
-re26: Promp105_RNAP1_FTAx_p50p65_IkBa ->(-(NFkB_IkB_alpha*Promp105_RNAP_FTAX*kr68 - Promp105_RNAP1_FTAx_p50p65_IkBa*kf68)/Promp105_RNAP1_FTAx_p50p65_IkBa) NFkB_IkB_alpha + Promp105_RNAP_FTAX
-re27: PromIkBa_RNAP3_FTAz_p50p65_IkB_alpha ->(-(NFkB_IkB_alpha*PromIkBa_RNAP3_FTAz*kr60 - PromIkBa_RNAP3_FTAz_p50p65_IkB_alpha*kf60)/PromIkBa_RNAP3_FTAz_p50p65_IkB_alpha) NFkB_IkB_alpha + PromIkBa_RNAP3_FTAz
-re28: PromIkBa_RNAP3_p50p65_IkBa ->(-(NFkB_IkB_alpha*PromIkBa_RNAP3*kr59 - PromIkBa_RNAP3_p50p65_IkBa*kf59)/PromIkBa_RNAP3_p50p65_IkBa) NFkB_IkB_alpha + PromIkBa_RNAP3
-re29: FTAy + Promp65_RNAP2 ->((FTAy*Promp65_RNAP2*kf41 - Promp65_RNAP2_FTAy*kr41)/(FTAy*Promp65_RNAP2)) Promp65_RNAP2_FTAy
-re30: InactivePRaseonp65 ->((Promp65_RNAP2*k42 + Promp65_RNAP2_FTAy*k43)/InactivePRaseonp65) ActivePRaseonp65
-re31: InactivePRaseonp105 ->((Promp105_RNAP*k33 + Promp105_RNAP1_FTAx_p50p65*k70 + Promp105_RNAP1_p50p65*k69 + Promp105_RNAP_FTAX*k34)/InactivePRaseonp105) ActivePRaseonp105
-re32: InactivePRaseonIkB_alpha ->((IkBa_RNAP3_FTAz_p50p65*k62 + PromIkBa_RNAP3*k49 + PromIkBa_RNAP3_FTAz*k50 + PromIkBa_RNAP3_p50p65*k61)/InactivePRaseonIkB_alpha) ActivePRaseonIkB_alpha
-re33: NFkB ->(k54) csa17_degraded
-re34: ActivePRaseonp105 ->(k35) mRNAp105
-re35: p105 ->(k38) sa4_degraded
-re36: mRNAp105 ->(k37) sa3_degraded
-re37: mRNAp105 ->(k36) mRNAp105 + p105
-re38: p105 ->(k39) p50
-re39: p50 ->(k40) sa438_degraded
-re40: ActivePRaseonp65 ->(k44) mRNAp65
-re41: mRNAp65 ->(k46) sa8_degraded
-re42: p65 ->(k47) sa9_degraded
-re43: mRNAp65 ->(k45) mRNAp65 + p65
-re44: ActivePRaseonIkB_alpha ->(k51) mRNAIKB_alpha
-re45: mRNAIKB_alpha ->(k27) sa12_degraded
-re46: IkB_alpha ->(k21) sa13_degraded
-re47: mRNAIKB_alpha ->(k22) IkB_alpha + mRNAIKB_alpha
-re48: A20 ->((NFkB*k20 + k19)/A20) mRNAA20
-re49: IKKn ->(k1) IKKa
-re52: NFkB_IkB_alpha ->(k12) NFkB
-re53: IKKn ->(k2) sa19_degraded
-re56: IKKa ->(k6) sa20_degraded
-re57: IKKa_IKB_alpha ->(k8) IKKa
-re58: IKKa + NFkB_IkB_alpha ->(k9) NFkB_IKKa_Ikb_alpha
-re59: NFkB_IKKa_Ikb_alpha ->(k10) IKKa + NFkB
-re60: IKKi ->(k11) sa444_degraded
-re61: mRNAA20 ->(k16) A20 + mRNAA20
-re62: p50 + p65 ->((-NFkB*kr52 + kf52*p50*p65)/(p50*p65)) NFkB
-re63: IKKa ->(A20*k4 + k5) IKKi
-re64: IKK ->(k3/IKK) IKKn
-re65: IkB_alpha + NFkB ->((IkB_alpha*NFkB*kf13 - NFkB_IkB_alpha*kr13)/(IkB_alpha*NFkB)) NFkB_IkB_alpha
-re66: IKKa + IkB_alpha ->(k7) IKKa_IKB_alpha
-re67: NFkB ->(kf15 - kr15) 5NFkB
-re68: 5NFkB_IkB_alpha ->((kf28 - kr28)/NFkB_IkB_alpha**4) NFkB_IkB_alpha
-re69: IkB_alpha + NFkB ->((IkB_alpha*NFkB*kf14 - NFkB_IkB_alpha*kr14)/(IkB_alpha*NFkB)) NFkB_IkB_alpha
-re70: mRNAA20 ->(k17) sa96_degraded
-re71: A20 ->(k18) sa97_degraded
-re72: IkB_alpha ->(kf23 - kr23) 5IkB_alpha
-re74: NFkB ->(k53) csa21_degraded
-re75: NFkB_IkB_alpha ->(k71) csa18_degraded
-re76: NFkB_IkB_alpha ->(k72) csa9_degraded
+re1: s198 + s22 ->((kf32*s198*s22 - kr32*s199)/(s198*s22)) s199
+re8: s195 + s199 ->((kf64*s195*s199 - kr64*s200)/(s195*s199)) s200
+re14: s195 + s206 ->((kf56*s195*s206 - kr56*s214)/(s195*s206)) s214
+re15: s212 + s93 ->((kf57*s212*s93 - kr57*s213)/(s212*s93)) s213
+re19: s195 + s198 ->((kf63*s195*s198 - kr63*s196)/(s195*s198)) s196
+re20: s196 + s93 ->((kf65*s196*s93 - kr65*s197)/(s196*s93)) s197
+re21: s195 + s205 ->((kf55*s195*s205 - kr55*s212)/(s195*s205)) s212
+re22: s200 + s93 ->((kf66*s200*s93 - kr66*s201)/(s200*s93)) s201
+re23: s214 + s93 ->((kf58*s214*s93 - kr58*s215)/(s214*s93)) s215
+re24: s205 + s65 ->((kf48*s205*s65 - kr48*s206)/(s205*s65)) s206
+re25: s197 ->((kf67*s197 - kr67*s192*s198)/s197) s192 + s198
+re26: s201 ->((kf68*s201 - kr68*s192*s199)/s201) s192 + s199
+re27: s215 ->((kf60*s215 - kr60*s192*s206)/s215) s192 + s206
+re28: s213 ->((kf59*s213 - kr59*s192*s205)/s213) s192 + s205
+re29: s193 + s36 ->((kf41*s193*s36 - kr41*s194)/(s193*s36)) s194
+re30: s160 ->((k42*s193 + k43*s194)/s160) s165
+re31: s170 ->((k33*s198 + k34*s199 + k69*s196 + k70*s200)/s170) s173
+re32: s209 ->((k49*s205 + k50*s206 + k61*s212 + k62*s214)/s209) s185
+re33: s195 ->(k54) s108
+re34: s173 ->(k35) s113
+re35: s110 ->(k38) s109
+re36: s113 ->(k37) s112
+re37: s113 ->(k36) s110 + s113
+re38: s110 ->(k39) s114
+re39: s114 ->(k40) s111
+re40: s165 ->(k44) s117
+re41: s117 ->(k46) s118
+re42: s119 ->(k47) s120
+re43: s117 ->(k45) s117 + s119
+re44: s185 ->(k51) s178
+re45: s178 ->(k27) s124
+re46: s123 ->(k21) s122
+re47: s178 ->(k22) s123 + s178
+re48: s126 ->((k19 + k20*s195)/s126) s127
+re49: s133 ->(k1) s132
+re52: s188 ->(k12) s190
+re53: s133 ->(k2) s131
+re56: s132 ->(k6) s134
+re57: s191 ->(k8) s132
+re58: s132 + s188 ->(k9) s189
+re59: s189 ->(k10) s132 + s190
+re60: s130 ->(k11) s129
+re61: s127 ->(k16) s127 + s128
+re62: s114 + s119 ->((kf52*s114*s119 - kr52*s190)/(s114*s119)) s190
+re63: s132 ->((k4*s128*s132 + k5*s132)/s132) s130
+re64: s150 ->(k3/s150) s133
+re65: s123 + s190 ->((kf13*s123*s190 - kr13*s188)/(s123*s190)) s188
+re66: s123 + s132 ->(k7) s191
+re67: s190 ->((kf15*s190 - kr15*s195)/s190) 5s195
+re68: 5s192 ->((kf28*s192 - kr28*s188)/s192**5) s188
+re69: s195 + s93 ->((kf14*s195*s93 - kr14*s192)/(s195*s93)) s192
+re70: s127 ->(k17) s153
+re71: s128 ->(k18) s154
+re72: s123 ->((kf23*s123 - kr23*s93)/s123) 5s93
+re74: s190 ->(k53) s156
+re75: s188 ->(k71) s157
+re76: s192 ->(k72) s158

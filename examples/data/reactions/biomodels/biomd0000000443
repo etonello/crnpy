@@ -1,26 +1,26 @@
-_1: MKKK ->(KI*V1*compartment_0/((K1 + MKKK)*(KI + M_PP))) MKKK_P
-_3: MKK ->(MKKK_P*compartment_0*k3*(A*M_PP + Ka)/((Ka + M_PP)*(K3 + MKK + MKK_P))) MKK_P
-_4: MKK_P ->(MKKK_P*compartment_0*k4*(A*M_PP + Ka)/((Ka + M_PP)*(K4 + MKK + MKK_P))) MKK_PP
-_7: M ->(MKK_PP*compartment_0*k7/(K7 + M + M_P)) M_P
-_8: M_P ->(MKK_PP*compartment_0*k8/(K8 + M + M_P)) M_PP
-_2: MKKK_P ->(P1*compartment_0*k2/(K2 + MKKK_P)) MKKK
-_5: MKK_PP ->(P2*compartment_0*k5/(K5 + MKK_P + MKK_PP)) MKK_P
-_6: MKK_P ->(P2*compartment_0*k6/(K6 + MKK_P + MKK_PP)) MKK
-_9: M_PP ->(P3*compartment_0*k9/(K9 + M_P + M_PP)) M_P
-_10: M_P ->(P3*compartment_0*k10/(K10 + M_P + M_PP)) M
-_11: M_PP ->(compartment_0*k11f) M_PP_n
-_11_rev: M_PP_n ->(compartment_0*k11b) M_PP
-_12:  ->(M_PP_n**n12*V12*compartment_0/(K12**n12 + M_PP_n**n12)) PreP3_mRNA
-_13: PreP3_mRNA ->(compartment_0*k1) P3mRNA
-_14: P3mRNA ->(compartment_0*k1) 
-_15:  ->(P3mRNA*compartment_0*k15) P3_c
-_17: P3_c ->(compartment_0*k1) 
-_19: M ->(compartment_0*k1) M_n
-_19_rev: M_n ->(compartment_0*k2) M
-_20: M_P ->(compartment_0*k1) M_P_n
-_20_rev: M_P_n ->(compartment_0*k2) M_P
-_16: P3_c ->(compartment_0*k1) P3_n
-_16_rev: P3_n ->(compartment_0*k2) P3_c
-_21: M_PP_n ->(K21i*P3_n*compartment_0*k21/(K21*K21i + K21*M_P_n + K21i*M_PP_n)) M_P_n
-_22: M_P_n ->(K22i*P3_n*compartment_0*k22/(K22*K22i + K22*M_PP_n + K22i*M_P_n)) M_n
-_18: P3_n ->(compartment_0*k1) 
+reaction_0: species_0 ->(compartment_0*reaction_0_V1/(reaction_0_K1*(1.0 + species_0/reaction_0_K1)*(1.0 + species_7/reaction_0_KI))) species_1
+reaction_1: species_2 ->(compartment_0*reaction_1_k3*species_1*(reaction_1_A*species_7/reaction_1_Ka + 1.0)/(reaction_1_K3*(1.0 + species_7/reaction_1_Ka)*(1.0 + species_2/reaction_1_K3 + species_3/reaction_1_K3))) species_3
+reaction_2: species_3 ->(compartment_0*reaction_2_k4*species_1*(reaction_2_A*species_7/reaction_2_Ka + 1.0)/(reaction_2_K4*(1.0 + species_7/reaction_2_Ka)*(1.0 + species_2/reaction_2_K4 + species_3/reaction_2_K4))) species_4
+reaction_3: species_5 ->(compartment_0*reaction_3_k7*species_4/(reaction_3_K7*(1.0 + species_5/reaction_3_K7 + species_6/reaction_3_K7))) species_6
+reaction_4: species_6 ->(compartment_0*reaction_4_k8*species_4/(reaction_4_K8*(1.0 + species_5/reaction_4_K8 + species_6/reaction_4_K8))) species_7
+reaction_5: species_1 ->(compartment_0*reaction_5_k2*species_8/(reaction_5_K2*(1.0 + species_1/reaction_5_K2))) species_0
+reaction_6: species_4 ->(compartment_0*reaction_6_k5*species_9/(reaction_6_K5*(1.0 + species_3/reaction_6_K5 + species_4/reaction_6_K5))) species_3
+reaction_7: species_3 ->(compartment_0*reaction_7_k6*species_9/(reaction_7_K6*(1.0 + species_3/reaction_7_K6 + species_4/reaction_7_K6))) species_2
+reaction_8: species_7 ->(compartment_0*reaction_8_k9*species_10/(reaction_8_K9*(1.0 + species_6/reaction_8_K9 + species_7/reaction_8_K9))) species_6
+reaction_9: species_6 ->(compartment_0*reaction_9_k10*species_10/(reaction_9_K10*(1.0 + species_6/reaction_9_K10 + species_7/reaction_9_K10))) species_5
+reaction_10: species_7 ->(compartment_0*reaction_10_k11f) species_11
+reaction_10_rev: species_11 ->(compartment_0*reaction_10_k11b) species_7
+reaction_11:  ->(compartment_0*reaction_11_V12*species_11**reaction_11_n12/(reaction_11_K12**reaction_11_n12 + species_11**reaction_11_n12)) species_12
+reaction_12: species_12 ->(compartment_0*reaction_12_k1) species_13
+reaction_13: species_13 ->(compartment_0*reaction_13_k1) 
+reaction_14:  ->(compartment_0*reaction_14_k15*species_13) species_14
+reaction_15: species_14 ->(compartment_0*reaction_15_k1) 
+reaction_16: species_5 ->(compartment_0*reaction_16_k1) species_16
+reaction_16_rev: species_16 ->(compartment_0*reaction_16_k2) species_5
+reaction_17: species_6 ->(compartment_0*reaction_17_k1) species_17
+reaction_17_rev: species_17 ->(compartment_0*reaction_17_k2) species_6
+reaction_18: species_14 ->(compartment_0*reaction_18_k1) species_18
+reaction_18_rev: species_18 ->(compartment_0*reaction_18_k2) species_14
+reaction_19: species_11 ->(compartment_0*reaction_19_k21*species_18/(reaction_19_K21*(1.0 + species_17/reaction_19_K21i + species_11/reaction_19_K21))) species_17
+reaction_20: species_17 ->(compartment_0*reaction_20_k22*species_18/(reaction_20_K22*(1.0 + species_11/reaction_20_K22i + species_17/reaction_20_K22))) species_16
+reaction_21: species_18 ->(compartment_0*reaction_21_k1) 

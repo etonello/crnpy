@@ -1,30 +1,30 @@
-r30: Complex_br__Su_H__CoR_ ->(kass_r30) E_spl__C_genes
-r31: Complex_br__Mastermind_Su_H___br_CoA_NI_sub_c_sub_s_ ->((Complex_br__Mastermind_Su_H___br_CoA_NI_sub_c_sub_s_*kass_r31 - E_spl__C_genes*kdiss_r31)/Complex_br__Mastermind_Su_H___br_CoA_NI_sub_c_sub_s_) E_spl__C_genes
-r8: NI_sub_c_sub_t ->(gama_secretase*kM_r8_s19*kM_r8_s63*kcatp_r8/(NI_sub_c_sub_s*N_sub_tm*kM_r8_s15 + NI_sub_c_sub_s*kM_r8_s15*kM_r8_s19 + NI_sub_c_sub_t*kM_r8_s19*kM_r8_s63 + N_sub_tm*kM_r8_s15*kM_r8_s63 + kM_r8_s15*kM_r8_s19*kM_r8_s63)) NI_sub_c_sub_s + N_sub_tm
-r8_rev: NI_sub_c_sub_s + N_sub_tm ->(gama_secretase*kM_r8_s15*kcatn_r8/(NI_sub_c_sub_s*N_sub_tm*kM_r8_s15 + NI_sub_c_sub_s*kM_r8_s15*kM_r8_s19 + NI_sub_c_sub_t*kM_r8_s19*kM_r8_s63 + N_sub_tm*kM_r8_s15*kM_r8_s63 + kM_r8_s15*kM_r8_s19*kM_r8_s63)) NI_sub_c_sub_t
-r9: Delta ->(Neuralized*kM_r9_s22*kcatp_r9/(Delta*kM_r9_s22 + a7_degraded*kM_r9_s7 + kM_r9_s22*kM_r9_s7)) a7_degraded
-r9_rev: a7_degraded ->(Neuralized*kM_r9_s7*kcatn_r9/(Delta*kM_r9_s22 + a7_degraded*kM_r9_s7 + kM_r9_s22*kM_r9_s7)) Delta
-r10: NI_sub_c_sub_s ->(kI_r10_s25*kass_r10/(Numb + kI_r10_s25)) NI_sub_c_sub_s
-r10_rev: NI_sub_c_sub_s ->(kI_r10_s25*kdiss_r10/(Numb + kI_r10_s25)) NI_sub_c_sub_s
-r11: Complex_br__Su_H__CoR_ ->(NI_sub_c_sub_s*kM_r11_s26*kM_r11_s28*kcatp_r11/(CoR*Su_H_*kM_r11_s32 + CoR*kM_r11_s26*kM_r11_s32 + Complex_br__Su_H__CoR_*kM_r11_s26*kM_r11_s28 + Su_H_*kM_r11_s28*kM_r11_s32 + kM_r11_s26*kM_r11_s28*kM_r11_s32)) CoR + Su_H_
-r11_rev: CoR + Su_H_ ->(NI_sub_c_sub_s*kM_r11_s32*kcatn_r11/(CoR*Su_H_*kM_r11_s32 + CoR*kM_r11_s26*kM_r11_s32 + Complex_br__Su_H__CoR_*kM_r11_s26*kM_r11_s28 + Su_H_*kM_r11_s28*kM_r11_s32 + kM_r11_s26*kM_r11_s28*kM_r11_s32)) Complex_br__Su_H__CoR_
-r13: CoA + Mastermind + NI_sub_c_sub_s + Su_H_ ->(kass_r13) Complex_br__Mastermind_Su_H___br_CoA_NI_sub_c_sub_s_
-r13_rev: Complex_br__Mastermind_Su_H___br_CoA_NI_sub_c_sub_s_ ->(kdiss_r13) CoA + Mastermind + NI_sub_c_sub_s + Su_H_
-r16: NI_sub_c_sub_s + Ub ->(Sel_10*kcatp_r16/(NI_sub_c_sub_s*Ub + NI_sub_c_sub_s*kM_r16_s39 + NI_sub_c_sub_s*ki_r16_s39 + Ub*kM_r16_s39 + kM_r16_s39*ki_r16_s39)) NI_sub_c_sub_s
-r16_rev: NI_sub_c_sub_s ->(Sel_10*kcatn_r16*ki_r16_s39/(NI_sub_c_sub_s*Ub + NI_sub_c_sub_s*kM_r16_s39 + NI_sub_c_sub_s*ki_r16_s39 + Ub*kM_r16_s39 + kM_r16_s39*ki_r16_s39)) NI_sub_c_sub_s + Ub
-r17: NI_sub_c_sub_s ->(kass_r17) a46_degraded
-r17_rev: a46_degraded ->(kdiss_r17) NI_sub_c_sub_s
-r18: Notch + fucose ->(Neurotic*kcatp_r18/(Notch*fucose + Notch*kM_r18_s4 + Notch*ki_r18_s4 + fucose*kM_r18_s4 + kM_r18_s4*ki_r18_s4)) Notch
-r18_rev: Notch ->(Neurotic*kcatn_r18*ki_r18_s4/(Notch*fucose + Notch*kM_r18_s4 + Notch*ki_r18_s4 + fucose*kM_r18_s4 + kM_r18_s4*ki_r18_s4)) Notch + fucose
-r21: Notch + Serrate ->(kI_r21_s2*kass_r21/(Fringe + kI_r21_s2)) Complex_br__Serrate_Notch_
-r21_rev: Complex_br__Serrate_Notch_ ->(kI_r21_s2*kdiss_r21/(Fringe + kI_r21_s2)) Notch + Serrate
-r25: Complex_br__Serrate_Notch_ ->(TACE*kM_r25_s15*kM_r25_s60*kcatp_r25/(Complex_br__Serrate_N_sub_ext_*NI_sub_c_sub_t*kM_r25_s53 + Complex_br__Serrate_N_sub_ext_*kM_r25_s15*kM_r25_s53 + Complex_br__Serrate_Notch_*kM_r25_s15*kM_r25_s60 + NI_sub_c_sub_t*kM_r25_s53*kM_r25_s60 + kM_r25_s15*kM_r25_s53*kM_r25_s60)) Complex_br__Serrate_N_sub_ext_ + NI_sub_c_sub_t
-r25_rev: Complex_br__Serrate_N_sub_ext_ + NI_sub_c_sub_t ->(TACE*kM_r25_s53*kcatn_r25/(Complex_br__Serrate_N_sub_ext_*NI_sub_c_sub_t*kM_r25_s53 + Complex_br__Serrate_N_sub_ext_*kM_r25_s15*kM_r25_s53 + Complex_br__Serrate_Notch_*kM_r25_s15*kM_r25_s60 + NI_sub_c_sub_t*kM_r25_s53*kM_r25_s60 + kM_r25_s15*kM_r25_s53*kM_r25_s60)) Complex_br__Serrate_Notch_
-r26: Numb ->(LNXp80*kM_r26_s64*kcatp_r26/(Numb*kM_r26_s64 + a25_degraded*kM_r26_s25 + kM_r26_s25*kM_r26_s64)) a25_degraded
-r26_rev: a25_degraded ->(LNXp80*kM_r26_s25*kcatn_r26/(Numb*kM_r26_s64 + a25_degraded*kM_r26_s25 + kM_r26_s25*kM_r26_s64)) Numb
-r28: Delta + Notch ->(Fringe*kcatp_r28/(Complex_br__Notch_Delta_*ki_r28_s41 + Delta*Notch + Delta*kM_r28_s41 + Notch*kM_r28_s41 + kM_r28_s41*ki_r28_s41)) Complex_br__Notch_Delta_
-r28_rev: Complex_br__Notch_Delta_ ->(Fringe*kcatn_r28*ki_r28_s41/(Complex_br__Notch_Delta_*ki_r28_s41 + Delta*Notch + Delta*kM_r28_s41 + Notch*kM_r28_s41 + kM_r28_s41*ki_r28_s41)) Delta + Notch
-r29: Complex_br__Notch_Delta_ ->(TACE*kM_r29_s15*kM_r29_s18*kcatp_r29/(Complex_br__Delta_N_sub_ext_*NI_sub_c_sub_t*kM_r29_s67 + Complex_br__Delta_N_sub_ext_*kM_r29_s15*kM_r29_s67 + Complex_br__Notch_Delta_*kM_r29_s15*kM_r29_s18 + NI_sub_c_sub_t*kM_r29_s18*kM_r29_s67 + kM_r29_s15*kM_r29_s18*kM_r29_s67)) Complex_br__Delta_N_sub_ext_ + NI_sub_c_sub_t
-r29_rev: Complex_br__Delta_N_sub_ext_ + NI_sub_c_sub_t ->(TACE*kM_r29_s67*kcatn_r29/(Complex_br__Delta_N_sub_ext_*NI_sub_c_sub_t*kM_r29_s67 + Complex_br__Delta_N_sub_ext_*kM_r29_s15*kM_r29_s67 + Complex_br__Notch_Delta_*kM_r29_s15*kM_r29_s18 + NI_sub_c_sub_t*kM_r29_s18*kM_r29_s67 + kM_r29_s15*kM_r29_s18*kM_r29_s67)) Complex_br__Notch_Delta_
-re16: s76 + s77 ->(kI_re16_s81*kass_re16/(dapt + kI_re16_s81)) gama_secretase
-re16_rev: gama_secretase ->(kI_re16_s81*kdiss_re16/(dapt + kI_re16_s81)) s76 + s77
+r30: s32 ->(kass_r30) s75
+r31: s35 ->((kass_r31*s35 - kdiss_r31*s75)/s35) s75
+r8: s15 ->(kM_r8_s19*kM_r8_s63*kcatp_r8*s82/(kM_r8_s15*kM_r8_s19*kM_r8_s63 + kM_r8_s15*kM_r8_s19*s63 + kM_r8_s15*kM_r8_s63*s19 + kM_r8_s15*s19*s63 + kM_r8_s19*kM_r8_s63*s15)) s19 + s63
+r8_rev: s19 + s63 ->(kM_r8_s15*kcatn_r8*s82/(kM_r8_s15*kM_r8_s19*kM_r8_s63 + kM_r8_s15*kM_r8_s19*s63 + kM_r8_s15*kM_r8_s63*s19 + kM_r8_s15*s19*s63 + kM_r8_s19*kM_r8_s63*s15)) s15
+r9: s7 ->(kM_r9_s22*kcatp_r9*s23/(kM_r9_s22*kM_r9_s7 + kM_r9_s22*s7 + kM_r9_s7*s22)) s22
+r9_rev: s22 ->(kM_r9_s7*kcatn_r9*s23/(kM_r9_s22*kM_r9_s7 + kM_r9_s22*s7 + kM_r9_s7*s22)) s7
+r10: s63 ->(kI_r10_s25*kass_r10/(kI_r10_s25 + s25)) s24
+r10_rev: s24 ->(kI_r10_s25*kdiss_r10/(kI_r10_s25 + s25)) s63
+r11: s32 ->(kM_r11_s26*kM_r11_s28*kcatp_r11*s24/(kM_r11_s26*kM_r11_s28*kM_r11_s32 + kM_r11_s26*kM_r11_s28*s32 + kM_r11_s26*kM_r11_s32*s28 + kM_r11_s28*kM_r11_s32*s26 + kM_r11_s32*s26*s28)) s26 + s28
+r11_rev: s26 + s28 ->(kM_r11_s32*kcatn_r11*s24/(kM_r11_s26*kM_r11_s28*kM_r11_s32 + kM_r11_s26*kM_r11_s28*s32 + kM_r11_s26*kM_r11_s32*s28 + kM_r11_s28*kM_r11_s32*s26 + kM_r11_s32*s26*s28)) s32
+r13: s24 + s26 + s27 + s29 ->(kass_r13) s35
+r13_rev: s35 ->(kdiss_r13) s24 + s26 + s27 + s29
+r16: s24 + s39 ->(kcatp_r16*s38/(kM_r16_s39*ki_r16_s39 + kM_r16_s39*s24 + kM_r16_s39*s39 + ki_r16_s39*s37 + s24*s39)) s37
+r16_rev: s37 ->(kcatn_r16*ki_r16_s39*s38/(kM_r16_s39*ki_r16_s39 + kM_r16_s39*s24 + kM_r16_s39*s39 + ki_r16_s39*s37 + s24*s39)) s24 + s39
+r17: s37 ->(kass_r17) s40
+r17_rev: s40 ->(kdiss_r17) s37
+r18: s1 + s4 ->(kcatp_r18*s42/(kM_r18_s4*ki_r18_s4 + kM_r18_s4*s1 + kM_r18_s4*s4 + ki_r18_s4*s41 + s1*s4)) s41
+r18_rev: s41 ->(kcatn_r18*ki_r18_s4*s42/(kM_r18_s4*ki_r18_s4 + kM_r18_s4*s1 + kM_r18_s4*s4 + ki_r18_s4*s41 + s1*s4)) s1 + s4
+r21: s41 + s48 ->(kI_r21_s2*kass_r21/(kI_r21_s2 + s2)) s53
+r21_rev: s53 ->(kI_r21_s2*kdiss_r21/(kI_r21_s2 + s2)) s41 + s48
+r25: s53 ->(kM_r25_s15*kM_r25_s60*kcatp_r25*s21/(kM_r25_s15*kM_r25_s53*kM_r25_s60 + kM_r25_s15*kM_r25_s53*s60 + kM_r25_s15*kM_r25_s60*s53 + kM_r25_s53*kM_r25_s60*s15 + kM_r25_s53*s15*s60)) s15 + s60
+r25_rev: s15 + s60 ->(kM_r25_s53*kcatn_r25*s21/(kM_r25_s15*kM_r25_s53*kM_r25_s60 + kM_r25_s15*kM_r25_s53*s60 + kM_r25_s15*kM_r25_s60*s53 + kM_r25_s53*kM_r25_s60*s15 + kM_r25_s53*s15*s60)) s53
+r26: s25 ->(kM_r26_s64*kcatp_r26*s65/(kM_r26_s25*kM_r26_s64 + kM_r26_s25*s64 + kM_r26_s64*s25)) s64
+r26_rev: s64 ->(kM_r26_s25*kcatn_r26*s65/(kM_r26_s25*kM_r26_s64 + kM_r26_s25*s64 + kM_r26_s64*s25)) s25
+r28: s41 + s7 ->(kcatp_r28*s2/(kM_r28_s41*ki_r28_s41 + kM_r28_s41*s41 + kM_r28_s41*s7 + ki_r28_s41*s67 + s41*s7)) s67
+r28_rev: s67 ->(kcatn_r28*ki_r28_s41*s2/(kM_r28_s41*ki_r28_s41 + kM_r28_s41*s41 + kM_r28_s41*s7 + ki_r28_s41*s67 + s41*s7)) s41 + s7
+r29: s67 ->(kM_r29_s15*kM_r29_s18*kcatp_r29*s21/(kM_r29_s15*kM_r29_s18*kM_r29_s67 + kM_r29_s15*kM_r29_s18*s67 + kM_r29_s15*kM_r29_s67*s18 + kM_r29_s18*kM_r29_s67*s15 + kM_r29_s67*s15*s18)) s15 + s18
+r29_rev: s15 + s18 ->(kM_r29_s67*kcatn_r29*s21/(kM_r29_s15*kM_r29_s18*kM_r29_s67 + kM_r29_s15*kM_r29_s18*s67 + kM_r29_s15*kM_r29_s67*s18 + kM_r29_s18*kM_r29_s67*s15 + kM_r29_s67*s15*s18)) s67
+re16: s76 + s77 ->(kI_re16_s81*kass_re16/(kI_re16_s81 + s81)) s82
+re16_rev: s82 ->(kI_re16_s81*kdiss_re16/(kI_re16_s81 + s81)) s76 + s77

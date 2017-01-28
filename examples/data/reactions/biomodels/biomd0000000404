@@ -1,60 +1,60 @@
-A__Ap: A ->(autoPhospho*cell*kcat) Ap
-TWA_A__TWA_Ap: A ->(TWA*autoPhospho*cell*kcat) Ap
-Tni_WA_A__Tni_WA_Ap: A ->(Tni_WA*autoPhospho*cell*kcat) Ap
-Tasp_WA_Yp__Tasp_WA_Y: Tasp_WA + Yp ->(cell*k1) Tasp_WA + Y
-Ap_Y__A_Yp: Ap + Y ->(cell*k1) A + Yp
-Y___Yp: Y ->(autoPhospho*cell*kcat) Yp
-Yp__Y: Yp ->(cell*k1) Y
-Yp_Z__Y_Z: Yp + Z ->(cell*k1) Y + Z
-Ap_B__A_Bp: Ap + B ->(cell*k1) A + Bp
-Bp__B: Bp ->(cell*k1) B
-T_asp___Tasp: T + asp ->(cell*k1) Tasp
-T_asp___Tasp_rev: Tasp ->(cell*k2) T + asp
-T_ni___Tni: T + ni ->(cell*k1) Tni
-T_ni___Tni_rev: Tni ->(cell*k2) T + ni
-T_W___TW: T + W ->(cell*k1) TW
-T_W___TW_rev: TW ->(cell*k2) T + W
-T_A___TA: A + T ->(cell*k1) TA
-T_A___TA_rev: TA ->(cell*k2) A + T
-W_A___WA: A + W ->(cell*k1) WA
-W_A___WA_rev: WA ->(cell*k2) A + W
-TW_A___TWA: A + TW ->(cell*k1) TWA
-TW_A___TWA_rev: TWA ->(cell*k2) A + TW
-TA_W___TWA: TA + W ->(cell*k1) TWA
-TA_W___TWA_rev: TWA ->(cell*k2) TA + W
-T_WA___TWA: T + WA ->(cell*k1) TWA
-T_WA___TWA_rev: TWA ->(cell*k2) T + WA
-Tasp_W___Tasp_W: Tasp + W ->(cell*k1) Tasp_W
-Tasp_W___Tasp_W_rev: Tasp_W ->(cell*k2) Tasp + W
-Tasp_A___Tasp_A: A + Tasp ->(cell*k1) Tasp_A
-Tasp_A___Tasp_A_rev: Tasp_A ->(cell*k2) A + Tasp
-Tasp_W_A___Tasp_WA: A + Tasp_W ->(cell*k1) Tasp_WA
-Tasp_W_A___Tasp_WA_rev: Tasp_WA ->(cell*k2) A + Tasp_W
-Tasp_A_W___Tasp_WA: Tasp_A + W ->(cell*k1) Tasp_WA
-Tasp_A_W___Tasp_WA_rev: Tasp_WA ->(cell*k2) Tasp_A + W
-Tasp_WA___Tasp_WA: Tasp + WA ->(cell*k1) Tasp_WA
-Tasp_WA___Tasp_WA_rev: Tasp_WA ->(cell*k2) Tasp + WA
-Tni_W___Tni_W: Tni + W ->(cell*k1) Tni_W
-Tni_W___Tni_W_rev: Tni_W ->(cell*k2) Tni + W
-Tni_A___Tni_A: A + Tni ->(cell*k1) Tni_A
-Tni_A___Tni_A_rev: Tni_A ->(cell*k2) A + Tni
-Tni_W_A___Tni_WA: A + Tni_W ->(cell*k1) Tni_WA
-Tni_W_A___Tni_WA_rev: Tni_WA ->(cell*k2) A + Tni_W
-Tni_A_W___Tni_WA: Tni_A + W ->(cell*k1) Tni_WA
-Tni_A_W___Tni_WA_rev: Tni_WA ->(cell*k2) Tni_A + W
-Tni_WA___Tni_WA: Tni + WA ->(cell*k1) Tni_WA
-Tni_WA___Tni_WA_rev: Tni_WA ->(cell*k2) Tni + WA
-M_Yp___MYp: M + Yp ->(ka) MYp
-M_Yp___MYp_rev: MYp ->(ka*kappa/4) M + Yp
-MYp_Yp___MYpYp: MYp + Yp ->(ka) MYpYp
-MYp_Yp___MYpYp_rev: MYpYp ->(2*alpha*ka*kappa/3) MYp + Yp
-MYpYp_Yp___MYpYpYp: MYpYp + Yp ->(ka) MYpYpYp
-MYpYp_Yp___MYpYpYp_rev: MYpYpYp ->(3*alpha**2*ka*kappa/2) MYpYp + Yp
-MYpYpYp_Yp___MYpYpYpYp: MYpYpYp + Yp ->(ka) MYpYpYpYp
-MYpYpYp_Yp___MYpYpYpYp_rev: MYpYpYpYp ->(4*alpha**3*ka*kappa) MYpYpYp + Yp
-TA___asp_____Tasp_A: TA + asp ->(cell*k1) Tasp_A
-TA___asp_____Tasp_A_rev: Tasp_A ->(cell*k2) TA + asp
-TW_asp_____Tasp_W: TW + asp ->(cell*k1) Tasp_W
-TW_asp_____Tasp_W_rev: Tasp_W ->(cell*k2) TW + asp
-TWA_asp_____Tasp_WA: TWA + asp ->(cell*k1) Tasp_WA
-TWA_asp_____Tasp_WA_rev: Tasp_WA ->(cell*k2) TWA + asp
+phosphorylation_r1: A ->(cell*parameter_2*phosphorylation_r1_kcat) Ap
+phosphorylation_r2: A ->(TWA*cell*parameter_2*phosphorylation_r2_kcat) Ap
+phosphorylation_r3: A ->(Tni_WA*cell*parameter_2*phosphorylation_r3_kcat) Ap
+phosphorylation_r4: Tasp_WA + Yp ->(cell*phosphorylation_r4_k1) Tasp_WA + Y
+phosphorylation_r5: Ap + Y ->(cell*phosphorylation_r5_k1) A + Yp
+phosphorylation_r6: Y ->(cell*parameter_2*phosphorylation_r6_kcat) Yp
+phosphorylation_r7: Yp ->(cell*phosphorylation_r7_k1) Y
+phosphorylation_r8: Yp + Z ->(cell*phosphorylation_r8_k1) Y + Z
+phosphorylation_r9: Ap + B ->(cell*phosphorylation_r9_k1) A + Bp
+phosphorylation_r10: Bp ->(cell*phosphorylation_r10_k1) B
+regulatory_r1: T + asp ->(cell*regulatory_r1_k1) Tasp
+regulatory_r1_rev: Tasp ->(cell*regulatory_r1_k2) T + asp
+regulatory_r2: T + ni ->(cell*regulatory_r2_k1) Tni
+regulatory_r2_rev: Tni ->(cell*regulatory_r2_k2) T + ni
+regulatory_r3: T + W ->(cell*regulatory_r3_k1) TW
+regulatory_r3_rev: TW ->(cell*regulatory_r3_k2) T + W
+regulatory_r4: A + T ->(cell*regulatory_r4_k1) TA
+regulatory_r4_rev: TA ->(cell*regulatory_r4_k2) A + T
+regulatory_r5: A + W ->(cell*regulatory_r5_k1) WA
+regulatory_r5_rev: WA ->(cell*regulatory_r5_k2) A + W
+regulatory_r6: A + TW ->(cell*regulatory_r6_k1) TWA
+regulatory_r6_rev: TWA ->(cell*regulatory_r6_k2) A + TW
+regulatory_r7: TA + W ->(cell*regulatory_r7_k1) TWA
+regulatory_r7_rev: TWA ->(cell*regulatory_r7_k2) TA + W
+regulatory_r8: T + WA ->(cell*regulatory_r8_k1) TWA
+regulatory_r8_rev: TWA ->(cell*regulatory_r8_k2) T + WA
+regulatory_r9: Tasp + W ->(cell*regulatory_r9_k1) Tasp_W
+regulatory_r9_rev: Tasp_W ->(cell*regulatory_r9_k2) Tasp + W
+regulatory_r10: A + Tasp ->(cell*regulatory_r10_k1) Tasp_A
+regulatory_r10_rev: Tasp_A ->(cell*regulatory_r10_k2) A + Tasp
+regulatory_r11: A + Tasp_W ->(cell*regulatory_r11_k1) Tasp_WA
+regulatory_r11_rev: Tasp_WA ->(cell*regulatory_r11_k2) A + Tasp_W
+regulatory_r12: Tasp_A + W ->(cell*regulatory_r12_k1) Tasp_WA
+regulatory_r12_rev: Tasp_WA ->(cell*regulatory_r12_k2) Tasp_A + W
+regulatory_r13: Tasp + WA ->(cell*regulatory_r13_k1) Tasp_WA
+regulatory_r13_rev: Tasp_WA ->(cell*regulatory_r13_k2) Tasp + WA
+regulatory_r14: Tni + W ->(cell*regulatory_r14_k1) Tni_W
+regulatory_r14_rev: Tni_W ->(cell*regulatory_r14_k2) Tni + W
+regulatory_r15: A + Tni ->(cell*regulatory_r15_k1) Tni_A
+regulatory_r15_rev: Tni_A ->(cell*regulatory_r15_k2) A + Tni
+regulatory_r16: A + Tni_W ->(cell*regulatory_r16_k1) Tni_WA
+regulatory_r16_rev: Tni_WA ->(cell*regulatory_r16_k2) A + Tni_W
+regulatory_r17: Tni_A + W ->(cell*regulatory_r17_k1) Tni_WA
+regulatory_r17_rev: Tni_WA ->(cell*regulatory_r17_k2) Tni_A + W
+regulatory_r18: Tni + WA ->(cell*regulatory_r18_k1) Tni_WA
+regulatory_r18_rev: Tni_WA ->(cell*regulatory_r18_k2) Tni + WA
+motor_r1: M + Yp ->(ka) MYp
+motor_r1_rev: MYp ->(0.25*ka*kappa) M + Yp
+motor_r2: MYp + Yp ->(ka) MYpYp
+motor_r2_rev: MYpYp ->(0.666666666666667*alpha*ka*kappa) MYp + Yp
+motor_r3: MYpYp + Yp ->(ka) MYpYpYp
+motor_r3_rev: MYpYpYp ->(1.5*alpha**2*ka*kappa) MYpYp + Yp
+motor_r4: MYpYpYp + Yp ->(ka) MYpYpYpYp
+motor_r4_rev: MYpYpYpYp ->(4.0*alpha**3*ka*kappa) MYpYpYp + Yp
+reaction_1: TA + asp ->(cell*reaction_1_k1) Tasp_A
+reaction_1_rev: Tasp_A ->(cell*reaction_1_k2) TA + asp
+reaction_2: TW + asp ->(cell*reaction_2_k1) Tasp_W
+reaction_2_rev: Tasp_W ->(cell*reaction_2_k2) TW + asp
+reaction_3: TWA + asp ->(cell*reaction_3_k1) Tasp_WA
+reaction_3_rev: Tasp_WA ->(cell*reaction_3_k2) TWA + asp

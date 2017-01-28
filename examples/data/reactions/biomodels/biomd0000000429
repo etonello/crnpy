@@ -1,17 +1,17 @@
-v1_fb: Pbs2 ->(ActivationSln1_nlfb*Sln1BranchActive*v1_fb_k/((Hog1PPActive/(compartment_1*v1_fb_Ki))**v1_fb_h + 1)) Pbs2P
-v2: Pbs2P ->(Phosphatase*v2_k/compartment_1) Pbs2
-v5: Hog1 ->((Pbs2P*kHog1phos1 + Sho1Pbs2P*kHog1phos2)/compartment_1) Hog1P
-v6: Hog1P ->(Phosphatase*kHog1dephos/compartment_1) Hog1
-v11:  ->(RNA*v11_k) Protein
-v12: Protein ->(Protein_deg_k) 
-v13:  ->(Protein*compartment_1*v13_k1*(Hog1PPActive*v13_k2 + compartment_1)/(Hog1PPActive*Protein*v13_k2 + Protein*compartment_1 + compartment_1**2*v13_Km)) Glyin
-v14: Glyin ->(Area*Fps1TransportCapacitty*ks/compartment_1) Glyex
-v14_rev: Glyex ->(Area*Fps1TransportCapacitty*ks/compartment_2) Glyin
-v9:  ->(Hog1PPActive*compartment_1*v9_k/(Hog1PPActive + compartment_1*v9_Km)) RNA
-v10: RNA ->(RNA_deg_k_MM) 
-v7: Hog1P ->((Pbs2P*kHog1phos1 + Sho1Pbs2P*kHog1phos2)/compartment_1) Hog1PP
-v8: Hog1PP ->(Phosphatase*kHog1dephos/compartment_1) Hog1P
-v4: Sho1Pbs2P ->(v4_k1) Pbs2 + Sho1
-v3_fb: Pbs2 + Sho1 ->(ActivationSho1_nlfb*Sho1BranchActive*v3_fb_k/(compartment_1*((Hog1PPActive/(compartment_1*v3_fb_Ki))**v3_fb_h + 1))) Sho1Pbs2P
-v15_5: Fps1 ->(Fps1Delta*TurgorDeactivation*v15_5_k) Fps1P
-v16_6: Fps1P ->(Fps1Delta*v16_6_k/((Hog1PPActive/(compartment_1*v16_6_Ki))**v16_6_h + 1)) Fps1
+reaction_1: species_4 ->(parameter_22*parameter_58*parameter_75/((species_12/(compartment_1*parameter_73))**parameter_74 + 1.0)) species_5
+reaction_2: species_5 ->(parameter_72*species_6/compartment_1) species_4
+reaction_3: species_2 ->(compartment_1*(parameter_25*species_2*species_5/compartment_1**2 + parameter_41*species_11*species_2/compartment_1**2)/species_2) species_9
+reaction_4: species_9 ->(parameter_26*species_6/compartment_1) species_2
+reaction_5:  ->(parameter_76*species_8) species_7
+reaction_6: species_7 ->(parameter_35) 
+reaction_7:  ->(parameter_86*species_7*(1.0 + parameter_87*species_12/compartment_1)/(parameter_88 + species_7*(1.0 + parameter_87*species_12/compartment_1)/compartment_1)) species_1
+reaction_8: species_1 ->(parameter_16*parameter_27*parameter_28/compartment_1) species_13
+reaction_8_rev: species_13 ->(parameter_16*parameter_27*parameter_28/compartment_2) species_1
+reaction_9:  ->(parameter_77*species_12/(parameter_78 + species_12/compartment_1)) species_8
+reaction_10: species_8 ->(parameter_39) 
+reaction_11: species_9 ->(compartment_1*(parameter_25*species_5*species_9/compartment_1**2 + parameter_41*species_11*species_9/compartment_1**2)/species_9) species_3
+reaction_12: species_3 ->(parameter_26*species_6/compartment_1) species_9
+reaction_13: species_11 ->(parameter_79) species_10 + species_4
+reaction_14: species_10 + species_4 ->(parameter_56*parameter_57*parameter_82/(compartment_1*((species_12/(compartment_1*parameter_80))**parameter_81 + 1.0))) species_11
+reaction_15: species_14 ->(parameter_63*parameter_71*parameter_83) species_15
+reaction_16: species_15 ->(parameter_65*parameter_71/((species_12/(compartment_1*parameter_84))**parameter_85 + 1.0)) species_14

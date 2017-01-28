@@ -1,4 +1,4 @@
-production_of_U:  ->(alpha1*compartment_1/(V**beta + 1)) U
-degradation_of_U: U ->(compartment_1*k1) 
-production_of_V:  ->(alpha2*compartment_1/(Umodif**gamma + 1)) V
-degration_of_V: V ->(compartment_1*k1) 
+reaction_1:  ->(compartment_1*parameter_1/(species_2**parameter_3 + 1.0)) species_1
+reaction_2: species_1 ->(compartment_1*reaction_2_k1) 
+reaction_3:  ->(compartment_1*parameter_2/(parameter_7**parameter_4 + 1.0)) species_2
+reaction_4: species_2 ->(compartment_1*reaction_4_k1) 

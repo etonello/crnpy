@@ -1,18 +1,18 @@
-v1:  ->(compartment_0000001*k1) O2__
-v2: Cu_II_ZnSOD + O2__ ->(compartment_0000001*k2) 
-v3: O2__ ->(Cu_I_ZnSOD*compartment_0000001*k3) Cu_II_ZnSOD + H2O2
-v4: LOO_ + O2__ ->(compartment_0000001*k4) LOOH
-v5: H2O2 + O2__ ->(compartment_0000001*k5) 2HO_
-v6: H2O2 ->(Cu_II_ZnSOD*compartment_0000001*k6) 2HO_
-v7: H2O2 ->(Cat*compartment_0000001*k7) 
-v9: HO_ ->(compartment_0000001*k9) 
-v10:  ->(HO2_*compartment_0000001*k10) H2O2 + L_
-v11: HO_ ->(compartment_0000001*k11) L_
-v12: LOOH ->(compartment_0000001*k12) 
-v13a:  ->(Cu_I_ZnSOD*compartment_0000001*k13a) Cu_II_ZnSOD
-v13b: Cu_II_ZnSOD ->(compartment_0000001*k13b) 
-v17: L_ ->(compartment_0000001*k17) LOO_
-v18: LOO_ ->(compartment_0000001*k18) LOOH + L_
-v19: 2LOO_ ->(compartment_0000001*k19) 
-v16: O2__ ->(HO2_*compartment_0000001*k10/O2__) 
-v16_rev:  -> O2__
+reaction_0000001:  ->(compartment_0000001*k1) species_0000001
+reaction_0: species_0000001 + species_0000002 ->(compartment_0000001*k2) 
+reaction_1: species_0000001 ->(Cu_I_ZnSOD*compartment_0000001*k3) species_0000002 + species_0000006
+reaction_2: species_0000001 + species_0000007 ->(compartment_0000001*k4) species_0000009
+reaction_3: species_0000001 + species_0000006 ->(compartment_0000001*k5) 2species_0000008
+reaction_4: species_0000006 ->(compartment_0000001*k6*species_0000002) 2species_0000008
+reaction_5: species_0000006 ->(compartment_0000001*k7*species_0000017) 
+reaction_6: species_0000008 ->(compartment_0000001*k9) 
+reaction_7:  ->(HO2star*compartment_0000001*k10) species_0000006 + species_0000011
+reaction_8: species_0000008 ->(compartment_0000001*k11) species_0000011
+reaction_9: species_0000009 ->(compartment_0000001*k12) 
+reaction_10:  ->(Cu_I_ZnSOD*compartment_0000001*k13a) species_0000002
+reaction_11: species_0000002 ->(compartment_0000001*k13b) 
+reaction_12: species_0000011 ->(compartment_0000001*k17) species_0000007
+reaction_13: species_0000007 ->(compartment_0000001*k18) species_0000009 + species_0000011
+reaction_14: 2species_0000007 ->(compartment_0000001*k19) 
+fast: species_0000001 ->(HO2star*compartment_0000001*k10/species_0000001) 
+fast_rev:  ->(k_fast_rev) species_0000001

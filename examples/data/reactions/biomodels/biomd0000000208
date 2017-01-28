@@ -1,15 +1,15 @@
-R1:  ->(E2F*emax*k1/(E2F*k1 + E2F*k1_double_prime*pRB + k1_prime*pRB)) E2F
-R2: E2F ->(phi1) 
-R3:  ->(E2F*k2) pRB
-R4: pRB ->(active_cycE_cdk2*k3) Phosphorylated_pRB
-R5: pRB ->(phi2) 
-R6: Phosphorylated_pRB ->(phi3) 
-R7:  ->(E2F*k4) inactive_cycE_cdk2
-R8:  ->(AP_1*k4_double_prime) inactive_cycE_cdk2
-R9: inactive_cycE_cdk2 ->(active_cycE_cdk2*k4i) active_cycE_cdk2
-R10: active_cycE_cdk2 ->(k4a) inactive_cycE_cdk2
-R11: inactive_cycE_cdk2 ->(phi4i) 
-R12: active_cycE_cdk2 ->(phi4a) 
-R13:  ->(E2F*k6) AP_1
-R14:  ->(F6) AP_1
-R15: AP_1 ->(phi6) 
+R1:  ->(emax*k1*y1/(k1*y1 + y2*(k1_double_prime*y1 + k1_prime))) y1
+R2: y1 ->(phi1) 
+R3:  ->(k2*y1) y2
+R4: y2 ->(k3*y5) y3
+R5: y2 ->(phi2) 
+R6: y3 ->(phi3) 
+R7:  ->(k4*y1) y4
+R8:  ->(k4_double_prime*y6) y4
+R9: y4 ->(k4i*y5) y5
+R10: y5 ->(k4a) y4
+R11: y4 ->(phi4i) 
+R12: y5 ->(phi4a) 
+R13:  ->(k6*y1) y6
+R14:  ->(F6) y6
+R15: y6 ->(phi6) 

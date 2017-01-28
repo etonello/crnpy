@@ -1,18 +1,18 @@
-TF_Synthesis:  ->(TF_A**2*kf/(Kd + TF_A**2)) TF_A
-TF_Synthesis_rev: TF_A -> 
-TF_degradation: TF_A ->(TF_degradation_kd) 
-TF_degradation_rev:  -> TF_A
-TF_synthesis_basal:  ->(Rbas) TF_A
-TF_synthesis_basal_rev: TF_A -> 
-Calcium_Influx:  ->(Calcium_Influx_v0) Calcium_in_cytoplasm
-Calcium_Influx_rev: Calcium_in_cytoplasm -> 
-Calcium_Influx_by_stimulation:  ->(Calcium_Influx_stimulation_beta*Calcium_Influx_stimulation_v1) Calcium_in_cytoplasm
-Calcium_Influx_by_stimulation_rev: Calcium_in_cytoplasm -> 
-Calcium_Influx: Calcium_in_cytoplasm ->(Calcium_in_cytoplasm**Calcium_into_store_n*Calcium_into_store_Vm2/(Calcium_in_cytoplasm*(Calcium_in_cytoplasm**Calcium_into_store_n + Calcium_into_store_K2**Calcium_into_store_n))) Calcium_in_store
-Calcium_Influx_rev: Calcium_in_store -> Calcium_in_cytoplasm
-Calcium_influx_to_cytoplasm: Calcium_in_store ->(Calcium_in_cytoplasm**Calcium_into_cytoplasm_p*Calcium_in_store**Calcium_into_cytoplasm_m*Calcium_into_cytoplasm_Vm3/(Calcium_in_store*(Calcium_in_cytoplasm**Calcium_into_cytoplasm_p + Calcium_into_cytoplasm_K_A**Calcium_into_cytoplasm_p)*(Calcium_in_store**Calcium_into_cytoplasm_m + Calcium_into_cytoplasm_Kr**Calcium_into_cytoplasm_m))) Calcium_in_cytoplasm
-Calcium_influx_to_cytoplasm_rev: Calcium_in_cytoplasm -> Calcium_in_store
-Calcium_Leakage: Calcium_in_store ->(Leakage_k1) Calcium_in_cytoplasm
-Calcium_Leakage_rev: Calcium_in_cytoplasm -> Calcium_in_store
-Leakage_from_cytoplasm: Calcium_in_cytoplasm ->(Leakage_from_cytoplasm_k) 
-Leakage_from_cytoplasm_rev:  -> Calcium_in_cytoplasm
+TF_synthesis:  ->(X**2*kf/(Kd + X**2)) X
+TF_synthesis_rev: X ->(k_TF_synthesis_rev) 
+TF_degradation: X ->(TF_degradation_kd) 
+TF_degradation_rev:  ->(k_TF_degradation_rev) X
+TF_synthesis_basal:  ->(TF_synthesis_basal_Rbas) X
+TF_synthesis_basal_rev: X ->(k_TF_synthesis_basal_rev) 
+Calcium_Influx:  ->(Calcium_Influx_v0) Z
+Calcium_Influx_rev: Z ->(k_Calcium_Influx_rev) 
+Calcium_Influx_stimulation:  ->(Calcium_Influx_stimulation_beta*Calcium_Influx_stimulation_v1) Z
+Calcium_Influx_stimulation_rev: Z ->(k_Calcium_Influx_stimulation_rev) 
+Calcium_into_store: Z ->(Calcium_into_store_Vm2*Z**Calcium_into_store_n/(Z*(Calcium_into_store_K2**Calcium_into_store_n + Z**Calcium_into_store_n))) Y
+Calcium_into_store_rev: Y ->(k_Calcium_into_store_rev) Z
+Calcium_into_cytoplasm: Y ->(Calcium_into_cytoplasm_Vm3*Y**Calcium_into_cytoplasm_m*Z**Calcium_into_cytoplasm_p/(Y*(Calcium_into_cytoplasm_K_A**Calcium_into_cytoplasm_p + Z**Calcium_into_cytoplasm_p)*(Calcium_into_cytoplasm_Kr**Calcium_into_cytoplasm_m + Y**Calcium_into_cytoplasm_m))) Z
+Calcium_into_cytoplasm_rev: Z ->(k_Calcium_into_cytoplasm_rev) Y
+Leakage: Y ->(Leakage_k1) Z
+Leakage_rev: Z ->(k_Leakage_rev) Y
+Leakage_from_cytoplasm: Z ->(Leakage_from_cytoplasm_k) 
+Leakage_from_cytoplasm_rev:  ->(k_Leakage_from_cytoplasm_rev) Z

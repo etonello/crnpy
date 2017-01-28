@@ -1,96 +1,96 @@
-Phosphotransferase_system: Extracellular_Glucose + 65Phosphoenol_pyruvate ->(extracellular*vPTS_KPTSg6p*vPTS_rmaxPTS/(Phosphoenol_pyruvate**64*(Glucose_6_Phosphate**vPTS_nPTSg6p + vPTS_KPTSg6p)*(Extracellular_Glucose*Phosphoenol_pyruvate + Extracellular_Glucose*Pyruvate*vPTS_KPTSa3 + Phosphoenol_pyruvate*vPTS_KPTSa2 + Pyruvate*vPTS_KPTSa1))) 65Glucose_6_Phosphate + 65Pyruvate
-Phosphotransferase_system_rev: 65Glucose_6_Phosphate + 65Pyruvate -> Extracellular_Glucose + 65Phosphoenol_pyruvate
-Glucose_6_phosphate_isomerase: Glucose_6_Phosphate ->(cytosol*vPGI_KPGIf6p*vPGI_KPGIg6ppginh*vPGI_rmaxPGI*(_6_Phosphogluconate + vPGI_KPGIf6ppginh)/(Fructose_6_Phosphate*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + Glucose_6_Phosphate*_6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIg6ppginh + Glucose_6_Phosphate*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6ppginh + _6_Phosphogluconate**2*vPGI_KPGIf6p*vPGI_KPGIg6p + _6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p + _6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh)) Fructose_6_Phosphate
-Glucose_6_phosphate_isomerase_rev: Fructose_6_Phosphate ->(cytosol*vPGI_KPGIf6p*vPGI_KPGIg6ppginh*vPGI_rmaxPGI*(_6_Phosphogluconate + vPGI_KPGIf6ppginh)/(vPGI_KPGIeq*(Fructose_6_Phosphate*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + Glucose_6_Phosphate*_6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIg6ppginh + Glucose_6_Phosphate*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6ppginh + _6_Phosphogluconate**2*vPGI_KPGIf6p*vPGI_KPGIg6p + _6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p + _6_Phosphogluconate*vPGI_KPGIf6p*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh))) Glucose_6_Phosphate
-Phosphoglucomutase: Glucose_6_Phosphate ->(cytosol*vPGM_KPGMg1p*vPGM_rmaxPGM/(Glucose_1_Phosphate*vPGM_KPGMg6p + Glucose_6_Phosphate*vPGM_KPGMg1p + vPGM_KPGMg1p*vPGM_KPGMg6p)) Glucose_1_Phosphate
-Phosphoglucomutase_rev: Glucose_1_Phosphate ->(cytosol*vPGM_KPGMg1p*vPGM_rmaxPGM/(vPGM_KPGMeq*(Glucose_1_Phosphate*vPGM_KPGMg6p + Glucose_6_Phosphate*vPGM_KPGMg1p + vPGM_KPGMg1p*vPGM_KPGMg6p))) Glucose_6_Phosphate
-Glucose_6_phosphate_dehydrogenase: Glucose_6_Phosphate ->(cnadp*cytosol*vG6PDH_KG6PDHnadphg6pinh*vG6PDH_KG6PDHnadphnadpinh*vG6PDH_rmaxG6PDH/((Glucose_6_Phosphate + vG6PDH_KG6PDHg6p)*(cnadph + vG6PDH_KG6PDHnadphg6pinh)*(cnadp*vG6PDH_KG6PDHnadphnadpinh + cnadph*vG6PDH_KG6PDHnadp + vG6PDH_KG6PDHnadp*vG6PDH_KG6PDHnadphnadpinh))) _6_Phosphogluconate
-Glucose_6_phosphate_dehydrogenase_rev: _6_Phosphogluconate -> Glucose_6_Phosphate
-Phosphofructokinase: Fructose_6_Phosphate ->(catp*cytosol*vPFK_KPFKadpb*vPFK_KPFKadpc*vPFK_KPFKampb*vPFK_KPFKpep*vPFK_rmaxPFK*((Fructose_6_Phosphate*cadp*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + Fructose_6_Phosphate*camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep + Fructose_6_Phosphate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep)/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))**vPFK_nPFK*(cadp*vPFK_KPFKampa + camp*vPFK_KPFKadpa + vPFK_KPFKadpa*vPFK_KPFKampa)/((vPFK_LPFK + (Fructose_6_Phosphate*cadp*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + Fructose_6_Phosphate*camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + Fructose_6_Phosphate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep/(Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))**vPFK_nPFK)*(cadp*vPFK_KPFKatps + catp*vPFK_KPFKadpc + vPFK_KPFKadpc*vPFK_KPFKatps)*(Fructose_6_Phosphate*cadp*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + Fructose_6_Phosphate*camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep + Fructose_6_Phosphate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + Phosphoenol_pyruvate*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))) Fructose_1_6_bisphosphate
-Phosphofructokinase_rev: Fructose_1_6_bisphosphate -> Fructose_6_Phosphate
-Transaldolase: Glyceraldehyde_3_Phosphate + sedoheptulose_7_phosphate ->(cytosol*vTA_rmaxTA) Erythrose_4_phosphate + Fructose_6_Phosphate
-Transaldolase_rev: Erythrose_4_phosphate + Fructose_6_Phosphate ->(cytosol*vTA_rmaxTA/vTA_KTAeq) Glyceraldehyde_3_Phosphate + sedoheptulose_7_phosphate
-Transketolase_a: Ribose_5_phosphate + Xylulose_5_phosphate ->(cytosol*vTKA_rmaxTKa) Glyceraldehyde_3_Phosphate + sedoheptulose_7_phosphate
-Transketolase_a_rev: Glyceraldehyde_3_Phosphate + sedoheptulose_7_phosphate ->(cytosol*vTKA_rmaxTKa/vTKA_KTKaeq) Ribose_5_phosphate + Xylulose_5_phosphate
-Transketolase_b: Erythrose_4_phosphate + Xylulose_5_phosphate ->(cytosol*vTKB_rmaxTKb) Fructose_6_Phosphate + Glyceraldehyde_3_Phosphate
-Transketolase_b_rev: Fructose_6_Phosphate + Glyceraldehyde_3_Phosphate ->(cytosol*vTKB_rmaxTKb/vTKB_KTKbeq) Erythrose_4_phosphate + Xylulose_5_phosphate
-Mureine_synthesis: 2Fructose_6_Phosphate ->(cytosol*vMURSyNTH_rmaxMurSynth/Fructose_6_Phosphate**2) 
-Mureine_synthesis_rev:  -> 2Fructose_6_Phosphate
-Aldolase: Fructose_1_6_bisphosphate ->(cytosol*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh*vALDO_rmaxALDO/(Dihydroxyacetonephosphate*Glyceraldehyde_3_Phosphate*vALDO_kALDOgapinh + Dihydroxyacetonephosphate*vALDO_kALDOgap*vALDO_kALDOgapinh + Fructose_1_6_bisphosphate*Glyceraldehyde_3_Phosphate*vALDO_VALDOblf*vALDO_kALDOeq + Fructose_1_6_bisphosphate*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh + Glyceraldehyde_3_Phosphate*vALDO_kALDOdhap*vALDO_kALDOgapinh + vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOfdp*vALDO_kALDOgapinh)) Dihydroxyacetonephosphate + Glyceraldehyde_3_Phosphate
-Aldolase_rev: Dihydroxyacetonephosphate + Glyceraldehyde_3_Phosphate ->(cytosol*vALDO_VALDOblf*vALDO_kALDOgapinh*vALDO_rmaxALDO/(Dihydroxyacetonephosphate*Glyceraldehyde_3_Phosphate*vALDO_kALDOgapinh + Dihydroxyacetonephosphate*vALDO_kALDOgap*vALDO_kALDOgapinh + Fructose_1_6_bisphosphate*Glyceraldehyde_3_Phosphate*vALDO_VALDOblf*vALDO_kALDOeq + Fructose_1_6_bisphosphate*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh + Glyceraldehyde_3_Phosphate*vALDO_kALDOdhap*vALDO_kALDOgapinh + vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOfdp*vALDO_kALDOgapinh)) Fructose_1_6_bisphosphate
-Glyceraldehyde_3_phosphate_dehydrogenase: Glyceraldehyde_3_Phosphate ->(cnad*cytosol*vGAPDH_KGAPDHnadh*vGAPDH_KGAPDHpgp*vGAPDH_rmaxGAPDH/((Glyceraldehyde_3_Phosphate*vGAPDH_KGAPDHpgp + _1_3_diphosphosphoglycerate*vGAPDH_KGAPDHgap + vGAPDH_KGAPDHgap*vGAPDH_KGAPDHpgp)*(cnad*vGAPDH_KGAPDHnadh + cnadh*vGAPDH_KGAPDHnad + vGAPDH_KGAPDHnad*vGAPDH_KGAPDHnadh))) _1_3_diphosphosphoglycerate
-Glyceraldehyde_3_phosphate_dehydrogenase_rev: _1_3_diphosphosphoglycerate ->(cnadh*cytosol*vGAPDH_KGAPDHnadh*vGAPDH_KGAPDHpgp*vGAPDH_rmaxGAPDH/(vGAPDH_KGAPDHeq*(Glyceraldehyde_3_Phosphate*vGAPDH_KGAPDHpgp + _1_3_diphosphosphoglycerate*vGAPDH_KGAPDHgap + vGAPDH_KGAPDHgap*vGAPDH_KGAPDHpgp)*(cnad*vGAPDH_KGAPDHnadh + cnadh*vGAPDH_KGAPDHnad + vGAPDH_KGAPDHnad*vGAPDH_KGAPDHnadh))) Glyceraldehyde_3_Phosphate
-Triosephosphate_isomerase: Dihydroxyacetonephosphate ->(cytosol*vTIS_kTISgap*vTIS_rmaxTIS/(Dihydroxyacetonephosphate*vTIS_kTISgap + Glyceraldehyde_3_Phosphate*vTIS_kTISdhap + vTIS_kTISdhap*vTIS_kTISgap)) Glyceraldehyde_3_Phosphate
-Triosephosphate_isomerase_rev: Glyceraldehyde_3_Phosphate ->(cytosol*vTIS_kTISgap*vTIS_rmaxTIS/(vTIS_kTISeq*(Dihydroxyacetonephosphate*vTIS_kTISgap + Glyceraldehyde_3_Phosphate*vTIS_kTISdhap + vTIS_kTISdhap*vTIS_kTISgap))) Dihydroxyacetonephosphate
-Tryptophan_synthesis:  ->(cytosol*vTRPSYNTH_rmaxTrpSynth) Glyceraldehyde_3_Phosphate + Pyruvate
-Tryptophan_synthesis_rev: Glyceraldehyde_3_Phosphate + Pyruvate -> 
-Glycerol_3_phosphate_dehydrogenase: Dihydroxyacetonephosphate ->(cytosol*vG3PDH_rmaxG3PDH/(Dihydroxyacetonephosphate + vG3PDH_KG3PDHdhap)) 
-Glycerol_3_phosphate_dehydrogenase_rev:  -> Dihydroxyacetonephosphate
-Phosphoglycerate_kinase: _1_3_diphosphosphoglycerate ->(cadp*cytosol*vPGK_KPGKatp*vPGK_KPGKpg3*vPGK_rmaxPGK/((_1_3_diphosphosphoglycerate*vPGK_KPGKpg3 + _3_Phosphoglycerate*vPGK_KPGKpgp + vPGK_KPGKpg3*vPGK_KPGKpgp)*(cadp*vPGK_KPGKatp + catp*vPGK_KPGKadp + vPGK_KPGKadp*vPGK_KPGKatp))) _3_Phosphoglycerate
-Phosphoglycerate_kinase_rev: _3_Phosphoglycerate ->(catp*cytosol*vPGK_KPGKatp*vPGK_KPGKpg3*vPGK_rmaxPGK/(vPGK_KPGKeq*(_1_3_diphosphosphoglycerate*vPGK_KPGKpg3 + _3_Phosphoglycerate*vPGK_KPGKpgp + vPGK_KPGKpg3*vPGK_KPGKpgp)*(cadp*vPGK_KPGKatp + catp*vPGK_KPGKadp + vPGK_KPGKadp*vPGK_KPGKatp))) _1_3_diphosphosphoglycerate
-Serine_synthesis: _3_Phosphoglycerate ->(cytosol*vsersynth_rmaxSerSynth/(_3_Phosphoglycerate + vsersynth_KSerSynthpg3)) 
-Serine_synthesis_rev:  -> _3_Phosphoglycerate
-Phosphoglycerate_mutase: _3_Phosphoglycerate ->(cytosol*vrpGluMu_KPGluMupg2*vrpGluMu_rmaxPGluMu/(_2_Phosphoglycerate*vrpGluMu_KPGluMupg3 + _3_Phosphoglycerate*vrpGluMu_KPGluMupg2 + vrpGluMu_KPGluMupg2*vrpGluMu_KPGluMupg3)) _2_Phosphoglycerate
-Phosphoglycerate_mutase_rev: _2_Phosphoglycerate ->(cytosol*vrpGluMu_KPGluMupg2*vrpGluMu_rmaxPGluMu/(vrpGluMu_KPGluMueq*(_2_Phosphoglycerate*vrpGluMu_KPGluMupg3 + _3_Phosphoglycerate*vrpGluMu_KPGluMupg2 + vrpGluMu_KPGluMupg2*vrpGluMu_KPGluMupg3))) _3_Phosphoglycerate
-Enolase: _2_Phosphoglycerate ->(cytosol*vENO_KENOpep*vENO_rmaxENO/(Phosphoenol_pyruvate*vENO_KENOpg2 + _2_Phosphoglycerate*vENO_KENOpep + vENO_KENOpep*vENO_KENOpg2)) Phosphoenol_pyruvate
-Enolase_rev: Phosphoenol_pyruvate ->(cytosol*vENO_KENOpep*vENO_rmaxENO/(vENO_KENOeq*(Phosphoenol_pyruvate*vENO_KENOpg2 + _2_Phosphoglycerate*vENO_KENOpep + vENO_KENOpep*vENO_KENOpg2))) _2_Phosphoglycerate
-Pyruvate_kinase: Phosphoenol_pyruvate ->(cadp*cytosol*vPK_rmaxPK*(Phosphoenol_pyruvate/vPK_KPKpep + 1)**vPK_nPK/((Phosphoenol_pyruvate + vPK_KPKpep)*(cadp + vPK_KPKadp)*(vPK_LPK*(catp*vPK_KPKamp*vPK_KPKfdp/(Fructose_1_6_bisphosphate*vPK_KPKamp*vPK_KPKatp + camp*vPK_KPKatp*vPK_KPKfdp + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp) + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp/(Fructose_1_6_bisphosphate*vPK_KPKamp*vPK_KPKatp + camp*vPK_KPKatp*vPK_KPKfdp + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp))**vPK_nPK + (Phosphoenol_pyruvate/vPK_KPKpep + 1)**vPK_nPK))) Pyruvate
-Pyruvate_kinase_rev: Pyruvate -> Phosphoenol_pyruvate
-PEP_carboxylase: Phosphoenol_pyruvate ->(cytosol*vpepCxylase_rmaxpepCxylase*((Fructose_1_6_bisphosphate/vpepCxylase_KpepCxylasefdp)**vpepCxylase_npepCxylasefdp + 1)/(Phosphoenol_pyruvate + vpepCxylase_KpepCxylasepep)) 
-PEP_carboxylase_rev:  -> Phosphoenol_pyruvate
-Synthesis_1: Phosphoenol_pyruvate ->(cytosol*vSynth1_rmaxSynth1/(Phosphoenol_pyruvate + vSynth1_KSynth1pep)) 
-Synthesis_1_rev:  -> Phosphoenol_pyruvate
-Synthesis_2: Pyruvate ->(cytosol*vSynth2_rmaxSynth2/(Pyruvate + vSynth2_KSynth2pyr)) 
-Synthesis_2_rev:  -> Pyruvate
-DAHP_synthesis: Erythrose_4_phosphate + Phosphoenol_pyruvate ->(Erythrose_4_phosphate**vDAHPS_nDAHPSe4p*Phosphoenol_pyruvate**vDAHPS_nDAHPSpep*cytosol*vDAHPS_rmaxDAHPS/(Erythrose_4_phosphate*Phosphoenol_pyruvate*(Erythrose_4_phosphate**vDAHPS_nDAHPSe4p + vDAHPS_KDAHPSe4p)*(Phosphoenol_pyruvate**vDAHPS_nDAHPSpep + vDAHPS_KDAHPSpep))) 
-DAHP_synthesis_rev:  -> Erythrose_4_phosphate + Phosphoenol_pyruvate
-Pyruvate_dehydrogenase: Pyruvate ->(Pyruvate**vPDH_nPDH*cytosol*vPDH_rmaxPDH/(Pyruvate*(Pyruvate**vPDH_nPDH + vPDH_KPDHpyr))) 
-Pyruvate_dehydrogenase_rev:  -> Pyruvate
-Methionine_synthesis:  ->(cytosol*vMethSynth_rmaxMetSynth) Pyruvate
-Methionine_synthesis_rev: Pyruvate -> 
-_6_Phosphogluconate_dehydrogenase: _6_Phosphogluconate ->(cnadp*cytosol*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadphinh*vPGDH_rmaxPGDH/((_6_Phosphogluconate + vPGDH_KPGDHpg)*(catp*cnadph*vPGDH_KPGDHnadp + catp*vPGDH_KPGDHnadp*vPGDH_KPGDHnadphinh + cnadp*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadphinh + cnadph*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadp + vPGDH_KPGDHatpinh*vPGDH_KPGDHnadp*vPGDH_KPGDHnadphinh))) Ribulose_5_phosphate
-_6_Phosphogluconate_dehydrogenase_rev: Ribulose_5_phosphate -> _6_Phosphogluconate
-Ribose_phosphate_isomerase: Ribulose_5_phosphate ->(cytosol*vR5PI_rmaxR5PI) Ribose_5_phosphate
-Ribose_phosphate_isomerase_rev: Ribose_5_phosphate ->(cytosol*vR5PI_rmaxR5PI/vR5PI_KR5PIeq) Ribulose_5_phosphate
-Ribulose_phosphate_epimerase: Ribulose_5_phosphate ->(cytosol*vRu5P_rmaxRu5P) Xylulose_5_phosphate
-Ribulose_phosphate_epimerase_rev: Xylulose_5_phosphate ->(cytosol*vRu5P_rmaxRu5P/vRu5P_KRu5Peq) Ribulose_5_phosphate
-Ribose_phosphate_pyrophosphokinase: Ribose_5_phosphate ->(cytosol*vPPK_rmaxRPPK/(Ribose_5_phosphate + vPPK_KRPPKrib5p)) 
-Ribose_phosphate_pyrophosphokinase_rev:  -> Ribose_5_phosphate
-Glucose_1_phosphate_adenyltransferase: Glucose_1_Phosphate ->(catp*cytosol*vG1PAT_rmaxG1PAT*((Fructose_1_6_bisphosphate/vG1PAT_KG1PATfdp)**vG1PAT_nG1PATfdp + 1)/((Glucose_1_Phosphate + vG1PAT_KG1PATg1p)*(catp + vG1PAT_KG1PATatp))) 
-Glucose_1_phosphate_adenyltransferase_rev:  -> Glucose_1_Phosphate
-G6P_degradation: Glucose_6_Phosphate ->(cytosol*vG6P_mu) 
-G6P_degradation_rev:  -> Glucose_6_Phosphate
-F6P_degradation: Fructose_6_Phosphate ->(cytosol*vf6P_mu) 
-F6P_degradation_rev:  -> Fructose_6_Phosphate
-FDP_degradation: Fructose_1_6_bisphosphate ->(cytosol*vfdP_mu) 
-FDP_degradation_rev:  -> Fructose_1_6_bisphosphate
-GAP_degradation: Glyceraldehyde_3_Phosphate ->(cytosol*vGAP_mu) 
-GAP_degradation_rev:  -> Glyceraldehyde_3_Phosphate
-DHAP_degradation: Dihydroxyacetonephosphate ->(cytosol*vDHAP_mu) 
-DHAP_degradation_rev:  -> Dihydroxyacetonephosphate
-PGP_degradation: _1_3_diphosphosphoglycerate ->(cytosol*vPGP_mu) 
-PGP_degradation_rev:  -> _1_3_diphosphosphoglycerate
-PG3_degradation: _3_Phosphoglycerate ->(cytosol*vPG3_mu) 
-PG3_degradation_rev:  -> _3_Phosphoglycerate
-PG2_degradation: _2_Phosphoglycerate ->(cytosol*vpg2_mu) 
-PG2_degradation_rev:  -> _2_Phosphoglycerate
-PEP_degradation: Phosphoenol_pyruvate ->(cytosol*vPEP_mu) 
-PEP_degradation_rev:  -> Phosphoenol_pyruvate
-Ribu5P_dilution: Ribulose_5_phosphate ->(cytosol*vRibu5p_mu) 
-Ribu5P_dilution_rev:  -> Ribulose_5_phosphate
-Rib5P_dilution: Ribose_5_phosphate ->(cytosol*vRIB5P_mu) 
-Rib5P_dilution_rev:  -> Ribose_5_phosphate
-XYL5P_dilution: Xylulose_5_phosphate ->(cytosol*vXYL5P_mu) 
-XYL5P_dilution_rev:  -> Xylulose_5_phosphate
-SED7P_dilution: sedoheptulose_7_phosphate ->(cytosol*vSED7P_mu) 
-SED7P_dilution_rev:  -> sedoheptulose_7_phosphate
-Pyruvate_dilution: Pyruvate ->(cytosol*vpyr_mu) 
-Pyruvate_dilution_rev:  -> Pyruvate
-PG_dilution: _6_Phosphogluconate ->(cytosol*vPG_mu) 
-PG_dilution_rev:  -> _6_Phosphogluconate
-E4P_dilution: Erythrose_4_phosphate ->(cytosol*vE4P_mu) 
-E4P_dilution_rev:  -> Erythrose_4_phosphate
-GLP_dilution: Glucose_1_Phosphate ->(cytosol*vGLP_mu) 
-GLP_dilution_rev:  -> Glucose_1_Phosphate
-Extracellular_glucose_kinetics:  ->(extracellular*vEXTER_Dil*vEXTER_cfeed) Extracellular_Glucose
-Extracellular_glucose_kinetics_rev: Extracellular_Glucose ->(extracellular*vEXTER_Dil) 
+vPTS: cglcex + 65cpep ->(extracellular*vPTS_KPTSg6p*vPTS_rmaxPTS/(cpep**64*(cg6p**vPTS_nPTSg6p + vPTS_KPTSg6p)*(cglcex*cpep + cglcex*cpyr*vPTS_KPTSa3 + cpep*vPTS_KPTSa2 + cpyr*vPTS_KPTSa1))) 65cg6p + 65cpyr
+vPTS_rev: 65cg6p + 65cpyr ->(k_vPTS_rev) cglcex + 65cpep
+vPGI: cg6p ->(cytosol*vPGI_KPGIf6p*vPGI_KPGIg6ppginh*vPGI_rmaxPGI*(cpg + vPGI_KPGIf6ppginh)/(cf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + cg6p*cpg*vPGI_KPGIf6p*vPGI_KPGIg6ppginh + cg6p*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6ppginh + cpg**2*vPGI_KPGIf6p*vPGI_KPGIg6p + cpg*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p + cpg*vPGI_KPGIf6p*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh)) cf6p
+vPGI_rev: cf6p ->(cytosol*vPGI_KPGIf6p*vPGI_KPGIg6ppginh*vPGI_rmaxPGI*(cpg + vPGI_KPGIf6ppginh)/(vPGI_KPGIeq*(cf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + cg6p*cpg*vPGI_KPGIf6p*vPGI_KPGIg6ppginh + cg6p*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6ppginh + cpg**2*vPGI_KPGIf6p*vPGI_KPGIg6p + cpg*vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p + cpg*vPGI_KPGIf6p*vPGI_KPGIg6p*vPGI_KPGIg6ppginh + vPGI_KPGIf6p*vPGI_KPGIf6ppginh*vPGI_KPGIg6p*vPGI_KPGIg6ppginh))) cg6p
+vPGM: cg6p ->(cytosol*vPGM_KPGMg1p*vPGM_rmaxPGM/(cg1p*vPGM_KPGMg6p + cg6p*vPGM_KPGMg1p + vPGM_KPGMg1p*vPGM_KPGMg6p)) cg1p
+vPGM_rev: cg1p ->(cytosol*vPGM_KPGMg1p*vPGM_rmaxPGM/(vPGM_KPGMeq*(cg1p*vPGM_KPGMg6p + cg6p*vPGM_KPGMg1p + vPGM_KPGMg1p*vPGM_KPGMg6p))) cg6p
+vG6PDH: cg6p ->(cnadp*cytosol*vG6PDH_KG6PDHnadphg6pinh*vG6PDH_KG6PDHnadphnadpinh*vG6PDH_rmaxG6PDH/((cg6p + vG6PDH_KG6PDHg6p)*(cnadph + vG6PDH_KG6PDHnadphg6pinh)*(cnadp*vG6PDH_KG6PDHnadphnadpinh + cnadph*vG6PDH_KG6PDHnadp + vG6PDH_KG6PDHnadp*vG6PDH_KG6PDHnadphnadpinh))) cpg
+vG6PDH_rev: cpg ->(k_vG6PDH_rev) cg6p
+vPFK: cf6p ->(catp*cytosol*vPFK_KPFKadpb*vPFK_KPFKadpc*vPFK_KPFKampb*vPFK_KPFKpep*vPFK_rmaxPFK*((cadp*cf6p*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep)/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))**vPFK_nPFK*(cadp*vPFK_KPFKampa + camp*vPFK_KPFKadpa + vPFK_KPFKadpa*vPFK_KPFKampa)/((vPFK_LPFK + (cadp*cf6p*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + camp*cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep) + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep/(cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))**vPFK_nPFK)*(cadp*vPFK_KPFKatps + catp*vPFK_KPFKadpc + vPFK_KPFKadpc*vPFK_KPFKatps)*(cadp*cf6p*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + cadp*vPFK_KPFKadpa*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep + camp*cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampb*vPFK_KPFKpep + camp*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKf6ps*vPFK_KPFKpep + cf6p*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKpep + cpep*vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps + vPFK_KPFKadpa*vPFK_KPFKadpb*vPFK_KPFKampa*vPFK_KPFKampb*vPFK_KPFKf6ps*vPFK_KPFKpep))) cfdp
+vPFK_rev: cfdp ->(k_vPFK_rev) cf6p
+vTA: cgap + csed7p ->(cytosol*vTA_rmaxTA) ce4p + cf6p
+vTA_rev: ce4p + cf6p ->(cytosol*vTA_rmaxTA/vTA_KTAeq) cgap + csed7p
+vTKA: crib5p + cxyl5p ->(cytosol*vTKA_rmaxTKa) cgap + csed7p
+vTKA_rev: cgap + csed7p ->(cytosol*vTKA_rmaxTKa/vTKA_KTKaeq) crib5p + cxyl5p
+vTKB: ce4p + cxyl5p ->(cytosol*vTKB_rmaxTKb) cf6p + cgap
+vTKB_rev: cf6p + cgap ->(cytosol*vTKB_rmaxTKb/vTKB_KTKbeq) ce4p + cxyl5p
+vMURSyNTH: 2cf6p ->(cytosol*vMURSyNTH_rmaxMurSynth/cf6p**2) 
+vMURSyNTH_rev:  ->(k_vMURSyNTH_rev) 2cf6p
+vALDO: cfdp ->(cytosol*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh*vALDO_rmaxALDO/(cdhap*cgap*vALDO_kALDOgapinh + cdhap*vALDO_kALDOgap*vALDO_kALDOgapinh + cfdp*cgap*vALDO_VALDOblf*vALDO_kALDOeq + cfdp*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh + cgap*vALDO_kALDOdhap*vALDO_kALDOgapinh + vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOfdp*vALDO_kALDOgapinh)) cdhap + cgap
+vALDO_rev: cdhap + cgap ->(cytosol*vALDO_VALDOblf*vALDO_kALDOgapinh*vALDO_rmaxALDO/(cdhap*cgap*vALDO_kALDOgapinh + cdhap*vALDO_kALDOgap*vALDO_kALDOgapinh + cfdp*cgap*vALDO_VALDOblf*vALDO_kALDOeq + cfdp*vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOgapinh + cgap*vALDO_kALDOdhap*vALDO_kALDOgapinh + vALDO_VALDOblf*vALDO_kALDOeq*vALDO_kALDOfdp*vALDO_kALDOgapinh)) cfdp
+vGAPDH: cgap ->(cnad*cytosol*vGAPDH_KGAPDHnadh*vGAPDH_KGAPDHpgp*vGAPDH_rmaxGAPDH/((cgap*vGAPDH_KGAPDHpgp + cpgp*vGAPDH_KGAPDHgap + vGAPDH_KGAPDHgap*vGAPDH_KGAPDHpgp)*(cnad*vGAPDH_KGAPDHnadh + cnadh*vGAPDH_KGAPDHnad + vGAPDH_KGAPDHnad*vGAPDH_KGAPDHnadh))) cpgp
+vGAPDH_rev: cpgp ->(cnadh*cytosol*vGAPDH_KGAPDHnadh*vGAPDH_KGAPDHpgp*vGAPDH_rmaxGAPDH/(vGAPDH_KGAPDHeq*(cgap*vGAPDH_KGAPDHpgp + cpgp*vGAPDH_KGAPDHgap + vGAPDH_KGAPDHgap*vGAPDH_KGAPDHpgp)*(cnad*vGAPDH_KGAPDHnadh + cnadh*vGAPDH_KGAPDHnad + vGAPDH_KGAPDHnad*vGAPDH_KGAPDHnadh))) cgap
+vTIS: cdhap ->(cytosol*vTIS_kTISgap*vTIS_rmaxTIS/(cdhap*vTIS_kTISgap + cgap*vTIS_kTISdhap + vTIS_kTISdhap*vTIS_kTISgap)) cgap
+vTIS_rev: cgap ->(cytosol*vTIS_kTISgap*vTIS_rmaxTIS/(vTIS_kTISeq*(cdhap*vTIS_kTISgap + cgap*vTIS_kTISdhap + vTIS_kTISdhap*vTIS_kTISgap))) cdhap
+vTRPSYNTH:  ->(cytosol*vTRPSYNTH_rmaxTrpSynth) cgap + cpyr
+vTRPSYNTH_rev: cgap + cpyr ->(k_vTRPSYNTH_rev) 
+vG3PDH: cdhap ->(cytosol*vG3PDH_rmaxG3PDH/(cdhap + vG3PDH_KG3PDHdhap)) 
+vG3PDH_rev:  ->(k_vG3PDH_rev) cdhap
+vPGK: cpgp ->(cadp*cytosol*vPGK_KPGKatp*vPGK_KPGKpg3*vPGK_rmaxPGK/((cadp*vPGK_KPGKatp + catp*vPGK_KPGKadp + vPGK_KPGKadp*vPGK_KPGKatp)*(cpg3*vPGK_KPGKpgp + cpgp*vPGK_KPGKpg3 + vPGK_KPGKpg3*vPGK_KPGKpgp))) cpg3
+vPGK_rev: cpg3 ->(catp*cytosol*vPGK_KPGKatp*vPGK_KPGKpg3*vPGK_rmaxPGK/(vPGK_KPGKeq*(cadp*vPGK_KPGKatp + catp*vPGK_KPGKadp + vPGK_KPGKadp*vPGK_KPGKatp)*(cpg3*vPGK_KPGKpgp + cpgp*vPGK_KPGKpg3 + vPGK_KPGKpg3*vPGK_KPGKpgp))) cpgp
+vsersynth: cpg3 ->(cytosol*vsersynth_rmaxSerSynth/(cpg3 + vsersynth_KSerSynthpg3)) 
+vsersynth_rev:  ->(k_vsersynth_rev) cpg3
+vrpGluMu: cpg3 ->(cytosol*vrpGluMu_KPGluMupg2*vrpGluMu_rmaxPGluMu/(cpg2*vrpGluMu_KPGluMupg3 + cpg3*vrpGluMu_KPGluMupg2 + vrpGluMu_KPGluMupg2*vrpGluMu_KPGluMupg3)) cpg2
+vrpGluMu_rev: cpg2 ->(cytosol*vrpGluMu_KPGluMupg2*vrpGluMu_rmaxPGluMu/(vrpGluMu_KPGluMueq*(cpg2*vrpGluMu_KPGluMupg3 + cpg3*vrpGluMu_KPGluMupg2 + vrpGluMu_KPGluMupg2*vrpGluMu_KPGluMupg3))) cpg3
+vENO: cpg2 ->(cytosol*vENO_KENOpep*vENO_rmaxENO/(cpep*vENO_KENOpg2 + cpg2*vENO_KENOpep + vENO_KENOpep*vENO_KENOpg2)) cpep
+vENO_rev: cpep ->(cytosol*vENO_KENOpep*vENO_rmaxENO/(vENO_KENOeq*(cpep*vENO_KENOpg2 + cpg2*vENO_KENOpep + vENO_KENOpep*vENO_KENOpg2))) cpg2
+vPK: cpep ->(cadp*cytosol*vPK_rmaxPK*(cpep/vPK_KPKpep + 1)**(vPK_nPK - 1)/(vPK_KPKpep*(cadp + vPK_KPKadp)*(vPK_LPK*(catp*vPK_KPKamp*vPK_KPKfdp/(camp*vPK_KPKatp*vPK_KPKfdp + cfdp*vPK_KPKamp*vPK_KPKatp + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp) + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp/(camp*vPK_KPKatp*vPK_KPKfdp + cfdp*vPK_KPKamp*vPK_KPKatp + vPK_KPKamp*vPK_KPKatp*vPK_KPKfdp))**vPK_nPK + (cpep/vPK_KPKpep + 1)**vPK_nPK))) cpyr
+vPK_rev: cpyr ->(k_vPK_rev) cpep
+vpepCxylase: cpep ->(cytosol*vpepCxylase_rmaxpepCxylase*((cfdp/vpepCxylase_KpepCxylasefdp)**vpepCxylase_npepCxylasefdp + 1)/(cpep + vpepCxylase_KpepCxylasepep)) 
+vpepCxylase_rev:  ->(k_vpepCxylase_rev) cpep
+vSynth1: cpep ->(cytosol*vSynth1_rmaxSynth1/(cpep + vSynth1_KSynth1pep)) 
+vSynth1_rev:  ->(k_vSynth1_rev) cpep
+vSynth2: cpyr ->(cytosol*vSynth2_rmaxSynth2/(cpyr + vSynth2_KSynth2pyr)) 
+vSynth2_rev:  ->(k_vSynth2_rev) cpyr
+vDAHPS: ce4p + cpep ->(ce4p**vDAHPS_nDAHPSe4p*cpep**vDAHPS_nDAHPSpep*cytosol*vDAHPS_rmaxDAHPS/(ce4p*cpep*(ce4p**vDAHPS_nDAHPSe4p + vDAHPS_KDAHPSe4p)*(cpep**vDAHPS_nDAHPSpep + vDAHPS_KDAHPSpep))) 
+vDAHPS_rev:  ->(k_vDAHPS_rev) ce4p + cpep
+vPDH: cpyr ->(cpyr**vPDH_nPDH*cytosol*vPDH_rmaxPDH/(cpyr*(cpyr**vPDH_nPDH + vPDH_KPDHpyr))) 
+vPDH_rev:  ->(k_vPDH_rev) cpyr
+vMethSynth:  ->(cytosol*vMethSynth_rmaxMetSynth) cpyr
+vMethSynth_rev: cpyr ->(k_vMethSynth_rev) 
+vPGDH: cpg ->(cnadp*cytosol*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadphinh*vPGDH_rmaxPGDH/((cpg + vPGDH_KPGDHpg)*(catp*cnadph*vPGDH_KPGDHnadp + catp*vPGDH_KPGDHnadp*vPGDH_KPGDHnadphinh + cnadp*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadphinh + cnadph*vPGDH_KPGDHatpinh*vPGDH_KPGDHnadp + vPGDH_KPGDHatpinh*vPGDH_KPGDHnadp*vPGDH_KPGDHnadphinh))) cribu5p
+vPGDH_rev: cribu5p ->(k_vPGDH_rev) cpg
+vR5PI: cribu5p ->(cytosol*vR5PI_rmaxR5PI) crib5p
+vR5PI_rev: crib5p ->(cytosol*vR5PI_rmaxR5PI/vR5PI_KR5PIeq) cribu5p
+vRu5P: cribu5p ->(cytosol*vRu5P_rmaxRu5P) cxyl5p
+vRu5P_rev: cxyl5p ->(cytosol*vRu5P_rmaxRu5P/vRu5P_KRu5Peq) cribu5p
+vPPK: crib5p ->(cytosol*vPPK_rmaxRPPK/(crib5p + vPPK_KRPPKrib5p)) 
+vPPK_rev:  ->(k_vPPK_rev) crib5p
+vG1PAT: cg1p ->(catp*cytosol*vG1PAT_rmaxG1PAT*((cfdp/vG1PAT_KG1PATfdp)**vG1PAT_nG1PATfdp + 1)/((catp + vG1PAT_KG1PATatp)*(cg1p + vG1PAT_KG1PATg1p))) 
+vG1PAT_rev:  ->(k_vG1PAT_rev) cg1p
+vG6P: cg6p ->(cytosol*vG6P_mu) 
+vG6P_rev:  ->(k_vG6P_rev) cg6p
+vf6P: cf6p ->(cytosol*vf6P_mu) 
+vf6P_rev:  ->(k_vf6P_rev) cf6p
+vfdP: cfdp ->(cytosol*vfdP_mu) 
+vfdP_rev:  ->(k_vfdP_rev) cfdp
+vGAP: cgap ->(cytosol*vGAP_mu) 
+vGAP_rev:  ->(k_vGAP_rev) cgap
+vDHAP: cdhap ->(cytosol*vDHAP_mu) 
+vDHAP_rev:  ->(k_vDHAP_rev) cdhap
+vPGP: cpgp ->(cytosol*vPGP_mu) 
+vPGP_rev:  ->(k_vPGP_rev) cpgp
+vPG3: cpg3 ->(cytosol*vPG3_mu) 
+vPG3_rev:  ->(k_vPG3_rev) cpg3
+vpg2: cpg2 ->(cytosol*vpg2_mu) 
+vpg2_rev:  ->(k_vpg2_rev) cpg2
+vPEP: cpep ->(cytosol*vPEP_mu) 
+vPEP_rev:  ->(k_vPEP_rev) cpep
+vRibu5p: cribu5p ->(cytosol*vRibu5p_mu) 
+vRibu5p_rev:  ->(k_vRibu5p_rev) cribu5p
+vRIB5P: crib5p ->(cytosol*vRIB5P_mu) 
+vRIB5P_rev:  ->(k_vRIB5P_rev) crib5p
+vXYL5P: cxyl5p ->(cytosol*vXYL5P_mu) 
+vXYL5P_rev:  ->(k_vXYL5P_rev) cxyl5p
+vSED7P: csed7p ->(cytosol*vSED7P_mu) 
+vSED7P_rev:  ->(k_vSED7P_rev) csed7p
+vpyr: cpyr ->(cytosol*vpyr_mu) 
+vpyr_rev:  ->(k_vpyr_rev) cpyr
+vPG: cpg ->(cytosol*vPG_mu) 
+vPG_rev:  ->(k_vPG_rev) cpg
+vE4P: ce4p ->(cytosol*vE4P_mu) 
+vE4P_rev:  ->(k_vE4P_rev) ce4p
+vGLP: cg1p ->(cytosol*vGLP_mu) 
+vGLP_rev:  ->(k_vGLP_rev) cg1p
+vEXTER:  ->(extracellular*vEXTER_Dil*vEXTER_cfeed) cglcex
+vEXTER_rev: cglcex ->(extracellular*vEXTER_Dil) 

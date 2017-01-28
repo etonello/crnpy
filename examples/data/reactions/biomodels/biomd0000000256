@@ -1,112 +1,112 @@
-ProCaspase3_Production:  ->(cell*k1) ProCasp3
-ProCaspase3_Production_rev: ProCasp3 ->(cell*k1r) 
-XIAP_Production:  ->(cell*k2) XIAP
-XIAP_Production_rev: XIAP ->(cell*k2r) 
-reaction3: Casp9_p35_p12_ + ProCasp3 ->(cell*k3) C3 + Casp9_p35_p12_
-reaction3_rev: C3 + Casp9_p35_p12_ -> Casp9_p35_p12_ + ProCasp3
-reaction4: C3 + Casp9_p35_p12_ ->(cell*k4) C3 + Casp9_p35_p10_
-reaction4_rev: C3 + Casp9_p35_p10_ -> C3 + Casp9_p35_p12_
-reaction5: Casp9_p35_p10_ + ProCasp3 ->(cell*k5) C3 + Casp9_p35_p10_
-reaction5_rev: C3 + Casp9_p35_p10_ -> Casp9_p35_p10_ + ProCasp3
-reaction6: C3 + ProCasp3 ->(cell*k6) 2C3
-reaction6_rev: 2C3 -> C3 + ProCasp3
-reaction7: C3 + XIAP ->(cell*k7) XIAP_Casp3
-reaction7_rev: XIAP_Casp3 ->(cell*k7r) C3 + XIAP
-reaction8: C3 + XIAP_Casp9 ->(cell*k8) XIAP_Casp9_Casp3
-reaction8_rev: XIAP_Casp9_Casp3 ->(cell*k8r) C3 + XIAP_Casp9
-reaction9: C3 + XIAP_p2_fragment ->(cell*k9) XIAP_p2frag_Casp3
-reaction9_rev: XIAP_p2frag_Casp3 ->(cell*k9r) C3 + XIAP_p2_fragment
-reaction10: BIR12 + C3 ->(cell*k10) BIR12_Casp3
-reaction10_rev: BIR12_Casp3 ->(cell*k10r) BIR12 + C3
+reaction1:  ->(cell*k1) PC3
+reaction1_rev: PC3 ->(cell*k1r) 
+reaction2:  ->(cell*k2) XIAP
+reaction2_rev: XIAP ->(cell*k2r) 
+reaction3: C9 + PC3 ->(cell*k3) C3 + C9
+reaction3_rev: C3 + C9 ->(k_reaction3_rev) C9 + PC3
+reaction4: C3 + C9 ->(cell*k4) C3 + C9P
+reaction4_rev: C3 + C9P ->(k_reaction4_rev) C3 + C9
+reaction5: C9P + PC3 ->(cell*k5) C3 + C9P
+reaction5_rev: C3 + C9P ->(k_reaction5_rev) C9P + PC3
+reaction6: C3 + PC3 ->(cell*k6) 2C3
+reaction6_rev: 2C3 ->(k_reaction6_rev) C3 + PC3
+reaction7: C3 + XIAP ->(cell*k7) XIAP_C3
+reaction7_rev: XIAP_C3 ->(cell*k7r) C3 + XIAP
+reaction8: C3 + XIAP_C9 ->(cell*k8) XIAP_C9_C3
+reaction8_rev: XIAP_C9_C3 ->(cell*k8r) C3 + XIAP_C9
+reaction9: C3 + XIAP_p2frag ->(cell*k9) XIAP_p2frag_C3
+reaction9_rev: XIAP_p2frag_C3 ->(cell*k9r) C3 + XIAP_p2frag
+reaction10: BIR12 + C3 ->(cell*k10) BIR12_C3
+reaction10_rev: BIR12_C3 ->(cell*k10r) BIR12 + C3
 reaction11: C3 + XIAP ->(cell*k11) BIR12 + BIR3R + C3
-reaction11_rev: BIR12 + BIR3R + C3 -> C3 + XIAP
-reaction12: C3 + XIAP_Casp9 ->(cell*k12) BIR12 + BIR3R_Casp9 + C3
-reaction12_rev: BIR12 + BIR3R_Casp9 + C3 -> C3 + XIAP_Casp9
-reaction13: C3 + XIAP_Casp3 ->(cell*k13) BIR12_Casp3 + BIR3R + C3
-reaction13_rev: BIR12_Casp3 + BIR3R + C3 -> C3 + XIAP_Casp3
-reaction14: C3 + XIAP_p2_fragment ->(cell*k14) BIR12 + BIR3R_p2frag + C3
-reaction14_rev: BIR12 + BIR3R_p2frag + C3 -> C3 + XIAP_p2_fragment
-reaction15: C3 + XIAP_p2frag_Casp3 ->(cell*k15) BIR12_Casp3 + BIR3R_p2frag + C3
-reaction15_rev: BIR12_Casp3 + BIR3R_p2frag + C3 -> C3 + XIAP_p2frag_Casp3
-reaction16: C3 + XIAP_Casp9_Casp3 ->(cell*k16) BIR12_Casp3 + BIR3R_Casp9 + C3
-reaction16_rev: BIR12_Casp3 + BIR3R_Casp9 + C3 -> C3 + XIAP_Casp9_Casp3
-reaction17: C3 + XIAP_2_SMAC ->(cell*k17) BIR12_SMAC + BIR3R_SMAC + C3
-reaction17_rev: BIR12_SMAC + BIR3R_SMAC + C3 -> C3 + XIAP_2_SMAC
-reaction18: C3 + XIAP_Casp9_Casp3 ->(cell*k18) C3 + Casp9_p35_p10_ + XIAP_p2frag_Casp3
-reaction18_rev: C3 + Casp9_p35_p10_ + XIAP_p2frag_Casp3 -> C3 + XIAP_Casp9_Casp3
-reaction19: C3 + XIAP_Casp9 ->(cell*k19) C3 + Casp9_p35_p10_ + XIAP_p2_fragment
-reaction19_rev: C3 + Casp9_p35_p10_ + XIAP_p2_fragment -> C3 + XIAP_Casp9
-reaction20: BIR3R_Casp9 + C3 ->(cell*k20) BIR3R_p2frag + C3 + Casp9_p35_p10_
-reaction20_rev: BIR3R_p2frag + C3 + Casp9_p35_p10_ -> BIR3R_Casp9 + C3
-reaction21: Casp9_p35_p12_ + XIAP ->(cell*k21) XIAP_Casp9
-reaction21_rev: XIAP_Casp9 ->(cell*k21r) Casp9_p35_p12_ + XIAP
-reaction22: Casp9_p35_p12_ + XIAP_Casp3 ->(cell*k22) XIAP_Casp9_Casp3
-reaction22_rev: XIAP_Casp9_Casp3 ->(cell*k22r) Casp9_p35_p12_ + XIAP_Casp3
-reaction23: BIR3R + Casp9_p35_p12_ ->(cell*k23) BIR3R_Casp9
-reaction23_rev: BIR3R_Casp9 ->(cell*k23r) BIR3R + Casp9_p35_p12_
+reaction11_rev: BIR12 + BIR3R + C3 ->(k_reaction11_rev) C3 + XIAP
+reaction12: C3 + XIAP_C9 ->(cell*k12) BIR12 + BIR3R_C9 + C3
+reaction12_rev: BIR12 + BIR3R_C9 + C3 ->(k_reaction12_rev) C3 + XIAP_C9
+reaction13: C3 + XIAP_C3 ->(cell*k13) BIR12_C3 + BIR3R + C3
+reaction13_rev: BIR12_C3 + BIR3R + C3 ->(k_reaction13_rev) C3 + XIAP_C3
+reaction14: C3 + XIAP_p2frag ->(cell*k14) BIR12 + BIR3R_p2frag + C3
+reaction14_rev: BIR12 + BIR3R_p2frag + C3 ->(k_reaction14_rev) C3 + XIAP_p2frag
+reaction15: C3 + XIAP_p2frag_C3 ->(cell*k15) BIR12_C3 + BIR3R_p2frag + C3
+reaction15_rev: BIR12_C3 + BIR3R_p2frag + C3 ->(k_reaction15_rev) C3 + XIAP_p2frag_C3
+reaction16: C3 + XIAP_C9_C3 ->(cell*k16) BIR12_C3 + BIR3R_C9 + C3
+reaction16_rev: BIR12_C3 + BIR3R_C9 + C3 ->(k_reaction16_rev) C3 + XIAP_C9_C3
+reaction17: C3 + XIAP_2SMAC ->(cell*k17) BIR12_SMAC + BIR3R_SMAC + C3
+reaction17_rev: BIR12_SMAC + BIR3R_SMAC + C3 ->(k_reaction17_rev) C3 + XIAP_2SMAC
+reaction18: C3 + XIAP_C9_C3 ->(cell*k18) C3 + C9P + XIAP_p2frag_C3
+reaction18_rev: C3 + C9P + XIAP_p2frag_C3 ->(k_reaction18_rev) C3 + XIAP_C9_C3
+reaction19: C3 + XIAP_C9 ->(cell*k19) C3 + C9P + XIAP_p2frag
+reaction19_rev: C3 + C9P + XIAP_p2frag ->(k_reaction19_rev) C3 + XIAP_C9
+reaction20: BIR3R_C9 + C3 ->(cell*k20) BIR3R_p2frag + C3 + C9P
+reaction20_rev: BIR3R_p2frag + C3 + C9P ->(k_reaction20_rev) BIR3R_C9 + C3
+reaction21: C9 + XIAP ->(cell*k21) XIAP_C9
+reaction21_rev: XIAP_C9 ->(cell*k21r) C9 + XIAP
+reaction22: C9 + XIAP_C3 ->(cell*k22) XIAP_C9_C3
+reaction22_rev: XIAP_C9_C3 ->(cell*k22r) C9 + XIAP_C3
+reaction23: BIR3R + C9 ->(cell*k23) BIR3R_C9
+reaction23_rev: BIR3R_C9 ->(cell*k23r) BIR3R + C9
 reaction24: BIR3R_p2frag ->(cell*k24) BIR3R
-reaction24_rev: BIR3R -> BIR3R_p2frag
-reaction25: XIAP_p2_fragment ->(cell*k25) XIAP
-reaction25_rev: XIAP -> XIAP_p2_fragment
-reaction26: 2SMAC + XIAP ->(cell*k26) XIAP_2_SMAC
-reaction26_rev: XIAP_2_SMAC ->(cell*k26r) 2SMAC + XIAP
-reaction27: 2SMAC + XIAP_Casp9 ->(cell*k27) Casp9_p35_p12_ + XIAP_2_SMAC
-reaction27_rev: Casp9_p35_p12_ + XIAP_2_SMAC ->(cell*k27r) 2SMAC + XIAP_Casp9
-reaction28: 2SMAC + XIAP_Casp3 ->(cell*k28) C3 + XIAP_2_SMAC
-reaction28_rev: C3 + XIAP_2_SMAC ->(cell*k28r) 2SMAC + XIAP_Casp3
-reaction29: 2SMAC + XIAP_Casp9_Casp3 ->(cell*k29) C3 + Casp9_p35_p12_ + XIAP_2_SMAC
-reaction29_rev: C3 + Casp9_p35_p12_ + XIAP_2_SMAC ->(cell*k29r) 2SMAC + XIAP_Casp9_Casp3
+reaction24_rev: BIR3R ->(k_reaction24_rev) BIR3R_p2frag
+reaction25: XIAP_p2frag ->(cell*k25) XIAP
+reaction25_rev: XIAP ->(k_reaction25_rev) XIAP_p2frag
+reaction26: 2SMAC + XIAP ->(cell*k26) XIAP_2SMAC
+reaction26_rev: XIAP_2SMAC ->(cell*k26r) 2SMAC + XIAP
+reaction27: 2SMAC + XIAP_C9 ->(cell*k27) C9 + XIAP_2SMAC
+reaction27_rev: C9 + XIAP_2SMAC ->(cell*k27r) 2SMAC + XIAP_C9
+reaction28: 2SMAC + XIAP_C3 ->(cell*k28) C3 + XIAP_2SMAC
+reaction28_rev: C3 + XIAP_2SMAC ->(cell*k28r) 2SMAC + XIAP_C3
+reaction29: 2SMAC + XIAP_C9_C3 ->(cell*k29) C3 + C9 + XIAP_2SMAC
+reaction29_rev: C3 + C9 + XIAP_2SMAC ->(cell*k29r) 2SMAC + XIAP_C9_C3
 reaction30: BIR12 + SMAC ->(cell*k30) BIR12_SMAC
 reaction30_rev: BIR12_SMAC ->(cell*k30r) BIR12 + SMAC
 reaction31: BIR3R + SMAC ->(cell*k31) BIR3R_SMAC
 reaction31_rev: BIR3R_SMAC ->(cell*k31r) BIR3R + SMAC
-reaction32: BIR12_Casp3 + SMAC ->(cell*k32) BIR12_SMAC + C3
-reaction32_rev: BIR12_SMAC + C3 ->(cell*k32r) BIR12_Casp3 + SMAC
-reaction33: BIR3R_Casp9 + SMAC ->(cell*k33) BIR3R_SMAC + Casp9_p35_p12_
-reaction33_rev: BIR3R_SMAC + Casp9_p35_p12_ ->(cell*k33r) BIR3R_Casp9 + SMAC
-reaction34: 2SMAC + XIAP_p2_fragment ->(cell*k34) XIAP_p2frag_2_SMAC
-reaction34_rev: XIAP_p2frag_2_SMAC ->(cell*k34r) 2SMAC + XIAP_p2_fragment
-reaction35: Casp9_p35_p10_ ->(cell*k35) 
-reaction35_rev:  -> Casp9_p35_p10_
-reaction36: Casp9_p35_p12_ ->(cell*k36) 
-reaction36_rev:  -> Casp9_p35_p12_
+reaction32: BIR12_C3 + SMAC ->(cell*k32) BIR12_SMAC + C3
+reaction32_rev: BIR12_SMAC + C3 ->(cell*k32r) BIR12_C3 + SMAC
+reaction33: BIR3R_C9 + SMAC ->(cell*k33) BIR3R_SMAC + C9
+reaction33_rev: BIR3R_SMAC + C9 ->(cell*k33r) BIR3R_C9 + SMAC
+reaction34: 2SMAC + XIAP_p2frag ->(cell*k34) XIAP_p2frag_2SMAC
+reaction34_rev: XIAP_p2frag_2SMAC ->(cell*k34r) 2SMAC + XIAP_p2frag
+reaction35: C9P ->(cell*k35) 
+reaction35_rev:  ->(k_reaction35_rev) C9P
+reaction36: C9 ->(cell*k36) 
+reaction36_rev:  ->(k_reaction36_rev) C9
 reaction37: C3 ->(cell*k37) 
-reaction37_rev:  -> C3
-reaction38: XIAP_Casp3 ->(cell*k38) 
-reaction38_rev:  -> XIAP_Casp3
-reaction39: XIAP_Casp9_Casp3 ->(cell*k39) 
-reaction39_rev:  -> XIAP_Casp9_Casp3
-reaction40: XIAP_Casp9 ->(cell*k40) 
-reaction40_rev:  -> XIAP_Casp9
-reaction41: XIAP_p2_fragment ->(cell*k41) 
-reaction41_rev:  -> XIAP_p2_fragment
-reaction42: XIAP_p2frag_Casp3 ->(cell*k42) 
-reaction42_rev:  -> XIAP_p2frag_Casp3
-reaction43: XIAP_p2frag_2_SMAC ->(cell*k43) 
-reaction43_rev:  -> XIAP_p2frag_2_SMAC
-reaction44: XIAP_2_SMAC ->(cell*k44) 
-reaction44_rev:  -> XIAP_2_SMAC
+reaction37_rev:  ->(k_reaction37_rev) C3
+reaction38: XIAP_C3 ->(cell*k38) 
+reaction38_rev:  ->(k_reaction38_rev) XIAP_C3
+reaction39: XIAP_C9_C3 ->(cell*k39) 
+reaction39_rev:  ->(k_reaction39_rev) XIAP_C9_C3
+reaction40: XIAP_C9 ->(cell*k40) 
+reaction40_rev:  ->(k_reaction40_rev) XIAP_C9
+reaction41: XIAP_p2frag ->(cell*k41) 
+reaction41_rev:  ->(k_reaction41_rev) XIAP_p2frag
+reaction42: XIAP_p2frag_C3 ->(cell*k42) 
+reaction42_rev:  ->(k_reaction42_rev) XIAP_p2frag_C3
+reaction43: XIAP_p2frag_2SMAC ->(cell*k43) 
+reaction43_rev:  ->(k_reaction43_rev) XIAP_p2frag_2SMAC
+reaction44: XIAP_2SMAC ->(cell*k44) 
+reaction44_rev:  ->(k_reaction44_rev) XIAP_2SMAC
 reaction45: BIR12 ->(cell*k45) 
-reaction45_rev:  -> BIR12
+reaction45_rev:  ->(k_reaction45_rev) BIR12
 reaction46: BIR3R ->(cell*k46) 
-reaction46_rev:  -> BIR3R
+reaction46_rev:  ->(k_reaction46_rev) BIR3R
 reaction47: BIR12_SMAC ->(cell*k47) 
-reaction47_rev:  -> BIR12_SMAC
+reaction47_rev:  ->(k_reaction47_rev) BIR12_SMAC
 reaction48: BIR3R_SMAC ->(cell*k48) 
-reaction48_rev:  -> BIR3R_SMAC
-reaction49: BIR12_Casp3 ->(cell*k49) 
-reaction49_rev:  -> BIR12_Casp3
-reaction50: BIR3R_Casp9 ->(cell*k50) 
-reaction50_rev:  -> BIR3R_Casp9
+reaction48_rev:  ->(k_reaction48_rev) BIR3R_SMAC
+reaction49: BIR12_C3 ->(cell*k49) 
+reaction49_rev:  ->(k_reaction49_rev) BIR12_C3
+reaction50: BIR3R_C9 ->(cell*k50) 
+reaction50_rev:  ->(k_reaction50_rev) BIR3R_C9
 reaction51: BIR3R_p2frag ->(cell*k51) 
-reaction51_rev:  -> BIR3R_p2frag
+reaction51_rev:  ->(k_reaction51_rev) BIR3R_p2frag
 reaction52: SMAC ->(cell*k52) 
-reaction52_rev:  -> SMAC
-reaction53: C3 + Casp3_Substrate ->(cell*k53) C3 + Clevage_Products
-reaction53_rev: C3 + Clevage_Products -> C3 + Casp3_Substrate
-SMAC_release: SMAC_in_mitochondrium ->(cell*log(2)/t_SMAC_0_5) SMAC
-SMAC_release_rev: SMAC -> SMAC_in_mitochondrium
-Apo_formation: APAF1 + ProCasp9 ->(cell*limiting_factor_for_apoptosome_formation*log(2)/(APAF1*ProCasp9*t_Apop_0_5)) Casp9_p35_p12_
-Apo_formation_rev: Casp9_p35_p12_ -> APAF1 + ProCasp9
-CytC_release: Cytochrome_C_in_mitochondrium ->(cell*log(2)/th_CytC) cytosolic_Cytochrome_C
-CytC_release_rev: cytosolic_Cytochrome_C -> Cytochrome_C_in_mitochondrium
+reaction52_rev:  ->(k_reaction52_rev) SMAC
+reaction53: C3 + Substrate ->(cell*k53) C3 + ClvgPrds
+reaction53_rev: C3 + ClvgPrds ->(k_reaction53_rev) C3 + Substrate
+SMAC_release: SMAC_mito ->(cell*ln(2)/th_SMAC) SMAC
+SMAC_release_rev: SMAC ->(k_SMAC_release_rev) SMAC_mito
+Apo_formation: APAF1 + PC9 ->(apo_lim*cell*ln(2)/(APAF1*PC9*th_Apop)) C9
+Apo_formation_rev: C9 ->(k_Apo_formation_rev) APAF1 + PC9
+CytC_release: CytC_mit ->(cell*ln(2)/th_CytC) CytC_cell
+CytC_release_rev: CytC_cell ->(k_CytC_release_rev) CytC_mit

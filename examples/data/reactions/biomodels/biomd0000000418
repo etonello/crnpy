@@ -1,2 +1,2 @@
-___r1:  ->(ks*(k0 + (dspspkd/ka)**h)/((dspspkd/ka)**h + 1)) P
+___r1:  ->(ks*(k0 + (dspspkd/ka)**h)/((dspspkd/ka)**h + 1.0)) P
 ___r2: P ->(___r2___RATE__) 

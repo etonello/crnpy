@@ -1,32 +1,32 @@
-binding_MAPKK_on_Tyr_site_of_MAPK: MAPK + MAPKK ->(cell*k1) MAPK_MAPKK_Y
-binding_MAPKK_on_Tyr_site_of_MAPK_rev: MAPK_MAPKK_Y ->(cell*k_1) MAPK + MAPKK
-tyr_phosphorylation_of_MAPK: MAPK_MAPKK_Y ->(cell*k2) MAPKK + MAPK_PY
-binding_of_MAPKK_on_MAPK_PY: MAPKK + MAPK_PY ->(cell*k3) MAPK_PY_MAPKK
-binding_of_MAPKK_on_MAPK_PY_rev: MAPK_PY_MAPKK ->(cell*k_3) MAPKK + MAPK_PY
-thr_phosphorylation_of_MAPK: MAPK_PY_MAPKK ->(cell*k4) MAPKK + MAPK_PP
-binding_of_MAPKK_on_Thr_site_of_MAPK: MAPK + MAPKK ->(cell*k5) MAPK_MAPKK_T
-binding_of_MAPKK_on_Thr_site_of_MAPK_rev: MAPK_MAPKK_T ->(cell*k_5) MAPK + MAPKK
-thr_phosphorylation_of_MAPK: MAPK_MAPKK_T ->(cell*k6) MAPKK + MAPK_PT
-binding_MAPK_PT_and_MAPKK: MAPKK + MAPK_PT ->(cell*k7) MAPK_PT_MAPKK
-binding_MAPK_PT_and_MAPKK_rev: MAPK_PT_MAPKK ->(cell*k_7) MAPKK + MAPK_PT
-tyr_phosphorylation_of_MAPK: MAPK_PT_MAPKK ->(cell*k8) MAPKK + MAPK_PP
-binding_of_MKP_on_Tyr_site_of_MAPK_PP: MAPK_PP + MKP ->(cell*h1) MAPK_PP_MKP_T
-binding_of_MKP_on_Tyr_site_of_MAPK_PP_rev: MAPK_PP_MKP_T ->(cell*h_1) MAPK_PP + MKP
-dephosphorylation_of_Tyr_on_MAPKK_PP: MAPK_PP_MKP_T ->(cell*h2) MAPK_PT_MKP_Y
-dissociation_MAPK_PT_and_MKP: MAPK_PT_MKP_Y ->(cell*h3) MAPK_PT + MKP
-dissociation_MAPK_PT_and_MKP_rev: MAPK_PT + MKP ->(cell*h_3) MAPK_PT_MKP_Y
-binding_of_MKP_on_Thr_site_of_MAPK_PT: MAPK_PT + MKP ->(cell*h4) MAPK_PT_MKP_T
-binding_of_MKP_on_Thr_site_of_MAPK_PT_rev: MAPK_PT_MKP_T ->(cell*h_4) MAPK_PT + MKP
-dephosphorylation_of_MAPK_PT: MAPK_PT_MKP_T ->(cell*h5) MAPK_MKP_T
-dissociation_MAPK_and_MKP: MAPK_MKP_T ->(cell*h6) MAPK + MKP
-dissociation_MAPK_and_MKP_rev: MAPK + MKP ->(cell*h_6) MAPK_MKP_T
-binding_of_MKP_on_the_Tyr_site_of_MAPK_PY: MAPK_PY + MKP ->(cell*h7) MAPK_PY_MKP_Y
-binding_of_MKP_on_the_Tyr_site_of_MAPK_PY_rev: MAPK_PY_MKP_Y ->(cell*h_7) MAPK_PY + MKP
-dephosphorylation_of_MAPK_PY: MAPK_PY_MKP_Y ->(cell*h8) MAPK_MKP_Y
-Dissociation_MAPK_and_MKP: MAPK_MKP_Y ->(cell*h9) MAPK + MKP
-Dissociation_MAPK_and_MKP_rev: MAPK + MKP ->(cell*h_9) MAPK_MKP_Y
-binding_of_MKP_on_Thr_site_of_MAPK_PP: MAPK_PP + MKP ->(cell*h10) MAPK_PP_MKP_Y
-binding_of_MKP_on_Thr_site_of_MAPK_PP_rev: MAPK_PP_MKP_Y ->(cell*h_10) MAPK_PP + MKP
-dephosphorylation_of_Thr_on_MAPKK_PP: MAPK_PP_MKP_Y ->(cell*h11) MAPK_PY_MKP_T
-dissociation_MAPK_PY_and_MKP: MAPK_PY_MKP_T ->(cell*h12) MAPK_PY + MKP
-dissociation_MAPK_PY_and_MKP_rev: MAPK_PY + MKP ->(cell*h_12) MAPK_PY_MKP_T
+reaction_0000001: M + MAPKK ->(cell*k1) M_MAPKK_Y
+reaction_0000001_rev: M_MAPKK_Y ->(cell*k_1) M + MAPKK
+reaction_0000002: M_MAPKK_Y ->(cell*k2) MAPKK + MpY
+reaction_0000003: MAPKK + MpY ->(cell*k3) MpY_MAPKK
+reaction_0000003_rev: MpY_MAPKK ->(cell*k_3) MAPKK + MpY
+reaction_0000004: MpY_MAPKK ->(cell*k4) MAPKK + Mpp
+reaction_0000005: M + MAPKK ->(cell*k5) M_MAPKK_T
+reaction_0000005_rev: M_MAPKK_T ->(cell*k_5) M + MAPKK
+reaction_0000006: M_MAPKK_T ->(cell*k6) MAPKK + MpT
+reaction_0000007: MAPKK + MpT ->(cell*k7) MpT_MAPKK
+reaction_0000007_rev: MpT_MAPKK ->(cell*k_7) MAPKK + MpT
+reaction_0000008: MpT_MAPKK ->(cell*k8) MAPKK + Mpp
+reaction_0000009: MKP + Mpp ->(cell*h1) Mpp_MKP_Y
+reaction_0000009_rev: Mpp_MKP_Y ->(cell*h_1) MKP + Mpp
+reaction_0000010: Mpp_MKP_Y ->(cell*h2) MpT_MKP_Y
+reaction_0000011: MpT_MKP_Y ->(cell*h3) MKP + MpT
+reaction_0000011_rev: MKP + MpT ->(cell*h_3) MpT_MKP_Y
+reaction_0000013: MKP + MpT ->(cell*h4) MpT_MKP_T
+reaction_0000013_rev: MpT_MKP_T ->(cell*h_4) MKP + MpT
+reaction_0000012: MpT_MKP_T ->(cell*h5) M_MKP_T
+reaction_0000015: M_MKP_T ->(cell*h6) M + MKP
+reaction_0000015_rev: M + MKP ->(cell*h_6) M_MKP_T
+reaction_0000017: MKP + MpY ->(cell*h7) MpY_MKP_Y
+reaction_0000017_rev: MpY_MKP_Y ->(cell*h_7) MKP + MpY
+reaction_0000014: MpY_MKP_Y ->(cell*h8) M_MKP_Y
+reaction_0000019: M_MKP_Y ->(cell*h9) M + MKP
+reaction_0000019_rev: M + MKP ->(cell*h_9) M_MKP_Y
+reaction_0000020: MKP + Mpp ->(cell*h10) Mpp_MKP_T
+reaction_0000020_rev: Mpp_MKP_T ->(cell*h_10) MKP + Mpp
+reaction_0000021: Mpp_MKP_T ->(cell*h11) MpY_MKP_T
+reaction_0000022: MpY_MKP_T ->(cell*h12) MKP + MpY
+reaction_0000022_rev: MKP + MpY ->(cell*h_12) MpY_MKP_T

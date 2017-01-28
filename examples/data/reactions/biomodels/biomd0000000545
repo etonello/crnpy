@@ -1,5 +1,5 @@
-r1:  ->(-CS*UV*kdr1*n1 - CS*kdr1 + FHY3*UV*ks1*n3 + HY5*UV*ks1*n3 + ks1) CS
-r2:  ->(-RUP*kdr2 + UCS*UV*ks2 + ks2) RUP
+r1:  ->(-CS*kdr1*(UV*n1 + 1) + ks1*(UV*n3*(FHY3 + HY5) + 1)) CS
+r2:  ->(-RUP*kdr2 + ks2*(UCS*UV + 1)) RUP
 r3: 2UVR8M ->(k1) UVR8D
 r4: 2CS + 2UVR8M ->(ka1) UCS
 r4_rev: UCS ->(kd1) 2CS + 2UVR8M
@@ -8,6 +8,6 @@ r5_rev: CDCS ->(kd2) CD + 2CS
 r6: RUP + UVR8M ->(ka3) UR
 r7: 2UR ->(kd3) 2RUP + UVR8D
 r8: UVR8D ->(k2) 2UVR8M
-r9:  ->((-CDCS*CDW*HY5*UCS*kdr3 - 2*CDCS*CDW*HY5*kdr3*ksr + CDCS*CDW*UCS*UV*ks3*n2 + CDCS*CDW*UCS*ks3 + CDCS*CDW*UV*ks3*ksr*n2 + CDCS*CDW*ks3*ksr - CDCS*HY5*kdr3*kdr3b*ksr + CDCS*UCS*UV*kdr3b*ks3*n2 + CDCS*UCS*kdr3b*ks3 + CDCS*UV*kdr3b*ks3*ksr*n2 + CDCS*kdr3b*ks3*ksr - CDW*HY5*kdr3*kdr3a*ksr + CDW*UCS*UV*kdr3a*ks3*n2 + CDW*UCS*kdr3a*ks3 + CDW*UV*kdr3a*ks3*ksr*n2 + CDW*kdr3a*ks3*ksr + HY5*UCS*kdr3*kdr3a*kdr3b + UCS*UV*kdr3a*kdr3b*ks3*n2 + UCS*kdr3a*kdr3b*ks3 + UV*kdr3a*kdr3b*ks3*ksr*n2 + kdr3a*kdr3b*ks3*ksr)/((CDCS + kdr3a)*(CDW + kdr3b)*(UCS + ksr))) HY5
+r9:  ->(-HY5*kdr3*(CDCS/(CDCS + kdr3a) + CDW/(CDW + kdr3b) - UCS/(UCS + ksr)) + ks3*(UV*n2 + 1)) HY5
 r10: CD + DWD ->(ka4) CDW
 r10_rev: CDW ->(kd4) CD + DWD

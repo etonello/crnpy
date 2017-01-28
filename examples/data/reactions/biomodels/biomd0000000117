@@ -1,6 +1,6 @@
-InsP3_modulated_release_of_Ca_from_the_InsP3_sensitive_store:  ->(Cytosol*beta*v1) Ca_in_the_cytosol
-Constant_input_of_Ca_from_the_extracellular_medium:  ->(Cytosol*v0) Ca_in_the_cytosol
-Leak_Ca_from_pool_to_cytosol: Ca_in_the_InsP3_insensitive_pool ->(Cytosol*kf) Ca_in_the_cytosol
-Pumping_Ca_into_the_InsP3_insensitive_store: Ca_in_the_cytosol ->(Ca_in_the_cytosol**n*VM2*intracellular_Ca_storepool/(Ca_in_the_cytosol*(Ca_in_the_cytosol**n + K2**n))) Ca_in_the_InsP3_insensitive_pool
-Release_of_Ca_from_the_pool_into_the_cytosol: Ca_in_the_InsP3_insensitive_pool ->(Ca_in_the_InsP3_insensitive_pool**m*Ca_in_the_cytosol**p*Cytosol*VM3/(Ca_in_the_InsP3_insensitive_pool*(Ca_in_the_InsP3_insensitive_pool**m + KR**m)*(Ca_in_the_cytosol**p + KA**p))) Ca_in_the_cytosol
-Transport_of_cytosolic_ca_into_the_extracellular_medium: Ca_in_the_cytosol ->(extracellular*k) 
+reaction_0000001:  ->(Cytosol*beta*v1) z
+reaction_0000002:  ->(Cytosol*v0) z
+reaction_0000003: y ->(Cytosol*kf) z
+reaction_0000004: z ->(VM2*intracellular_Ca_storepool*z**n/(z*(K2**n + z**n))) y
+reaction_0000005: y ->(Cytosol*VM3*y**m*z**p/(y*(KA**p + z**p)*(KR**m + y**m))) z
+reaction_0000006: z ->(extracellular*k) 

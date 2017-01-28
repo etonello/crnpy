@@ -1,18 +1,18 @@
-R1: SerE ->(Vm1/(SerE + km1)) Ser
-R2: Ser ->(Vm2/(Ser + km2)) PS
-R3: Ser ->(Vm3/(Ser + km3)) Etn
-R4: Etn ->(Vm4/(Etn + km4)) PEtn
-R5: PEtn ->(Vm5/(PEtn + km5)) PCho
-R6: PS ->(Vm6/(PS + km6)) PE
-R7: PEtn ->(Vm7/(PEtn + km7)) PE
-R8: PCho ->(Vm8/(PCho + km8)) PC
-R9: PE ->(Vm9/(PE + km9)) PC
-R10: PC ->(Vm10/(PC + km10)) PS
-R11: PE ->(Vm11/(PE + km11)) PS
-R12: PC ->(Vm12/(PC + km12)) 
-R13: PS ->(Vm13/(PS + km13)) 
-R14: PE ->(PS*Vm14/(PE*(PS + km14))) 
-R15: ChoE ->(Vm15/(ChoE + km15)) Cho
-R16: Cho ->(Vm16/(Cho + km16)) PCho
-R17: EtnE ->(kf17) Etn
-R17_rev: Etn ->(kb17) EtnE
+mw79830677_2d7e_4f49_9d0b_f05fe026749f: mw73259e20_240e_4f3a_b2e0_9ca248658898 ->(mwee07eca4_0806_4cc3_a6ab_9226ee79be6c/(mw73259e20_240e_4f3a_b2e0_9ca248658898 + mw8f20c25d_9700_4822_b5f9_fe243e001091)) mw15abaa48_d7d0_4845_ae04_c573d289d495
+mw155447fb_ce5b_4ba2_bd74_434951481a78: mw15abaa48_d7d0_4845_ae04_c573d289d495 ->(mw7ce1b6a3_e65e_4aaa_9c32_aeefb420f0ea/(mw15abaa48_d7d0_4845_ae04_c573d289d495 + mw85485398_9f97_408c_bca6_90f0a8377eae)) mwfcfaf604_14d4_47a6_b021_226d1fb5497c
+mw4c9aa283_577e_4b6c_ae5a_c96f62dbbb08: mw15abaa48_d7d0_4845_ae04_c573d289d495 ->(mw798d0b02_925e_471b_a372_526d681cc370/(mw15abaa48_d7d0_4845_ae04_c573d289d495 + mwd3807289_133c_4621_8087_366621f553d3)) mw8796c919_9251_4970_8f87_0bca9ecfeb5c
+mw55fba323_0865_4254_a6e9_09acd2b4a10f: mw8796c919_9251_4970_8f87_0bca9ecfeb5c ->(mw2439178f_a48f_4425_82f9_13267b917b85/(mw5c4edb54_cfd9_43af_b70b_e9ff1b44dc55 + mw8796c919_9251_4970_8f87_0bca9ecfeb5c)) mw849ed3fd_87d9_44d2_9f3e_4d631b900d41
+mwb8420f59_69c3_4707_918c_2e06bedff243: mw849ed3fd_87d9_44d2_9f3e_4d631b900d41 ->(mw961dacfa_f443_4814_ad6c_a27c04e74268/(mw15ba24b5_7a87_479e_9be7_261b12cbdb63 + mw849ed3fd_87d9_44d2_9f3e_4d631b900d41)) mwcb834e43_dc57_45ae_9452_f4c10955caf1
+mwc9170c21_608b_4bd7_b2d0_f359d045da17: mwfcfaf604_14d4_47a6_b021_226d1fb5497c ->(mw9f56ecc5_c22b_4f8c_8b82_90e2a6d9e364/(mw18bbabcb_d229_4d91_99f1_484f2ba8f020 + mwfcfaf604_14d4_47a6_b021_226d1fb5497c)) mwf166ad55_4ff0_49fb_95d2_b657ad7653d5
+mwb47b4c45_fac9_49e6_a6a4_87b9050ddfbb: mw849ed3fd_87d9_44d2_9f3e_4d631b900d41 ->(mwba0debe9_c575_4f5a_a980_e2b6857ff053/(mw849ed3fd_87d9_44d2_9f3e_4d631b900d41 + mwffba86ff_a560_401a_93d6_c0e30bf42c87)) mwf166ad55_4ff0_49fb_95d2_b657ad7653d5
+mw4f62d07e_217b_4602_b6fe_548af112eec8: mwcb834e43_dc57_45ae_9452_f4c10955caf1 ->(mw231a5907_d1ee_4a43_83ab_abb72f19502c/(mwaf289d12_4291_4651_8bd1_82e321e476a4 + mwcb834e43_dc57_45ae_9452_f4c10955caf1)) mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5
+mw307551ca_91cc_4634_bba5_0e3ecd38cfdd: mwf166ad55_4ff0_49fb_95d2_b657ad7653d5 ->(mw1a53a2cb_a3a7_40d7_ae07_4d93ad1123a3/(mw4035a2c9_3cda_467c_83cc_8f9c2902abaf + mwf166ad55_4ff0_49fb_95d2_b657ad7653d5)) mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5
+mw15bb92b6_4cff_4a41_b815_c1d904618e57: mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5 ->(mwf7d1ff9f_1734_4232_9a96_037b31b193b0/(mw7d57aa6b_1bfb_4472_b555_919263d9eaf9 + mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5)) mwfcfaf604_14d4_47a6_b021_226d1fb5497c
+mw106407fc_e33f_45aa_b5ae_258bd4790633: mwf166ad55_4ff0_49fb_95d2_b657ad7653d5 ->(mw5ffad843_5f02_419d_ba99_6e1f9b7e6b7b/(mw3046ca21_42a2_4a4b_89c4_9d6ca3d927c5 + mwf166ad55_4ff0_49fb_95d2_b657ad7653d5)) mwfcfaf604_14d4_47a6_b021_226d1fb5497c
+mwfb854977_51ea_4daa_b84e_3bcb2fcccd39: mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5 ->(mw87bb1238_3292_467e_bfe3_ff7f1e64a351/(mw371071cd_ec20_4517_acc1_08dfdc871e87 + mwee54b5b4_b8c0_41df_8dda_5b160c5e10a5)) 
+mwd71cb6c2_6420_46b9_ab17_eedc7b0fd8dc: mwfcfaf604_14d4_47a6_b021_226d1fb5497c ->(mw5b225cdc_783f_4a15_93db_e960a2398b8e/(mw27f524cb_75b3_401c_8533_99d6f27af654 + mwfcfaf604_14d4_47a6_b021_226d1fb5497c)) 
+mwdd7079dc_8d70_41b7_a369_3334522cdd13: mwf166ad55_4ff0_49fb_95d2_b657ad7653d5 ->(mwc623d82f_a94e_4460_9aed_444597a728c2*mwfcfaf604_14d4_47a6_b021_226d1fb5497c/(mwf166ad55_4ff0_49fb_95d2_b657ad7653d5*(mwbf296afc_5e4f_4819_8028_06b20d7af7ca + mwfcfaf604_14d4_47a6_b021_226d1fb5497c))) 
+mwa25d1a3d_bbd9_41b8_8274_236f9d67bb60: mw919f8a86_e702_4b24_9cd7_adad694fcf9b ->(mw91e15e1e_c73e_4866_ab2b_8225a32b7610/(mw919f8a86_e702_4b24_9cd7_adad694fcf9b + mwf5cecb8f_89f8_4fba_b39b_b517d0bef2ce)) mw812f63db_4cb0_40ad_b92b_9874be969dfe
+mw185e644d_6f10_499f_a3a6_5a47d7ba2eef: mw812f63db_4cb0_40ad_b92b_9874be969dfe ->(mwff26437c_166b_4946_ad35_f13df6145780/(mw284c519a_cc2b_4a98_99ce_5a4471af99e1 + mw812f63db_4cb0_40ad_b92b_9874be969dfe)) mwcb834e43_dc57_45ae_9452_f4c10955caf1
+mw5194cffd_f75a_4c61_b60e_23d5b0fea120: mw08818dfe_fb12_45cc_8c1d_d965f142d0ce ->(mw2cd81e51_eb11_4e2c_b609_b2f802438a6b) mw8796c919_9251_4970_8f87_0bca9ecfeb5c
+mw5194cffd_f75a_4c61_b60e_23d5b0fea120_rev: mw8796c919_9251_4970_8f87_0bca9ecfeb5c ->(mwff99ad6c_8951_4d58_a836_cf2d3d08ac86) mw08818dfe_fb12_45cc_8c1d_d965f142d0ce

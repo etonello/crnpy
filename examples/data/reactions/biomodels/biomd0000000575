@@ -1,58 +1,58 @@
 J1: Alpha_synuclein ->(Alpha_synuclein**g11*Neuronal_cytosol*k1/Alpha_synuclein) Protofibril
 J2: Protofibril ->(Neuronal_cytosol*Protofibril**g22*k2/Protofibril) Fibril
 J3: Fibril + Parkin_synphilin_1_ub ->(Fibril**g23*Neuronal_cytosol*Parkin_synphilin_1_ub**g326*k3/(Fibril*Parkin_synphilin_1_ub)) Lewy_body
-J4: Parkin_sub_ub4 ->(ATP**g415*Neuronal_cytosol*Parkin_sub_ub4**g427*Proteasome**g412*UCH_L1**g430*k4/Parkin_sub_ub4) Fragments + Parkin + 4Ubiquitin
-J6: Ubiquitin + _E1 ->(ATP**g615*Neuronal_cytosol*Ubiquitin**g613*_E1**g614*k6/(Ubiquitin*_E1)) Ub_E1
-J7: Ub_E1 + UbcH8 ->(ATP**g715*Neuronal_cytosol*Ub_E1**g716*UbcH8**g717*k7/(Ub_E1*UbcH8)) UbcH8_Ub + _E1
+J4: Parkin_sub_ub4 ->(ATP**g415*Neuronal_cytosol*Parkin_sub_ub4**g427*Proteasome_0**g412*UCH_L1**g430*k4/Parkin_sub_ub4) Fragments + Parkin + 4Ubiquitin
+J6: E1 + Ubiquitin ->(ATP**g615*E1**g614*Neuronal_cytosol*Ubiquitin**g613*k6/(E1*Ubiquitin)) Ub_E1
+J7: Ub_E1 + UbcH8 ->(ATP**g715*Neuronal_cytosol*Ub_E1**g716*UbcH8**g717*k7/(Ub_E1*UbcH8)) E1 + UbcH8_Ub
 J8: Parkin + Substrate ->(Neuronal_cytosol*Parkin**g819*Substrate**g821*k8/(Parkin*Substrate)) Parkin_sub
 J9: Parkin + Synphilin_1 ->(Neuronal_cytosol*Parkin**g919*Synphilin_1**g920*k9/(Parkin*Synphilin_1)) Parkin_synphilin_1
 J10: Parkin_synphilin_1 + UbcH13_Uev1a_ub ->(Neuronal_cytosol*Parkin_synphilin_1**g1025*UbcH13_Uev1a_ub**g1072*k10/(Parkin_synphilin_1*UbcH13_Uev1a_ub)) Parkin_synphilin_1_ub + UbcH13_Uev1a
 J11: Parkin_sub + UbcH8ub4 ->(Neuronal_cytosol*Parkin_sub**g1124*UbcH8ub4**g1170*k11/(Parkin_sub*UbcH8ub4)) Parkin_sub_ub4 + UbcH8
-J13: L_Tyr + O2 ->(L_Tyr**g1336*Neuronal_cytosol*O2_**g1351*TH**g1335*k13/(L_Tyr*O2)) L_Dopa
+J13: L_Tyr + O2_0 ->(L_Tyr**g1336*Neuronal_cytosol*O2_0**g1351*TH**g1335*k13/(L_Tyr*O2_0)) L_Dopa
 J14: L_Dopa ->(DDC**g1467*L_Dopa**g1437*Neuronal_cytosol*k14/L_Dopa) CO2 + Dopamine
-J15: Dopamine + Vesicle ->(Dopamine**g156*VMAT2**g1545*Vesicle**g1544*k15/(Dopamine*Vesicle)) V_DA
-J16: Bioamines + Vesicle ->(Bioamines**g1643*Vesicle**g1644*k16/(Bioamines*Vesicle)) V_ntox_ba
-J17: Neurotoxins + Vesicle ->(Neurotoxins**g1742*Vesicle**g1744*k17/(Neurotoxins*Vesicle)) V_ntox_ba
-J18: Dopamine + O2 ->(Dopamine**g186*Neuronal_cytosol*O2_**g1851*k18/(Dopamine*O2)) DA_quinone + O2_
-J19: Dopamine + H2O + O2 ->(Dopamine**g196*H2O**g1960*MAO**g1953*Neuronal_cytosol*O2_**g1951*k19/(Dopamine*H2O*O2)) DOPAL + H2O2 + NH3
-J20: Fe2_ + H2O2 ->(Fe2_**g2065*H2O2**g209*Neuronal_cytosol*k20/(Fe2_*H2O2)) Fe3_ + OH_ + OH_radical
-J21: Fe3_ ->(Fe3_**g2166*Neuronal_cytosol*k21/Fe3_) Fe2_
-J22: H2O2 ->(Catalase**g2259*H2O2**g229*Neuronal_cytosol*k22/H2O2) H2O + O2
+J15: Dopamine + Vesicle_0 ->(Dopamine**g156*VMAT2**g1545*Vesicle_0**g1544*k15/(Dopamine*Vesicle_0)) V_DA
+J16: Bioamines + Vesicle_0 ->(Bioamines**g1643*Vesicle_0**g1644*k16/(Bioamines*Vesicle_0)) V_ntox_ba
+J17: Neurotoxins + Vesicle_0 ->(Neurotoxins**g1742*Vesicle_0**g1744*k17/(Neurotoxins*Vesicle_0)) V_ntox_ba
+J18: Dopamine + O2_0 ->(Dopamine**g186*Neuronal_cytosol*O2_0**g1851*k18/(Dopamine*O2_0)) DA_quinone + O2
+J19: Dopamine + H2O + O2_0 ->(Dopamine**g196*H2O**g1960*MAO**g1953*Neuronal_cytosol*O2_0**g1951*k19/(Dopamine*H2O*O2_0)) DOPAL + H2O2 + NH3
+J20: Fe2 + H2O2 ->(Fe2**g2065*H2O2**g209*Neuronal_cytosol*k20/(Fe2*H2O2)) Fe3 + OH + OH_radical
+J21: Fe3 ->(Fe3**g2166*Neuronal_cytosol*k21/Fe3) Fe2
+J22: H2O2 ->(Catalase**g2259*H2O2**g229*Neuronal_cytosol*k22/H2O2) H2O + O2_0
 J23: GSH + H2O2 ->(GSH**g2362*Gluta_per**g2361*H2O2**g239*Neuronal_cytosol*k23/(GSH*H2O2)) GSSG + H2O
 J24: GSSG ->(GSSG**g2463*Gluta_red**g2464*Neuronal_cytosol*k24/GSSG) GSH
-J25: DOPAL + NAD_ ->(ALDH**g2555*DOPAL**g2552*NAD_**g2556*Neuronal_cytosol*k25/(DOPAL*NAD_)) DOPAC + NADH
-J26f: Ub_E1 + UbcH8_Ub ->(ATP**g26f15*Neuronal_cytosol*Ub_E1**g26f16*UbcH8_Ub**g26f18*k26f/(Ub_E1*UbcH8_Ub)) UbcH8ub2 + _E1
+J25: DOPAL + NAD ->(ALDH**g2555*DOPAL**g2552*NAD**g2556*Neuronal_cytosol*k25/(DOPAL*NAD)) DOPAC + NADH
+J26f: Ub_E1 + UbcH8_Ub ->(ATP**g26f15*Neuronal_cytosol*Ub_E1**g26f16*UbcH8_Ub**g26f18*k26f/(Ub_E1*UbcH8_Ub)) E1 + UbcH8ub2
 J26r: UbcH8ub2 ->(Neuronal_cytosol*UCH_L1**g26r30*UbcH8ub2**g26r68*k26r/UbcH8ub2) UbcH8 + 2Ubiquitin
-J27f: Ub_E1 + UbcH8ub2 ->(ATP**g27f15*Neuronal_cytosol*Ub_E1**g27f16*UbcH8ub2**g27f68*k27f/(Ub_E1*UbcH8ub2)) UbcH8ub3 + _E1
+J27f: Ub_E1 + UbcH8ub2 ->(ATP**g27f15*Neuronal_cytosol*Ub_E1**g27f16*UbcH8ub2**g27f68*k27f/(Ub_E1*UbcH8ub2)) E1 + UbcH8ub3
 J27r: UbcH8ub3 ->(Neuronal_cytosol*UCH_L1**g27r30*UbcH8ub3**g27r69*k27r/UbcH8ub3) UbcH8 + 3Ubiquitin
-J28f: Ub_E1 + UbcH8ub3 ->(ATP**g28f15*Neuronal_cytosol*Ub_E1**g28f16*UbcH8ub3**g28f69*k28f/(Ub_E1*UbcH8ub3)) UbcH8ub4 + _E1
+J28f: Ub_E1 + UbcH8ub3 ->(ATP**g28f15*Neuronal_cytosol*Ub_E1**g28f16*UbcH8ub3**g28f69*k28f/(Ub_E1*UbcH8ub3)) E1 + UbcH8ub4
 J28r: UbcH8ub4 ->(Neuronal_cytosol*UCH_L1**g28r30*UbcH8ub4**g28r70*k28r/UbcH8ub4) UbcH8 + 4Ubiquitin
-J29: Ub_E1 + UbcH13_Uev1a ->(ATP**g2915*Neuronal_cytosol*Ub_E1**g2916*UbcH13_Uev1a**g2971*k29/(Ub_E1*UbcH13_Uev1a)) UbcH13_Uev1a_ub + _E1
+J29: Ub_E1 + UbcH13_Uev1a ->(ATP**g2915*Neuronal_cytosol*Ub_E1**g2916*UbcH13_Uev1a**g2971*k29/(Ub_E1*UbcH13_Uev1a)) E1 + UbcH13_Uev1a_ub
 J30: Alpha_synuclein + UCH_L1 ->(Alpha_synuclein**g301*Neuronal_cytosol*UCH_L1**g3030*k30/(Alpha_synuclein*UCH_L1)) asyn_UCH_L1
 J31: UbcH13_Uev1a_ub + asyn_UCH_L1 ->(Neuronal_cytosol*UbcH13_Uev1a_ub**g3172*asyn_UCH_L1**g3173*k31/(UbcH13_Uev1a_ub*asyn_UCH_L1)) UCH_L1 + UbcH13_Uev1a + asyn_ub
 J32: Alpha_synuclein + asyn_ub ->(Alpha_synuclein**g321*Neuronal_cytosol*asyn_ub**g3274*k32/(Alpha_synuclein*asyn_ub)) Protofibril
 J33: Protofibril + UCH_L1 ->(Neuronal_cytosol*Protofibril**g332*UCH_L1**g3330*k33/(Protofibril*UCH_L1)) Protofibril_UCH_L1
 J34: Protofibril_UCH_L1 + UbcH13_Uev1a_ub ->(Neuronal_cytosol*Protofibril_UCH_L1**g3475*UbcH13_Uev1a_ub**g3472*k34/(Protofibril_UCH_L1*UbcH13_Uev1a_ub)) Protofibril_Ub + UCH_L1 + UbcH13_Uev1a
 J35: Protofibril + Protofibril_Ub ->(Neuronal_cytosol*Protofibril**g352*Protofibril_Ub**g3576*k35/(Protofibril*Protofibril_Ub)) Fibril
-J36: Autophagosome ->(Autophagosome**g3679*Lysosome**g3677*k36/Autophagosome) Fragments
+J36: Autophagosome_0 ->(Autophagosome_0**g3679*Lysosome_0**g3677*k36/Autophagosome_0) Fragments
 J37: UbcH8ub4 + asyn_UCH_L1 ->(Neuronal_cytosol*UbcH8ub4**g3770*asyn_UCH_L1**g3773*k37/(UbcH8ub4*asyn_UCH_L1)) UCH_L1_asyn_ub4 + UbcH8
-J38: UCH_L1_asyn_ub4 ->(ATP**g3815*Neuronal_cytosol*Proteasome**g3812*UCH_L1**g3830*UCH_L1_asyn_ub4**g3878*k38/UCH_L1_asyn_ub4) Fragments + UCH_L1 + 4Ubiquitin
+J38: UCH_L1_asyn_ub4 ->(ATP**g3815*Neuronal_cytosol*Proteasome_0**g3812*UCH_L1**g3830*UCH_L1_asyn_ub4**g3878*k38/UCH_L1_asyn_ub4) Fragments + UCH_L1 + 4Ubiquitin
 J43: Alpha_synuclein + Hsc70 ->(Alpha_synuclein**g431*Hsc70**g4384*Neuronal_cytosol*k43/(Alpha_synuclein*Hsc70)) Hsc70_asyn
 J44: Hsc70 + Protofibril ->(Hsc70**g4484*Neuronal_cytosol*Protofibril**g442*k44/(Hsc70*Protofibril)) Hsc70_Protofibril
 J45: Fibril + Hsc70 ->(Fibril**g453*Hsc70**g4584*Neuronal_cytosol*k45/(Fibril*Hsc70)) Hsc70_fibril
-J46: Hsc70_asyn ->(Hsc70_asyn**g4681*Lysosome**g4677*Neuronal_cytosol*k46/Hsc70_asyn) Fragments + Hsc70
-J47: Hsc70_Protofibril ->(Hsc70_Protofibril**g4782*Lysosome**g4777*Neuronal_cytosol*k47/Hsc70_Protofibril) Fragments + Hsc70
-J48: Hsc70_fibril ->(Hsc70_fibril**g4883*Lysosome**g4877*Neuronal_cytosol*k48/Hsc70_fibril) Fragments + Hsc70
-J50: Alpha_synuclein + Preautophagosome_membrane ->(Alpha_synuclein**g501*Preautophagosome_membrane**g5080*k50/(Alpha_synuclein*Preautophagosome_membrane)) Autophagosome
-J51: Preautophagosome_membrane + Protofibril ->(Preautophagosome_membrane**g5180*Protofibril**g512*k51/(Preautophagosome_membrane*Protofibril)) Autophagosome
-J52: Fibril + Preautophagosome_membrane ->(Fibril**g523*Preautophagosome_membrane**g5280*k52/(Fibril*Preautophagosome_membrane)) Autophagosome
-J53: Lewy_body + Preautophagosome_membrane ->(Lewy_body**g534*Preautophagosome_membrane**g5380*k53/(Lewy_body*Preautophagosome_membrane)) Autophagosome
+J46: Hsc70_asyn ->(Hsc70_asyn**g4681*Lysosome_0**g4677*Neuronal_cytosol*k46/Hsc70_asyn) Fragments + Hsc70
+J47: Hsc70_Protofibril ->(Hsc70_Protofibril**g4782*Lysosome_0**g4777*Neuronal_cytosol*k47/Hsc70_Protofibril) Fragments + Hsc70
+J48: Hsc70_fibril ->(Hsc70_fibril**g4883*Lysosome_0**g4877*Neuronal_cytosol*k48/Hsc70_fibril) Fragments + Hsc70
+J50: Alpha_synuclein + Preautophagosome_membrane ->(Alpha_synuclein**g501*Preautophagosome_membrane**g5080*k50/(Alpha_synuclein*Preautophagosome_membrane)) Autophagosome_0
+J51: Preautophagosome_membrane + Protofibril ->(Preautophagosome_membrane**g5180*Protofibril**g512*k51/(Preautophagosome_membrane*Protofibril)) Autophagosome_0
+J52: Fibril + Preautophagosome_membrane ->(Fibril**g523*Preautophagosome_membrane**g5280*k52/(Fibril*Preautophagosome_membrane)) Autophagosome_0
+J53: Lewy_body + Preautophagosome_membrane ->(Lewy_body**g534*Preautophagosome_membrane**g5380*k53/(Lewy_body*Preautophagosome_membrane)) Autophagosome_0
 J54: DA_quinone + Parkin ->(DA_quinone**g5410*Neuronal_cytosol*Parkin**g5419*k54/(DA_quinone*Parkin)) DA_S_parkin
-J55: Dopamine + O2_ ->(Dopamine**g556*Neuronal_cytosol*O2_**g5586*k55/(Dopamine*O2_)) DA_quinone + H2O2
-J56: O2_ ->(Neuronal_cytosol*O2_**g5686*SOD**g5687*k56/O2_) H2O2 + O2
+J55: Dopamine + O2 ->(Dopamine**g556*Neuronal_cytosol*O2**g5586*k55/(Dopamine*O2)) DA_quinone + H2O2
+J56: O2 ->(Neuronal_cytosol*O2**g5686*SOD**g5687*k56/O2) H2O2 + O2_0
 J57: DA_quinone + GSH ->(DA_quinone**g5710*GSH**g5762*Neuronal_cytosol*k57/(DA_quinone*GSH)) DA_GSH
-J100: Cysteine + L_Dopa + O2 ->(Cysteine**g100115*L_Dopa**g10037*Neuronal_cytosol*O2_**g10051*k100/(Cysteine*L_Dopa*O2)) CO2 + H2O2 + Neuromelanin
-J101: Cysteine + L_Tyr + O2 ->(Cysteine**g101115*L_Tyr**g10136*Neuronal_cytosol*O2_**g10151*k101/(Cysteine*L_Tyr*O2)) CO2 + H2O2 + Neuromelanin
-J102: Cysteine + DA_quinone + O2 ->(Cysteine**g102115*DA_quinone**g10210*Neuronal_cytosol*O2_**g10251*k102/(Cysteine*DA_quinone*O2)) CO2 + Neuromelanin
-J115: Fe3_ + Neuromelanin ->(Fe3_**g11565*Neuromelanin**g115118*Neuronal_cytosol*k115/(Fe3_*Neuromelanin)) Neuromelanin_ntox_Fe3_
-J116: Neuromelanin + Neurotoxins ->(Neuromelanin**g116118*Neuronal_cytosol*Neurotoxins**g11642*k116/(Neuromelanin*Neurotoxins)) Neuromelanin_ntox_Fe3_
+J100: Cysteine + L_Dopa + O2_0 ->(Cysteine**g100115*L_Dopa**g10037*Neuronal_cytosol*O2_0**g10051*k100/(Cysteine*L_Dopa*O2_0)) CO2 + H2O2 + Neuromelanin
+J101: Cysteine + L_Tyr + O2_0 ->(Cysteine**g101115*L_Tyr**g10136*Neuronal_cytosol*O2_0**g10151*k101/(Cysteine*L_Tyr*O2_0)) CO2 + H2O2 + Neuromelanin
+J102: Cysteine + DA_quinone + O2_0 ->(Cysteine**g102115*DA_quinone**g10210*Neuronal_cytosol*O2_0**g10251*k102/(Cysteine*DA_quinone*O2_0)) CO2 + Neuromelanin
+J115: Fe3 + Neuromelanin ->(Fe3**g11565*Neuromelanin**g115118*Neuronal_cytosol*k115/(Fe3*Neuromelanin)) Neuromelanin_ntox_Fe3
+J116: Neuromelanin + Neurotoxins ->(Neuromelanin**g116118*Neuronal_cytosol*Neurotoxins**g11642*k116/(Neuromelanin*Neurotoxins)) Neuromelanin_ntox_Fe3

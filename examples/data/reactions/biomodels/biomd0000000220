@@ -1,70 +1,70 @@
 re1: L + R ->(cell*k1) L_R
 re1_rev: L_R ->(cell*k_1) L + R
-re2: L_R ->(cell*kc1) R_
-re3: R_ + flip ->(cell*k2) flip_R_
-re3_rev: flip_R_ ->(cell*k_2) R_ + flip
-re4: R_ + proC8 ->(cell*k3) R__pC8
-re4_rev: R__pC8 ->(cell*k_3) R_ + proC8
-re5: R__pC8 ->(cell*kc3) R_ + casp8
-re6: casp6 + proC8 ->(cell*k7) C6_pC8
-re6_rev: C6_pC8 ->(cell*k_7) casp6 + proC8
-re7: C6_pC8 ->(cell*kc7) casp6 + casp8
-re8: BAR + casp8 ->(cell*k4) BAR_C8
-re8_rev: BAR_C8 ->(cell*k_4) BAR + casp8
-re9: casp8 + proC3 ->(cell*k5) C8_pC3
-re9_rev: C8_pC3 ->(cell*k_5) casp8 + proC3
-re10: C8_pC3 ->(cell*kc5) casp3 + casp8
-re11: Bid + casp8 ->(cell*k10) C8_Bid
-re11_rev: C8_Bid ->(cell*k_10) Bid + casp8
-re12: C8_Bid ->(cell*kc10) casp8 + tBid
-re13: Apop + proC3 ->(cell*k25) pC3_Apop
-re13_rev: pC3_Apop ->(cell*k_25) Apop + proC3
-re14: pC3_Apop ->(cell*kc25) Apop + casp3
-re15: casp3 + proC6 ->(cell*k6) C3_pC6
-re15_rev: C3_pC6 ->(cell*k_6) casp3 + proC6
-re16: C3_pC6 ->(cell*kc6) casp3 + casp6
-re17: XIAP + casp3 ->(cell*k8) XIAP_C3
-re17_rev: XIAP_C3 ->(cell*k_8) XIAP + casp3
-re18: XIAP_C3 ->(cell*kc8) Ub_C3 + XIAP
-re19: PARP + casp3 ->(cell*k9) PARP_C3
-re19_rev: PARP_C3 ->(cell*k_9) PARP + casp3
-re20: PARP_C3 ->(cell*kc9) cPARP + casp3
+re2: L_R ->(cell*kc1) R_hash
+re3: R_hash + flip ->(cell*k2) flip_R_hash
+re3_rev: flip_R_hash ->(cell*k_2) R_hash + flip
+re4: R_hash + pC8 ->(cell*k3) R_hash_pC8
+re4_rev: R_hash_pC8 ->(cell*k_3) R_hash + pC8
+re5: R_hash_pC8 ->(cell*kc3) C8 + R_hash
+re6: C6 + pC8 ->(cell*k7) C6_pC8
+re6_rev: C6_pC8 ->(cell*k_7) C6 + pC8
+re7: C6_pC8 ->(cell*kc7) C6 + C8
+re8: BAR + C8 ->(cell*k4) BAR_C8
+re8_rev: BAR_C8 ->(cell*k_4) BAR + C8
+re9: C8 + pC3 ->(cell*k5) C8_pC3
+re9_rev: C8_pC3 ->(cell*k_5) C8 + pC3
+re10: C8_pC3 ->(cell*kc5) C3 + C8
+re11: Bid + C8 ->(cell*k10) C8_Bid
+re11_rev: C8_Bid ->(cell*k_10) Bid + C8
+re12: C8_Bid ->(cell*kc10) C8 + tBid
+re13: Apop + pC3 ->(cell*k25) pC3_Apop
+re13_rev: pC3_Apop ->(cell*k_25) Apop + pC3
+re14: pC3_Apop ->(cell*kc25) Apop + C3
+re15: C3 + pC6 ->(cell*k6) C3_pC6
+re15_rev: C3_pC6 ->(cell*k_6) C3 + pC6
+re16: C3_pC6 ->(cell*kc6) C3 + C6
+re17: C3 + XIAP ->(cell*k8) XIAP_C3
+re17_rev: XIAP_C3 ->(cell*k_8) C3 + XIAP
+re18: XIAP_C3 ->(cell*kc8) C3_Ub + XIAP
+re19: C3 + PARP ->(cell*k9) PARP_C3
+re19_rev: PARP_C3 ->(cell*k_9) C3 + PARP
+re20: PARP_C3 ->(cell*kc9) C3 + CPARP
 re21: Apop + XIAP ->(cell*k27) Apop_XIAP
 re21_rev: Apop_XIAP ->(cell*k_27) Apop + XIAP
 re22: Smac + XIAP ->(cell*k28) Smac_XIAP
 re22_rev: Smac_XIAP ->(cell*k_28) Smac + XIAP
-re23: cytosolic_Bcl_2 + tBid ->(cell*k11) Bcl2c_tBid
-re23_rev: Bcl2c_tBid ->(cell*k_11) cytosolic_Bcl_2 + tBid
+re23: Bcl2c + tBid ->(cell*k11) Bcl2c_tBid
+re23_rev: Bcl2c_tBid ->(cell*k_11) Bcl2c + tBid
 re24: Bax + tBid ->(cell*k12) Bax_tBid
 re24_rev: Bax_tBid ->(cell*k_12) Bax + tBid
-re25: Bax_tBid ->(cell*kc12) Bax_ + tBid
-re26: Bax_ ->(cell*k13) Baxm
-re26_rev: Baxm ->(cell*k_13) Bax_
-re27: Baxm + Bcl_2 ->(k14*mitochondrion/v) Baxm_Bcl2
-re27_rev: Baxm_Bcl2 ->(k_14*mitochondrion) Baxm + Bcl_2
+re25: Bax_tBid ->(cell*kc12) Bax_hash + tBid
+re26: Bax_hash ->(cell*k13) Baxm
+re26_rev: Baxm ->(cell*k_13) Bax_hash
+re27: Baxm + Bcl2 ->(k14*mitochondrion/v) Baxm_Bcl2
+re27_rev: Baxm_Bcl2 ->(k_14*mitochondrion) Baxm + Bcl2
 re29: Baxm ->(Baxm*k15*mitochondrion/v) Bax2
 re29_rev: Bax2 ->(k_15*mitochondrion) Baxm
 re30: Bax2 ->(Bax2*k17*mitochondrion/v) Bax4
 re30_rev: Bax4 ->(k_17*mitochondrion) Bax2
-re31: Bax2 + Bcl_2 ->(k16*mitochondrion/v) Bax2_Bcl2
-re31_rev: Bax2_Bcl2 ->(k_16*mitochondrion) Bax2 + Bcl_2
-re32: Bax4 + Bcl_2 ->(k18*mitochondrion/v) Bax4_Bcl2
-re32_rev: Bax4_Bcl2 ->(k_18*mitochondrion) Bax4 + Bcl_2
+re31: Bax2 + Bcl2 ->(k16*mitochondrion/v) Bax2_Bcl2
+re31_rev: Bax2_Bcl2 ->(k_16*mitochondrion) Bax2 + Bcl2
+re32: Bax4 + Bcl2 ->(k18*mitochondrion/v) Bax4_Bcl2
+re32_rev: Bax4_Bcl2 ->(k_18*mitochondrion) Bax4 + Bcl2
 re33: Bax4 + M ->(k19*mitochondrion/v) Bax4_M
 re33_rev: Bax4_M ->(k_19*mitochondrion) Bax4 + M
-re34: Bax4_M ->(kc19*mitochondrion) M_
-re35: M_ + Smac_m ->(k21*mitochondrion/v) M__Smac_m
-re35_rev: M__Smac_m ->(k_21*mitochondrion) M_ + Smac_m
-re36: M__Smac_m ->(kc21*mitochondrion) M_ + Smac_released
-re37: Smac_released ->(cell*k26) Smac
-re37_rev: Smac ->(cell*k_26) Smac_released
-re38: CytoC_m + M_ ->(k20*mitochondrion/v) M__CytoC_m
-re38_rev: M__CytoC_m ->(k_20*mitochondrion) CytoC_m + M_
-re39: M__CytoC_m ->(kc20*mitochondrion) CytoC_released + M_
-re40: CytoC_released ->(cell*k22) CytoC
-re40_rev: CytoC ->(cell*k_22) CytoC_released
+re34: Bax4_M ->(kc19*mitochondrion) M_hash
+re35: M_hash + Smacm ->(k21*mitochondrion/v) M_hash_Smacm
+re35_rev: M_hash_Smacm ->(k_21*mitochondrion) M_hash + Smacm
+re36: M_hash_Smacm ->(kc21*mitochondrion) M_hash + Smacr
+re37: Smacr ->(cell*k26) Smac
+re37_rev: Smac ->(cell*k_26) Smacr
+re38: CytoCm + M_hash ->(k20*mitochondrion/v) M_hash_CytoCm
+re38_rev: M_hash_CytoCm ->(k_20*mitochondrion) CytoCm + M_hash
+re39: M_hash_CytoCm ->(kc20*mitochondrion) CytoCr + M_hash
+re40: CytoCr ->(cell*k22) CytoC
+re40_rev: CytoC ->(cell*k_22) CytoCr
 re41: Apaf + CytoC ->(cell*k23) CytoC_Apaf
 re41_rev: CytoC_Apaf ->(cell*k_23) Apaf + CytoC
-re42: CytoC_Apaf ->(cell*kc23) Apaf_ + CytoC
-re43: Apaf_ + proC9 ->(cell*k24) Apop
-re43_rev: Apop ->(cell*k_24) Apaf_ + proC9
+re42: CytoC_Apaf ->(cell*kc23) Apaf_hash + CytoC
+re43: Apaf_hash + pC9 ->(cell*k24) Apop
+re43_rev: Apop ->(cell*k_24) Apaf_hash + pC9

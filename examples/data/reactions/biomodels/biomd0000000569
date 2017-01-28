@@ -14,7 +14,7 @@ S1____M1: S1 ->(SMk1*synapse) M1
 M1____S1: M1 ->(MSk1*synapse) S1
 S2____M2: S2 ->(SMk2*synapse) M2
 M2____S2: M2 ->(MSk2*synapse) S2
-S3____M3_: S3 ->(SMk3*synapse) M3
+S3____M3: S3 ->(SMk3*synapse) M3
 M3____S3: M3 ->(MSk3*synapse) S3
 S4____M4: S4 ->(SMk4*synapse) M4
 M4____S4: M4 ->(MSk4*synapse) S4
@@ -28,35 +28,35 @@ M3____L3: M3 ->(MLk3*synapse) L3
 L3____M3: L3 ->(LMk3*synapse) M3
 M4____L4: M4 ->(MLk4*synapse) L4
 L4____M4: L4 ->(LMk4*synapse) M4
-B0____B1: B0 + glu ->(4*Bkon*synapse) B1
+B0____B1: B0 + glu ->(4.0*Bkon*synapse) B1
 B1____B0: B1 ->(Bkoff*synapse) B0 + glu
-B1____B2: B1 + glu ->(3*Bkon*synapse) B2
-B2____B1: B2 ->(2*Bkoff*synapse) B1 + glu
-B2____B3: B2 + glu ->(2*Bkon*synapse) B3
-B3____B2: B3 ->(3*Bkoff*synapse) B2 + glu
+B1____B2: B1 + glu ->(3.0*Bkon*synapse) B2
+B2____B1: B2 ->(2.0*Bkoff*synapse) B1 + glu
+B2____B3: B2 + glu ->(2.0*Bkon*synapse) B3
+B3____B2: B3 ->(3.0*Bkoff*synapse) B2 + glu
 B3____B4: B3 + glu ->(Bkon*synapse) B4
-B4____B3: B4 ->(4*Bkoff*synapse) B3 + glu
-S0____S1: S0 + glu ->(4*Skon*synapse) S1
+B4____B3: B4 ->(4.0*Bkoff*synapse) B3 + glu
+S0____S1: S0 + glu ->(4.0*Skon*synapse) S1
 S1____S0: S1 ->(Skoff*synapse) S0 + glu
-S1____S2: S1 + glu ->(3*Skon*synapse) S2
-S2____S1: S2 ->(2*Skoff*synapse) S1 + glu
-S2____S3: S2 + glu ->(2*Skon*synapse) S3
-S3____S2: S3 ->(3*Skoff*synapse) S2 + glu
+S1____S2: S1 + glu ->(3.0*Skon*synapse) S2
+S2____S1: S2 ->(2.0*Skoff*synapse) S1 + glu
+S2____S3: S2 + glu ->(2.0*Skon*synapse) S3
+S3____S2: S3 ->(3.0*Skoff*synapse) S2 + glu
 S3____S4: S3 + glu ->(Skon*synapse) S4
-S4____S3: S4 ->(4*Skoff*synapse) S3 + glu
-M0____M1: M0 + glu ->(4*Mkon*synapse) M1
+S4____S3: S4 ->(4.0*Skoff*synapse) S3 + glu
+M0____M1: M0 + glu ->(4.0*Mkon*synapse) M1
 M1____M0: M1 ->(Mkoff*synapse) M0 + glu
-M1____M2: M1 + glu ->(3*Mkon*synapse) M2
-M2____M1: M2 ->(2*Mkoff*synapse) M1 + glu
-M2____M3: M2 + glu ->(2*Mkon*synapse) M3
-M3____M2: M3 ->(3*Mkoff*synapse) M2 + glu
-M3____M4: M3 + glu ->(4*Mkon*synapse/glu) M4
-M4____M3: M4 ->(4*Mkoff*synapse) M3 + glu
-L0____L1_: L0 + glu ->(4*Lkon*synapse) L1
+M1____M2: M1 + glu ->(3.0*Mkon*synapse) M2
+M2____M1: M2 ->(2.0*Mkoff*synapse) M1 + glu
+M2____M3: M2 + glu ->(2.0*Mkon*synapse) M3
+M3____M2: M3 ->(3.0*Mkoff*synapse) M2 + glu
+M3____M4: M3 + glu ->(4.0*Mkon*synapse/glu) M4
+M4____M3: M4 ->(4.0*Mkoff*synapse) M3 + glu
+L0____L1: L0 + glu ->(4.0*Lkon*synapse) L1
 L1____L0: L1 ->(Lkoff*synapse) L0 + glu
-L1____L2: L1 + glu ->(3*Lkon*synapse) L2
-L2____L1: L2 ->(2*Lkoff*synapse) L1 + glu
-L2____L3: L2 + glu ->(2*Lkon*synapse) L3
-L3____L2: L3 ->(3*Lkoff*synapse) L2 + glu
+L1____L2: L1 + glu ->(3.0*Lkon*synapse) L2
+L2____L1: L2 ->(2.0*Lkoff*synapse) L1 + glu
+L2____L3: L2 + glu ->(2.0*Lkon*synapse) L3
+L3____L2: L3 ->(3.0*Lkoff*synapse) L2 + glu
 L3____L4: L3 + glu ->(Lkon*synapse) L4
-L4____L3: L4 ->(4*Lkoff*synapse) L3 + glu
+L4____L3: L4 ->(4.0*Lkoff*synapse) L3 + glu

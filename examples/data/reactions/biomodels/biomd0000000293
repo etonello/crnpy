@@ -1,13 +1,13 @@
 UbSynthesis: Source ->(kubs) Ub
 UbDegradation: Proteasome + Ub ->(kproteff*kubd) Proteasome
-UbUpregulation: MisP ->(MisP**5*kubss/((MisP**2 + 2250000)*(MisP**4 - 2250000*MisP**2 + 5062500000000))) MisP + 3Ub + 3upregUb
+UbUpregulation: MisP ->(MisP**5*kubss/(MisP**6 + 11390625000000000000)) MisP + 3Ub + 3upregUb
 ProteinSynthesis: Source ->(ksynNatP) NatP
 Misfolding: NatP + ROS ->(kmisfold) MisP + ROS
 Refolding: MisP ->(krefold) NatP
 MisPE3Binding: E3 + MisP ->(kbinMisPE3) E3_MisP
 MisPE3Release: E3_MisP ->(krelMisPE3) E3 + MisP
-E1UbBinding: ATP + Ub + _E1 ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
-E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E2_Ub + _E1
+E1UbBinding: ATP + E1 + Ub ->(kbinE1Ub/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(kbinE2Ub) E1 + E2_Ub
 Monoubiquitination: E2_Ub + E3_MisP ->(kmonoUb) E2 + E3_MisP_Ub
 Polyubiquitination1: E2_Ub + E3_MisP_Ub ->(kpolyUb) E2 + E3_MisP_Ub2
 Polyubiquitination2: E2_Ub + E3_MisP_Ub2 ->(kpolyUb) E2 + E3_MisP_Ub3

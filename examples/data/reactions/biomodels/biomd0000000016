@@ -1,10 +1,10 @@
-transcription_of_PER: _EmptySet ->(default*rM_KI**rM_n*rM_Vs/(_EmptySet*(nuclear_PER**rM_n + rM_KI**rM_n))) PER_mRNA
-translation_of_PER: _EmptySet ->(PER_mRNA*default*rTL_ks/_EmptySet) unphosphorylated_PER
-first_phosphorylation_of_PER: unphosphorylated_PER ->(CYTOPLASM*rP01_V1/(rP01_K1 + unphosphorylated_PER)) monophosphorylated_PER
-removal_of_the_first_PER_phosphate: monophosphorylated_PER ->(CYTOPLASM*rP10_V2/(monophosphorylated_PER + rP10_K2)) unphosphorylated_PER
-second_phosphorylation_of_PER: monophosphorylated_PER ->(CYTOPLASM*rP12_V3/(monophosphorylated_PER + rP12_K3)) biphosphorylated_PER
-removal_of_the_second_PER_phosphate: biphosphorylated_PER ->(CYTOPLASM*rP21_V4/(biphosphorylated_PER + rP21_K4)) monophosphorylated_PER
-translocation_of_PER_to_the_nucleus: biphosphorylated_PER ->(CYTOPLASM*rP2n_k1) nuclear_PER
-translocation_of_PER_to_the_cytoplasm: nuclear_PER ->(compartment_0000004*rPn2_k2) biphosphorylated_PER
-degradation_of_PER_mRNA: PER_mRNA ->(CYTOPLASM*rmRNAd_Vm/(PER_mRNA + rmRNAd_Km)) _EmptySet
-degradation_of_PER: biphosphorylated_PER ->(CYTOPLASM*rVd_Vd/(biphosphorylated_PER + rVd_Kd)) _EmptySet
+rM: EmptySet ->(default*rM_KI**rM_n*rM_Vs/(EmptySet*(Pn**rM_n + rM_KI**rM_n))) M
+rTL: EmptySet ->(M*default*rTL_ks/EmptySet) P0
+rP01: P0 ->(CYTOPLASM*rP01_V1/(P0 + rP01_K1)) P1
+rP10: P1 ->(CYTOPLASM*rP10_V2/(P1 + rP10_K2)) P0
+rP12: P1 ->(CYTOPLASM*rP12_V3/(P1 + rP12_K3)) P2
+rP21: P2 ->(CYTOPLASM*rP21_V4/(P2 + rP21_K4)) P1
+rP2n: P2 ->(CYTOPLASM*rP2n_k1) Pn
+rPn2: Pn ->(compartment_0000004*rPn2_k2) P2
+rmRNAd: M ->(CYTOPLASM*rmRNAd_Vm/(M + rmRNAd_Km)) EmptySet
+rVd: P2 ->(CYTOPLASM*rVd_Vd/(P2 + rVd_Kd)) EmptySet

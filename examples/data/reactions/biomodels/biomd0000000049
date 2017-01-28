@@ -1,178 +1,178 @@
-form_EGFreceptor: pro_EGFR ->(compartment*re1_re1_k1) EGFR
-form_EGFreceptor_rev: EGFR ->(compartment*re1_re1_k2) pro_EGFR
-EGFbinding: EGF + EGFR ->(compartment*re2_re2_k1) L_EGFR
-EGFbinding_rev: L_EGFR ->(compartment*re2_re2_k2) EGF + EGFR
-dimerization: 2L_EGFR ->(compartment*re8_re8_k1) L_EGFR_dimer
-dimerization_rev: L_EGFR_dimer ->(compartment*re8_re8_k2) 2L_EGFR
-binding_SOS_Grb2: Grb2 + SOS ->(J3_J3_k1*c1) SOS_Grb2
-binding_SOS_Grb2_rev: SOS_Grb2 ->(J3_J3_k2*c1) Grb2 + SOS
-binding_pSOS_Grb2: Grb2 + pSOS ->(J4_J4_k1*c1) pSOS_Grb2
-binding_pSOS_Grb2_rev: pSOS_Grb2 ->(J4_J4_k2*c1) Grb2 + pSOS
-EGFRphosphorylation: L_EGFR_dimer ->(J5_J5_k1*compartment) L_dpEGFR
-EGFRphosphorylation_rev: L_dpEGFR ->(J5_J5_k2*compartment) L_EGFR_dimer
-binding_cCbI_dpEGFR: L_dpEGFR + c_Cbl ->(J6_J6_k1*c1) dpEGFR_c_Cbl
-binding_cCbI_dpEGFR_rev: dpEGFR_c_Cbl ->(J6_J6_k2*c1) L_dpEGFR + c_Cbl
-binding_pShc_LdpEGFR: L_dpEGFR + pShc ->(J7_J7_k1*c1) pShc_dpEGFR
-binding_pShc_LdpEGFR_rev: pShc_dpEGFR ->(J7_J7_k2*c1) L_dpEGFR + pShc
-pDOKdephosphorylation: pDok ->(J8_J8_k1*c1) Dok
-pDOKdephosphorylation_rev: Dok ->(J8_J8_k2*c1) pDok
-binding_cCbl_pShc_dpEGFR: c_Cbl + pShc_dpEGFR ->(J9_J9_k1*c1) pShc_dpEGFR_c_Cbl
-binding_cCbl_pShc_dpEGFR_rev: pShc_dpEGFR_c_Cbl ->(J9_J9_k2*c1) c_Cbl + pShc_dpEGFR
-SOSdephosphorylation: pSOS ->(J10_J10_k*c1) SOS
-pSOS_Grb2_dephosphorylation: pSOS_Grb2 ->(J11_J11_k*c1) SOS_Grb2
-binding_Shc_LdpEGFR: L_dpEGFR + Shc ->(J12_J12_k1*c1) Shc_dpEGFR
-binding_Shc_LdpEGFR_rev: Shc_dpEGFR ->(J12_J12_k2*c1) L_dpEGFR + Shc
-Shc_dpEGFR_phosphorylation: Shc_dpEGFR ->(J13_J13_k*c1) pShc_dpEGFR
-dpEGFR_c_Cbl_ubiquitination: dpEGFR_c_Cbl ->(J14_J14_k*c1) dpEGFR_c_Cbl_ubiq
-dpEGFR_cCbl_degrad: dpEGFR_c_Cbl_ubiq ->(J15_J15_k*c1) c_Cbl + proteasome
-binding_cCbl_Shc_dpEGFR: Shc_dpEGFR + c_Cbl ->(J16_J16_k1*c1) Shc_dpEGFR_c_Cbl
-binding_cCbl_Shc_dpEGFR_rev: Shc_dpEGFR_c_Cbl ->(J16_J16_k2*c1) Shc_dpEGFR + c_Cbl
-Shc_dpEGFR_c_CBl_Ubiquitination: Shc_dpEGFR_c_Cbl ->(J17_J17_k*c1) Shc_dpEGFR_c_Cbl_ubiq
-Shc_dpEGFR_c_Cbl_ubiq_Degradation: Shc_dpEGFR_c_Cbl_ubiq ->(J18_J18_k*c1) Shc + c_Cbl + proteasome
-pShc_dpEGFR_c_Cbl_ubiquitination: pShc_dpEGFR_c_Cbl ->(J19_J19_k*c1) pShc_dpEGFR_c_Cbl_ubiq
-pShc_dpEGFR_c_Cbl_ubiq_degradation: pShc_dpEGFR_c_Cbl_ubiq ->(J20_J20_k*c1) c_Cbl + pShc + proteasome
-Shc_dpEGFR_c_Cblphosphorylation: Shc_dpEGFR_c_Cbl ->(J21_J21_k*c1) pShc_dpEGFR_c_Cbl
-binding_Grb2_SOS_pShc: SOS_Grb2 + pShc ->(J22_J22_k1*c1) Grb2_SOS_pShc
-binding_Grb2_SOS_pShc_rev: Grb2_SOS_pShc ->(J22_J22_k2*c1) SOS_Grb2 + pShc
-binding_Grb2_SOS_pShc_dpEGFR: Grb2_SOS_pShc + L_dpEGFR ->(J23_J23_k1*c1) Grb2_SOS_pShc_dpEGFR
-binding_Grb2_SOS_pShc_dpEGFR_rev: Grb2_SOS_pShc_dpEGFR ->(J23_J23_k2*c1) Grb2_SOS_pShc + L_dpEGFR
-binding_Grb2_SOS_pShc_dpEGFR: SOS_Grb2 + pShc_dpEGFR ->(J24_J24_k1*c1) Grb2_SOS_pShc_dpEGFR
-binding_Grb2_SOS_pShc_dpEGFR_rev: Grb2_SOS_pShc_dpEGFR ->(J24_J24_k2*c1) SOS_Grb2 + pShc_dpEGFR
-binding_c_Cbl_Grb2_SOS_pShc_dpEGFR: Grb2_SOS_pShc_dpEGFR + c_Cbl ->(J25_J25_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
-binding_c_Cbl_Grb2_SOS_pShc_dpEGFR_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J25_J25_k2*c1) Grb2_SOS_pShc_dpEGFR + c_Cbl
-binding_Grb2_SOS_pShc_to_dpEGFR_c_Cbl: Grb2_SOS_pShc + dpEGFR_c_Cbl ->(J27_J27_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
-binding_Grb2_SOS_pShc_to_dpEGFR_c_Cbl_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J27_J27_k2*c1) Grb2_SOS_pShc + dpEGFR_c_Cbl
-Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiquitination: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J28_J28_k*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiq
-Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiq_degradation: Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiq ->(J29_J29_k*c1) Grb2_SOS_pShc + c_Cbl + proteasome
-Grb2_SOS_pShc_Dissociation: Grb2_SOS_pShc ->(J30_J30_k) SOS_Grb2 + Shc
+re1: pro_EGFR ->(compartment*re1_re1_k1) EGFR
+re1_rev: EGFR ->(compartment*re1_re1_k2) pro_EGFR
+re2: EGF + EGFR ->(compartment*re2_re2_k1) L_EGFR
+re2_rev: L_EGFR ->(compartment*re2_re2_k2) EGF + EGFR
+re8: 2L_EGFR ->(compartment*re8_re8_k1) L_EGFR_dimer
+re8_rev: L_EGFR_dimer ->(compartment*re8_re8_k2) 2L_EGFR
+J3: Grb2 + SOS ->(J3_J3_k1*c1) SOS_Grb2
+J3_rev: SOS_Grb2 ->(J3_J3_k2*c1) Grb2 + SOS
+J4: Grb2 + pSOS ->(J4_J4_k1*c1) pSOS_Grb2
+J4_rev: pSOS_Grb2 ->(J4_J4_k2*c1) Grb2 + pSOS
+J5: L_EGFR_dimer ->(J5_J5_k1*compartment) L_dpEGFR
+J5_rev: L_dpEGFR ->(J5_J5_k2*compartment) L_EGFR_dimer
+J6: L_dpEGFR + c_Cbl ->(J6_J6_k1*c1) dpEGFR_c_Cbl
+J6_rev: dpEGFR_c_Cbl ->(J6_J6_k2*c1) L_dpEGFR + c_Cbl
+J7: L_dpEGFR + pShc ->(J7_J7_k1*c1) pShc_dpEGFR
+J7_rev: pShc_dpEGFR ->(J7_J7_k2*c1) L_dpEGFR + pShc
+J8: pDok ->(J8_J8_k1*c1) Dok
+J8_rev: Dok ->(J8_J8_k2*c1) pDok
+J9: c_Cbl + pShc_dpEGFR ->(J9_J9_k1*c1) pShc_dpEGFR_c_Cbl
+J9_rev: pShc_dpEGFR_c_Cbl ->(J9_J9_k2*c1) c_Cbl + pShc_dpEGFR
+J10: pSOS ->(J10_J10_k*c1) SOS
+J11: pSOS_Grb2 ->(J11_J11_k*c1) SOS_Grb2
+J12: L_dpEGFR + Shc ->(J12_J12_k1*c1) Shc_dpEGFR
+J12_rev: Shc_dpEGFR ->(J12_J12_k2*c1) L_dpEGFR + Shc
+J13: Shc_dpEGFR ->(J13_J13_k*c1) pShc_dpEGFR
+J14: dpEGFR_c_Cbl ->(J14_J14_k*c1) dpEGFR_c_Cbl_ubiq
+J15: dpEGFR_c_Cbl_ubiq ->(J15_J15_k*c1) c_Cbl + proteosome
+J16: Shc_dpEGFR + c_Cbl ->(J16_J16_k1*c1) Shc_dpEGFR_c_Cbl
+J16_rev: Shc_dpEGFR_c_Cbl ->(J16_J16_k2*c1) Shc_dpEGFR + c_Cbl
+J17: Shc_dpEGFR_c_Cbl ->(J17_J17_k*c1) Shc_dpEGFR_c_Cbl_ubiq
+J18: Shc_dpEGFR_c_Cbl_ubiq ->(J18_J18_k*c1) Shc + c_Cbl + proteosome
+J19: pShc_dpEGFR_c_Cbl ->(J19_J19_k*c1) pShc_dpEGFR_c_Cbl_ubiq
+J20: pShc_dpEGFR_c_Cbl_ubiq ->(J20_J20_k*c1) c_Cbl + pShc + proteosome
+J21: Shc_dpEGFR_c_Cbl ->(J21_J21_k*c1) pShc_dpEGFR_c_Cbl
+J22: SOS_Grb2 + pShc ->(J22_J22_k1*c1) Grb2_SOS_pShc
+J22_rev: Grb2_SOS_pShc ->(J22_J22_k2*c1) SOS_Grb2 + pShc
+J23: Grb2_SOS_pShc + L_dpEGFR ->(J23_J23_k1*c1) Grb2_SOS_pShc_dpEGFR
+J23_rev: Grb2_SOS_pShc_dpEGFR ->(J23_J23_k2*c1) Grb2_SOS_pShc + L_dpEGFR
+J24: SOS_Grb2 + pShc_dpEGFR ->(J24_J24_k1*c1) Grb2_SOS_pShc_dpEGFR
+J24_rev: Grb2_SOS_pShc_dpEGFR ->(J24_J24_k2*c1) SOS_Grb2 + pShc_dpEGFR
+J25: Grb2_SOS_pShc_dpEGFR + c_Cbl ->(J25_J25_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
+J25_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J25_J25_k2*c1) Grb2_SOS_pShc_dpEGFR + c_Cbl
+J27: Grb2_SOS_pShc + dpEGFR_c_Cbl ->(J27_J27_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
+J27_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J27_J27_k2*c1) Grb2_SOS_pShc + dpEGFR_c_Cbl
+J28: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J28_J28_k*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiq
+J29: Grb2_SOS_pShc_dpEGFR_c_Cbl_ubiq ->(J29_J29_k*c1) Grb2_SOS_pShc + c_Cbl + proteosome
+J30: Grb2_SOS_pShc ->(J30_J30_k) SOS_Grb2 + Shc
 J31: Dok ->(J31_J31_Vmax*c1*(Crk_C3G_pFRS2_dpEGFR + Crk_C3G_pFRS2_dpEGFR_c_Cbl + FRS2_dpEGFR + FRS2_dpEGFR_c_Cbl + Grb2_SOS_pShc_dpEGFR + Grb2_SOS_pShc_dpEGFR_c_Cbl + L_dpEGFR + Shc_dpEGFR + Shc_dpEGFR_c_Cbl + dpEGFR_c_Cbl + pFRS2_dpEGFR + pShc_dpEGFR + pShc_dpEGFR_c_Cbl)/(Dok + J31_J31_Km1)) pDok
-pShc_dephosphorylation: pShc ->(J32_J32_k*c1) Shc
-pFRS2_dephosphorylation: pFRS2 ->(J33_J33_k*c1) FRS2
-binding_Crk_to_C3G: C3G + Crk ->(J34_J34_k1*c1) Crk_C3G
-binding_Crk_to_C3G_rev: Crk_C3G ->(J34_J34_k2*c1) C3G + Crk
-binding_L_dpEGFR_to_FRS2: FRS2 + L_dpEGFR ->(J35_J35_k1*c1) FRS2_dpEGFR
-binding_L_dpEGFR_to_FRS2_rev: FRS2_dpEGFR ->(J35_J35_k2*c1) FRS2 + L_dpEGFR
-binding_pFRS2_to_L_dpEGFR: L_dpEGFR + pFRS2 ->(J36_J36_k1*c1) pFRS2_dpEGFR
-binding_pFRS2_to_L_dpEGFR_rev: pFRS2_dpEGFR ->(J36_J36_k2*c1) L_dpEGFR + pFRS2
-FRS2_dpEGFRphsphorylation: FRS2_dpEGFR ->(J37_J37_k*c1) pFRS2_dpEGFR
-binding_Crk_C3G_to_pFRS2_pRTK: Crk_C3G + pFRS2_dpEGFR ->(J38_J38_k1*c1) Crk_C3G_pFRS2_dpEGFR
-binding_Crk_C3G_to_pFRS2_pRTK_rev: Crk_C3G_pFRS2_dpEGFR ->(J38_J38_k2*c1) Crk_C3G + pFRS2_dpEGFR
-binding_c_Cbl_to_FRS2_dpEGFR: FRS2_dpEGFR + c_Cbl ->(J39_J39_k1*c1) FRS2_dpEGFR_c_Cbl
-binding_c_Cbl_to_FRS2_dpEGFR_rev: FRS2_dpEGFR_c_Cbl ->(J39_J39_k2*c1) FRS2_dpEGFR + c_Cbl
-binding_c_Cbl_to_pFRS2_dpEGFR: c_Cbl + pFRS2_dpEGFR ->(J40_J40_k1*c1) pFRS2_dpEGFR_c_Cbl
-binding_c_Cbl_to_pFRS2_dpEGFR_rev: pFRS2_dpEGFR_c_Cbl ->(J40_J40_k2*c1) c_Cbl + pFRS2_dpEGFR
-pFRS2_dpEGFR_c_Cbl_ubiquitiation: pFRS2_dpEGFR_c_Cbl ->(J41_J41_k*c1) pFRS2_dpEGFR_c_Cbl_ubiq
-FRS2_dpEGFR_c_Cbl_ubiquitination: FRS2_dpEGFR_c_Cbl ->(J42_J42_k*c1) FRS2_dpEGFR_c_Cbl_ubiq
-FRS2_dpEGFR_c_Cbl_phosphorylation: FRS2_dpEGFR_c_Cbl ->(J43_J43_k*c1) pFRS2_dpEGFR_c_Cbl
-binding_Crk_C3G_to_pFRS2_pFRS2_dpEGFR_c_Cbl: Crk_C3G + pFRS2_dpEGFR_c_Cbl ->(J44_J44_k1*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl
-binding_Crk_C3G_to_pFRS2_pFRS2_dpEGFR_c_Cbl_rev: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J44_J44_k2*c1) Crk_C3G + pFRS2_dpEGFR_c_Cbl
-Crk_C3G_pFRS2_dpEGFR_c_Cbl_ubiquitination: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J45_J45_k*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl_ubiq
-FRS2_dpEGFR_c_Cbl_ubiq_dissociation: FRS2_dpEGFR_c_Cbl_ubiq ->(J46_J46_k*c1) FRS2 + c_Cbl + proteasome
-pFRS2_dpEGFR_c_Cbl_ubiq_dissociation: pFRS2_dpEGFR_c_Cbl_ubiq ->(J47_J47_k*c1) c_Cbl + pFRS2 + proteasome
-binding_RasGAP_to_pDOK: RasGAP + pDok ->(J49_J49_k1*c1) pDok_RasGAP
-binding_RasGAP_to_pDOK_rev: pDok_RasGAP ->(J49_J49_k2*c1) RasGAP + pDok
-SOS_Grb2_phosphorylation: SOS_Grb2 ->(J50_J50_Vmax*c1*dppERK/(J50_J50_Km1 + SOS_Grb2)) pSOS_Grb2
-SOS_phosphorylation: SOS ->(J51_J51_Vmax*c1*dppERK/(J51_J51_Km1 + SOS)) pSOS
-binding_c_Raf_to_Ras_GTP: Ras_GTP + c_Raf ->(J52_J52_k1*c1) c_Raf_Ras_GTP
-binding_c_Raf_to_Ras_GTP_rev: c_Raf_Ras_GTP ->(J52_J52_k2*c1) Ras_GTP + c_Raf
-binding_B_Raf_to_Rap1_GTP: B_Raf + Rap1_GTP ->(J53_J53_k1*c1) B_Raf_Rap1_GTP
-binding_B_Raf_to_Rap1_GTP_rev: B_Raf_Rap1_GTP ->(J53_J53_k2*c1) B_Raf + Rap1_GTP
-binding_B_Raf_to_Ras_GTP: B_Raf + Ras_GTP ->(J54_J54_k1*c1) B_Raf_Ras_GTP
-binding_B_Raf_to_Ras_GTP_rev: B_Raf_Ras_GTP ->(J54_J54_k2*c1) B_Raf + Ras_GTP
-ppMEK_dephosphorylation: ppMEK ->(J57_J57_Vmax*PP2A/(J57_J57_Km1 + ppMEK)) pMEK
-pMEK_dephosphorylation: pMEK ->(J58_J58_Vmax*PP2A*c1/(J58_J58_Km1 + pMEK)) MEK
-ppMEK_ERK: ppMEK_ERK ->(J61_J61_Vmax*PP2A*c1/(J61_J61_Km1 + ppMEK_ERK)) pMEK_ERK
-pMEK_ERK_dephosphorylation: pMEK_ERK ->(J62_J62_Vmax*PP2A*c1/(J62_J62_Km1 + pMEK_ERK)) MEK_ERK
-ppERK_dimerization: 2ppERK ->(J63_J63_k1*c1) dppERK
-ppERK_dimerization_rev: dppERK ->(J63_J63_k2*c1) 2ppERK
-Ras_GTP_dephosphorylation: Ras_GTP ->(J66_J66_k*c1) Ras_GDP
-Rap1_GTP_dephosphorylation: Rap1_GTP ->(J67_J67_k*c1) Rap1_GDP
-Rap1_GTP_phosphorylation: Rap1_GDP ->(J68_J68_Vmax*c1*(Crk_C3G_pFRS2_dpEGFR + Crk_C3G_pFRS2_dpEGFR_c_Cbl + Crk_C3G_pFRS2_pTrkA_endo)/(J68_J68_Km1 + Rap1_GDP)) Rap1_GTP
-Ras_GDP_phosphorylation: Ras_GDP ->(J69_J69_Vmax*c1*(Grb2_SOS_pShc_dpEGFR + Grb2_SOS_pShc_dpEGFR_c_Cbl + Grb2_SOS_pShc_pTrkA)/(J69_J69_Km1 + Ras_GDP)) Ras_GTP
-binding_NGF_to_NGFR: NGF + NGFR ->(J70_J70_k1*compartment) L_NGFR
-binding_NGF_to_NGFR_rev: L_NGFR ->(J70_J70_k2*compartment) NGF + NGFR
-TrkA_phosphorylation: L_NGFR ->(J71_J71_k*compartment) pTrkA
-pTrkA_intermalization: pTrkA ->(J72_J72_k*c1) pTrkA_endo
-pTrkA_endo_degradation: pTrkA_endo ->(J73_J73_k*c1) degradation
-pTrkA_degradation: pTrkA ->(J74_J74_k*c1) degradation
-binding_Shc_to_pTrkA: Shc + pTrkA ->(J75_J75_k1*c1) Shc_pTrkA
-binding_Shc_to_pTrkA_rev: Shc_pTrkA ->(J75_J75_k2*c1) Shc + pTrkA
-binding_pShc_to_pTrkA: pShc + pTrkA ->(J76_J76_k1*c1) pShc_pTrkA
-binding_pShc_to_pTrkA_rev: pShc_pTrkA ->(J76_J76_k2*c1) pShc + pTrkA
-binding_FRS2_to_pTrkA: FRS2 + pTrkA ->(J77_J77_k1*c1) FRS2_pTrkA
-binding_FRS2_to_pTrkA_rev: FRS2_pTrkA ->(J77_J77_k2*c1) FRS2 + pTrkA
-binding_pFRS2_to_pTrkA: pFRS2 + pTrkA ->(J78_J78_k1*c1) pFRS2_pTrkA
-binding_pFRS2_to_pTrkA_rev: pFRS2_pTrkA ->(J78_J78_k2*c1) pFRS2 + pTrkA
-binding_Shc_to_pTrkA_endo: Shc + pTrkA_endo ->(J79_J79_k1*c1) Shc_pTrkA_endo
-binding_Shc_to_pTrkA_endo_rev: Shc_pTrkA_endo ->(J79_J79_k2*c1) Shc + pTrkA_endo
-binding_pShc_to_pTrkA_endo: pShc + pTrkA_endo ->(J80_J80_k1*c1) pShc_pTrkA_endo
-binding_pShc_to_pTrkA_endo_rev: pShc_pTrkA_endo ->(J80_J80_k2*c1) pShc + pTrkA_endo
-Shc_pTrkA_endo_phosphorylation: Shc_pTrkA_endo ->(J81_J81_k*c1) pShc_pTrkA_endo
-Shc_pTrkA_phosphorylation: Shc_pTrkA ->(J82_J82_k*c1) pShc_pTrkA
-pFRS2_pTrkA_phosphorylation: FRS2_pTrkA ->(J83_J83_k*c1) pFRS2_pTrkA
-binding_FRS2_to_pTrkA_endo: FRS2 + pTrkA_endo ->(J84_J84_k1*c1) FRS2_pTrkA_endo
-binding_FRS2_to_pTrkA_endo_rev: FRS2_pTrkA_endo ->(J84_J84_k2*c1) FRS2 + pTrkA_endo
-binding_pFRS2_to_pTrkA_endo: pFRS2 + pTrkA_endo ->(J85_J85_k1*c1) pFRS2_pTrkA_endo
-binding_pFRS2_to_pTrkA_endo_rev: pFRS2_pTrkA_endo ->(J85_J85_k2*c1) pFRS2 + pTrkA_endo
-FRS2_pTrkA_endo_phosphorylation: FRS2_pTrkA_endo ->(J86_J86_k*c1) pFRS2_pTrkA_endo
-FRS2_pTrkA_degradation: FRS2_pTrkA ->(J87_J87_k*c1) FRS2 + degradation
-pFRS2_pTrkA_degradation: pFRS2_pTrkA ->(J88_J88_k*c1) degradation + pFRS2
-Shc_pTrkA_degradation: Shc_pTrkA ->(J89_J89_k*c1) Shc + degradation
-pShc_pTrkA_degradation: pShc_pTrkA ->(J90_J90_k*c1) degradation + pShc
-FRS2_pTrkA_endo_degradation: FRS2_pTrkA_endo ->(J92_J92_k*c1) FRS2 + degradation
-Shc_pTrkA_endo_degradation: Shc_pTrkA_endo ->(J93_J93_k*c1) Shc + degradation
-pShc_pTrkA_endo_degradation: pShc_pTrkA_endo ->(J94_J94_k*c1) degradation + pShc
-binding_Grb2_SOS_to_pShc_pTrkA_endo: SOS_Grb2 + pShc_pTrkA_endo ->(J95_J95_k1*c1) Grb2_SOS_pShc_pTrkA_endo
-binding_Grb2_SOS_to_pShc_pTrkA_endo_rev: Grb2_SOS_pShc_pTrkA_endo ->(J95_J95_k2*c1) SOS_Grb2 + pShc_pTrkA_endo
-binding_Grb2_SOS_to_pShc_pTrkA: SOS_Grb2 + pShc_pTrkA ->(J96_J96_k1*c1) Grb2_SOS_pShc_pTrkA
-binding_Grb2_SOS_to_pShc_pTrkA_rev: Grb2_SOS_pShc_pTrkA ->(J96_J96_k2*c1) SOS_Grb2 + pShc_pTrkA
-Grb2_SOS_pShc_pTrkA_ubiquitination: Grb2_SOS_pShc_pTrkA ->(J97_J97_k*c1) Grb2_SOS_pShc_pTrkA_endo
-Crk_C3G_pFRS2_pTrkA_ubiquitination: Crk_C3G_pFRS2_pTrkA ->(J98_J98_k*c1) Crk_C3G_pFRS2_pTrkA_endo
-pFRS2_pTrkA_ubiquitination: pFRS2_pTrkA ->(J99_J99_k*c1) pFRS2_pTrkA_endo
-FRS2_pTrkA_ubiquitination: FRS2_pTrkA ->(J100_J100_k*c1) FRS2_pTrkA_endo
-pShc_pTrkA_ubiquitination: pShc_pTrkA ->(J101_J101_k*c1) pShc_pTrkA_endo
-Shc_pTrkA_ubiquitination: Shc_pTrkA ->(J102_J102_k*c1) Shc_pTrkA_endo
-binding_Crk_C3G_to_pFRS2_pTrkA: Crk_C3G + pFRS2_pTrkA ->(J103_J103_k1*c1) Crk_C3G_pFRS2_pTrkA
-binding_Crk_C3G_to_pFRS2_pTrkA_rev: Crk_C3G_pFRS2_pTrkA ->(J103_J103_k2*c1) Crk_C3G + pFRS2_pTrkA
-binding_Crk_C3G_to_pFRS2_pTrkA_endo: Crk_C3G + pFRS2_pTrkA_endo ->(J104_J104_k1*c1) Crk_C3G_pFRS2_pTrkA_endo
-binding_Crk_C3G_to_pFRS2_pTrkA_endo_rev: Crk_C3G_pFRS2_pTrkA_endo ->(J104_J104_k2*c1) Crk_C3G + pFRS2_pTrkA_endo
-binding_Grb2_SOS_pShc_to_pTrkA: Grb2_SOS_pShc + pTrkA ->(J105_J105_k1*c1) Grb2_SOS_pShc_pTrkA
-binding_Grb2_SOS_pShc_to_pTrkA_rev: Grb2_SOS_pShc_pTrkA ->(J105_J105_k2*c1) Grb2_SOS_pShc + pTrkA
-binding_Grb2_SOS_pShc_to_pTrkA_endo: Grb2_SOS_pShc + pTrkA_endo ->(J106_J106_k1*c1) Grb2_SOS_pShc_pTrkA_endo
-binding_Grb2_SOS_pShc_to_pTrkA_endo_rev: Grb2_SOS_pShc_pTrkA_endo ->(J106_J106_k2*c1) Grb2_SOS_pShc + pTrkA_endo
-Crk_C3G_pFRS2_pTrkA_degradation: Crk_C3G_pFRS2_pTrkA ->(J107_J107_k*c1) Crk_C3G + degradation + pFRS2
-Crk_C3G_pFRS2_pTrkA_endo_degradation: Crk_C3G_pFRS2_pTrkA_endo ->(J108_J108_k*c1) Crk_C3G + degradation + pFRS2
-Grb2_SOS_pShc_pTrkA_degradation: Grb2_SOS_pShc_pTrkA ->(J109_J109_k*c1) Grb2_SOS_pShc + degradation
-Grb2_SOS_pShc_pTrkA_endo_degradation: Grb2_SOS_pShc_pTrkA_endo ->(J110_J110_k*c1) Grb2_SOS_pShc + degradation
-pFRS2_pTrkA_endo_degradation: pFRS2_pTrkA_endo ->(J112_J112_k) degradation + pFRS2
-form_NGFreceptor: pro_TrkA ->(J113_J113_k1*compartment) NGFR
-form_NGFreceptor_rev: NGFR ->(J113_J113_k2*compartment) pro_TrkA
-binding_Shc_to_dpEGFR_c_Cbl: Shc + dpEGFR_c_Cbl ->(J115_J115_k1*c1) Shc_dpEGFR_c_Cbl
-binding_Shc_to_dpEGFR_c_Cbl_rev: Shc_dpEGFR_c_Cbl ->(J115_J115_k2*c1) Shc + dpEGFR_c_Cbl
-binding_pShc_to_dpEGFR_c_Cbl: dpEGFR_c_Cbl + pShc ->(J116_J116_k1*c1) pShc_dpEGFR_c_Cbl
-binding_pShc_to_dpEGFR_c_Cbl_rev: pShc_dpEGFR_c_Cbl ->(J116_J116_k2*c1) dpEGFR_c_Cbl + pShc
-binding_SOS_Grb2_to_pShc_dpEGFR_c_Cbl: SOS_Grb2 + pShc_dpEGFR_c_Cbl ->(J117_J117_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
-binding_SOS_Grb2_to_pShc_dpEGFR_c_Cbl_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J117_J117_k2*c1) SOS_Grb2 + pShc_dpEGFR_c_Cbl
-binding_c_Cbl_to_Crk_C3G_pFRS2_dpEGFR: Crk_C3G_pFRS2_dpEGFR + c_Cbl ->(J119_J119_k1*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl
-binding_c_Cbl_to_Crk_C3G_pFRS2_dpEGFR_rev: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J119_J119_k2*c1) Crk_C3G_pFRS2_dpEGFR + c_Cbl
-binding_FRS2_to_dpEGFR_c_Cbl: FRS2 + dpEGFR_c_Cbl ->(J118_J118_k1*c1) FRS2_dpEGFR_c_Cbl
-binding_FRS2_to_dpEGFR_c_Cbl_rev: FRS2_dpEGFR_c_Cbl ->(J118_J118_k2*c1) FRS2 + dpEGFR_c_Cbl
-binding_pFRS2_to_dpEGFR_c_Cbl: dpEGFR_c_Cbl + pFRS2 ->(J120_J120_k1*c1) pFRS2_dpEGFR_c_Cbl
-binding_pFRS2_to_dpEGFR_c_Cbl_rev: pFRS2_dpEGFR_c_Cbl ->(J120_J120_k2*c1) dpEGFR_c_Cbl + pFRS2
-Ras_GTP_dephosphorylation: Ras_GTP ->(J121_J121_Vmax*c1*pDok_RasGAP/(J121_J121_Km1 + Ras_GTP)) Ras_GDP
-RAP1_GTP_dephosphorylation: Rap1_GTP ->(J122_J122_Vmax*Rap1GAP*c1/(J122_J122_Km1 + Rap1_GTP)) Rap1_GDP
-Dok_phosphorylation: Dok ->(J123_J123_Vmax*c1*(Crk_C3G_pFRS2_pTrkA + FRS2_pTrkA + Grb2_SOS_pShc_pTrkA + Shc_pTrkA + pFRS2_pTrkA + pShc_pTrkA + pTrkA)/(Dok + J123_J123_Km1)) pDok
-Grb1_SOS_pShc_dissociation: Grb2_SOS_pShc ->(J124_J124_Vmax*c1*dppERK/(Grb2_SOS_pShc + J124_J124_Km1)) pSOS_Grb2 + pShc
-binding_MEK_to_ERK: ERK + MEK ->(J133_J133_k1*c1) MEK_ERK
-binding_MEK_to_ERK_rev: MEK_ERK ->(J133_J133_k2*c1) ERK + MEK
-binding_ERK_to_pMEK: ERK + pMEK ->(J134_J134_k1*c1) pMEK_ERK
-binding_ERK_to_pMEK_rev: pMEK_ERK ->(J134_J134_k2*c1) ERK + pMEK
-binding_ERK_to_ppMEK: ERK + ppMEK ->(J135_J135_k1*c1) ppMEK_ERK
-binding_ERK_to_ppMEK_rev: ppMEK_ERK ->(J135_J135_k2*c1) ERK + ppMEK
-ppMEK_ERK_dissociation: ppMEK_ERK ->(J136_J136_k*c1) ppERK + ppMEK
-c_Raf_Ras_GTP_dissociation: c_Raf_Ras_GTP ->(J137_J137_Vmax*c1*pDok_RasGAP/(J137_J137_Km1 + c_Raf_Ras_GTP)) Ras_GDP + c_Raf
-B_Raf_Ras_GTP_dissociation: B_Raf_Ras_GTP ->(J138_J138_Vmax*c1*pDok_RasGAP/(B_Raf_Ras_GTP + J138_J138_Km1)) B_Raf + Ras_GDP
-B_Raf_Rap1_GTP_dissociation: B_Raf_Rap1_GTP ->(J139_J139_Vmax*Rap1GAP*c1/(B_Raf_Rap1_GTP + J139_J139_Km1)) B_Raf + Rap1_GDP
+J32: pShc ->(J32_J32_k*c1) Shc
+J33: pFRS2 ->(J33_J33_k*c1) FRS2
+J34: C3G + Crk ->(J34_J34_k1*c1) Crk_C3G
+J34_rev: Crk_C3G ->(J34_J34_k2*c1) C3G + Crk
+J35: FRS2 + L_dpEGFR ->(J35_J35_k1*c1) FRS2_dpEGFR
+J35_rev: FRS2_dpEGFR ->(J35_J35_k2*c1) FRS2 + L_dpEGFR
+J36: L_dpEGFR + pFRS2 ->(J36_J36_k1*c1) pFRS2_dpEGFR
+J36_rev: pFRS2_dpEGFR ->(J36_J36_k2*c1) L_dpEGFR + pFRS2
+J37: FRS2_dpEGFR ->(J37_J37_k*c1) pFRS2_dpEGFR
+J38: Crk_C3G + pFRS2_dpEGFR ->(J38_J38_k1*c1) Crk_C3G_pFRS2_dpEGFR
+J38_rev: Crk_C3G_pFRS2_dpEGFR ->(J38_J38_k2*c1) Crk_C3G + pFRS2_dpEGFR
+J39: FRS2_dpEGFR + c_Cbl ->(J39_J39_k1*c1) FRS2_dpEGFR_c_Cbl
+J39_rev: FRS2_dpEGFR_c_Cbl ->(J39_J39_k2*c1) FRS2_dpEGFR + c_Cbl
+J40: c_Cbl + pFRS2_dpEGFR ->(J40_J40_k1*c1) pFRS2_dpEGFR_c_Cbl
+J40_rev: pFRS2_dpEGFR_c_Cbl ->(J40_J40_k2*c1) c_Cbl + pFRS2_dpEGFR
+J41: pFRS2_dpEGFR_c_Cbl ->(J41_J41_k*c1) pFRS2_dpEGFR_c_Cbl_ubiq
+J42: FRS2_dpEGFR_c_Cbl ->(J42_J42_k*c1) FRS2_dpEGFR_c_Cbl_ubiq
+J43: FRS2_dpEGFR_c_Cbl ->(J43_J43_k*c1) pFRS2_dpEGFR_c_Cbl
+J44: Crk_C3G + pFRS2_dpEGFR_c_Cbl ->(J44_J44_k1*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl
+J44_rev: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J44_J44_k2*c1) Crk_C3G + pFRS2_dpEGFR_c_Cbl
+J45: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J45_J45_k*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl_ubiq
+J46: FRS2_dpEGFR_c_Cbl_ubiq ->(J46_J46_k*c1) FRS2 + c_Cbl + proteosome
+J47: pFRS2_dpEGFR_c_Cbl_ubiq ->(J47_J47_k*c1) c_Cbl + pFRS2 + proteosome
+J49: RasGAP + pDok ->(J49_J49_k1*c1) pDok_RasGAP
+J49_rev: pDok_RasGAP ->(J49_J49_k2*c1) RasGAP + pDok
+J50: SOS_Grb2 ->(J50_J50_Vmax*c1*dppERK/(J50_J50_Km1 + SOS_Grb2)) pSOS_Grb2
+J51: SOS ->(J51_J51_Vmax*c1*dppERK/(J51_J51_Km1 + SOS)) pSOS
+J52: Ras_GTP + c_Raf ->(J52_J52_k1*c1) c_Raf_Ras_GTP
+J52_rev: c_Raf_Ras_GTP ->(J52_J52_k2*c1) Ras_GTP + c_Raf
+J53: B_Raf + Rap1_GTP ->(J53_J53_k1*c1) B_Raf_Rap1_GTP
+J53_rev: B_Raf_Rap1_GTP ->(J53_J53_k2*c1) B_Raf + Rap1_GTP
+J54: B_Raf + Ras_GTP ->(J54_J54_k1*c1) B_Raf_Ras_GTP
+J54_rev: B_Raf_Ras_GTP ->(J54_J54_k2*c1) B_Raf + Ras_GTP
+J57: ppMEK ->(J57_J57_Vmax*PP2A/(J57_J57_Km1 + ppMEK)) pMEK
+J58: pMEK ->(J58_J58_Vmax*PP2A*c1/(J58_J58_Km1 + pMEK)) MEK
+J61: ppMEK_ERK ->(J61_J61_Vmax*PP2A*c1/(J61_J61_Km1 + ppMEK_ERK)) pMEK_ERK
+J62: pMEK_ERK ->(J62_J62_Vmax*PP2A*c1/(J62_J62_Km1 + pMEK_ERK)) MEK_ERK
+J63: 2ppERK ->(J63_J63_k1*c1) dppERK
+J63_rev: dppERK ->(J63_J63_k2*c1) 2ppERK
+J66: Ras_GTP ->(J66_J66_k*c1) Ras_GDP
+J67: Rap1_GTP ->(J67_J67_k*c1) Rap1_GDP
+J68: Rap1_GDP ->(J68_J68_Vmax*c1*(Crk_C3G_pFRS2_dpEGFR + Crk_C3G_pFRS2_dpEGFR_c_Cbl + Crk_C3G_pFRS2_pTrkA_endo)/(J68_J68_Km1 + Rap1_GDP)) Rap1_GTP
+J69: Ras_GDP ->(J69_J69_Vmax*c1*(Grb2_SOS_pShc_dpEGFR + Grb2_SOS_pShc_dpEGFR_c_Cbl + Grb2_SOS_pShc_pTrkA)/(J69_J69_Km1 + Ras_GDP)) Ras_GTP
+J70: NGF + NGFR ->(J70_J70_k1*compartment) L_NGFR
+J70_rev: L_NGFR ->(J70_J70_k2*compartment) NGF + NGFR
+J71: L_NGFR ->(J71_J71_k*compartment) pTrkA
+J72: pTrkA ->(J72_J72_k*c1) pTrkA_endo
+J73: pTrkA_endo ->(J73_J73_k*c1) degradation
+J74: pTrkA ->(J74_J74_k*c1) degradation
+J75: Shc + pTrkA ->(J75_J75_k1*c1) Shc_pTrkA
+J75_rev: Shc_pTrkA ->(J75_J75_k2*c1) Shc + pTrkA
+J76: pShc + pTrkA ->(J76_J76_k1*c1) pShc_pTrkA
+J76_rev: pShc_pTrkA ->(J76_J76_k2*c1) pShc + pTrkA
+J77: FRS2 + pTrkA ->(J77_J77_k1*c1) FRS2_pTrkA
+J77_rev: FRS2_pTrkA ->(J77_J77_k2*c1) FRS2 + pTrkA
+J78: pFRS2 + pTrkA ->(J78_J78_k1*c1) pFRS2_pTrkA
+J78_rev: pFRS2_pTrkA ->(J78_J78_k2*c1) pFRS2 + pTrkA
+J79: Shc + pTrkA_endo ->(J79_J79_k1*c1) Shc_pTrkA_endo
+J79_rev: Shc_pTrkA_endo ->(J79_J79_k2*c1) Shc + pTrkA_endo
+J80: pShc + pTrkA_endo ->(J80_J80_k1*c1) pShc_pTrkA_endo
+J80_rev: pShc_pTrkA_endo ->(J80_J80_k2*c1) pShc + pTrkA_endo
+J81: Shc_pTrkA_endo ->(J81_J81_k*c1) pShc_pTrkA_endo
+J82: Shc_pTrkA ->(J82_J82_k*c1) pShc_pTrkA
+J83: FRS2_pTrkA ->(J83_J83_k*c1) pFRS2_pTrkA
+J84: FRS2 + pTrkA_endo ->(J84_J84_k1*c1) FRS2_pTrkA_endo
+J84_rev: FRS2_pTrkA_endo ->(J84_J84_k2*c1) FRS2 + pTrkA_endo
+J85: pFRS2 + pTrkA_endo ->(J85_J85_k1*c1) pFRS2_pTrkA_endo
+J85_rev: pFRS2_pTrkA_endo ->(J85_J85_k2*c1) pFRS2 + pTrkA_endo
+J86: FRS2_pTrkA_endo ->(J86_J86_k*c1) pFRS2_pTrkA_endo
+J87: FRS2_pTrkA ->(J87_J87_k*c1) FRS2 + degradation
+J88: pFRS2_pTrkA ->(J88_J88_k*c1) degradation + pFRS2
+J89: Shc_pTrkA ->(J89_J89_k*c1) Shc + degradation
+J90: pShc_pTrkA ->(J90_J90_k*c1) degradation + pShc
+J92: FRS2_pTrkA_endo ->(J92_J92_k*c1) FRS2 + degradation
+J93: Shc_pTrkA_endo ->(J93_J93_k*c1) Shc + degradation
+J94: pShc_pTrkA_endo ->(J94_J94_k*c1) degradation + pShc
+J95: SOS_Grb2 + pShc_pTrkA_endo ->(J95_J95_k1*c1) Grb2_SOS_pShc_pTrkA_endo
+J95_rev: Grb2_SOS_pShc_pTrkA_endo ->(J95_J95_k2*c1) SOS_Grb2 + pShc_pTrkA_endo
+J96: SOS_Grb2 + pShc_pTrkA ->(J96_J96_k1*c1) Grb2_SOS_pShc_pTrkA
+J96_rev: Grb2_SOS_pShc_pTrkA ->(J96_J96_k2*c1) SOS_Grb2 + pShc_pTrkA
+J97: Grb2_SOS_pShc_pTrkA ->(J97_J97_k*c1) Grb2_SOS_pShc_pTrkA_endo
+J98: Crk_C3G_pFRS2_pTrkA ->(J98_J98_k*c1) Crk_C3G_pFRS2_pTrkA_endo
+J99: pFRS2_pTrkA ->(J99_J99_k*c1) pFRS2_pTrkA_endo
+J100: FRS2_pTrkA ->(J100_J100_k*c1) FRS2_pTrkA_endo
+J101: pShc_pTrkA ->(J101_J101_k*c1) pShc_pTrkA_endo
+J102: Shc_pTrkA ->(J102_J102_k*c1) Shc_pTrkA_endo
+J103: Crk_C3G + pFRS2_pTrkA ->(J103_J103_k1*c1) Crk_C3G_pFRS2_pTrkA
+J103_rev: Crk_C3G_pFRS2_pTrkA ->(J103_J103_k2*c1) Crk_C3G + pFRS2_pTrkA
+J104: Crk_C3G + pFRS2_pTrkA_endo ->(J104_J104_k1*c1) Crk_C3G_pFRS2_pTrkA_endo
+J104_rev: Crk_C3G_pFRS2_pTrkA_endo ->(J104_J104_k2*c1) Crk_C3G + pFRS2_pTrkA_endo
+J105: Grb2_SOS_pShc + pTrkA ->(J105_J105_k1*c1) Grb2_SOS_pShc_pTrkA
+J105_rev: Grb2_SOS_pShc_pTrkA ->(J105_J105_k2*c1) Grb2_SOS_pShc + pTrkA
+J106: Grb2_SOS_pShc + pTrkA_endo ->(J106_J106_k1*c1) Grb2_SOS_pShc_pTrkA_endo
+J106_rev: Grb2_SOS_pShc_pTrkA_endo ->(J106_J106_k2*c1) Grb2_SOS_pShc + pTrkA_endo
+J107: Crk_C3G_pFRS2_pTrkA ->(J107_J107_k*c1) Crk_C3G + degradation + pFRS2
+J108: Crk_C3G_pFRS2_pTrkA_endo ->(J108_J108_k*c1) Crk_C3G + degradation + pFRS2
+J109: Grb2_SOS_pShc_pTrkA ->(J109_J109_k*c1) Grb2_SOS_pShc + degradation
+J110: Grb2_SOS_pShc_pTrkA_endo ->(J110_J110_k*c1) Grb2_SOS_pShc + degradation
+J112: pFRS2_pTrkA_endo ->(J112_J112_k) degradation + pFRS2
+J113: pro_TrkA ->(J113_J113_k1*compartment) NGFR
+J113_rev: NGFR ->(J113_J113_k2*compartment) pro_TrkA
+J115: Shc + dpEGFR_c_Cbl ->(J115_J115_k1*c1) Shc_dpEGFR_c_Cbl
+J115_rev: Shc_dpEGFR_c_Cbl ->(J115_J115_k2*c1) Shc + dpEGFR_c_Cbl
+J116: dpEGFR_c_Cbl + pShc ->(J116_J116_k1*c1) pShc_dpEGFR_c_Cbl
+J116_rev: pShc_dpEGFR_c_Cbl ->(J116_J116_k2*c1) dpEGFR_c_Cbl + pShc
+J117: SOS_Grb2 + pShc_dpEGFR_c_Cbl ->(J117_J117_k1*c1) Grb2_SOS_pShc_dpEGFR_c_Cbl
+J117_rev: Grb2_SOS_pShc_dpEGFR_c_Cbl ->(J117_J117_k2*c1) SOS_Grb2 + pShc_dpEGFR_c_Cbl
+J119: Crk_C3G_pFRS2_dpEGFR + c_Cbl ->(J119_J119_k1*c1) Crk_C3G_pFRS2_dpEGFR_c_Cbl
+J119_rev: Crk_C3G_pFRS2_dpEGFR_c_Cbl ->(J119_J119_k2*c1) Crk_C3G_pFRS2_dpEGFR + c_Cbl
+J118: FRS2 + dpEGFR_c_Cbl ->(J118_J118_k1*c1) FRS2_dpEGFR_c_Cbl
+J118_rev: FRS2_dpEGFR_c_Cbl ->(J118_J118_k2*c1) FRS2 + dpEGFR_c_Cbl
+J120: dpEGFR_c_Cbl + pFRS2 ->(J120_J120_k1*c1) pFRS2_dpEGFR_c_Cbl
+J120_rev: pFRS2_dpEGFR_c_Cbl ->(J120_J120_k2*c1) dpEGFR_c_Cbl + pFRS2
+J121: Ras_GTP ->(J121_J121_Vmax*c1*pDok_RasGAP/(J121_J121_Km1 + Ras_GTP)) Ras_GDP
+J122: Rap1_GTP ->(J122_J122_Vmax*Rap1GAP*c1/(J122_J122_Km1 + Rap1_GTP)) Rap1_GDP
+J123: Dok ->(J123_J123_Vmax*c1*(Crk_C3G_pFRS2_pTrkA + FRS2_pTrkA + Grb2_SOS_pShc_pTrkA + Shc_pTrkA + pFRS2_pTrkA + pShc_pTrkA + pTrkA)/(Dok + J123_J123_Km1)) pDok
+J124: Grb2_SOS_pShc ->(J124_J124_Vmax*c1*dppERK/(Grb2_SOS_pShc + J124_J124_Km1)) pSOS_Grb2 + pShc
+J133: ERK + MEK ->(J133_J133_k1*c1) MEK_ERK
+J133_rev: MEK_ERK ->(J133_J133_k2*c1) ERK + MEK
+J134: ERK + pMEK ->(J134_J134_k1*c1) pMEK_ERK
+J134_rev: pMEK_ERK ->(J134_J134_k2*c1) ERK + pMEK
+J135: ERK + ppMEK ->(J135_J135_k1*c1) ppMEK_ERK
+J135_rev: ppMEK_ERK ->(J135_J135_k2*c1) ERK + ppMEK
+J136: ppMEK_ERK ->(J136_J136_k*c1) ppERK + ppMEK
+J137: c_Raf_Ras_GTP ->(J137_J137_Vmax*c1*pDok_RasGAP/(J137_J137_Km1 + c_Raf_Ras_GTP)) Ras_GDP + c_Raf
+J138: B_Raf_Ras_GTP ->(J138_J138_Vmax*c1*pDok_RasGAP/(B_Raf_Ras_GTP + J138_J138_Km1)) B_Raf + Ras_GDP
+J139: B_Raf_Rap1_GTP ->(J139_J139_Vmax*Rap1GAP*c1/(B_Raf_Rap1_GTP + J139_J139_Km1)) B_Raf + Rap1_GDP
 J140: MEK + c_Raf_Ras_GTP ->(c1*(J140_J140_k1*MEK*c_Raf_Ras_GTP - J140_J140_k2*c_Raf_Ras_GTP_MEK)/(MEK*c_Raf_Ras_GTP)) c_Raf_Ras_GTP_MEK
 J141: c_Raf_Ras_GTP + pMEK ->(J141_J141_k1*c1) c_Raf_Ras_GTP_pMEK
 J141_rev: c_Raf_Ras_GTP_pMEK ->(J141_J141_k2*c1) c_Raf_Ras_GTP + pMEK

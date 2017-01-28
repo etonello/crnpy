@@ -1,10 +1,10 @@
-Kinase_recruitment_to_T_cell_receptor:  ->(r_l) Inactive_lck
-Kinase_inactivation: Active_lck ->(Active_phosphatase*n1) Inactive_lck
-Basal_kinase_activation: Inactive_lck ->(k1) Active_lck
-Catalytic_kinase_activation: Inactive_lck ->(Active_lck**n*m1) Active_lck
-Inactive_kinase_diffusion: Inactive_lck ->(d0) 
-Active_kinase_diffusion: Active_lck ->(d1) 
-Basal_phosphatase_activation: Inactive_phosphatase ->(k2) Active_phosphatase
-Catalyzed_phosphatase_activation: Inactive_phosphatase ->(Active_lck*m2) Active_phosphatase
-Phosphatase_inactivation: Active_phosphatase ->(n2) Inactive_phosphatase
-Active_phosphatase_diffusion: Active_phosphatase ->(d2) 
+v1:  ->(r_l) lck_inactive
+v2: lck_active ->(n1*phosphatase_active) lck_inactive
+v3: lck_inactive ->(k1) lck_active
+v4: lck_inactive ->(lck_active**n*m1) lck_active
+v5: lck_inactive ->(d0) 
+v6: lck_active ->(d1) 
+v7: phosphatase_inactive ->(k2) phosphatase_active
+v8: phosphatase_inactive ->(lck_active*m2) phosphatase_active
+v9: phosphatase_active ->(n2) phosphatase_inactive
+v10: phosphatase_active ->(d2) 

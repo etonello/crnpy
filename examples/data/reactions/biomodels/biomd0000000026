@@ -1,16 +1,16 @@
-binding_MAPK_and_PP_MAPKK: M + MAPKK ->(k1*uVol) M_MAPKK
-binding_MAPK_and_PP_MAPKK_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
-phosphorylation_of_MAPK: M_MAPKK ->(k2*uVol) MAPKK + Mp
-binding_PP_MAPKK_and_P_MAPK: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
-binding_PP_MAPKK_and_P_MAPK_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
-phosphorylation_of_P_MAPK: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
-binding_MKP_and_PP_MAPK: MKP + Mpp ->(h1*uVol) Mpp_MKP
-binding_MKP_and_PP_MAPK_rev: Mpp_MKP ->(h_1*uVol) MKP + Mpp
-dephosphorylation_of_PP_MAPK: Mpp_MKP ->(h2*uVol) Mp_MKP
-dissociation_of_MKP_from_P_MAPK: Mp_MKP ->(h3) MKP + Mp
-dissociation_of_MKP_from_P_MAPK_rev: MKP + Mp ->(h_3) Mp_MKP
-binding_MKP_and_P_MAPK: MKP + Mp ->(h4*uVol) Mp_MKP_
-binding_MKP_and_P_MAPK_rev: Mp_MKP_ ->(h_4*uVol) MKP + Mp
-dephosphorylation_of_P_MAPK: Mp_MKP_ ->(h5*uVol) M_MKP
-dissociation_of_MKP_from_MAPK: M_MKP ->(h6*uVol) M + MKP
-dissociation_of_MKP_from_MAPK_rev: M + MKP ->(h_6*uVol) M_MKP
+v1a: M + MAPKK ->(k1*uVol) M_MAPKK
+v1a_rev: M_MAPKK ->(k_1*uVol) M + MAPKK
+v1b: M_MAPKK ->(k2*uVol) MAPKK + Mp
+v2a: MAPKK + Mp ->(k3*uVol) Mp_MAPKK
+v2a_rev: Mp_MAPKK ->(k_3*uVol) MAPKK + Mp
+v2b: Mp_MAPKK ->(k4*uVol) MAPKK + Mpp
+v3a: MKP3 + Mpp ->(h1*uVol) Mpp_MKP3
+v3a_rev: Mpp_MKP3 ->(h_1*uVol) MKP3 + Mpp
+v3b: Mpp_MKP3 ->(h2*uVol) Mp_MKP3_dep
+v3c: Mp_MKP3_dep ->(h3) MKP3 + Mp
+v3c_rev: MKP3 + Mp ->(h_3) Mp_MKP3_dep
+v4a: MKP3 + Mp ->(h4*uVol) Mp_MKP3
+v4a_rev: Mp_MKP3 ->(h_4*uVol) MKP3 + Mp
+v4b: Mp_MKP3 ->(h5*uVol) M_MKP3
+v4c: M_MKP3 ->(h6*uVol) M + MKP3
+v4c_rev: M + MKP3 ->(h_6*uVol) M_MKP3

@@ -1,19 +1,19 @@
-r8: Raf_minus_1 ->(kI_r8_s22*kI_r8_s29*kI_r8_s33*(PP2A*Raf_minus_1*kM_r8_s124_s23*kM_r8_s31_s24*kcatp_r8_s31 + PP2A*Raf_minus_1*kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s31 + PP2A*kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s31 + Raf_minus_1*Ras*kM_r8_s124_s24*kM_r8_s31_s23*kcatp_r8_s124 + Raf_minus_1*Ras*kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s124 + Ras*kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24*kcatp_r8_s124)/((Akt + kI_r8_s22)*(RKIP + kI_r8_s29)*(_14_minus_3_minus_3 + kI_r8_s33)*(Raf_minus_1*kM_r8_s124_s23 + Raf_minus_1*kM_r8_s124_s24 + kM_r8_s124_s23*kM_r8_s124_s24)*(Raf_minus_1*kM_r8_s31_s23 + Raf_minus_1*kM_r8_s31_s24 + kM_r8_s31_s23*kM_r8_s31_s24))) Raf_minus_1
-r8_rev: Raf_minus_1 ->(kI_r8_s22*kI_r8_s29*kI_r8_s33*(PP2A*Raf_minus_1*kM_r8_s124_s23*kM_r8_s31_s23*kcatn_r8_s31 + PP2A*Raf_minus_1*kM_r8_s124_s24*kM_r8_s31_s23*kcatn_r8_s31 + PP2A*kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s23*kcatn_r8_s31 + Raf_minus_1*Ras*kM_r8_s124_s23*kM_r8_s31_s23*kcatn_r8_s124 + Raf_minus_1*Ras*kM_r8_s124_s23*kM_r8_s31_s24*kcatn_r8_s124 + Ras*kM_r8_s124_s23*kM_r8_s31_s23*kM_r8_s31_s24*kcatn_r8_s124)/((Akt + kI_r8_s22)*(RKIP + kI_r8_s29)*(_14_minus_3_minus_3 + kI_r8_s33)*(Raf_minus_1*kM_r8_s124_s23 + Raf_minus_1*kM_r8_s124_s24 + kM_r8_s124_s23*kM_r8_s124_s24)*(Raf_minus_1*kM_r8_s31_s23 + Raf_minus_1*kM_r8_s31_s24 + kM_r8_s31_s23*kM_r8_s31_s24))) Raf_minus_1
-r9: MEK1_minus_2 ->(Raf_minus_1*kM_r9_s26*kcatp_r9/(MEK1_minus_2*kM_r9_s25 + MEK1_minus_2*kM_r9_s26 + kM_r9_s25*kM_r9_s26)) MEK1_minus_2
-r9_rev: MEK1_minus_2 ->(Raf_minus_1*kM_r9_s25*kcatn_r9/(MEK1_minus_2*kM_r9_s25 + MEK1_minus_2*kM_r9_s26 + kM_r9_s25*kM_r9_s26)) MEK1_minus_2
-r11: RKIP ->(PKC*kM_r11_s30*kcatp_r11/(RKIP*kM_r11_s29 + RKIP*kM_r11_s30 + kM_r11_s29*kM_r11_s30)) RKIP
-r11_rev: RKIP ->(PKC*kM_r11_s29*kcatn_r11/(RKIP*kM_r11_s29 + RKIP*kM_r11_s30 + kM_r11_s29*kM_r11_s30)) RKIP
-r14: ERK1_minus_2 ->(MEK1_minus_2*kM_r14_s28*kcatp_r14/(ERK1_minus_2*kM_r14_s27 + ERK1_minus_2*kM_r14_s28 + kM_r14_s27*kM_r14_s28)) ERK1_minus_2
-r14_rev: ERK1_minus_2 ->(MEK1_minus_2*kM_r14_s27*kcatn_r14/(ERK1_minus_2*kM_r14_s27 + ERK1_minus_2*kM_r14_s28 + kM_r14_s27*kM_r14_s28)) ERK1_minus_2
-r15: ERK1_minus_2 ->(kass_r15) Mitogenesis_br_Differentiation
-r15_rev: Mitogenesis_br_Differentiation ->(kdiss_r15) ERK1_minus_2
-r17: 2EGFR ->(EGF*kass_r17_s3) EGFR
-r17_rev: EGFR ->(EGF*kdiss_r17_s3) 2EGFR
-r6: PKC ->(Complex_br__EGFR_____br_GAP_*kass_r6_s144) PKC
-r6_rev: PKC ->(Complex_br__EGFR_____br_GAP_*kdiss_r6_s144) PKC
-r7: Akt ->(Complex_br__EGFR_____br_GAP_*kass_r7_s144) Akt
-r7_rev: Akt ->(Complex_br__EGFR_____br_GAP_*kdiss_r7_s144) Akt
-r4: GDP + Ras ->(Complex_br__EGFR_____br_GAP_*kass_r4_s144) GTP + Ras
-r4_rev: GTP + Ras ->(Complex_br__EGFR_____br_GAP_*kdiss_r4_s144) GDP + Ras
-re11: Complex_Grb2____PLC_ + EGFR ->(Vp_re11*kI_re11_s142/((erlotinib + kI_re11_s142)*(Complex_Grb2____PLC_*EGFR + Complex_Grb2____PLC_*kM_re11_s129 + EGFR*kM_re11_s147 + kM_re11_s147*ki_re11_s129))) Complex_br__EGFR_____br_GAP_
+r8: s23 ->(kI_r8_s22*kI_r8_s29*kI_r8_s33*(kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s31*s31 + kM_r8_s124_s23*kM_r8_s31_s24*kcatp_r8_s31*s24*s31 + kM_r8_s124_s24*kM_r8_s31_s23*kM_r8_s31_s24*kcatp_r8_s124*s124 + kM_r8_s124_s24*kM_r8_s31_s23*kcatp_r8_s124*s124*s24 + kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s124*s124*s23 + kM_r8_s124_s24*kM_r8_s31_s24*kcatp_r8_s31*s23*s31)/((kI_r8_s22 + s22)*(kI_r8_s29 + s29)*(kI_r8_s33 + s33)*(kM_r8_s124_s23*kM_r8_s124_s24 + kM_r8_s124_s23*s24 + kM_r8_s124_s24*s23)*(kM_r8_s31_s23*kM_r8_s31_s24 + kM_r8_s31_s23*s24 + kM_r8_s31_s24*s23))) s24
+r8_rev: s24 ->(kI_r8_s22*kI_r8_s29*kI_r8_s33*(kM_r8_s124_s23*kM_r8_s124_s24*kM_r8_s31_s23*kcatn_r8_s31*s31 + kM_r8_s124_s23*kM_r8_s31_s23*kM_r8_s31_s24*kcatn_r8_s124*s124 + kM_r8_s124_s23*kM_r8_s31_s23*kcatn_r8_s124*s124*s24 + kM_r8_s124_s23*kM_r8_s31_s23*kcatn_r8_s31*s24*s31 + kM_r8_s124_s23*kM_r8_s31_s24*kcatn_r8_s124*s124*s23 + kM_r8_s124_s24*kM_r8_s31_s23*kcatn_r8_s31*s23*s31)/((kI_r8_s22 + s22)*(kI_r8_s29 + s29)*(kI_r8_s33 + s33)*(kM_r8_s124_s23*kM_r8_s124_s24 + kM_r8_s124_s23*s24 + kM_r8_s124_s24*s23)*(kM_r8_s31_s23*kM_r8_s31_s24 + kM_r8_s31_s23*s24 + kM_r8_s31_s24*s23))) s23
+r9: s25 ->(kM_r9_s26*kcatp_r9*s24/(kM_r9_s25*kM_r9_s26 + kM_r9_s25*s26 + kM_r9_s26*s25)) s26
+r9_rev: s26 ->(kM_r9_s25*kcatn_r9*s24/(kM_r9_s25*kM_r9_s26 + kM_r9_s25*s26 + kM_r9_s26*s25)) s25
+r11: s29 ->(kM_r11_s30*kcatp_r11*s127/(kM_r11_s29*kM_r11_s30 + kM_r11_s29*s30 + kM_r11_s30*s29)) s30
+r11_rev: s30 ->(kM_r11_s29*kcatn_r11*s127/(kM_r11_s29*kM_r11_s30 + kM_r11_s29*s30 + kM_r11_s30*s29)) s29
+r14: s27 ->(kM_r14_s28*kcatp_r14*s26/(kM_r14_s27*kM_r14_s28 + kM_r14_s27*s28 + kM_r14_s28*s27)) s28
+r14_rev: s28 ->(kM_r14_s27*kcatn_r14*s26/(kM_r14_s27*kM_r14_s28 + kM_r14_s27*s28 + kM_r14_s28*s27)) s27
+r15: s28 ->(kass_r15) s34
+r15_rev: s34 ->(kdiss_r15) s28
+r17: 2s123 ->(kass_r17_s3*s3) s129
+r17_rev: s129 ->(kdiss_r17_s3*s3) 2s123
+r6: s127 ->(kass_r6_s144*s144) s127
+r6_rev: s127 ->(kdiss_r6_s144*s144) s127
+r7: s21 ->(kass_r7_s144*s144) s22
+r7_rev: s22 ->(kdiss_r7_s144*s144) s21
+r4: s124 + s125 ->(kass_r4_s144*s144) s124 + s126
+r4_rev: s124 + s126 ->(kdiss_r4_s144*s144) s124 + s125
+re11: s129 + s147 ->(Vp_re11*kI_re11_s142/((kI_re11_s142 + s142)*(kM_re11_s129*s147 + kM_re11_s147*ki_re11_s129 + kM_re11_s147*s129 + s129*s147))) s144

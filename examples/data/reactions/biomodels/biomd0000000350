@@ -1,30 +1,30 @@
-Light_accumulator_increase:  ->(acc_rate*compartment*ceil(sin(pi*time/12)/2)) acc
-Light_accumulator_decrease: acc ->(acc_rate*compartment) 
-TOC1_transcription:  ->(compartment*(L_toc1 + R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n*effcopies_cca1_LHY7*rep_CCA1 - R_toc1_cca1*cca1_n*rep_CCA1 + R_toc1_cca1*cca1_n)**H_toc1_cca1 + 1)) toc1_mrna
-TOC1_degradation: toc1_2 ->(-compartment*(D_toc1_2_d*ceil(sin(pi*time/12)/2) - D_toc1_2_d - D_toc1_2_l*ceil(sin(pi*time/12)/2))) 
-TOC1_translation:  ->(T_toc1*compartment*toc1_mrna) toc1_1
-TOC1_conversion: toc1_1 ->(-compartment*(Di_toc1_12_d*ceil(sin(pi*time/12)/2) - Di_toc1_12_d - Di_toc1_12_l*ceil(sin(pi*time/12)/2))) toc1_2
-TOC1_mRNA_degradation: toc1_mrna ->(D_mrna_toc1*compartment) 
-CCA1_transcription:  ->(compartment*(-toc1_2*(R_cca1_toc1_2_d*ceil(sin(pi*time/12)/2) - R_cca1_toc1_2_d - R_cca1_toc1_2_l*ceil(sin(pi*time/12)/2))*(effcopies_toc1_TOC8*rep_TOC1 - rep_TOC1 + 1))**H_cca1_toc1/((-R_cca1_toc1_2_d*effcopies_toc1_TOC8*rep_TOC1*toc1_2*ceil(sin(pi*time/12)/2) + R_cca1_toc1_2_d*effcopies_toc1_TOC8*rep_TOC1*toc1_2 + R_cca1_toc1_2_d*rep_TOC1*toc1_2*ceil(sin(pi*time/12)/2) - R_cca1_toc1_2_d*rep_TOC1*toc1_2 - R_cca1_toc1_2_d*toc1_2*ceil(sin(pi*time/12)/2) + R_cca1_toc1_2_d*toc1_2 + R_cca1_toc1_2_l*effcopies_toc1_TOC8*rep_TOC1*toc1_2*ceil(sin(pi*time/12)/2) - R_cca1_toc1_2_l*rep_TOC1*toc1_2*ceil(sin(pi*time/12)/2) + R_cca1_toc1_2_l*toc1_2*ceil(sin(pi*time/12)/2))**H_cca1_toc1 + 1)) cca1_mrna
-CCA1_mRNA_degradation: cca1_mrna ->(D_mrna_cca1*compartment) 
-CCA1_translation:  ->(T_cca1*cca1_mrna*compartment) cca1_c
-CCA1_nuclear_transport: cca1_c ->(Di_cca1_cn*compartment) cca1_n
-CCA1_degradation__cytosol: cca1_c ->(-compartment*(D_cca1_d*ceil(sin(pi*time/12)/2) - D_cca1_d - D_cca1_l*ceil(sin(pi*time/12)/2))) 
-CCA1_degradation__nucleus: cca1_n ->(-compartment*(D_cca1_d*ceil(sin(pi*time/12)/2) - D_cca1_d - D_cca1_l*ceil(sin(pi*time/12)/2))) 
-LUC_transcription__pTOC1:  ->(compartment*rep_pTOC1*(L_toc1 + R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n)**H_toc1_cca1 + 1)) luc_mrna
-LUC_mRNA_degradation: luc_mrna ->(D_mrna_luc*compartment) 
-LUC_translation:  ->(T_luc*compartment*luc_mrna) luc
-LUC_decay: luc ->(D_luc*compartment) 
-TOC1_LUC_transcription:  ->(compartment*rep_TOC1*(L_toc1 + R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n)**H_toc1_cca1 + 1)) toc1luc_mrna
-TOC1_LUC_mRNA_degradation: toc1luc_mrna ->(D_mrna_toc1*compartment) 
-TOC1_LUC_translation:  ->(T_toc1*compartment*toc1luc_mrna) toc1luc_1
-TOC1_LUC_conversion: toc1luc_1 ->(-compartment*(Di_toc1_12_d*ceil(sin(pi*time/12)/2) - Di_toc1_12_d - Di_toc1_12_l*ceil(sin(pi*time/12)/2))) toc1luc_2
-TOC1_LUC_degradation: toc1luc_2 ->(-compartment*(D_toc1_2_d*ceil(sin(pi*time/12)/2) - D_toc1_2_d - D_toc1_2_l*ceil(sin(pi*time/12)/2))) 
-TOC1_LUC_1__deactivation: toc1luc_1 ->(D_luc*compartment) 
-TOC1_LUC_2__deactivation: toc1luc_2 ->(D_luc*compartment) 
-LUC_transcription__pCCA1:  ->(compartment*rep_pCCA1*(-toc1_2*(R_cca1_toc1_2_d*ceil(sin(pi*time/12)/2) - R_cca1_toc1_2_d - R_cca1_toc1_2_l*ceil(sin(pi*time/12)/2)))**H_cca1_toc1/((-R_cca1_toc1_2_d*toc1_2*ceil(sin(pi*time/12)/2) + R_cca1_toc1_2_d*toc1_2 + R_cca1_toc1_2_l*toc1_2*ceil(sin(pi*time/12)/2))**H_cca1_toc1 + 1)) luc_mrna
-CCA1_LUC_transcription:  ->(compartment*rep_CCA1*(-toc1_2*(R_cca1_toc1_2_d*ceil(sin(pi*time/12)/2) - R_cca1_toc1_2_d - R_cca1_toc1_2_l*ceil(sin(pi*time/12)/2)))**H_cca1_toc1/((-R_cca1_toc1_2_d*toc1_2*ceil(sin(pi*time/12)/2) + R_cca1_toc1_2_d*toc1_2 + R_cca1_toc1_2_l*toc1_2*ceil(sin(pi*time/12)/2))**H_cca1_toc1 + 1)) cca1luc_mrna
-CCA1_LUC_mRNA_degradation: cca1luc_mrna ->(D_mrna_cca1*compartment) 
-CCA1_LUC_translation:  ->(T_cca1*cca1luc_mrna*compartment) cca1luc
-CCA1_LUC_degradation: cca1luc ->(-compartment*(D_cca1_d*ceil(sin(pi*time/12)/2) - D_cca1_d - D_cca1_l*ceil(sin(pi*time/12)/2))) 
-CCA1_LUC_deactivation: cca1luc ->(D_luc*compartment) 
+reaction_1:  ->(acc_rate*compartment*ceiling(0.5*sin(0.0833333333333333*Pi*time))) acc
+reaction_2: acc ->(acc_rate*compartment) 
+reaction_3:  ->(1.0*compartment*(1.0*L_toc1 + 1.0*R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n*(parameter_4*(effcopies_cca1_LHY7 - 1.0) + 1.0))**H_toc1_cca1 + 1.0)) toc1_mrna
+reaction_4: toc1_2 ->(compartment*(1.0*D_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + 1.0*D_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) 
+reaction_5:  ->(1.0*T_toc1*compartment*toc1_mrna) toc1_1
+reaction_6: toc1_1 ->(compartment*(Di_toc1_12_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + Di_toc1_12_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) toc1_2
+reaction_7: toc1_mrna ->(D_mrna_toc1*compartment) 
+reaction_8:  ->(1.0*compartment*(toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))*(parameter_2*(effcopies_toc1_TOC8 - 1.0) + 1.0))**H_cca1_toc1/((toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))*(parameter_2*(effcopies_toc1_TOC8 - 1.0) + 1.0))**H_cca1_toc1 + 1.0)) cca1_mrna
+reaction_9: cca1_mrna ->(D_mrna_cca1*compartment) 
+reaction_10:  ->(1.0*T_cca1*cca1_mrna*compartment) cca1_c
+reaction_11: cca1_c ->(Di_cca1_cn*compartment) cca1_n
+reaction_12: cca1_c ->(compartment*(1.0*D_cca1_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + 1.0*D_cca1_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) 
+reaction_13: cca1_n ->(compartment*(1.0*D_cca1_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + 1.0*D_cca1_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) 
+reaction_14:  ->(1.0*compartment*parameter_3*(L_toc1 + R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n)**H_toc1_cca1 + 1.0)) luc_mrna
+reaction_15: luc_mrna ->(D_mrna_luc*compartment) 
+reaction_16:  ->(1.0*compartment*luc_mrna*parameter_1) luc
+reaction_17: luc ->(D_luc*compartment) 
+reaction_18:  ->(1.0*compartment*parameter_2*(L_toc1 + R_toc1_acc*acc)/(L_toc1 + R_toc1_acc*acc + (R_toc1_cca1*cca1_n)**H_toc1_cca1 + 1.0)) toc1luc_mrna
+reaction_19: toc1luc_mrna ->(D_mrna_toc1*compartment) 
+reaction_20:  ->(1.0*T_toc1*compartment*toc1luc_mrna) toc1luc_1
+reaction_21: toc1luc_1 ->(compartment*(Di_toc1_12_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + Di_toc1_12_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) toc1luc_2
+reaction_22: toc1luc_2 ->(compartment*(1.0*D_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + 1.0*D_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) 
+reaction_23: toc1luc_1 ->(D_luc*compartment) 
+reaction_24: toc1luc_2 ->(D_luc*compartment) 
+reaction_25:  ->(1.0*compartment*parameter_5*(toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time))))**H_cca1_toc1/((toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time))))**H_cca1_toc1 + 1.0)) luc_mrna
+reaction_26:  ->(1.0*compartment*parameter_4*(toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time))))**H_cca1_toc1/((toc1_2*(R_cca1_toc1_2_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + R_cca1_toc1_2_l*ceiling(0.5*sin(0.0833333333333333*Pi*time))))**H_cca1_toc1 + 1.0)) cca1luc_mrna
+reaction_27: cca1luc_mrna ->(D_mrna_cca1*compartment) 
+reaction_28:  ->(1.0*T_cca1*cca1luc_mrna*compartment) cca1luc
+reaction_30: cca1luc ->(compartment*(1.0*D_cca1_d*(-ceiling(0.5*sin(0.0833333333333333*Pi*time)) + 1.0) + 1.0*D_cca1_l*ceiling(0.5*sin(0.0833333333333333*Pi*time)))) 
+reaction_32: cca1luc ->(D_luc*compartment) 

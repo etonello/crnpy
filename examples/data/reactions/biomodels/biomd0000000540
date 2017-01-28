@@ -1,11 +1,11 @@
-re1: F6P_proxy ->(F2_6BP*K_PFKL_akg*K_PFKL_cit*K_PFKL_icit*K_PFKL_mal*K_PFKL_pep*Vf_PFKL*pPFKL/((Citrate + K_PFKL_cit)*(F2_6BP + K_PFKL_f26bp)*(F6P_proxy + K_PFKL_f6p)*(Isocitrate + K_PFKL_icit)*(K_PFKL_PHOS_S775 + pPFKL)*(K_PFKL_akg + _2_oxoglutarate)*(K_PFKL_mal + Malate)*(K_PFKL_pep + PEP))) F1_6BP
-re2: F1_6BP ->(Citrate*K_FBPase_f26bp*Vf_FBPase/((Citrate + K_FBPase_cit)*(F1_6BP + K_FBPase_f16bp)*(F2_6BP + K_FBPase_f26bp))) F6P_proxy
-re3: F1_6BP ->(k_ALDO) sa4_degraded
-re4: Malate ->(-k_mal/Malate) sa8_degraded
-re5: _2_oxoglutarate ->(-k_akg/_2_oxoglutarate) sa7_degraded
-re6: PEP ->(-k_pep/PEP) sa5_degraded
-re7: Isocitrate ->(-k_icit/Isocitrate) sa6_degraded
-re8: F2_6BP ->(-k_f26bp/F2_6BP) sa9_degraded
-re9: Citrate ->(-k_cit/Citrate) sa10_degraded
-re10: pPFKL ->(-k_pfkl_s775/pPFKL) sa13_degraded
-re11: F6P ->(-k_f6p/F6P) sa3_degraded
+re1: s22 ->(K_PFKL_akg*K_PFKL_cit*K_PFKL_icit*K_PFKL_mal*K_PFKL_pep*Vf_PFKL*s13*s9/((K_PFKL_PHOS_S775 + s13)*(K_PFKL_akg + s7)*(K_PFKL_cit + s10)*(K_PFKL_f26bp + s9)*(K_PFKL_f6p + s22)*(K_PFKL_icit + s6)*(K_PFKL_mal + s8)*(K_PFKL_pep + s5))) s4
+re2: s4 ->(K_FBPase_f26bp*Vf_FBPase*s10/((K_FBPase_cit + s10)*(K_FBPase_f16bp + s4)*(K_FBPase_f26bp + s9))) s22
+re3: s4 ->(k_ALDO) s11
+re4: s8 ->(-k_mal/s8) s14
+re5: s7 ->(-k_akg/s7) s15
+re6: s5 ->(-k_pep/s5) s16
+re7: s6 ->(-k_icit/s6) s17
+re8: s9 ->(-k_f26bp/s9) s18
+re9: s10 ->(-k_cit/s10) s19
+re10: s13 ->(-k_pfkl_s775/s13) s20
+re11: s3 ->(-k_f6p/s3) s21

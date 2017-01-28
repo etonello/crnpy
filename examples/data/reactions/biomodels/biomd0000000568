@@ -1,72 +1,72 @@
-reaction_1:  ->(ks_c4*tf) _cyto__C4D1_b_
-reaction_2:  ->(_nuc__e2f_b_*ks_c2e2f + _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_*ks_c2e2f + ks_c2myc*tf) _cyto__C2E_T160_U_b_
-reaction_3: _nuc__C2E_T160_U_b_1__p21_b_1_ ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) _nuc__p21_b_
-reaction_4: _cyto__C2E_T160_U_b_ ->(gsk3b*kdeg_c2gsk3b + kdeg_c2) 
-reaction_5:  ->(tfp21*(_nuc__e2f_b_*ks_p21e2f + ks_p21p53)) _cyto__p21_b_
-reaction_6: _nuc__C2E_T160_U_b_1__p21_b_1_ ->(Nucleus*kd_p21c2/cell) _nuc__C2E_T160_U_b_ + _nuc__p21_b_
-reaction_7: _nuc__C2E_T160_U_b_1__p21_b_1_ ->(Nucleus*_nuc__e2f_b_*(_nuc__C2E_T160_P_b_*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) _nuc__C2E_T160_U_b_
-reaction_8:  ->(Nucleus*(_nuc__e2f_b_*ks_rbe2f + ks_rb)/cell) _nuc__rb_S788_U_S800_U_b_
-reaction_9: _nuc__rb_S788_U_S800_U_b_ ->(Nucleus*kdeg_rbfree/cell) 
-reaction_10: _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_ ->(Nucleus*kdeg_rbbound/cell) _nuc__e2f_b_
-reaction_11: _nuc__rb_S788_U_S800_U_b_ ->(Nucleus*_nuc__p21_b_*kdeg_rbp21/cell) 
-reaction_12: _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_ ->(Nucleus*_nuc__p21_b_*kdeg_rbp21/cell) _nuc__e2f_b_
-reaction_13:  ->(Nucleus*tf*(_nuc__e2f_b_*ks_e2fe2f + ks_e2fmyc)/cell) _nuc__e2f_b_
-reaction_14: _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_ ->(Nucleus*kdeg_e2fbound/cell) _nuc__rb_S788_U_S800_U_b_
-reaction_15: _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_ ->(Nucleus*kd_rbe2f/cell) _nuc__e2f_b_ + _nuc__rb_S788_U_S800_U_b_
-reaction_16: _nuc__rb_S788_U_S800_U_b_ ->(Nucleus*_nuc__C4D1_b_1__p21_b_1_*_nuc__rb_S788_U_S800_U_b_**nrb*kcatp_rbc4/(_nuc__rb_S788_U_S800_U_b_*cell*(Km_prb**nrb + _nuc__rb_S788_U_S800_U_b_**nrb))) _nuc__rb_S788_P_S800_U_b_
-reaction_17: _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_ ->(Nucleus*_nuc__C4D1_b_1__p21_b_1_*_nuc__e2f_b_1__rb_S788_U_S800_U_b_1_**nrb*kcatp_rbc4/(_nuc__e2f_b_1__rb_S788_U_S800_U_b_1_*cell*(Km_prb**nrb + _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_**nrb))) _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_
-reaction_18: _nuc__dnapre__ ->(Nucleus*_nuc__C2E_T160_P_b_*_nuc__e2f_b_*k_dna/cell) _nuc__dnapre1__
-reaction_19: _cyto__C4D1_b_ ->(gsk3b*kdeg_c4gsk3b + kdeg_c4) 
-reaction_20: _nuc__C2E_T160_U_b_ ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) 
-reaction_21: _nuc__C2E_T160_U_b_ ->(Nucleus*kp_c2cak/cell) _nuc__C2E_T160_P_b_
-reaction_22: _cyto__C4D1_b_ + _cyto__p21_b_ ->(kb_p21c4) _cyto__C4D1_b_1__p21_b_1_
-reaction_23: _cyto__C2E_T160_U_b_ + _cyto__p21_b_ ->(kb_p21c2) _cyto__C2E_T160_U_b_1__p21_b_1_
-reaction_24: _nuc__C2E_T160_U_b_ + _nuc__p21_b_ ->(Nucleus*kb_p21c2/cell) _nuc__C2E_T160_U_b_1__p21_b_1_
-reaction_25: _cyto__p21_b_ ->(kimport/(Vratio*cell)) _nuc__p21_b_
-reaction_26: _cyto__p21_b_ ->(kimport) 
-reaction_26_rev:  ->(_cyto__p21_b_*kimport/Vratio) _cyto__p21_b_
-reaction_27: _nuc__p21_b_ ->(Nucleus*(erk*kdeg_p21erk + gsk3b*kdeg_p21gsk3b)/cell) 
-reaction_28: _cyto__p21_b_ ->(erk*kdeg_p21erk + gsk3b*kdeg_p21gsk3b) 
-reaction_29: _nuc__rb_S788_P_S800_U_b_ ->(Nucleus*kdeg_rbfree/cell) 
-reaction_30: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*kdeg_rbbound/cell) _nuc__e2f_b_
-reaction_31: _nuc__rb_S788_P_S800_U_b_ ->(Nucleus*_nuc__p21_b_*kdeg_rbp21/cell) 
-reaction_32: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*_nuc__p21_b_*kdeg_rbp21/cell) _nuc__e2f_b_
-reaction_33: _nuc__e2f_b_ ->(Nucleus*kdeg_e2ffree/cell) 
-reaction_34: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*kdeg_e2fbound/cell) _nuc__rb_S788_P_S800_U_b_
-reaction_35: _nuc__e2f_b_ + _nuc__rb_S788_U_S800_U_b_ ->(Nucleus*kb_rbe2f/cell) _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_
-reaction_36: _nuc__e2f_b_ + _nuc__rb_S788_P_S800_U_b_ ->(Nucleus*kb_rbpe2f/cell) _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_
-reaction_37: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*kd_rbpe2f/cell) _nuc__e2f_b_ + _nuc__rb_S788_P_S800_U_b_
-reaction_38: _nuc__rb_S788_P_S800_U_b_ ->(Nucleus*_nuc__C2E_T160_P_b_*_nuc__rb_S788_P_S800_U_b_**nrb*kcatp_rbc2/(_nuc__rb_S788_P_S800_U_b_*cell*(Km_prb**nrb + _nuc__rb_S788_P_S800_U_b_**nrb))) _nuc__rb_S788_P_S800_P_b_
-reaction_39: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*_nuc__C2E_T160_P_b_*_nuc__e2f_b_1__rb_S788_P_S800_U_b_1_**nrb*kcatp_rbc2/(_nuc__e2f_b_1__rb_S788_P_S800_U_b_1_*cell*(Km_prb**nrb + _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_**nrb))) _nuc__e2f_b_ + _nuc__rb_S788_P_S800_P_b_
-reaction_40: _nuc__rb_S788_P_S800_U_b_ ->(Nucleus*_nuc__rb_S788_P_S800_U_b_**nrb*kcatdp_rbc4/(_nuc__rb_S788_P_S800_U_b_*cell*(Km_dprb**nrb + _nuc__rb_S788_P_S800_U_b_**nrb)*(_nuc__C2E_T160_P_b_*kinh_pp1 + 1))) _nuc__rb_S788_U_S800_U_b_
-reaction_41: _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_ ->(Nucleus*_nuc__e2f_b_1__rb_S788_P_S800_U_b_1_**nrb*kcatdp_rbc4/(_nuc__e2f_b_1__rb_S788_P_S800_U_b_1_*cell*(Km_dprb**nrb + _nuc__e2f_b_1__rb_S788_P_S800_U_b_1_**nrb)*(_nuc__C2E_T160_P_b_*kinh_pp1 + 1))) _nuc__e2f_b_1__rb_S788_U_S800_U_b_1_
-reaction_42: _nuc__dnapre1__ ->(Nucleus*k_delay/cell) _nuc__dnapre2__
-reaction_43: _cyto__C4D1_b_1__p21_b_1_ ->(gsk3b*kdeg_c4gsk3b + kdeg_c4) _cyto__p21_b_
-reaction_44: _nuc__C2E_T160_P_b_ ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) 
-reaction_45: _cyto__C2E_T160_U_b_1__p21_b_1_ ->(gsk3b*kdeg_c2gsk3b + kdeg_c2) _cyto__p21_b_
-reaction_46: _nuc__C2E_T160_P_b_ ->(Nucleus*gsk3b*kdeg_c2c2gsk3b/cell) 
-reaction_47: _nuc__C2E_T160_P_b_ ->(Nucleus*kdp_c2cak/cell) _nuc__C2E_T160_U_b_
-reaction_48: _cyto__C4D1_b_1__p21_b_1_ ->(kd_p21c4) _cyto__C4D1_b_ + _cyto__p21_b_
-reaction_49: _nuc__C2E_T160_P_b_ + _nuc__p21_b_ ->(Nucleus*kb_p21c2/cell) _nuc__C2E_T160_P_b_1__p21_b_1_
-reaction_50: _cyto__C2E_T160_U_b_1__p21_b_1_ ->(kd_p21c2) _cyto__C2E_T160_U_b_ + _cyto__p21_b_
-reaction_51: _cyto__C4D1_b_1__p21_b_1_ ->(kimport/(Vratio*cell)) _nuc__C4D1_b_1__p21_b_1_
-reaction_52: _cyto__C2E_T160_U_b_1__p21_b_1_ ->(kimport/(Vratio*cell)) _nuc__C2E_T160_U_b_1__p21_b_1_
-reaction_53: _cyto__C4D1_b_1__p21_b_1_ ->(kimport) 
-reaction_53_rev:  ->(_cyto__C4D1_b_1__p21_b_1_*kimport/Vratio) _cyto__C4D1_b_1__p21_b_1_
-reaction_54: _cyto__C2E_T160_U_b_1__p21_b_1_ ->(kimport) 
-reaction_54_rev:  ->(_cyto__C2E_T160_U_b_1__p21_b_1_*kimport/Vratio) _cyto__C2E_T160_U_b_1__p21_b_1_
-reaction_55: _nuc__rb_S788_P_S800_P_b_ ->(Nucleus*kdeg_rbfree/cell) 
-reaction_56: _nuc__rb_S788_P_S800_P_b_ ->(Nucleus*_nuc__p21_b_*kdeg_rbp21/cell) 
-reaction_57: _nuc__rb_S788_P_S800_P_b_ ->(Nucleus*_nuc__rb_S788_P_S800_P_b_**nrb*kcatdp_rbc2/(_nuc__rb_S788_P_S800_P_b_*cell*(Km_dprb**nrb + _nuc__rb_S788_P_S800_P_b_**nrb)*(_nuc__C2E_T160_P_b_*kinh_pp1 + 1))) _nuc__rb_S788_P_S800_U_b_
-reaction_58: _nuc__dnapre2__ ->(Nucleus*k_delay/cell) _nuc__dnapre3__
-reaction_59: _nuc__C4D1_b_1__p21_b_1_ ->(Nucleus*kdeg_c4/cell) 
-reaction_60: _nuc__C2E_T160_P_b_1__p21_b_1_ ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) _nuc__p21_b_
-reaction_61: _nuc__C4D1_b_1__p21_b_1_ ->(Nucleus*kd_p21c4/cell) _nuc__C4D1_b_ + _nuc__p21_b_
-reaction_62: _nuc__C2E_T160_P_b_1__p21_b_1_ ->(Nucleus*kd_p21c2/cell) _nuc__C2E_T160_P_b_ + _nuc__p21_b_
-reaction_63: _nuc__C2E_T160_P_b_1__p21_b_1_ ->(Nucleus*_nuc__e2f_b_*(_nuc__C2E_T160_P_b_*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) _nuc__C2E_T160_P_b_
-reaction_64: _nuc__C4D1_b_1__p21_b_1_ ->(Nucleus*_nuc__e2f_b_*(_nuc__C2E_T160_P_b_*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) _nuc__C4D1_b_
-reaction_65: _nuc__dnapre3__ ->(Nucleus*k_delay/cell) _nuc__dnapre4__
-reaction_66: _nuc__C4D1_b_ ->(Nucleus*(gsk3b*kdeg_c4gsk3b + kdeg_c4)/cell) 
-reaction_67: _nuc__C4D1_b_ + _nuc__p21_b_ ->(Nucleus*kb_p21c4/cell) _nuc__C4D1_b_1__p21_b_1_
-reaction_68: _nuc__dnapre4__ ->(Nucleus*k_delay/cell) _nuc__dnapre5__
-reaction_69: _nuc__dnapre5__ ->(Nucleus*k_delay/cell) 
+reaction_1:  ->(ks_c4*tf) S10
+reaction_2:  ->(ks_c2e2f*(S14 + S16) + ks_c2myc*tf) S4
+reaction_3: S3 ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) S11
+reaction_4: S4 ->(gsk3b*kdeg_c2gsk3b + kdeg_c2) 
+reaction_5:  ->(tfp21*(S14*ks_p21e2f + ks_p21p53)) S12
+reaction_6: S3 ->(Nucleus*kd_p21c2/cell) S11 + S13
+reaction_7: S3 ->(Nucleus*S14*(S18*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) S13
+reaction_8:  ->(Nucleus*(S14*ks_rbe2f + ks_rb)/cell) S1
+reaction_9: S1 ->(Nucleus*kdeg_rbfree/cell) 
+reaction_10: S2 ->(Nucleus*kdeg_rbbound/cell) S14
+reaction_11: S1 ->(Nucleus*S11*kdeg_rbp21/cell) 
+reaction_12: S2 ->(Nucleus*S11*kdeg_rbp21/cell) S14
+reaction_13:  ->(Nucleus*tf*(S14*ks_e2fe2f + ks_e2fmyc)/cell) S14
+reaction_14: S2 ->(Nucleus*kdeg_e2fbound/cell) S1
+reaction_15: S2 ->(Nucleus*kd_rbe2f/cell) S1 + S14
+reaction_16: S1 ->(Nucleus*S1**nrb*S24*kcatp_rbc4/(S1*cell*(Km_prb**nrb + S1**nrb))) S15
+reaction_17: S2 ->(Nucleus*S2**nrb*S24*kcatp_rbc4/(S2*cell*(Km_prb**nrb + S2**nrb))) S16
+reaction_18: S5 ->(Nucleus*S14*S18*k_dna/cell) S17
+reaction_19: S10 ->(gsk3b*kdeg_c4gsk3b + kdeg_c4) 
+reaction_20: S13 ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) 
+reaction_21: S13 ->(Nucleus*kp_c2cak/cell) S18
+reaction_22: S10 + S12 ->(kb_p21c4) S19
+reaction_23: S12 + S4 ->(kb_p21c2) S20
+reaction_24: S11 + S13 ->(Nucleus*kb_p21c2/cell) S3
+reaction_25: S12 ->(kimport/(Vratio*cell)) S11
+reaction_26: S12 ->(1.0*kimport) 
+reaction_26_rev:  ->(1.0*S12*kimport/Vratio) S12
+reaction_27: S11 ->(Nucleus*(erk*kdeg_p21erk + gsk3b*kdeg_p21gsk3b)/cell) 
+reaction_28: S12 ->(erk*kdeg_p21erk + gsk3b*kdeg_p21gsk3b) 
+reaction_29: S15 ->(Nucleus*kdeg_rbfree/cell) 
+reaction_30: S16 ->(Nucleus*kdeg_rbbound/cell) S14
+reaction_31: S15 ->(Nucleus*S11*kdeg_rbp21/cell) 
+reaction_32: S16 ->(Nucleus*S11*kdeg_rbp21/cell) S14
+reaction_33: S14 ->(Nucleus*kdeg_e2ffree/cell) 
+reaction_34: S16 ->(Nucleus*kdeg_e2fbound/cell) S15
+reaction_35: S1 + S14 ->(Nucleus*kb_rbe2f/cell) S2
+reaction_36: S14 + S15 ->(Nucleus*kb_rbpe2f/cell) S16
+reaction_37: S16 ->(Nucleus*kd_rbpe2f/cell) S14 + S15
+reaction_38: S15 ->(Nucleus*S15**nrb*S18*kcatp_rbc2/(S15*cell*(Km_prb**nrb + S15**nrb))) S21
+reaction_39: S16 ->(Nucleus*S16**nrb*S18*kcatp_rbc2/(S16*cell*(Km_prb**nrb + S16**nrb))) S14 + S21
+reaction_40: S15 ->(1.0*Nucleus*S15**nrb*kcatdp_rbc4/(S15*cell*(Km_dprb**nrb + S15**nrb)*(S18*kinh_pp1 + 1.0))) S1
+reaction_41: S16 ->(1.0*Nucleus*S16**nrb*kcatdp_rbc4/(S16*cell*(Km_dprb**nrb + S16**nrb)*(S18*kinh_pp1 + 1.0))) S2
+reaction_42: S17 ->(Nucleus*k_delay/cell) S22
+reaction_43: S19 ->(gsk3b*kdeg_c4gsk3b + kdeg_c4) S12
+reaction_44: S18 ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) 
+reaction_45: S20 ->(gsk3b*kdeg_c2gsk3b + kdeg_c2) S12
+reaction_46: S18 ->(Nucleus*gsk3b*kdeg_c2c2gsk3b/cell) 
+reaction_47: S18 ->(Nucleus*kdp_c2cak/cell) S13
+reaction_48: S19 ->(kd_p21c4) S10 + S12
+reaction_49: S11 + S18 ->(Nucleus*kb_p21c2/cell) S23
+reaction_50: S20 ->(kd_p21c2) S12 + S4
+reaction_51: S19 ->(kimport/(Vratio*cell)) S24
+reaction_52: S20 ->(kimport/(Vratio*cell)) S3
+reaction_53: S19 ->(1.0*kimport) 
+reaction_53_rev:  ->(1.0*S19*kimport/Vratio) S19
+reaction_54: S20 ->(1.0*kimport) 
+reaction_54_rev:  ->(1.0*S20*kimport/Vratio) S20
+reaction_55: S21 ->(Nucleus*kdeg_rbfree/cell) 
+reaction_56: S21 ->(Nucleus*S11*kdeg_rbp21/cell) 
+reaction_57: S21 ->(1.0*Nucleus*S21**nrb*kcatdp_rbc2/(S21*cell*(Km_dprb**nrb + S21**nrb)*(S18*kinh_pp1 + 1.0))) S15
+reaction_58: S22 ->(Nucleus*k_delay/cell) S25
+reaction_59: S24 ->(Nucleus*kdeg_c4/cell) 
+reaction_60: S23 ->(Nucleus*(gsk3b*kdeg_c2gsk3b + kdeg_c2)/cell) S11
+reaction_61: S24 ->(Nucleus*kd_p21c4/cell) S11 + S26
+reaction_62: S23 ->(Nucleus*kd_p21c2/cell) S11 + S18
+reaction_63: S23 ->(Nucleus*S14*(S18*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) S18
+reaction_64: S24 ->(Nucleus*S14*(S18*kdeg_p21c2skp2 + erk*kdeg_p21erkskp2 + kdeg_p21skp2)/cell) S26
+reaction_65: S25 ->(Nucleus*k_delay/cell) S27
+reaction_66: S26 ->(Nucleus*(gsk3b*kdeg_c4gsk3b + kdeg_c4)/cell) 
+reaction_67: S11 + S26 ->(Nucleus*kb_p21c4/cell) S24
+reaction_68: S27 ->(Nucleus*k_delay/cell) S28
+reaction_69: S28 ->(Nucleus*k_delay/cell) 

@@ -1,51 +1,51 @@
-Clb_Sic_dissociation: CDC28_Clb2_Sic1_Complex ->(kdiss) Clb2 + Sic1
-Clb2_removal_from_complex: CDC28_Clb2_Sic1_Complex ->(Clb2*kdsic_doubleprime + Cln*kdsic_prime + kdsic) Clb2
-Sic1_removal_from_complex: CDC28_Clb2_Sic1_Complex ->(Cdc20_activated*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) Sic1
-Phosphorylation_of_Cdc28_Clb2_Sic1_complex: CDC28_Clb2_Sic1_Complex ->(kswe) Phosphorylated_Cdc28_Clb2_Sic1_Complex
-Complex_formation: Clb2 + Sic1 ->(kass) CDC28_Clb2_Sic1_Complex
-Dephosphorylation_of_complex: Phosphorylated_Cdc28_Clb2_Sic1_Complex ->(kmih) CDC28_Clb2_Sic1_Complex
-Clb2_degradation: Clb2 ->(Cdc20_activated*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) 
-Clb2_phosphorylation: Clb2 ->(kswe) Phosphorylated_Clb2
-Clb2_synthesis:  ->(Jm*ksclb*mass*(Mcm + eps)/(Jm + mass)) Clb2
-Clb2_dephosphorylation: Phosphorylated_Clb2 ->(kmih) Clb2
-SBF_inhibition: SBF ->((Clb2*kisbf_doubleprime + kisbf_prime)/(SBF + jisbf)) 
-SBF_synthesis:  ->(SBFin*(Cln*kasbf_doubleprime + kasbf_prime*mass)/(SBFin + jasbf)) SBF
-IE_inhibition: Intermediary_Enzyme ->(kiie/(Intermediary_Enzyme + jiie)) 
-IE_synthesis:  ->(Clb2*IEin*kaie/(IEin + jaie)) Intermediary_Enzyme
-Cdc20_deactivation: Cdc20_activated ->(kicdc20/(Cdc20_activated + jicdc20)) Cdc20
-activated_Cdc20_degradation: Cdc20_activated ->(kdcdc20) 
-Cdc20_activation: Cdc20 ->(Intermediary_Enzyme*kacdc20/(Cdc20 + jacdc20)) Cdc20_activated
-Cdh1inhibition: Cdh1 ->((Clb2*kicdh + Cln*kicdh_prime)/(Cdh1 + jicdh)) 
-Cdh1_synthesis:  ->(Cdh1in*(Cdc20_activated*Kacdh_doubleprime + Kacdh_prime)/(Cdh1in + jacdh)) Cdh1
-Swe1_modification: Swe1 ->(BUD*khsl1) Swe1_modified
-Phosphorylated_Swe1_modification: Phosphorylated_Swe1 ->(BUD*khsl1) Phosphorylated_Swe1M
-Swe1_phosphorylation: Swe1 ->(Clb2*Viwee/(Jiwee + Swe1)) Phosphorylated_Swe1
-Swe1M_phosphorylation: Swe1_modified ->(Clb2*Viwee/(Jiwee + Swe1_modified)) Phosphorylated_Swe1M
-Swe1_degradation: Swe1 ->(kdswe_prime) 
-Swe1_production_from_its_modified_form: Swe1_modified ->(khsl1r) Swe1
-PSwe1_production_from_its_modified_form: Phosphorylated_Swe1M ->(khsl1r) Phosphorylated_Swe1
-PSwe1_dephosphorylation: Phosphorylated_Swe1 ->(Vawee/(Jawee + Phosphorylated_Swe1)) Swe1
-PSwe1M_dephosphorylation: Phosphorylated_Swe1M ->(Vawee/(Jawee + Phosphorylated_Swe1M)) Swe1_modified
-SBF_dependent_Swe1_synthesis:  ->(SBF*ksswe) Swe1
-Swe1_synthesis:  ->(kssweC) Swe1
-PSwe1_degradation: Phosphorylated_Swe1 ->(kdswe_prime) 
-PTrim_complex_dissociation: Phosphorylated_Cdc28_Clb2_Sic1_Complex ->(kdiss) Phosphorylated_Clb2 + Sic1
-Sic1_dissociation_from_PTrim_complex: Phosphorylated_Cdc28_Clb2_Sic1_Complex ->(Cdc20_activated*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) Sic1
-PClb_dissociation_from_PTrim_complex: Phosphorylated_Cdc28_Clb2_Sic1_Complex ->(Clb2*kdsic_doubleprime + Cln*kdsic_prime + kdsic) Phosphorylated_Clb2
-PTrim_complex_formation: Phosphorylated_Clb2 + Sic1 ->(kass) Phosphorylated_Cdc28_Clb2_Sic1_Complex
-Mih1a_inhibition: Mih1a ->(Vimih/(Mih1a + jimih)) 
-Mih1a_synthesis:  ->(Clb2*Mih1*Vamih/(Jamih + Mih1)) Mih1a
-Mcm_inhibition: Mcm ->(kimcm/(Mcm + jimcm)) 
-Mcm_synthesis:  ->(Clb2*Mcmin*kamcm/(Mcmin + jamcm)) Mcm
-BE_degradation: BE ->(kdbud) 
-BE_formation:  ->(Cln*ksbud) BE
-Sic1_degradation: Sic1 ->(Clb2*kdsic_doubleprime + Cln*kdsic_prime + kdsic) 
-Sic1_synthesis:  ->(kssic) Sic1
-Cln_degradation: Cln ->(kdcln) 
-SBF_dependent_Cln_synthesis:  ->(SBF*kscln) Cln
-Swe1M_degradation: Swe1_modified ->(kdswe_prime) 
-Cdc20_degradation: Cdc20 ->(kdcdc20) 
-Clb2_dependent_Cdc20_synthesis:  ->((Clb2**4*kscdc20_doubleprime + Clb2**4*kscdc20_prime + jscdc20**4*kscdc20_prime)/(Clb2**4 + jscdc20**4)) Cdc20
-PSwe1M_degradation: Phosphorylated_Swe1M ->(kdswe_doubleprime) 
-PClb_degradation: Phosphorylated_Clb2 ->(Cdc20_activated*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) 
-cell_mass:  ->(mass*mu) mass
+R1: Trim ->(kdiss) Clb + Sic
+R2: Trim ->(Clb*kdsic_doubleprime + Cln*kdsic_prime + kdsic) Clb
+R3: Trim ->(Cdc20a*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) Sic
+R4: Trim ->(kswe) PTrim
+R5: Clb + Sic ->(kass) Trim
+R6: PTrim ->(kmih) Trim
+R7: Clb ->(Cdc20a*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) 
+R8: Clb ->(kswe) PClb
+R9:  ->(Jm*ksclb*mass*(Mcm + eps)/(Jm + mass)) Clb
+R10: PClb ->(kmih) Clb
+R11: SBF ->((Clb*kisbf_doubleprime + kisbf_prime)/(SBF + jisbf)) 
+R12:  ->(SBFin*(Cln*kasbf_doubleprime + kasbf_prime*mass)/(SBFin + jasbf)) SBF
+R13: IE ->(kiie/(IE + jiie)) 
+R14:  ->(Clb*IEin*kaie/(IEin + jaie)) IE
+R15: Cdc20a ->(kicdc20/(Cdc20a + jicdc20)) Cdc20
+R16: Cdc20a ->(kdcdc20) 
+R18: Cdc20 ->(IE*kacdc20/(Cdc20 + jacdc20)) Cdc20a
+R19: Cdh1 ->((Clb*kicdh + Cln*kicdh_prime)/(Cdh1 + jicdh)) 
+R20:  ->(Cdh1in*(Cdc20a*Kacdh_doubleprime + Kacdh_prime)/(Cdh1in + jacdh)) Cdh1
+R21: Swe1 ->(BUD*khsl1) Swe1M
+R22: PSwe1 ->(BUD*khsl1) PSwe1M
+R23: Swe1 ->(Clb*Viwee/(Jiwee + Swe1)) PSwe1
+R24: Swe1M ->(Clb*Viwee/(Jiwee + Swe1M)) PSwe1M
+R25: Swe1 ->(kdswe_prime) 
+R26: Swe1M ->(khsl1r) Swe1
+R27: PSwe1M ->(khsl1r) PSwe1
+R28: PSwe1 ->(Vawee/(Jawee + PSwe1)) Swe1
+R29: PSwe1M ->(Vawee/(Jawee + PSwe1M)) Swe1M
+R30:  ->(SBF*ksswe) Swe1
+R31:  ->(kssweC) Swe1
+R32: PSwe1 ->(kdswe_prime) 
+R33: PTrim ->(kdiss) PClb + Sic
+R34: PTrim ->(Cdc20a*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) Sic
+R35: PTrim ->(Clb*kdsic_doubleprime + Cln*kdsic_prime + kdsic) PClb
+R36: PClb + Sic ->(kass) PTrim
+R37: Mih1a ->(Vimih/(Mih1a + jimih)) 
+R38:  ->(Clb*Mih1*Vamih/(Jamih + Mih1)) Mih1a
+R39: Mcm ->(kimcm/(Mcm + jimcm)) 
+R40:  ->(Clb*Mcmin*kamcm/(Mcmin + jamcm)) Mcm
+R41: BE ->(kdbud) 
+R42:  ->(Cln*ksbud) BE
+R43: Sic ->(Clb*kdsic_doubleprime + Cln*kdsic_prime + kdsic) 
+R44:  ->(kssic) Sic
+R45: Cln ->(kdcln) 
+R46:  ->(SBF*kscln) Cln
+R47: Swe1M ->(kdswe_prime) 
+R48: Cdc20 ->(kdcdc20) 
+R49:  ->(Clb**4*kscdc20_doubleprime/(Clb**4 + jscdc20**4) + kscdc20_prime) Cdc20
+R50: PSwe1M ->(kdswe_doubleprime) 
+R51: PClb ->(Cdc20a*kdclb_tripleprime + Cdh1*kdclb_doubleprime + kdclb_prime) 
+R52:  ->(mass*mu) mass

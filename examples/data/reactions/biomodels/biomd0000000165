@@ -1,60 +1,60 @@
-cAMP_synthesis_GsAC: ATP ->(Vmax_cAMP_synthesis_GsAC*cell/(ATP + cAMP_synthesis_GsAC_Km)) cAMP
-cAMP_synthesis_GsAC_rev: cAMP -> ATP
-bind_b1AR_propranolol: Propranolol + b1AR ->(bind_b1AR_propranolol_Kf*cell) b1ARinhib
-bind_b1AR_propranolol_rev: b1ARinhib ->(bind_b1AR_propranolol_Kr*cell) Propranolol + b1AR
-add_propranolol:  ->(ar_for_add_propranolol*cell) Propranolol
-add_propranolol_rev: Propranolol -> 
-cAMP_photolysis: DMNB_cAMP ->(cAMP_photolysis_kphot*cell*light_cAMP_photolysis) cAMP
-cAMP_photolysis_rev: cAMP -> DMNB_cAMP
-LRG_activation: L_b1AR_Gs ->(LRG_activation_k_gact*cell) Gsa_gtp + Gsbg + L_b1AR
-LRG_activation_rev: Gsa_gtp + Gsbg + L_b1AR -> L_b1AR_Gs
-bind_Lb1AR_Gs: Gs + L_b1AR ->(bind_Lb1AR_Gs_Kf*cell) L_b1AR_Gs
-bind_Lb1AR_Gs_rev: L_b1AR_Gs ->(bind_Lb1AR_Gs_Kr*cell) Gs + L_b1AR
-desens_bark: L_b1AR ->(cell*desens_bark_k_barkp*(L_b1AR + L_b1AR_Gs)/L_b1AR) b1AR_S464
-desens_bark_rev: b1AR_S464 -> L_b1AR
-bind_cAMP_ARC: ARC + cAMP ->(bind_cAMP_ARC_Kf*cell) A2RC
-bind_cAMP_ARC_rev: A2RC ->(bind_cAMP_ARC_Kr*cell) ARC + cAMP
-bind_b1AR_Gs: Gs + b1AR ->(bind_b1AR_Gs_Kf*cell) b1AR_Gs
-bind_b1AR_Gs_rev: b1AR_Gs ->(bind_b1AR_Gs_Kr*cell) Gs + b1AR
-bind_PDEcAMP: PDE + cAMP ->(bind_PDEcAMP_Kf*cell) PDEcAMP
-bind_PDEcAMP_rev: PDEcAMP ->(bind_PDEcAMP_Kr*cell) PDE + cAMP
-Gs_gtp_hydrolysis: Gsa_gtp ->(Gs_gtp_hydrolysis_khyd*cell) Gsa_gdp
-Gs_gtp_hydrolysis_rev: Gsa_gdp -> Gsa_gtp
-Gs_reassociation: Gsa_gdp + Gsbg ->(Gs_reassociation_k_reassoc*cell) Gs
-Gs_reassociation_rev: Gs -> Gsa_gdp + Gsbg
-bind_FskAC: AC + Fsk ->(bind_FskAC_Kf*cell) FskAC
-bind_FskAC_rev: FskAC ->(bind_FskAC_Kr*cell) AC + Fsk
-bind_AKARp_PP: AKARp + PP ->(bind_AKARp_PP_Kf*cell) PP_AKARp
-bind_AKARp_PP_rev: PP_AKARp ->(bind_AKARp_PP_Kr*cell) AKARp + PP
-desens_pka: b1AR ->(PKAC*cell*desens_pka_kpkap*(L_b1AR + L_b1AR_Gs + b1AR)/b1AR) b1AR_p
-desens_pka_rev: b1AR_p ->(cell*desens_pka_kpkam) b1AR
-bind_L_b1ARGs: L + b1AR_Gs ->(bind_L_b1ARGs_Kf*cell) L_b1AR_Gs
-bind_L_b1ARGs_rev: L_b1AR_Gs ->(bind_L_b1ARGs_Kd*cell) L + b1AR_Gs
-bind_L_b1AR: L + b1AR ->(bind_L_b1AR_Kf*cell) L_b1AR
-bind_L_b1AR_rev: L_b1AR ->(bind_L_b1AR_Kr*cell) L + b1AR
-bind_A2R_PKAC: A2RC ->(bind_A2R_PKAC_Kf*cell) A2R + PKAC
-bind_A2R_PKAC_rev: A2R + PKAC ->(bind_A2R_PKAC_Kr*cell) A2RC
-inhib_PKAC: PKAC + PKI ->(cell*inhib_PKAC_Kf) PKAC_PKI
-inhib_PKAC_rev: PKAC_PKI ->(cell*inhib_PKAC_Kr) PKAC + PKI
-bind_RC_cAMP: RC + cAMP ->(bind_RC_cAMP_Kf*cell) ARC
-bind_RC_cAMP_rev: ARC ->(bind_RC_cAMP_Kr*cell) RC + cAMP
-cAMP_synthesis_FskAC: ATP ->(Vmax_cAMP_synthesis_FskAC*cell/(ATP + cAMP_synthesis_FskAC_Km)) cAMP
-cAMP_synthesis_FskAC_rev: cAMP -> ATP
-add_Ligand:  ->(ar_for_add_Ligand*cell) L
-add_Ligand_rev: L -> 
-bind_Gs_AC: AC + Gsa_gtp ->(bind_Gs_AC_Kf*cell) GsAC
-bind_Gs_AC_rev: GsAC ->(bind_Gs_AC_Kr*cell) AC + Gsa_gtp
-resens_bark: b1AR_S464 ->(cell*resens_bark_k_barkm) L_b1AR
-resens_bark_rev: L_b1AR -> b1AR_S464
-bind_PKAC_AKAR: AKAR + PKAC ->(bind_PKAC_AKAR_Kf*cell) PKAC_AKAR
-bind_PKAC_AKAR_rev: PKAC_AKAR ->(bind_PKAC_AKAR_Kr*cell) AKAR + PKAC
-inhibit_PDE: IBMX + PDE ->(Kf_inhibit_PDE*cell) PDE_IBMX
-inhibit_PDE_rev: PDE_IBMX ->(Kr_inhibit_PDE*cell) IBMX + PDE
-AKARp_dephosph: PP_AKARp ->(AKARp_dephosph_kcat_PP_AKARp*cell) AKAR + PP
-AKARp_dephosph_rev: AKAR + PP -> PP_AKARp
-AKAR_phosph: PKAC_AKAR ->(AKAR_phosph_kpka_akar*cell) AKARp + PKAC
-AKAR_phosph_rev: AKARp + PKAC -> PKAC_AKAR
-RG_activation: b1AR_Gs ->(RG_activation_k_gact*cell) Gsa_gtp + Gsbg + b1AR
-RG_activation_rev: Gsa_gtp + Gsbg + b1AR -> b1AR_Gs
-cAMP_degradation: PDEcAMP ->(cAMP_degradation_kpde*cell) PDE
-cAMP_degradation_rev: PDE -> PDEcAMP
+cAMP_synthesis_GsAC: ATP_cell ->(1.0*Vmax_cAMP_synthesis_GsAC*cell/(ATP_cell + cAMP_synthesis_GsAC_Km)) cAMP_cell
+cAMP_synthesis_GsAC_rev: cAMP_cell ->(k_cAMP_synthesis_GsAC_rev) ATP_cell
+bind_b1AR_propranolol: Propranolol_cell + b1AR_cell ->(bind_b1AR_propranolol_Kf*cell) b1ARinhib_cell
+bind_b1AR_propranolol_rev: b1ARinhib_cell ->(bind_b1AR_propranolol_Kr*cell) Propranolol_cell + b1AR_cell
+add_propranolol:  ->(ar_for_add_propranolol*cell) Propranolol_cell
+add_propranolol_rev: Propranolol_cell ->(k_add_propranolol_rev) 
+cAMP_photolysis: DMNB_cAMP_cell ->(cAMP_photolysis_kphot*cell*light_cAMP_photolysis) cAMP_cell
+cAMP_photolysis_rev: cAMP_cell ->(k_cAMP_photolysis_rev) DMNB_cAMP_cell
+LRG_activation: L_b1AR_Gs_cell ->(LRG_activation_k_gact*cell) Gsa_gtp_cell + Gsbg_cell + L_b1AR_cell
+LRG_activation_rev: Gsa_gtp_cell + Gsbg_cell + L_b1AR_cell ->(k_LRG_activation_rev) L_b1AR_Gs_cell
+bind_Lb1AR_Gs: Gs_cell + L_b1AR_cell ->(bind_Lb1AR_Gs_Kf*cell) L_b1AR_Gs_cell
+bind_Lb1AR_Gs_rev: L_b1AR_Gs_cell ->(bind_Lb1AR_Gs_Kr*cell) Gs_cell + L_b1AR_cell
+desens_bark: L_b1AR_cell ->(cell*desens_bark_k_barkp*(L_b1AR_Gs_cell + L_b1AR_cell)/L_b1AR_cell) b1AR_S464_cell
+desens_bark_rev: b1AR_S464_cell ->(k_desens_bark_rev) L_b1AR_cell
+bind_cAMP_ARC: ARC_cell + cAMP_cell ->(bind_cAMP_ARC_Kf*cell) A2RC_cell
+bind_cAMP_ARC_rev: A2RC_cell ->(bind_cAMP_ARC_Kr*cell) ARC_cell + cAMP_cell
+bind_b1AR_Gs: Gs_cell + b1AR_cell ->(bind_b1AR_Gs_Kf*cell) b1AR_Gs_cell
+bind_b1AR_Gs_rev: b1AR_Gs_cell ->(bind_b1AR_Gs_Kr*cell) Gs_cell + b1AR_cell
+bind_PDEcAMP: PDE_cell + cAMP_cell ->(bind_PDEcAMP_Kf*cell) PDEcAMP_cell
+bind_PDEcAMP_rev: PDEcAMP_cell ->(bind_PDEcAMP_Kr*cell) PDE_cell + cAMP_cell
+Gs_gtp_hydrolysis: Gsa_gtp_cell ->(Gs_gtp_hydrolysis_khyd*cell) Gsa_gdp_cell
+Gs_gtp_hydrolysis_rev: Gsa_gdp_cell ->(k_Gs_gtp_hydrolysis_rev) Gsa_gtp_cell
+Gs_reassociation: Gsa_gdp_cell + Gsbg_cell ->(Gs_reassociation_k_reassoc*cell) Gs_cell
+Gs_reassociation_rev: Gs_cell ->(k_Gs_reassociation_rev) Gsa_gdp_cell + Gsbg_cell
+bind_FskAC: AC_cell + Fsk_cell ->(bind_FskAC_Kf*cell) FskAC_cell
+bind_FskAC_rev: FskAC_cell ->(bind_FskAC_Kr*cell) AC_cell + Fsk_cell
+bind_AKARp_PP: AKARp_cell + PP_cell ->(bind_AKARp_PP_Kf*cell) PP_AKARp_cell
+bind_AKARp_PP_rev: PP_AKARp_cell ->(bind_AKARp_PP_Kr*cell) AKARp_cell + PP_cell
+desens_pka: b1AR_cell ->(PKAC_cell*cell*desens_pka_kpkap*(L_b1AR_Gs_cell + L_b1AR_cell + b1AR_cell)/b1AR_cell) b1AR_p_cell
+desens_pka_rev: b1AR_p_cell ->(cell*desens_pka_kpkam) b1AR_cell
+bind_L_b1ARGs: L_cell + b1AR_Gs_cell ->(bind_L_b1ARGs_Kf*cell) L_b1AR_Gs_cell
+bind_L_b1ARGs_rev: L_b1AR_Gs_cell ->(bind_L_b1ARGs_Kd*cell) L_cell + b1AR_Gs_cell
+bind_L_b1AR: L_cell + b1AR_cell ->(bind_L_b1AR_Kf*cell) L_b1AR_cell
+bind_L_b1AR_rev: L_b1AR_cell ->(bind_L_b1AR_Kr*cell) L_cell + b1AR_cell
+bind_A2R_PKAC: A2RC_cell ->(bind_A2R_PKAC_Kf*cell) A2R_cell + PKAC_cell
+bind_A2R_PKAC_rev: A2R_cell + PKAC_cell ->(bind_A2R_PKAC_Kr*cell) A2RC_cell
+inhib_PKAC: PKAC_cell + PKI_cell ->(cell*inhib_PKAC_Kf) PKAC_PKI_cell
+inhib_PKAC_rev: PKAC_PKI_cell ->(cell*inhib_PKAC_Kr) PKAC_cell + PKI_cell
+bind_RC_cAMP: RC_cell + cAMP_cell ->(bind_RC_cAMP_Kf*cell) ARC_cell
+bind_RC_cAMP_rev: ARC_cell ->(bind_RC_cAMP_Kr*cell) RC_cell + cAMP_cell
+cAMP_synthesis_FskAC: ATP_cell ->(1.0*Vmax_cAMP_synthesis_FskAC*cell/(ATP_cell + cAMP_synthesis_FskAC_Km)) cAMP_cell
+cAMP_synthesis_FskAC_rev: cAMP_cell ->(k_cAMP_synthesis_FskAC_rev) ATP_cell
+add_Ligand:  ->(ar_for_add_Ligand*cell) L_cell
+add_Ligand_rev: L_cell ->(k_add_Ligand_rev) 
+bind_Gs_AC: AC_cell + Gsa_gtp_cell ->(bind_Gs_AC_Kf*cell) GsAC_cell
+bind_Gs_AC_rev: GsAC_cell ->(bind_Gs_AC_Kr*cell) AC_cell + Gsa_gtp_cell
+resens_bark: b1AR_S464_cell ->(cell*resens_bark_k_barkm) L_b1AR_cell
+resens_bark_rev: L_b1AR_cell ->(k_resens_bark_rev) b1AR_S464_cell
+bind_PKAC_AKAR: AKAR_cell + PKAC_cell ->(bind_PKAC_AKAR_Kf*cell) PKAC_AKAR_cell
+bind_PKAC_AKAR_rev: PKAC_AKAR_cell ->(bind_PKAC_AKAR_Kr*cell) AKAR_cell + PKAC_cell
+inhibit_PDE: IBMX_cell + PDE_cell ->(Kf_inhibit_PDE*cell) PDE_IBMX_cell
+inhibit_PDE_rev: PDE_IBMX_cell ->(Kr_inhibit_PDE*cell) IBMX_cell + PDE_cell
+AKARp_dephosph: PP_AKARp_cell ->(AKARp_dephosph_kcat_PP_AKARp*cell) AKAR_cell + PP_cell
+AKARp_dephosph_rev: AKAR_cell + PP_cell ->(k_AKARp_dephosph_rev) PP_AKARp_cell
+AKAR_phosph: PKAC_AKAR_cell ->(AKAR_phosph_kpka_akar*cell) AKARp_cell + PKAC_cell
+AKAR_phosph_rev: AKARp_cell + PKAC_cell ->(k_AKAR_phosph_rev) PKAC_AKAR_cell
+RG_activation: b1AR_Gs_cell ->(RG_activation_k_gact*cell) Gsa_gtp_cell + Gsbg_cell + b1AR_cell
+RG_activation_rev: Gsa_gtp_cell + Gsbg_cell + b1AR_cell ->(k_RG_activation_rev) b1AR_Gs_cell
+cAMP_degradation: PDEcAMP_cell ->(cAMP_degradation_kpde*cell) PDE_cell
+cAMP_degradation_rev: PDE_cell ->(k_cAMP_degradation_rev) PDEcAMP_cell

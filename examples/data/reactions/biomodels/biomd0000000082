@@ -1,10 +1,10 @@
-Forming__DR: D + R ->(Forming_k1*cell) DR
-Forming__DR_rev: DR ->(cell*k7) D + R
-DR_binding_with_G_GDP_produc_DRG_GDP: DR + G_GDP ->(cell*reaction_1_k2) DRG_GDP
-DR_binding_with_G_GDP_produc_DRG_GDP_rev: DRG_GDP ->(cell*k8) DR + G_GDP
-GDP_releasing: DRG_GDP ->(cell*reaction_2_k3) DRG + GDP
-GDP_releasing_rev: DRG + GDP ->(cell*k9) DRG_GDP
-GTP_binding_with_DRG: DRG + GTP ->(cell*reaction_3_k4) DRG_GTP
-GTP_binding_with_DRG_rev: DRG_GTP ->(cell*k10) DRG + GTP
-DRG_GTP_dissociates_G_protein_activation_: DRG_GTP ->(cell*reaction_4_k5) DR + G_GTP
-G_protein_inactivated: G_GTP ->(cell*reaction_5_k6) G_GDP
+Forming: Recptor + agonist ->(Forming_k1*cell) DR
+Forming_rev: DR ->(Forming_k7*cell) Recptor + agonist
+reaction_1: DR + G_GDP ->(cell*reaction_1_k2) DRG_GDP
+reaction_1_rev: DRG_GDP ->(cell*reaction_1_k8) DR + G_GDP
+reaction_2: DRG_GDP ->(cell*reaction_2_k3) DRG + GDP
+reaction_2_rev: DRG + GDP ->(cell*reaction_2_k9) DRG_GDP
+reaction_3: DRG + GTP ->(cell*reaction_3_k4) DRG_GTP
+reaction_3_rev: DRG_GTP ->(cell*reaction_3_k10) DRG + GTP
+reaction_4: DRG_GTP ->(cell*reaction_4_k5) DR + G_GTP
+reaction_5: G_GTP ->(cell*reaction_5_k6) G_GDP

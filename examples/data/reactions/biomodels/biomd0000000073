@@ -1,52 +1,52 @@
-Mb_synthesized:  ->(Kib**reaction_0_m*cell*reaction_0_vsb/(Bn**reaction_0_m + Kib**reaction_0_m)) Mb
-Mb_translated_into_protein:  ->(Mb*cell*ksb) Bc
-Mb_nonspecific_degradation: Mb ->(cell*kdmb) 
-Bc_phosphorylation: Bc ->(V1b*cell/(Bc + Kp)) Bcp
-Bc_transfered_from_cytosolic_to_nuclear: Bc ->(cell*k5) Bn
-Bc_transfered_from_cytosolic_to_nuclear_rev: Bn ->(cell*k6) Bc
-Mc_translated_into_protein:  ->(Mc*cell*ksc) Cc
-Mc_nonspecific_degradation: Mc ->(cell*kdmc) 
-Cc_phosphorylation: Cc ->(V1c*cell/(Cc + Kp)) Ccp
-Ccp_specific_degradation: Ccp ->(cell*vdcc/(Ccp + Kd)) 
-Mp_synthesis:  ->(Bn**reaction_9_n*cell*vsp/(Bn**reaction_9_n + Kap**reaction_9_n)) Mp
-Mp_translated_into_protein:  ->(Mp*cell*ksp) Pc
-Pcp_specific_degradation: Pcp ->(cell*vdpc/(Kd + Pcp)) 
-Pc_phosphorylation: Pc ->(V1p*cell/(Kp + Pc)) Pcp
-Cc_and_Pc_produce_complex_Per_Cry: Cc + Pc ->(cell*k3) PCc
-Cc_and_Pc_produce_complex_Per_Cry_rev: PCc ->(cell*k4) Cc + Pc
-PCc_phosphorylation: PCc ->(V1pc*cell/(Kp + PCc)) PCcp
-PCcp_specific_degradation: PCcp ->(cell*vdpcc/(Kd + PCcp)) 
-PCc_transfered_into_nuclear: PCc ->(cell*k1) PCn
-PCc_transfered_into_nuclear_rev: PCn ->(cell*k2) PCc
-PCnp_nonspecific_degradation: PCnp ->(cell*kdn) 
-Bcp_nonspecific_degradation: Bcp ->(cell*kdn) 
-Bnp_nonspecific_degradation: Bnp ->(cell*kdn) 
-Mc_synthesis:  ->(Bn**reaction_20_n*cell*vsc/(Bn**reaction_20_n + Kac**reaction_20_n)) Mc
-PCn_phosphorylation: PCn ->(V3pc*cell/(Kp + PCn)) PCnp
-Mp_nonspecific_degradation: Mp ->(cell*kdmp) 
-Per_Cry_and_Clock_Bmal_form_inactive_complex: Bn + PCn ->(cell*k7) In
-Per_Cry_and_Clock_Bmal_form_inactive_complex_rev: In ->(cell*k8) Bn + PCn
-Mb_specific_degradation: Mb ->(cell*vmb/(Kmb + Mb)) 
-Mc_specific_degradation: Mc ->(cell*vmc/(Kmc + Mc)) 
-Mp_specific_degradation: Mp ->(cell*vmp/(Kmp + Mp)) 
-Pc_nonspecific_degradation: Pc ->(cell*kdn) 
-Cc_nonspecific_degradation: Cc ->(cell*kdnc) 
-Pcp_nonspecific_degradation: Pcp ->(cell*kdn) 
-Ccp_nonspecific_degradation: Ccp ->(cell*kdn) 
-PCcp_nonspecific_degradation: PCcp ->(cell*kdn) 
-PCc_nonspecific_degradation: PCc ->(cell*kdn) 
-PCnp_specific_degradation: PCnp ->(cell*vdpcn/(Kd + PCnp)) 
-Bc_nonspecific_degradation: Bc ->(cell*kdn) 
-Bcp_specific_degradation: Bcp ->(cell*vdbc/(Bcp + Kd)) 
-Bn_phosphorylation: Bn ->(V3b*cell/(Bn + Kp)) Bnp
-Bnp_specific_degradation: Bnp ->(cell*vdbn/(Bnp + Kd)) 
-In_nonspecific_degration: In ->(cell*kdn) 
-In_specific_degradation: In ->(cell*vdin/(In + Kd)) 
-Bn_nonspecific_degradation: Bn ->(cell*kdn) 
-Bcp_dephosphorylation: Bcp ->(V2b*cell/(Bcp + Kdp)) Bc
-Bnp_dephosphorylation: Bnp ->(V4b*cell/(Bnp + Kdp)) Bn
-Ccp_dephosphorylation: Ccp ->(V2c*cell/(Ccp + Kdp)) Cc
-Pcp_dephosphorylation: Pcp ->(V2p*cell/(Kdp + Pcp)) Pc
-PCnp_dephosphorylation: PCnp ->(V4pc*cell/(Kdp + PCnp)) PCn
-PCn_nonspecific_degradation: PCn ->(cell*kdn) 
-PCcp_dephosphorylation: PCcp ->(V2pc*cell/(Kdp + PCcp)) PCc
+reaction_0:  ->(cell*reaction_0_K**reaction_0_m*reaction_0_vsb/(reaction_0_K**reaction_0_m + species_3**reaction_0_m)) species_0
+reaction_1:  ->(cell*reaction_1_k*species_0) species_1
+reaction_2: species_0 ->(cell*reaction_2_k1) 
+reaction_3: species_1 ->(cell*reaction_3_V/(reaction_3_Km + species_1)) species_2
+reaction_4: species_1 ->(cell*reaction_4_k1) species_3
+reaction_4_rev: species_3 ->(cell*reaction_4_k2) species_1
+reaction_5:  ->(cell*reaction_5_k*species_5) species_4
+reaction_6: species_5 ->(cell*reaction_6_k1) 
+reaction_7: species_4 ->(cell*reaction_7_V/(reaction_7_Km + species_4)) species_6
+reaction_8: species_6 ->(cell*reaction_8_V/(reaction_8_Km + species_6)) 
+reaction_9:  ->(cell*reaction_9_Vs*species_3**reaction_9_n/(reaction_9_K**reaction_9_n + species_3**reaction_9_n)) species_7
+reaction_10:  ->(cell*reaction_10_k*species_7) species_8
+reaction_11: species_9 ->(cell*reaction_11_V/(reaction_11_Km + species_9)) 
+reaction_12: species_8 ->(cell*reaction_12_V/(reaction_12_Km + species_8)) species_9
+reaction_13: species_4 + species_8 ->(cell*reaction_13_k1) species_10
+reaction_13_rev: species_10 ->(cell*reaction_13_k2) species_4 + species_8
+reaction_14: species_10 ->(cell*reaction_14_V/(reaction_14_Km + species_10)) species_11
+reaction_15: species_11 ->(cell*reaction_15_V/(reaction_15_Km + species_11)) 
+reaction_16: species_10 ->(cell*reaction_16_k1) species_12
+reaction_16_rev: species_12 ->(cell*reaction_16_k2) species_10
+reaction_17: species_14 ->(cell*reaction_17_k1) 
+reaction_18: species_2 ->(cell*reaction_18_k1) 
+reaction_19: species_13 ->(cell*reaction_19_k1) 
+reaction_20:  ->(cell*reaction_20_Vs*species_3**reaction_20_n/(reaction_20_K**reaction_20_n + species_3**reaction_20_n)) species_5
+reaction_21: species_12 ->(cell*reaction_21_V/(reaction_21_Km + species_12)) species_14
+reaction_22: species_7 ->(cell*reaction_22_k1) 
+reaction_23: species_12 + species_3 ->(cell*reaction_23_k1) species_15
+reaction_23_rev: species_15 ->(cell*reaction_23_k2) species_12 + species_3
+reaction_24: species_0 ->(cell*reaction_24_V/(reaction_24_Km + species_0)) 
+reaction_25: species_5 ->(cell*reaction_25_V/(reaction_25_Km + species_5)) 
+reaction_26: species_7 ->(cell*reaction_26_V/(reaction_26_Km + species_7)) 
+reaction_27: species_8 ->(cell*reaction_27_k1) 
+reaction_28: species_4 ->(cell*reaction_28_k1) 
+reaction_29: species_9 ->(cell*reaction_29_k1) 
+reaction_30: species_6 ->(cell*reaction_30_k1) 
+reaction_31: species_11 ->(cell*reaction_31_k1) 
+reaction_32: species_10 ->(cell*reaction_32_k1) 
+reaction_33: species_14 ->(cell*reaction_33_V/(reaction_33_Km + species_14)) 
+reaction_34: species_1 ->(cell*reaction_34_k1) 
+reaction_35: species_2 ->(cell*reaction_35_V/(reaction_35_Km + species_2)) 
+reaction_36: species_3 ->(cell*reaction_36_V/(reaction_36_Km + species_3)) species_13
+reaction_37: species_13 ->(cell*reaction_37_V/(reaction_37_Km + species_13)) 
+reaction_38: species_15 ->(cell*reaction_38_k1) 
+reaction_39: species_15 ->(cell*reaction_39_V/(reaction_39_Km + species_15)) 
+reaction_40: species_3 ->(cell*reaction_40_k1) 
+reaction_41: species_2 ->(cell*reaction_41_V/(reaction_41_Km + species_2)) species_1
+reaction_42: species_13 ->(cell*reaction_42_V/(reaction_42_Km + species_13)) species_3
+reaction_43: species_6 ->(cell*reaction_43_V/(reaction_43_Km + species_6)) species_4
+reaction_44: species_9 ->(cell*reaction_44_V/(reaction_44_Km + species_9)) species_8
+reaction_45: species_14 ->(cell*reaction_45_V/(reaction_45_Km + species_14)) species_12
+reaction_46: species_12 ->(cell*reaction_46_k1) 
+reaction_47: species_11 ->(cell*reaction_47_V/(reaction_47_Km + species_11)) species_10

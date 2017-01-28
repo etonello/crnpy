@@ -1,32 +1,32 @@
-Insulin_binding: Unbound_Insulin_Receptor ->(CellSurface*Insulin*k1) Unphosphorylated_once_bound_receptor
-Insulin_binding_rev: Unphosphorylated_once_bound_receptor ->(CellSurface*kminus1) Unbound_Insulin_Receptor
-Receptor_Autophosphorylation: Unphosphorylated_once_bound_receptor ->(CellSurface*k3) Phosphorylated_once_bound_receptor
-Insulin_Binding: Phosphorylated_once_bound_receptor ->(CellSurface*Insulin*k2) Phosphorylated_twice_bound_receptor
-Insulin_Binding_rev: Phosphorylated_twice_bound_receptor ->(kminus2) Phosphorylated_once_bound_receptor
-Receptor_dephosphorylation: Phosphorylated_once_bound_receptor ->(CellSurface*PTP*kminus3) Unbound_Insulin_Receptor
-Receptor_endocytosis: Unbound_Insulin_Receptor ->(CellSurface*k4) Unbound_unphosphorylated_intracellular_receptor
-Receptor_endocytosis_rev: Unbound_unphosphorylated_intracellular_receptor ->(CellSurface*kminus4) Unbound_Insulin_Receptor
-Receptor_transport: Phosphorylated_twice_bound_receptor ->(CellSurface*k4prime) Phosphorylated_twice_bound_intracellular_receptor
-Receptor_transport_rev: Phosphorylated_twice_bound_intracellular_receptor ->(CellSurface*kminus4prime) Phosphorylated_twice_bound_receptor
-Receptor_transport: Phosphorylated_once_bound_receptor ->(CellSurface*k4prime) Phosphorylated_once_bound_intracellular_receptor
-Receptor_transport_rev: Phosphorylated_once_bound_intracellular_receptor ->(CellSurface*kminus4prime) Phosphorylated_once_bound_receptor
-Receptor_synthesis:  ->(Intracellular*k5) Unbound_unphosphorylated_intracellular_receptor
-Receptor_degradation: Unbound_unphosphorylated_intracellular_receptor ->(Intracellular*kminus5) 
-Intracellular_receptor_dephosphorylation: Phosphorylated_twice_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
-Intracellular_receptor_dephosphorylation: Phosphorylated_once_bound_intracellular_receptor ->(Intracellular*PTP*k6) Unbound_unphosphorylated_intracellular_receptor
-IRS1_activation: Unphosphorylated_IRS1 ->(Intracellular*k7*(Phosphorylated_once_bound_receptor + Phosphorylated_twice_bound_receptor)/IRp) Phosphorylated_IRS1
-IRS1_activation_rev: Phosphorylated_IRS1 ->(Intracellular*PTP*kminus7) Unphosphorylated_IRS1
-IRS1_PI3K_complex_formation: PI3_Kinase + Phosphorylated_IRS1 ->(Intracellular*k8) IRS1__PI3_Kinase_Complex
-IRS1_PI3K_complex_formation_rev: IRS1__PI3_Kinase_Complex ->(Intracellular*kminus8) PI3_Kinase + Phosphorylated_IRS1
-PI_3_4_5_P3_generation: PI4_5P2 ->(Intracellular*k9) PI3_4_5P3
-PI_3_4_5_P3_generation_rev: PI3_4_5P3 ->(Intracellular*PTEN*kminus9) PI4_5P2
-PI_3_4_5P3_generation: PI3_4P2 ->(Intracellular*k10) PI3_4_5P3
-PI_3_4_5P3_generation_rev: PI3_4_5P3 ->(Intracellular*SHIP*kminus10) PI3_4P2
-Akt_activation: Unactivated_Akt ->(Intracellular*k11) Activated_Akt
-Akt_activation_rev: Activated_Akt ->(Intracellular*kminus11) Unactivated_Akt
-PKC_activation: Unactivated_PKC ->(Intracellular*k12) Activated_PKC
-PKC_activation_rev: Activated_PKC ->(Intracellular*kminus12) Unactivated_PKC
-GLUT4_synthesis:  ->(Intracellular*k14) Intracellular_GLUT4
-GLUT4_degradation: Intracellular_GLUT4 ->(Intracellular*kminus14) 
-GLUT4_translocation: Intracellular_GLUT4 ->(Intracellular*(k13 + k13prime)) Cell_surface_GLUT4
-GLUT4_translocation_rev: Cell_surface_GLUT4 ->(Intracellular*kminus13) Intracellular_GLUT4
+R1: x2 ->(CellSurface*k1*x1) x3
+R1_rev: x3 ->(CellSurface*kminus1) x2
+R2: x3 ->(CellSurface*k3) x5
+R3: x5 ->(CellSurface*k2*x1) x4
+R3_rev: x4 ->(kminus2) x5
+R4: x5 ->(CellSurface*PTP*kminus3) x2
+R5: x2 ->(CellSurface*k4) x6
+R5_rev: x6 ->(CellSurface*kminus4) x2
+R6: x4 ->(CellSurface*k4prime) x7
+R6_rev: x7 ->(CellSurface*kminus4prime) x4
+R7: x5 ->(CellSurface*k4prime) x8
+R7_rev: x8 ->(CellSurface*kminus4prime) x5
+R8:  ->(Intracellular*k5) x6
+R9: x6 ->(Intracellular*kminus5) 
+R10: x7 ->(Intracellular*PTP*k6) x6
+R11: x8 ->(Intracellular*PTP*k6) x6
+R12: x9 ->(Intracellular*k7*(x4 + x5)/IRp) x10
+R12_rev: x10 ->(Intracellular*PTP*kminus7) x9
+R13: x10 + x11 ->(Intracellular*k8) x12
+R13_rev: x12 ->(Intracellular*kminus8) x10 + x11
+R14: x14 ->(Intracellular*k9) x13
+R14_rev: x13 ->(Intracellular*PTEN*kminus9) x14
+R15: x15 ->(Intracellular*k10) x13
+R15_rev: x13 ->(Intracellular*SHIP*kminus10) x15
+R16: x16 ->(Intracellular*k11) x17
+R16_rev: x17 ->(Intracellular*kminus11) x16
+R17: x18 ->(Intracellular*k12) x19
+R17_rev: x19 ->(Intracellular*kminus12) x18
+R18:  ->(Intracellular*k14) x20
+R19: x20 ->(Intracellular*kminus14) 
+R20: x20 ->(Intracellular*(k13 + k13prime)) x21
+R20_rev: x21 ->(Intracellular*kminus13) x20

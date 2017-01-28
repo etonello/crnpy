@@ -1,34 +1,34 @@
-T1R_production: AA ->(Vcyt*k_T1R/AA) T1R_surf
-T1R_internalization_to_early_endosome: T1R_surf ->(Vcyt*ki) T1R_endo
-T1R_recycling_from_early_endosome: T1R_endo ->(Vcyt*kr) T1R_surf
-T1R_constitutive_degradation: T1R_endo ->(Vcyt*kdeg_T1R) empty_degraded
-T2R_production: AA ->(Vcyt*k_T2R/AA) T2R_surf
-T2R_internalization_to_early_endosome: T2R_surf ->(Vcyt*ki) T2R_endo
-T2R_recycling_from_early_endosome: T2R_endo ->(Vcyt*kr) T2R_surf
-T2R_constitutive_degradation: T2R_endo ->(Vcyt*kdeg_T2R) empty_degraded
-LRC_activation: T1R_surf + T2R_surf + TGF_beta_ex ->(Vcyt*ka_LRC) LRC_surf
-LRC_internalization_to_early_endosome: LRC_surf ->(Vcyt*ki) LRC_endo
-LRC_constitutive_degradation: LRC_endo ->(Vcyt*kdeg_LRC) empty_degraded
-dissociation_of_LRC_in_endosome: LRC_endo ->(Vcyt*kdiss_LRC) T1R_endo + T2R_endo + TGF_beta_endo
-TGF_beta_constitutive_degradation: TGF_beta_endo ->(Vcyt*kdeg_TGF_beta) empty_degraded
-Smad2_nuclear_import: Smad2c ->(Vcyt*kimp_Smad2) Smad2n
-Smad2_nuclear_export: Smad2n ->(Vnuc*kexp_Smad2) Smad2c
-Smad4_nuclear_import: Smad4c ->(Vcyt*kimp_Smad4) Smad4n
-Smad4_nuclear_export: Smad4n ->(Vnuc*kexp_Smad4) Smad4c
-Smad2_phosphorylation: Smad2c ->(LRC_endo*Vcyt*kpho_Smad2) PSmad2c
-PSmad2_nuclear_import: PSmad2c ->(Vcyt*kimp_Smad2) PSmad2n
-PSmad2_nuclear_export: PSmad2n ->(Vnuc*kexp_Smad2) PSmad2c
-Smad2_Smad4_complex_formation: PSmad2c + Smad4c ->(Vcyt*kon_Smads) PSmad2_Smad4_c
-Smad2_Smad4_complex_formation_rev: PSmad2_Smad4_c ->(Vcyt*koff_Smads) PSmad2c + Smad4c
-Smad2_Smad4_nuclear_import: PSmad2_Smad4_c ->(Vcyt*kimp_Smads) PSmad2_Smad4_n
-Smad2_Smad4_dissociation: PSmad2_Smad4_n ->(Vnuc*koff_Smads) PSmad2n + Smad4n
-Smad2_Smad4_dissociation_rev: PSmad2n + Smad4n ->(Vnuc*kon_Smads) PSmad2_Smad4_n
-Smad2_dephosphorylation: PSmad2n ->(Vnuc*kdepho_Smad2) Smad2n
-PSmad2_dimer_formation: 2PSmad2c ->(Vcyt*kon_Smads) PSmad2_PSmad2_c
-PSmad2_dimer_formation_rev: PSmad2_PSmad2_c ->(Vcyt*koff_Smads) 2PSmad2c
-PSmad2_dimer_nuclear__import: PSmad2_PSmad2_c ->(Vcyt*kimp_Smads) PSmad2_PSmad2_n
-PSmad2_dimmer_dissociation: PSmad2_PSmad2_n ->(Vnuc*koff_Smads) 2PSmad2n
-PSmad2_dimmer_dissociation_rev: 2PSmad2n ->(Vnuc*kon_Smads) PSmad2_PSmad2_n
-negative_feedback_induced_LRC_degradation: LRC_surf ->(Vcyt*klid*totalNuclearPSmad2) empty_degraded
-non_specific_binding_of_TGF_beta: TGF_beta_ex ->(Vmed*kon_ns) TGF_beta_ns
-non_specific_binding_of_TGF_beta_rev: TGF_beta_ns ->(Vmed*koff_ns) TGF_beta_ex
+re1: AA ->(Vcyt*k_T1R/AA) T1R_surf
+re2: T1R_surf ->(Vcyt*ki) T1R_endo
+re3: T1R_endo ->(Vcyt*kr) T1R_surf
+re4: T1R_endo ->(Vcyt*kdeg_T1R) empty_degraded
+re5: AA ->(Vcyt*k_T2R/AA) T2R_surf
+re6: T2R_surf ->(Vcyt*ki) T2R_endo
+re7: T2R_endo ->(Vcyt*kr) T2R_surf
+re8: T2R_endo ->(Vcyt*kdeg_T2R) empty_degraded
+re9: T1R_surf + T2R_surf + TGF_beta_ex ->(Vcyt*ka_LRC) LRC_surf
+re10: LRC_surf ->(Vcyt*ki) LRC_endo
+re11: LRC_endo ->(Vcyt*kdeg_LRC) empty_degraded
+re12: LRC_endo ->(Vcyt*kdiss_LRC) T1R_endo + T2R_endo + TGF_beta_endo
+re13: TGF_beta_endo ->(Vcyt*kdeg_TGF_beta) empty_degraded
+re14: Smad2c ->(Vcyt*kimp_Smad2) Smad2n
+re15: Smad2n ->(Vnuc*kexp_Smad2) Smad2c
+re16: Smad4c ->(Vcyt*kimp_Smad4) Smad4n
+re17: Smad4n ->(Vnuc*kexp_Smad4) Smad4c
+re18: Smad2c ->(LRC_endo*Vcyt*kpho_Smad2) PSmad2c
+re19: PSmad2c ->(Vcyt*kimp_Smad2) PSmad2n
+re20: PSmad2n ->(Vnuc*kexp_Smad2) PSmad2c
+re21: PSmad2c + Smad4c ->(Vcyt*kon_Smads) PSmad2_Smad4_c
+re21_rev: PSmad2_Smad4_c ->(Vcyt*koff_Smads) PSmad2c + Smad4c
+re22: PSmad2_Smad4_c ->(Vcyt*kimp_Smads) PSmad2_Smad4_n
+re23: PSmad2_Smad4_n ->(Vnuc*koff_Smads) PSmad2n + Smad4n
+re23_rev: PSmad2n + Smad4n ->(Vnuc*kon_Smads) PSmad2_Smad4_n
+re24: PSmad2n ->(Vnuc*kdepho_Smad2) Smad2n
+re25: 2PSmad2c ->(Vcyt*kon_Smads) PSmad2_PSmad2_c
+re25_rev: PSmad2_PSmad2_c ->(Vcyt*koff_Smads) 2PSmad2c
+re26: PSmad2_PSmad2_c ->(Vcyt*kimp_Smads) PSmad2_PSmad2_n
+re27: PSmad2_PSmad2_n ->(Vnuc*koff_Smads) 2PSmad2n
+re27_rev: 2PSmad2n ->(Vnuc*kon_Smads) PSmad2_PSmad2_n
+re28: LRC_surf ->(Vcyt*klid*totalNuclearPSmad2) empty_degraded
+re29: TGF_beta_ex ->(Vmed*kon_ns) TGF_beta_ns
+re29_rev: TGF_beta_ns ->(Vmed*koff_ns) TGF_beta_ex

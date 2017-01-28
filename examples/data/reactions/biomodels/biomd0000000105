@@ -3,8 +3,8 @@ Misfolding: NatP + ROS ->(k2) MisP + ROS + totMisP
 Refolding: MisP ->(k3) NatP + refNatP
 MisPE3Binding: E3 + MisP ->(k61) E3_MisP
 MisPE3Release: E3_MisP ->(k61r) E3 + MisP
-E1UbBinding: ATP + Ub + _E1 ->(k62/(ATP + 5000)) AMP + E1_Ub
-E2UbBinding: E1_Ub + E2 ->(k63) E2_Ub + _E1
+E1UbBinding: ATP + E1 + Ub ->(k62/(ATP + 5000)) AMP + E1_Ub
+E2UbBinding: E1_Ub + E2 ->(k63) E1 + E2_Ub
 Monoubiquitination: E2_Ub + E3_MisP ->(k64) E2 + E3 + MisP_Ub
 Polyubiquitination1: E2_Ub + MisP_Ub ->(k65) E2 + MisP_Ub2
 Polyubiquitination2: E2_Ub + MisP_Ub2 ->(k65) E2 + MisP_Ub3

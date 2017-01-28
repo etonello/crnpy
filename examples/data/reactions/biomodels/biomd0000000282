@@ -1,4 +1,4 @@
-r1: enzyme_E__catalase_ + substrate_S__hydrogen_peroxide_ ->(cell*k1) enzyme_substrate_complex_ES__catalase___hydrogen_peroxide_
-r1_rev: enzyme_substrate_complex_ES__catalase___hydrogen_peroxide_ ->(cell*k2) enzyme_E__catalase_ + substrate_S__hydrogen_peroxide_
-r2: enzyme_substrate_complex_ES__catalase___hydrogen_peroxide_ + substrate_S__hydrogen_peroxide_ ->(cell*k4_prime) enzyme_E__catalase_ + product_1
-r3: donor_AH2 + enzyme_substrate_complex_ES__catalase___hydrogen_peroxide_ ->(cell*k4) enzyme_E__catalase_ + product_2
+r1: e + x ->(cell*k1) p
+r1_rev: p ->(cell*k2) e + x
+r2: p + x ->(cell*k4_prime) e + p1
+r3: a + p ->(cell*k4) e + p2

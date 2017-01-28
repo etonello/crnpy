@@ -21,22 +21,22 @@ r13: Va_APC ->(compartment_1*k3) Va3_APC
 r14: Va3_APC ->(compartment_1*k6) Va36_APC
 r15: Va36_APC ->(compartment_1*k5) Va536_APC
 r16: Va3_APC ->(compartment_1*k5) Va53_APC
-r17: Va ->(compartment_1*k9) HC + _LC
-r17_rev: HC + _LC ->(compartment_1*k10) Va
-r18: Va5 ->(compartment_1*k9) HC5 + _LC
-r18_rev: HC5 + _LC ->(compartment_1*k10) Va5
-r19: Va3 ->(compartment_1*k9) HC3 + _LC
-r19_rev: HC3 + _LC ->(compartment_1*k10) Va3
-r20: Va56 ->(compartment_1*k9) HC56 + _LC
-r20_rev: HC56 + _LC ->(compartment_1*k10) Va56
-r21: Va53 ->(compartment_1*k9) HC53 + _LC
-r21_rev: HC53 + _LC ->(compartment_1*k10) Va53
-r22: Va36 ->(compartment_1*k9) HC36 + _LC
-r22_rev: HC36 + _LC ->(compartment_1*k10) Va36
-r23: Va536 ->(compartment_1*k9) HC536 + _LC
-r23_rev: HC536 + _LC ->(compartment_1*k10) Va536
-r24: APC + _LC ->(compartment_1*k1) LC_APC
-r24_rev: LC_APC ->(compartment_1*k2) APC + _LC
+r17: Va ->(compartment_1*k9) HC + LC
+r17_rev: HC + LC ->(compartment_1*k10) Va
+r18: Va5 ->(compartment_1*k9) HC5 + LC
+r18_rev: HC5 + LC ->(compartment_1*k10) Va5
+r19: Va3 ->(compartment_1*k9) HC3 + LC
+r19_rev: HC3 + LC ->(compartment_1*k10) Va3
+r20: Va56 ->(compartment_1*k9) HC56 + LC
+r20_rev: HC56 + LC ->(compartment_1*k10) Va56
+r21: Va53 ->(compartment_1*k9) HC53 + LC
+r21_rev: HC53 + LC ->(compartment_1*k10) Va53
+r22: Va36 ->(compartment_1*k9) HC36 + LC
+r22_rev: HC36 + LC ->(compartment_1*k10) Va36
+r23: Va536 ->(compartment_1*k9) HC536 + LC
+r23_rev: HC536 + LC ->(compartment_1*k10) Va536
+r24: APC + LC ->(compartment_1*k1) LC_APC
+r24_rev: LC_APC ->(compartment_1*k2) APC + LC
 r25: Va3 ->(compartment_1*k7) VaA3 + VaLCA1
 r25_rev: VaA3 + VaLCA1 ->(compartment_1*k8) Va3
 r26: Va53 ->(compartment_1*k7) VaA53 + VaLCA1

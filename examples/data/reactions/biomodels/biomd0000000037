@@ -5,8 +5,8 @@ Transducer_inactivation: Xa ->(Transducer_inactivation_kai*compartment) Xi
 preS_formation: prepreS ->(Xa*compartment*preS_formation_kx) preS
 S_generation: preS ->(S_generation_ky*Ya*compartment) S
 Glucose_sensor_inactivation: Gluc + Ya ->(Glucose_sensor_inactivation_kG*compartment) Yi
-S_formation:  ->(S_formation_alpha1*compartment/((V + 1)*(V**2 - V + 1))) S
-V_formation:  ->(V_formation_alpha2*compartment/((S + 1)*(S**2 - S + 1))) V
+S_formation:  ->(S_formation_alpha1*compartment/(V**3 + 1)) S
+V_formation:  ->(V_formation_alpha2*compartment/(S**3 + 1)) V
 S_degradation: S ->(S_degradation_kd_s*compartment) 
 V_degradation: V ->(V_degradation_kd_v*compartment) 
 Photoreceptor_decay: Pr ->(Photoreceptor_decay_kd*compartment) Pi

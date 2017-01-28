@@ -1,194 +1,194 @@
-EGF_Binding_to_ErbB1: ErbB1 ->(EGF*kon1*membrane) EGF_ErbB1
-EGF_Binding_to_ErbB1_rev: EGF_ErbB1 ->(EGF_off*membrane) ErbB1
-HRG_Binding_to_ErbB3: ErbB3 ->(HRG*kon2*membrane) HRG_ErbB3
-HRG_Binding_to_ErbB3_rev: HRG_ErbB3 ->(HRGoff_3*membrane) ErbB3
-HRG_Binding_to_ErbB4: ErbB4 ->(HRG*kon3*membrane) HRG_ErbB4
-HRG_Binding_to_ErbB4_rev: HRG_ErbB4 ->(HRGoff_4*membrane) ErbB4
-ErbB1_Dimerization: EGF_ErbB1 ->(EGF_ErbB1*kon4*membrane) _EGF_ErbB1_2
-ErbB1_Dimerization_rev: _EGF_ErbB1_2 ->(koff4*membrane) EGF_ErbB1
-ErbB1_ErbB2_Heterodimerization: EGF_ErbB1 + ErbB2 ->(kon5*membrane) EGF_ErbB1_ErbB2
-ErbB1_ErbB2_Heterodimerization_rev: EGF_ErbB1_ErbB2 ->(koff5*membrane) EGF_ErbB1 + ErbB2
-ErbB2_ErbB3_Heterodimerization: ErbB2 + HRG_ErbB3 ->(kon6*membrane) HRG_ErbB3_ErbB2
-ErbB2_ErbB3_Heterodimerization_rev: HRG_ErbB3_ErbB2 ->(koff6*membrane) ErbB2 + HRG_ErbB3
-ErbB3_ErbB4_Heterodimerization: HRG_ErbB3 + HRG_ErbB4 ->(kon7*membrane) _HRG_ErbB3_4_2
-ErbB3_ErbB4_Heterodimerization_rev: _HRG_ErbB3_4_2 ->(koff7*membrane) HRG_ErbB3 + HRG_ErbB4
-ErbB2_ErbB4_Heterodimerization: ErbB2 + HRG_ErbB4 ->(kon8) HRG_Erb4_ErbB2
-ErbB2_ErbB4_Heterodimerization_rev: HRG_Erb4_ErbB2 ->(koff8) ErbB2 + HRG_ErbB4
-ErbB4_Homodimerization: HRG_ErbB4 ->(HRG_ErbB4*kon9*membrane) _HRG_Erb4_2
-ErbB4_Homodimerization_rev: _HRG_Erb4_2 ->(koff9*membrane) HRG_ErbB4
-Net_E11_Phosphorylation: _EGF_ErbB1_2 ->(kf10*membrane) E11_p
-Net_E11_Phosphorylation_rev: E11_p ->(membrane*(E11_p*Sig_PTP_1B*kPTP10 + KmPY*Sig_PTP_1B*kPTP10 + VmaxPY)/(E11_p + KmPY)) _EGF_ErbB1_2
-Net_E12_Phosphorylation: EGF_ErbB1_ErbB2 ->(kf11*membrane) E12_p
-Net_E12_Phosphorylation_rev: E12_p ->(membrane*(E12_p*Sig_PTP_1B*kPTP11 + KmPY*Sig_PTP_1B*kPTP11 + VmaxPY)/(E12_p + KmPY)) EGF_ErbB1_ErbB2
-Net_E23_Phosphorylation: HRG_ErbB3_ErbB2 ->(kf12*membrane) E23_p
-Net_E23_Phosphorylation_rev: E23_p ->(membrane*(E23_p*Sig_PTP_1B*kPTP12 + KmPY*Sig_PTP_1B*kPTP12 + VmaxPY)/(E23_p + KmPY)) HRG_ErbB3_ErbB2
-Net_E34_Phosphorylation: _HRG_ErbB3_4_2 ->(kf13*membrane) E34_p
-Net_E34_Phosphorylation_rev: E34_p ->(membrane*(E34_p*Sig_PTP_1B*kPTP13 + KmPY*Sig_PTP_1B*kPTP13 + VmaxPY)/(E34_p + KmPY)) _HRG_ErbB3_4_2
-Net_E24_Phosphorylation: HRG_Erb4_ErbB2 ->(kf14*membrane) E24_p
-Net_E24_Phosphorylation_rev: E24_p ->(membrane*(E24_p*Sig_PTP_1B*kPTP14 + KmPY*Sig_PTP_1B*kPTP14 + VmaxPY)/(E24_p + KmPY)) HRG_Erb4_ErbB2
-Net_E44_Phosphorylation: _HRG_Erb4_2 ->(kf15*membrane) E44_p
-Net_E44_Phosphorylation_rev: E44_p ->(membrane*(E44_p*Sig_PTP_1B*kPTP15 + KmPY*Sig_PTP_1B*kPTP15 + VmaxPY)/(E44_p + KmPY)) _HRG_Erb4_2
-Net_E11P_Grb2_binding: E11_p + Grb2 ->(4*kon16*membrane) E11_Grb2 + Sum_Grb2
-Net_E11P_Grb2_binding_rev: E11_Grb2 + Sum_Grb2 ->(koff16*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E11_p + Grb2
-Net_E11P_Shc_binding: E11_p + Shc ->(8*kon17*membrane) E11_Shc + Sum_Shc
-Net_E11P_Shc_binding_rev: E11_Shc + Sum_Shc ->(koff17*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E11_p + Shc
-Net_E11P_RasGAP_binding: E11_p + RasGAP ->(2*kon18*membrane) E11_RasGAP + Sum_RasGAP
-Net_E11P_RasGAP_binding_rev: E11_RasGAP + Sum_RasGAP ->(koff18*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E11_p + RasGAP
-Net_E12P_Grb2_binding: E12_p + Grb2 ->(3*kon19*membrane) E12_Grb2 + Sum_Grb2
-Net_E12P_Grb2_binding_rev: E12_Grb2 + Sum_Grb2 ->(koff19*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E12_p + Grb2
-Net_E12P_Shc_binding: E12_p + Shc ->(6*kon20*membrane) E12_Shc + Sum_Shc
-Net_E12P_Shc_binding_rev: E12_Shc + Sum_Shc ->(koff20*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E12_p + Shc
-Net_E12P_RasGAP_binding: E12_p + RasGAP ->(2*kon21*membrane) E12_RasGAP + Sum_RasGAP
-Net_E12P_RasGAP_binding_rev: E12_RasGAP + Sum_RasGAP ->(koff21*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E12_p + RasGAP
-Net_E23P_Grb2_binding: E23_p + Grb2 ->(3*kon22*membrane) E23_Grb2 + Sum_Grb2
-Net_E23P_Grb2_binding_rev: E23_Grb2 + Sum_Grb2 ->(koff22*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E23_p + Grb2
-Net_E23P_Shc_binding: E23_p + Shc ->(3*kon23*membrane) E23_Shc + Sum_Shc
-Net_E23P_Shc_binding_rev: E23_Shc + Sum_Shc ->(koff23*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E23_p + Shc
-Net_E23P_PI3K_binding: E23_p + PI_3K ->(3*kon24*membrane) E23_PI_3K + Sum_PI_3K
-Net_E23P_PI3K_binding_rev: E23_PI_3K + Sum_PI_3K ->(koff24*membrane/Sum_PI_3K) E23_p + PI_3K
-Net_E23P_RasGAP_binding: E23_p + RasGAP ->(2*kon25*membrane) E23_RasGAP + Sum_RasGAP
-Net_E23P_RasGAP_binding_rev: E23_RasGAP + Sum_RasGAP ->(koff25*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E23_p + RasGAP
-Net_E34P_Grb2_binding: E34_p + Grb2 ->(4*kon26*membrane) E34_Grb2 + Sum_Grb2
-Net_E34P_Grb2_binding_rev: E34_Grb2 + Sum_Grb2 ->(koff26*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E34_p + Grb2
-Net_E34P_Shc_binding: E34_p + Shc ->(3*kon27*membrane) E34_Shc + Sum_Shc
-Net_E34P_Shc_binding_rev: E34_Shc + Sum_Shc ->(koff27*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E34_p + Shc
-Net_E34P_PI3K_binding: E34_p + PI_3K ->(4*kon28*membrane) E34_PI_3K + Sum_PI_3K
-Net_E34P_PI3K_binding_rev: E34_PI_3K + Sum_PI_3K ->(koff28*membrane/Sum_PI_3K) E34_p + PI_3K
-Net_E34P_RasGAP_binding: E34_p + RasGAP ->(2*kon29*membrane) E34_RasGAP + Sum_RasGAP
-Net_E34P_RasGAP_binding_rev: E34_RasGAP + Sum_RasGAP ->(koff29*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E34_p + RasGAP
-Net_E24P_Grb2_binding: E24_p + Grb2 ->(3*kon30*membrane) E24_Grb2 + Sum_Grb2
-Net_E24P_Grb2_binding_rev: E24_Grb2 + Sum_Grb2 ->(koff30*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E24_p + Grb2
-Net_E24P_Shc_binding: E24_p + Shc ->(4*kon31*membrane) E24_Shc + Sum_Shc
-Net_E24P_Shc_binding_rev: E24_Shc + Sum_Shc ->(koff31*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E24_p + Shc
-Net_E24P_PI3K_binding: E24_p + PI_3K ->(kon32*membrane) E24_PI_3K + Sum_PI_3K
-Net_E24P_PI3K_binding_rev: E24_PI_3K + Sum_PI_3K ->(koff32*membrane/Sum_PI_3K) E24_p + PI_3K
-Net_E24P_RasGAP_binding: E24_p + RasGAP ->(2*kon33*membrane) E24_RasGAP + Sum_RasGAP
-Net_E24P_RasGAP_binding_rev: E24_RasGAP + Sum_RasGAP ->(koff33*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E24_p + RasGAP
-Net_E44P_RasGAP_binding: E44_p + Grb2 ->(4*kon34*membrane) E44_Grb2 + Sum_Grb2
-Net_E44P_RasGAP_binding_rev: E44_Grb2 + Sum_Grb2 ->(koff34*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) E44_p + Grb2
-Net_E44P_Shc_binding: E44_p + Shc ->(4*kon35*membrane) E44_Shc + Sum_Shc
-Net_E44P_Shc_binding_rev: E44_Shc + Sum_Shc ->(koff35*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) E44_p + Shc
-Net_E44P_PI3K_binding: E44_p + PI_3K ->(2*kon36*membrane) E44_PI_3K + Sum_PI_3K
-Net_E44P_PI3K_binding_rev: E44_PI_3K + Sum_PI_3K ->(koff36*membrane/Sum_PI_3K) E44_p + PI_3K
-Net_E44P_RasGAP_binding: E44_p + RasGAP ->(2*kon37*membrane) E44_RasGAP + Sum_RasGAP
-Net_E44P_RasGAP_binding_rev: E44_RasGAP + Sum_RasGAP ->(koff37*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) E44_p + RasGAP
-Net_Shc_Phosphorylation: Sum_Shc ->(kf38*membrane*(E11_p + E12_p + E23_p + E24_p + E34_p + E44_p + 2*ErbB1_ErbB3_p)) Sum_Shc_p
-Net_Shc_Phosphorylation_rev: Sum_Shc_p ->(membrane*(KmPY*Sig_PTP_1B*kPTP38 + Sig_PTP_1B*Sum_Shc_p*kPTP38 + VmaxPY)/(KmPY + Sum_Shc_p)) Sum_Shc
-Net_Gab1_Phosphorylation: Sum_Gab1 ->(kf39*membrane*(E11_p + E12_p + E23_p + E24_p + E34_p + E44_p + 2*ErbB1_ErbB3_p)) Sum_Gab1_p
-Net_Gab1_Phosphorylation_rev: Sum_Gab1_p ->(membrane*(KmPY*Sig_PTP_1B*kPTP39 + Sig_PTP_1B*Sum_Gab1_p*kPTP39 + VmaxPY)/(KmPY + Sum_Gab1_p)) Sum_Gab1
-Net_Grb2_SOS_binding: SOS + Sum_Grb2 ->(kon40*membrane) Sum_Grb2_SOS + Sum_SOS
-Net_Grb2_SOS_binding_rev: Sum_Grb2_SOS + Sum_SOS ->(koff40*membrane/Sum_SOS) SOS + Sum_Grb2
-Net_Grb2_Gab1_binding: Gab1 + Sum_Grb2 ->(kon41*membrane) Sum_Gab1 + Sum_Grb2_Gab1
-Net_Grb2_Gab1_binding_rev: Sum_Gab1 + Sum_Grb2_Gab1 ->(koff41*membrane/(SumGab1_p_PTP_1B + Sum_Gab1 + Sum_Gab1_p + Sum_Gab1_p_PI_3K + Sum_Gab1_p_RasGAP + Sum_Gab1_p_Shc + eps)) Gab1 + Sum_Grb2
-Net_Shc_Grb2_binding: Grb2 + Sum_Shc_p ->(kon42*membrane) Sum_Grb2 + Sum_Shc_p_Grb2
-Net_Shc_Grb2_binding_rev: Sum_Grb2 + Sum_Shc_p_Grb2 ->(koff42*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) Grb2 + Sum_Shc_p
-Net_Gab1_Shc_binding: Shc + Sum_Gab1_p ->(3*kon43*membrane) Sum_Gab1_p_Shc + Sum_Shc
-Net_Gab1_Shc_binding_rev: Sum_Gab1_p_Shc + Sum_Shc ->(koff43*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) Shc + Sum_Gab1_p
-Net_Gab1_PI3K_binding: PI_3K + Sum_Gab1_p ->(3*kon44*membrane) Sum_Gab1_p_PI_3K + Sum_PI_3K
-Net_Gab1_PI3K_binding_rev: Sum_Gab1_p_PI_3K + Sum_PI_3K ->(koff44*membrane/Sum_PI_3K) PI_3K + Sum_Gab1_p
-Net_Gab1_RasGAP_binding: RasGAP + Sum_Gab1_p ->(2*kon45*membrane) Sum_Gab1_p_RasGAP + Sum_RasGAP
-Net_Gab1_RasGAP_binding_rev: Sum_Gab1_p_RasGAP + Sum_RasGAP ->(koff45*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) RasGAP + Sum_Gab1_p
-Net_Gab1_PIP3_binding: Gab1 + PIP3 ->(kon46*membrane) PIP3_Gab1 + Sum_Gab1
-Net_Gab1_PIP3_binding_rev: PIP3_Gab1 + Sum_Gab1 ->(koff46*membrane/(SumGab1_p_PTP_1B + Sum_Gab1 + Sum_Gab1_p + Sum_Gab1_p_PI_3K + Sum_Gab1_p_RasGAP + Sum_Gab1_p_Shc + eps)) Gab1 + PIP3
-Net_Akt_Activation: Akt ->(PIP3*kf47*membrane/(Akt + Kmf47)) Aktstar
+EGF_Binding_to_ErbB1: E1 ->(E*kon1*membrane) E_E1
+EGF_Binding_to_ErbB1_rev: E_E1 ->(EGF_off*membrane) E1
+HRG_Binding_to_ErbB3: E3 ->(H*kon2*membrane) H_E3
+HRG_Binding_to_ErbB3_rev: H_E3 ->(HRGoff_3*membrane) E3
+HRG_Binding_to_ErbB4: E4 ->(H*kon3*membrane) H_E4
+HRG_Binding_to_ErbB4_rev: H_E4 ->(HRGoff_4*membrane) E4
+ErbB1_Dimerization: E_E1 ->(E_E1*kon4*membrane) E11
+ErbB1_Dimerization_rev: E11 ->(koff4*membrane) E_E1
+ErbB1ErbB2_Heterodimerization: E2 + E_E1 ->(kon5*membrane) E12
+ErbB1ErbB2_Heterodimerization_rev: E12 ->(koff5*membrane) E2 + E_E1
+ErbB2ErbB3_Heterodimerization: E2 + H_E3 ->(kon6*membrane) E23
+ErbB2ErbB3_Heterodimerization_rev: E23 ->(koff6*membrane) E2 + H_E3
+ErbB3ErbB4_Heterodimerization: H_E3 + H_E4 ->(kon7*membrane) E34
+ErbB3ErbB4_Heterodimerization_rev: E34 ->(koff7*membrane) H_E3 + H_E4
+ErbB2ErbB4_Heterodimerization: E2 + H_E4 ->(kon8) E24
+ErbB2ErbB4_Heterodimerization_rev: E24 ->(koff8) E2 + H_E4
+ErbB4_Homodimerization: H_E4 ->(H_E4*kon9*membrane) E44
+ErbB4_Homodimerization_rev: E44 ->(koff9*membrane) H_E4
+Net_E11_Phosphorylation: E11 ->(kf10*membrane) E11P
+Net_E11_Phosphorylation_rev: E11P ->(membrane*(E11P*SigT*kPTP10 + KmPY*SigT*kPTP10 + VmaxPY)/(E11P + KmPY)) E11
+Net_E12_Phosphorylation: E12 ->(kf11*membrane) E12P
+Net_E12_Phosphorylation_rev: E12P ->(membrane*(E12P*SigT*kPTP11 + KmPY*SigT*kPTP11 + VmaxPY)/(E12P + KmPY)) E12
+Net_E23_Phosphorylation: E23 ->(kf12*membrane) E23P
+Net_E23_Phosphorylation_rev: E23P ->(membrane*(E23P*SigT*kPTP12 + KmPY*SigT*kPTP12 + VmaxPY)/(E23P + KmPY)) E23
+Net_E34_Phosphorylation: E34 ->(kf13*membrane) E34P
+Net_E34_Phosphorylation_rev: E34P ->(membrane*(E34P*SigT*kPTP13 + KmPY*SigT*kPTP13 + VmaxPY)/(E34P + KmPY)) E34
+Net_E24_Phosphorylation: E24 ->(kf14*membrane) E24P
+Net_E24_Phosphorylation_rev: E24P ->(membrane*(E24P*SigT*kPTP14 + KmPY*SigT*kPTP14 + VmaxPY)/(E24P + KmPY)) E24
+Net_E44_Phosphorylation: E44 ->(kf15*membrane) E44P
+Net_E44_Phosphorylation_rev: E44P ->(membrane*(E44P*SigT*kPTP15 + KmPY*SigT*kPTP15 + VmaxPY)/(E44P + KmPY)) E44
+Net_E11PGrb2_binding: E11P + G ->(4*kon16*membrane) E11G + SigG
+Net_E11PGrb2_binding_rev: E11G + SigG ->(koff16*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E11P + G
+Net_E11PShc_binding: E11P + S ->(8*kon17*membrane) E11S + SigS
+Net_E11PShc_binding_rev: E11S + SigS ->(koff17*membrane/(SigS + SigSP + SigSP_G + eps)) E11P + S
+Net_E11PRasGAP_binding: E11P + R ->(2*kon18*membrane) E11R + SigR
+Net_E11PRasGAP_binding_rev: E11R + SigR ->(koff18*membrane/(SigR + SigRP + eps)) E11P + R
+Net_E12PGrb2_binding: E12P + G ->(3*kon19*membrane) E12G + SigG
+Net_E12PGrb2_binding_rev: E12G + SigG ->(koff19*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E12P + G
+Net_E12PShc_binding: E12P + S ->(6*kon20*membrane) E12S + SigS
+Net_E12PShc_binding_rev: E12S + SigS ->(koff20*membrane/(SigS + SigSP + SigSP_G + eps)) E12P + S
+Net_E12PRasGAP_binding: E12P + R ->(2*kon21*membrane) E12R + SigR
+Net_E12PRasGAP_binding_rev: E12R + SigR ->(koff21*membrane/(SigR + SigRP + eps)) E12P + R
+Net_E23PGrb2_binding: E23P + G ->(3*kon22*membrane) E23G + SigG
+Net_E23PGrb2_binding_rev: E23G + SigG ->(koff22*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E23P + G
+Net_E23PShc_binding: E23P + S ->(3*kon23*membrane) E23S + SigS
+Net_E23PShc_binding_rev: E23S + SigS ->(koff23*membrane/(SigS + SigSP + SigSP_G + eps)) E23P + S
+Net_E23PPI3K_binding: E23P + I ->(3*kon24*membrane) E23I + SigI
+Net_E23PPI3K_binding_rev: E23I + SigI ->(koff24*membrane/SigI) E23P + I
+Net_E23PRasGAP_binding: E23P + R ->(2*kon25*membrane) E23R + SigR
+Net_E23PRasGAP_binding_rev: E23R + SigR ->(koff25*membrane/(SigR + SigRP + eps)) E23P + R
+Net_E34PGrb2_binding: E34P + G ->(4*kon26*membrane) E34G + SigG
+Net_E34PGrb2_binding_rev: E34G + SigG ->(koff26*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E34P + G
+Net_E34PShc_binding: E34P + S ->(3*kon27*membrane) E34S + SigS
+Net_E34PShc_binding_rev: E34S + SigS ->(koff27*membrane/(SigS + SigSP + SigSP_G + eps)) E34P + S
+Net_E34PPI3K_binding: E34P + I ->(4*kon28*membrane) E34I + SigI
+Net_E34PPI3K_binding_rev: E34I + SigI ->(koff28*membrane/SigI) E34P + I
+Net_E34PRasGAP_binding: E34P + R ->(2*kon29*membrane) E34R + SigR
+Net_E34PRasGAP_binding_rev: E34R + SigR ->(koff29*membrane/(SigR + SigRP + eps)) E34P + R
+Net_E24PGrb2_binding: E24P + G ->(3*kon30*membrane) E24G + SigG
+Net_E24PGrb2_binding_rev: E24G + SigG ->(koff30*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E24P + G
+Net_E24PShc_binding: E24P + S ->(4*kon31*membrane) E24S + SigS
+Net_E24PShc_binding_rev: E24S + SigS ->(koff31*membrane/(SigS + SigSP + SigSP_G + eps)) E24P + S
+Net_E24PPI3K_binding: E24P + I ->(kon32*membrane) E24I + SigI
+Net_E24PPI3K_binding_rev: E24I + SigI ->(koff32*membrane/SigI) E24P + I
+Net_E24PRasGAP_binding: E24P + R ->(2*kon33*membrane) E24R + SigR
+Net_E24PRasGAP_binding_rev: E24R + SigR ->(koff33*membrane/(SigR + SigRP + eps)) E24P + R
+Net_E44PRasGAP_binding_1: E44P + G ->(4*kon34*membrane) E44G + SigG
+Net_E44PRasGAP_binding_1_rev: E44G + SigG ->(koff34*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E44P + G
+Net_E44PShc_binding: E44P + S ->(4*kon35*membrane) E44S + SigS
+Net_E44PShc_binding_rev: E44S + SigS ->(koff35*membrane/(SigS + SigSP + SigSP_G + eps)) E44P + S
+Net_E44PPI3K_binding: E44P + I ->(2*kon36*membrane) E44I + SigI
+Net_E44PPI3K_binding_rev: E44I + SigI ->(koff36*membrane/SigI) E44P + I
+Net_E44PRasGAP_binding_2: E44P + R ->(2*kon37*membrane) E44R + SigR
+Net_E44PRasGAP_binding_2_rev: E44R + SigR ->(koff37*membrane/(SigR + SigRP + eps)) E44P + R
+Net_Shc_Phosphorylation: SigS ->(kf38*membrane*(E11P + E12P + E13P + E14P + E23P + E24P + E34P + E44P)) SigSP
+Net_Shc_Phosphorylation_rev: SigSP ->(membrane*(KmPY*SigT*kPTP38 + SigSP*SigT*kPTP38 + VmaxPY)/(KmPY + SigSP)) SigS
+Net_Gab1_Phosphorylation: SigA ->(kf39*membrane*(E11P + E12P + E13P + E14P + E23P + E24P + E34P + E44P)) SigAP
+Net_Gab1_Phosphorylation_rev: SigAP ->(membrane*(KmPY*SigT*kPTP39 + SigAP*SigT*kPTP39 + VmaxPY)/(KmPY + SigAP)) SigA
+Net_Grb2SOS_binding: O + SigG ->(kon40*membrane) SigG_O + SigO
+Net_Grb2SOS_binding_rev: SigG_O + SigO ->(koff40*membrane/SigO) O + SigG
+Net_Grb2Gab1_binding: A + SigG ->(kon41*membrane) SigA + SigG_A
+Net_Grb2Gab1_binding_rev: SigA + SigG_A ->(koff41*membrane/(SigA + SigAP + SigAP_I + SigAP_R + SigAP_S + SigAP_T + eps)) A + SigG
+Net_ShcGrb2_binding: G + SigSP ->(kon42*membrane) SigG + SigSP_G
+Net_ShcGrb2_binding_rev: SigG + SigSP_G ->(koff42*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) G + SigSP
+Net_Gab1Shc_binding: S + SigAP ->(3*kon43*membrane) SigAP_S + SigS
+Net_Gab1Shc_binding_rev: SigAP_S + SigS ->(koff43*membrane/(SigS + SigSP + SigSP_G + eps)) S + SigAP
+Net_Gab1PI3K_binding: I + SigAP ->(3*kon44*membrane) SigAP_I + SigI
+Net_Gab1PI3K_binding_rev: SigAP_I + SigI ->(koff44*membrane/SigI) I + SigAP
+Net_Gab1RasGAP_binding: R + SigAP ->(2*kon45*membrane) SigAP_R + SigR
+Net_Gab1RasGAP_binding_rev: SigAP_R + SigR ->(koff45*membrane/(SigR + SigRP + eps)) R + SigAP
+Net_Gab1PIP3_binding: A + P3 ->(kon46*membrane) P3_A + SigA
+Net_Gab1PIP3_binding_rev: P3_A + SigA ->(koff46*membrane/(SigA + SigAP + SigAP_I + SigAP_R + SigAP_S + SigAP_T + eps)) A + P3
+Net_Akt_Activation: Akt ->(P3*kf47*membrane/(Akt + Kmf47)) Aktstar
 Net_Akt_Activation_rev: Aktstar ->(Vmaxr47*membrane/(Aktstar + Kmr47)) Akt
-Net_PIP3_Production: PIP2 ->(Sum_PI_3K*kf48*membrane/(Kmf48 + PIP2)) PIP3
-Net_PIP3_Production_rev: PIP3 ->(membrane*(3*E11_p*Kmf48*PIP3*PTEN + E11_p*Kmr48*PIP2*Sum_PI_3K*fint*kf48 + 3*E11_p*PIP2*PIP3*PTEN + E11_p*PIP2*PIP3*Sum_PI_3K*fint*kf48 + 3*E12_p*Kmf48*PIP3*PTEN + 3*E12_p*PIP2*PIP3*PTEN + 3*E23_p*Kmf48*PIP3*PTEN + 3*E23_p*PIP2*PIP3*PTEN + 3*E24_p*Kmf48*PIP3*PTEN + 3*E24_p*PIP2*PIP3*PTEN + 3*E34_p*Kmf48*PIP3*PTEN + 3*E34_p*PIP2*PIP3*PTEN + 3*E44_p*Kmf48*PIP3*PTEN + 3*E44_p*PIP2*PIP3*PTEN + 6*ErbB1_ErbB3_p*Kmf48*PIP3*PTEN + 6*ErbB1_ErbB3_p*PIP2*PIP3*PTEN + 3*Kmf48*PIP3*PTEN*eps + 3*PIP2*PIP3*PTEN*eps)/(PIP3*(Kmf48 + PIP2)*(Kmr48 + PIP3)*(E11_p + E12_p + E23_p + E24_p + E34_p + E44_p + 2*ErbB1_ErbB3_p + eps))) PIP2
-Net_RasGTP_Production: RasGDP ->(Sum_SOS*kf49*membrane/(Kmf49 + RasGDP)) RasGTP
-Net_RasGTP_Production_rev: RasGTP ->(membrane*(Kmr49*Kmr49b*kcon49 + Kmr49*RasGTP*kcon49 + Kmr49*Sum_RasGAP_p*kr49b + Kmr49b*RasGTP*kcon49 + Kmr49b*Sum_RasGAP*kr49 + RasGTP**2*kcon49 + RasGTP*Sum_RasGAP*kr49 + RasGTP*Sum_RasGAP_p*kr49b)/((Kmr49 + RasGTP)*(Kmr49b + RasGTP))) RasGDP
-Net_RasGAP_Phosphorylation: Sum_RasGAP ->(kf50*membrane*(E11_p + E12_p + E23_p + E24_p + E34_p + E44_p + 2*ErbB1_ErbB3_p)) Sum_RasGAP_p
-Net_RasGAP_Phosphorylation_rev: Sum_RasGAP_p ->(membrane*(KmPY*Sig_PTP_1B*kPTP50 + Sig_PTP_1B*Sum_RasGAP_p*kPTP50 + VmaxPY)/(KmPY + Sum_RasGAP_p)) Sum_RasGAP
-Net_Raf_Activation: Raf ->(RasGTP*kf51*membrane/(Kmf51 + Raf)) Raf_
-Net_Raf_Activation_rev: Raf_ ->(Vmaxr51*membrane/(Kmrb51 + Raf_)) Raf
-Net_MEK_Activation: MEK ->(Raf_*kf52*membrane/(Kmf52 + MEK)) MEK_
-Net_MEK_Activation_rev: MEK_ ->(Vmaxr52*membrane/(Kmr52 + MEK_)) MEK
-Net_SOS_S_T_Phosphorylation: SOS ->(ERK_*kf54*membrane/(Kmf54 + SOS)) SOS_p
-Net_SOS_S_T_Phosphorylation_rev: SOS_p ->(Vmaxr54*membrane/(Kmr54 + SOS_p)) SOS
-Net_Gab1_S_T_Phosphorylation: Gab1 ->(ERK_*kf55*membrane/(Gab1 + Kmf55)) Gab1_p
-Net_Gab1_S_T_Phosphorylation_rev: Gab1_p ->(Vmaxr55*membrane/(Gab1_p + Kmr55)) Gab1
-Grb2_binding_to_P3_A: Grb2 + PIP3_Gab1 ->(kon57*membrane) Sum_PIP3_Gab1_Grb2
-Grb2_binding_to_P3_A_rev: Sum_PIP3_Gab1_Grb2 ->(koff57*membrane) Grb2 + PIP3_Gab1
-SOS_binding_to_SigA_G: SOS + Sum_PIP3_Gab1_Grb2 ->(kon58*membrane) Sum_PIP3_Gab1_Grb2_SOS + Sum_SOS
-SOS_binding_to_SigA_G_rev: Sum_PIP3_Gab1_Grb2_SOS + Sum_SOS ->(koff58*membrane/Sum_SOS) SOS + Sum_PIP3_Gab1_Grb2
-Gab1_binding_to_SigG_O: Gab1 + Sum_Grb2_SOS ->(kon59*membrane) Gab1_SumGrb2_SOS + Sum_Gab1
-Gab1_binding_to_SigG_O_rev: Gab1_SumGrb2_SOS + Sum_Gab1 ->(koff59*membrane/(SumGab1_p_PTP_1B + Sum_Gab1 + Sum_Gab1_p + Sum_Gab1_p_PI_3K + Sum_Gab1_p_RasGAP + Sum_Gab1_p_Shc + eps)) Gab1 + Sum_Grb2_SOS
-SOS_binding_to_SigG_A: SOS + Sum_Grb2_Gab1 ->(kon60*membrane) Gab1_SumGrb2_SOS + Sum_SOS
-SOS_binding_to_SigG_A_rev: Gab1_SumGrb2_SOS + Sum_SOS ->(koff60*membrane/Sum_SOS) SOS + Sum_Grb2_Gab1
-ErbB1_ErbB3_Heterodimerization: EGF_ErbB1 + HRG_ErbB3 ->(kon61*membrane) ErbB1_ErbB3
-ErbB1_ErbB3_Heterodimerization_rev: ErbB1_ErbB3 ->(koff61*membrane) EGF_ErbB1 + HRG_ErbB3
-ErbB1_ErbB4_Heterodimerization: EGF_ErbB1 + HRG_ErbB4 ->(kon62*membrane) ErbB1_ErbB4
-ErbB1_ErbB4_Heterodimerization_rev: ErbB1_ErbB4 ->(koff62*membrane) EGF_ErbB1 + HRG_ErbB4
-Net_E13_Phosphorylation: ErbB1_ErbB3 ->(kf63*membrane) ErbB1_ErbB3_p
-Net_E13_Phosphorylation_rev: ErbB1_ErbB3_p ->(membrane*(ErbB1_ErbB3_p*Sig_PTP_1B*kPTP63 + KmPY*Sig_PTP_1B*kPTP63 + VmaxPY)/(ErbB1_ErbB3_p + KmPY)) ErbB1_ErbB3
-Net_E14_Phosphorylation: ErbB1_ErbB4 ->(kf64*membrane) ErbB1_ErbB3_p
-Net_E14_Phosphorylation_rev: ErbB1_ErbB3_p ->(membrane*(ErbB1_ErbB3_p*Sig_PTP_1B*kPTP64 + KmPY*Sig_PTP_1B*kPTP64 + VmaxPY)/(ErbB1_ErbB3_p + KmPY)) ErbB1_ErbB4
-Net_E13_Grb2_Binding: ErbB1_ErbB3_p + Grb2 ->(4*kon65*membrane) E13_Grb2 + Sum_Grb2
-Net_E13_Grb2_Binding_rev: E13_Grb2 + Sum_Grb2 ->(koff65*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) ErbB1_ErbB3_p + Grb2
-Net_E13_Shc_Binding: ErbB1_ErbB3_p + Shc ->(5*kon66*membrane) E13_Shc + Sum_Shc
-Net_E13_Shc_Binding_rev: E13_Shc + Sum_Shc ->(koff66*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) ErbB1_ErbB3_p + Shc
-Net_E13_PI3K_Binding: ErbB1_ErbB3_p + PI_3K ->(3*kon67*membrane) E13_PI_3K + Sum_PI_3K
-Net_E13_PI3K_Binding_rev: E13_PI_3K + Sum_PI_3K ->(koff67*membrane/Sum_PI_3K) ErbB1_ErbB3_p + PI_3K
-Net_E13_RasGAP_Binding: ErbB1_ErbB3_p + RasGAP ->(2*kon68*membrane) E13_RasGAP + Sum_RasGAP
-Net_E13_RasGAP_Binding_rev: E13_RasGAP + Sum_RasGAP ->(koff68*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) ErbB1_ErbB3_p + RasGAP
-Net_E14_Grb2_Binding: ErbB1_ErbB3_p + Grb2 ->(4*kon69*membrane) E14_Grb2 + Sum_Grb2
-Net_E14_Grb2_Binding_rev: E14_Grb2 + Sum_Grb2 ->(koff69*membrane/(Gab1_SumGrb2_SOS + Sum_Grb2 + Sum_Grb2_Gab1 + Sum_Grb2_SOS + eps)) ErbB1_ErbB3_p + Grb2
-Net_E14_Shc_Binding: ErbB1_ErbB3_p + Shc ->(6*kon70*membrane) E14_Shc + Sum_Shc
-Net_E14_Shc_Binding_rev: E14_Shc + Sum_Shc ->(koff70*membrane/(Sum_Shc + Sum_Shc_p + Sum_Shc_p_Grb2 + eps)) ErbB1_ErbB3_p + Shc
-Net_E14_PI3K_Binding: ErbB1_ErbB3_p + PI_3K ->(kon71*membrane) E14_PI_3K + Sum_PI_3K
-Net_E14_PI3K_Binding_rev: E14_PI_3K + Sum_PI_3K ->(koff71*membrane/Sum_PI_3K) ErbB1_ErbB3_p + PI_3K
-Net_E14_RasGAP_Binding: ErbB1_ErbB3_p + RasGAP ->(2*kon72*membrane) E14_RasGAP + Sum_RasGAP
-Net_E14_RasGAP_Binding_rev: E14_RasGAP + Sum_RasGAP ->(koff72*membrane/(Sum_RasGAP + Sum_RasGAP_p + eps)) ErbB1_ErbB3_p + RasGAP
-Net_E11_PTP1B_Binding: E11_p + PTP_1B ->(4*kon73*membrane) E11_PTP_1B + Sig_PTP_1B
-Net_E11_PTP1B_Binding_rev: E11_PTP_1B + Sig_PTP_1B ->(koff73*membrane/Sig_PTP_1B) E11_p + PTP_1B
-Net_E12_PTP1B_Binding: E12_p + PTP_1B ->(3*kon74*membrane) E12_PTP_1B + Sig_PTP_1B
-Net_E12_PTP1B_Binding_rev: E12_PTP_1B + Sig_PTP_1B ->(koff74*membrane/Sig_PTP_1B) E12_p + PTP_1B
-Net_E23_PTP1B_Binding: E23_p + PTP_1B ->(2*kon75*membrane) E23_PTP_1B + Sig_PTP_1B
-Net_E23_PTP1B_Binding_rev: E23_PTP_1B + Sig_PTP_1B ->(koff75*membrane/Sig_PTP_1B) E23_p + PTP_1B
-Net_E34_PTP1B_Binding: E34_p + PTP_1B ->(2*kon76*membrane) E34_PTP_1B + Sig_PTP_1B
-Net_E34_PTP1B_Binding_rev: E34_PTP_1B + Sig_PTP_1B ->(koff76*membrane/Sig_PTP_1B) E34_p + PTP_1B
-Net_E24_PTP1B_Binding: E24_p + PTP_1B ->(2*kon77*membrane) E24_PTP_1B + Sig_PTP_1B
-Net_E24_PTP1B_Binding_rev: E24_PTP_1B + Sig_PTP_1B ->(koff77*membrane/Sig_PTP_1B) E24_p + PTP_1B
-Net_E44_PTP1B_Binding: E44_p + PTP_1B ->(2*kon78*membrane) E44_PTP_1B + Sig_PTP_1B
-Net_E44_PTP1B_Binding_rev: E44_PTP_1B + Sig_PTP_1B ->(koff78*membrane/Sig_PTP_1B) E44_p + PTP_1B
-Net_E13_PTP1B_Binding: ErbB1_ErbB3_p + PTP_1B ->(3*kon79*membrane) E13_PTP_1B + Sig_PTP_1B
-Net_E13_PTP1B_Binding_rev: E13_PTP_1B + Sig_PTP_1B ->(koff79*membrane/Sig_PTP_1B) ErbB1_ErbB3_p + PTP_1B
-Net_E14_PTP1B_Binding: ErbB1_ErbB3_p + PTP_1B ->(3*kon80*membrane) E14_PTP_1B + Sig_PTP_1B
-Net_E14_PTP1B_Binding_rev: E14_PTP_1B + Sig_PTP_1B ->(koff80*membrane/Sig_PTP_1B) ErbB1_ErbB3_p + PTP_1B
-Net_E1_S_T_Phosphorylation: ErbB1 ->(ERK_*kf81*membrane/(ErbB1 + Kmf81)) E1_p_PTP_1B
-Net_E1_S_T_Phosphorylation_rev: E1_p_PTP_1B ->(Vmaxr81*membrane/(E1_p_PTP_1B + Kmr81)) ErbB1
-Net_E2_S_T_Phosphorylation: ErbB2 ->(ERK_*kf82*membrane/(ErbB2 + Kmf82)) E2_p_PTP_1B
-Net_E2_S_T_Phosphorylation_rev: E2_p_PTP_1B ->(Vmaxr82*membrane/(E2_p_PTP_1B + Kmr82)) ErbB2
-Net_E4_S_T_Phosphorylation: ErbB4 ->(ERK_*kf83*membrane/(ErbB4 + Kmf83)) E4_p_PTP_1B
-Net_E4_S_T_Phosphorylation_rev: E4_p_PTP_1B ->(Vmaxr83*membrane/(E4_p_PTP_1B + Kmr83)) ErbB4
-Net_E_E1_S_T_Phosphorylation: EGF_ErbB1 ->(ERK_*kf84*membrane/(EGF_ErbB1 + Kmf84)) E_E1_p_PTP_1B
-Net_E_E1_S_T_Phosphorylation_rev: E_E1_p_PTP_1B ->(Vmaxr84*membrane/(E_E1_p_PTP_1B + Kmr84)) EGF_ErbB1
-Net_H_E4_S_T_Phosphorylation: HRG_ErbB4 ->(ERK_*kf85*membrane/(HRG_ErbB4 + Kmf85)) H_E4_p_PTP_1B
-Net_H_E4_S_T_Phosphorylation_rev: H_E4_p_PTP_1B ->(Vmaxr85*membrane/(H_E4_p_PTP_1B + Kmr85)) HRG_ErbB4
-EGF_binding_to_E1_PT: E1_p_PTP_1B ->(EGF*kon86*membrane) E_E1_p_PTP_1B
-EGF_binding_to_E1_PT_rev: E_E1_p_PTP_1B ->(EGF_off*membrane) E1_p_PTP_1B
-HRG_binding_to_E4_PT: E4_p_PTP_1B ->(HRG*kon87*membrane) H_E4_p_PTP_1B
-HRG_binding_to_E4_PT_rev: H_E4_p_PTP_1B ->(HRGoff_4*membrane) E4_p_PTP_1B
-PTP1B_binding_to_SigAP: PTP_1B + Sum_Gab1_p ->(2*kon88*membrane) Sig_PTP_1B + SumGab1_p_PTP_1B
-PTP1B_binding_to_SigAP_rev: Sig_PTP_1B + SumGab1_p_PTP_1B ->(koff88*membrane/Sig_PTP_1B) PTP_1B + Sum_Gab1_p
-E11P_Degradation: E11_p ->(kdeg*membrane) Empty
-E11G_Degradation: E11_Grb2 + Sum_Grb2 ->(kdeg*membrane/Sum_Grb2) Grb2
-E11S_Degradation: E11_Shc + Sum_Shc ->(kdeg*membrane/Sum_Shc) Shc
-E11R_Degradation: E11_RasGAP + Sum_RasGAP ->(kdeg*membrane/Sum_RasGAP) RasGAP
-E11T_Degradation: E11_PTP_1B + Sig_PTP_1B ->(kdeg*membrane/Sig_PTP_1B) PTP_1B
-_1_1_Dimer_Internalization_Fraction: Empty ->(a98*membrane*(b98 - fint)/Empty) fint
-EGF_in_EC_compartment: EGF ->(membrane*(E1_p_PTP_1B*kon86 + ErbB1*kon1)/VeVc) Empty
-EGF_in_EC_compartment_rev: Empty ->(EGF_off*membrane*(EGF_ErbB1 + E_E1_p_PTP_1B)/(Empty*VeVc)) EGF
-HRG_in_EC_compartment: HRG ->(membrane*(E4_p_PTP_1B*kon87 + ErbB3*kon2 + ErbB4*kon3)/VeVc) Empty
-HRG_in_EC_compartment_rev: Empty ->(membrane*(HRG_ErbB3*HRGoff_3 + HRG_ErbB4*HRGoff_4 + HRGoff_4*H_E4_p_PTP_1B)/(Empty*VeVc)) HRG
-ERK_binding_to_MEKstar: ERK + MEK_ ->(kon89*membrane) ERK_MEK_
-ERK_binding_to_MEKstar_rev: ERK_MEK_ ->(koff89*membrane) ERK + MEK_
-pERK_production: ERK_MEK_ ->(kcat90*membrane) MEK_ + p_ERK
-ERK_binding_to_MEKstar: MEK_ + p_ERK ->(kon91*membrane) p_ERK_MEK_
-ERK_binding_to_MEKstar_rev: p_ERK_MEK_ ->(koff91*membrane) MEK_ + p_ERK
-ERKstar_production: p_ERK_MEK_ ->(kcat92*membrane) ERK_ + MEK_
-ERKstar_binding_to_Phosphatase: ERK_ + ERKpase ->(kon93*membrane) ERK__ERKpase
-ERKstar_binding_to_Phosphatase_rev: ERK__ERKpase ->(koff93*membrane) ERK_ + ERKpase
-ERKstar_dephosphorylation: ERK__ERKpase ->(kcat94*membrane) ERKpase + p_ERK
-pERK_binding_to_Phosphatase: ERKpase + p_ERK ->(kon95*membrane) p_ERK_ERKpase
-pERK_binding_to_Phosphatase_rev: p_ERK_ERKpase ->(koff95*membrane) ERKpase + p_ERK
-pERK_dephosphorylation: p_ERK_ERKpase ->(kcat96*membrane) ERK + ERKpase
+Net_PIP3_Production: P2 ->(SigI*kf48*membrane/(Kmf48 + P2)) P3
+Net_PIP3_Production_rev: P3 ->(membrane*(3*E11P*Kmf48*P3*PTEN + E11P*Kmr48*P2*SigI*fint*kf48 + 3*E11P*P2*P3*PTEN + E11P*P2*P3*SigI*fint*kf48 + 3*E12P*Kmf48*P3*PTEN + 3*E12P*P2*P3*PTEN + 3*E13P*Kmf48*P3*PTEN + 3*E13P*P2*P3*PTEN + 3*E14P*Kmf48*P3*PTEN + 3*E14P*P2*P3*PTEN + 3*E23P*Kmf48*P3*PTEN + 3*E23P*P2*P3*PTEN + 3*E24P*Kmf48*P3*PTEN + 3*E24P*P2*P3*PTEN + 3*E34P*Kmf48*P3*PTEN + 3*E34P*P2*P3*PTEN + 3*E44P*Kmf48*P3*PTEN + 3*E44P*P2*P3*PTEN + 3*Kmf48*P3*PTEN*eps + 3*P2*P3*PTEN*eps)/(P3*(Kmf48 + P2)*(Kmr48 + P3)*(E11P + E12P + E13P + E14P + E23P + E24P + E34P + E44P + eps))) P2
+Net_RasGTP_Production: RsD ->(SigO*kf49*membrane/(Kmf49 + RsD)) RsT
+Net_RasGTP_Production_rev: RsT ->(membrane*(Kmr49*Kmr49b*kcon49 + Kmr49*RsT*kcon49 + Kmr49*SigRP*kr49b + Kmr49b*RsT*kcon49 + Kmr49b*SigR*kr49 + RsT**2*kcon49 + RsT*SigR*kr49 + RsT*SigRP*kr49b)/((Kmr49 + RsT)*(Kmr49b + RsT))) RsD
+Net_RasGAP_Phosphorylation: SigR ->(kf50*membrane*(E11P + E12P + E13P + E14P + E23P + E24P + E34P + E44P)) SigRP
+Net_RasGAP_Phosphorylation_rev: SigRP ->(membrane*(KmPY*SigT*kPTP50 + SigRP*SigT*kPTP50 + VmaxPY)/(KmPY + SigRP)) SigR
+Net_Raf_Activation: Raf ->(RsT*kf51*membrane/(Kmf51 + Raf)) Rafstar
+Net_Raf_Activation_rev: Rafstar ->(Vmaxr51*membrane/(Kmrb51 + Rafstar)) Raf
+Net_MEK_Activation: MEK ->(Rafstar*kf52*membrane/(Kmf52 + MEK)) MEKstar
+Net_MEK_Activation_rev: MEKstar ->(Vmaxr52*membrane/(Kmr52 + MEKstar)) MEK
+Net_SOS_ST_Phosphorylation: O ->(ERKstar*kf54*membrane/(Kmf54 + O)) OP
+Net_SOS_ST_Phosphorylation_rev: OP ->(Vmaxr54*membrane/(Kmr54 + OP)) O
+Net_Gab1_ST_Phosphorylation: A ->(ERKstar*kf55*membrane/(A + Kmf55)) AP
+Net_Gab1_ST_Phosphorylation_rev: AP ->(Vmaxr55*membrane/(AP + Kmr55)) A
+Grb2_binding_to_P3_A: G + P3_A ->(kon57*membrane) SigA_G
+Grb2_binding_to_P3_A_rev: SigA_G ->(koff57*membrane) G + P3_A
+SOS_binding_to_SigAG: O + SigA_G ->(kon58*membrane) SigA_G_O + SigO
+SOS_binding_to_SigAG_rev: SigA_G_O + SigO ->(koff58*membrane/SigO) O + SigA_G
+Gab1_binding_to_SigGO: A + SigG_O ->(kon59*membrane) A_SigG_O + SigA
+Gab1_binding_to_SigGO_rev: A_SigG_O + SigA ->(koff59*membrane/(SigA + SigAP + SigAP_I + SigAP_R + SigAP_S + SigAP_T + eps)) A + SigG_O
+SOS_binding_to_SigGA: O + SigG_A ->(kon60*membrane) A_SigG_O + SigO
+SOS_binding_to_SigGA_rev: A_SigG_O + SigO ->(koff60*membrane/SigO) O + SigG_A
+ErbB1ErbB3_Heterodimerization: E_E1 + H_E3 ->(kon61*membrane) E13
+ErbB1ErbB3_Heterodimerization_rev: E13 ->(koff61*membrane) E_E1 + H_E3
+ErbB1ErbB4_Heterodimerization: E_E1 + H_E4 ->(kon62*membrane) E14
+ErbB1ErbB4_Heterodimerization_rev: E14 ->(koff62*membrane) E_E1 + H_E4
+Net_E13_Phosphorylation: E13 ->(kf63*membrane) E13P
+Net_E13_Phosphorylation_rev: E13P ->(membrane*(E13P*SigT*kPTP63 + KmPY*SigT*kPTP63 + VmaxPY)/(E13P + KmPY)) E13
+Net_E14_Phosphorylation: E14 ->(kf64*membrane) E14P
+Net_E14_Phosphorylation_rev: E14P ->(membrane*(E14P*SigT*kPTP64 + KmPY*SigT*kPTP64 + VmaxPY)/(E14P + KmPY)) E14
+Net_E13Grb2_Binding: E13P + G ->(4*kon65*membrane) E13G + SigG
+Net_E13Grb2_Binding_rev: E13G + SigG ->(koff65*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E13P + G
+Net_E13Shc_Binding: E13P + S ->(5*kon66*membrane) E13S + SigS
+Net_E13Shc_Binding_rev: E13S + SigS ->(koff66*membrane/(SigS + SigSP + SigSP_G + eps)) E13P + S
+Net_E13PI3K_Binding: E13P + I ->(3*kon67*membrane) E13I + SigI
+Net_E13PI3K_Binding_rev: E13I + SigI ->(koff67*membrane/SigI) E13P + I
+Net_E13RasGAP_Binding: E13P + R ->(2*kon68*membrane) E13R + SigR
+Net_E13RasGAP_Binding_rev: E13R + SigR ->(koff68*membrane/(SigR + SigRP + eps)) E13P + R
+Net_E14Grb2_Binding: E14P + G ->(4*kon69*membrane) E14G + SigG
+Net_E14Grb2_Binding_rev: E14G + SigG ->(koff69*membrane/(A_SigG_O + SigG + SigG_A + SigG_O + eps)) E14P + G
+Net_E14Shc_Binding: E14P + S ->(6*kon70*membrane) E14S + SigS
+Net_E14Shc_Binding_rev: E14S + SigS ->(koff70*membrane/(SigS + SigSP + SigSP_G + eps)) E14P + S
+Net_E14PI3K_Binding: E14P + I ->(kon71*membrane) E14I + SigI
+Net_E14PI3K_Binding_rev: E14I + SigI ->(koff71*membrane/SigI) E14P + I
+Net_E14RasGAP_Binding: E14P + R ->(2*kon72*membrane) E14R + SigR
+Net_E14RasGAP_Binding_rev: E14R + SigR ->(koff72*membrane/(SigR + SigRP + eps)) E14P + R
+Net_E11PTP1B_Binding: E11P + T ->(4*kon73*membrane) E11T + SigT
+Net_E11PTP1B_Binding_rev: E11T + SigT ->(koff73*membrane/SigT) E11P + T
+Net_E12PTP1B_Binding: E12P + T ->(3*kon74*membrane) E12T + SigT
+Net_E12PTP1B_Binding_rev: E12T + SigT ->(koff74*membrane/SigT) E12P + T
+Net_E23PTP1B_Binding: E23P + T ->(2*kon75*membrane) E23T + SigT
+Net_E23PTP1B_Binding_rev: E23T + SigT ->(koff75*membrane/SigT) E23P + T
+Net_E34PTP1B_Binding: E34P + T ->(2*kon76*membrane) E34T + SigT
+Net_E34PTP1B_Binding_rev: E34T + SigT ->(koff76*membrane/SigT) E34P + T
+Net_E24PTP1B_Binding: E24P + T ->(2*kon77*membrane) E24T + SigT
+Net_E24PTP1B_Binding_rev: E24T + SigT ->(koff77*membrane/SigT) E24P + T
+Net_E44PTP1B_Binding: E44P + T ->(2*kon78*membrane) E44T + SigT
+Net_E44PTP1B_Binding_rev: E44T + SigT ->(koff78*membrane/SigT) E44P + T
+Net_E13PTP1B_Binding: E13P + T ->(3*kon79*membrane) E13T + SigT
+Net_E13PTP1B_Binding_rev: E13T + SigT ->(koff79*membrane/SigT) E13P + T
+Net_E14PTP1B_Binding: E14P + T ->(3*kon80*membrane) E14T + SigT
+Net_E14PTP1B_Binding_rev: E14T + SigT ->(koff80*membrane/SigT) E14P + T
+Net_E1_ST_Phosphorylation: E1 ->(ERKstar*kf81*membrane/(E1 + Kmf81)) E1_PT
+Net_E1_ST_Phosphorylation_rev: E1_PT ->(Vmaxr81*membrane/(E1_PT + Kmr81)) E1
+Net_E2_ST_Phosphorylation: E2 ->(ERKstar*kf82*membrane/(E2 + Kmf82)) E2_PT
+Net_E2_ST_Phosphorylation_rev: E2_PT ->(Vmaxr82*membrane/(E2_PT + Kmr82)) E2
+Net_E4_ST_Phosphorylation: E4 ->(ERKstar*kf83*membrane/(E4 + Kmf83)) E4_PT
+Net_E4_ST_Phosphorylation_rev: E4_PT ->(Vmaxr83*membrane/(E4_PT + Kmr83)) E4
+Net_E_E1_ST_Phosphorylation: E_E1 ->(ERKstar*kf84*membrane/(E_E1 + Kmf84)) E_E1_PT
+Net_E_E1_ST_Phosphorylation_rev: E_E1_PT ->(Vmaxr84*membrane/(E_E1_PT + Kmr84)) E_E1
+Net_H_E4_ST_Phosphorylation: H_E4 ->(ERKstar*kf85*membrane/(H_E4 + Kmf85)) H_E4_PT
+Net_H_E4_ST_Phosphorylation_rev: H_E4_PT ->(Vmaxr85*membrane/(H_E4_PT + Kmr85)) H_E4
+EGF_binding_to_E1PT: E1_PT ->(E*kon86*membrane) E_E1_PT
+EGF_binding_to_E1PT_rev: E_E1_PT ->(EGF_off*membrane) E1_PT
+HRG_binding_to_E4PT: E4_PT ->(H*kon87*membrane) H_E4_PT
+HRG_binding_to_E4PT_rev: H_E4_PT ->(HRGoff_4*membrane) E4_PT
+PTP1B_binding_to_SigAP: SigAP + T ->(2*kon88*membrane) SigAP_T + SigT
+PTP1B_binding_to_SigAP_rev: SigAP_T + SigT ->(koff88*membrane/SigT) SigAP + T
+E11P_Degradation: E11P ->(kdeg*membrane) Empty
+E11G_Degradation: E11G + SigG ->(kdeg*membrane/SigG) G
+E11S_Degradation: E11S + SigS ->(kdeg*membrane/SigS) S
+E11R_Degradation: E11R + SigR ->(kdeg*membrane/SigR) R
+E11T_Degradation: E11T + SigT ->(kdeg*membrane/SigT) T
+mwbbde76d1_155c_4264_8447_4457527547cb: Empty ->(a98*membrane*(b98 - fint)/Empty) fint
+EGF_in_EC_compartment: E ->(membrane*(E1*kon1 + E1_PT*kon86)/VeVc) Empty
+EGF_in_EC_compartment_rev: Empty ->(EGF_off*membrane*(E_E1 + E_E1_PT)/(Empty*VeVc)) E
+HRG_in_EC_compartment: H ->(membrane*(E3*kon2 + E4*kon3 + E4_PT*kon87)/VeVc) Empty
+HRG_in_EC_compartment_rev: Empty ->(membrane*(HRGoff_3*H_E3 + HRGoff_4*H_E4 + HRGoff_4*H_E4_PT)/(Empty*VeVc)) H
+ERK_binding_to_MEKstar_1: ERK + MEKstar ->(kon89*membrane) ERK_MEKstar
+ERK_binding_to_MEKstar_1_rev: ERK_MEKstar ->(koff89*membrane) ERK + MEKstar
+pERK_production: ERK_MEKstar ->(kcat90*membrane) MEKstar + pERK
+ERK_binding_to_MEKstar_2: MEKstar + pERK ->(kon91*membrane) pERK_MEKstar
+ERK_binding_to_MEKstar_2_rev: pERK_MEKstar ->(koff91*membrane) MEKstar + pERK
+ERKstar_production: pERK_MEKstar ->(kcat92*membrane) ERKstar + MEKstar
+ERKstar_binding_to_Phosphatase: ERKpase + ERKstar ->(kon93*membrane) ERKstar_ERKpase
+ERKstar_binding_to_Phosphatase_rev: ERKstar_ERKpase ->(koff93*membrane) ERKpase + ERKstar
+ERKstar_dephosphorylation: ERKstar_ERKpase ->(kcat94*membrane) ERKpase + pERK
+pERK_binding_to_Phosphatase: ERKpase + pERK ->(kon95*membrane) pERK_ERKpase
+pERK_binding_to_Phosphatase_rev: pERK_ERKpase ->(koff95*membrane) ERKpase + pERK
+pERK_dephosphorylation: pERK_ERKpase ->(kcat96*membrane) ERK + ERKpase

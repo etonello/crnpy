@@ -1,8 +1,8 @@
-RuBisCO: RuBP + totRuBP ->(chloroplast*k*(K + RuBisCo + totRuBP - sqrt(K**2 + 2*K*RuBisCo + 2*K*totRuBP + RuBisCo**2 - 2*RuBisCo*totRuBP + totRuBP**2))/(2*RuBP*totRuBP)) 2PGA
-PGA_reduction: ATP + PGA ->(K2*Vm*chloroplast*k/(ADP*K2*P3*TP + ATP*K1*PGA*k + K1*K2*k)) ADP + Pi + TP
-PGA_reduction_rev: ADP + Pi + TP ->(K2*P3*Vm*chloroplast/(Pi*(ADP*K2*P3*TP + ATP*K1*PGA*k + K1*K2*k))) ATP + PGA
-TP_reduction: 5TP ->(Vm*chloroplast/(TP**4*(K + TP))) 2Pi + 3Ru5P
-RuBP_regeneration: ATP + Ru5P ->(Vm*chloroplast/(ATP*K2 + ATP*Ru5P + K1*K2 + K3*R)) ADP + RuBP
-TP_translocator: Pic + TP ->(K1*K2*Vm/(K1**2*K2*P2 + K1**2*K2*Pic + K1**2*P2*Pic + K1*K2**2*TP + K1*K2**2*TPc + K1*K2*P2*TPc + K1*K2*Pic*TP + K2**2*TP*TPc)) Pi + TPc
-TP_translocator_rev: Pi + TPc ->(K1*K2*P2*Vm/(Pi*(K1**2*K2*P2 + K1**2*K2*Pic + K1**2*P2*Pic + K1*K2**2*TP + K1*K2**2*TPc + K1*K2*P2*TPc + K1*K2*Pic*TP + K2**2*TP*TPc))) Pic + TP
-ATP_synthesis: ADP + Pi ->(V6*chloroplast*s2/(Pi*(ADP + K1)*(K2 + s2))) ATP
+RuBisCO: RuBP + totRuBP ->(0.5*RuBisCO_k*chloroplast*(E_RuBisCO + RuBisCO_K + totRuBP - root(2, -4.0*E_RuBisCO*totRuBP + (E_RuBisCO + RuBisCO_K + totRuBP)**2.0))/(RuBP*totRuBP)) 2PGA
+PGA_red: ATP + PGA ->(PGA_red_K2*PGA_red_Vm*PGA_red_k*chloroplast/(ADP*PGA_red_K2*Pi*TP + ATP*PGA*PGA_red_K1*PGA_red_k + PGA_red_K1*PGA_red_K2*PGA_red_k)) ADP + Pi + TP
+PGA_red_rev: ADP + Pi + TP ->(PGA_red_K2*PGA_red_Vm*chloroplast/(ADP*PGA_red_K2*Pi*TP + ATP*PGA*PGA_red_K1*PGA_red_k + PGA_red_K1*PGA_red_K2*PGA_red_k)) ATP + PGA
+TP_red: 5TP ->(TP_red_Vm*chloroplast/(TP**4*(TP + TP_red_K))) 2Pi + 3Ru5P
+RuBP_reg: ATP + Ru5P ->(RuBP_reg_Vm*chloroplast/(ATP*Ru5P + ATP*RuBP_reg_K2 + Pi*RuBP_reg_K3 + RuBP_reg_K1*RuBP_reg_K2)) ADP + RuBP
+TPT: Pic + TP ->(TPT_K1*TPT_K2*TPT_Vm/(Pi*Pic*TPT_K1**2 + Pi*TPT_K1**2*TPT_K2 + Pi*TPT_K1*TPT_K2*TPc + Pic*TP*TPT_K1*TPT_K2 + Pic*TPT_K1**2*TPT_K2 + TP*TPT_K1*TPT_K2**2 + TP*TPT_K2**2*TPc + TPT_K1*TPT_K2**2*TPc)) Pi + TPc
+TPT_rev: Pi + TPc ->(TPT_K1*TPT_K2*TPT_Vm/(Pi*Pic*TPT_K1**2 + Pi*TPT_K1**2*TPT_K2 + Pi*TPT_K1*TPT_K2*TPc + Pic*TP*TPT_K1*TPT_K2 + Pic*TPT_K1**2*TPT_K2 + TP*TPT_K1*TPT_K2**2 + TP*TPT_K2**2*TPc + TPT_K1*TPT_K2**2*TPc)) Pic + TP
+ATP_S: ADP + Pi ->(V6*chloroplast/((ADP + ATP_S_K1)*(ATP_S_K2 + Pi))) ATP

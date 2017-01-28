@@ -1,32 +1,32 @@
-re37: CaM_Ca4 + eNOS_Cav_1 ->(k4) eNOS_CaM_Ca4
-re38: CaM_Ca2 + eNOS_Cav_1 ->(k3) eNOS_CaM_Ca2
-re38_rev: eNOS_CaM_Ca2 ->(k3r) CaM_Ca2 + eNOS_Cav_1
-re41: Calmodulin ->(Ca_c*k1) CaM_Ca2
-re41_rev: CaM_Ca2 ->(k1r) Calmodulin
-re42: CaM_Ca2 ->((CaM_Ca2*Ca_c*k2 - CaM_Ca4*k2r)/CaM_Ca2) CaM_Ca4
-re50: eNOS_CaM_Ca4 ->(k5) eNOS_CaM_Ca2
-re50_rev: eNOS_CaM_Ca2 ->(Ca_c*k2) eNOS_CaM_Ca4
-re51: Hsp90 + eNOS_CaM_Ca4 ->(k6) Hsp90_eNOS_CaM_Ca4
-re52: Hsp90_eNOS_CaM_Ca4 ->(k5) Hsp90_eNOS_CaM_Ca2
-re52_rev: Hsp90_eNOS_CaM_Ca2 ->(Ca_c*k2) Hsp90_eNOS_CaM_Ca4
-re53: Hsp90_eNOS_CaM_Ca2 ->(k7) Hsp90 + eNOS_CaM_Ca2
-re54: Hsp90_p_eNOS_CaM_Ca4 ->(k5) Hsp90_p_eNOS_CaM_Ca2
-re54_rev: Hsp90_p_eNOS_CaM_Ca2 ->(Ca_c*k2) Hsp90_p_eNOS_CaM_Ca4
-re55: Hsp90_eNOS_CaM_Ca4 ->(k10*pp_AKT_PI3P/(Hsp90_eNOS_CaM_Ca4 + Km10)) Hsp90_p_eNOS_CaM_Ca4
-re55_rev: Hsp90_p_eNOS_CaM_Ca4 ->(V10r/(Hsp90_p_eNOS_CaM_Ca4 + Km10r)) Hsp90_eNOS_CaM_Ca4
-re56: Hsp90_eNOS_CaM_Ca2 ->(k10*pp_AKT_PI3P/(Hsp90_eNOS_CaM_Ca2 + Km10)) Hsp90_p_eNOS_CaM_Ca2
-re56_rev: Hsp90_p_eNOS_CaM_Ca2 ->(V10r/(Hsp90_p_eNOS_CaM_Ca2 + Km10r)) Hsp90_eNOS_CaM_Ca2
-re69: L_Arg ->((Hsp90_eNOS_CaM_Ca4*re69_kCaM + Hsp90_p_eNOS*re69_kp + Hsp90_p_eNOS_CaM_Ca2*re69_kp + Hsp90_p_eNOS_CaM_Ca4*re69_kpCaM + eNOS_CaM_Ca4*re69_kCaM)/L_Arg) NO
-re70: Hsp90_p_eNOS ->(V10r/(Hsp90_p_eNOS + Km10r)) Hsp90_eNOS
-re71: Hsp90_eNOS ->(k7) Hsp90 + eNOS_Cav_1
-re72: Hsp90_p_eNOS_CaM_Ca2 ->(k3r) CaM_Ca2 + Hsp90_p_eNOS
-re72_rev: CaM_Ca2 + Hsp90_p_eNOS ->(k3) Hsp90_p_eNOS_CaM_Ca2
-re131: eNOS_Cav_1 ->(kD) sa49_degraded
-re132: eNOS_CaM_Ca4 ->(kD) CaM_Ca4 + s117
-re133: eNOS_CaM_Ca2 ->(kD) CaM_Ca2 + s117
-re134: Hsp90_eNOS ->(kD) Hsp90 + s118
-re135: Hsp90_p_eNOS ->(kD) Hsp90 + s118
-re136: Hsp90_eNOS_CaM_Ca2 ->(kD) CaM_Ca2 + Hsp90
-re137: Hsp90_p_eNOS_CaM_Ca2 ->(kD) CaM_Ca2 + Hsp90
-re138: Hsp90_eNOS_CaM_Ca4 ->(kD) CaM_Ca4 + Hsp90
-re139: Hsp90_p_eNOS_CaM_Ca4 ->(kD) CaM_Ca4 + Hsp90
+re37: s47 + s51 ->(k4) s45
+re38: s48 + s51 ->(k3) s50
+re38_rev: s50 ->(k3r) s48 + s51
+re41: s52 ->(k1*s3) s48
+re41_rev: s48 ->(k1r) s52
+re42: s48 ->((k2*s3*s48 - k2r*s47)/s48) s47
+re50: s45 ->(k5) s50
+re50_rev: s50 ->(k2*s3) s45
+re51: s45 + s57 ->(k6) s58
+re52: s58 ->(k5) s61
+re52_rev: s61 ->(k2*s3) s58
+re53: s61 ->(k7) s50 + s57
+re54: s60 ->(k5) s62
+re54_rev: s62 ->(k2*s3) s60
+re55: s58 ->(k10*s27/(Km10 + s58)) s60
+re55_rev: s60 ->(V10r/(Km10r + s60)) s58
+re56: s61 ->(k10*s27/(Km10 + s61)) s62
+re56_rev: s62 ->(V10r/(Km10r + s62)) s61
+re69: s63 ->((re69_kCaM*(s45 + s58) + re69_kp*(s62 + s65) + re69_kpCaM*s60)/s63) s64
+re70: s65 ->(V10r/(Km10r + s65)) s66
+re71: s66 ->(k7) s51 + s57
+re72: s62 ->(k3r) s48 + s65
+re72_rev: s48 + s65 ->(k3) s62
+re131: s51 ->(kD) s116
+re132: s45 ->(kD) s117 + s47
+re133: s50 ->(kD) s117 + s48
+re134: s66 ->(kD) s118 + s57
+re135: s65 ->(kD) s118 + s57
+re136: s61 ->(kD) s48 + s57
+re137: s62 ->(kD) s48 + s57
+re138: s58 ->(kD) s47 + s57
+re139: s60 ->(kD) s47 + s57

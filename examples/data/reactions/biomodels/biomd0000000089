@@ -1,41 +1,41 @@
-cLm_transcription:  ->(compartment*g0**alpha*(X_protein_in_nucleus**a*light*light_sensitive_protein_P*q1 + X_protein_in_nucleus**a*light*n0 + X_protein_in_nucleus**a*n1 + g1**a*light*light_sensitive_protein_P*q1 + g1**a*light*n0)/((PPR7_9_protein_in_nucleus**alpha + g0**alpha)*(X_protein_in_nucleus**a + g1**a))) LHY_mRNA
-cLm_degradation: LHY_mRNA ->(compartment*m1/(LHY_mRNA + k1)) 
-cLc_translation:  ->(LHY_mRNA*compartment*p1) LHY_protein_in_cytoplasm
-LHY_protein_translocation: LHY_protein_in_cytoplasm ->(compartment*r1) LHY_protein_in_nucleus
-LHY_protein_translocation_rev: LHY_protein_in_nucleus ->(compartment*r2) LHY_protein_in_cytoplasm
-cLc_degradation: LHY_protein_in_cytoplasm ->(compartment*m2/(LHY_protein_in_cytoplasm + k2)) 
-cLn_degradation: LHY_protein_in_nucleus ->(compartment*m3/(LHY_protein_in_nucleus + k3)) 
-cTm__transcription:  ->(Y_protein_in_nucleus**b*compartment*g3**c*n2/((LHY_protein_in_nucleus**c + g3**c)*(Y_protein_in_nucleus**b + g2**b))) TOC1_mRNA
-cTm_degradation: TOC1_mRNA ->(compartment*m4/(TOC1_mRNA + k4)) 
-Y_protein_translocation: Y_protein_in_the_cytoplasm ->(compartment*r7) Y_protein_in_nucleus
-Y_protein_translocation_rev: Y_protein_in_nucleus ->(compartment*r8) Y_protein_in_the_cytoplasm
-cYn_degradation: Y_protein_in_nucleus ->(compartment*m14/(Y_protein_in_nucleus + k12)) 
-cYc_translation:  ->(Y_mRNA*compartment*p4) Y_protein_in_the_cytoplasm
-cYc_degradation: Y_protein_in_the_cytoplasm ->(compartment*m13/(Y_protein_in_the_cytoplasm + k11)) 
-X_protein_translocation: X_protein_in_cytoplasm ->(compartment*r5) X_protein_in_nucleus
-X_protein_translocation_rev: X_protein_in_nucleus ->(compartment*r6) X_protein_in_cytoplasm
-cXc_degradation: X_protein_in_cytoplasm ->(compartment*m10/(X_protein_in_cytoplasm + k8)) 
-cXc_translation:  ->(X_mRNA*compartment*p3) X_protein_in_cytoplasm
-cXn_degradation: X_protein_in_nucleus ->(compartment*m11/(X_protein_in_nucleus + k9)) 
-cAc_translation:  ->(PPR7_9_mRNA*compartment*p6) PPR7_9_protein_in_cytoplasm
-PPR7_9_protein_translocation: PPR7_9_protein_in_cytoplasm ->(compartment*r9) PPR7_9_protein_in_nucleus
-PPR7_9_protein_translocation_rev: PPR7_9_protein_in_nucleus ->(compartment*r10) PPR7_9_protein_in_cytoplasm
-cAc_degradation: PPR7_9_protein_in_cytoplasm ->(compartment*m17/(PPR7_9_protein_in_cytoplasm + k15)) 
-cAn_degradation: PPR7_9_protein_in_nucleus ->(compartment*m18/(PPR7_9_protein_in_nucleus + k16)) 
-light_dependent_production_of_protein_P:  ->(-compartment*p5*(light - 1)) light_sensitive_protein_P
-light_activation_protein_P_degradation: light_sensitive_protein_P ->(compartment*light*q3) 
-cPn_degradation: light_sensitive_protein_P ->(compartment*m15/(k13 + light_sensitive_protein_P)) 
-light_activation_of_cAm_transcription:  ->(compartment*light*light_sensitive_protein_P*q4) PPR7_9_mRNA
-light_independent_cAm_transcription:  ->(LHY_protein_in_nucleus**g*compartment*n6/(LHY_protein_in_nucleus**g + g7**g)) PPR7_9_mRNA
-cAm_degradation: PPR7_9_mRNA ->(compartment*m16/(PPR7_9_mRNA + k14)) 
-cXm_transcription:  ->(TOC1_protein_in_nucleus**d*compartment*n3/(TOC1_protein_in_nucleus**d + g4**d)) X_mRNA
-cXm_degradation: X_mRNA ->(compartment*m9/(X_mRNA + k7)) 
-cTc_translation:  ->(TOC1_mRNA*compartment*p2) TOC1_protein__in_cytoplasm
-TOC1_protein_translocation: TOC1_protein__in_cytoplasm ->(compartment*r3) TOC1_protein_in_nucleus
-TOC1_protein_translocation_rev: TOC1_protein_in_nucleus ->(compartment*r4) TOC1_protein__in_cytoplasm
-light_activation_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(-compartment*m5*(light - 1)/(TOC1_protein__in_cytoplasm + k5)) 
-light_independent_degradation_of_cTc: TOC1_protein__in_cytoplasm ->(compartment*m6/(TOC1_protein__in_cytoplasm + k5)) 
-light_activation_degradation_of_cTn: TOC1_protein_in_nucleus ->(-compartment*m7*(light - 1)/(TOC1_protein_in_nucleus + k6)) 
-light_independent_degradation_cTn: TOC1_protein_in_nucleus ->(compartment*m8/(TOC1_protein_in_nucleus + k6)) 
-cYm_transcription:  ->(compartment*g6**f*(TOC1_protein_in_nucleus**e*light*light_sensitive_protein_P*q2 + g5**e*light*light_sensitive_protein_P*q2 + g5**e*light*n4 + g5**e*n5)/((LHY_protein_in_nucleus**f + g6**f)*(TOC1_protein_in_nucleus**e + g5**e))) Y_mRNA
-cYm_degradation: Y_mRNA ->(compartment*m12/(Y_mRNA + k10)) 
+reaction_1:  ->(compartment*g0**alpha*(cXn**a*n1/(cXn**a + g1**a) + light*(cPn*q1 + n0))/(cAn**alpha + g0**alpha)) cLm
+reaction_0: cLm ->(compartment*m1/(cLm + k1)) 
+reaction_2:  ->(cLm*compartment*p1) cLc
+reaction_3: cLc ->(compartment*r1) cLn
+reaction_3_rev: cLn ->(compartment*r2) cLc
+reaction_4: cLc ->(compartment*m2/(cLc + k2)) 
+reaction_5: cLn ->(compartment*m3/(cLn + k3)) 
+reaction_6:  ->(cYn**b*compartment*g3**c*n2/((cLn**c + g3**c)*(cYn**b + g2**b))) cTm
+reaction_7: cTm ->(compartment*m4/(cTm + k4)) 
+reaction_9: cYc ->(compartment*r7) cYn
+reaction_9_rev: cYn ->(compartment*r8) cYc
+reaction_10: cYn ->(compartment*m14/(cYn + k12)) 
+reaction_11:  ->(cYm*compartment*p4) cYc
+reaction_12: cYc ->(compartment*m13/(cYc + k11)) 
+reaction_13: cXc ->(compartment*r5) cXn
+reaction_13_rev: cXn ->(compartment*r6) cXc
+reaction_14: cXc ->(compartment*m10/(cXc + k8)) 
+reaction_15:  ->(cXm*compartment*p3) cXc
+reaction_16: cXn ->(compartment*m11/(cXn + k9)) 
+reaction_17:  ->(cAm*compartment*p6) cAc
+reaction_18: cAc ->(compartment*r9) cAn
+reaction_18_rev: cAn ->(compartment*r10) cAc
+reaction_19: cAc ->(compartment*m17/(cAc + k15)) 
+reaction_20: cAn ->(compartment*m18/(cAn + k16)) 
+reaction_21:  ->(compartment*p5*(-light + 1)) cPn
+reaction_22: cPn ->(compartment*light*q3) 
+reaction_23: cPn ->(compartment*m15/(cPn + k13)) 
+reaction_25:  ->(cPn*compartment*light*q4) cAm
+reaction_26:  ->(cLn**g*compartment*n6/(cLn**g + g7**g)) cAm
+reaction_27: cAm ->(compartment*m16/(cAm + k14)) 
+reaction_28:  ->(cTn**d*compartment*n3/(cTn**d + g4**d)) cXm
+reaction_29: cXm ->(compartment*m9/(cXm + k7)) 
+reaction_30:  ->(cTm*compartment*p2) cTc
+reaction_31: cTc ->(compartment*r3) cTn
+reaction_31_rev: cTn ->(compartment*r4) cTc
+reaction_32: cTc ->(compartment*m5*(-light + 1)/(cTc + k5)) 
+reaction_33: cTc ->(compartment*m6/(cTc + k5)) 
+reaction_34: cTn ->(compartment*m7*(-light + 1)/(cTn + k6)) 
+reaction_38: cTn ->(compartment*m8/(cTn + k6)) 
+reaction_39:  ->(compartment*g6**f*(cPn*light*q2 + g5**e*(light*n4 + n5)/(cTn**e + g5**e))/(cLn**f + g6**f)) cYm
+reaction_40: cYm ->(compartment*m12/(cYm + k10)) 

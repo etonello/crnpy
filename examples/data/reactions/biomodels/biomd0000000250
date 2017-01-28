@@ -1,93 +1,93 @@
-v001: ERK_c ->(Fct*K2*V1*cytoplasm*pMEK/(ERK_c*K2 + K1*K2 + K1*pERK_c)) pERK_c
-v002: pERK_c ->(Fct*K1*V2*cytoplasm*pMEK/(ERK_c*K2 + K1*K2 + K1*pERK_c)) ppERK_c
-v003: pERK_c ->(K4*V3*cytoplasm/(K3*K4 + K3*ppERK_c + K4*pERK_c)) ERK_c
-v004: ppERK_c ->(K3*V4*cytoplasm/(K3*K4 + K3*ppERK_c + K4*pERK_c)) pERK_c
-v005: pERK_n ->(K6*V5*nucleus/(K5*K6 + K5*ppERK_n + K6*pERK_n)) ERK_n
-v006: ppERK_n ->(K5*V6*nucleus/(K5*K6 + K5*ppERK_n + K6*pERK_n)) pERK_n
-v007: ERK_c ->(KimERK*Vc) ERK_n
-v007_rev: ERK_n ->(KexERK*Vn) ERK_c
-v008: pERK_c ->(KimERKP*Vc) pERK_n
-v008_rev: pERK_n ->(KexERKP*Vn) pERK_c
-v009: ppERK_c ->(KimERKPP*Vc) ppERK_n
-v009_rev: ppERK_n ->(KexERKPP*Vn) ppERK_c
-v010:  ->(V10*nucleus*ppERK_n**n10/(K10**n10 + ppERK_n**n10)) PreDUSPmRNA
-v011: PreDUSPmRNA ->(Vn*p11) DUSPmRNA
-v012: DUSPmRNA ->(cytoplasm*p12) 
-v013:  ->(DUSPmRNA*cytoplasm*p13) DUSP_c
-v014: DUSP_c ->(V14*cytoplasm*ppERK_c/(DUSP_c + K14)) pDUSP_c
-v015: pDUSP_c ->(V15*cytoplasm/(K15 + pDUSP_c)) DUSP_c
-v016: DUSP_c ->(cytoplasm*p16) 
-v017: pDUSP_c ->(cytoplasm*p17) 
-v018: DUSP_c ->(KimDUSP*Vc) DUSP_n
-v018_rev: DUSP_n ->(KexDUSP*Vn) DUSP_c
-v019: pDUSP_c ->(KimDUSPP*Vc) pDUSP_n
-v019_rev: pDUSP_n ->(KexDUSPP*Vn) pDUSP_c
-v020: DUSP_n ->(V20*nucleus*ppERK_n/(DUSP_n + K20)) pDUSP_n
-v021: pDUSP_n ->(V21*nucleus/(K21 + pDUSP_n)) DUSP_n
-v022: DUSP_n ->(nucleus*p22) 
-v023: pDUSP_n ->(nucleus*p23) 
-v024: RSK_c ->(V24*cytoplasm*ppERK_c/(K24 + RSK_c)) pRSK_c
-v025: pRSK_c ->(V25*cytoplasm/(K25 + pRSK_c)) RSK_c
-v026: pRSK_c ->(KimRSKP*Vc) pRSK_n
-v026_rev: pRSK_n ->(KexRSKP*Vn) pRSK_c
-v027: CREB_n ->(V27*nucleus*pRSK_n/(CREB_n + K27)) pCREB_n
-v028: pCREB_n ->(V28*nucleus/(K28 + pCREB_n)) CREB_n
-v029: Elk1_n ->(V29*nucleus*ppERK_n/(Elk1_n + K29)) pElk1_n
-v030: pElk1_n ->(V30*nucleus/(K30 + pElk1_n)) Elk1_n
-v031:  ->(V31*nucleus*(pCREB_n*pElk1_n)**n31/(K31**n31 + (Fn/KF31)**nF31 + (pCREB_n*pElk1_n)**n31)) PreFOSmRNA
-v032: PreFOSmRNA ->(Vn*p32) c_FOSmRNA
-v033: c_FOSmRNA ->(cytoplasm*p33) 
-v034:  ->(c_FOSmRNA*cytoplasm*p34) c_FOS_c
-v035: c_FOS_c ->(V35*cytoplasm*ppERK_c/(K35 + c_FOS_c)) pc_FOS_c
-v036: c_FOS_c ->(V36*cytoplasm*pRSK_c/(K36 + c_FOS_c)) pc_FOS_c
-v037: pc_FOS_c ->(V37*cytoplasm/(K37 + pc_FOS_c)) c_FOS_c
-v038: c_FOS_c ->(cytoplasm*p38) 
-v039: pc_FOS_c ->(cytoplasm*p39) 
-v040: c_FOS_c ->(KimFOS*Vc) FOSn
-v040_rev: FOSn ->(KexFOS*Vn) c_FOS_c
-v041: pc_FOS_c ->(KimFOSP*Vc) FOSn_2
-v041_rev: FOSn_2 ->(KexFOSP*Vn) pc_FOS_c
-v042: FOSn ->(V42*nucleus*ppERK_n/(FOSn + K42)) FOSn_2
-v043: FOSn ->(V43*nucleus*pRSK_n/(FOSn + K43)) FOSn_2
-v044: FOSn_2 ->(V44*nucleus/(FOSn_2 + K44)) FOSn
-v045: FOSn ->(nucleus*p45) 
-v046: FOSn_2 ->(nucleus*p46) 
-v047: pDUSP_n + ppERK_n ->(nucleus*p52) pDUSP_n_ppERK_n
-v047_rev: pDUSP_n_ppERK_n ->(m52*nucleus) pDUSP_n + ppERK_n
-v048: pDUSP_n_ppERK_n ->(nucleus*p53) pDUSP_n + pERK_n
-v049: pDUSP_n + pERK_n ->(nucleus*p54) pDUSP_n_pERK_n
-v049_rev: pDUSP_n_pERK_n ->(m54*nucleus) pDUSP_n + pERK_n
-v050: pDUSP_n_pERK_n ->(nucleus*p55) ERK_n + pDUSP_n
-v051: ERK_n + pDUSP_n ->(nucleus*p56) pDUSP_n_ERK_n
-v051_rev: pDUSP_n_ERK_n ->(m56*nucleus) ERK_n + pDUSP_n
-v052: DUSP_n + ppERK_n ->(nucleus*p47) DUSP_n_ppERK_n
-v052_rev: DUSP_n_ppERK_n ->(m47*nucleus) DUSP_n + ppERK_n
-v053: DUSP_n_ppERK_n ->(nucleus*p48) DUSP_n + pERK_n
-v054: DUSP_n + pERK_n ->(nucleus*p49) DUSP_n_pERK_n
-v054_rev: DUSP_n_pERK_n ->(m49*nucleus) DUSP_n + pERK_n
-v055: DUSP_n_pERK_n ->(nucleus*p50) DUSP_n + ERK_n
-v056: DUSP_n + ERK_n ->(nucleus*p51) DUSP_n_ERK_n
-v056_rev: DUSP_n_ERK_n ->(m51*nucleus) DUSP_n + ERK_n
-v057:  ->(FOSn_2**n57*V57*nucleus/(FOSn_2**n57 + K57**n57)) PreFmRNA
-v058: PreFmRNA ->(Vn*p58) FmRNA
-v059: FmRNA ->(cytoplasm*p59) 
-v060:  ->(FmRNA*cytoplasm*p60) F
-v061: F ->(cytoplasm*p61) 
-v062: F ->(KimF*Vc) Fn
-v062_rev: Fn ->(KexF*Vn) F
-v063: Fn ->(cytoplasm*p63) 
-v101: A1 ->(EGF*V101*cytoplasm/(A1 + K101)) A1_2
-v102: A1_2 ->(V102*cytoplasm/(A1_2 + K102)) A1
-v103: A2 ->(HRG*V103*cytoplasm/(A2 + K103)) A2_2
-v104: A2_2 ->(V104*cytoplasm/(A2_2 + K104)) A2
-v105: RsD ->(EGF*V105*cytoplasm/(K105 + RsD)) RsT
-v106: RsD ->(HRG*V106*cytoplasm/(K106 + RsD)) RsT
-v107: RsT ->(A1_2*V107*cytoplasm/(K107 + RsT)) RsD
-v108: RsT ->(A2_2*V108*cytoplasm/(K108 + RsT)) RsD
-v109: A3 ->(HRG*V109*cytoplasm/(A3 + K109)) A3_2
-v110: A3_2 ->(V110*cytoplasm/(A3_2 + K110)) A3
-v111: Kin ->(HRG*V111*cytoplasm/(K111 + Kin)) Kin_2
-v112: Kin_2 ->(A3_2*V112*cytoplasm/(K112 + Kin_2)) Kin
-v113: MEK ->(RsT*V113*cytoplasm/(K113 + MEK)) pMEK
-v114: MEK ->(Kin_2*V114*cytoplasm/(K114 + MEK)) pMEK
-v115: pMEK ->(V115*cytoplasm/(K115 + pMEK)) MEK
+reaction_32: ERK_c ->(Fct*V1*cytoplasm*pMEK/(ERK_c + K1*(1.0 + pERK_c/K2))) pERK_c
+reaction_6: pERK_c ->(Fct*V2*cytoplasm*pMEK/(K2*(ERK_c/K1 + 1.0) + pERK_c)) ppERK_c
+re85: pERK_c ->(V3*cytoplasm/(K3*(1.0 + ppERK_c/K4) + pERK_c)) ERK_c
+re86: ppERK_c ->(V4*cytoplasm/(K4*(1.0 + pERK_c/K3) + ppERK_c)) pERK_c
+re87: pERK_n ->(V5*nucleus/(K5*(1.0 + ppERK_n/K6) + pERK_n)) ERK_n
+re88: ppERK_n ->(V6*nucleus/(K6*(1.0 + pERK_n/K5) + ppERK_n)) pERK_n
+re106: ERK_c ->(KimERK*Vc) ERK_n
+re106_rev: ERK_n ->(KexERK*Vn) ERK_c
+re107: pERK_c ->(KimERKP*Vc) pERK_n
+re107_rev: pERK_n ->(KexERKP*Vn) pERK_c
+re108: ppERK_c ->(KimERKPP*Vc) ppERK_n
+re108_rev: ppERK_n ->(KexERKPP*Vn) ppERK_c
+re109:  ->(V10*nucleus*ppERK_n**n10/(K10**n10 + ppERK_n**n10)) PreDUSPmRNA
+re110: PreDUSPmRNA ->(Vn*p11) DUSPmRNA
+reaction_17: DUSPmRNA ->(cytoplasm*p12) 
+re89:  ->(DUSPmRNA*cytoplasm*p13) DUSP_c
+reaction_33: DUSP_c ->(V14*cytoplasm*ppERK_c/(DUSP_c + K14)) pDUSP_c
+reaction_34: pDUSP_c ->(V15*cytoplasm/(K15 + pDUSP_c)) DUSP_c
+reaction_35: DUSP_c ->(cytoplasm*p16) 
+reaction_36: pDUSP_c ->(cytoplasm*p17) 
+re111: DUSP_c ->(KimDUSP*Vc) DUSP_n
+re111_rev: DUSP_n ->(KexDUSP*Vn) DUSP_c
+re112: pDUSP_c ->(KimDUSPP*Vc) pDUSP_n
+re112_rev: pDUSP_n ->(KexDUSPP*Vn) pDUSP_c
+reaction_12: DUSP_n ->(V20*nucleus*ppERK_n/(DUSP_n + K20)) pDUSP_n
+reaction_13: pDUSP_n ->(V21*nucleus/(K21 + pDUSP_n)) DUSP_n
+reaction_14: DUSP_n ->(nucleus*p22) 
+reaction_15: pDUSP_n ->(nucleus*p23) 
+reaction_41: RSK_c ->(V24*cytoplasm*ppERK_c/(K24 + RSK_c)) pRSK_c
+reaction_42: pRSK_c ->(V25*cytoplasm/(K25 + pRSK_c)) RSK_c
+re113: pRSK_c ->(KimRSKP*Vc) pRSK_n
+re113_rev: pRSK_n ->(KexRSKP*Vn) pRSK_c
+reaction_45: CREB_n ->(V27*nucleus*pRSK_n/(CREB_n + K27)) pCREB_n
+reaction_46: pCREB_n ->(V28*nucleus/(K28 + pCREB_n)) CREB_n
+reaction_57: Elk1_n ->(V29*nucleus*ppERK_n/(Elk1_n + K29)) pElk1_n
+reaction_58: pElk1_n ->(V30*nucleus/(K30 + pElk1_n)) Elk1_n
+reaction_47:  ->(V31*nucleus*(pCREB_n*pElk1_n)**n31/(K31**n31 + (Fn/KF31)**nF31 + (pCREB_n*pElk1_n)**n31)) PreFOSmRNA
+re115: PreFOSmRNA ->(Vn*p32) c_FOSmRNA
+reaction_50: c_FOSmRNA ->(cytoplasm*p33) 
+re90:  ->(c_FOSmRNA*cytoplasm*p34) c_FOS_c
+reaction_59: c_FOS_c ->(V35*cytoplasm*ppERK_c/(K35 + c_FOS_c)) pc_FOS_c
+reaction_67: c_FOS_c ->(V36*cytoplasm*pRSK_c/(K36 + c_FOS_c)) pc_FOS_c
+reaction_60: pc_FOS_c ->(V37*cytoplasm/(K37 + pc_FOS_c)) c_FOS_c
+reaction_61: c_FOS_c ->(cytoplasm*p38) 
+reaction_62: pc_FOS_c ->(cytoplasm*p39) 
+re116: c_FOS_c ->(KimFOS*Vc) FOSn
+re116_rev: FOSn ->(KexFOS*Vn) c_FOS_c
+re117: pc_FOS_c ->(KimFOSP*Vc) FOSn_2
+re117_rev: FOSn_2 ->(KexFOSP*Vn) pc_FOS_c
+reaction_52: FOSn ->(V42*nucleus*ppERK_n/(FOSn + K42)) FOSn_2
+reaction_53: FOSn ->(V43*nucleus*pRSK_n/(FOSn + K43)) FOSn_2
+reaction_54: FOSn_2 ->(V44*nucleus/(FOSn_2 + K44)) FOSn
+reaction_55: FOSn ->(nucleus*p45) 
+reaction_56: FOSn_2 ->(nucleus*p46) 
+reaction_25: pDUSP_n + ppERK_n ->(nucleus*p52) pDUSP_n_ppERK_n
+reaction_25_rev: pDUSP_n_ppERK_n ->(m52*nucleus) pDUSP_n + ppERK_n
+reaction_26: pDUSP_n_ppERK_n ->(nucleus*p53) pDUSP_n + pERK_n
+reaction_27: pDUSP_n + pERK_n ->(nucleus*p54) pDUSP_n_pERK_n
+reaction_27_rev: pDUSP_n_pERK_n ->(m54*nucleus) pDUSP_n + pERK_n
+reaction_28: pDUSP_n_pERK_n ->(nucleus*p55) ERK_n + pDUSP_n
+reaction_30: ERK_n + pDUSP_n ->(nucleus*p56) pDUSP_n_ERK_n
+reaction_30_rev: pDUSP_n_ERK_n ->(m56*nucleus) ERK_n + pDUSP_n
+reaction_21: DUSP_n + ppERK_n ->(nucleus*p47) DUSP_n_ppERK_n
+reaction_21_rev: DUSP_n_ppERK_n ->(m47*nucleus) DUSP_n + ppERK_n
+reaction_22: DUSP_n_ppERK_n ->(nucleus*p48) DUSP_n + pERK_n
+reaction_23: DUSP_n + pERK_n ->(nucleus*p49) DUSP_n_pERK_n
+reaction_23_rev: DUSP_n_pERK_n ->(m49*nucleus) DUSP_n + pERK_n
+reaction_24: DUSP_n_pERK_n ->(nucleus*p50) DUSP_n + ERK_n
+reaction_29: DUSP_n + ERK_n ->(nucleus*p51) DUSP_n_ERK_n
+reaction_29_rev: DUSP_n_ERK_n ->(m51*nucleus) DUSP_n + ERK_n
+re92:  ->(FOSn_2**n57*V57*nucleus/(FOSn_2**n57 + K57**n57)) PreFmRNA
+re118: PreFmRNA ->(Vn*p58) FmRNA
+re94: FmRNA ->(cytoplasm*p59) 
+re95:  ->(FmRNA*cytoplasm*p60) F
+re96: F ->(cytoplasm*p61) 
+re119: F ->(KimF*Vc) Fn
+re119_rev: Fn ->(KexF*Vn) F
+re99: Fn ->(cytoplasm*p63) 
+reaction_31: A1 ->(EGF*V101*cytoplasm/(A1 + K101)) A1_2
+reaction_68: A1_2 ->(V102*cytoplasm/(A1_2 + K102)) A1
+reaction_69: A2 ->(HRG*V103*cytoplasm/(A2 + K103)) A2_2
+reaction_70: A2_2 ->(V104*cytoplasm/(A2_2 + K104)) A2
+reaction_71: RsD ->(EGF*V105*cytoplasm/(K105 + RsD)) RsT
+reaction_72: RsD ->(HRG*V106*cytoplasm/(K106 + RsD)) RsT
+reaction_73: RsT ->(A1_2*V107*cytoplasm/(K107 + RsT)) RsD
+reaction_74: RsT ->(A2_2*V108*cytoplasm/(K108 + RsT)) RsD
+reaction_75: A3 ->(HRG*V109*cytoplasm/(A3 + K109)) A3_2
+reaction_76: A3_2 ->(V110*cytoplasm/(A3_2 + K110)) A3
+reaction_77: Kin ->(HRG*V111*cytoplasm/(K111 + Kin)) Kin_2
+reaction_78: Kin_2 ->(A3_2*V112*cytoplasm/(K112 + Kin_2)) Kin
+reaction_79: MEK ->(RsT*V113*cytoplasm/(K113 + MEK)) pMEK
+reaction_80: MEK ->(Kin_2*V114*cytoplasm/(K114 + MEK)) pMEK
+reaction_81: pMEK ->(V115*cytoplasm/(K115 + pMEK)) MEK

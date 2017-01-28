@@ -1,46 +1,46 @@
-Light_dependent_cLm_transcription:  ->(cPn*ld*nucleus*q1) cLm
-Light_independent_cLm_transcription:  ->(cXn**a*g7**h*g8**i*n1*nucleus/((cP7n**h + g7**h)*(cP9n**i + g8**i)*(cXn**a + g1**a))) cLm
-cLm_degradation: cLm ->(m1*nucleus/(cLm + k1)) 
-cLc_synthesis:  ->(cLm*cytoplasm*p1) cLc
-cLc_transport_into_nucleus: cLc ->(cytoplasm*r1) cLn
-cLn_transport_into_cytoplasm: cLn ->(nucleus*r2) cLc
-cLc_degradation: cLc ->(cytoplasm*m2/(cLc + k2)) 
-cLn_degradation: cLn ->(m3*nucleus/(cLn + k3)) 
-cTm_transcription:  ->(cYn**b*g3**c*n2*nucleus/((cLn**c + g3**c)*(cYn**b + g2**b))) cTm
-cTm_degradation: cTm ->(m4*nucleus/(cTm + k4)) 
-cTc_synthesis:  ->(cTm*cytoplasm*p2) cTc
-cTc_transport_into_nucleus: cTc ->(cytoplasm*r3) cTn
-cTn_transport_into_cytoplasm: cTn ->(nucleus*r4) cTc
-cTc_degradation: cTc ->(-cytoplasm*(ld*m5 - lmax*m5 - m6)/(cTc + k5)) 
-cTn_degradation: cTn ->(-nucleus*(ld*m7 - lmax*m7 - m8)/(cTn + k6)) 
-cXm_transcription:  ->(cTn**d*n3*nucleus/(cTn**d + g4**d)) cXm
-cXm_degradation: cXm ->(m9*nucleus/(cXm + k7)) 
-cXc_synthesis:  ->(cXm*cytoplasm*p3) cXc
-cXc_transport_into_nucleus: cXc ->(cytoplasm*r5) cXn
-cXn_transport_into_cytoplasm: cXn ->(nucleus*r6) cXc
-cXc_degradation: cXc ->(cytoplasm*m10/(cXc + k8)) 
-cXn_degradation: cXn ->(m11*nucleus/(cXn + k9)) 
-cYm_transcription:  ->(g6**f*nucleus*(cPn*cTn**e*ld*q2 + cPn*g5**e*ld*q2 + g5**e*ld*n4 + g5**e*n5)/((cLn**f + g6**f)*(cTn**e + g5**e))) cYm
-cYm_degradation: cYm ->(m12*nucleus/(cYm + k10)) 
-cYc_synthesis:  ->(cYm*cytoplasm*p4) cYc
-cYc_transport_to_nucleus: cYc ->(cytoplasm*r7) cYn
-cYn_transport_to_cytoplasm: cYn ->(nucleus*r8) cYc
-cYc_degradation: cYc ->(cytoplasm*m13/(cYc + k11)) 
-cYn_degradation: cYn ->(m14*nucleus/(cYn + k12)) 
-cPn_synthesis:  ->(-nucleus*p5*(ld - lmax)) cPn
-cPn_degradation: cPn ->(m15*nucleus/(cPn + k13)) 
-Light_dependent_cPn_degradation: cPn ->(ld*nucleus*q3) 
-cP7m_transcription:  ->(cLn**j*n6*nucleus/(cLn**j + g9**j)) cP7m
-cP7m_degradation: cP7m ->(m16*nucleus/(cP7m + k14)) 
-cP7c_synthesis:  ->(cP7m*cytoplasm*p6) cP7c
-cP7c_transport_to_nucleus: cP7c ->(cytoplasm*r9) cP7n
-cP7n_transport_to_cytoplasm: cP7n ->(nucleus*r10) cP7c
-cP7c_degradation: cP7c ->(cytoplasm*m17/(cP7c + k15)) 
-cP7n_degradation: cP7n ->(m18*nucleus/(cP7n + k16)) 
-cP9m_transcription:  ->(cLn**k*n7*nucleus/(cLn**k + g10**k)) cP9m
-cP9m_degradation: cP9m ->(m19*nucleus/(cP9m + k17)) 
-cP9c_synthesis:  ->(cP9m*cytoplasm*p7) cP9c
-cP9c_transport_to_nucleus: cP9c ->(cytoplasm*r11) cP9n
-cP9n_transport_to_cytoplasm: cP9n ->(nucleus*r12) cP9c
-cP9c_degradation: cP9c ->(cytoplasm*m20/(cP9c + k18)) 
-cP9n_degradation: cP9n ->(m21*nucleus/(cP9n + k19)) 
+R1:  ->(cPn*ld*nucleus*q1) cLm
+R2:  ->(cXn**a*g7**h*g8**i*n1*nucleus/((cP7n**h + g7**h)*(cP9n**i + g8**i)*(cXn**a + g1**a))) cLm
+R3: cLm ->(m1*nucleus/(cLm + k1)) 
+R4:  ->(cLm*cytoplasm*p1) cLc
+R5: cLc ->(cytoplasm*r1) cLn
+R6: cLn ->(nucleus*r2) cLc
+R7: cLc ->(cytoplasm*m2/(cLc + k2)) 
+R8: cLn ->(m3*nucleus/(cLn + k3)) 
+R9:  ->(cYn**b*g3**c*n2*nucleus/((cLn**c + g3**c)*(cYn**b + g2**b))) cTm
+R10: cTm ->(m4*nucleus/(cTm + k4)) 
+R11:  ->(cTm*cytoplasm*p2) cTc
+R12: cTc ->(cytoplasm*r3) cTn
+R13: cTn ->(nucleus*r4) cTc
+R14: cTc ->(cytoplasm*(m5*(-ld + lmax) + m6)/(cTc + k5)) 
+R15: cTn ->(nucleus*(m7*(-ld + lmax) + m8)/(cTn + k6)) 
+R16:  ->(cTn**d*n3*nucleus/(cTn**d + g4**d)) cXm
+R17: cXm ->(m9*nucleus/(cXm + k7)) 
+R18:  ->(cXm*cytoplasm*p3) cXc
+R19: cXc ->(cytoplasm*r5) cXn
+R20: cXn ->(nucleus*r6) cXc
+R21: cXc ->(cytoplasm*m10/(cXc + k8)) 
+R22: cXn ->(m11*nucleus/(cXn + k9)) 
+R23:  ->(g6**f*nucleus*(cPn*ld*q2 + g5**e*(ld*n4 + n5)/(cTn**e + g5**e))/(cLn**f + g6**f)) cYm
+R24: cYm ->(m12*nucleus/(cYm + k10)) 
+R25:  ->(cYm*cytoplasm*p4) cYc
+R26: cYc ->(cytoplasm*r7) cYn
+R27: cYn ->(nucleus*r8) cYc
+R28: cYc ->(cytoplasm*m13/(cYc + k11)) 
+R29: cYn ->(m14*nucleus/(cYn + k12)) 
+R30:  ->(nucleus*p5*(-ld + lmax)) cPn
+R31a: cPn ->(m15*nucleus/(cPn + k13)) 
+R31b: cPn ->(ld*nucleus*q3) 
+R32:  ->(cLn**j*n6*nucleus/(cLn**j + g9**j)) cP7m
+R33: cP7m ->(m16*nucleus/(cP7m + k14)) 
+R34:  ->(cP7m*cytoplasm*p6) cP7c
+R35: cP7c ->(cytoplasm*r9) cP7n
+R36: cP7n ->(nucleus*r10) cP7c
+R37: cP7c ->(cytoplasm*m17/(cP7c + k15)) 
+R38: cP7n ->(m18*nucleus/(cP7n + k16)) 
+R39:  ->(cLn**k*n7*nucleus/(cLn**k + g10**k)) cP9m
+R40: cP9m ->(m19*nucleus/(cP9m + k17)) 
+R41:  ->(cP9m*cytoplasm*p7) cP9c
+R42: cP9c ->(cytoplasm*r11) cP9n
+R43: cP9n ->(nucleus*r12) cP9c
+R44: cP9c ->(cytoplasm*m20/(cP9c + k18)) 
+R45: cP9n ->(m21*nucleus/(cP9n + k19)) 

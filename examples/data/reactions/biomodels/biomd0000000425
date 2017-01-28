@@ -1,4 +1,4 @@
-reaction_1:  ->(alpha) ribosome_concentration
-reaction_3: ribosome_concentration ->(kd) 
-reaction_2:  ->(ribosome_concentration/(kappa + ribosome_concentration)) ribosome_concentration
-reaction_4: ribosome_concentration ->(phi/(delta + gamma*ribosome_concentration)) 
+reaction_1:  ->(reaction_1_alpha) c
+reaction_3: c ->(reaction_3_kd) 
+reaction_2:  ->(c/(c + reaction_2_kappa)) c
+reaction_4: c ->(reaction_4_phi/(c*reaction_4_gamma + reaction_4_delta)) 

@@ -41,15 +41,15 @@ f_06: C4BP + C4b_C2a ->(compartment*kf06_1) C4b_C2a_C4BP
 f_06_rev: C4b_C2a_C4BP ->(compartment*kf06_2) C4BP + C4b_C2a
 f_07: C4BP + dC4b_C2a ->(compartment*kf07_1) dC4b_C2a_C4BP
 f_07_rev: dC4b_C2a_C4BP ->(compartment*kf07_2) C4BP + dC4b_C2a
-t_01: C4BP ->(compartment*k1) 
-t_02: C3b ->(compartment*k1) 
-t_03: C4b_C2a ->(compartment*k1) 
+t_01: C4BP ->(compartment*t_01_k1_4) 
+t_02: C3b ->(compartment*t_02_k1_4) 
+t_03: C4b_C2a ->(compartment*t_03_k1_4) 
 d_05: C1 + PC_CRP_LF ->(compartment*kd05_1) PC_CRP_LF_C1
 d_05_rev: PC_CRP_LF_C1 ->(compartment*kd05_2) C1 + PC_CRP_LF
 d_06: C4 ->(PC_CRP_LF_C1*compartment*kd06_1/(C4 + kd06_2)) C4a + C4b
 d_07: C2 ->(PC_CRP_LF_C1*compartment*kd07_1/(C2 + kd07_2)) C2a + C2b
-t_04: C4BP + PC_CRP_LF ->(compartment*k1) C4BP_PC_CRP_LF
-t_04_rev: C4BP_PC_CRP_LF ->(compartment*k2) C4BP + PC_CRP_LF
+t_04: C4BP + PC_CRP_LF ->(compartment*t_04_k1_4) C4BP_PC_CRP_LF
+t_04_rev: C4BP_PC_CRP_LF ->(compartment*t_04_k2) C4BP + PC_CRP_LF
 e_05: GlcNac_LF_CRP + MASP ->(compartment*ke05_1) GlcNac_LF_CRP_MASP
 e_05_rev: GlcNac_LF_CRP_MASP ->(compartment*ke05_2) GlcNac_LF_CRP + MASP
 e_06: C4 ->(GlcNac_LF_CRP_MASP*compartment*ke06_1/(C4 + ke06_2)) C4a + C4b

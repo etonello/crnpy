@@ -38,8 +38,8 @@ inh_displ_ac_rev: Inh_T1 + alpha ->(k22r*sample) Inh + T1_alpha
 m_inh_displ_ca: Inh_T1 + alpha ->(k23d*sample) Inh + alpha_T1
 m_inh_displ_ca_rev: Inh + alpha_T1 ->(k23r*sample) Inh_T1 + alpha
 exo_a: alpha ->(k24d*sample) empty
-exo_a_rev: empty -> alpha
+exo_a_rev: empty ->(k_exo_a_rev) alpha
 exo_b: beta ->(k25d*sample) empty
-exo_b_rev: empty -> beta
+exo_b_rev: empty ->(k_exo_b_rev) beta
 exo_c: Inh ->(k26d*sample) empty
-exo_c_rev: empty -> Inh
+exo_c_rev: empty ->(k_exo_c_rev) Inh

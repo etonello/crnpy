@@ -1,17 +1,17 @@
-per2_cry_transcription:  ->(Cytoplasm*trans_per2_cry) Per2_or_Cry_mRNA
-per2_cry_mRNA_degradation: Per2_or_Cry_mRNA ->(Cytoplasm*k1d) 
-per2_cry_complex_formation:  ->(Cytoplasm*Per2_or_Cry_mRNA**q*k2b) PER2_CRY_complex_cytoplasm
-cytoplasmic_per2_cry_complex_degradation: PER2_CRY_complex_cytoplasm ->(Cytoplasm*k2d) 
-per2_cry_nuclear_import: PER2_CRY_complex_cytoplasm ->(Cytoplasm*k2t) PER2_CRY_complex_nucleus
-per2_cry_nuclear_export: PER2_CRY_complex_nucleus ->(Nucleus*k3t) PER2_CRY_complex_cytoplasm
-nuclear_per2_cry_complex_degradation: PER2_CRY_complex_nucleus ->(Nucleus*k3d) 
-Bmal1_transcription:  ->(Cytoplasm*trans_Bmal1) Bmal1_mRNA
-Bmal1_mRNA_degradation: Bmal1_mRNA ->(Cytoplasm*k4d) 
-BMAL1_translation:  ->(Bmal1_mRNA*Cytoplasm*k5b) BMAL1_cytoplasm
-cytoplasmic_BMAL1_degradation: BMAL1_cytoplasm ->(Cytoplasm*k5d) 
-BMAL1_nuclear_import: BMAL1_cytoplasm ->(Cytoplasm*k5t) BMAL1_nucleus
-BMAL1_nuclear_export: BMAL1_nucleus ->(Nucleus*k6t) BMAL1_cytoplasm
-nuclear_BMAL1_degradation: BMAL1_nucleus ->(Nucleus*k6d) 
-BMAL1_activation: BMAL1_nucleus ->(Nucleus*k6a) Active_BMAL1
-BMAL1_deactivation: Active_BMAL1 ->(Nucleus*k7a) BMAL1_nucleus
-Active_BMAL1_degradation: Active_BMAL1 ->(Nucleus*k7d) 
+per2_cry_transcription:  ->(Cytoplasm*trans_per2_cry) y1
+per2_cry_mRNA_degradation: y1 ->(Cytoplasm*k1d) 
+per2_cry_complex_formation:  ->(Cytoplasm*k2b*y1**q) y2
+cytoplasmic_per2_cry_complex_degradation: y2 ->(Cytoplasm*k2d) 
+per2_cry_nuclear_import: y2 ->(Cytoplasm*k2t) y3
+per2_cry_nuclear_export: y3 ->(Nucleus*k3t) y2
+nuclear_per2_cry_complex_degradation: y3 ->(Nucleus*k3d) 
+Bmal1_transcription:  ->(Cytoplasm*trans_Bmal1) y4
+Bmal1_mRNA_degradation: y4 ->(Cytoplasm*k4d) 
+BMAL1_translation:  ->(Cytoplasm*k5b*y4) y5
+cytoplasmic_BMAL1_degradation: y5 ->(Cytoplasm*k5d) 
+BMAL1_nuclear_import: y5 ->(Cytoplasm*k5t) y6
+BMAL1_nuclear_export: y6 ->(Nucleus*k6t) y5
+nuclear_BMAL1_degradation: y6 ->(Nucleus*k6d) 
+BMAL1_activation: y6 ->(Nucleus*k6a) y7
+BMAL1_deactivation: y7 ->(Nucleus*k7a) y6
+Active_BMAL1_degradation: y7 ->(Nucleus*k7d) 

@@ -1,54 +1,54 @@
-RuBisCO___CO2: RuBP ->(KR1*KR2*KR3*KR4*KR5*Wc_min*chloroplast/(FBP*K*KR1*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*NADPH + K*KR1*KR2*KR3*KR5*R4 + K*KR1*KR2*KR4*KR5*SBP + K*KR2*KR3*KR4*KR5*PGA + KR1*KR2*KR3*KR4*KR5*RuBP)) 2PGA
-PGA_kinase: ATP + PGA ->(Kr1*Vm*chloroplast/((Ks1 + PGA)*(ADP*Ks2 + ATP*Kr1 + Kr1*Ks2))) ADP + DPGA
-GAP_dehydrogenase: DPGA + NADPH ->(Vm*chloroplast/((DPGA + K1)*(K2 + NADPH))) NADP + TP
-FBP_aldolase: 2TP ->(DHAP*GAP*Kp1*Vm*chloroplast/(TP**2*(DHAP*GAP*Kp1 + DHAP*Kp1*Ks1 + FBP*Ks1*Ks2 + GAP*Kp1*Ks2 + Kp1*Ks1*Ks2))) FBP
-FBP_aldolase_rev: FBP ->(Kp1*Vm*chloroplast/(q*(DHAP*GAP*Kp1 + DHAP*Kp1*Ks1 + FBP*Ks1*Ks2 + GAP*Kp1*Ks2 + Kp1*Ks1*Ks2))) 2TP
-FBPase: FBP ->(Kr1*Kr2*Vm*chloroplast/(F6P*Kr2*Ks1 + FBP*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr1*Ks1*r2)) HeP + Pi
-FBPase_rev: HeP + Pi ->(F6P*Kr1*Kr2*Vm*chloroplast*p2/(HeP*Pi*q*(F6P*Kr2*Ks1 + FBP*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr1*Ks1*r2))) FBP
-F6P_transketolase: HeP + TP ->(F6P*GAP*Kr1*Kr2*Vm*chloroplast/(HeP*TP*(GAP + Ks2)*(E4P*Kr1*Ks1 + F6P*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr2*Ks1*X5P))) E4P + PeP
-F6P_transketolase_rev: E4P + PeP ->(Kr1*Kr2*Vm*X5P*chloroplast/(PeP*q*(GAP + Ks2)*(E4P*Kr1*Ks1 + F6P*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr2*Ks1*X5P))) HeP + TP
-SBP_aldolase: E4P + TP ->(DHAP*Vm*chloroplast/(TP*(DHAP + Ks1)*(E4P + Ks2))) SBP
-SBP_aldolase_rev: SBP ->(Vm*chloroplast/(q*(DHAP + Ks1)*(E4P + Ks2))) E4P + TP
-SBPase: SBP ->(Kr1*Vm*chloroplast/(Kr1*Ks1 + Kr1*SBP + Ks1*r1)) Pi + S7P
-SBPase_rev: Pi + S7P ->(Kr1*Vm*chloroplast*p2/(Pi*q*(Kr1*Ks1 + Kr1*SBP + Ks1*r1))) SBP
-S7P_transketolase: S7P + TP ->(GAP*Kr1*Kr2*Vm*chloroplast/(TP*(Ks2 + S7P)*(GAP*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr1*Ks1*R5P + Kr2*Ks1*X5P))) 2PeP
-S7P_transketolase_rev: 2PeP ->(Kr1*Kr2*R5P*Vm*X5P*chloroplast/(PeP**2*q*(Ks2 + S7P)*(GAP*Kr1*Kr2 + Kr1*Kr2*Ks1 + Kr1*Ks1*R5P + Kr2*Ks1*X5P))) S7P + TP
-Ru5P_kinase: ATP + PeP ->(Kr1*Kr2*Kr3*Kr41*Kr42*Ru5P*Vm*chloroplast/(PeP*(ADP*ATP*Kr42 + ADP*Kr41*Ks2 + ATP*Kr41*Kr42 + Kr41*Kr42*Ks2)*(Kr1*Kr2*Kr3*Ks1 + Kr1*Kr2*Kr3*Ru5P + Kr1*Kr2*Ks1*r3 + Kr1*Kr3*Ks1*RuBP + Kr2*Kr3*Ks1*PGA))) ADP + RuBP
-Ru5P_kinase_rev: ADP + RuBP ->(Kr1*Kr2*Kr3*Kr41*Kr42*Vm*chloroplast/(q*(ADP*ATP*Kr42 + ADP*Kr41*Ks2 + ATP*Kr41*Kr42 + Kr41*Kr42*Ks2)*(Kr1*Kr2*Kr3*Ks1 + Kr1*Kr2*Kr3*Ru5P + Kr1*Kr2*Ks1*r3 + Kr1*Kr3*Ks1*RuBP + Kr2*Kr3*Ks1*PGA))) ATP + PeP
-ATP_synthetase: ADP + Pi ->(Kp1*Vm*chloroplast*s2/(Pi*(ADP*Kp1*Ks2 + ADP*Kp1*s2 + ATP*Ks1*Ks2 + Kp1*Ks1*Ks2 + Kp1*Ks1*s2))) ATP
-ATP_synthetase_rev: ATP ->(Kp1*Vm*chloroplast/(q*(ADP*Kp1*Ks2 + ADP*Kp1*s2 + ATP*Ks1*Ks2 + Kp1*Ks1*Ks2 + Kp1*Ks1*s2))) ADP + Pi
-AGPase: ATP + HeP ->(G1P*KR1*Vm*chloroplast*(F6P*KA2 + FBP*KA3 + KA1*PGA)/(HeP*(ADP + KR1)*(G1P + K1)*(ATP*F6P*KA2 + ATP*FBP*KA3 + ATP*KA1*PGA + F6P*K2*KA2 + FBP*K2*KA3 + K2**2*R2 + K2*KA1*PGA))) 
-TPT___PGA: PGA ->(KR1*KR2*KR3*Pic*Vm/(DHAP*K*KA*KR1*KR2 + DHAP*K*KR1*KR2*Pic + GAP*K*KA*KR1*KR3 + GAP*K*KR1*KR3*Pic + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pic + K*KR2*KR3*Pic*R1 + KA*KR1*KR2*KR3*PGA + KR1*KR2*KR3*PGA*Pic)) PGAc
-TPT___GAP: TP ->(GAP*KR1*KR2*KR3*Pic*Vm/(TP*(DHAP*K*KA*KR1*KR2 + DHAP*K*KR1*KR2*Pic + GAP*KA*KR1*KR2*KR3 + GAP*KR1*KR2*KR3*Pic + K*KA*KR1*KR3*PGA + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pic + K*KR1*KR3*PGA*Pic + K*KR2*KR3*Pic*R1))) TPc
-TPT___DHAP: TP ->(DHAP*KR1*KR2*KR3*Pic*Vm/(TP*(DHAP*KA*KR1*KR2*KR3 + DHAP*KR1*KR2*KR3*Pic + GAP*K*KA*KR1*KR2 + GAP*K*KR1*KR2*Pic + K*KA*KR1*KR3*PGA + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pic + K*KR1*KR3*PGA*Pic + K*KR2*KR3*Pic*R1))) TPc
-FBPc_aldolase: 2TPc ->(DHAPc*GAPc*Kp1*Vm*cytosol/(TPc**2*(DHAPc*GAPc*Kp1 + DHAPc*Kp1*Ks1 + FBPc*Ks1*Ks2 + GAPc*Kp1*Ks2 + Kp1*Ks1*Ks2))) FBPc
-FBPc_aldolase_rev: FBPc ->(Kp1*Vm*cytosol/(q*(DHAPc*GAPc*Kp1 + DHAPc*Kp1*Ks1 + FBPc*Ks1*Ks2 + GAPc*Kp1*Ks2 + Kp1*Ks1*Ks2))) 2TPc
-FBPcase: FBPc ->(Kp1*Kp2*Vm*cytosol/(F6Pc*K52a*Kp2 + F6Pc*K52a*Pic + FBPc*Kp1*Kp2 + K52a*Kp1*Kp2 + K52a*Kp1*Pic)) HePc + Pic
-FBPcase_rev: HePc + Pic ->(F6Pc*Kp1*Kp2*Vm*cytosol/(HePc*q*(F6Pc*K52a*Kp2 + F6Pc*K52a*Pic + FBPc*Kp1*Kp2 + K52a*Kp1*Kp2 + K52a*Kp1*Pic))) FBPc
-UGPase: HePc + UTPc ->(G1Pc*Kp1*Kp2*Vm*cytosol/(HePc*(G1Pc*Kp1*Kp2*Ks2 + G1Pc*Kp1*Kp2*UTPc + Kp1*Kp2*Ks1*Ks2 + Kp1*Kp2*Ks1*UTPc + Kp1*Ks1*Ks2*PiPic + Kp2*Ks1*Ks2*UDPGc + Ks1*Ks2*PiPic*UDPGc))) PiPic + UDPGc
-UGPase_rev: PiPic + UDPGc ->(Kp1*Kp2*Vm*cytosol/(q*(G1Pc*Kp1*Kp2*Ks2 + G1Pc*Kp1*Kp2*UTPc + Kp1*Kp2*Ks1*Ks2 + Kp1*Kp2*Ks1*UTPc + Kp1*Ks1*Ks2*PiPic + Kp2*Ks1*Ks2*UDPGc + Ks1*Ks2*PiPic*UDPGc))) HePc + UTPc
-SucPc_synthase: HePc + UDPGc ->(F6Pc*Kr1*Kr2*Kr3*Kr4*Kr5*Vm*cytosol/(HePc*(F6Pc*Kr1 + FBPc*Ks1 + Kr1*Ks1)*(Kr2*Kr3*Kr4*Kr5*Ks2 + Kr2*Kr3*Kr4*Kr5*UDPGc + Kr2*Kr3*Kr4*Ks2*Pic + Kr2*Kr3*Kr5*Ks2*Succ + Kr2*Kr3*Ks2*Pic*Succ + Kr2*Kr4*Kr5*Ks2*SucPc + Kr2*Kr4*Ks2*Pic*SucPc + Kr2*Kr5*Ks2*SucPc*Succ + Kr2*Ks2*Pic*SucPc*Succ + Kr3*Kr4*Kr5*Ks2*UDPc + Kr3*Kr4*Ks2*Pic*UDPc + Kr3*Kr5*Ks2*Succ*UDPc + Kr3*Ks2*Pic*Succ*UDPc + Kr4*Kr5*Ks2*SucPc*UDPc + Kr4*Ks2*Pic*SucPc*UDPc + Kr5*Ks2*SucPc*Succ*UDPc + Ks2*Pic*SucPc*Succ*UDPc))) SucPc + UDPc
-SucPc_synthase_rev: SucPc + UDPc ->(Kr1*Kr2*Kr3*Kr4*Kr5*Vm*cytosol/(q*(F6Pc*Kr1 + FBPc*Ks1 + Kr1*Ks1)*(Kr2*Kr3*Kr4*Kr5*Ks2 + Kr2*Kr3*Kr4*Kr5*UDPGc + Kr2*Kr3*Kr4*Ks2*Pic + Kr2*Kr3*Kr5*Ks2*Succ + Kr2*Kr3*Ks2*Pic*Succ + Kr2*Kr4*Kr5*Ks2*SucPc + Kr2*Kr4*Ks2*Pic*SucPc + Kr2*Kr5*Ks2*SucPc*Succ + Kr2*Ks2*Pic*SucPc*Succ + Kr3*Kr4*Kr5*Ks2*UDPc + Kr3*Kr4*Ks2*Pic*UDPc + Kr3*Kr5*Ks2*Succ*UDPc + Kr3*Ks2*Pic*Succ*UDPc + Kr4*Kr5*Ks2*SucPc*UDPc + Kr4*Ks2*Pic*SucPc*UDPc + Kr5*Ks2*SucPc*Succ*UDPc + Ks2*Pic*SucPc*Succ*UDPc))) HePc + UDPGc
-SucPc_phosphatase: SucPc ->(Kr1*Vm*cytosol/(Kr1*Ks1 + Kr1*SucPc + Ks1*Succ)) Pic + Succ
-SucPc_phosphatase_rev: Pic + Succ ->(Kr1*Vm*cytosol/(q*(Kr1*Ks1 + Kr1*SucPc + Ks1*Succ))) SucPc
-F6Pc_kinase: ATPc + HePc ->(F6Pc*Kr1*Kr2*Kr3*Vm*cytosol/(HePc*(ADPc*Ks2 + ATPc*Kr3 + Kr3*Ks2)*(DHAPc*F26BPc*Ks1 + DHAPc*Kr1*Ks1 + F26BPc*Kr2*Ks1 + F6Pc*Kr1*Kr2 + Kr1*Kr2*Ks1))) ADPc + F26BPc
-F6Pc_kinase_rev: ADPc + F26BPc ->(Kr1*Kr2*Kr3*Vm*cytosol/(q*(ADPc*Ks2 + ATPc*Kr3 + Kr3*Ks2)*(DHAPc*F26BPc*Ks1 + DHAPc*Kr1*Ks1 + F26BPc*Kr2*Ks1 + F6Pc*Kr1*Kr2 + Kr1*Kr2*Ks1))) ATPc + HePc
-F26BPc_phosphatase: F26BPc ->(Kr1*Kr2*Vm*cytosol/((F26BPc + Ks1)*(F6Pc + Kr2)*(Kr1 + Pic))) HePc + Pic
-Succ_degradation: Succ ->(V*cytosol/(Km + Succ)) 
-PGAc_degradation: PGAc ->(V*cytosol/(Km + PGAc)) 
-GPT___GCEAc: GCEAc ->(Ki*V/(GCAc*Km + GCEAc*Ki + Ki*Km)) GCEA
-GPT___GCEA: GCEA ->(Ki*V/(GCA*Km + GCEA*Ki + Ki*Km)) GCEAc
-GPT___GCA: GCA ->(Ki*V/(GCA*Ki + GCEA*Km + Ki*Km)) GCAc
-GPT___GCAc: GCAc ->(Ki*V/(GCAc*Ki + GCEAc*Km + Ki*Km)) GCA
-RuBisC0___O2: RuBP ->(KR1*KR2*KR3*KR4*KR5*Wo_min*chloroplast/(FBP*K*KR1*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*NADPH + K*KR1*KR2*KR3*KR5*R4 + K*KR1*KR2*KR4*KR5*SBP + K*KR2*KR3*KR4*KR5*PGA + KR1*KR2*KR3*KR4*KR5*RuBP)) PGA + PGCA
-PGCA_phosphatase: PGCA ->(Kr1*Kr2*Vm*chloroplast/(GCA*Kr2*Ks1 + GCA*Ks1*r2 + Kr1*Kr2*Ks1 + Kr1*Kr2*PGCA + Kr1*Ks1*r2)) GCA
-GCEA_kinase: ATP + GCEA ->(Kr1*Vm*chloroplast/((GCEA + Ks2)*(ATP*Kr1 + Kr1*Ks1 + Ks1*PGA))) ADP + PGA
-GCEA_kinase_rev: ADP + PGA ->(Kr1*Vm*chloroplast/(q*(GCEA + Ks2)*(ATP*Kr1 + Kr1*Ks1 + Ks1*PGA))) ATP + GCEA
-GCAc_oxidase: GCAc ->(V*cytosol/(GCAc + Km)) GOAc
-SERc_GOAc_aminotransferase: GOAc + SERc ->(Kr1*Vm/((GOAc + Ks2)*(GLYc*Ks1 + Kr1*Ks1 + Kr1*SERc))) GLYc + HPRc
-SERc_GOAc_aminotransferase_rev: GLYc + HPRc ->(Kr1*Vm/(q*(GOAc + Ks2)*(GLYc*Ks1 + Kr1*Ks1 + Kr1*SERc))) GOAc + SERc
-GCEA_dehydrogenase: HPRc + NADH ->(Kr1*Vm/(HPRc*Kr1 + HPRc*Ks1 + Kr1*Ks1)) GCEAc + NAD
-GCEA_dehydrogenase_rev: GCEAc + NAD ->(Kr1*Vm/(q*(HPRc*Kr1 + HPRc*Ks1 + Kr1*Ks1))) HPRc + NADH
-GLUc_GOAc_aminotransferase: GLUc + GOAc ->(Kr1*Vm*cytosol/((GOAc + Ks2)*(GLUc*Kr1 + GLYc*Ks1 + Kr1*Ks1))) GLYc + KGc
-GLUc_GOAc_aminotransferase_rev: GLYc + KGc ->(Kr1*Vm*cytosol/(q*(GOAc + Ks2)*(GLUc*Kr1 + GLYc*Ks1 + Kr1*Ks1))) GLUc + GOAc
-GLYc_decarboxylase: 2GLYc ->(Kr1*Vm*cytosol/(GLYc*(GLYc*Kr1 + Kr1*Ks1 + Ks1*SERc))) SERc
+RuBisCO_CO2: RuBP ->(Wc_min*chloroplast/(RuBP + RuBisCO_CO2_K*(FBP/RuBisCO_CO2_KR2 + NADPH/RuBisCO_CO2_KR5 + PGA/RuBisCO_CO2_KR1 + Pi/RuBisCO_CO2_KR4 + 1 + SBP/RuBisCO_CO2_KR3))) 2PGA
+PGA_K: ATP + PGA ->(PGA_K_Vm*chloroplast/((ATP + PGA_K_Ks2*(ADP/PGA_K_Kr1 + 1))*(PGA + PGA_K_Ks1))) ADP + DPGA
+GAP_DH: DPGA + NADPH ->(GAP_DH_Vm*chloroplast/((DPGA + GAP_DH_K1)*(GAP_DH_K2 + NADPH))) NADP + TP
+FBP_A: 2TP ->(DHAP*FBP_A_Kp1*FBP_A_Vm*GAP*chloroplast/(TP**2*(DHAP*FBP_A_Kp1*FBP_A_Ks1 + DHAP*FBP_A_Kp1*GAP + FBP*FBP_A_Ks1*FBP_A_Ks2 + FBP_A_Kp1*FBP_A_Ks1*FBP_A_Ks2 + FBP_A_Kp1*FBP_A_Ks2*GAP))) FBP
+FBP_A_rev: FBP ->(FBP_A_Kp1*FBP_A_Vm*chloroplast/(FBP_A_q*(DHAP*FBP_A_Kp1*FBP_A_Ks1 + DHAP*FBP_A_Kp1*GAP + FBP*FBP_A_Ks1*FBP_A_Ks2 + FBP_A_Kp1*FBP_A_Ks1*FBP_A_Ks2 + FBP_A_Kp1*FBP_A_Ks2*GAP))) 2TP
+FBPase: FBP ->(FBPase_Kr1*FBPase_Kr2*FBPase_Vm*chloroplast/(F6P*FBPase_Kr2*FBPase_Ks1 + FBP*FBPase_Kr1*FBPase_Kr2 + FBPase_Kr1*FBPase_Kr2*FBPase_Ks1 + FBPase_Kr1*FBPase_Ks1*Pi)) HeP + Pi
+FBPase_rev: HeP + Pi ->(F6P*FBPase_Kr1*FBPase_Kr2*FBPase_Vm*chloroplast/(FBPase_q*HeP*(F6P*FBPase_Kr2*FBPase_Ks1 + FBP*FBPase_Kr1*FBPase_Kr2 + FBPase_Kr1*FBPase_Kr2*FBPase_Ks1 + FBPase_Kr1*FBPase_Ks1*Pi))) FBP
+F6P_TK: HeP + TP ->(F6P*F6P_TK_Kr1*F6P_TK_Kr2*F6P_TK_Vm*GAP*chloroplast/(HeP*TP*(F6P_TK_Ks2 + GAP)*(E4P*F6P_TK_Kr1*F6P_TK_Ks1 + F6P*F6P_TK_Kr1*F6P_TK_Kr2 + F6P_TK_Kr1*F6P_TK_Kr2*F6P_TK_Ks1 + F6P_TK_Kr2*F6P_TK_Ks1*X5P))) E4P + PeP
+F6P_TK_rev: E4P + PeP ->(F6P_TK_Kr1*F6P_TK_Kr2*F6P_TK_Vm*X5P*chloroplast/(F6P_TK_q*PeP*(F6P_TK_Ks2 + GAP)*(E4P*F6P_TK_Kr1*F6P_TK_Ks1 + F6P*F6P_TK_Kr1*F6P_TK_Kr2 + F6P_TK_Kr1*F6P_TK_Kr2*F6P_TK_Ks1 + F6P_TK_Kr2*F6P_TK_Ks1*X5P))) HeP + TP
+SBP_A: E4P + TP ->(DHAP*SBP_A_Vm*chloroplast/(TP*(DHAP + SBP_A_Ks1)*(E4P + SBP_A_Ks2))) SBP
+SBP_A_rev: SBP ->(SBP_A_Vm*chloroplast/(SBP_A_q*(DHAP + SBP_A_Ks1)*(E4P + SBP_A_Ks2))) E4P + TP
+SBPase: SBP ->(SBPase_Kr1*SBPase_Vm*chloroplast/(Pi*SBPase_Ks1 + SBP*SBPase_Kr1 + SBPase_Kr1*SBPase_Ks1)) Pi + S7P
+SBPase_rev: Pi + S7P ->(SBPase_Kr1*SBPase_Vm*chloroplast/(SBPase_q*(Pi*SBPase_Ks1 + SBP*SBPase_Kr1 + SBPase_Kr1*SBPase_Ks1))) SBP
+S7P_TK: S7P + TP ->(GAP*S7P_TK_Kr1*S7P_TK_Kr2*S7P_TK_Vm*chloroplast/(TP*(S7P + S7P_TK_Ks2)*(GAP*S7P_TK_Kr1*S7P_TK_Kr2 + R5P*S7P_TK_Kr1*S7P_TK_Ks1 + S7P_TK_Kr1*S7P_TK_Kr2*S7P_TK_Ks1 + S7P_TK_Kr2*S7P_TK_Ks1*X5P))) 2PeP
+S7P_TK_rev: 2PeP ->(R5P*S7P_TK_Kr1*S7P_TK_Kr2*S7P_TK_Vm*X5P*chloroplast/(PeP**2*S7P_TK_q*(S7P + S7P_TK_Ks2)*(GAP*S7P_TK_Kr1*S7P_TK_Kr2 + R5P*S7P_TK_Kr1*S7P_TK_Ks1 + S7P_TK_Kr1*S7P_TK_Kr2*S7P_TK_Ks1 + S7P_TK_Kr2*S7P_TK_Ks1*X5P))) S7P + TP
+Ru5P_K: ATP + PeP ->(Ru5P*Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Kr41*Ru5P_K_Kr42*Ru5P_K_Vm*chloroplast/(PeP*(ADP*ATP*Ru5P_K_Kr42 + ADP*Ru5P_K_Kr41*Ru5P_K_Ks2 + ATP*Ru5P_K_Kr41*Ru5P_K_Kr42 + Ru5P_K_Kr41*Ru5P_K_Kr42*Ru5P_K_Ks2)*(PGA*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Ks1 + Pi*Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Ks1 + Ru5P*Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3 + Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Ks1 + Ru5P_K_Kr1*Ru5P_K_Kr3*Ru5P_K_Ks1*RuBP))) ADP + RuBP
+Ru5P_K_rev: ADP + RuBP ->(Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Kr41*Ru5P_K_Kr42*Ru5P_K_Vm*chloroplast/(Ru5P_K_q*(ADP*ATP*Ru5P_K_Kr42 + ADP*Ru5P_K_Kr41*Ru5P_K_Ks2 + ATP*Ru5P_K_Kr41*Ru5P_K_Kr42 + Ru5P_K_Kr41*Ru5P_K_Kr42*Ru5P_K_Ks2)*(PGA*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Ks1 + Pi*Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Ks1 + Ru5P*Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3 + Ru5P_K_Kr1*Ru5P_K_Kr2*Ru5P_K_Kr3*Ru5P_K_Ks1 + Ru5P_K_Kr1*Ru5P_K_Kr3*Ru5P_K_Ks1*RuBP))) ATP + PeP
+ATP_S: ADP + Pi ->(ATP_S_Kp1*ATP_S_Vm*chloroplast/(ADP*ATP_S_Kp1*ATP_S_Ks2 + ADP*ATP_S_Kp1*Pi + ATP*ATP_S_Ks1*ATP_S_Ks2 + ATP_S_Kp1*ATP_S_Ks1*ATP_S_Ks2 + ATP_S_Kp1*ATP_S_Ks1*Pi)) ATP
+ATP_S_rev: ATP ->(ATP_S_Kp1*ATP_S_Vm*chloroplast/(ATP_S_q*(ADP*ATP_S_Kp1*ATP_S_Ks2 + ADP*ATP_S_Kp1*Pi + ATP*ATP_S_Ks1*ATP_S_Ks2 + ATP_S_Kp1*ATP_S_Ks1*ATP_S_Ks2 + ATP_S_Kp1*ATP_S_Ks1*Pi))) ADP + Pi
+AGPase: ATP + HeP ->(AGPase_Vm*G1P*chloroplast/(HeP*(AGPase_K1 + G1P)*(ADP/AGPase_KR1 + 1)*(AGPase_K2*(AGPase_K2*Pi/(AGPase_KA1*PGA + AGPase_KA2*F6P + AGPase_KA3*FBP) + 1) + ATP))) 
+TPT_PGA: PGA ->(TPT_PGA_Vm/(PGA*(1 + TPT_PGA_KA/Pic) + TPT_PGA_K*((1 + TPT_PGA_KA/Pic)*(DHAP/TPT_PGA_KR3 + GAP/TPT_PGA_KR2 + Pi/TPT_PGA_KR1) + 1))) PGAc
+TPT_GAP: TP ->(GAP*TPT_GAP_Vm/(TP*(GAP*(1 + TPT_GAP_KA/Pic) + TPT_GAP_K*((1 + TPT_GAP_KA/Pic)*(DHAP/TPT_GAP_KR3 + PGA/TPT_GAP_KR2 + Pi/TPT_GAP_KR1) + 1)))) TPc
+TPT_DHAP: TP ->(DHAP*TPT_DHAP_Vm/(TP*(DHAP*(1 + TPT_DHAP_KA/Pic) + TPT_DHAP_K*((1 + TPT_DHAP_KA/Pic)*(GAP/TPT_DHAP_KR3 + PGA/TPT_DHAP_KR2 + Pi/TPT_DHAP_KR1) + 1)))) TPc
+FBPc_A: 2TPc ->(DHAPc*FBPc_A_Kp1*FBPc_A_Vm*GAPc*cytosol/(TPc**2*(DHAPc*FBPc_A_Kp1*FBPc_A_Ks1 + DHAPc*FBPc_A_Kp1*GAPc + FBPc*FBPc_A_Ks1*FBPc_A_Ks2 + FBPc_A_Kp1*FBPc_A_Ks1*FBPc_A_Ks2 + FBPc_A_Kp1*FBPc_A_Ks2*GAPc))) FBPc
+FBPc_A_rev: FBPc ->(FBPc_A_Kp1*FBPc_A_Vm*cytosol/(FBPc_A_q*(DHAPc*FBPc_A_Kp1*FBPc_A_Ks1 + DHAPc*FBPc_A_Kp1*GAPc + FBPc*FBPc_A_Ks1*FBPc_A_Ks2 + FBPc_A_Kp1*FBPc_A_Ks1*FBPc_A_Ks2 + FBPc_A_Kp1*FBPc_A_Ks2*GAPc))) 2TPc
+FBPcase: FBPc ->(FBPcase_Kp1*FBPcase_Kp2*FBPcase_Vm*cytosol/(F6Pc*FBPcase_Kp2*K52a + F6Pc*K52a*Pic + FBPc*FBPcase_Kp1*FBPcase_Kp2 + FBPcase_Kp1*FBPcase_Kp2*K52a + FBPcase_Kp1*K52a*Pic)) HePc + Pic
+FBPcase_rev: HePc + Pic ->(F6Pc*FBPcase_Kp1*FBPcase_Kp2*FBPcase_Vm*cytosol/(FBPcase_q*HePc*(F6Pc*FBPcase_Kp2*K52a + F6Pc*K52a*Pic + FBPc*FBPcase_Kp1*FBPcase_Kp2 + FBPcase_Kp1*FBPcase_Kp2*K52a + FBPcase_Kp1*K52a*Pic))) FBPc
+UGPase: HePc + UTPc ->(G1Pc*UGPase_Kp1*UGPase_Kp2*UGPase_Vm*cytosol/(HePc*(G1Pc*UGPase_Kp1*UGPase_Kp2*UGPase_Ks2 + G1Pc*UGPase_Kp1*UGPase_Kp2*UTPc + PiPic*UDPGc*UGPase_Ks1*UGPase_Ks2 + PiPic*UGPase_Kp1*UGPase_Ks1*UGPase_Ks2 + UDPGc*UGPase_Kp2*UGPase_Ks1*UGPase_Ks2 + UGPase_Kp1*UGPase_Kp2*UGPase_Ks1*UGPase_Ks2 + UGPase_Kp1*UGPase_Kp2*UGPase_Ks1*UTPc))) PiPic + UDPGc
+UGPase_rev: PiPic + UDPGc ->(UGPase_Kp1*UGPase_Kp2*UGPase_Vm*cytosol/(UGPase_q*(G1Pc*UGPase_Kp1*UGPase_Kp2*UGPase_Ks2 + G1Pc*UGPase_Kp1*UGPase_Kp2*UTPc + PiPic*UDPGc*UGPase_Ks1*UGPase_Ks2 + PiPic*UGPase_Kp1*UGPase_Ks1*UGPase_Ks2 + UDPGc*UGPase_Kp2*UGPase_Ks1*UGPase_Ks2 + UGPase_Kp1*UGPase_Kp2*UGPase_Ks1*UGPase_Ks2 + UGPase_Kp1*UGPase_Kp2*UGPase_Ks1*UTPc))) HePc + UTPc
+SucPc_S: HePc + UDPGc ->(F6Pc*SucPc_S_Kr1*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Vm*cytosol/(HePc*(F6Pc*SucPc_S_Kr1 + FBPc*SucPc_S_Ks1 + SucPc_S_Kr1*SucPc_S_Ks1)*(Pic*SucPc*SucPc_S_Kr2*SucPc_S_Kr4*SucPc_S_Ks2 + Pic*SucPc*SucPc_S_Kr2*SucPc_S_Ks2*Succ + Pic*SucPc*SucPc_S_Kr4*SucPc_S_Ks2*UDPc + Pic*SucPc*SucPc_S_Ks2*Succ*UDPc + Pic*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Ks2 + Pic*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Ks2*Succ + Pic*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Ks2*UDPc + Pic*SucPc_S_Kr3*SucPc_S_Ks2*Succ*UDPc + SucPc*SucPc_S_Kr2*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2 + SucPc*SucPc_S_Kr2*SucPc_S_Kr5*SucPc_S_Ks2*Succ + SucPc*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2*UDPc + SucPc*SucPc_S_Kr5*SucPc_S_Ks2*Succ*UDPc + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2 + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*UDPGc + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr5*SucPc_S_Ks2*Succ + SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2*UDPc + SucPc_S_Kr3*SucPc_S_Kr5*SucPc_S_Ks2*Succ*UDPc))) SucPc + UDPc
+SucPc_S_rev: SucPc + UDPc ->(SucPc_S_Kr1*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Vm*cytosol/(SucPc_S_q*(F6Pc*SucPc_S_Kr1 + FBPc*SucPc_S_Ks1 + SucPc_S_Kr1*SucPc_S_Ks1)*(Pic*SucPc*SucPc_S_Kr2*SucPc_S_Kr4*SucPc_S_Ks2 + Pic*SucPc*SucPc_S_Kr2*SucPc_S_Ks2*Succ + Pic*SucPc*SucPc_S_Kr4*SucPc_S_Ks2*UDPc + Pic*SucPc*SucPc_S_Ks2*Succ*UDPc + Pic*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Ks2 + Pic*SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Ks2*Succ + Pic*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Ks2*UDPc + Pic*SucPc_S_Kr3*SucPc_S_Ks2*Succ*UDPc + SucPc*SucPc_S_Kr2*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2 + SucPc*SucPc_S_Kr2*SucPc_S_Kr5*SucPc_S_Ks2*Succ + SucPc*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2*UDPc + SucPc*SucPc_S_Kr5*SucPc_S_Ks2*Succ*UDPc + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2 + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*UDPGc + SucPc_S_Kr2*SucPc_S_Kr3*SucPc_S_Kr5*SucPc_S_Ks2*Succ + SucPc_S_Kr3*SucPc_S_Kr4*SucPc_S_Kr5*SucPc_S_Ks2*UDPc + SucPc_S_Kr3*SucPc_S_Kr5*SucPc_S_Ks2*Succ*UDPc))) HePc + UDPGc
+SucPc_P: SucPc ->(SucPc_P_Kr1*SucPc_P_Vm*cytosol/(SucPc*SucPc_P_Kr1 + SucPc_P_Kr1*SucPc_P_Ks1 + SucPc_P_Ks1*Succ)) Pic + Succ
+SucPc_P_rev: Pic + Succ ->(SucPc_P_Kr1*SucPc_P_Vm*cytosol/(SucPc_P_q*(SucPc*SucPc_P_Kr1 + SucPc_P_Kr1*SucPc_P_Ks1 + SucPc_P_Ks1*Succ))) SucPc
+F6Pc_K: ATPc + HePc ->(F6Pc*F6Pc_K_Kr1*F6Pc_K_Kr2*F6Pc_K_Kr3*F6Pc_K_Vm*cytosol/(HePc*(ADPc*F6Pc_K_Ks2 + ATPc*F6Pc_K_Kr3 + F6Pc_K_Kr3*F6Pc_K_Ks2)*(DHAPc*F26BPc*F6Pc_K_Ks1 + DHAPc*F6Pc_K_Kr1*F6Pc_K_Ks1 + F26BPc*F6Pc_K_Kr2*F6Pc_K_Ks1 + F6Pc*F6Pc_K_Kr1*F6Pc_K_Kr2 + F6Pc_K_Kr1*F6Pc_K_Kr2*F6Pc_K_Ks1))) ADPc + F26BPc
+F6Pc_K_rev: ADPc + F26BPc ->(F6Pc_K_Kr1*F6Pc_K_Kr2*F6Pc_K_Kr3*F6Pc_K_Vm*cytosol/(F6Pc_K_q*(ADPc*F6Pc_K_Ks2 + ATPc*F6Pc_K_Kr3 + F6Pc_K_Kr3*F6Pc_K_Ks2)*(DHAPc*F26BPc*F6Pc_K_Ks1 + DHAPc*F6Pc_K_Kr1*F6Pc_K_Ks1 + F26BPc*F6Pc_K_Kr2*F6Pc_K_Ks1 + F6Pc*F6Pc_K_Kr1*F6Pc_K_Kr2 + F6Pc_K_Kr1*F6Pc_K_Kr2*F6Pc_K_Ks1))) ATPc + HePc
+F26BPc_P: F26BPc ->(F26BPc_P_Vm*cytosol/((1 + Pic/F26BPc_P_Kr1)*(1 + F6Pc/F26BPc_P_Kr2)*(F26BPc + F26BPc_P_Ks1))) HePc + Pic
+Succ_Deg: Succ ->(Succ_Deg_V*cytosol/(Succ + Succ_Deg_Km)) 
+PGAc_Deg: PGAc ->(PGAc_Deg_V*cytosol/(PGAc + PGAc_Deg_Km)) 
+GPT_GCEAc: GCEAc ->(GPT_GCEAc_V/(GCAc*GPT_GCEAc_Km/GPT_GCEAc_Ki + GCEAc + GPT_GCEAc_Km)) GCEA
+GPT_GCEA: GCEA ->(GPT_GCEA_V/(GCA*GPT_GCEA_Km/GPT_GCEA_Ki + GCEA + GPT_GCEA_Km)) GCEAc
+GPT_GCA: GCA ->(GPT_GCA_V/(GCA + GCEA*GPT_GCA_Km/GPT_GCA_Ki + GPT_GCA_Km)) GCAc
+GPT_GCAc: GCAc ->(GPT_GCAc_V/(GCAc + GCEAc*GPT_GCAc_Km/GPT_GCAc_Ki + GPT_GCAc_Km)) GCA
+RuBisCO_O2: RuBP ->(Wo_min*chloroplast/(RuBP + RuBisCO_O2_K*(FBP/RuBisCO_O2_KR2 + NADPH/RuBisCO_O2_KR5 + PGA/RuBisCO_O2_KR1 + Pi/RuBisCO_O2_KR4 + 1 + SBP/RuBisCO_O2_KR3))) PGA + PGCA
+PGCA_P: PGCA ->(PGCA_P_Vm*chloroplast/(PGCA + PGCA_P_Ks1*(1 + Pi/PGCA_P_Kr2)*(GCA/PGCA_P_Kr1 + 1))) GCA
+GCEA_K: ATP + GCEA ->(GCEA_K_Kr1*GCEA_K_Vm*chloroplast/((GCEA + GCEA_K_Ks2)*(ATP*GCEA_K_Kr1 + GCEA_K_Kr1*GCEA_K_Ks1 + GCEA_K_Ks1*PGA))) ADP + PGA
+GCEA_K_rev: ADP + PGA ->(GCEA_K_Kr1*GCEA_K_Vm*chloroplast/(GCEA_K_q*(GCEA + GCEA_K_Ks2)*(ATP*GCEA_K_Kr1 + GCEA_K_Kr1*GCEA_K_Ks1 + GCEA_K_Ks1*PGA))) ATP + GCEA
+GCAc_Ox: GCAc ->(GCAc_Ox_V*cytosol/(GCAc + GCAc_Ox_Km)) GOAc
+SERcGOAc_AT: GOAc + SERc ->(SERcGOAc_AT_Kr1*SERcGOAc_AT_Vm/((GOAc + SERcGOAc_AT_Ks2)*(GLYc*SERcGOAc_AT_Ks1 + SERc*SERcGOAc_AT_Kr1 + SERcGOAc_AT_Kr1*SERcGOAc_AT_Ks1))) GLYc + HPRc
+SERcGOAc_AT_rev: GLYc + HPRc ->(SERcGOAc_AT_Kr1*SERcGOAc_AT_Vm/(SERcGOAc_AT_q*(GOAc + SERcGOAc_AT_Ks2)*(GLYc*SERcGOAc_AT_Ks1 + SERc*SERcGOAc_AT_Kr1 + SERcGOAc_AT_Kr1*SERcGOAc_AT_Ks1))) GOAc + SERc
+GCEA_DH: HPRc + NADH ->(GCEA_DH_Kr1*GCEA_DH_Vm/(GCEA_DH_Kr1*GCEA_DH_Ks1 + GCEA_DH_Kr1*HPRc + GCEA_DH_Ks1*HPRc)) GCEAc + NAD
+GCEA_DH_rev: GCEAc + NAD ->(GCEA_DH_Kr1*GCEA_DH_Vm/(GCEA_DH_q*(GCEA_DH_Kr1*GCEA_DH_Ks1 + GCEA_DH_Kr1*HPRc + GCEA_DH_Ks1*HPRc))) HPRc + NADH
+GLUcGOAc_AT: GLUc + GOAc ->(GLUcGOAc_AT_Kr1*GLUcGOAc_AT_Vm*cytosol/((GLUcGOAc_AT_Ks2 + GOAc)*(GLUc*GLUcGOAc_AT_Kr1 + GLUcGOAc_AT_Kr1*GLUcGOAc_AT_Ks1 + GLUcGOAc_AT_Ks1*GLYc))) GLYc + KGc
+GLUcGOAc_AT_rev: GLYc + KGc ->(GLUcGOAc_AT_Kr1*GLUcGOAc_AT_Vm*cytosol/(GLUcGOAc_AT_q*(GLUcGOAc_AT_Ks2 + GOAc)*(GLUc*GLUcGOAc_AT_Kr1 + GLUcGOAc_AT_Kr1*GLUcGOAc_AT_Ks1 + GLUcGOAc_AT_Ks1*GLYc))) GLUc + GOAc
+GLYc_DC: 2GLYc ->(GLYc_DC_Vm*cytosol/(GLYc*(GLYc + GLYc_DC_Ks1*(1 + SERc/GLYc_DC_Kr1)))) SERc

@@ -50,27 +50,27 @@ v_r7_3: R3 ->(ktherm) Ops
 v_r7_4: R4 ->(ktherm) Ops
 v_r7_5: R5 ->(ktherm) Ops
 v_r7_6: R6 ->(ktherm) Ops
-v_r8: Ops + _Gt ->(kOps) Ops_Gt
-v_r8_rev: Ops_Gt ->(kG2) Ops + _Gt
+v_r8: Gt + Ops ->(kOps) Ops_Gt
+v_r8_rev: Ops_Gt ->(kG2) Gt + Ops
 v_r9: Ops_Gt ->(kG3) Ops_G
 v_r9_rev: Ops_G ->(kG4_GDP) Ops_Gt
 v_r10: Ops_G ->(kG5_GTP) Ops_G_GTP
 v_r11: Ops_G_GTP ->(kG6) G_GTP + Ops
 v_r12: Ops ->(kRrecyc) R
-v_r13_0: R0 + _Gt ->(kG1_0) R0_Gt
-v_r13_0_rev: R0_Gt ->(kG2) R0 + _Gt
-v_r13_1: R1 + _Gt ->(kG1_1) R1_Gt
-v_r13_1_rev: R1_Gt ->(kG2) R1 + _Gt
-v_r13_2: R2 + _Gt ->(kG1_2) R2_Gt
-v_r13_2_rev: R2_Gt ->(kG2) R2 + _Gt
-v_r13_3: R3 + _Gt ->(kG1_3) R3_Gt
-v_r13_3_rev: R3_Gt ->(kG2) R3 + _Gt
-v_r13_4: R4 + _Gt ->(kG1_4) R4_Gt
-v_r13_4_rev: R4_Gt ->(kG2) R4 + _Gt
-v_r13_5: R5 + _Gt ->(kG1_5) R5_Gt
-v_r13_5_rev: R5_Gt ->(kG2) R5 + _Gt
-v_r13_6: R6 + _Gt ->(kG1_6) R6_Gt
-v_r13_6_rev: R6_Gt ->(kG2) R6 + _Gt
+v_r13_0: Gt + R0 ->(kG1_0) R0_Gt
+v_r13_0_rev: R0_Gt ->(kG2) Gt + R0
+v_r13_1: Gt + R1 ->(kG1_1) R1_Gt
+v_r13_1_rev: R1_Gt ->(kG2) Gt + R1
+v_r13_2: Gt + R2 ->(kG1_2) R2_Gt
+v_r13_2_rev: R2_Gt ->(kG2) Gt + R2
+v_r13_3: Gt + R3 ->(kG1_3) R3_Gt
+v_r13_3_rev: R3_Gt ->(kG2) Gt + R3
+v_r13_4: Gt + R4 ->(kG1_4) R4_Gt
+v_r13_4_rev: R4_Gt ->(kG2) Gt + R4
+v_r13_5: Gt + R5 ->(kG1_5) R5_Gt
+v_r13_5_rev: R5_Gt ->(kG2) Gt + R5
+v_r13_6: Gt + R6 ->(kG1_6) R6_Gt
+v_r13_6_rev: R6_Gt ->(kG2) Gt + R6
 v_r14_0: R0_Gt ->(kG3) R0_G
 v_r14_0_rev: R0_G ->(kG4_GDP) R0_Gt
 v_r14_1: R1_Gt ->(kG3) R1_G
@@ -112,12 +112,12 @@ v_r25: RGS_PDE_a_Ga_GTP ->(kRGS2) Ga_GDP + PDE + RGS
 v_r26: PDE_a_Ga_GTP ->(kPDEshutoff) Ga_GDP + PDE
 v_r27: Ga_GTP_a_PDE_a_Ga_GTP ->(kPDEshutoff) Ga_GDP + PDE_a_Ga_GTP
 v_r28: Ga_GTP ->(kGshutoff) Ga_GDP
-v_r29: Ga_GDP + Gbg ->(kGrecyc) _Gt
+v_r29: Ga_GDP + Gbg ->(kGrecyc) Gt
 v_r30: RK ->(Rec_wCa2*kRec3) Rec_wCa2_RK
 v_r30_rev: Rec_wCa2_RK ->(kRec4) RK
 v_r31: Ca2_free ->(eT*k1) Ca2_buff
 v_r31_rev: Ca2_buff ->(Ca2_free*k1 + k2) Ca2_free
-v_r32: Ca2_free ->(-gammaCa*(Ca2_0 - Ca2_free)/Ca2_free) 
+v_r32: Ca2_free ->(gammaCa*(-Ca2_0 + Ca2_free)/Ca2_free) 
 v_r33:  ->(1000000.0*Jdark*fCa*(cGMP/cGMPdark)**ncg/(F*Vcyto*(fCa + 2))) Ca2_free
 v_r34:  ->(alfamax/((Ca2_free/Kc)**m + 1)) cGMP
 v_r35: cGMP ->(E*betasub + betadark) 

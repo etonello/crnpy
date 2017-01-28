@@ -2,5 +2,5 @@ Closed_state_1: Po1 ->(Closed_state_1_ka_minus) Pc1
 Closed_state_1_rev: Pc1 ->(Closed_state_1_Ca**Closed_state_1_n*Closed_state_1_ka_plus) Po1
 Open_state_2: Po1 ->(Open_state_2_Ca**Open_state_2_m*Open_state_2_kb_plus) Po2
 Open_state_2_rev: Po2 ->(Open_state_2_kb_minus) Po1
-Closed_State_2: Po1 ->(kc_plus) Pc2
-Closed_State_2_rev: Pc2 ->(kc_minus) Po1
+Closed_State_2: Po1 ->(Closed_State_2_kc_plus) Pc2
+Closed_State_2_rev: Pc2 ->(Closed_State_2_kc_minus) Po1

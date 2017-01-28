@@ -23,7 +23,7 @@ v22: IKKIkBbNFkB ->(k56) IKK + IkBbNFkB
 v23: IKK + IkBeNFkB ->(k58) IKKIkBeNFkB
 v24: IKKIkBeNFkB ->(k59) IKK + IkBeNFkB
 v25: IkBa + NFkB ->(k1) IkBaNFkB
-v26: 2_source ->(NFkBn**2*k28/_source**2) IkBat + 2sink
+v26: 2source ->(NFkBn**2*k28/source**2) IkBat + 2sink
 v27: IkBaNFkB ->(k2) IkBa + NFkB
 v28: IkBan + NFkBn ->(k21) IkBanNFkBn
 v29: IkBanNFkBn ->(k22) IkBan + NFkBn
@@ -32,7 +32,7 @@ v31: IkBaNFkB ->(k16) NFkB
 v32: IkBat ->(k29) sink
 v33: IkBan ->(k39) IkBa
 v34: IkBa ->(k38) IkBan
-v35: _source ->(IkBat*k36/_source) IkBa + sink
+v35: source ->(IkBat*k36/source) IkBa + sink
 v36: IkBb + NFkB ->(k3) IkBbNFkB
 v37: IkBbNFkB ->(k4) IkBb + NFkB
 v38: IkBbn + NFkBn ->(k23) IkBbnNFkBn
@@ -42,7 +42,7 @@ v41: IkBbNFkB ->(k17) NFkB
 v42: IkBbt ->(k31) sink
 v43: IkBbn ->(k45) IkBb
 v44: IkBb ->(k44) IkBbn
-v45: _source ->(IkBbt*k42/_source) IkBb + sink
+v45: source ->(IkBbt*k42/source) IkBb + sink
 v46: IkBe + NFkB ->(k5) IkBeNFkB
 v47: IkBeNFkB ->(k6) IkBe + NFkB
 v48: IkBen + NFkBn ->(k25) IkBenNFkBn
@@ -52,12 +52,12 @@ v51: IkBeNFkB ->(k18) NFkB
 v52: IkBet ->(k33) sink
 v53: IkBen ->(k51) IkBe
 v54: IkBe ->(k50) IkBen
-v55: _source ->(IkBet*k48/_source) IkBe + sink
+v55: source ->(IkBet*k48/source) IkBe + sink
 v56: NFkBn ->(k20) NFkB
 v57: NFkB ->(k19) NFkBn
-v58: _source ->(k27) IkBat
-v59: _source ->(k30) IkBbt
-v60: _source ->(k32) IkBet
+v58: source ->(k27) IkBat
+v59: source ->(k30) IkBbt
+v60: source ->(k32) IkBet
 v61: IkBa ->(k37) sink
 v62: IkBb ->(k43) sink
 v63: IkBe ->(k49) sink

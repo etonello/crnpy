@@ -1,43 +1,43 @@
-GA4_GID_association: GA4 + GID ->(la) GA4_GID
-GA4_GID_dissociation: GA4_GID ->(ld) GA4 + GID
-GA4_GID_DELLA1_association: DELLA + GA4_GID_closed ->(ua1) GA4_GID_DELLA1
-GA4_GID_DELLA1_dissociation: GA4_GID_DELLA1 ->(ud1) DELLA + GA4_GID_closed
-DELLA_ubiquitination: GA4_GID_DELLA1 ->(um) DELLA_U + GA4_GID_closed
-GA12_supply: GA12_source ->(omegaGA12/GA12_source) GA12
-GA12_GA20ox_association: GA12 + GA20ox ->(ka12) GA12_GA20ox
-GA12_GA20ox_dissociation: GA12_GA20ox ->(kd12) GA12 + GA20ox
-GA15_production: GA12_GA20ox ->(km12) GA15 + GA20ox
-GA15_GA20ox_association: GA15 + GA20ox ->(ka15) GA15_GA20ox
-GA15_GA20ox_dissociation: GA15_GA20ox ->(kd15) GA15 + GA20ox
-GA24_production: GA15_GA20ox ->(km15) GA20ox + GA24
-GA24_GA20ox_association: GA20ox + GA24 ->(ka24) GA24_GA20ox
-GA24_GA20ox_dissociation: GA24_GA20ox ->(kd24) GA20ox + GA24
-GA9_production: GA24_GA20ox ->(km24) GA20ox + GA9
-GA9_GA3ox_association: GA3ox + GA9 ->(ka9) GA9_GA3ox
-GA9_GA3ox_dissociation: GA9_GA3ox ->(kd9) GA3ox + GA9
-GA4_production: GA9_GA3ox ->(km9) GA3ox + GA4
-GA4_GID_lid_closing: GA4_GID ->(q) GA4_GID_closed
-GA4_GID_Closed_lid_opening: GA4_GID_closed ->(p) GA4_GID
-della_translation: DELLA_source ->(della*deltaDELLA/DELLA_source) DELLA
-ga20ox_translation: GA20ox_source ->(deltaGA20ox*ga20ox/GA20ox_source) GA20ox
-ga3ox_translation: GA3ox_source ->(deltaGA3ox*ga3ox/GA3ox_source) GA3ox
-gid_translation: GID_source ->(deltaGA3ox*gid/GID_source) GID
-ga20ox_transcription__activated_by_DELLA_: ga20ox_source ->(DELLA*muGA20ox/(ga20ox_source*(DELLA + thetaGA20ox))) ga20ox
-gid_transcription__activated_by_DELLA_: gid_source ->(DELLA*muGID/(gid_source*(DELLA + thetaGID))) gid
-della_transcription__repressed_by_DELLA_: della_source ->(muDELLA*thetaDELLA/(della_source*(DELLA + thetaDELLA))) della
-ga3ox_transcription__activated_by_DELLA_: ga3ox_source ->(DELLA*muGA3ox/(ga3ox_source*(DELLA + thetaGA3ox))) ga3ox
-della_decay: della ->(muDELLA) della_source
-gid_decay: gid ->(muGID) gid_source
-ga20ox_decay: ga20ox ->(muGA20ox) ga20ox_source
-ga3ox_decay: ga3ox ->(muGA3ox) ga3ox_source
-GA20ox_decay: GA20ox ->(gammaGA20ox) GA20ox_source
-GID_decay: GID ->(gammaGID) GID_source
-GA3ox_decay: GA3ox ->(gammaGA3ox) GA3ox_source
-GA4_GID_DELLA2_association: DELLA + GA4_GID_closed ->(ua2) GA4_GID_DELLA2
-GA4_GID_DELLA2_dissociation: GA4_GID_DELLA2 ->(ud2) DELLA + GA4_GID_closed
-GA4_supply: GA4_source ->(A1*Pmem*omegaGA4/GA4_source) GA4
-degradation_of_GA12: GA12 ->(muGA) sa5_degraded
-degradation_of_GA15: GA15 ->(muGA) sa6_degraded
-degradation_of_GA24: GA24 ->(muGA) sa7_degraded
-degradation_of_GA9: GA9 ->(muGA) sa8_degraded
-degradation_of_GA4: GA4 ->(B1*Pmem + muGA) sa1_degraded
+re1: s1 + s2 ->(re1_la) s65
+re2: s65 ->(re2_ld) s1 + s2
+re3: s16 + s62 ->(re3_ua1) s45
+re4: s45 ->(re4_ud1) s16 + s62
+re5: s45 ->(re5_um) s22 + s62
+re6: s3 ->(omegaGA12/s3) s23
+re7: s23 + s27 ->(re7_ka12) s32
+re8: s32 ->(re8_kd12) s23 + s27
+re9: s32 ->(re9_km12) s24 + s27
+re10: s24 + s27 ->(re10_ka15) s31
+re11: s31 ->(re11_kd15) s24 + s27
+re12: s31 ->(re12_km15) s25 + s27
+re13: s25 + s27 ->(re13_ka24) s30
+re14: s30 ->(re14_kd24) s25 + s27
+re15: s30 ->(re15_km24) s26 + s27
+re16: s26 + s28 ->(re16_ka9) s29
+re17: s29 ->(re17_kd9) s26 + s28
+re18: s29 ->(re18_km9) s1 + s28
+re19: s65 ->(re19_q) s62
+re20: s62 ->(re20_p) s65
+re21: s7 ->(re21_deltaDELLA*s40/s7) s16
+re22: s6 ->(re22_deltaGA20ox*s39/s6) s27
+re23: s5 ->(re23_deltaGA3ox*s41/s5) s28
+re24: s33 ->(re24_deltaGID*s42/s33) s2
+re27: s11 ->(muGA20ox*s16/(s11*(re27_thetaGA20ox + s16))) s39
+re28: s15 ->(muGID*s16/(s15*(re28_thetaGID + s16))) s42
+re29: s34 ->(muDELLA*re29_thetaDELLA/(s34*(re29_thetaDELLA + s16))) s40
+re30: s35 ->(muGA3ox*s16/(s35*(re30_thetaGA3ox + s16))) s41
+re31: s40 ->(muDELLA) s34
+re32: s42 ->(muGID) s15
+re33: s39 ->(muGA20ox) s11
+re34: s41 ->(muGA3ox) s35
+re35: s27 ->(re35_gammaGA20ox) s6
+re37: s2 ->(re37_gammaGID) s33
+re38: s28 ->(re38_gammaGA3ox) s5
+re39: s16 + s62 ->(re39_ua2) s36
+re40: s36 ->(re40_ud2) s16 + s62
+re41: s66 ->(Pmem*omegaGA4*re41_A1/s66) s1
+re42: s23 ->(muGA) s67
+re43: s24 ->(muGA) s68
+re44: s25 ->(muGA) s69
+re45: s26 ->(muGA) s70
+re46: s1 ->(Pmem*re46_B1 + muGA) s71

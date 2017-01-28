@@ -1,70 +1,70 @@
-txn_a:  ->(nucleus*tr2a) IkBat
-mdeg_a: IkBat ->(nucleus*tr3a) 
-tsl_a: IkBat ->(nucleus*tr1a) IkBa + IkBat
-int_ai: IKK + IkBa ->(a1*cytoplasm) IkBaIKK
-int_ai_rev: IkBaIKK ->(cytoplasm*d1_1) IKK + IkBa
-int_an: IkBa + NFkB ->(a4_1*cytoplasm) IkBaNFkB
-int_an_rev: IkBaNFkB ->(cytoplasm*d4_1) IkBa + NFkB
-int_an_n: IkBan + NFkBn ->(a4_2*nucleus) IkBaNFkBn
-int_an_n_rev: IkBaNFkBn ->(d4_2*nucleus) IkBan + NFkBn
-int_2ani: IKK + IkBaNFkB ->(a7*cytoplasm) IkBaIKKNFkB
-int_2ani_rev: IkBaIKKNFkB ->(cytoplasm*d1_2) IKK + IkBaNFkB
-int_2ain: IkBaIKK + NFkB ->(a4_3*cytoplasm) IkBaIKKNFkB
-int_2ain_rev: IkBaIKKNFkB ->(cytoplasm*d4_3) IkBaIKK + NFkB
-deg_a: IkBa ->(cytoplasm*deg1_c) 
-deg_a_n: IkBan ->(deg1_n*nucleus) 
-deg_an_n: IkBaNFkBn ->(deg4_n*nucleus) NFkBn
-deg_an: IkBaNFkB ->(cytoplasm*deg4_c) NFkB
-deg_ai: IkBaIKK ->(cytoplasm*r1) IKK
-deg_ain: IkBaIKKNFkB ->(cytoplasm*r4) IKK + NFkB
-loc_a: IkBa ->(cytoplasm*tp1a) IkBan
-loc_a_rev: IkBan ->(nucleus*tp2a) IkBa
-loc_an: IkBaNFkBn ->(k2_a*nucleus) IkBaNFkB
-loc_bn: IkBbNFkBn ->(k2_b*nucleus) IkBbNFkB
-loc_b: IkBb ->(cytoplasm*tp1b) IkBbn
-loc_b_rev: IkBbn ->(nucleus*tp2b) IkBb
-deg_bin: IkBbIKKNFkB ->(cytoplasm*r5) IKK + NFkB
-deg_bi: IkBbIKK ->(cytoplasm*r2) IKK
-deg_bn: IkBbNFkB ->(cytoplasm*deg5_c) NFkB
-deg_bn_n: IkBbNFkBn ->(deg5_n*nucleus) NFkBn
-deg_b_n: IkBbn ->(deg2_n*nucleus) 
-deg_b: IkBb ->(cytoplasm*deg2_c) 
-int_2bin: IkBbIKK + NFkB ->(a5_3*cytoplasm) IkBbIKKNFkB
-int_2bin_rev: IkBbIKKNFkB ->(cytoplasm*d5_3) IkBbIKK + NFkB
-int_2bni: IKK + IkBbNFkB ->(a8*cytoplasm) IkBbIKKNFkB
-int_2bni_rev: IkBbIKKNFkB ->(cytoplasm*d2_2) IKK + IkBbNFkB
-int_bn_n: IkBbn + NFkBn ->(a5_2*nucleus) IkBbNFkBn
-int_bn_n_rev: IkBbNFkBn ->(d5_2*nucleus) IkBbn + NFkBn
-int_bn: IkBb + NFkB ->(a5_1*cytoplasm) IkBbNFkB
-int_bn_rev: IkBbNFkB ->(cytoplasm*d5_1) IkBb + NFkB
-int_bi: IKK + IkBb ->(a2*cytoplasm) IkBbIKK
-int_bi_rev: IkBbIKK ->(cytoplasm*d2_1) IKK + IkBb
-tsl_b: IkBbt ->(nucleus*tr1b) IkBb + IkBbt
-mdeg_b: IkBbt ->(nucleus*tr3b) 
-txn_b:  ->(nucleus*tr2b) IkBbt
-loc_n: NFkB ->(cytoplasm*k1_2) NFkBn
-loc_n_rev: NFkBn ->(k1_1*nucleus) NFkB
-txn_e:  ->(nucleus*tr2e) IkBet
-mdeg_e: IkBet ->(nucleus*tr3e) 
-tsl_e: IkBet ->(nucleus*tr1e) IkBe + IkBet
-int_ei: IKK + IkBe ->(a3*cytoplasm) IkBeIKK
-int_ei_rev: IkBeIKK ->(cytoplasm*d3_1) IKK + IkBe
-int_en: IkBe + NFkB ->(a6_1*cytoplasm) IkBeNFkB
-int_en_rev: IkBeNFkB ->(cytoplasm*d6_1) IkBe + NFkB
-int_en_n: IkBen + NFkBn ->(a6_2*nucleus) IkBeNFkBn
-int_en_n_rev: IkBeNFkBn ->(d6_2*nucleus) IkBen + NFkBn
-int_2eni: IKK + IkBeNFkB ->(a9*cytoplasm) IkBeIKKNFkB
-int_2eni_rev: IkBeIKKNFkB ->(cytoplasm*d3_2) IKK + IkBeNFkB
-int_2ein: IkBeIKK + NFkB ->(a6_3*cytoplasm) IkBeIKKNFkB
-int_2ein_rev: IkBeIKKNFkB ->(cytoplasm*d6_3) IkBeIKK + NFkB
-deg_e: IkBe ->(cytoplasm*deg3_c) 
-deg_e_n: IkBen ->(deg3_n*nucleus) 
-deg_en_n: IkBeNFkBn ->(deg6_n*nucleus) NFkBn
-deg_en: IkBeNFkB ->(cytoplasm*deg6_c) NFkB
-deg_ei: IkBeIKK ->(cytoplasm*r3) IKK
-deg_ein: IkBeIKKNFkB ->(cytoplasm*r6) IKK + NFkB
-loc_e: IkBe ->(cytoplasm*tp1e) IkBen
-loc_e_rev: IkBen ->(nucleus*tp2e) IkBe
-loc_en: IkBeNFkBn ->(k2_e*nucleus) IkBeNFkB
-IKK_deg: IKK ->(IKK_deg*cytoplasm) 
-itxn_a:  ->(NFkBn**2*nucleus*tr2a_i) IkBat
+txn_a:  ->(nucleus*txn_a_tr2a) IkBa_mRNA
+mdeg_a: IkBa_mRNA ->(mdeg_a_tr3a*nucleus) 
+tsl_a: IkBa_mRNA ->(nucleus*tsl_a_tr1a) IkBa_cytoplasm + IkBa_mRNA
+int_ai: IKK + IkBa_cytoplasm ->(cytoplasm*int_ai_a1) IkBaIKK
+int_ai_rev: IkBaIKK ->(cytoplasm*int_ai_d1_1) IKK + IkBa_cytoplasm
+int_an: IkBa_cytoplasm + NFkB_cytoplasm ->(cytoplasm*int_an_a4_1) IkBaNFkB_cytoplasm
+int_an_rev: IkBaNFkB_cytoplasm ->(cytoplasm*int_an_d4_1) IkBa_cytoplasm + NFkB_cytoplasm
+int_an_n: IkBa_nucleus + NFkB_nucleus ->(int_an_n_a4_2*nucleus) IkBaNFkB_nucleus
+int_an_n_rev: IkBaNFkB_nucleus ->(int_an_n_d4_2*nucleus) IkBa_nucleus + NFkB_nucleus
+int_2ani: IKK + IkBaNFkB_cytoplasm ->(cytoplasm*int_2ani_a7) IkBaIKKNFkB
+int_2ani_rev: IkBaIKKNFkB ->(cytoplasm*int_2ani_d1_2) IKK + IkBaNFkB_cytoplasm
+int_2ain: IkBaIKK + NFkB_cytoplasm ->(cytoplasm*int_2ain_a4_3) IkBaIKKNFkB
+int_2ain_rev: IkBaIKKNFkB ->(cytoplasm*int_2ain_d4_3) IkBaIKK + NFkB_cytoplasm
+deg_a: IkBa_cytoplasm ->(cytoplasm*deg_a_deg1_c) 
+deg_a_n: IkBa_nucleus ->(deg_a_n_deg1_n*nucleus) 
+deg_an_n: IkBaNFkB_nucleus ->(deg_an_n_deg4_n*nucleus) NFkB_nucleus
+deg_an: IkBaNFkB_cytoplasm ->(cytoplasm*deg_an_deg4_c) NFkB_cytoplasm
+deg_ai: IkBaIKK ->(cytoplasm*deg_ai_r1) IKK
+deg_ain: IkBaIKKNFkB ->(cytoplasm*deg_ain_r4) IKK + NFkB_cytoplasm
+loc_a: IkBa_cytoplasm ->(cytoplasm*loc_a_tp1a) IkBa_nucleus
+loc_a_rev: IkBa_nucleus ->(loc_a_tp2a*nucleus) IkBa_cytoplasm
+loc_an: IkBaNFkB_nucleus ->(loc_an_k2_a*nucleus) IkBaNFkB_cytoplasm
+loc_bn: IkBbNFkB_nucleus ->(loc_bn_k2_b*nucleus) IkBbNFkB_cytoplasm
+loc_b: IkBb_cytoplasm ->(cytoplasm*loc_b_tp1b) IkBb_nucleus
+loc_b_rev: IkBb_nucleus ->(loc_b_tp2b*nucleus) IkBb_cytoplasm
+deg_bin: IkBbIKKNFkB ->(cytoplasm*deg_bin_r5) IKK + NFkB_cytoplasm
+deg_bi: IkBbIKK ->(cytoplasm*deg_bi_r2) IKK
+deg_bn: IkBbNFkB_cytoplasm ->(cytoplasm*deg_bn_deg5_c) NFkB_cytoplasm
+deg_bn_n: IkBbNFkB_nucleus ->(deg_bn_n_deg5_n*nucleus) NFkB_nucleus
+deg_b_n: IkBb_nucleus ->(deg_b_n_deg2_n*nucleus) 
+deg_b: IkBb_cytoplasm ->(cytoplasm*deg_b_deg2_c) 
+int_2bin: IkBbIKK + NFkB_cytoplasm ->(cytoplasm*int_2bin_a5_3) IkBbIKKNFkB
+int_2bin_rev: IkBbIKKNFkB ->(cytoplasm*int_2bin_d5_3) IkBbIKK + NFkB_cytoplasm
+int_2bni: IKK + IkBbNFkB_cytoplasm ->(cytoplasm*int_2bni_a8) IkBbIKKNFkB
+int_2bni_rev: IkBbIKKNFkB ->(cytoplasm*int_2bni_d2_2) IKK + IkBbNFkB_cytoplasm
+int_bn_n: IkBb_nucleus + NFkB_nucleus ->(int_bn_n_a5_2*nucleus) IkBbNFkB_nucleus
+int_bn_n_rev: IkBbNFkB_nucleus ->(int_bn_n_d5_2*nucleus) IkBb_nucleus + NFkB_nucleus
+int_bn: IkBb_cytoplasm + NFkB_cytoplasm ->(cytoplasm*int_bn_a5_1) IkBbNFkB_cytoplasm
+int_bn_rev: IkBbNFkB_cytoplasm ->(cytoplasm*int_bn_d5_1) IkBb_cytoplasm + NFkB_cytoplasm
+int_bi: IKK + IkBb_cytoplasm ->(cytoplasm*int_bi_a2) IkBbIKK
+int_bi_rev: IkBbIKK ->(cytoplasm*int_bi_d2_1) IKK + IkBb_cytoplasm
+tsl_b: IkBb_mRNA ->(nucleus*tsl_b_tr1b) IkBb_cytoplasm + IkBb_mRNA
+mdeg_b: IkBb_mRNA ->(mdeg_b_tr3b*nucleus) 
+txn_b:  ->(nucleus*txn_b_tr2b) IkBb_mRNA
+loc_n: NFkB_cytoplasm ->(cytoplasm*loc_n_k1_2) NFkB_nucleus
+loc_n_rev: NFkB_nucleus ->(loc_n_k1_1*nucleus) NFkB_cytoplasm
+txn_e:  ->(nucleus*txn_e_tr2e) IkBe_mRNA
+mdeg_e: IkBe_mRNA ->(mdeg_e_tr3e*nucleus) 
+tsl_e: IkBe_mRNA ->(nucleus*tsl_e_tr1e) IkBe_cytoplasm + IkBe_mRNA
+int_ei: IKK + IkBe_cytoplasm ->(cytoplasm*int_ei_a3) IkBeIKK
+int_ei_rev: IkBeIKK ->(cytoplasm*int_ei_d3_1) IKK + IkBe_cytoplasm
+int_en: IkBe_cytoplasm + NFkB_cytoplasm ->(cytoplasm*int_en_a6_1) IkBeNFkB_cytoplasm
+int_en_rev: IkBeNFkB_cytoplasm ->(cytoplasm*int_en_d6_1) IkBe_cytoplasm + NFkB_cytoplasm
+int_en_n: IkBe_nucleus + NFkB_nucleus ->(int_en_n_a6_2*nucleus) IkBeNFkB_nucleus
+int_en_n_rev: IkBeNFkB_nucleus ->(int_en_n_d6_2*nucleus) IkBe_nucleus + NFkB_nucleus
+int_2eni: IKK + IkBeNFkB_cytoplasm ->(cytoplasm*int_2eni_a9) IkBeIKKNFkB
+int_2eni_rev: IkBeIKKNFkB ->(cytoplasm*int_2eni_d3_2) IKK + IkBeNFkB_cytoplasm
+int_2ein: IkBeIKK + NFkB_cytoplasm ->(cytoplasm*int_2ein_a6_3) IkBeIKKNFkB
+int_2ein_rev: IkBeIKKNFkB ->(cytoplasm*int_2ein_d6_3) IkBeIKK + NFkB_cytoplasm
+deg_e: IkBe_cytoplasm ->(cytoplasm*deg_e_deg3_c) 
+deg_e_n: IkBe_nucleus ->(deg_e_n_deg3_n*nucleus) 
+deg_en_n: IkBeNFkB_nucleus ->(deg_en_n_deg6_n*nucleus) NFkB_nucleus
+deg_en: IkBeNFkB_cytoplasm ->(cytoplasm*deg_en_deg6_c) NFkB_cytoplasm
+deg_ei: IkBeIKK ->(cytoplasm*deg_ei_r3) IKK
+deg_ein: IkBeIKKNFkB ->(cytoplasm*deg_ein_r6) IKK + NFkB_cytoplasm
+loc_e: IkBe_cytoplasm ->(cytoplasm*loc_e_tp1e) IkBe_nucleus
+loc_e_rev: IkBe_nucleus ->(loc_e_tp2e*nucleus) IkBe_cytoplasm
+loc_en: IkBeNFkB_nucleus ->(loc_en_k2_e*nucleus) IkBeNFkB_cytoplasm
+IKK_deg: IKK ->(IKK_deg_k_IKK_deg*cytoplasm) 
+itxn_a:  ->(NFkB_nucleus**2*itxn_a_tr2a_i*nucleus) IkBa_mRNA

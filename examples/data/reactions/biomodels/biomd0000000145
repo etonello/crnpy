@@ -6,7 +6,7 @@ R5:  ->(Cytosol*PLC*Rdg*Rgalpha_gtp*k4) APLC
 R6: APLC ->(Cytosol*k5) 
 R7:  ->(APLC*Cytosol*k6) IP3
 R8: IP3 ->(Cytosol*k7) 
-R9: 0Calcium ->(ER*Rer*Rip3*k8) 0Calcium
-R9_rev: 0Calcium ->(ER*Rcyt1*k9) 0Calcium
-R10: 0Calcium ->(Cytosol*Rcyt2*k10) 
-R11:  ->(Cytosol*k11) 0Calcium
+R9:  ->(ER*Rer*Rip3*k8) 
+R9_rev:  ->(ER*Rcyt1*k9) 
+R10:  ->(Cytosol*Rcyt2*k10) 
+R11:  ->(Cytosol*k11) 

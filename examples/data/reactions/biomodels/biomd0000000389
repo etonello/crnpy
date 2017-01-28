@@ -1,21 +1,21 @@
-RuBisCO: CO2 + RuBP ->(chloroplast*k1) 2PGA
-PGA_reduction: ATP + PGA ->(chloroplast*k1) ADP + Pi + TP
-FBP_ald___ase: 2TP ->(chloroplast*k1) HeP + Pi
-FBP_ald___ase_rev: HeP + Pi ->(chloroplast*k2) 2TP
-F6P_trans_I: HeP ->(chloroplast*k1) E4P + TPGA
-SBP_ald___ase: E4P + TP ->(chloroplast*k1) Pi + S7P
-S7P_trans_I___R5P_iso: S7P ->(chloroplast*k1) Ru5P + TPGA
-trans_II___Ru5P_epi: TP + TPGA ->(chloroplast*k1) Ru5P
-Ru5P_kinase: ATP + Ru5P ->(chloroplast*k1) ADP + RuBP
-ATP_synthase: ADP + Pi ->(chloroplast*k1) ATP
-starch_synthetase: ATP + HeP ->(chloroplast*k1) ADP + GG + 2Pi
-starch_phosphorylase: GG + Pi ->(chloroplast*k1) HeP
-TP_translocator: Pic + TP ->(k1) Pi + TPc
-FBPc_ald___ase: 2TPc ->(cytosol*k1) HePc + Pic
-sucrose_synthetase: 2HePc + UTP ->(v_15_/(HePc**2*UTP)) 3Pic + Suc + UDP
-UTP_synthase: Pic + UDP ->(k1) UTP
-respiration_rate: Suc ->(r) Resp
-diffusion_rate: Suc ->(D) SucV
-diffusion_rate_rev: SucV ->(D) Suc
-translocation_rate: Suc ->(phi) E
-translocation_rate_rev: E ->(phi) Suc
+RuBisCO: CO2 + RuBP ->(RuBisCO_k1*chloroplast) 2PGA
+PGA_red: ATP + PGA ->(PGA_red_k1*chloroplast) ADP + Pi + TP
+FBP_A_ase: 2TP ->(FBP_A_ase_k1*chloroplast) HeP + Pi
+FBP_A_ase_rev: HeP + Pi ->(FBP_A_ase_k2*chloroplast) 2TP
+F6P_TK1: HeP ->(F6P_TK1_k1*chloroplast) E4P + TPGA
+SBP_A_ase: E4P + TP ->(SBP_A_ase_k1*chloroplast) Pi + S7P
+S7P_TK1_R5P_I: S7P ->(S7P_TK1_R5P_I_k1*chloroplast) Ru5P + TPGA
+TK2_Ru5P_E: TP + TPGA ->(TK2_Ru5P_E_k1*chloroplast) Ru5P
+Ru5P_K: ATP + Ru5P ->(Ru5P_K_k1*chloroplast) ADP + RuBP
+ATP_S: ADP + Pi ->(ATP_S_k1*chloroplast) ATP
+Starch_S: ATP + HeP ->(Starch_S_k1*chloroplast) ADP + GG + 2Pi
+Starch_P: GG + Pi ->(Starch_P_k1*chloroplast) HeP
+TPT: Pic + TP ->(TPT_k1) Pi + TPc
+FBPc_A_ase: 2TPc ->(FBPc_A_ase_k1*cytosol) HePc + Pic
+Suc_S: 2HePc + UTP ->(v_15/(HePc**2*UTP)) 3Pic + Suc + UDP
+UTP_S: Pic + UDP ->(UTP_S_k1) UTP
+Respi: Suc ->(r) Resp
+Diffu: Suc ->(D) SucV
+Diffu_rev: SucV ->(D) Suc
+Transl: Suc ->(phi) E
+Transl_rev: E ->(phi) Suc

@@ -1,10 +1,10 @@
-X1_activats_X2: X1p ->(compartment_0*k12x*(X2T - X2p)) X2p
-S1_activates_X1:  ->(Kmx*S1*compartment_0*kx*(X1T - X1p)/(Kmx + S1)) X1p
-X2_activates_X3: X2p ->(compartment_0*k23x*(X3T - X3p)) X3p
-S2_activates_Y1:  ->(Kmy*S2*compartment_0*ky*(Y1T - Y1p)/(Kmy + S2)) Y1p
-Y1p_activates_Y2p: Y1p ->(compartment_0*k12y*(Y2T - Y2p)) Y2p
-Y2p_activates_Y3p: Y2p ->(compartment_0*k23y*(Y3T - Y3p)) Y3p
-X1p_activates_Y2p: X1p ->(compartment_0*ka*(Y2T - Y2p)) Y2p
-Y1p_activates_X2p: Y1p ->(compartment_0*ka*(X2T - X2p)) X2p
-X3p_inhibited_by_Y3p: X3p ->(Kmyx*Y3p*compartment_0*kd/(Kmyx + X3p)) 
-Y3p_inhibited_by_X3p: Y3p ->(Kmxy*X3p*compartment_0*kd/(Kmxy + Y3p)) 
+reaction_0: species_0 ->(compartment_0*parameter_9*(parameter_1 - species_1)) species_1
+reaction_1:  ->(compartment_0*parameter_6*parameter_7*(parameter_0 - species_0)/(parameter_7/parameter_8 + 1)) species_0
+reaction_2: species_1 ->(compartment_0*parameter_10*(parameter_2 - species_2)) species_2
+reaction_3:  ->(compartment_0*parameter_14*parameter_15*(parameter_3 - species_3)/(parameter_14/parameter_16 + 1)) species_3
+reaction_4: species_3 ->(compartment_0*parameter_17*(parameter_4 - species_4)) species_4
+reaction_5: species_4 ->(compartment_0*parameter_18*(parameter_5 - species_5)) species_5
+reaction_6: species_0 ->(compartment_0*parameter_12*(parameter_4 - species_4)) species_4
+reaction_7: species_3 ->(compartment_0*parameter_12*(parameter_1 - species_1)) species_1
+reaction_8: species_2 ->(compartment_0*parameter_11*species_5/(1 + species_2/parameter_13)) 
+reaction_9: species_5 ->(compartment_0*parameter_11*species_2/(1 + species_5/parameter_19)) 

@@ -1,32 +1,32 @@
-LHY_transcription_by_light_activation:  ->(compartment*light_sensitive_protein_P*q1*ceil(sin(0.001 + pi*t/dayLength)/2)) LHY_mRNA
-Light_independent_LHY_transcription:  ->(X_protein_in_nucleus**a*compartment*n1/(X_protein_in_nucleus**a + g1**a)) LHY_mRNA
-LHY_mRNA_degradation: LHY_mRNA ->(compartment*m1/(LHY_mRNA + k1)) 
-LHY_translation:  ->(LHY_mRNA*compartment*p1) LHY_protein_in_cytoplasm
-LHY_transport_out_of_nucleus: LHY_protein_in_nucleus ->(compartment*r2) LHY_protein_in_cytoplasm
-Cytoplasmic_LHY_degradation: LHY_protein_in_cytoplasm ->(compartment*m2/(LHY_protein_in_cytoplasm + k2)) 
-LHY_transport_into_nucleus: LHY_protein_in_cytoplasm ->(compartment*r1) LHY_protein_in_nucleus
-Nuclear_LHY_degradation: LHY_protein_in_nucleus ->(compartment*m3/(LHY_protein_in_nucleus + k3)) 
-TOC1_transcription:  ->(Y_protein_in_nucleus**b*compartment*g3**c*n2/((LHY_protein_in_nucleus**c + g3**c)*(Y_protein_in_nucleus**b + g2**b))) TOC1_mRNA
-TOC_mRNA_degradation: TOC1_mRNA ->(compartment*m4/(TOC1_mRNA + k4)) 
-TOC1_translation:  ->(TOC1_mRNA*compartment*p2) TOC1_protein_in_cytoplasm
-TOC1_transport_out_of_nucleus: TOC1_protein_in_nucleus ->(compartment*r4) TOC1_protein_in_cytoplasm
-Cytoplasmic_TOC1_degradation: TOC1_protein_in_cytoplasm ->(-compartment*(m5*ceil(sin(0.001 + pi*t/dayLength)/2) - m5 - m6)/(TOC1_protein_in_cytoplasm + k5)) 
-TOC1_movement_into_nucleus: TOC1_protein_in_cytoplasm ->(compartment*r3) TOC1_protein_in_nucleus
-Nuclear_TOC1_degradation: TOC1_protein_in_nucleus ->(-compartment*(m7*ceil(sin(0.001 + pi*t/dayLength)/2) - m7 - m8)/(TOC1_protein_in_nucleus + k6)) 
-Protein_X_transcription:  ->(TOC1_protein_in_nucleus**d*compartment*n3/(TOC1_protein_in_nucleus**d + g4**d)) X_mRNA
-Protein_X_degradation: X_mRNA ->(compartment*m9/(X_mRNA + k7)) 
-Protein_X_translation:  ->(X_mRNA*compartment*p3) X_protein_in_cytoplasm
-ProteinX_movement_out_of_nucleus: X_protein_in_nucleus ->(compartment*r6) X_protein_in_cytoplasm
-Cytoplasmic_Protein_X_degradation: X_protein_in_cytoplasm ->(compartment*m10/(X_protein_in_cytoplasm + k8)) 
-Protein_X_movement_into_nucleus: X_protein_in_cytoplasm ->(compartment*r5) X_protein_in_nucleus
-Nuclear_Protein_X_degradation: X_protein_in_nucleus ->(compartment*m11/(X_protein_in_nucleus + k9)) 
-Protein_Y_transcription:  ->(compartment*g6**f*(TOC1_protein_in_nucleus**e*light_sensitive_protein_P*q2*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*light_sensitive_protein_P*q2*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*n4*ceil(sin(0.001 + pi*t/dayLength)/2) + g5**e*n5)/((LHY_protein_in_nucleus**f + g6**f)*(TOC1_protein_in_nucleus**e + g5**e))) Y_mRNA
-Protein_Y_mRNA_degradation: Y_mRNA ->(compartment*m12/(Y_mRNA + k10)) 
-Protein_Y_translation:  ->(Y_mRNA*compartment*p4) Y_protein_in_cytoplasm
-Protein_Y_out_of_nucleus: Y_protein_in_nucleus ->(compartment*r8) Y_protein_in_cytoplasm
-Cytoplasmic_Protein_Y_degradation: Y_protein_in_cytoplasm ->(compartment*m13/(Y_protein_in_cytoplasm + k11)) 
-Protein_Y_into_nucleus: Y_protein_in_cytoplasm ->(compartment*r7) Y_protein_in_nucleus
-Nuclear_Protein_Y_degradation: Y_protein_in_nucleus ->(compartment*m14/(Y_protein_in_nucleus + k12)) 
-Light_dependent_production_of_Protein_P:  ->(-compartment*p5*(ceil(sin(0.001 + pi*t/dayLength)/2) - 1)) light_sensitive_protein_P
-Protein_P_degradation: light_sensitive_protein_P ->(compartment*m15/(k13 + light_sensitive_protein_P)) 
-Light_activated_Protein_P_degradation: light_sensitive_protein_P ->(compartment*q3*ceil(sin(0.001 + pi*t/dayLength)/2)) 
+one11:  ->(cPn*compartment*q1*ceiling(sin(Pi*time/dayLength + 0.001)/2)) cLm
+two11:  ->(cXn**a*compartment*n1/(cXn**a + g1**a)) cLm
+three11: cLm ->(compartment*m1/(cLm + k1)) 
+one12:  ->(cLm*compartment*p1) cLc
+three12: cLn ->(compartment*r2) cLc
+four12: cLc ->(compartment*m2/(cLc + k2)) 
+one13: cLc ->(compartment*r1) cLn
+three13: cLn ->(compartment*m3/(cLn + k3)) 
+one14:  ->(cYn**b*compartment*g3**c*n2/((cLn**c + g3**c)*(cYn**b + g2**b))) cTm
+two14: cTm ->(compartment*m4/(cTm + k4)) 
+one15:  ->(cTm*compartment*p2) cTc
+three15: cTn ->(compartment*r4) cTc
+four15: cTc ->(compartment*(m5*(-ceiling(sin(Pi*time/dayLength + 0.001)/2) + 1.0) + m6)/(cTc + k5)) 
+one16: cTc ->(compartment*r3) cTn
+three16: cTn ->(compartment*(m7*(-ceiling(sin(Pi*time/dayLength + 0.001)/2) + 1.0) + m8)/(cTn + k6)) 
+one17:  ->(cTn**d*compartment*n3/(cTn**d + g4**d)) cXm
+two17: cXm ->(compartment*m9/(cXm + k7)) 
+one18:  ->(cXm*compartment*p3) cXc
+three18: cXn ->(compartment*r6) cXc
+four18: cXc ->(compartment*m10/(cXc + k8)) 
+one19: cXc ->(compartment*r5) cXn
+three19: cXn ->(compartment*m11/(cXn + k9)) 
+one20:  ->(compartment*g6**f*(cPn*q2*ceiling(sin(Pi*time/dayLength + 0.001)/2) + g5**e*(n4*ceiling(sin(Pi*time/dayLength + 0.001)/2) + n5)/(cTn**e + g5**e))/(cLn**f + g6**f)) cYm
+two20: cYm ->(compartment*m12/(cYm + k10)) 
+one21:  ->(cYm*compartment*p4) cYc
+three21: cYn ->(compartment*r8) cYc
+four21: cYc ->(compartment*m13/(cYc + k11)) 
+one22: cYc ->(compartment*r7) cYn
+three22: cYn ->(compartment*m14/(cYn + k12)) 
+one23:  ->(compartment*p5*(-ceiling(sin(Pi*time/dayLength + 0.001)/2) + 1.0)) cPn
+two23: cPn ->(compartment*m15/(cPn + k13)) 
+three23: cPn ->(compartment*q3*ceiling(sin(Pi*time/dayLength + 0.001)/2)) 

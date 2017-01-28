@@ -1,2 +1,2 @@
-S__X1: S ->(_E1*compartment_0*reaction_0_k1) X1
-X1__P: X1 ->(E2*compartment_0*reaction_1_k2) P
+reaction_0: species_0 ->(compartment_0*reaction_0_k1*species_2) species_1
+reaction_1: species_1 ->(compartment_0*reaction_1_k2*species_3) species_4

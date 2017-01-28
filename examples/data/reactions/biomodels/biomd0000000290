@@ -1,12 +1,12 @@
-r1a__self_antigen_uptake: G ->(v_max/(G + k)) 
-r1b__pAPC_maturation: A_im ->(G*f*v_max/(A_im*(G + k))) A
-r2__self_antigen_release_triggered_by_E:  ->(E*gamma) G
-r3__R_activation_by_A:  ->(A*beta) R
-r4__R_activation_by_A_and_E:  ->(A*E*pi1) R
-r5__E_generation_by_A:  ->(A*lambdaE) E
-r6__A_death: A ->(muA) 
-r7__R_death: R ->(muR) 
-r8__E_death: E ->(muE) 
-r9__G_clearance: G ->(muG) 
-r10__A_suppression_by_Tregs_of_other_specificity: A ->(b1) 
-r11__A_suppression_by_R: A ->(R*sigma1) 
+r1a: G ->(v_max/(G + k)) 
+r1b: A_im ->(G*f*v_max/(A_im*(G + k))) A
+r2:  ->(E*gamma) G
+r3:  ->(A*beta) R
+r4:  ->(A*E*pi1) R
+r5:  ->(A*lambdaE) E
+r6: A ->(muA) 
+r7: R ->(muR) 
+r8: E ->(muE) 
+r9: G ->(muG) 
+r10: A ->(b1) 
+r11: A ->(R*sigma1) 

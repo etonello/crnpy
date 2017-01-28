@@ -1,89 +1,89 @@
-re055: E ->(HP*c4*kEB) Ep
-re066: HP ->(Edead*kEB) HP
-re059: Ep ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
-re105: HP + iDC ->(c2*iDCtoeDC_LP) eDC
-re074: emT ->(Stim_emT_iTreg*c2*(M2 + tDC)) iTreg
-re063: HP + iDC ->(iDCtoeDC_Lumen) eDC
-re058: E ->(c4*k_LP*(M1*uM1 + Th1*uCE + Th17*uCE)) Edead
-re070: M0 ->(c2*vm*(4*Bc2**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc2**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc2**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc2**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*M1**n*eDC**n*ri_I**(2*n) + Bc2**n*M1**n*ri_I**(3*n) + 3*Bc2**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*Th1**n*eDC**n*ri_I**(2*n) + Bc2**n*Th1**n*ri_I**(3*n) + 2*Bc2**n*Th17**n*eDC**n*ri_I**(2*n) + Bc2**n*Th17**n*ri_I**(3*n) + Bc2**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc2**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) M1
-re073: M0 ->(c2*vm*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) M2
-re072: M2 ->(c2*v21*(4*Bc**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*M1**n*eDC**n*ri_I**(2*n) + Bc**n*M1**n*ri_I**(3*n) + 3*Bc**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*Th1**n*eDC**n*ri_I**(2*n) + Bc**n*Th1**n*ri_I**(3*n) + 2*Bc**n*Th17**n*eDC**n*ri_I**(2*n) + Bc**n*Th17**n*ri_I**(3*n) + Bc**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) M1
-re077: HP + iDC ->(c2*iDCtotDC_LP) tDC
-re078: eDC ->(_eEI) eDC
-re079: tDC ->(_eEI) tDC
-re080: nT ->(c3*(Stim_t_Th17*eDC + Stim_t_Th17LB*eDCLB)) Th17
-re081: nT ->(c3*eDC*(Stim_t_Th1 + Stim_t_Th1LB)) Th1
-re082: nT ->(Stim_t_iTreg*c3*tDC) iTreg
-re083: cmT ->(c3*(Stim_cmT_Th17*eDC + Stim_cmT_Th17LB*eDCLB)) Th17
-re084: cmT ->(c3*(Stim_cmT_Th1*eDC + Stim_cmT_Th1LB*eDCLB)) Th1
-re085: cmT ->(Stim_cmT_iTreg*c3*tDC) iTreg
-re087: Th17 ->(_eIE) Th17
-re088: Th1 ->(_eIE) Th1
-re089: iTreg ->(_eIE) iTreg
-re091: iTreg ->(K_r17*c3*(3*Th1**n*Th17**n*eDC**n + 2*Th1**n*Th17**n*ri_I**n + 2*Th1**n*eDC**n*ri_I**n + Th1**n*ri_I**(2*n) + 2*Th17**n*eDC**n*ri_I**n + Th17**n*ri_I**(2*n) + eDC**n*ri_I**(2*n))/((Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Th17
-re093: iTreg ->(K_r17*c2*(4*Bc**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*M1**n*eDC**n*ri_I**(2*n) + Bc**n*M1**n*ri_I**(3*n) + 3*Bc**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc**n*Th1**n*eDC**n*ri_I**(2*n) + Bc**n*Th1**n*ri_I**(3*n) + 2*Bc**n*Th17**n*eDC**n*ri_I**(2*n) + Bc**n*Th17**n*ri_I**(3*n) + Bc**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Th17
-re095: Th17 ->(c2*toemT) emT
-re096: Th1 ->(c2*toemT) emT
-re097: iTreg ->(c2*toemT) emT
-re098: Th17 ->(tcmT) cmT
-re099: Th1 ->(tcmT) cmT
-re100: iTreg ->(tcmT) cmT
-re060: Ep ->(_uE*c4) E
-re057: Edead ->(_uE*c4) E
-re102: HP ->(c2*lHP/(HP + phi_HP)) 2HP
-re101: HP ->(c2*uHP) 
-re052: HP ->(c1*lHP/(HP + phi_HP)) 2HP
-re065: HP ->(c1*uHP) 
-re103: emT ->(c2*(M1*Stim_emT_Th1 + Stim_emT_Th1*eDC + Stim_emT_Th1LB*eDCLB)) Th1
-re104: emT ->(c2*(M1*Stim_emT_Th17 + Stim_emT_Th17*eDC + Stim_emT_Th17LB*eDCLB)) Th17
-re119: Th17 ->(T_deactivation*c2) 
-re106:  ->(c3*(_et*eDC**n + _lt*eDC**n + _lt*et_i**n)/(eDC**n + et_i**n)) nT
-re107: nT ->(_ut*c3) 
-re061: HP ->(Ep*cyto_change) HP
-re062: HP + iDC ->(iDCtotDC_Lumen) tDC
-re067: HP ->(c2*k_LP*(Bd*Ep + M1*uM1)) 
-re053: HP ->(Ep*HP_Ep_Lumen*c1) 
-re068:  ->(c2*(2*Br**n*M1**n*eDC**n*er + Br**n*M1**n*eDC**n*ld + Br**n*M1**n*er*er_i**n + Br**n*M1**n*er_i**n*ld + Br**n*eDC**n*er*er_i**n + Br**n*eDC**n*er_i**n*ld + Br**n*er_i**(2*n)*ld + 3*Ep**n*M1**n*eDC**n*er + Ep**n*M1**n*eDC**n*ld + 2*Ep**n*M1**n*er*er_i**n + Ep**n*M1**n*er_i**n*ld + 2*Ep**n*eDC**n*er*er_i**n + Ep**n*eDC**n*er_i**n*ld + Ep**n*er*er_i**(2*n) + Ep**n*er_i**(2*n)*ld)/((Br**n + Ep**n)*(M1**n + er_i**n)*(eDC**n + er_i**n))) iDC
-re069:  ->(c2*(2*Br**n*M1**n*eDC**n*er + Br**n*M1**n*eDC**n*lm + Br**n*M1**n*er*er_i**n + Br**n*M1**n*er_i**n*lm + Br**n*eDC**n*er*er_i**n + Br**n*eDC**n*er_i**n*lm + Br**n*er_i**(2*n)*lm + 3*Ep**n*M1**n*eDC**n*er + Ep**n*M1**n*eDC**n*lm + 2*Ep**n*M1**n*er*er_i**n + Ep**n*M1**n*er_i**n*lm + 2*Ep**n*eDC**n*er*er_i**n + Ep**n*eDC**n*er_i**n*lm + Ep**n*er*er_i**(2*n) + Ep**n*er_i**(2*n)*lm)/((Br**n + Ep**n)*(M1**n + er_i**n)*(eDC**n + er_i**n))) M0
-re111: iDC ->(c2*udi_LP) 
-re112: M0 ->(c2*um) 
-re117: M1 ->(c2*uMA) 
-re118: M2 ->(c2*uMA) 
-re120: Th1 ->(T_deactivation*c2) 
-re121: iTreg ->(T_deactivation*c2) 
-re071: M1 ->(c2*v12*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) M2
-re094: Th17 ->(K_17r*c2*(2*M2**n*iTreg**n*ir_I**n + 3*M2**n*iTreg**n*tDC**n + M2**n*ir_I**(2*n) + 2*M2**n*ir_I**n*tDC**n + iTreg**n*ir_I**(2*n) + 2*iTreg**n*ir_I**n*tDC**n + ir_I**(2*n)*tDC**n)/((M2**n + ir_I**n)*(iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) iTreg
-re092: Th17 ->(K_17r*c3*(iTreg**n*ir_I**n + 2*iTreg**n*tDC**n + ir_I**n*tDC**n)/((iTreg**n + ir_I**n)*(ir_I**n + tDC**n))) iTreg
-re122: HP + M0 ->(M0toM1_LP*c2) M1
-re123: HP + M0 ->(M0toM2_LP*c2) M2
-re116: eDC ->(_ud*c3) 
-re124: tDC ->(_ud*c3) 
-re127: iDC ->(V) iDC
-re127_rev: iDC ->(V*k) iDC
-re128: iDC ->(LB*iDCtotDC_LB) tDC
-re129: iDC ->(LB*iDCtoeDC_LB) eDC
-re130: LB ->(c1*uLB) 
-re131:  ->(c2*new_emT_iTreg) iTreg
-re132:  ->(c2*new_emT_Th1) Th1
-re133:  ->(c2*new_emT_Th17) Th17
-re134:  ->(c3*new_iTreg_GLN) iTreg
-re135:  ->(c3*new_Th1_GLN) Th1
-re136:  ->(c3*new_Th17_GLN) Th17
-re137: eDCLB ->(_eEI) eDCLB
-re138: eDCLB ->(_ud*c3) 
-re139: E ->(c4*vEC*(4*Bc2**n*M1**n*Th1**n*Th17**n*eDC**n + 3*Bc2**n*M1**n*Th1**n*Th17**n*ri_I**n + 3*Bc2**n*M1**n*Th1**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th1**n*ri_I**(2*n) + 3*Bc2**n*M1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*M1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*M1**n*eDC**n*ri_I**(2*n) + Bc2**n*M1**n*ri_I**(3*n) + 3*Bc2**n*Th1**n*Th17**n*eDC**n*ri_I**n + 2*Bc2**n*Th1**n*Th17**n*ri_I**(2*n) + 2*Bc2**n*Th1**n*eDC**n*ri_I**(2*n) + Bc2**n*Th1**n*ri_I**(3*n) + 2*Bc2**n*Th17**n*eDC**n*ri_I**(2*n) + Bc2**n*Th17**n*ri_I**(3*n) + Bc2**n*eDC**n*ri_I**(3*n) + 5*Ep**n*M1**n*Th1**n*Th17**n*eDC**n + 4*Ep**n*M1**n*Th1**n*Th17**n*ri_I**n + 4*Ep**n*M1**n*Th1**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th1**n*ri_I**(2*n) + 4*Ep**n*M1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*M1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*M1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*M1**n*ri_I**(3*n) + 4*Ep**n*Th1**n*Th17**n*eDC**n*ri_I**n + 3*Ep**n*Th1**n*Th17**n*ri_I**(2*n) + 3*Ep**n*Th1**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th1**n*ri_I**(3*n) + 3*Ep**n*Th17**n*eDC**n*ri_I**(2*n) + 2*Ep**n*Th17**n*ri_I**(3*n) + 2*Ep**n*eDC**n*ri_I**(3*n) + Ep**n*ri_I**(4*n))/((Bc2**n + Ep**n)*(M1**n + ri_I**n)*(Th1**n + ri_I**n)*(Th17**n + ri_I**n)*(eDC**n + ri_I**n))) Ep
-re140: eDCLB ->(_ud*c3) 
-nTh1_creation: nT ->(k1) nTh1
-nTh1_trans: nTh1 ->(c1*k1) nTh1_LP
-nTh1_LP_deg: nTh1_LP ->(c1*k1) 
-nTh1_LP_expansion: nTh1_LP ->(c1*k1) 2nTh1_LP
-nTh1_deg: nTh1 ->(c1*k1) 
-nTh17_creation: nT ->(k1) nTh17
-nTh17_trans: nTh17 ->(c1*k1) nTh17_LP
-nTh17_LP_deg: nTh17_LP ->(c1*k1) 
-nTh17_deg: nTh17 ->(c1*k1) 
-nTreg_creation: nT ->(k1) nTreg
-nTreg_trans: nTreg ->(c1*k1) nTreg_LP
-nTreg_LP_deg: nTreg_LP ->(c1*k1) 
-nTreg_deg: nTreg ->(c1*k1) 
-Th17_to_Treg: nTh17_LP ->(c1*k1) nTreg_LP
+re2: s2 ->(c4*parameter_7*s1) s3
+re3: s1 ->(parameter_7*species_5) s6
+re4: s3 ->(c4*parameter_48*(parameter_32*s13 + parameter_32*s16 + parameter_38*s19)) species_5
+re6: s6 + species_1 ->(c2*parameter_57) s9
+re11: s17 ->(c2*(parameter_24*s21 + parameter_24*s25)) s15
+re13: s1 + s4 ->(parameter_55) s9
+re15: s2 ->(c4*parameter_48*(parameter_32*s13 + parameter_32*s16 + parameter_38*s19)) species_5
+re16: s22 ->(c2*parameter_61*(s13**parameter_63/(parameter_91**parameter_63 + s13**parameter_63) + s16**parameter_63/(parameter_91**parameter_63 + s16**parameter_63) + s19**parameter_63/(parameter_91**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_106**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_91**parameter_63 + s9**parameter_63))) s19
+re17: s22 ->(c2*parameter_61*(s15**parameter_63/(parameter_92**parameter_63 + s15**parameter_63) + s21**parameter_63/(parameter_92**parameter_63 + s21**parameter_63) + s25**parameter_63/(parameter_92**parameter_63 + s25**parameter_63))) s21
+re18: s21 ->(c2*parameter_89*(s13**parameter_63/(parameter_91**parameter_63 + s13**parameter_63) + s16**parameter_63/(parameter_91**parameter_63 + s16**parameter_63) + s19**parameter_63/(parameter_91**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_31**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_91**parameter_63 + s9**parameter_63))) s19
+re20: s6 + species_1 ->(c2*parameter_58) s25
+re21: s9 ->(parameter_9) s26
+re22: s25 ->(parameter_9) s27
+re23: s28 ->(c3*(parameter_104*species_20 + parameter_29*s26)) s30
+re24: s28 ->(c3*(parameter_103*s26 + parameter_28*s26)) s31
+re27: s28 ->(c3*parameter_30*s27) s33
+re28: s29 ->(c3*(parameter_102*species_20 + parameter_26*s26)) s30
+re29: s29 ->(c3*(parameter_101*species_20 + parameter_25*s26)) s31
+re31: s29 ->(c3*parameter_27*s27) s33
+re32: s30 ->(parameter_8) s16
+re33: s31 ->(parameter_8) s13
+re35: s33 ->(parameter_8) s15
+re41: s33 ->(c3*parameter_87*(s26**parameter_63/(parameter_91**parameter_63 + s26**parameter_63) + s30**parameter_63/(parameter_91**parameter_63 + s30**parameter_63) + s31**parameter_63/(parameter_91**parameter_63 + s31**parameter_63))) s30
+re42: s15 ->(c2*parameter_87*(s13**parameter_63/(parameter_91**parameter_63 + s13**parameter_63) + s16**parameter_63/(parameter_91**parameter_63 + s16**parameter_63) + s19**parameter_63/(parameter_91**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_31**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_91**parameter_63 + s9**parameter_63))) s16
+re43: s16 ->(c2*parameter_15) s17
+re44: s13 ->(c2*parameter_15) s17
+re45: s15 ->(c2*parameter_15) s17
+re46: s16 ->(parameter_16) s29
+re47: s13 ->(parameter_16) s29
+re49: s15 ->(parameter_16) s29
+reaction_1: s3 ->(c4*parameter_21) s2
+reaction_2: species_5 ->(c4*parameter_21) s2
+reaction_3: s6 ->(c2*parameter_20/(parameter_93 + s6)) 2s6
+reaction_4: s6 ->(c2*parameter_19) 
+reaction_5: s1 ->(c1*parameter_20/(parameter_93 + s1)) 2s1
+reaction_6: s1 ->(c1*parameter_19) 
+reaction_10: s17 ->(c2*(parameter_100*species_18 + parameter_23*s19 + parameter_23*s9)) s13
+reaction_11: s17 ->(c2*(parameter_22*s19 + parameter_22*s9 + parameter_99*species_18)) s16
+reaction_12: s16 ->(c2*parameter_64) 
+reaction_13:  ->(c3*(parameter_33*s26**parameter_63/(parameter_86**parameter_63 + s26**parameter_63) + parameter_35)) s28
+reaction_14: s28 ->(c3*parameter_34) 
+reaction_16: s1 ->(parameter_37*s3) s6
+reaction_17: s1 + s4 ->(parameter_56) s25
+reaction_19: s6 ->(c2*parameter_48*(parameter_38*s19 + parameter_39*s3)) 
+reaction_20: s1 ->(c1*parameter_54*s3) 
+reaction_24:  ->(c2*(parameter_41*(s19**parameter_63/(parameter_85**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_40**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_85**parameter_63 + s9**parameter_63)) + parameter_66)) species_1
+reaction_27:  ->(c2*(parameter_41*(s19**parameter_63/(parameter_85**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_40**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_85**parameter_63 + s9**parameter_63)) + parameter_65)) s22
+reaction_31: species_1 ->(c2*parameter_44) 
+reaction_32: s22 ->(c2*parameter_45) 
+reaction_37: s19 ->(c2*parameter_62) 
+reaction_38: s21 ->(c2*parameter_62) 
+reaction_39: s13 ->(c2*parameter_64) 
+reaction_40: s15 ->(c2*parameter_64) 
+reaction_7: s19 ->(c2*parameter_90*(s15**parameter_63/(parameter_92**parameter_63 + s15**parameter_63) + s21**parameter_63/(parameter_92**parameter_63 + s21**parameter_63) + s25**parameter_63/(parameter_92**parameter_63 + s25**parameter_63))) s21
+reaction_8: s16 ->(c2*parameter_88*(s15**parameter_63/(parameter_92**parameter_63 + s15**parameter_63) + s21**parameter_63/(parameter_92**parameter_63 + s21**parameter_63) + s25**parameter_63/(parameter_92**parameter_63 + s25**parameter_63))) s15
+reaction_9: s30 ->(c3*parameter_88*(s27**parameter_63/(parameter_92**parameter_63 + s27**parameter_63) + s33**parameter_63/(parameter_92**parameter_63 + s33**parameter_63))) s33
+reaction_15: s22 + s6 ->(c2*parameter_59) s19
+reaction_18: s22 + s6 ->(c2*parameter_60) s21
+reaction_21: s26 ->(c3*parameter_46) 
+reaction_22: s27 ->(c3*parameter_46) 
+reaction_23: species_1 ->(reaction_23_V) s4
+reaction_23_rev: s4 ->(reaction_23_V*reaction_23_k) species_1
+reaction_25: s4 ->(parameter_77*species_10) s25
+reaction_26: s4 ->(parameter_78*species_10) s9
+reaction_28: species_10 ->(c1*parameter_94) 
+reaction_29:  ->(c2*parameter_82) s15
+reaction_30:  ->(c2*parameter_83) s13
+reaction_33:  ->(c2*parameter_84) s16
+reaction_34:  ->(c3*parameter_79) s33
+reaction_35:  ->(c3*parameter_80) s31
+reaction_36:  ->(c3*parameter_81) s30
+reaction_41: species_18 ->(parameter_9) species_20
+reaction_42: species_20 ->(c3*parameter_46) 
+reaction_43: s2 ->(c4*parameter_105*(s13**parameter_63/(parameter_91**parameter_63 + s13**parameter_63) + s16**parameter_63/(parameter_91**parameter_63 + s16**parameter_63) + s19**parameter_63/(parameter_91**parameter_63 + s19**parameter_63) + s3**parameter_63/(parameter_106**parameter_63 + s3**parameter_63) + s9**parameter_63/(parameter_91**parameter_63 + s9**parameter_63))) s3
+reaction_44: species_20 ->(c3*parameter_46) 
+reaction_45: s28 ->(reaction_45_k1) species_12
+reaction_46: species_12 ->(c1*reaction_46_k1) species_13
+reaction_47: species_13 ->(c1*reaction_47_k1) 
+reaction_48: species_13 ->(c1*reaction_48_k1) 2species_13
+reaction_49: species_12 ->(c1*reaction_49_k1) 
+reaction_50: s28 ->(reaction_50_k1) species_14
+reaction_51: species_14 ->(c1*reaction_51_k1) species_15
+reaction_52: species_15 ->(c1*reaction_52_k1) 
+reaction_53: species_14 ->(c1*reaction_53_k1) 
+reaction_54: s28 ->(reaction_54_k1) species_16
+reaction_55: species_16 ->(c1*reaction_55_k1) species_17
+reaction_56: species_17 ->(c1*reaction_56_k1) 
+reaction_57: species_16 ->(c1*reaction_57_k1) 
+reaction_58: species_15 ->(c1*reaction_58_k1) species_17

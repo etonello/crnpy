@@ -1,10 +1,10 @@
-J0: OCT4_Gene ->(f*(A*a1 + NANOG*OCT4_SOX2*a3 + OCT4_SOX2*a2 + eta1)/(OCT4_Gene*(A*b1*f + NANOG*OCT4_SOX2*b3*f + OCT4_SOX2*b2*f + eta1 + f))) OCT4
+J0: OCT4_Gene ->((A*a1 + NANOG*OCT4_SOX2*a3 + OCT4_SOX2*a2 + eta1)/(OCT4_Gene*(A*b1 + NANOG*OCT4_SOX2*b3 + OCT4_SOX2*b2 + eta1/f + 1))) OCT4
 J1: OCT4 ->(gamma1) degradation
-J2: NANOG_Gene ->(f*(NANOG*OCT4_SOX2*e2 + OCT4_SOX2*e1 + eta5)/(NANOG_Gene*(NANOG*OCT4_SOX2*f*f1 + OCT4_SOX2*f*f2 + eta5 + f*f3*p53 + f))) NANOG
+J2: NANOG_Gene ->((NANOG*OCT4_SOX2*e2 + OCT4_SOX2*e1 + eta5)/(NANOG_Gene*(NANOG*OCT4_SOX2*f1 + OCT4_SOX2*f2 + eta5/f + f3*p53 + 1))) NANOG
 J3: NANOG ->(gamma2) degradation
 J4: OCT4 + SOX2 ->((OCT4*SOX2*k1c - OCT4_SOX2*k2c)/(OCT4*SOX2)) OCT4_SOX2
 J5: OCT4_SOX2 ->(k3c) degradation
-J6: SOX2_Gene ->(f*(A*c1 + NANOG*OCT4_SOX2*c3 + OCT4_SOX2*c2 + eta3)/(SOX2_Gene*(A*d1*f + NANOG*OCT4_SOX2*d3*f + OCT4_SOX2*d2*f + eta3 + f))) SOX2
+J6: SOX2_Gene ->((A*c1 + NANOG*OCT4_SOX2*c3 + OCT4_SOX2*c2 + eta3)/(SOX2_Gene*(A*d1 + NANOG*OCT4_SOX2*d3 + OCT4_SOX2*d2 + eta3/f + 1))) SOX2
 J7: SOX2 ->(gamma3) degradation
-J8: targetGene ->(f*(OCT4_SOX2*g1 + eta7)/(targetGene*(NANOG*OCT4_SOX2*f*h2 + OCT4_SOX2*f*h1 + eta7 + f))) Protein
+J8: targetGene ->((OCT4_SOX2*g1 + eta7)/(targetGene*(NANOG*OCT4_SOX2*h2 + OCT4_SOX2*h1 + eta7/f + 1))) Protein
 J9: Protein ->(gamma4) degradation

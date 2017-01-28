@@ -1,12 +1,12 @@
-cyclinD_synthesis:  ->(_GF*aD*cell*k1/(_GF*k1 + 1)) D
-cyclinD_degradation: D ->(E*cell*dD) 
-cyclinE_synthesis:  ->(aE*cell*(_GF*aF*k2*theta + _GF*k2 + aF*theta)/(_GF*k2 + 1)) E
-cyclinE_degradation: E ->(X*cell*dE) 
-pRB_synthesis:  ->(X*cell*pX*(R + RS - RT)/(R + RS - RT - X - qX)) R
-pRB_E2F_complex_association: R + theta ->(cell*pS) RS
-pRB_E2F_complex_dissociation_via_cyclin_D: RS ->(D*cell*pD/(D + RS + qD)) theta
-pRB_E2F_complex_dissociation_via_cyclin_E: RS ->(E*cell*pE/(E + RS + qE)) theta
-E2F_synthesis:  ->(atheta*cell*(_GF*fe*k3*theta + _GF*k3 + fe*theta)/(_GF*k3 + 1)) theta
-E2F_degradation_via_cell_cycle_progression: theta ->(X*cell*dtheta/(X + qtheta)) 
-cell_cycle_progression_go:  ->(cell*(E*X**2*g + E*aX + f*theta)) X
-cell_cycle_progression_slow: X ->(cell*dX) 
+_1:  ->(GF_1*aD_1*cell/(GF_1 + k1_1**(-1.0))) D_1
+cyclinD_1: D_1 ->(E_1*cell*dD_1) 
+cyclinEsynthesis_1:  ->(aE_1*cell*(GF_1/(GF_1 + k2_1**(-1.0)) + aF_1*theta_1)) E_1
+cyclinEdegradation_1: E_1 ->(X_1*cell*dE_1) 
+pRBsynthesis_1:  ->(X_1*cell*pX_1*(-RS_1 + RT_1 - R_1)/(-RS_1 + RT_1 - R_1 + X_1 + qX_1)) R_1
+pRBdeplation_1: R_1 + theta_1 ->(cell*pS_1) RS_1
+_2: RS_1 ->(D_1*cell*pD_1/(D_1 + RS_1 + qD_1)) theta_1
+null2_1: RS_1 ->(E_1*cell*pE_1/(E_1 + RS_1 + qE_1)) theta_1
+null3_1:  ->(atheta_1*cell*(GF_1/(GF_1 + k3_1**(-1.0)) + fC_1_1*theta_1)) theta_1
+E2Fdegradationviacellcycleprogression_1: theta_1 ->(X_1*cell*dtheta_1/(X_1 + qtheta_1)) 
+cellcycleprogression_1:  ->(cell*(E_1*X_1**2.0*g_1 + E_1*aX_1 + f_1*theta_1)) X_1
+cellcycleprogressionslow_1: X_1 ->(cell*dX_1) 

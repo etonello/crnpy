@@ -1,5 +1,5 @@
-M1: BrO3_ + Br_ ->(BZ*kM1) HBrO2 + HOBr
-M2: Br_ + HBrO2 ->(BZ*kM2) 2HOBr
-M3: BrO3_ + HBrO2 ->(BZ*kM3) Ce4_ + 2HBrO2
-M4: 2HBrO2 ->(BZ*kM4) BrO3_ + HOBr
-M5: Ce4_ ->(BZ*kM5) Br_
+Reaction1: Br + BrO3 ->(BZ*Reaction1_k1) HBrO2 + HOBr
+Reaction2: Br + HBrO2 ->(BZ*Reaction2_k2) 2HOBr
+Reaction3: BrO3 + HBrO2 ->(BZ*Reaction3_k3) Ce + 2HBrO2
+Reaction4: 2HBrO2 ->(BZ*Reaction4_k4) BrO3 + HOBr
+Reaction5: Ce ->(BZ*Reaction5_k5) Br

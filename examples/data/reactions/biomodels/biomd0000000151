@@ -1,110 +1,110 @@
-IL6_gp80_complex_formation:  ->(IL6*cytosol*gp80*kf0) IL6_gp80
-IL6_gp80_complex_dissociation: IL6_gp80 ->(cytosol*kr0) 
-IL6_gp80_gp130_JAK_dissociation: IL6_gp80_gp130_JAK ->(-cytosol*(IL6_gp80*gp130_JAK*kf2 - IL6_gp80_gp130_JAK*kr2)/IL6_gp80_gp130_JAK) IL6_gp80 + gp130_JAK
-gp130_JAK_complex_formation: JAK ->(cytosol*(JAK*gp130*kf1 - gp130_JAK*kr1)/JAK) gp130_JAK
-IL6_gp80_gp130_JAK_dimerization: 2IL6_gp80_gp130_JAK ->(cytosol*kf3) _IL6_gp80_gp130_JAK_2
-IL6_gp80_gp130_JAK_dimer_dissociation: _IL6_gp80_gp130_JAK_2 ->(cytosol*kr3) 2IL6_gp80_gp130_JAK
-IL6_gp80_gp130_JAK_dimer_phosphorylation: _IL6_gp80_gp130_JAK_2 ->(cytosol*k4) _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK_dimer_SHP2_dissociation: _IL6_gp80_gp130_JAK_ast2_JAK ->(cytosol*k10) SHP2 + _IL6_gp80_gp130_JAK_2
-IL6_gp80_gp130_JAK__STAT3C_complex_formation: STAT3C + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*(STAT3C*_IL6_gp80_gp130_JAK__ast2*kf5 - _IL6_gp80_gp130_JAK_ast2_STAT3C*kr5)/(STAT3C*_IL6_gp80_gp130_JAK__ast2)) _IL6_gp80_gp130_JAK_ast2_STAT3C
-IL6_gp80_gp130_JAK__STAT3C_dissociation: _IL6_gp80_gp130_JAK_ast2_STAT3C ->(cytosol*k6) STAT3Cast + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK_STAT3Cast_complex_formation: STAT3Cast + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kf7) _IL6_gp80_gp130_JAK_ast2_STAT3Cast
-IL6_gp80_gp130_JAK_STAT3Cast_complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_STAT3Cast ->(cytosol*kr7) STAT3Cast + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK__SHP2_complex_formation: SHP2 + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kf9) _IL6_gp80_gp130_JAK_ast2_JAK
-IL6_gp80_gp130_JAK__SHP2_complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_JAK ->(cytosol*kr9) SHP2 + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK__SOCS3_complex_formation: SOCS3 + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kf21) _IL6_gp80_gp130_JAK_ast2_SOCS3
-IL6_gp80_gp130_JAK__SOCS3_complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SOCS3 ->(cytosol*kr21) SOCS3 + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK__SHP2_dimer_dissociation: _IL6_gp80_gp130_JAK_ast2_SHP2ast ->(cytosol*kf37) SHP2ast + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK__SHP2_dimer_dissociation_rev: SHP2ast + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kr37) _IL6_gp80_gp130_JAK_ast2_SHP2ast
-IL6_gp80_gp130_JAK_SHP2_Grb2_dissociation: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2 ->(cytosol*kf39) SHP2ast_Grb2 + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK_SHP2_Grb2_dissociation_rev: SHP2ast_Grb2 + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kr39) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2
-IL6_gp80_gp130_JAK_SHP2_Grb2_SOS_dissociation: _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kf32) SHP2ast_Grb2_SOS + _IL6_gp80_gp130_JAK__ast2
-IL6_gp80_gp130_JAK_SHP2_Grb2_SOS_dissociation_rev: SHP2ast_Grb2_SOS + _IL6_gp80_gp130_JAK__ast2 ->(cytosol*kr32) _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-PP1_STAT3Cast_dissociation: PP1_STAT3Cast ->(cytosol*k12) PP1 + STAT3C
-STAT3C_dimerization: STAT3C + STAT3Cast ->(cytosol*kf13) STAT3C_STAT3Cast
-STAT3C_dimerization_rev: STAT3C_STAT3Cast ->(cytosol*kr13) STAT3C + STAT3Cast
-STAT3N_transport: STAT3N ->(k17*nucleus) STAT3C
-IL6_gp80_gp130_JAK_SOCS2_STAT3C_complex_formation: STAT3C + _IL6_gp80_gp130_JAK_ast2_SOCS3 ->(cytosol*kf5) _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3
-IL6_gp80_gp130_JAK_SOCS2_STAT3C_complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3 ->(cytosol*kr5) STAT3C + _IL6_gp80_gp130_JAK_ast2_SOCS3
-IL6_gp80_gp130_JAK_STAT3C_SOCS3_SHP2_dissociation: _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3_SHP2 ->(cytosol*k10) SHP2 + SOCS3 + STAT3C + _IL6_gp80_gp130_JAK_2
-STAT3C_dimerization: STAT3Cast ->(2*STAT3Cast*cytosol*kf8) 0STAT3Cast_STAT3Cast
-STAT3C_dimerization_rev: 0STAT3Cast_STAT3Cast ->(2*STAT3Cast_STAT3Cast*cytosol*kr8) STAT3Cast
-IL6_gp80_gp130_JAK_STAT3Cast_complex_formation: PP1 + STAT3Cast ->(cytosol*kf11) PP1_STAT3Cast
-IL6_gp80_gp130_JAK_STAT3Cast_complex_formation_rev: PP1_STAT3Cast ->(cytosol*kr11) PP1 + STAT3Cast
-PP1_STAT3C_dimer_complex_formation: PP1 + STAT3Cast_STAT3Cast ->(cytosol*kf11) PP1_STAT3Cast_STAT3Cast
-PP1_STAT3C_dimer_complex_formation_rev: PP1_STAT3Cast_STAT3Cast ->(cytosol*kr11) PP1 + STAT3Cast_STAT3Cast
-STAT3C_dimer_phosphorylation: STAT3Cast_STAT3Cast ->(cytosol*k14) STAT3Nast_STAT3Nast
-PP1_STAT3C_dimer_dissociation: PP1_STAT3Cast_STAT3Cast ->(cytosol*k12) PP1 + STAT3C_STAT3Cast
-Complex_formation: SHP2 + _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3 ->(cytosol*(SHP2*_IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3*kf9 - _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3_SHP2*kr9)/(SHP2*_IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3)) _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3_SHP2
-SHP2_dephosphorylation: SHP2ast ->(Vm*cytosol/(Km + SHP2ast)) SHP2
-IL6_gp80_gp130_JAK_SHP2_phosphorylation: _IL6_gp80_gp130_JAK_ast2_JAK ->(cytosol*kf34) _IL6_gp80_gp130_JAK_ast2_SHP2ast
-IL6_gp80_gp130_JAK_SHP2_phosphorylation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2ast ->(cytosol*kr34) _IL6_gp80_gp130_JAK_ast2_JAK
-STAT3N_dimer_dissociation: STAT3Nast_STAT3Nast ->(kr8*nucleus) 2STAT3Nast
-STAT3N_dimer_dissociation_rev: 2STAT3Nast ->(kf8*nucleus) STAT3Nast_STAT3Nast
-PP2_STAT3N_dimer_complex_formation: PP2 + STAT3Nast_STAT3Nast ->(kf15*nucleus) PP2_STAT3Nast_STAT3Nast
-PP2_STAT3N_dimer_complex_formation_rev: PP2_STAT3Nast_STAT3Nast ->(kr15*nucleus) PP2 + STAT3Nast_STAT3Nast
-PP2_STAT3N_complex_formation: PP2 + STAT3Nast ->(kf15*nucleus) PP2_STAT3Nast
-PP2_STAT3N_complex_formation_rev: PP2_STAT3Nast ->(kr15*nucleus) PP2 + STAT3Nast
-STAT3N_dimer_dissociation: STAT3N_STAT3Nast ->(kr13*nucleus) STAT3N + STAT3Nast
-STAT3N_dimer_dissociation_rev: STAT3N + STAT3Nast ->(kf13*nucleus) STAT3N_STAT3Nast
-PP2_STAT3N_dissociation: PP2_STAT3Nast ->(k16*nucleus) PP2 + STAT3N
-PP2_STAT3N_dimer_dissociation: PP2_STAT3Nast_STAT3Nast ->(k16*nucleus) PP2 + STAT3N_STAT3Nast
-SOCS3N_transcription:  ->(STAT3Nast_STAT3Nast*k18a*nucleus/(STAT3Nast_STAT3Nast + k18b)) Mrna_SOCS3N
-SOCS3_mRNA_translocation: Mrna_SOCS3N ->(k19*nucleus) Mrna_SOCS3C
-SOCS3_mRNA_degradation: Mrna_SOCS3C ->(k22*nucleus) 
-SOCS3_translation:  ->(Mrna_SOCS3C*k20*nucleus) SOCS3
-SOCS3_degradation: SOCS3 ->(cytosol*k23) 
-Complex_dissociation: _IL6_gp80_gp130_JAK_ast2_STAT3C_SOCS3_SHP2 ->(cytosol*k23) SOCS3 + _IL6_gp80_gp130_JAK_ast2_STAT3C_SHP2
-SHP2_Grb2_complex_formation: Grb2 + SHP2ast ->(cytosol*kf38) SHP2ast_Grb2
-SHP2_Grb2_complex_formation_rev: SHP2ast_Grb2 ->(cytosol*kr38) Grb2 + SHP2ast
-Grb2_SOS_dissociation: Grb2_SOS ->(cytosol*kf35) Grb2 + SOS
-Grb2_SOS_dissociation_rev: Grb2 + SOS ->(cytosol*kr35) Grb2_SOS
-Complex_formation: Grb2 + _IL6_gp80_gp130_JAK_ast2_SHP2ast ->(cytosol*kf24) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2
-Complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2 ->(cytosol*kr24) Grb2 + _IL6_gp80_gp130_JAK_ast2_SHP2ast
-Complex_formation: SOS + _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2 ->(cytosol*kf25) _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kr25) SOS + _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2
-SHP2Grb2_SOS_complex_formation: SHP2ast_Grb2 + SOS ->(cytosol*kf40) SHP2ast_Grb2_SOS
-SHP2Grb2_SOS_complex_formation_rev: SHP2ast_Grb2_SOS ->(cytosol*kr40) SHP2ast_Grb2 + SOS
-Complex_formation: Ras_GDP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kf26) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GDP
-Complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GDP ->(cytosol*kr26) Ras_GDP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Complex_dissociation: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GTP ->(cytosol*kf31) Ras_GDP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Complex_dissociation_rev: Ras_GDP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kr31) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GTP
-Complex_dissociation: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GDP ->(cytosol*kf27) Ras_GTP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Complex_dissociation_rev: Ras_GTP + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kr27) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GDP
-Ras_GTP_Raf_complex_formation: Raf + Ras_GTP ->(cytosol*kf28) Raf_Ras_GTP
-Ras_GTP_Raf_complex_formation_rev: Raf_Ras_GTP ->(cytosol*kr28) Raf + Ras_GTP
-Complex_formation: Grb2_SOS + _IL6_gp80_gp130_JAK_ast2_SHP2ast ->(cytosol*kf41) _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kr41) Grb2_SOS + _IL6_gp80_gp130_JAK_ast2_SHP2ast
-SHP2_Grb2_SOS_dissociation: SHP2ast_Grb2_SOS ->(cytosol*kf33) Grb2_SOS + SHP2ast
-SHP2_Grb2_SOS_dissociation_rev: Grb2_SOS + SHP2ast ->(cytosol*kr33) SHP2ast_Grb2_SOS
-Complex_formation: Ras_GTPast + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2 ->(cytosol*kf30) _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GTP
-Complex_formation_rev: _IL6_gp80_gp130_JAK_ast2_SHP2ast_Grb2_SOS_Ras_GTP ->(cytosol*kr30) Ras_GTPast + _IL6_gp80_gp130_JAK_ast2_SHP2_Grb2
-Raf_Phosp1_dissociation: Rafast_Phosp1 ->(cytosol*k43) Phosp1 + Raf
-Raf_Ras_GTP_dissociation: Raf_Ras_GTP ->(cytosol*kf29) Rafast + Ras_GTPast
-Raf_Ras_GTP_dissociation_rev: Rafast + Ras_GTPast ->(cytosol*kr29) Raf_Ras_GTP
-Raf_Phosp1_complex_formation: Phosp1 + Rafast ->(cytosol*kf42) Rafast_Phosp1
-Raf_Phosp1_complex_formation_rev: Rafast_Phosp1 ->(cytosol*kr42) Phosp1 + Rafast
-MEK_Raf_complex_formation: MEK + Rafast ->(cytosol*kf44) MEK_Rafast
-MEK_Raf_complex_formation_rev: MEK_Rafast ->(cytosol*kr44) MEK + Rafast
-MEK_Raf_complex_dissociation: MEK_Rafast ->(cytosol*k45) MEK_P + Rafast
-MEK_P_Raf_complex_formation: MEK_P + Rafast ->(cytosol*kf46) MEK_P_Rafast
-MEK_P_Raf_complex_formation_rev: MEK_P_Rafast ->(cytosol*kr46) MEK_P + Rafast
-MEK_P_Phosp2_dissociation: MEK_P_Phosp2 ->(cytosol*k51) MEK + Phosp2
-MEK_PP_Phosp2_dissociation: MEK_PP_Phosp2 ->(cytosol*k49) MEK_P + Phosp2
-MEK_P_Phosp2_complex_formation: MEK_P + Phosp2 ->(cytosol*kf50) MEK_P_Phosp2
-MEK_P_Phosp2_complex_formation_rev: MEK_P_Phosp2 ->(cytosol*kr50) MEK_P + Phosp2
-MEK_P_Raf_complex_dissociation: MEK_P_Rafast ->(cytosol*k47) MEK_PP + Rafast
-MEK_PP_Phosp2_complex_formation: MEK_PP + Phosp2 ->(cytosol*kf48) MEK_PP_Phosp2
-MEK_PP_Phosp2_complex_formation_rev: MEK_PP_Phosp2 ->(cytosol*kr48) MEK_PP + Phosp2
-ERK_MEK_PP_complex_formation: ERK + MEK_PP ->(cytosol*kf52) ERK_MEK_PP
-ERK_MEK_PP_complex_formation_rev: ERK_MEK_PP ->(cytosol*kr52) ERK + MEK_PP
-ERK_MEK_PP_complex_dissociation: ERK_MEK_PP ->(cytosol*k53) ERK_P + MEK_PP
-ERK_P_MEK_PP_complex_dissociation: ERK_P_MEK_PP ->(cytosol*kr54) ERK_P + MEK_PP
-ERK_P_MEK_PP_complex_dissociation_rev: ERK_P + MEK_PP ->(cytosol*kf54) ERK_P_MEK_PP
-ERK_PP_formation: ERK_P_MEK_PP ->(cytosol*k55) ERK_PP + MEK_PP
-ERK_P_Phosp3_complex_dissociation: ERK_P_Phosp3 ->(cytosol*k59) ERK + Phosp3
-ERK_PP_Phosp3_dissociation: ERK_PP_Phosp3 ->(cytosol*k57) ERK_P + Phosp3
-ERK_P_Phosp3_formation: ERK_P + Phosp3 ->(cytosol*kf58) ERK_P_Phosp3
-ERK_P_Phosp3_formation_rev: ERK_P_Phosp3 ->(cytosol*kr58) ERK_P + Phosp3
-ERK_PP_Phosp3_formation: ERK_PP + Phosp3 ->(cytosol*kf56) ERK_PP_Phosp3
-ERK_PP_Phosp3_formation_rev: ERK_PP_Phosp3 ->(cytosol*kr56) ERK_PP + Phosp3
+R1:  ->(IL6*cytosol*kf0*x1) x2
+R2: x2 ->(cytosol*kr0) 
+R3: x6 ->(cytosol*(-kf2*x2*x5 + kr2*x6)/x6) x2 + x5
+R5: x4 ->(cytosol*(kf1*x3*x4 - kr1*x5)/x4) x5
+R7: 2x6 ->(cytosol*kf3) x7
+R8: x7 ->(cytosol*kr3) 2x6
+R9: x7 ->(cytosol*k4) x8
+R10: x16 ->(cytosol*k10) x15 + x7
+R11: x8 + x9 ->(cytosol*(kf5*x8*x9 - kr5*x11)/(x8*x9)) x11
+R12: x11 ->(cytosol*k6) x10 + x8
+R13: x10 + x8 ->(cytosol*kf7) x12
+R13_rev: x12 ->(cytosol*kr7) x10 + x8
+R14: x15 + x8 ->(cytosol*kf9) x16
+R14_rev: x16 ->(cytosol*kr9) x15 + x8
+R15: x29 + x8 ->(cytosol*kf21) x30
+R15_rev: x30 ->(cytosol*kr21) x29 + x8
+R16: x39 ->(cytosol*kf37) x46 + x8
+R16_rev: x46 + x8 ->(cytosol*kr37) x39
+R16a: x40 ->(cytosol*kf39) x45 + x8
+R16a_rev: x45 + x8 ->(cytosol*kr39) x40
+R17: x41 ->(cytosol*kf32) x44 + x8
+R17_rev: x44 + x8 ->(cytosol*kr32) x41
+R18: x18 ->(cytosol*k12) x17 + x9
+R19: x10 + x9 ->(cytosol*kf13) x14
+R19_rev: x14 ->(cytosol*kr13) x10 + x9
+R20: x22 ->(k17*nucleus) x9
+R21: x30 + x9 ->(cytosol*kf5) x31
+R21_rev: x31 ->(cytosol*kr5) x30 + x9
+R22: x32 ->(cytosol*k10) x15 + x29 + x7 + x9
+R23: x10 ->(2*cytosol*kf8*x10) 
+R23_rev:  ->(2*cytosol*kr8*x13) x10
+R24: x10 + x17 ->(cytosol*kf11) x18
+R24_rev: x18 ->(cytosol*kr11) x10 + x17
+R25: x13 + x17 ->(cytosol*kf11) x19
+R25_rev: x19 ->(cytosol*kr11) x13 + x17
+R26: x13 ->(cytosol*k14) x20
+R27: x19 ->(cytosol*k12) x14 + x17
+R28: x15 + x31 ->(cytosol*(kf9*x15*x31 - kr9*x32)/(x15*x31)) x32
+R29: x46 ->(Vm*cytosol/(Km + x46)) x15
+R30: x16 ->(cytosol*kf34) x39
+R30_rev: x39 ->(cytosol*kr34) x16
+R31: x20 ->(kr8*nucleus) 2x21
+R31_rev: 2x21 ->(kf8*nucleus) x20
+R32: x20 + x23 ->(kf15*nucleus) x27
+R32_rev: x27 ->(kr15*nucleus) x20 + x23
+R33: x21 + x23 ->(kf15*nucleus) x28
+R33_rev: x28 ->(kr15*nucleus) x21 + x23
+R34: x24 ->(kr13*nucleus) x21 + x22
+R34_rev: x21 + x22 ->(kf13*nucleus) x24
+R35: x28 ->(k16*nucleus) x22 + x23
+R36: x27 ->(k16*nucleus) x23 + x24
+R37:  ->(k18a*nucleus*x20/(k18b + x20)) x25
+R38: x25 ->(k19*nucleus) x26
+R39: x26 ->(k22*nucleus) 
+R40:  ->(k20*nucleus*x26) x29
+R41: x29 ->(cytosol*k23) 
+R42: x32 ->(cytosol*k23) x29 + x33
+R43: x34 + x46 ->(cytosol*kf38) x45
+R43_rev: x45 ->(cytosol*kr38) x34 + x46
+R44: x38 ->(cytosol*kf35) x34 + x35
+R44_rev: x34 + x35 ->(cytosol*kr35) x38
+R45: x34 + x39 ->(cytosol*kf24) x40
+R45_rev: x40 ->(cytosol*kr24) x34 + x39
+R46: x35 + x40 ->(cytosol*kf25) x41
+R46_rev: x41 ->(cytosol*kr25) x35 + x40
+R47: x35 + x45 ->(cytosol*kf40) x44
+R47_rev: x44 ->(cytosol*kr40) x35 + x45
+R48: x36 + x41 ->(cytosol*kf26) x42
+R48_rev: x42 ->(cytosol*kr26) x36 + x41
+R49: x43 ->(cytosol*kf31) x36 + x41
+R49_rev: x36 + x41 ->(cytosol*kr31) x43
+R50: x42 ->(cytosol*kf27) x37 + x41
+R50_rev: x37 + x41 ->(cytosol*kr27) x42
+R51: x37 + x47 ->(cytosol*kf28) x48
+R51_rev: x48 ->(cytosol*kr28) x37 + x47
+R52: x38 + x39 ->(cytosol*kf41) x41
+R52_rev: x41 ->(cytosol*kr41) x38 + x39
+R53: x44 ->(cytosol*kf33) x38 + x46
+R53_rev: x38 + x46 ->(cytosol*kr33) x44
+R54: x41 + x49 ->(cytosol*kf30) x43
+R54_rev: x43 ->(cytosol*kr30) x41 + x49
+R55: x52 ->(cytosol*k43) x47 + x50
+R56: x48 ->(cytosol*kf29) x49 + x51
+R56_rev: x49 + x51 ->(cytosol*kr29) x48
+R57: x50 + x51 ->(cytosol*kf42) x52
+R57_rev: x52 ->(cytosol*kr42) x50 + x51
+R58: x51 + x53 ->(cytosol*kf44) x54
+R58_rev: x54 ->(cytosol*kr44) x51 + x53
+R59: x54 ->(cytosol*k45) x51 + x55
+R60: x51 + x55 ->(cytosol*kf46) x56
+R60_rev: x56 ->(cytosol*kr46) x51 + x55
+R61: x60 ->(cytosol*k51) x53 + x59
+R62: x58 ->(cytosol*k49) x55 + x59
+R63: x55 + x59 ->(cytosol*kf50) x60
+R63_rev: x60 ->(cytosol*kr50) x55 + x59
+R64: x56 ->(cytosol*k47) x51 + x57
+R65: x57 + x59 ->(cytosol*kf48) x58
+R65_rev: x58 ->(cytosol*kr48) x57 + x59
+R66: x57 + x61 ->(cytosol*kf52) x62
+R66_rev: x62 ->(cytosol*kr52) x57 + x61
+R67: x62 ->(cytosol*k53) x57 + x63
+R68: x64 ->(cytosol*kr54) x57 + x63
+R68_rev: x57 + x63 ->(cytosol*kf54) x64
+R69: x64 ->(cytosol*k55) x57 + x65
+R70: x68 ->(cytosol*k59) x61 + x66
+R71: x67 ->(cytosol*k57) x63 + x66
+R72: x63 + x66 ->(cytosol*kf58) x68
+R72_rev: x68 ->(cytosol*kr58) x63 + x66
+R73: x65 + x66 ->(cytosol*kf56) x67
+R73_rev: x67 ->(cytosol*kr56) x65 + x66

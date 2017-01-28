@@ -1,21 +1,21 @@
-glycolysis: Glucose ->(BM*X_a*env*(Acetaldehyde*Glucose**2*K_1i*k_1h + Acetaldehyde*Glucose**2*K_1i*k_1l + Acetaldehyde*Glucose**2*k_1e + Acetaldehyde*Glucose*K_1h*K_1i*k_1l + Acetaldehyde*Glucose*K_1h*k_1e + Acetaldehyde*Glucose*K_1i*K_1l*k_1h + Acetaldehyde*Glucose*K_1l*k_1e + Acetaldehyde*K_1h*K_1l*k_1e + Glucose**2*k_1h + Glucose**2*k_1l + Glucose*K_1e*k_1h + Glucose*K_1e*k_1l + Glucose*K_1h*k_1l + Glucose*K_1l*k_1h + K_1e*K_1h*k_1l + K_1e*K_1l*k_1h)/((Glucose + K_1h)*(Glucose + K_1l)*(Acetaldehyde*Glucose*K_1i + Glucose + K_1e))) 0Pyruvate + 0Red__Equ___NADH_
-TCA__pyruvate_: Pyruvate ->(BM*X_a*env*k_2/((K_2 + Pyruvate)*(Glucose*K_2i + 1))) CO2 + 0Red__Equ___NADH_
-Pyruvate_Dehydrogenase: Pyruvate ->(BM*Pyruvate**3*X_a*env*k_3/(K_3 + Pyruvate**4)) 0Acetaldehyde + 0CO2
-Acetald__dehydrogenase: Acetaldehyde ->(BM*X_AcDH*X_a*env*k_4/(Acetaldehyde + K_4)) Acetate + 0Red__Equ___NADH_
-TCA__acetate_: Acetate ->(BM*X_a*env*(Acetate*Glucose*K_5i*k_5 + Acetate*k_5 + Acetate*k_5e + Glucose*K_5e*K_5i*k_5 + K_5*k_5e + K_5e*k_5)/((Acetate + K_5)*(Acetate + K_5e)*(Glucose*K_5i + 1))) CO2 + Red__Equ___NADH_
-ADH: Acetaldehyde + 0Red__Equ___NADH_ ->(BM*X_a*env*k_6/(Acetaldehyde + EtOH*K_6e + K_6)) EtOH
-ADH_rev: EtOH ->(BM*X_a*env*k_6*k_6r/(Acetaldehyde + EtOH*K_6e + K_6)) Acetaldehyde + 0Red__Equ___NADH_
-BM_growth__gluc_: Glucose ->(BM*X_a*env*k_7/(Glucose + K_7)) 0BM + 0CO2 + 0Red__Equ___NADH_
-BM_growth__acetate_: Acetate ->(BM*X_a*env*k_8/((Acetate + K_5e)*(Glucose*K_5i + 1))) 0BM + 0CO2 + 0Red__Equ___NADH_
-Acdh_production: BM_active_ ->(BM*X_a*env*(EtOH*Glucose**2*K_9i*k_9c + EtOH*Glucose*k_9 + EtOH*Glucose*k_9c + EtOH*Glucose*k_9e + EtOH*K_9*k_9e + Glucose**2*K_9e*K_9i*k_9c + Glucose*K_9e*k_9 + Glucose*K_9e*k_9c)/(BM_active_*(EtOH + K_9e)*(Glucose + K_9)*(Glucose*K_9i + 1))) BM_AcDH_
-active_BM_degradation: BM_active_ ->(BM*X_a*env*(EtOH*Glucose*k_10 + EtOH*Glucose*k_10e + EtOH*K_10*k_10e + Glucose*K_10e*k_10)/(BM_active_*(EtOH + K_10e)*(Glucose + K_10))) 
-Acdh_degradation: BM_AcDH_ ->(BM*X_AcDH*env*k_11/BM_AcDH_) 
-Glucose_inflow: Glucose_feed_ ->(Dilutionrate*env) Glucose
-Glucose_outflow: Glucose ->(Dilutionrate*env) 
-Pyruvate_outflow: Pyruvate ->(Dilutionrate*env) 
-Acetate_outflow: Acetate ->(Dilutionrate*env) 
-Acetaldehyde_outflow: Acetaldehyde ->(Dilutionrate*env) 
-EtOH_outflow: EtOH ->(Dilutionrate*env) 
-active_BM_outflow: BM_active_ ->(Dilutionrate*env) 
-BM_outflow: BM ->(Dilutionrate*env) 
-AcDH_BM_outflow: BM_AcDH_ ->(Dilutionrate*env) 
+r1: s_glu ->(X_a*env*x*(k_1e*s_acetald*s_glu/(K_1e + s_glu*(K_1i*s_acetald + 1)) + k_1h*s_glu/(K_1h + s_glu) + k_1l*s_glu/(K_1l + s_glu))/s_glu) 
+r2: s_pyr ->(X_a*env*k_2*x/((K_2 + s_pyr)*(K_2i*s_glu + 1))) CO2
+r3: s_pyr ->(X_a*env*k_3*s_pyr**3*x/(K_3 + s_pyr**4)) 
+r4: s_acetald ->(X_AcDH*X_a*env*k_4*x/(K_4 + s_acetald)) s_acetate
+r5: s_acetate ->(X_a*env*x*(k_5*s_acetate/(K_5 + s_acetate) + k_5e*s_acetate/((K_5e + s_acetate)*(K_5i*s_glu + 1)))/s_acetate) CO2 + Red
+r6: s_acetald ->(X_a*env*k_6*x/(K_6 + K_6e*s_EtOH + s_acetald)) s_EtOH
+r6_rev: s_EtOH ->(X_a*env*k_6*k_6r*x/(K_6 + K_6e*s_EtOH + s_acetald)) s_acetald
+r7: s_glu ->(X_a*env*k_7*x/(K_7 + s_glu)) 
+r8: s_acetate ->(X_a*env*k_8*x/((K_5e + s_acetate)*(K_5i*s_glu + 1))) 
+r9: a ->(X_a*env*x*(k_9c*s_glu/(K_9 + s_glu) + (k_9*s_glu/(K_9 + s_glu) + k_9e*s_EtOH/(K_9e + s_EtOH))/(K_9i*s_glu + 1))/a) AcDH
+r10: a ->(X_a*env*x*(k_10*s_glu/(K_10 + s_glu) + k_10e*s_EtOH/(K_10e + s_EtOH))/a) 
+r11: AcDH ->(X_AcDH*env*k_11*x/AcDH) 
+s_glu_in: S_f ->(D*env) s_glu
+s_glu_out: s_glu ->(D*env) 
+s_pyr_out: s_pyr ->(D*env) 
+s_acetate_out: s_acetate ->(D*env) 
+s_acetald_out: s_acetald ->(D*env) 
+s_EtOH_out: s_EtOH ->(D*env) 
+a_out: a ->(D*env) 
+x_out: x ->(D*env) 
+AcDH_out: AcDH ->(D*env) 

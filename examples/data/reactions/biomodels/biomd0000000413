@@ -6,4 +6,4 @@ auxin_TIR1_VENUSdissociationleadingtoubiquitination: auxinTIR1VENUS ->(lm) auxin
 auxinproduction:  ->(alpha_tr) auxin
 auxindecay: auxin ->(mu) 
 VENUSproduction:  ->(delta) VENUS
-VENUSphotobleachingdecay: VENUS ->(_lambda) 
+VENUSphotobleachingdecay: VENUS ->(lambda) 

@@ -1,22 +1,22 @@
-CS: aca + oaa ->(CS_Kcit_cs*CS_Kcoa_cs*CS_Vf_cs*cell/((CS_Kaca_cs*CS_Kcoa_cs + CS_Kaca_cs*coa + CS_Kcoa_cs*aca)*(CS_Kcit_cs*CS_Koaa_cs + CS_Kcit_cs*oaa + CS_Koaa_cs*cit))) cit + coa
-CS_rev: cit + coa ->(CS_Kaca_cs*CS_Koaa_cs*CS_Vr_cs*cell/((CS_Kaca_cs*CS_Kcoa_cs + CS_Kaca_cs*coa + CS_Kcoa_cs*aca)*(CS_Kcit_cs*CS_Koaa_cs + CS_Kcit_cs*oaa + CS_Koaa_cs*cit))) aca + oaa
-ACN: cit ->(ACN_Kicit_acn*ACN_Vf_acn*cell/(ACN_Kcit_acn*ACN_Kicit_acn + ACN_Kcit_acn*icit + ACN_Kicit_acn*cit)) icit
-ACN_rev: icit ->(ACN_Kcit_acn*ACN_Vr_acn*cell/(ACN_Kcit_acn*ACN_Kicit_acn + ACN_Kcit_acn*icit + ACN_Kicit_acn*cit)) cit
-ICD: icit ->(ICD_Kakg_icd*ICD_Vf_icd*cell/(ICD_Kakg_icd*ICD_Kicit_icd + ICD_Kakg_icd*icit + ICD_Kicit_icd*akg)) akg
-ICD_rev: akg ->(ICD_Kicit_icd*ICD_Vr_icd*cell/(ICD_Kakg_icd*ICD_Kicit_icd + ICD_Kakg_icd*icit + ICD_Kicit_icd*akg)) icit
-KDH: akg ->(KDH_Ksca_kdh*KDH_Vf_kdh*cell/(KDH_Kakg_kdh*KDH_Ksca_kdh + KDH_Kakg_kdh*sca + KDH_Ksca_kdh*akg)) sca
-KDH_rev: sca ->(KDH_Kakg_kdh*KDH_Vr_kdh*cell/(KDH_Kakg_kdh*KDH_Ksca_kdh + KDH_Kakg_kdh*sca + KDH_Ksca_kdh*akg)) akg
-ScAS: sca ->(ScAS_Ksuc_scas*ScAS_Vf_scas*cell/(ScAS_Ksca_scas*ScAS_Ksuc_scas + ScAS_Ksca_scas*suc + ScAS_Ksuc_scas*sca)) suc
-ScAS_rev: suc ->(ScAS_Ksca_scas*ScAS_Vr_scas*cell/(ScAS_Ksca_scas*ScAS_Ksuc_scas + ScAS_Ksca_scas*suc + ScAS_Ksuc_scas*sca)) sca
-SDH: suc ->(SDH_Kfa_sdh*SDH_Vf_sdh*cell/(SDH_Kfa_sdh*SDH_Ksuc_sdh + SDH_Kfa_sdh*suc + SDH_Ksuc_sdh*fa)) fa
-SDH_rev: fa ->(SDH_Ksuc_sdh*SDH_Vr_sdh*cell/(SDH_Kfa_sdh*SDH_Ksuc_sdh + SDH_Kfa_sdh*suc + SDH_Ksuc_sdh*fa)) suc
-FUM: fa ->(FUM_Kmal_fum*FUM_Vf_fum*cell/(FUM_Kfa_fum*FUM_Kmal_fum + FUM_Kfa_fum*mal + FUM_Kmal_fum*fa)) mal
-FUM_rev: mal ->(FUM_Kfa_fum*FUM_Vr_fum*cell/(FUM_Kfa_fum*FUM_Kmal_fum + FUM_Kfa_fum*mal + FUM_Kmal_fum*fa)) fa
-MDH: mal ->(MDH_Koaa_mdh*MDH_Vf_mdh*cell/(MDH_Kmal_mdh*MDH_Koaa_mdh + MDH_Kmal_mdh*oaa + MDH_Koaa_mdh*mal)) oaa
-MDH_rev: oaa ->(MDH_Kmal_mdh*MDH_Vr_mdh*cell/(MDH_Kmal_mdh*MDH_Koaa_mdh + MDH_Kmal_mdh*oaa + MDH_Koaa_mdh*mal)) mal
-ICL: icit ->(ICL_Kgly_icl*ICL_Ksuc_icl*ICL_Vf_icl*cell/((ICL_Ksuc_icl + suc)*(ICL_Kgly_icl*ICL_Kicit_icl + ICL_Kgly_icl*icit + ICL_Kicit_icl*gly))) gly + suc
-ICL_rev: gly + suc ->(ICL_Kicit_icl*ICL_Vr_icl*cell/((ICL_Ksuc_icl + suc)*(ICL_Kgly_icl*ICL_Kicit_icl + ICL_Kgly_icl*icit + ICL_Kicit_icl*gly))) icit
-MS: aca + gly ->(MS_Kcoa_ms*MS_Kmal_ms*MS_Vf_ms*cell/((MS_Kaca_ms*MS_Kcoa_ms + MS_Kaca_ms*coa + MS_Kcoa_ms*aca)*(MS_Kgly_ms*MS_Kmal_ms + MS_Kgly_ms*mal + MS_Kmal_ms*gly))) coa + mal
-MS_rev: coa + mal ->(MS_Kaca_ms*MS_Kgly_ms*MS_Vr_ms*cell/((MS_Kaca_ms*MS_Kcoa_ms + MS_Kaca_ms*coa + MS_Kcoa_ms*aca)*(MS_Kgly_ms*MS_Kmal_ms + MS_Kgly_ms*mal + MS_Kmal_ms*gly))) aca + gly
-SYN: akg ->(0.0341*SYN_Kakg_icd*SYN_Vf_icd*cell*icit/(akg*(SYN_Kakg_icd*SYN_Kicit_icd + SYN_Kakg_icd*icit + SYN_Kicit_icd*akg))) biosyn
-SYN_rev: biosyn ->(0.0341*SYN_Kicit_icd*SYN_Vr_icd*akg*cell/(biosyn*(SYN_Kakg_icd*SYN_Kicit_icd + SYN_Kakg_icd*icit + SYN_Kicit_icd*akg))) akg
+CS: aca + oaa ->(1.0*CS_Kcit_cs*CS_Kcoa_cs*CS_Vf_cs*cell/((1.0*CS_Kaca_cs*CS_Kcoa_cs + 1.0*CS_Kaca_cs*coa + 1.0*CS_Kcoa_cs*aca)*(1.0*CS_Kcit_cs*CS_Koaa_cs + 1.0*CS_Kcit_cs*oaa + 1.0*CS_Koaa_cs*cit))) cit + coa
+CS_rev: cit + coa ->(1.0*CS_Kaca_cs*CS_Koaa_cs*CS_Vr_cs*cell/((1.0*CS_Kaca_cs*CS_Kcoa_cs + 1.0*CS_Kaca_cs*coa + 1.0*CS_Kcoa_cs*aca)*(1.0*CS_Kcit_cs*CS_Koaa_cs + 1.0*CS_Kcit_cs*oaa + 1.0*CS_Koaa_cs*cit))) aca + oaa
+ACN: cit ->(1.0*ACN_Kicit_acn*ACN_Vf_acn*cell/(1.0*ACN_Kcit_acn*ACN_Kicit_acn + 1.0*ACN_Kcit_acn*icit + 1.0*ACN_Kicit_acn*cit)) icit
+ACN_rev: icit ->(1.0*ACN_Kcit_acn*ACN_Vr_acn*cell/(1.0*ACN_Kcit_acn*ACN_Kicit_acn + 1.0*ACN_Kcit_acn*icit + 1.0*ACN_Kicit_acn*cit)) cit
+ICD: icit ->(1.0*ICD_Kakg_icd*ICD_Vf_icd*cell/(1.0*ICD_Kakg_icd*ICD_Kicit_icd + 1.0*ICD_Kakg_icd*icit + 1.0*ICD_Kicit_icd*akg)) akg
+ICD_rev: akg ->(1.0*ICD_Kicit_icd*ICD_Vr_icd*cell/(1.0*ICD_Kakg_icd*ICD_Kicit_icd + 1.0*ICD_Kakg_icd*icit + 1.0*ICD_Kicit_icd*akg)) icit
+KDH: akg ->(1.0*KDH_Ksca_kdh*KDH_Vf_kdh*cell/(1.0*KDH_Kakg_kdh*KDH_Ksca_kdh + 1.0*KDH_Kakg_kdh*sca + 1.0*KDH_Ksca_kdh*akg)) sca
+KDH_rev: sca ->(1.0*KDH_Kakg_kdh*KDH_Vr_kdh*cell/(1.0*KDH_Kakg_kdh*KDH_Ksca_kdh + 1.0*KDH_Kakg_kdh*sca + 1.0*KDH_Ksca_kdh*akg)) akg
+ScAS: sca ->(1.0*ScAS_Ksuc_scas*ScAS_Vf_scas*cell/(1.0*ScAS_Ksca_scas*ScAS_Ksuc_scas + 1.0*ScAS_Ksca_scas*suc + 1.0*ScAS_Ksuc_scas*sca)) suc
+ScAS_rev: suc ->(1.0*ScAS_Ksca_scas*ScAS_Vr_scas*cell/(1.0*ScAS_Ksca_scas*ScAS_Ksuc_scas + 1.0*ScAS_Ksca_scas*suc + 1.0*ScAS_Ksuc_scas*sca)) sca
+SDH: suc ->(1.0*SDH_Kfa_sdh*SDH_Vf_sdh*cell/(1.0*SDH_Kfa_sdh*SDH_Ksuc_sdh + 1.0*SDH_Kfa_sdh*suc + 1.0*SDH_Ksuc_sdh*fa)) fa
+SDH_rev: fa ->(1.0*SDH_Ksuc_sdh*SDH_Vr_sdh*cell/(1.0*SDH_Kfa_sdh*SDH_Ksuc_sdh + 1.0*SDH_Kfa_sdh*suc + 1.0*SDH_Ksuc_sdh*fa)) suc
+FUM: fa ->(1.0*FUM_Kmal_fum*FUM_Vf_fum*cell/(1.0*FUM_Kfa_fum*FUM_Kmal_fum + 1.0*FUM_Kfa_fum*mal + 1.0*FUM_Kmal_fum*fa)) mal
+FUM_rev: mal ->(1.0*FUM_Kfa_fum*FUM_Vr_fum*cell/(1.0*FUM_Kfa_fum*FUM_Kmal_fum + 1.0*FUM_Kfa_fum*mal + 1.0*FUM_Kmal_fum*fa)) fa
+MDH: mal ->(1.0*MDH_Koaa_mdh*MDH_Vf_mdh*cell/(1.0*MDH_Kmal_mdh*MDH_Koaa_mdh + 1.0*MDH_Kmal_mdh*oaa + 1.0*MDH_Koaa_mdh*mal)) oaa
+MDH_rev: oaa ->(1.0*MDH_Kmal_mdh*MDH_Vr_mdh*cell/(1.0*MDH_Kmal_mdh*MDH_Koaa_mdh + 1.0*MDH_Kmal_mdh*oaa + 1.0*MDH_Koaa_mdh*mal)) mal
+ICL: icit ->(1.0*ICL_Kgly_icl*ICL_Ksuc_icl*ICL_Vf_icl*cell/((1.0*ICL_Ksuc_icl + 1.0*suc)*(1.0*ICL_Kgly_icl*ICL_Kicit_icl + 1.0*ICL_Kgly_icl*icit + 1.0*ICL_Kicit_icl*gly))) gly + suc
+ICL_rev: gly + suc ->(1.0*ICL_Kicit_icl*ICL_Vr_icl*cell/((1.0*ICL_Ksuc_icl + 1.0*suc)*(1.0*ICL_Kgly_icl*ICL_Kicit_icl + 1.0*ICL_Kgly_icl*icit + 1.0*ICL_Kicit_icl*gly))) icit
+MS: aca + gly ->(1.0*MS_Kcoa_ms*MS_Kmal_ms*MS_Vf_ms*cell/((1.0*MS_Kaca_ms*MS_Kcoa_ms + 1.0*MS_Kaca_ms*coa + 1.0*MS_Kcoa_ms*aca)*(1.0*MS_Kgly_ms*MS_Kmal_ms + 1.0*MS_Kgly_ms*mal + 1.0*MS_Kmal_ms*gly))) coa + mal
+MS_rev: coa + mal ->(1.0*MS_Kaca_ms*MS_Kgly_ms*MS_Vr_ms*cell/((1.0*MS_Kaca_ms*MS_Kcoa_ms + 1.0*MS_Kaca_ms*coa + 1.0*MS_Kcoa_ms*aca)*(1.0*MS_Kgly_ms*MS_Kmal_ms + 1.0*MS_Kgly_ms*mal + 1.0*MS_Kmal_ms*gly))) aca + gly
+SYN: akg ->(0.0341*SYN_Kakg_icd*SYN_Vf_icd*cell*icit/(akg*(1.0*SYN_Kakg_icd*SYN_Kicit_icd + 1.0*SYN_Kakg_icd*icit + 1.0*SYN_Kicit_icd*akg))) biosyn
+SYN_rev: biosyn ->(0.0341*SYN_Kicit_icd*SYN_Vr_icd*akg*cell/(biosyn*(1.0*SYN_Kakg_icd*SYN_Kicit_icd + 1.0*SYN_Kakg_icd*icit + 1.0*SYN_Kicit_icd*akg))) akg

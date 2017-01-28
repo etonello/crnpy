@@ -1,7 +1,7 @@
 ATPase: ATP ->(Katpase*Tissue) ADP
-ATPase_rev: ADP -> ATP
+ATPase_rev: ADP ->(k_ATPase_rev) ATP
 OxidativePhosphorylation: 6ADP + CTtis ->(CFtis*Tissue*Vmax/(ADP**5*CTtis*(ADP + Kadp)*(CFtis + Km))) 6ATP
-OxidativePhosphorylation_rev: 6ATP -> 6ADP + CTtis
+OxidativePhosphorylation_rev: 6ATP ->(k_OxidativePhosphorylation_rev) 6ADP + CTtis
 ConvectionTransport:  ->(CTart*Qm) CTcap
 ConvectionTransport_rev: CTcap ->(Qm) 
 DiffusionTransport: CTcap ->(CFcap*PSm/CTcap) CTtis

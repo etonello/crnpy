@@ -1,27 +1,27 @@
-pRB_E2F_complex_deassociation: pRB_E2F ->(CycD_CDK4*k1p + a_cyclinE_CDK2*k1 + cycD_CDK4_p27*k1pp) E2F + pRB_P
-pRB_E2F_complex_formation: E2F + pRB ->(kminus1) pRB_E2F
-cycE_CDK2_activation: i_cyclinE_CDK2 ->(a_cyclinE_CDK2*k2) a_cyclinE_CDK2
-cycE_CDK2_deactivation: a_cyclinE_CDK2 ->(kminus2) i_cyclinE_CDK2
-icycE_CDK2_synthesis:  ->(E2F*k3 + k3p) i_cyclinE_CDK2
-E2F_synthesis:  ->(k4) E2F
-E2F_degradation: E2F ->(kminus4) 
-icycE_CDK2_degradation: i_cyclinE_CDK2 ->(k5) 
-cycD_CDK4_synthesis:  ->(k6) CycD_CDK4
-cycD_CDK4_degradation: CycD_CDK4 ->(kminus6) 
-p27_synthesis:  ->(k7) p27
-p27_degradation_via_cycE_CDK2: p27 ->(a_cyclinE_CDK2*k8) 
-cycE_CDK2_p27_complex_formation: a_cyclinE_CDK2 + p27 ->(k9) cycE_CDK2_p27
-cycE_CDK2_p27_deassociation: cycE_CDK2_p27 ->(K10) a_cyclinE_CDK2 + p27
-cycD_CDK4_p16_complex_formation: CycD_CDK4 + p16 ->(k17) 
-E2F_auto_stimulation:  ->(E2F*k18) E2F
-cycD_CDK4_p27_complex_formation: CycD_CDK4 + p27 ->(k19) cycD_CDK4_p27
-cycD_CDK4_p27_complex_deassociation: cycD_CDK4_p27 ->(k20) CycD_CDK4 + p27
-acycE_CDK2_degradation: a_cyclinE_CDK2 ->(a_cyclinE_CDK2*k21) 
-p27_degradation: p27 ->(k22) 
-p16_synthesis:  ->(k23) p16
-p16_degradation: p16 ->(k24) 
-p16_synthesis_inhibited_by_pRB:  ->(k25/(k25p*pRB + 1)) p16
-pRB_synthesis_inhibited_by_p16:  ->(k26/(k26p*p16 + 1)) pRB
-pRB_synthesis:  ->(k27) pRB
-pRB_degradation: pRB ->(k28) 
-pRB_p_dephosphorylation: pRB_P ->(k29) pRB
+_1: Y3_1 ->((Y1_1*Y3_1*k1_1 + Y3_1*Y6_1*k1p_1 + Y3_1*Y9_1*k1pp_1)/Y3_1) Y11_1 + Y4_1
+pRBE2Fcomplexformation_1: Y4_1 + Y5_1 ->(kminus1_1) Y3_1
+cycECDK2activation_1: Y2_1 ->(Y1_1*k2_1) Y1_1
+cycECDK2deactivation_1: Y1_1 ->(kminus2_1) Y2_1
+cycECDK2synthesis_1:  ->(Y4_1*k3_1 + k3p_1) Y2_1
+E2Fsynthesis_1:  ->(k4_1) Y4_1
+E2Fdegradation_1: Y4_1 ->(kminus4_1) 
+cycECDK2degradation_1: Y2_1 ->(k5_1) 
+cycDCDK4synthesis_1:  ->(k6_1) Y6_1
+cycDCDK4degradation_1: Y6_1 ->(kminus6_1) 
+p27synthesis_1:  ->(k7_1) Y7_1
+p27degradationviacycECDK2_1: Y7_1 ->(Y1_1*k8_1) 
+cycECDK2p27complexformation_1: Y1_1 + Y7_1 ->(k9_1) Y8_1
+cycECDK2p27deassociation_1: Y8_1 ->(K10_1) Y1_1 + Y7_1
+cycDCDK4p16complexformation_1: Y10_1 + Y6_1 ->(k17_1) 
+E2Fautostimulation_1:  ->(Y4_1*k18_1) Y4_1
+cycDCDK4p27complexformation_1: Y6_1 + Y7_1 ->(k19_1) Y9_1
+cycDCDK4p27complexdeassociation_1: Y9_1 ->(k20_1) Y6_1 + Y7_1
+acycECDK2degradation_1: Y1_1 ->(Y1_1*k21_1) 
+p27degradation_1: Y7_1 ->(k22_1) 
+_20:  ->(k23_1) Y10_1
+p16degradation_1: Y10_1 ->(k24_1) 
+p16synthesisinhibitedbypRB_1:  ->(k25_1/(Y5_1*k25p_1 + 1.0)) Y10_1
+pRBpdephosphorilation_1:  ->(k26_1/(Y10_1*k26p_1 + 1.0)) Y5_1
+pRBsynthesis_1:  ->(k27_1) Y5_1
+pRBdegradation_1: Y5_1 ->(k28_1) 
+pRBpdephosphorylation_1: Y11_1 ->(k29_1) Y5_1

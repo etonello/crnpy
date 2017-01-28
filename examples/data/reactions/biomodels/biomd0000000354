@@ -1,11 +1,11 @@
-PLC__Receptor_and_Ca2__regulated_IP3_production:  ->(CaI*R) IP3
-SERCA__Pumps_Ca2__into_ER_Ca2__stores: CaI ->(CaI*SERCA/(CaI**2 + kSERCA**2)) CaS
-IP3R__IP3_and_Ca2__regulated_Ca2__channel___plus_leak: CaS ->((DirTransf - 1)*(-CaI**2*ERleak*IP3**2 - CaI**2*ERleak*kIP3R**2 + CaI**2*IP3**2*IP3R*g - CaI**2*IP3**2*IP3R - ERleak*IP3**2*kIP3Rca**2 - ERleak*kIP3R**2*kIP3Rca**2)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2))) CaI
-IP3_phosphatase___Degradation_of_IP3: IP3 ->(IP3degradation) 
-Inhibition_of_IP3R__mechanism_not_well_understood_:  ->(-CaI**4*IP3Rinhibition*(g - 1)/(CaI**4 + kG**4)) g
-Recovery_of_IP3R_from_Ca2__iinhibition_when_Ca2__drops: g ->(IP3Rrecovery) 
-Regulation_of_Orai_by_STIM__plus_leak:  ->(STIM*(CaS**8*PMleak + PMleak*kSTIM**8 + kSTIM**8)/(CaS**8 + kSTIM**8)) CaI
-PMCA___Pumps_Ca2__across_PM_out_of_cell: CaI ->(CaI*PMCA/(CaI**2 + kPMCA**2)) 
-UniporterFromCytosol: CaI ->(CaI**3*UniPort/(CaI**4 + kUniP**4)) CaM
-MitoToCytosol: CaM ->(1.0*MitNaCaEx/(1.0*CaM + 0.01)) CaI
-ERtoMito: CaS ->(-DirTransf*(-CaI**2*ERleak*IP3**2 - CaI**2*ERleak*kIP3R**2 + CaI**2*IP3**2*IP3R*g - CaI**2*IP3**2*IP3R - ERleak*IP3**2*kIP3Rca**2 - ERleak*kIP3R**2*kIP3Rca**2)/((CaI**2 + kIP3Rca**2)*(IP3**2 + kIP3R**2))) CaM
+kPLC:  ->(CaI*R) IP3
+JPump: CaI ->(B*CaI/(CaI**2 + k2**2)) CaS
+JChannel: CaS ->((-mwc714c217_c8fd_4024_912c_681cd6931f59 + 1)*(A*CaI**2*IP3**2*(-g + 1)/((CaI**2 + mw78dd80b8_e003_4c62_81d1_547d001767af**2)*(IP3**2 + kIP3R**2)) + L)) CaI
+kPhosphatase: IP3 ->(D) 
+inhibition_parameter1:  ->(CaI**4*E*(-g + 1)/(CaI**4 + mwf998b218_be11_4aa4_81ae_41141861fb42**4)) g
+inhibition_parameter2: g ->(F) 
+mwbdcd6a40_1ae7_4c86_a99f_1fba0b8beaf7:  ->(mw004dcb62_da5f_41c7_a7bd_033574894f48*(PMleak + kSTIM**8/(CaS**8 + kSTIM**8))) CaI
+mw530793e3_76b2_4483_be11_e94364306712: CaI ->(CaI*mwd21d3f76_d133_4053_8e44_02a538657e0a/(CaI**2 + mw3a93c3a6_623a_44fe_84e9_a47823defd1f**2)) 
+mwfaf5e05a_b642_4ee2_a069_3c2fc783fba4: CaI ->(CaI**3*mw886be93a_22c7_4966_a1fa_113afd832ae3/(CaI**4 + mwc8d6bdb5_59d4_43fa_b96d_7426f4857e0d**4)) CaM
+mw69f19152_7258_45b0_bf9e_b196f19d7e03: CaM ->(mwd90ce3ea_f8d5_4f0a_8093_e39a2d3dbf33/(CaM + 0.01)) CaI
+ERtoMito: CaS ->(mwc714c217_c8fd_4024_912c_681cd6931f59*(A*CaI**2*IP3**2*(-g + 1)/((CaI**2 + mw78dd80b8_e003_4c62_81d1_547d001767af**2)*(IP3**2 + kIP3R**2)) + L)) CaM

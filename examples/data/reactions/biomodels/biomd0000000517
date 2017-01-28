@@ -1,9 +1,9 @@
-N0_death: N0 ->(K0X*d0/(K0X + N3)) 
-N0_differentiation_to_N1: N0 ->(N0_division_rate*p01/N0) N0 + N1
-N0_renewal: N0 ->(N0_division_rate*p00/N0) 2N0
-N1_death: N1 ->(K1X*d1/(K1X + N3)) 
-N1_differentiation: N1 ->(N1_division_rate*p12/N1) N1 + N2
-N1_renewal: N1 ->(N1_division_rate*p11/N1) 2N1
-N2_death: N2 ->(K2X*d2/(K2X + N3)) 
-N0_differentiation_to_N3: N0 ->(N0_division_rate*p03/N0) N0 + N3
-N3_death: N3 ->(d3) 
+R0X: N0 ->(K0X*d0/(K0X + N3)) 
+R01: N0 ->(f0*p01/N0) N0 + N1
+R00: N0 ->(f0*p00/N0) 2N0
+R1X: N1 ->(K1X*d1/(K1X + N3)) 
+R12: N1 ->(f1*p12/N1) N1 + N2
+R11: N1 ->(f1*p11/N1) 2N1
+R2X: N2 ->(K2X*d2/(K2X + N3)) 
+R03: N0 ->(f0*p03/N0) N0 + N3
+R3X: N3 ->(d3) 

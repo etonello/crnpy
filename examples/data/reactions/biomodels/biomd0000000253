@@ -1,4 +1,4 @@
-hexokinase: ATP + glucose ->(HK_KiTre6P*HK_VHK*cell/((ATP + HK_KATP)*(HK_KGlc*HK_KiTre6P + HK_KGlc*HK_wild_type*trehalose_6_phosphate + HK_KiTre6P*glucose))) hexose_monophosphate
-phosphofructokinase: ATP + hexose_monophosphate ->(PFK_VPFK*R*cell*gR*lambda1*lambda2/(ATP*hexose_monophosphate*(L*T**2 + R**2))) fructose_1_6_bisphosphate
-lower: 4ADP + fructose_1_6_bisphosphate ->(cell*lower_Vlower/(ADP**3*(ADP + lower_KADP)*(fructose_1_6_bisphosphate + lower_KFru16P2))) 4ATP
+HK: ATP + Glc ->(HK_VHK*cell/(HK_KATP*HK_KGlc*(ATP/HK_KATP + 1)*(Glc/HK_KGlc + 1 + HK_wild_type*Tre6P/HK_KiTre6P))) HMP
+PFK: ATP + HMP ->(PFK_VPFK*R*cell*gR*lambda1*lambda2/(ATP*HMP*(L*T**2 + R**2))) Fru16P2
+lower: 4ADP + Fru16P2 ->(cell*lower_Vlower/(ADP**3*lower_KADP*lower_KFru16P2*(ADP/lower_KADP + 1)*(Fru16P2/lower_KFru16P2 + 1))) 4ATP
 ATPase: ATP ->(ATPase_VATPase*cell/(ATP + ATPase_KATP)) ADP

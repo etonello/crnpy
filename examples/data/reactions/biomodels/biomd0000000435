@@ -1,8 +1,8 @@
-Xi_expr:  ->(compartment_1*theta/(Xj**n*a + theta)) Xi
-Xi_degr: Xi ->(compartment_1*k1) 
-Yi_expr:  ->(compartment_1*(b*(Yi*Yj)**n + theta)/(Xi**n*c + b*(Yi*Yj)**n + theta)) Yi
-Yi_degr: Yi ->(compartment_1*k1) 
-Xj_expr:  ->(compartment_1*theta/(Xi**n*a + theta)) Xj
-Xj_degr: Xj ->(compartment_1*k1) 
-Yj_expr:  ->(compartment_1*(b*(Yi*Yj)**n + theta)/(Xj**n*c + b*(Yi*Yj)**n + theta)) Yj
-Yj_degr: Yj ->(compartment_1*k1) 
+reaction_1:  ->(compartment_1*reaction_1_theta/(reaction_1_a*species_3**reaction_1_n + reaction_1_theta)) species_1
+reaction_2: species_1 ->(compartment_1*reaction_2_k1) 
+reaction_3:  ->(compartment_1*(reaction_3_b*(species_2*species_4)**reaction_3_n + reaction_3_theta)/(reaction_3_b*(species_2*species_4)**reaction_3_n + reaction_3_c*species_1**reaction_3_n + reaction_3_theta)) species_2
+reaction_4: species_2 ->(compartment_1*reaction_4_k1) 
+reaction_5:  ->(compartment_1*reaction_5_theta/(reaction_5_a*species_1**reaction_5_n + reaction_5_theta)) species_3
+reaction_6: species_3 ->(compartment_1*reaction_6_k1) 
+reaction_7:  ->(compartment_1*(reaction_7_b*(species_2*species_4)**reaction_7_n + reaction_7_theta)/(reaction_7_b*(species_2*species_4)**reaction_7_n + reaction_7_c*species_3**reaction_7_n + reaction_7_theta)) species_4
+reaction_8: species_4 ->(compartment_1*reaction_8_k1) 

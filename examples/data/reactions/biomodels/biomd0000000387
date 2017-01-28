@@ -1,4 +1,4 @@
-PGA_production___v_c: CO2 + 2NADPH + RuBP ->(chloroplast*(Vc + Vj + 2*Vp - abs(Vc - Vj) - 2*abs(Vc/2 + Vj/2 - Vp - abs(Vc - Vj)/2))/(4*CO2*NADPH**2*RuBP)) 2PGA
-PGA_production___v_o: 2NADPH + O2 + RuBP ->(chloroplast*phi*(Vc + Vj + 2*Vp - abs(Vc - Vj) - 2*abs(Vc/2 + Vj/2 - Vp - abs(Vc - Vj)/2))/(4*NADPH**2*O2*RuBP)) PGA
-PGA_consumption: PGA ->(NADPH*Vcmax*chloroplast/(Nt*Rp)) RuBP
-NADPH_production: NADP ->(J*chloroplast/(2*Nt)) NADPH
+PGA_prod_Vc: CO2 + 2NADPH + RuBP ->(chloroplast*(0.25*Vc + 0.25*Vj + 0.5*Vp - 0.25*abs(Vc - Vj) - 0.5*abs(0.5*Vc + 0.5*Vj - Vp - 0.5*abs(Vc - Vj)))/(CO2*NADPH**2*RuBP)) 2PGA
+PGA_prod_Vo: 2NADPH + O2 + RuBP ->(0.5*chloroplast*phi*(0.5*Vc + 0.5*Vj + Vp - 0.5*abs(Vc - Vj) - abs(0.5*Vc + 0.5*Vj - Vp - 0.5*abs(Vc - Vj)))/(NADPH**2*O2*RuBP)) PGA
+PGA_cons: PGA ->(NADPH*Vcmax*chloroplast/(Nt*Rp)) RuBP
+NADPH_prod: NADP ->(0.5*J*chloroplast/Nt) NADPH

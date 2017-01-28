@@ -1,104 +1,104 @@
-v1: early_response_genes ->(v1_k16) 
-v1_rev:  -> early_response_genes
-v2: delayed_response_genes ->(v2_k18) 
-v2_rev:  -> delayed_response_genes
-v3: P27_cyclin_D_Cdk2 ->(K10) P27
-v3_rev: P27 -> P27_cyclin_D_Cdk2
-v4: cyclin_D_Cdk2 ->(K10) 
-v4_rev:  -> cyclin_D_Cdk2
-v5: P27 + cyclin_E_Cdk2 ->(K25) P27_cyclin_E_Cdk2
-v5_rev: P27_cyclin_E_Cdk2 -> P27 + cyclin_E_Cdk2
-v6: P27 + cyclin_A_Cdk2 ->(K25) P27_cyclin_A_Cdk2
-v6_rev: P27_cyclin_A_Cdk2 -> P27 + cyclin_A_Cdk2
-v7: P27 + cyclin_D_Cdk2 ->(v7_k24) P27_cyclin_D_Cdk2
-v7_rev: P27_cyclin_D_Cdk2 -> P27 + cyclin_D_Cdk2
-v8: P27_cyclin_D_Cdk2 ->(v8_k24r) P27 + cyclin_D_Cdk2
-v8_rev: P27 + cyclin_D_Cdk2 -> P27_cyclin_D_Cdk2
-v9: cyclin_A_Cdk2 ->(Cdc20*K30) 
-v9_rev:  -> cyclin_A_Cdk2
-v10: P27_cyclin_A_Cdk2 ->(Cdc20*K30) P27
-v10_rev: P27 -> P27_cyclin_A_Cdk2
-v11: P27_cyclin_E_Cdk2 ->(K25R) P27 + cyclin_E_Cdk2
-v11_rev: P27 + cyclin_E_Cdk2 -> P27_cyclin_E_Cdk2
-v12: P27_cyclin_A_Cdk2 ->(K25R) P27 + cyclin_A_Cdk2
-v12_rev: P27 + cyclin_A_Cdk2 -> P27_cyclin_A_Cdk2
-v13: P27_cyclin_E_Cdk2 ->(V8) P27
-v13_rev: P27 -> P27_cyclin_E_Cdk2
-v14: cyclin_E_Cdk2 ->(V8) 
-v14_rev:  -> cyclin_E_Cdk2
+v1: ERG ->(v1_k16) 
+v1_rev:  ->(k_v1_rev) ERG
+v2: DRG ->(v2_k18) 
+v2_rev:  ->(k_v2_rev) DRG
+v3: CD ->(K10) P27
+v3_rev: P27 ->(k_v3_rev) CD
+v4: CYCD ->(K10) 
+v4_rev:  ->(k_v4_rev) CYCD
+v5: CYCE + P27 ->(K25) CE
+v5_rev: CE ->(k_v5_rev) CYCE + P27
+v6: CYCA + P27 ->(K25) CA
+v6_rev: CA ->(k_v6_rev) CYCA + P27
+v7: CYCD + P27 ->(v7_k24) CD
+v7_rev: CD ->(k_v7_rev) CYCD + P27
+v8: CD ->(v8_k24r) CYCD + P27
+v8_rev: CYCD + P27 ->(k_v8_rev) CD
+v9: CYCA ->(CDc20*K30) 
+v9_rev:  ->(k_v9_rev) CYCA
+v10: CA ->(CDc20*K30) P27
+v10_rev: P27 ->(k_v10_rev) CA
+v11: CE ->(K25R) CYCE + P27
+v11_rev: CYCE + P27 ->(k_v11_rev) CE
+v12: CA ->(K25R) CYCA + P27
+v12_rev: CYCA + P27 ->(k_v12_rev) CA
+v13: CE ->(V8) P27
+v13_rev: P27 ->(k_v13_rev) CE
+v14: CYCE ->(V8) 
+v14_rev:  ->(k_v14_rev) CYCE
 v15: P27 ->(V6) 
-v15_rev:  -> P27
-v16: P27_cyclin_E_Cdk2 ->(V6) cyclin_E_Cdk2
-v16_rev: cyclin_E_Cdk2 -> P27_cyclin_E_Cdk2
-v17: P27_cyclin_D_Cdk2 ->(V6) cyclin_D_Cdk2
-v17_rev: cyclin_D_Cdk2 -> P27_cyclin_D_Cdk2
-v18: P27_cyclin_A_Cdk2 ->(V6) cyclin_A_Cdk2
-v18_rev: cyclin_A_Cdk2 -> P27_cyclin_A_Cdk2
-v19: cyclin_B_Cdk2 ->(V2) 
-v19_rev:  -> cyclin_B_Cdk2
-v20:  ->(-(Cdc20*v20_K3 + v20_K3a)/(Cdh1 - v20_J3 - 1)) Cdh1
-v20_rev: Cdh1 ->(-(Cdc20*v20_K3 + v20_K3a)/(Cdh1 - v20_J3 - 1)) 
-v21: Cdh1 ->(V4/(Cdh1 + v21_J4)) 
-v21_rev:  -> Cdh1
+v15_rev:  ->(k_v15_rev) P27
+v16: CE ->(V6) CYCE
+v16_rev: CYCE ->(k_v16_rev) CE
+v17: CD ->(V6) CYCD
+v17_rev: CYCD ->(k_v17_rev) CD
+v18: CA ->(V6) CYCA
+v18_rev: CYCA ->(k_v18_rev) CA
+v19: CYCB ->(V2) 
+v19_rev:  ->(k_v19_rev) CYCB
+v20:  ->(-(CDc20*v20_K3 + v20_K3a)/(CDh1 - v20_J3 - 1)) CDh1
+v20_rev: CDh1 ->(-(CDc20*v20_K3 + v20_K3a)/(CDh1 - v20_J3 - 1)) 
+v21: CDh1 ->(V4/(CDh1 + v21_J4)) 
+v21_rev:  ->(k_v21_rev) CDh1
 v22: PPX ->(v22_K34) 
-v22_rev:  -> PPX
-v23:  ->(-cyclin_B_Cdk2*v23_K31/(phosphorylated_intermediary_enzyme - v23_J31 - 1)) phosphorylated_intermediary_enzyme
-v23_rev: phosphorylated_intermediary_enzyme ->(-cyclin_B_Cdk2*v23_K31/(phosphorylated_intermediary_enzyme - v23_J31 - 1)) 
-v24: phosphorylated_intermediary_enzyme ->(PPX*v24_K32/(phosphorylated_intermediary_enzyme + v24_J32)) 
-v24_rev:  -> phosphorylated_intermediary_enzyme
-v25: inactive_Cdc20 ->(K12) 
-v25_rev:  -> inactive_Cdc20
-v26:  ->(-inactive_Cdc20*phosphorylated_intermediary_enzyme*v26_K13/(Cdc20 - inactive_Cdc20 - v26_J13)) Cdc20
-v26_rev: Cdc20 ->(-phosphorylated_intermediary_enzyme*v26_K13/(Cdc20 - inactive_Cdc20 - v26_J13)) 
-v27: Cdc20 ->(v27_K14/(Cdc20 + v27_J14)) 
-v27_rev:  -> Cdc20
-v28: Cdc20 ->(K12) 
-v28_rev:  -> Cdc20
-v29: E2F_Rb ->(K20*(LA*cyclin_A_Cdk2 + LB*cyclin_B_Cdk2 + LD*P27_cyclin_D_Cdk2 + LD*cyclin_D_Cdk2 + LE*cyclin_E_Cdk2)) E2F + hypophosphorylated_Rb
-v29_rev: E2F + hypophosphorylated_Rb -> E2F_Rb
-v30: phosphorylated_E2F_Rb ->(K20*(LA*cyclin_A_Cdk2 + LB*cyclin_B_Cdk2 + LD*P27_cyclin_D_Cdk2 + LD*cyclin_D_Cdk2 + LE*cyclin_E_Cdk2)) hypophosphorylated_Rb + phosphorylated_E2F
-v30_rev: hypophosphorylated_Rb + phosphorylated_E2F -> phosphorylated_E2F_Rb
-v31:  ->(mass*r31switch*v31_K27) general_machinery_for_protein_synthesis
-v31_rev: general_machinery_for_protein_synthesis -> 
-v32: general_machinery_for_protein_synthesis ->(v32_K28) 
-v32_rev:  -> general_machinery_for_protein_synthesis
-v33:  ->(eps*general_machinery_for_protein_synthesis*v33_MU) mass
-v33_rev: mass -> 
-v34:  ->(eps*v34_J15**2*v34_k15/(delayed_response_genes**2 + v34_J15**2)) early_response_genes
-v34_rev: early_response_genes -> 
-v35:  ->(eps*(cyclin_B_Cdk2*v35_K11 + v35_K11a)) inactive_Cdc20
-v35_rev: inactive_Cdc20 -> 
-v36:  ->(E2F*eps*mass*v36_K29) cyclin_A_Cdk2
-v36_rev: cyclin_A_Cdk2 -> 
+v22_rev:  ->(k_v22_rev) PPX
+v23:  ->(-CYCB*v23_K31/(IEP - v23_J31 - 1)) IEP
+v23_rev: IEP ->(-CYCB*v23_K31/(IEP - v23_J31 - 1)) 
+v24: IEP ->(PPX*v24_K32/(IEP + v24_J32)) 
+v24_rev:  ->(k_v24_rev) IEP
+v25: CDc20T ->(K12) 
+v25_rev:  ->(k_v25_rev) CDc20T
+v26:  ->(-CDc20T*IEP*v26_K13/(CDc20 - CDc20T - v26_J13)) CDc20
+v26_rev: CDc20 ->(-IEP*v26_K13/(CDc20 - CDc20T - v26_J13)) 
+v27: CDc20 ->(v27_K14/(CDc20 + v27_J14)) 
+v27_rev:  ->(k_v27_rev) CDc20
+v28: CDc20 ->(K12) 
+v28_rev:  ->(k_v28_rev) CDc20
+v29: var5 ->(K20*(CD*LD + CYCA*LA + CYCB*LB + CYCD*LD + CYCE*LE)) var1 + var2
+v29_rev: var1 + var2 ->(k_v29_rev) var5
+v30: var6 ->(K20*(CD*LD + CYCA*LA + CYCB*LB + CYCD*LD + CYCE*LE)) var1 + var3
+v30_rev: var1 + var3 ->(k_v30_rev) var6
+v31:  ->(MASS*r31switch*v31_K27) GM
+v31_rev: GM ->(k_v31_rev) 
+v32: GM ->(v32_K28) 
+v32_rev:  ->(k_v32_rev) GM
+v33:  ->(GM*eps*v33_MU) MASS
+v33_rev: MASS ->(k_v33_rev) 
+v34:  ->(eps*v34_J15**2*v34_k15/(DRG**2 + v34_J15**2)) ERG
+v34_rev: ERG ->(k_v34_rev) 
+v35:  ->(eps*(CYCB*v35_K11 + v35_K11a)) CDc20T
+v35_rev: CDc20T ->(k_v35_rev) 
+v36:  ->(MASS*eps*v36_K29*var2) CYCA
+v36_rev: CYCA ->(k_v36_rev) 
 v37:  ->(eps*v37_K33) PPX
-v37_rev: PPX -> 
-v38:  ->(eps*(E2F*v38_K7 + v38_K7a)) cyclin_E_Cdk2
-v38_rev: cyclin_E_Cdk2 -> 
-v39:  ->(delayed_response_genes*eps*v39_K9) cyclin_D_Cdk2
-v39_rev: cyclin_D_Cdk2 -> 
+v37_rev: PPX ->(k_v37_rev) 
+v38:  ->(eps*(v38_K7*var2 + v38_K7a)) CYCE
+v38_rev: CYCE ->(k_v38_rev) 
+v39:  ->(DRG*eps*v39_K9) CYCD
+v39_rev: CYCD ->(k_v39_rev) 
 v40:  ->(eps*v40_K5) P27
-v40_rev: P27 -> 
-v41:  ->(eps*(delayed_response_genes**2*early_response_genes*v41_k17a + delayed_response_genes**2*v41_k17 + early_response_genes*v41_J17**2*v41_k17a)/(delayed_response_genes**2 + v41_J17**2)) delayed_response_genes
-v41_rev: delayed_response_genes -> 
-v42:  ->(eps*(cyclin_B_Cdk2**2*v42_K1 + cyclin_B_Cdk2**2*v42_K1a + v42_J1**2*v42_K1a)/(cyclin_B_Cdk2**2 + v42_J1**2)) cyclin_B_Cdk2
-v42_rev: cyclin_B_Cdk2 -> 
-v43: retinoblastoma_protein__Rb_ ->(K20*(LA*cyclin_A_Cdk2 + LB*cyclin_B_Cdk2 + LD*P27_cyclin_D_Cdk2 + LD*cyclin_D_Cdk2 + LE*cyclin_E_Cdk2)) hypophosphorylated_Rb
-v43_rev: hypophosphorylated_Rb -> retinoblastoma_protein__Rb_
-v44: hypophosphorylated_Rb ->(PP1A*v44_K19 + PP1T*v44_K19a) retinoblastoma_protein__Rb_
-v44_rev: retinoblastoma_protein__Rb_ ->(PP1A*hypophosphorylated_Rb*v44_K19a/retinoblastoma_protein__Rb_) hypophosphorylated_Rb
-v45: E2F_Rb ->(K26R) E2F + retinoblastoma_protein__Rb_
-v45_rev: E2F + retinoblastoma_protein__Rb_ -> E2F_Rb
-v46: E2F ->(K23*cyclin_A_Cdk2 + K23*cyclin_B_Cdk2 + K23a) phosphorylated_E2F
-v46_rev: phosphorylated_E2F -> E2F
-v47: phosphorylated_E2F ->(K22) E2F
-v47_rev: E2F -> phosphorylated_E2F
-v48: E2F + retinoblastoma_protein__Rb_ ->(K26) E2F_Rb
-v48_rev: E2F_Rb -> E2F + retinoblastoma_protein__Rb_
-v49: phosphorylated_E2F_Rb ->(K26R) phosphorylated_E2F + retinoblastoma_protein__Rb_
-v49_rev: phosphorylated_E2F + retinoblastoma_protein__Rb_ -> phosphorylated_E2F_Rb
-v50: phosphorylated_E2F + retinoblastoma_protein__Rb_ ->(K26) phosphorylated_E2F_Rb
-v50_rev: phosphorylated_E2F_Rb -> phosphorylated_E2F + retinoblastoma_protein__Rb_
-v51: phosphorylated_E2F_Rb ->(K22) E2F_Rb
-v51_rev: E2F_Rb -> phosphorylated_E2F_Rb
-v52: E2F_Rb ->(K23*cyclin_A_Cdk2 + K23*cyclin_B_Cdk2 + K23a) phosphorylated_E2F_Rb
-v52_rev: phosphorylated_E2F_Rb -> E2F_Rb
+v40_rev: P27 ->(k_v40_rev) 
+v41:  ->(eps*(DRG**2*ERG*v41_k17a + DRG**2*v41_k17 + ERG*v41_J17**2*v41_k17a)/(DRG**2 + v41_J17**2)) DRG
+v41_rev: DRG ->(k_v41_rev) 
+v42:  ->(eps*(CYCB**2*v42_K1 + CYCB**2*v42_K1a + v42_J1**2*v42_K1a)/(CYCB**2 + v42_J1**2)) CYCB
+v42_rev: CYCB ->(k_v42_rev) 
+v43: var4 ->(K20*(CD*LD + CYCA*LA + CYCB*LB + CYCD*LD + CYCE*LE)) var1
+v43_rev: var1 ->(k_v43_rev) var4
+v44: var1 ->(PP1A*v44_K19 + PP1T*v44_K19a) var4
+v44_rev: var4 ->(PP1A*v44_K19a*var1/var4) var1
+v45: var5 ->(K26R) var2 + var4
+v45_rev: var2 + var4 ->(k_v45_rev) var5
+v46: var2 ->(CYCA*K23 + CYCB*K23 + K23a) var3
+v46_rev: var3 ->(k_v46_rev) var2
+v47: var3 ->(K22) var2
+v47_rev: var2 ->(k_v47_rev) var3
+v48: var2 + var4 ->(K26) var5
+v48_rev: var5 ->(k_v48_rev) var2 + var4
+v49: var6 ->(K26R) var3 + var4
+v49_rev: var3 + var4 ->(k_v49_rev) var6
+v50: var3 + var4 ->(K26) var6
+v50_rev: var6 ->(k_v50_rev) var3 + var4
+v51: var6 ->(K22) var5
+v51_rev: var5 ->(k_v51_rev) var6
+v52: var5 ->(CYCA*K23 + CYCB*K23 + K23a) var6
+v52_rev: var6 ->(k_v52_rev) var5

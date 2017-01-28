@@ -1,9 +1,9 @@
-_1_PhIM_1:  ->(-compartment*(-K1*L + x1)/tau1) x1
-_1_PhIM_2:  ->(-compartment*(-K*L + x2)/tau) x2
-_2a_ppERKn:  ->(compartment*(-DUSP*k3*ppERK_nucleus_ + k1*ppERK_cytosol_ - k2*ppERK_nucleus_)) ppERK_nucleus_
-_2b_DUSP:  ->(compartment*k*ppERK_nucleus_) DUSP
-_3_pRSKn:  ->(compartment*(k4*ppERK_nucleus_ - k5*pRSKn)) pRSKn
-_4_cFOSp:  ->(-compartment*(cFOS_preRNA*k6**n*k7 + cFOS_preRNA*k7*(pRSKn*ppERK_nucleus_)**n - (pRSKn*ppERK_nucleus_)**n)/(k6**n + (pRSKn*ppERK_nucleus_)**n)) cFOS_preRNA
-_5_cFOSm:  ->(compartment*(cFOS_preRNA*k7 - cFOSmRNA*k8)) cFOSmRNA
-_6_cFOS:  ->(compartment*(-cFOS*k10 - cFOS*k11*ppERK_cytosol_ + cFOSmRNA*k9 + k13*pc_FOS)) cFOS
-_7_pcFOS:  ->(compartment*(cFOS*k11*ppERK_cytosol_ - k12*pc_FOS - k13*pc_FOS)) pc_FOS
+reaction_1:  ->(compartment*(K1*L/tau1 - x1/tau1)) x1
+reaction_2:  ->(compartment*(K2*L/tau2 - x2/tau2)) x2
+reaction_3:  ->(compartment*(-DUSP*ppERKn*reaction_3_k3 + ppERKc*reaction_3_k1 - ppERKn*reaction_3_k2)) ppERKn
+reaction_4:  ->(compartment*ppERKn*reaction_4_k) DUSP
+reaction_5:  ->(compartment*(-pRSKn*reaction_5_k5 + ppERKn*reaction_5_k4)) pRSKn
+reaction_6:  ->(compartment*(-cFOSp*k7 + (pRSKn*ppERKn)**reaction_6_n/(reaction_6_k6**reaction_6_n + (pRSKn*ppERKn)**reaction_6_n))) cFOSp
+reaction_7:  ->(compartment*(-cFOSm*reaction_7_k8 + cFOSp*k7)) cFOSm
+reaction_8:  ->(compartment*(-cFOS*k11*ppERKc - cFOS*reaction_8_k10 + cFOSm*reaction_8_k9 + k13*pcFOS)) cFOS
+reaction_9:  ->(compartment*(cFOS*k11*ppERKc - k13*pcFOS - pcFOS*reaction_9_k12)) pcFOS

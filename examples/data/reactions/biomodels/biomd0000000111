@@ -1,19 +1,19 @@
-cdc13T_synthesis:  ->(Cell_Mass*k1) Total_cdc13
-Targeting_cdc13T_to_APC_core: Total_cdc13 ->(k2_double_prime*ste9 + k2_prime + k2_triple_prime*slp1) 
-wee1_dependent_MPF_inactivation:  ->(kwee*(Total_cdc13 - preMPF)) preMPF
-cdc25_dependent_preMPF_phosphorylation: preMPF ->(k25) 
-preMPF_inactivation: preMPF ->(k2_double_prime*ste9 + k2_prime + k2_triple_prime*slp1) 
-slp1_dependent_ste9_activation:  ->(-(ste9 - 1)*(k3_double_prime*slp1 + k3_prime)/(J3 - ste9 + 1)) ste9
-ste9_phosphorylation__inactivation__by_starter_kinase: ste9 ->((M_phase_promoting_factor*k4 + SK*k4_prime)/(J4 + ste9)) 
-slp1T_activation_by_MPF:  ->((J5**4*k5_prime + M_phase_promoting_factor**4*k5_double_prime + M_phase_promoting_factor**4*k5_prime)/(J5**4 + M_phase_promoting_factor**4)) slp1T
-slp1T_inactivation: slp1T ->(k6) 
-slp1_activation_by_intermediary_enzyme:  ->(-IEP*k7*(slp1 - slp1T)/(J7 - slp1 + slp1T)) slp1
-slp1_inactivation: slp1 ->(k8/(J8 + slp1)) 
-slp1_inactivation: slp1 ->(k6) 
-Intermediary_enzyme_activation:  ->(M_phase_promoting_factor*k9*(IEP - 1)/(IEP - J9 - 1)) IEP
-IEP_inactivation: IEP ->(k10/(IEP + J10)) 
-rum1T_activation:  ->(k11) rum1T
-SK_dependent_rum1T_inactivation: rum1T ->(M_phase_promoting_factor*k12_double_prime + SK*k12_prime + k12) 
-SK_synthesis:  ->(TF*k13) SK
-SK_degradation: SK ->(k14) 
-Cell_growth:  ->(Cell_Mass*mu) Cell_Mass
+R1:  ->(M*k1) cdc13T
+R2: cdc13T ->(k2_double_prime*ste9 + k2_prime + k2_triple_prime*slp1) 
+R3:  ->(kwee*(cdc13T - preMPF)) preMPF
+R4: preMPF ->(k25) 
+R5: preMPF ->(k2_double_prime*ste9 + k2_prime + k2_triple_prime*slp1) 
+R6:  ->((-ste9 + 1)*(k3_double_prime*slp1 + k3_prime)/(J3 - ste9 + 1)) ste9
+R7: ste9 ->((MPF*k4 + SK*k4_prime)/(J4 + ste9)) 
+R8:  ->(MPF**4*k5_double_prime/(J5**4 + MPF**4) + k5_prime) slp1T
+R9: slp1T ->(k6) 
+R10:  ->(IEP*k7*(-slp1 + slp1T)/(J7 - slp1 + slp1T)) slp1
+R11: slp1 ->(k8/(J8 + slp1)) 
+R12: slp1 ->(k6) 
+R13:  ->(MPF*k9*(-IEP + 1)/(-IEP + J9 + 1)) IEP
+R14: IEP ->(k10/(IEP + J10)) 
+R15:  ->(k11) rum1T
+R16: rum1T ->(MPF*k12_double_prime + SK*k12_prime + k12) 
+R17:  ->(TF*k13) SK
+R18: SK ->(k14) 
+R19:  ->(M*mu) M

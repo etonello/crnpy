@@ -1,9 +1,9 @@
-cyclin_cdc2k_dissociation: p_cyclin_cdc2 ->(Reaction1_k6*cell) cdc2k + p_cyclin
-cdc2k_phosphorylation: cdc2k ->(Reaction2_k8notP*cell) cdc2k_P
-cdc2k_dephosphorylation: cdc2k_P ->(Reaction3_k9*cell) cdc2k
-cyclin_cdc2k_p_association: cdc2k_P + cyclin ->(Reaction4_k3*cell) p_cyclin_cdc2_p
-deactivation_of_cdc2_kinase: p_cyclin_cdc2 ->(Reaction5_k5notP*cell) p_cyclin_cdc2_p
-cyclin_biosynthesis: _EmptySet ->(Reaction6_k1aa*cell/_EmptySet) cyclin
-default_degradation_of_cyclin: cyclin ->(Reaction7_k2*cell) _EmptySet
-cdc2_kinase_triggered_degration_of_cyclin: p_cyclin ->(Reaction8_k7*cell) _EmptySet
-activation_of_cdc2_kinase: p_cyclin_cdc2_p ->(cell*(Reaction9_k4*p_cyclin_cdc2**2 + Reaction9_k4prime*total_cdc2**2)/total_cdc2**2) p_cyclin_cdc2
+Reaction1: M ->(Reaction1_k6*cell) C2 + YP
+Reaction2: C2 ->(Reaction2_k8notP*cell) CP
+Reaction3: CP ->(Reaction3_k9*cell) C2
+Reaction4: CP + Y ->(Reaction4_k3*cell) pM
+Reaction5: M ->(Reaction5_k5notP*cell) pM
+Reaction6: EmptySet ->(Reaction6_k1aa*cell/EmptySet) Y
+Reaction7: Y ->(Reaction7_k2*cell) EmptySet
+Reaction8: YP ->(Reaction8_k7*cell) EmptySet
+Reaction9: pM ->(cell*(Reaction9_k4prime + M**2*Reaction9_k4/CT**2)) M

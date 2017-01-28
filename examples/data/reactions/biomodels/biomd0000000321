@@ -1,6 +1,6 @@
-L_Dopa_absorption_from_gut: A_dopa ->(F_b*ka_b) C_dopa
-hepatic_and_blood_L_Dopa_clearance: A_dopa ->(-ka_b*(F_b - 1)) 
-L_Dopa_clearance_via_AADC_: C_dopa ->(CL_AADC) 
-L_Dopa_clearance_via_COMT: C_dopa ->(CL_COMT) C_3_OMD
-rest_clearance_of_L_Dopa: C_dopa ->(CL_rest) 
-_3_OMD_clearance: C_3_OMD ->(CL_3_OMD) 
+l_dopa_absorption: A_dopa ->(F_b*ka_b) C_dopa
+l_dopa_blood_hepa_clearance: A_dopa ->(ka_b*(-F_b + 1)) 
+AADC_clearance: C_dopa ->(CL_AADC) 
+COMT_clearance: C_dopa ->(CL_COMT) C_OMD
+rest_clearance: C_dopa ->(CL_rest) 
+_3_OMD_clearance: C_OMD ->(CL_OMD) 

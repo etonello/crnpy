@@ -1,22 +1,22 @@
-nbc: 2HCO3_ + Na_ ->(cell*japl*zeta/(HCO3_**2*Na_)) 2HCO3_ + Na_
-nbc_rev: 2HCO3_ + Na_ -> 2HCO3_ + Na_
-bcftr: HCO3_ ->(cell*jbcftr*zeta/HCO3_) HCO3_
-bcftr_rev: HCO3_ -> HCO3_
-ccftr: CL_ ->(cell*jccftr*zeta/CL_) CL_
-ccftr_rev: CL_ -> CL_
-apl: CL_ + HCO3_ ->(cell*japl*zeta/(CL_*HCO3_)) CL_ + HCO3_
-apl_rev: CL_ + HCO3_ -> CL_ + HCO3_
-apbl: CL_ + HCO3_ ->(cell*japbl*zeta/(CL_*HCO3_)) CL_ + HCO3_
-apbl_rev: CL_ + HCO3_ -> CL_ + HCO3_
-nak: Na_ ->(cell*jnak*zeta/Na_) Na_
-nak_rev: Na_ -> Na_
-naleak: Na_ ->(cell*jnaleak*zeta/Na_) Na_
-naleak_rev: Na_ -> Na_
-buffering:  ->(bi0*buf*cell*zeta) HCO3_
-buffering_rev: HCO3_ ->(buf*cell*zeta) 
-bac:  ->(jac*lumen*rat*zeta) HCO3_
-bac_rev: HCO3_ -> 
-cac:  ->(jac*lumen*zeta) CL_
-cac_rev: CL_ -> 
-outflow: HCO3_ ->(jlum*lumen*zeta) 
-outflow_rev:  -> HCO3_
+nbc: 2bb + nb ->(cell*japl*zeta/(bb**2*nb)) 2bi + ni
+nbc_rev: 2bi + ni ->(k_nbc_rev) 2bb + nb
+bcftr: bl ->(cell*jbcftr*zeta/bl) bi
+bcftr_rev: bi ->(k_bcftr_rev) bl
+ccftr: cl ->(cell*jccftr*zeta/cl) ci
+ccftr_rev: ci ->(k_ccftr_rev) cl
+apl: bl + ci ->(cell*japl*zeta/(bl*ci)) bi + cl
+apl_rev: bi + cl ->(k_apl_rev) bl + ci
+apbl: bb + ci ->(cell*japbl*zeta/(bb*ci)) bi + cb
+apbl_rev: bi + cb ->(k_apbl_rev) bb + ci
+nak: ni ->(cell*jnak*zeta/ni) nb
+nak_rev: nb ->(k_nak_rev) ni
+naleak: ni ->(cell*jnaleak*zeta/ni) nb
+naleak_rev: nb ->(k_naleak_rev) ni
+buffering:  ->(bi0*buf*cell*zeta) bi
+buffering_rev: bi ->(buf*cell*zeta) 
+bac:  ->(jac*lumen*rat*zeta) bl
+bac_rev: bl ->(k_bac_rev) 
+cac:  ->(jac*lumen*zeta) cl
+cac_rev: cl ->(k_cac_rev) 
+outflow: bl ->(jlum*lumen*zeta) 
+outflow_rev:  ->(k_outflow_rev) bl

@@ -1,22 +1,22 @@
-v1__Auxin_Transport_to_the_cell:  ->(compartment_1*k1*k1a/(X + k1)) Auxin
-v2__Auxin_biosynthesis_in_the_cell:  ->(compartment_1*(CK*PLSp*k2 + CK*k2*k2c + ET*PLSp*k2a*k2b + PLSp*k2*k2b + k2*k2b*k2c)/((CK + k2b)*(PLSp + k2c))) Auxin
-v3__Auxin_removal_from_the_cell: Auxin ->(compartment_1*(X*k3a + k3)) 
-v4__Conversion_of_auxin_receptor_from_the_inactivated_form_to_the_activated_form: Ra ->(Auxin*compartment_1*k4) Ra_
-v5__Conversion_of__auxin_receptor_from_the_activated_form___to_the_inactivated_form: Ra_ ->(compartment_1*k5) Ra
-v6__Transcription_of_POLARIS_gene:  ->(Ra_*compartment_1*k6*k6a/(ET + k6a)) PLSm
-v7__Decay_of_mRNA_of_POLARIS_gene: PLSm ->(compartment_1*k7) 
-v8__Translation_of_POLARIS_gene:  ->(PLSm*compartment_1*k8) PLSp
-v9__Decay_of_protein_of_POLARIS_gene: PLSp ->(compartment_1*k9) 
-v10__Conversion_of_the_inactivated_form_of_ethylene_receptor_to_its_activated_form_by_PLSp_: Re ->(compartment_1*(PLSp*k10a + k10)) Re_
-v11__Conversion_of_the_activated_form_of_ethylene_receptor_to_its_inactivated_form: Re_ ->(ET*compartment_1*k11) Re
-v12__Ethylene_biosynthesis_:  ->(compartment_1*(Auxin*CK*k12a + k12)) ET
-v13__Removal_of_ethylene: ET ->(compartment_1*k13) 
-v14__Conversion_of_the_inactivated_form_of_CTR1_protein_to_its_activated_form_by_Re_: CTR1 ->(Re_*compartment_1*k14) CTR1_
-v15__Conversion_of_the_activated_form_of_CTR1_protein_to_its_inactivated_form: CTR1_ ->(compartment_1*k15) CTR1
-v16__Activation_of_the_downstream_of_ethylene_signalling_response_is_inhibited_by__CTR1_:  ->(compartment_1*(-CTR1_*k16a + k16)) X
-v17__Removal_of_the_unknown_molecule_X: X ->(compartment_1*k17) 
-v18__Biosynthesis_of_cytokinin:  ->(compartment_1*k18*k18a/(Auxin + k18)) CK
-v19__removal_of_cytokinin: CK ->(compartment_1*k19) 
-vEthylene__Uptake_rate_of_exogenous_ACC__1_aminocyclopropane_1_carboxylic_acid_: ACC ->(compartment_1*k_ethylene) ET
-vAuxin__Uptake_rate_of_exogenous_auxin__indole_3_acetic_acid__IAA_: IAA ->(compartment_1*k_auxin) Auxin
-vCytokinin__Uptake_rate_of_exogenous_cytokinin: Cytokinin_ext ->(compartment_1*k_cytokinin) CK
+reaction_1:  ->(compartment_1*k1a/(X/k1 + 1.0)) Auxin
+reaction_2:  ->(compartment_1*(ET*PLSp*k2a/((PLSp + k2c)*(CK/k2b + 1.0)) + k2)) Auxin
+reaction_3: Auxin ->(compartment_1*(X*k3a + k3)) 
+reaction_4: Ra ->(Auxin*compartment_1*k4) Ra_star
+reaction_5: Ra_star ->(compartment_1*k5) Ra
+reaction_6:  ->(Ra_star*compartment_1*k6/(ET/k6a + 1.0)) PLSm
+reaction_7: PLSm ->(compartment_1*k7) 
+reaction_8:  ->(PLSm*compartment_1*k8) PLSp
+reaction_9: PLSp ->(compartment_1*k9) 
+reaction_10: Re ->(compartment_1*(PLSp*k10a + k10)) Re_star
+reaction_11: Re_star ->(ET*compartment_1*k11) Re
+reaction_12:  ->(compartment_1*(Auxin*CK*k12a + k12)) ET
+reaction_13: ET ->(compartment_1*k13) 
+reaction_14: CTR1 ->(Re_star*compartment_1*k14) CTR1_star
+reaction_15: CTR1_star ->(compartment_1*k15) CTR1
+reaction_16:  ->(compartment_1*(-CTR1_star*k16a + k16)) X
+reaction_17: X ->(compartment_1*k17) 
+reaction_18:  ->(compartment_1*k18a/(Auxin/k18 + 1.0)) CK
+reaction_19: CK ->(compartment_1*k19) 
+v_Ethylene: ACC ->(compartment_1*k_ethylene) ET
+v_Auxin: IAA ->(compartment_1*k_auxin) Auxin
+v_Cytokinin: CK_ex ->(compartment_1*k_cytokinin) CK

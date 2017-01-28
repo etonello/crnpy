@@ -1,9 +1,9 @@
 RA_synthesis:  ->(PSM*vs1) RA
 RA_decay: RA ->(PSM*kd5) 
-RA_deg_by_Cyp26: RA ->(CYP26*PSM*kd1) 
-M_C_transcription:  ->(PSM*(FGF**n*V0 + FGF**n*Vsc + Ka**n*V0)/(FGF**n + Ka**n)) cyp26_mRNA
-M_C_decay: cyp26_mRNA ->(PSM*kd3) 
-C_translation:  ->(PSM*cyp26_mRNA*ks2) CYP26
-C_decay: CYP26 ->(PSM*kd2) 
-FGF_synthesis:  ->(FGF_mRNA*Ki**m*PSM*ks3/(Ki**m + RA**m)) FGF
-FGF_decay: FGF ->(PSM*kd4) 
+RA_deg_by_Cyp26: RA ->(C*PSM*kd1) 
+M_C_transcription:  ->(PSM*(F**n*Vsc/(F**n + Ka**n) + V0)) M_C
+M_C_decay: M_C ->(PSM*kd3) 
+C_translation:  ->(M_C*PSM*ks2) C
+C_decay: C ->(PSM*kd2) 
+FGF_synthesis:  ->(Ki**m*M_F*PSM*ks3/(Ki**m + RA**m)) F
+FGF_decay: F ->(PSM*kd4) 

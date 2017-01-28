@@ -1,4 +1,4 @@
-Per_production: _EmptySet ->(CELL*Vsp*dClkF_tau1/(_EmptySet*(K1 + dClkF_tau1))) Per
-dClk_production: _EmptySet ->(CELL*K2*Vsc/(_EmptySet*(K2 + dClkF_tau2))) dClk
-Per_degradation: Per ->(CELL*kdc) _EmptySet
-dClk_degradation: dClk ->(CELL*kdp) _EmptySet
+rPer: EmptySet ->(CELL*Vsp*dClkF_tau1/(EmptySet*(K1 + dClkF_tau1))) Per
+rdClk: EmptySet ->(CELL*K2*Vsc/(EmptySet*(K2 + dClkF_tau2))) dClk
+rPerD: Per ->(CELL*kdc) EmptySet
+rdClkD: dClk ->(CELL*kdp) EmptySet

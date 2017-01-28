@@ -20,14 +20,14 @@ reaction_0000011: RasGDP ->(ShGS*compartment_0000001*k11/(K11 + RasGDP)) RasGTP
 reaction_0000012: RasGTP ->(V12*compartment_0000001/(K12 + RasGTP)) RasGDP
 reaction_0000013: Raf ->(RasGTP*compartment_0000001*k13/(K13 + Raf)) Rafstar
 reaction_0000014: Rafstar ->(compartment_0000001*k14*(AktPIPP + E)/(K14 + Rafstar)) Raf
-reaction_0000015: MEK ->(K17*Rafstar*compartment_0000001*k15/(K15*K17 + K15*MEKP + K17*MEK)) MEKP
-reaction_0000016: MEKP ->(K18*K31*K33*PP2A*compartment_0000001*k16/(AktPIP*K16*K18*K33 + AktPIPP*K16*K18*K31 + K16*K18*K31*K33 + K16*K31*K33*MEKPP + K18*K31*K33*MEKP)) MEK
-reaction_0000017: MEKP ->(K15*Rafstar*compartment_0000001*k17/(K15*K17 + K15*MEKP + K17*MEK)) MEKPP
-reaction_0000018: MEKPP ->(K16*K31*K33*PP2A*compartment_0000001*k18/(AktPIPP*K16*K18*K31 + AktPIPP*K16*K18*K33 + K16*K18*K31*K33 + K16*K31*K33*MEKPP + K18*K31*K33*MEKP)) MEKP
-reaction_0000019: ERK ->(K21*MEKPP*compartment_0000001*k19/(ERK*K21 + ERKP*K19 + K19*K21)) ERKP
-reaction_0000020: ERKP ->(K22*MKP3*compartment_0000001*k20/(ERKP*K22 + ERKPP*K20 + K20*K22)) ERK
-reaction_0000021: ERKP ->(K19*MEKPP*compartment_0000001*k21/(ERK*K21 + ERKP*K19 + K19*K21)) ERKPP
-reaction_0000022: ERKPP ->(K20*MKP3*compartment_0000001*k22/(ERKP*K22 + ERKPP*K20 + K20*K22)) ERKP
+reaction_0000015: MEK ->(Rafstar*compartment_0000001*k15/(K15*(1 + MEKP/K17) + MEK)) MEKP
+reaction_0000016: MEKP ->(PP2A*compartment_0000001*k16/(K16*(AktPIP/K31 + AktPIPP/K33 + 1 + MEKPP/K18) + MEKP)) MEK
+reaction_0000017: MEKP ->(Rafstar*compartment_0000001*k17/(K17*(1 + MEK/K15) + MEKP)) MEKPP
+reaction_0000018: MEKPP ->(PP2A*compartment_0000001*k18/(K18*(AktPIPP/K33 + AktPIPP/K31 + 1 + MEKP/K16) + MEKPP)) MEKP
+reaction_0000019: ERK ->(MEKPP*compartment_0000001*k19/(ERK + K19*(ERKP/K21 + 1))) ERKP
+reaction_0000020: ERKP ->(MKP3*compartment_0000001*k20/(ERKP + K20*(ERKPP/K22 + 1))) ERK
+reaction_0000021: ERKP ->(MEKPP*compartment_0000001*k21/(ERKP + K21*(ERK/K19 + 1))) ERKPP
+reaction_0000022: ERKPP ->(MKP3*compartment_0000001*k22/(ERKPP + K22*(ERKP/K20 + 1))) ERKP
 reaction_0000023: PI3K + RP ->(compartment_0000001*k23) RPI3K
 reaction_0000023_rev: RPI3K ->(compartment_0000001*k_23) PI3K + RP
 reaction_0000024: RPI3K ->(compartment_0000001*k24) RPI3Kstar
@@ -39,9 +39,9 @@ reaction_0000029: Akt + PIP3 ->(compartment_0000001*k29) AktPIP3
 reaction_0000029_rev: AktPIP3 ->(compartment_0000001*k_29) Akt + PIP3
 reaction_0000028: PIP3 ->(V28*compartment_0000001/(K28 + PIP3)) P_I
 reaction_0000027: P_I ->(PI3Kstar*compartment_0000001*k27/(K27 + P_I)) PIP3
-reaction_0000030: AktPIP3 ->(K32*V30*compartment_0000001/(AktPIP*K30 + AktPIP3*K32 + K30*K32)) AktPIP
-reaction_0000031: AktPIP ->(K16*K18*K33*PP2A*compartment_0000001*k31/(AktPIP*K16*K18*K33 + AktPIPP*K16*K18*K31 + K16*K18*K31*K33 + K16*K31*K33*MEKPP + K18*K31*K33*MEKP)) AktPIP3
-reaction_0000032: AktPIP ->(K30*V32*compartment_0000001/(AktPIP*K30 + AktPIP3*K32 + K30*K32)) AktPIPP
-reaction_0000033: AktPIPP ->(K16*K18*K31*PP2A*compartment_0000001*k33/(AktPIP*K16*K18*K33 + AktPIPP*K16*K18*K31 + K16*K18*K31*K33 + K16*K31*K33*MEKPP + K18*K31*K33*MEKP)) AktPIP
+reaction_0000030: AktPIP3 ->(V30*compartment_0000001/(AktPIP3 + K30*(AktPIP/K32 + 1))) AktPIP
+reaction_0000031: AktPIP ->(PP2A*compartment_0000001*k31/(AktPIP + K31*(AktPIPP/K33 + 1 + MEKPP/K18 + MEKP/K16))) AktPIP3
+reaction_0000032: AktPIP ->(V32*compartment_0000001/(AktPIP + K32*(AktPIP3/K30 + 1))) AktPIPP
+reaction_0000033: AktPIPP ->(PP2A*compartment_0000001*k33/(AktPIPP + K33*(AktPIP/K31 + 1 + MEKPP/K18 + MEKP/K16))) AktPIP
 reaction_0000034: RP ->(compartment_0000001*k34) internalization
 reaction_0000034_rev: internalization ->(compartment_0000001*k_34) RP

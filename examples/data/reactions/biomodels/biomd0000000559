@@ -1,136 +1,136 @@
-WTasynSynthesis: SOURCE ->(c1*k1) WTasyn
-DopProduction: SOURCE ->(c1*k1) Dopamine
-_2merForm: 2WTasyn ->(c1*k_2merForm) WTasyn2
-WTasynDopModification: Dopamine + WTasyn ->(c1*k1) DopModWTasyn
-WTasynLampBind: Lamp2a + WTasyn ->(k_WTasyn1_2merBindOnLamp) WTasyndegr
-AutophagosomeUptakeWTasyn2mer: WTasyn2 ->(k_OligAutophagUptake) WTasyn2
-_3merForm: WTasyn + WTasyn2 ->(c1*k_OligomerForm) WTasyn3
-WTasyn2LampBind: Lamp2a + WTasyn2 ->(k_WTasyn1_2merBindOnLamp) WTasyn2degr
-AutophagosomeUptakeWTasyn3mer: WTasyn3 ->(k_OligAutophagUptake) WTasyn3
-_4merForm: WTasyn + WTasyn3 ->(c1*k_OligomerForm) WTasyn4
-_3merProtBind: Proteasome + WTasyn3 ->(c1*k_ProteasomeBind) ProtWTasyn3
-AutophagosomeUptakeWTasyn4mer: WTasyn4 ->(k_OligAutophagUptake) WTasyn4
-_5merForm: WTasyn + WTasyn4 ->(c1*k_OligomerForm) WTasyn5
-_4merProtBind: Proteasome + WTasyn4 ->(c1*k_ProteasomeBind) ProtWTasyn4
-AutophagosomeUptakeWTasyn5mer: WTasyn5 ->(k_OligAutophagUptake) WTasyn5
-_6merForm: WTasyn + WTasyn5 ->(c1*k_OligomerForm) WTasyn6
-_5merProtBind: Proteasome + WTasyn5 ->(c1*k_ProteasomeBind) ProtWTasyn5
-WTasyn5merBindOnLamp: Lamp2a + WTasyn5 ->(k_WTOligBindOnLamp) WTasyn5merOnLamp
-AutophagosomeUptakeWTasyn6mer: WTasyn6 ->(k_OligAutophagUptake) WTasyn6
-_7merForm: WTasyn + WTasyn6 ->(c1*k_OligomerForm) WTasyn7
-_6merProtBind: Proteasome + WTasyn6 ->(c1*k_ProteasomeBind) ProtWTasyn6
-AutophagosomeUptakeWTasyn7mer: WTasyn7 ->(k_OligAutophagUptake) WTasyn7
-_8merForm: WTasyn + WTasyn7 ->(c1*k_OligomerForm) WTasyn8
-_7merProtBind: Proteasome + WTasyn7 ->(c1*k_ProteasomeBind) ProtWTasyn7
-WTasyn7merBindOnLamp: Lamp2a + WTasyn7 ->(k_WTOligBindOnLamp) WTasyn7merOnLamp
-AutophagosomeUptakeWTasyn8mer: WTasyn8 ->(k_OligAutophagUptake) WTasyn8
-_9merForm: WTasyn + WTasyn8 ->(c1*k_OligomerForm) WTasyn9
-_8merProtBind: Proteasome + WTasyn8 ->(c1*k_ProteasomeBind) ProtWTasyn8
-_9merProtBind: Proteasome + WTasyn9 ->(c1*k_ProteasomeBind) ProtWTasyn9
-WTasyn9merBindOnLamp: Lamp2a + WTasyn9 ->(k_WTOligBindOnLamp) WTasyn9merOnLamp
-DopamineDegr: Dopamine ->(c1*k1) Dopamine_degraded
-DopMod2merForm: 2DopModWTasyn ->(c1*k_2merForm) DopModWTasyn2
-DopWTasyn2merFormOnLamp: DopModWTasyn + DopModWTasynOnLamp ->(k_2merForm) DopModWTasyn2merOnLamp
-DopWTasyn7merFormOnLamp: DopModWTasyn + DopModWTasyn6merOnLamp ->(k_OligomerForm) DopModWTasyn7merOnLamp
-DopWTasyn8merFormOnLamp: DopModWTasyn + DopModWTasyn7merOnLamp ->(k_OligomerForm) DopModWTasyn8merOnLamp
-DopWTasyn9merFormOnLamp: DopModWTasyn + DopModWTasyn8merOnLamp ->(k_OligomerForm) DopModWTasyn9merOnLamp
-WTasynLysosUptake: WTasyndegr ->(c3*k1) Lamp2a + WTasyn
-WTasyn2LysosUptake: WTasyn2degr ->(c3*k1) Lamp2a + WTasyn2
-M_autophagyWTasyn4Degr: WTasyn4 ->(c2*k_M_autophagyDegr) WTasyn4merM_Adegrr
-M_autophagyWTasyn8Degr: WTasyn8 ->(c2*k_M_autophagyDegr) WTasyn8merM_Adegr
-M_autophagyWTasyn3Degr: WTasyn3 ->(c2*k_M_autophagyDegr) WTasyn3merM_Adegr
-M_autophagyWTasyn2Degr: WTasyn2 ->(c2*k_M_autophagyDegr) WTasyn2merM_Adegr
-M_autophagyWTasyn7Degr: WTasyn7 ->(c2*k_M_autophagyDegr) WTasyn7merM_Adegr
-M_autophagyWTasyn5Degr: WTasyn5 ->(c2*k_M_autophagyDegr) WTasyn5merM_Adegr
-M_autophagyWTasyn6Degr: WTasyn6 ->(c2*k_M_autophagyDegr) WTasyn6merM_Adegr
-AggregForm: WTasyn + WTasyn9 ->(c1*k_OligomerForm) HigherWTasynSPC
-DopModAutophagosomeUptake2mer: DopModWTasyn2 ->(k_OligAutophagUptake) DopModWTasyn2
-DopMod3merForm: DopModWTasyn + DopModWTasyn2 ->(c1*k_OligomerForm) DopModWTasyn3
-DopModAutophagosomeUptake3mer: DopModWTasyn3 ->(k_OligAutophagUptake) DopModWTasyn3
-DopMod4merForm: DopModWTasyn + DopModWTasyn3 ->(c1*k_OligomerForm) DopModWTasyn4
-DopMod3merProtBind: DopModWTasyn3 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn3
-DopModAutophagosomeUptake4mer: DopModWTasyn4 ->(k_OligAutophagUptake) DopModWTasyn4
-DopMod5merForm: DopModWTasyn + DopModWTasyn4 ->(c1*k_OligomerForm) DopModWTasyn5
-DopMod4merProtBind: DopModWTasyn4 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn4
-DopModAutophagosomeUptake5mer: DopModWTasyn5 ->(k_OligAutophagUptake) DopModWTasyn5
-DopMod6merForm: DopModWTasyn + DopModWTasyn5 ->(c1*k_OligomerForm) DopModWTasyn6
-DopMod5merProtBind: DopModWTasyn5 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn5
-DopModAutophagosomeUptake6mer: DopModWTasyn6 ->(k_OligAutophagUptake) DopModWTasyn6
-DopMod7merForm: DopModWTasyn + DopModWTasyn6 ->(c1*k_OligomerForm) DopModWTasyn7
-DopMod6merProtBind: DopModWTasyn6 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn6
-DopModAutophagosomeUptake7mer: DopModWTasyn7 ->(k_OligAutophagUptake) DopModWTasyn7
-DopMod8merForm: DopModWTasyn + DopModWTasyn7 ->(c1*k_OligomerForm) DopModWTasyn8
-DopMod7merProtBind: DopModWTasyn7 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn7
-DopModAutophagosomeUptake8mer: DopModWTasyn8 ->(k_OligAutophagUptake) DopModWTasyn8
-DopMod9merForm: DopModWTasyn + DopModWTasyn8 ->(c1*k_OligomerForm) DopModWTasyn9
-DopMod8merProtBind: DopModWTasyn8 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn8
-DopMod9merProtBind: DopModWTasyn9 + Proteasome ->(c1*k_ProteasomeBind) ProtDopModWTasyn9
-WTasyn2merCMADegr: WTasyn2 ->(c3*k1) WTasyn2merCMADegr
-WTasyn1merCMADegr: WTasyn ->(c3*k1) WTasynCMADegr
-LampFree9merWT: WTasyn9merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn9
-DopWTasyn3merFormOnLamp: DopModWTasyn + DopModWTasyn2merOnLamp ->(k_OligomerForm) DopModWTasyn3merOnLamp
-DopWTasyn4merFormOnLamp: DopModWTasyn + DopModWTasyn3merOnLamp ->(k_OligomerForm) DopModWTasyn4merOnLamp
-DopWTasyn5merFormOnLamp: DopModWTasyn + DopModWTasyn4merOnLamp ->(k_OligomerForm) DopModWTasyn5merOnLamp
-DopWTasyn6merFormOnLamp: DopModWTasyn + DopModWTasyn5merOnLamp ->(k_OligomerForm) DopModWTasyn6merOnLamp
-LampFree3merWT: WTasyn3merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn3
-LampFree4merWT: WTasyn4merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn4
-LampFree5merWT: WTasyn5merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn5
-LampFree6merWT: WTasyn6merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn6
-LampFree7merWT: WTasyn7merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn7
-LampFree8merWT: WTasyn8merOnLamp ->(k_LampFreeWTasyn) Lamp2a + WTasyn8
-WTasyn8merBindOnLamp: WTasyn8 + WTasyn8merOnLamp ->(k_WTOligBindOnLamp) Lamp2a
-WTasyn3merBindOnLamp: Lamp2a + WTasyn3 ->(k_WTOligBindOnLamp) WTasyn3merOnLamp
-WTasyn4merBindOnLamp: Lamp2a + WTasyn4 ->(k_WTOligBindOnLamp) WTasyn4merOnLamp
-WTasyn6merBindOnLamp: Lamp2a + WTasyn6 ->(k_WTOligBindOnLamp) WTasyn6merOnLamp
-DopModWTasynCMAInhibition: DopModWTasyn + Lamp2a ->(k_DopModWTasynLampBind) DopModWTasynOnLamp
-M_autophagyDopModWTasyn4Degr: DopModWTasyn4 ->(c2*k_M_autophagyDegr) DopModWTasyn4merM_Adegr
-M_autophagyDopModWTasyn3Degr: DopModWTasyn3 ->(c2*k_M_autophagyDegr) DopModWTasyn3merM_Adegr
-M_autophagyDopModWTasyn2Degr: DopModWTasyn2 ->(c2*k_M_autophagyDegr) DopModWTasyn2merM_Adegr
-M_autophagyDopModWTasyn5Degr: DopModWTasyn5 ->(c2*k_M_autophagyDegr) DopModWTasyn6merM_Adegr
-M_autophagyDopModWTasyn6Degr: DopModWTasyn6 ->(c2*k_M_autophagyDegr) DopModWTasyn7merM_Adegr
-M_autophagyDopModWTasyn7Degr: DopModWTasyn7 ->(c2*k_M_autophagyDegr) DopModWTasyn7merM_Adegr
-M_autophagyDopModWTasyn8Degr: DopModWTasyn8 ->(c2*k_M_autophagyDegr) DopModWTasyn8merM_Adegr
-WTasyn2merFormOnLamp: WTasyn + WTasyndegr ->(k_2merForm) WTasyn2degr
-WTasyn3merFormOnLamp: WTasyn + WTasyn2degr ->(k_OligomerForm) WTasyn3merOnLamp
-WTasyn4merFormOnLamp: WTasyn + WTasyn3merOnLamp ->(k_OligomerForm) WTasyn4merOnLamp
-WTasyn5merFormOnLamp: WTasyn + WTasyn4merOnLamp ->(k_OligomerForm) WTasyn5merOnLamp
-WTasyn6merFormOnLamp: WTasyn + WTasyn5merOnLamp ->(k_OligomerForm) WTasyn6merOnLamp
-WTasyn7merFormOnLamp: WTasyn + WTasyn6merOnLamp ->(k_OligomerForm) WTasyn7merOnLamp
-WTasyn8merFormOnLamp: WTasyn + WTasyn7merOnLamp ->(k_OligomerForm) WTasyn8merOnLamp
-WTasyn9merFormOnLamp: WTasyn + WTasyn8merOnLamp ->(k_OligomerForm) WTasyn9merOnLamp
-ProtFree3merWT: ProtWTasyn3 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree4merWT: ProtWTasyn4 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree5merWT: ProtWTasyn5 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree6merWT: ProtWTasyn6 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree7merWT: ProtWTasyn7 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree8merWT: ProtWTasyn8 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree9merWT: ProtWTasyn9 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree3merDopWT: ProtDopModWTasyn3 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree4merDopWT: ProtDopModWTasyn4 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree5merDopWT: ProtDopModWTasyn5 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree6merDopWT: ProtDopModWTasyn6 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree7merDopWT: ProtDopModWTasyn7 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree8merDopWT: ProtDopModWTasyn8 ->(c1*k_ProtOligDegr) Proteasome
-ProtFree9merDopWT: ProtDopModWTasyn9 ->(c1*k_ProtOligDegr) Proteasome
-WTasynHigherPSCprotInh: HigherWTasynSPC + Proteasome ->(c1*k_ProteasomeBind) ProtWTasynHigherSPC
-DopMod9merDis: DopModWTasyn9 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn8
-DopMod8merDis: DopModWTasyn8 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn7
-DopMod7merDis: DopModWTasyn7 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn6
-DopMod6merDis: DopModWTasyn6 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn5
-DopMod4merDis: DopModWTasyn4 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn3
-DopMod5merDis: DopModWTasyn5 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn4
-DopMod3merDis: DopModWTasyn3 ->(c1*k_DisRate) DopModWTasyn + DopModWTasyn2
-DopMod2merDis: DopModWTasyn2 ->(c1*k_DisRate) 2DopModWTasyn
-_9merDis: WTasyn9 ->(c1*k_DisRate) WTasyn + WTasyn8
-_8merDis: WTasyn8 ->(c1*k_DisRate) WTasyn + WTasyn7
-_7merDis: WTasyn7 ->(c1*k_DisRate) WTasyn + WTasyn6
-_6merDis: WTasyn6 ->(c1*k_DisRate) WTasyn + WTasyn5
-_5merDis: WTasyn5 ->(c1*k_DisRate) WTasyn + WTasyn4
-_4merDis: WTasyn4 ->(c1*k_DisRate) WTasyn + WTasyn3
-_3merDis: WTasyn3 ->(c1*k_DisRate) WTasyn + WTasyn2
-_2merDis: WTasyn2 ->(c1*k_DisRate) 2WTasyn
-AggregGrowth: HigherWTasynSPC + WTasyn ->(c1*k1) HigherWTasynSPC
-AutophagosomeUptakeWTasyn: WTasyn ->(k_OligAutophagUptake) WTasyn
-M_autophagyWTasyn1Degr: WTasyn ->(c2*k_M_autophagyDegr) WTasyn2merM_Adegr
-DopModAutophagosomeUptake: DopModWTasyn ->(k_OligAutophagUptake) DopModWTasyn
-M_autophagyDopModWTasyn1Degr: DopModWTasyn ->(c2*k_M_autophagyDegr) DopModWTasyn2merM_Adegr
+re1: s3 ->(c1*re1_k1) s17
+re2: s3 ->(c1*re2_k1) s22
+re3: 2s17 ->(c1*k_2merForm) s18
+re4: s17 + s22 ->(c1*re4_k1) s7
+re5: s17 + s51 ->(k_WTasyn1_2merBindOnLamp) s78
+re6: s18 ->(k_OligAutophagUptake) s521
+re7: s17 + s18 ->(c1*k_OligomerForm) s20
+re8: s18 + s51 ->(k_WTasyn1_2merBindOnLamp) s85
+re9: s20 ->(k_OligAutophagUptake) s520
+re10: s17 + s20 ->(c1*k_OligomerForm) s24
+re11: s20 + s35 ->(c1*k_ProteasomeBind) s381
+re12: s24 ->(k_OligAutophagUptake) s517
+re13: s17 + s24 ->(c1*k_OligomerForm) s23
+re14: s24 + s35 ->(c1*k_ProteasomeBind) s383
+re15: s23 ->(k_OligAutophagUptake) s518
+re16: s17 + s23 ->(c1*k_OligomerForm) s32
+re17: s23 + s35 ->(c1*k_ProteasomeBind) s385
+re18: s23 + s51 ->(k_WTOligBindOnLamp) s496
+re19: s32 ->(k_OligAutophagUptake) s519
+re20: s17 + s32 ->(c1*k_OligomerForm) s31
+re21: s32 + s35 ->(c1*k_ProteasomeBind) s387
+re22: s31 ->(k_OligAutophagUptake) s522
+re23: s17 + s31 ->(c1*k_OligomerForm) s30
+re24: s31 + s35 ->(c1*k_ProteasomeBind) s389
+re25: s31 + s51 ->(k_WTOligBindOnLamp) s499
+re26: s30 ->(k_OligAutophagUptake) s523
+re27: s17 + s30 ->(c1*k_OligomerForm) s29
+re28: s30 + s35 ->(c1*k_ProteasomeBind) s391
+re29: s29 + s35 ->(c1*k_ProteasomeBind) s393
+re30: s29 + s51 ->(k_WTOligBindOnLamp) s501
+re31: s22 ->(c1*re31_k1) s200
+re32: 2s7 ->(c1*k_2merForm) s6
+re33: s536 + s7 ->(k_2merForm) s482
+re34: s490 + s7 ->(k_OligomerForm) s489
+re35: s489 + s7 ->(k_OligomerForm) s492
+re36: s492 + s7 ->(k_OligomerForm) s493
+re37: s78 ->(c3*re37_k1) s51 + s52
+re38: s85 ->(c3*re38_k1) s51 + s53
+re40: s517 ->(c2*k_M_autophagyDegr) s109
+re41: s523 ->(c2*k_M_autophagyDegr) s113
+re42: s520 ->(c2*k_M_autophagyDegr) s108
+re43: s521 ->(c2*k_M_autophagyDegr) s107
+re44: s522 ->(c2*k_M_autophagyDegr) s112
+re45: s518 ->(c2*k_M_autophagyDegr) s110
+re46: s519 ->(c2*k_M_autophagyDegr) s111
+re47: s17 + s29 ->(c1*k_OligomerForm) s33
+re48: s6 ->(k_OligAutophagUptake) s527
+re49: s6 + s7 ->(c1*k_OligomerForm) s5
+re50: s5 ->(k_OligAutophagUptake) s531
+re51: s5 + s7 ->(c1*k_OligomerForm) s2
+re52: s35 + s5 ->(c1*k_ProteasomeBind) s473
+re53: s2 ->(k_OligAutophagUptake) s530
+re54: s2 + s7 ->(c1*k_OligomerForm) s1
+re55: s2 + s35 ->(c1*k_ProteasomeBind) s474
+re56: s1 ->(k_OligAutophagUptake) s529
+re57: s1 + s7 ->(c1*k_OligomerForm) s21
+re58: s1 + s35 ->(c1*k_ProteasomeBind) s475
+re59: s21 ->(k_OligAutophagUptake) s528
+re60: s21 + s7 ->(c1*k_OligomerForm) s25
+re61: s21 + s35 ->(c1*k_ProteasomeBind) s476
+re62: s25 ->(k_OligAutophagUptake) s526
+re63: s25 + s7 ->(c1*k_OligomerForm) s26
+re64: s25 + s35 ->(c1*k_ProteasomeBind) s477
+re65: s26 ->(k_OligAutophagUptake) s525
+re66: s26 + s7 ->(c1*k_OligomerForm) s27
+re67: s26 + s35 ->(c1*k_ProteasomeBind) s478
+re68: s27 + s35 ->(c1*k_ProteasomeBind) s479
+re69: s53 ->(c3*re69_k1) s211
+re70: s52 ->(c3*re70_k1) s213
+re71: s501 ->(k_LampFreeWTasyn) s29 + s51
+re72: s482 + s7 ->(k_OligomerForm) s483
+re73: s483 + s7 ->(k_OligomerForm) s484
+re74: s484 + s7 ->(k_OligomerForm) s491
+re75: s491 + s7 ->(k_OligomerForm) s490
+re76: s494 ->(k_LampFreeWTasyn) s20 + s51
+re77: s495 ->(k_LampFreeWTasyn) s24 + s51
+re78: s496 ->(k_LampFreeWTasyn) s23 + s51
+re79: s498 ->(k_LampFreeWTasyn) s32 + s51
+re80: s499 ->(k_LampFreeWTasyn) s31 + s51
+re81: s500 ->(k_LampFreeWTasyn) s30 + s51
+re82: s30 + s500 ->(k_WTOligBindOnLamp) s51
+re83: s20 + s51 ->(k_WTOligBindOnLamp) s494
+re84: s24 + s51 ->(k_WTOligBindOnLamp) s495
+re85: s32 + s51 ->(k_WTOligBindOnLamp) s498
+re86: s51 + s7 ->(k_DopModWTasynLampBind) s536
+re87: s530 ->(c2*k_M_autophagyDegr) s447
+re88: s531 ->(c2*k_M_autophagyDegr) s446
+re89: s527 ->(c2*k_M_autophagyDegr) s445
+re90: s529 ->(c2*k_M_autophagyDegr) s448
+re91: s528 ->(c2*k_M_autophagyDegr) s524
+re92: s526 ->(c2*k_M_autophagyDegr) s524
+re93: s525 ->(c2*k_M_autophagyDegr) s451
+re94: s17 + s78 ->(k_2merForm) s85
+re95: s17 + s85 ->(k_OligomerForm) s494
+re96: s17 + s494 ->(k_OligomerForm) s495
+re97: s17 + s495 ->(k_OligomerForm) s496
+re98: s17 + s496 ->(k_OligomerForm) s498
+re99: s17 + s498 ->(k_OligomerForm) s499
+re100: s17 + s499 ->(k_OligomerForm) s500
+re101: s17 + s500 ->(k_OligomerForm) s501
+re102: s381 ->(c1*k_ProtOligDegr) s35
+re103: s383 ->(c1*k_ProtOligDegr) s35
+re104: s385 ->(c1*k_ProtOligDegr) s35
+re105: s387 ->(c1*k_ProtOligDegr) s35
+re106: s389 ->(c1*k_ProtOligDegr) s35
+re107: s391 ->(c1*k_ProtOligDegr) s35
+re108: s393 ->(c1*k_ProtOligDegr) s35
+re109: s473 ->(c1*k_ProtOligDegr) s35
+re110: s474 ->(c1*k_ProtOligDegr) s35
+re111: s475 ->(c1*k_ProtOligDegr) s35
+re112: s476 ->(c1*k_ProtOligDegr) s35
+re113: s477 ->(c1*k_ProtOligDegr) s35
+re114: s478 ->(c1*k_ProtOligDegr) s35
+re115: s479 ->(c1*k_ProtOligDegr) s35
+re116: s33 + s35 ->(c1*k_ProteasomeBind) s502
+re117: s27 ->(c1*k_DisRate) s26 + s7
+re118: s26 ->(c1*k_DisRate) s25 + s7
+re119: s25 ->(c1*k_DisRate) s21 + s7
+re120: s21 ->(c1*k_DisRate) s1 + s7
+re121: s2 ->(c1*k_DisRate) s5 + s7
+re122: s1 ->(c1*k_DisRate) s2 + s7
+re123: s5 ->(c1*k_DisRate) s6 + s7
+re124: s6 ->(c1*k_DisRate) 2s7
+re125: s29 ->(c1*k_DisRate) s17 + s30
+re126: s30 ->(c1*k_DisRate) s17 + s31
+re127: s31 ->(c1*k_DisRate) s17 + s32
+re128: s32 ->(c1*k_DisRate) s17 + s23
+re129: s23 ->(c1*k_DisRate) s17 + s24
+re130: s24 ->(c1*k_DisRate) s17 + s20
+re131: s20 ->(c1*k_DisRate) s17 + s18
+re132: s18 ->(c1*k_DisRate) 2s17
+re133: s17 + s33 ->(c1*re133_k1) s33
+re134: s17 ->(k_OligAutophagUptake) s533
+re135: s533 ->(c2*k_M_autophagyDegr) s107
+re136: s7 ->(k_OligAutophagUptake) s535
+re137: s535 ->(c2*k_M_autophagyDegr) s445

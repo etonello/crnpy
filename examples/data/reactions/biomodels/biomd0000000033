@@ -1,48 +1,48 @@
-EGF_binding: EGF + freeEGFReceptor ->(cell*krbEGF) boundEGFReceptor
-EFG_unbinding: boundEGFReceptor ->(cell*kruEGF) EGF + freeEGFReceptor
-NGF_binding: NGF + freeNGFReceptor ->(cell*krbNGF) boundNGFReceptor
-NGF_unbinding: boundNGFReceptor ->(cell*kruNGF) NGF + freeNGFReceptor
-SOS_activation_by_EGF: SosInactive ->(boundEGFReceptor*cell*kEGF/(KmEGF + SosInactive)) SosActive
-SOS_activation_by_EGF_rev: SosActive -> SosInactive
-SOS_activation_by_NGF: SosInactive ->(boundNGFReceptor*cell*kNGF/(KmNGF + SosInactive)) SosActive
-SOS_activation_by_NGF_rev: SosActive -> SosInactive
-SOS_deactivation: SosActive ->(P90RskActive*cell*kdSos/(KmdSos + SosActive)) SosInactive
-SOS_deactivation_rev: SosInactive -> SosActive
-Ras_activation: RasInactive ->(SosActive*cell*kSos/(KmSos + RasInactive)) RasActive
-Ras_activation_rev: RasActive -> RasInactive
-Ras_deactivation: RasActive ->(RasGapActive*cell*kRasGap/(KmRasGap + RasActive)) RasInactive
-Ras_deactivation_rev: RasInactive -> RasActive
-Raf1_activation_by_Ras: Raf1Inactive ->(RasActive*cell*kRasToRaf1/(KmRasToRaf1 + Raf1Inactive)) Raf1Active
-Raf1_activation_by_Ras_rev: Raf1Active -> Raf1Inactive
-Mek_activation_by_Raf1: MekInactive ->(Raf1Active*cell*kpRaf1/(KmpRaf1 + MekInactive)) MekActive
-Mek_activation_by_Raf1_rev: MekActive -> MekInactive
-Mek_activation_by_B_Raf: MekInactive ->(BRafActive*cell*kpBRaf/(KmpBRaf + MekInactive)) MekActive
-Mek_activation_by_B_Raf_rev: MekActive -> MekInactive
-Erk_activation: ErkInactive ->(MekActive*cell*kpMekCytoplasmic/(ErkInactive + KmpMekCytoplasmic)) ErkActive
-Erk_activation_rev: ErkActive -> ErkInactive
-Mek_deactivation: MekActive ->(PP2AActive*cell*kdMek/(KmdMek + MekActive)) MekInactive
-Mek_deactivation_rev: MekInactive -> MekActive
-Erk_deactivation: ErkActive ->(PP2AActive*cell*kdErk/(ErkActive + KmdErk)) ErkInactive
-Erk_deactivation_rev: ErkInactive -> ErkActive
-Raf1_deactivation_by_PPase: Raf1Active ->(Raf1PPtase*cell*kdRaf1/(KmdRaf1 + Raf1Active)) Raf1Inactive
-Raf1_deactivation_by_PPase_rev: Raf1Inactive -> Raf1Active
-P90Rsk_activation: P90RskInactive ->(ErkActive*cell*kpP90Rsk/(KmpP90Rsk + P90RskInactive)) P90RskActive
-P90Rsk_activation_rev: P90RskActive -> P90RskInactive
-PI3K_activation_by_EGFR: PI3KInactive ->(boundEGFReceptor*cell*kPI3K/(KmPI3K + PI3KInactive)) PI3KActive
-PI3K_activation_by_EGFR_rev: PI3KActive -> PI3KInactive
-PI3K_activation_by_Ras: PI3KInactive ->(RasActive*cell*kPI3KRas/(KmPI3KRas + PI3KInactive)) PI3KActive
-PI3K_activation_by_Ras_rev: PI3KActive -> PI3KInactive
-Akt_activation: AktInactive ->(PI3KActive*cell*kAkt/(AktInactive + KmAkt)) AktActive
-Akt_activation_rev: AktActive -> AktInactive
-Raf1_deactivation_by_Akt: Raf1Active ->(AktActive*cell*kdRaf1ByAkt/(KmRaf1ByAkt + Raf1Active)) Raf1Inactive
-Raf1_deactivation_by_Akt_rev: Raf1Inactive -> Raf1Active
-C3G_activation: C3GInactive ->(boundNGFReceptor*cell*kC3GNGF/(C3GInactive + KmC3GNGF)) C3GActive
-C3G_activation_rev: C3GActive -> C3GInactive
-Rap1_activation: Rap1Inactive ->(C3GActive*cell*kC3G/(KmC3G + Rap1Inactive)) Rap1Active
-Rap1_activation_rev: Rap1Active -> Rap1Inactive
-Rap1_deactivation: Rap1Active ->(RapGapActive*cell*kRapGap/(KmRapGap + Rap1Active)) Rap1Inactive
-Rap1_deactivation_rev: Rap1Inactive -> Rap1Active
-BRaf_activation_by_Rap1: BRafInactive ->(Rap1Active*cell*kRap1ToBRaf/(BRafInactive + KmRap1ToBRaf)) BRafActive
-BRaf_activation_by_Rap1_rev: BRafActive -> BRafInactive
-BRaf_deactivation_by_PPase: BRafActive ->(Raf1PPtase*cell*kdBRaf/(BRafActive + KmdBRaf)) BRafInactive
-BRaf_deactivation_by_PPase_rev: BRafInactive -> BRafActive
+EGFBindingReaction: EGF + freeEGFReceptor ->(cell*krbEGF) boundEGFReceptor
+EGFUnbindingReaction: boundEGFReceptor ->(cell*kruEGF) EGF + freeEGFReceptor
+NGFBindingReaction: NGF + freeNGFReceptor ->(cell*krbNGF) boundNGFReceptor
+NGFUnbindingReaction: boundNGFReceptor ->(cell*kruNGF) NGF + freeNGFReceptor
+SosActivationByEGFReaction: SosInactive ->(boundEGFReceptor*cell*kEGF/(KmEGF + SosInactive)) SosActive
+SosActivationByEGFReaction_rev: SosActive ->(k_SosActivationByEGFReaction_rev) SosInactive
+SosActivationByNGFReaction: SosInactive ->(boundNGFReceptor*cell*kNGF/(KmNGF + SosInactive)) SosActive
+SosActivationByNGFReaction_rev: SosActive ->(k_SosActivationByNGFReaction_rev) SosInactive
+SosDeactivationReaction: SosActive ->(P90RskActive*cell*kdSos/(KmdSos + SosActive)) SosInactive
+SosDeactivationReaction_rev: SosInactive ->(k_SosDeactivationReaction_rev) SosActive
+RasActivationReaction: RasInactive ->(SosActive*cell*kSos/(KmSos + RasInactive)) RasActive
+RasActivationReaction_rev: RasActive ->(k_RasActivationReaction_rev) RasInactive
+RasDeactivationReaction: RasActive ->(RasGapActive*cell*kRasGap/(KmRasGap + RasActive)) RasInactive
+RasDeactivationReaction_rev: RasInactive ->(k_RasDeactivationReaction_rev) RasActive
+Raf1ByRasActivationReaction: Raf1Inactive ->(RasActive*cell*kRasToRaf1/(KmRasToRaf1 + Raf1Inactive)) Raf1Active
+Raf1ByRasActivationReaction_rev: Raf1Active ->(k_Raf1ByRasActivationReaction_rev) Raf1Inactive
+MekbyRaf1ActivationReaction: MekInactive ->(Raf1Active*cell*kpRaf1/(KmpRaf1 + MekInactive)) MekActive
+MekbyRaf1ActivationReaction_rev: MekActive ->(k_MekbyRaf1ActivationReaction_rev) MekInactive
+MekbyBRafActivationReaction: MekInactive ->(BRafActive*cell*kpBRaf/(KmpBRaf + MekInactive)) MekActive
+MekbyBRafActivationReaction_rev: MekActive ->(k_MekbyBRafActivationReaction_rev) MekInactive
+ErkActivationReaction: ErkInactive ->(MekActive*cell*kpMekCytoplasmic/(ErkInactive + KmpMekCytoplasmic)) ErkActive
+ErkActivationReaction_rev: ErkActive ->(k_ErkActivationReaction_rev) ErkInactive
+MekDeactivationReaction: MekActive ->(PP2AActive*cell*kdMek/(KmdMek + MekActive)) MekInactive
+MekDeactivationReaction_rev: MekInactive ->(k_MekDeactivationReaction_rev) MekActive
+ErkDeactivationReaction: ErkActive ->(PP2AActive*cell*kdErk/(ErkActive + KmdErk)) ErkInactive
+ErkDeactivationReaction_rev: ErkInactive ->(k_ErkDeactivationReaction_rev) ErkActive
+Raf1byPPtaseDeactivationReaction: Raf1Active ->(Raf1PPtase*cell*kdRaf1/(KmdRaf1 + Raf1Active)) Raf1Inactive
+Raf1byPPtaseDeactivationReaction_rev: Raf1Inactive ->(k_Raf1byPPtaseDeactivationReaction_rev) Raf1Active
+P90RskActivationReaction: P90RskInactive ->(ErkActive*cell*kpP90Rsk/(KmpP90Rsk + P90RskInactive)) P90RskActive
+P90RskActivationReaction_rev: P90RskActive ->(k_P90RskActivationReaction_rev) P90RskInactive
+PI3KbyEGFRActivationReaction: PI3KInactive ->(boundEGFReceptor*cell*kPI3K/(KmPI3K + PI3KInactive)) PI3KActive
+PI3KbyEGFRActivationReaction_rev: PI3KActive ->(k_PI3KbyEGFRActivationReaction_rev) PI3KInactive
+PI3KbyRasActivationReaction: PI3KInactive ->(RasActive*cell*kPI3KRas/(KmPI3KRas + PI3KInactive)) PI3KActive
+PI3KbyRasActivationReaction_rev: PI3KActive ->(k_PI3KbyRasActivationReaction_rev) PI3KInactive
+AktActivationReaction: AktInactive ->(PI3KActive*cell*kAkt/(AktInactive + KmAkt)) AktActive
+AktActivationReaction_rev: AktActive ->(k_AktActivationReaction_rev) AktInactive
+Raf1ByAktDeactivationReaction: Raf1Active ->(AktActive*cell*kdRaf1ByAkt/(KmRaf1ByAkt + Raf1Active)) Raf1Inactive
+Raf1ByAktDeactivationReaction_rev: Raf1Inactive ->(k_Raf1ByAktDeactivationReaction_rev) Raf1Active
+C3GActivationReaction: C3GInactive ->(boundNGFReceptor*cell*kC3GNGF/(C3GInactive + KmC3GNGF)) C3GActive
+C3GActivationReaction_rev: C3GActive ->(k_C3GActivationReaction_rev) C3GInactive
+Rap1ActivationReaction: Rap1Inactive ->(C3GActive*cell*kC3G/(KmC3G + Rap1Inactive)) Rap1Active
+Rap1ActivationReaction_rev: Rap1Active ->(k_Rap1ActivationReaction_rev) Rap1Inactive
+Rap1DeactivationReaction: Rap1Active ->(RapGapActive*cell*kRapGap/(KmRapGap + Rap1Active)) Rap1Inactive
+Rap1DeactivationReaction_rev: Rap1Inactive ->(k_Rap1DeactivationReaction_rev) Rap1Active
+BRafByRap1ActivationReaction: BRafInactive ->(Rap1Active*cell*kRap1ToBRaf/(BRafInactive + KmRap1ToBRaf)) BRafActive
+BRafByRap1ActivationReaction_rev: BRafActive ->(k_BRafByRap1ActivationReaction_rev) BRafInactive
+BRafbyPPtaseDeactivationReaction: BRafActive ->(Raf1PPtase*cell*kdBRaf/(BRafActive + KmdBRaf)) BRafInactive
+BRafbyPPtaseDeactivationReaction_rev: BRafInactive ->(k_BRafbyPPtaseDeactivationReaction_rev) BRafActive

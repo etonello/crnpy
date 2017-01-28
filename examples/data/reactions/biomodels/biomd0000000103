@@ -1,61 +1,61 @@
-Caspase_9___Apaf_1_binding: APAF_1 + Caspase_9 ->(cytosol*k1) APAF_1_Caspase_9_complex
-Caspase_9___Apaf_1_binding_rev: APAF_1_Caspase_9_complex ->(cytosol*kb1) APAF_1 + Caspase_9
-Caspase_3_cleavage_by_Caspase_9: Caspase_3 + Caspase_9 ->(cytosol*k2) Caspase_3_cleaved + Caspase_9
-Caspase_3_cleavage_by_Caspase_9_Apaf_1: APAF_1_Caspase_9_complex + Caspase_3 ->(cytosol*k3) APAF_1_Caspase_9_complex + Caspase_3_cleaved
-Caspase_9_Xiap_binding: Caspase_9 + XIAP ->(cytosol*k9) Caspase_9_XIAP_complex
-Caspase_9_Xiap_binding_rev: Caspase_9_XIAP_complex ->(cytosol*k9b) Caspase_9 + XIAP
-Caspase_9_Apaf_1_Xiap_binding: APAF_1_Caspase_9_complex + XIAP ->(cytosol*k10) APAF_1_Caspase_9_XIAP_complex
-Caspase_9_Apaf_1_Xiap_binding_rev: APAF_1_Caspase_9_XIAP_complex ->(cytosol*k10b) APAF_1_Caspase_9_complex + XIAP
-Caspase_9_Xiap_Apaf_1_binding: APAF_1 + Caspase_9_XIAP_complex ->(cytosol*k13) APAF_1_Caspase_9_XIAP_complex
-Caspase_9_Xiap_Apaf_1_binding_rev: APAF_1_Caspase_9_XIAP_complex ->(cytosol*k13b) APAF_1 + Caspase_9_XIAP_complex
-cleaved_Caspase_3_Xiap_binding: Caspase_3_cleaved + XIAP ->(cytosol*k15) Caspase_3_cleaved___XIAP_complex
-cleaved_Caspase_3_Xiap_binding_rev: Caspase_3_cleaved___XIAP_complex ->(cytosol*k15b) Caspase_3_cleaved + XIAP
-Caspase_9_cleavage_by_cleaved_caspase_3: Caspase_3_cleaved + Caspase_9 ->(cytosol*k4) Caspase_3_cleaved + Caspase_9_cleaved
-Caspase_9_cleavage_by_cleaved_caspase_3_when_Apaf_1_is_bound: APAF_1_Caspase_9_complex + Caspase_3_cleaved ->(cytosol*k5) APAF_1_Caspase_9_cleaved_complex + Caspase_3_cleaved
-cleaved_Caspase_9_Apaf_1_binding: APAF_1 + Caspase_9_cleaved ->(cytosol*k8) APAF_1_Caspase_9_cleaved_complex
-cleaved_Caspase_9_Apaf_1_binding_rev: APAF_1_Caspase_9_cleaved_complex ->(cytosol*k8b) APAF_1 + Caspase_9_cleaved
-cleaved_Caspase_9_XIAP_binding: Caspase_9_cleaved + XIAP ->(cytosol*k11) Caspase_9_cleaved_XIAP_complex
-cleaved_Caspase_9_XIAP_binding_rev: Caspase_9_cleaved_XIAP_complex ->(cytosol*k11b) Caspase_9_cleaved + XIAP
-cleaved_Caspase_9_Apaf_1_XIAP_binding: APAF_1_Caspase_9_cleaved_complex + XIAP ->(cytosol*k12) Apaf_1_Caspase_9_cleaved__XIAP_complex
-cleaved_Caspase_9_Apaf_1_XIAP_binding_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k12b) APAF_1_Caspase_9_cleaved_complex + XIAP
-cleaved_Caspase_9_Xiap_Apaf_1_binding: APAF_1 + Caspase_9_cleaved_XIAP_complex ->(cytosol*k14) Apaf_1_Caspase_9_cleaved__XIAP_complex
-cleaved_Caspase_9_Xiap_Apaf_1_binding_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k14b) APAF_1 + Caspase_9_cleaved_XIAP_complex
-Caspase_3_cleavage_by_cleaved_Caspase_9: Caspase_3 + Caspase_9_cleaved ->(cytosol*k6) Caspase_3_cleaved + Caspase_9_cleaved
-Caspase_3_cleavage_by_cleaved_Caspase_9___Apaf_1: APAF_1_Caspase_9_cleaved_complex + Caspase_3 ->(cytosol*k7) APAF_1_Caspase_9_cleaved_complex + Caspase_3_cleaved
-Apaf_1_turnover:  ->(-cytosol*(APAF_1*k16 - k16prod)) APAF_1
-Caspase_9_turnover:  ->(-cytosol*(Caspase_9*k17 - k17prod)) Caspase_9
-Xiap_turnover:  ->(-cytosol*(XIAP*k18 - k18prod)) XIAP
-Caspase_9_Xiap_degradation: Caspase_9_XIAP_complex ->(cytosol*k19) 
-Apaf_1_Caspase_9_Xiap_degradation: APAF_1_Caspase_9_XIAP_complex ->(cytosol*k20) 
-Apaf_1_Caspase_9_degradation: APAF_1_Caspase_9_complex ->(cytosol*k21) 
-Caspase_3_turnover:  ->(-cytosol*(Caspase_3*k22 - k22prod)) Caspase_3
-Caspase_3_cleaved_degradation: Caspase_3_cleaved ->(cytosol*k23) 
-Caspase_3_cleaved_Xiap_degradation: Caspase_3_cleaved___XIAP_complex ->(cytosol*k24) 
-Caspase_9_cleaved_Xiap_degradation: Caspase_9_cleaved_XIAP_complex ->(cytosol*k25) 
-Caspase_9_cleaved_degradation: Caspase_9_cleaved ->(cytosol*k26) 
-Apaf_1_Caspase_9_cleaved_degradation: APAF_1_Caspase_9_cleaved_complex ->(cytosol*k27) 
-Apaf_1_Caspase_9_cleaved_Xiap_degradation: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k28) 
-Caspase9_Xiap_Caspase3_star_degradation: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k29) 
-Apaf_1_Caspase9_Xiap_Caspase3_star_degradation: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k30) 
-Caspase9_star_Xiap_Caspase3_star_degradation: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k31) 
-Apaf_1_Caspase9_star_Xiap_Caspase3_star_degradation: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*k32) 
-Cleaved_Caspase_3_binding_with_Xiap_Caspase_9: Caspase_3_cleaved + Caspase_9_XIAP_complex ->(a*cytosol*k15) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Cleaved_Caspase_3_binding_with_Xiap_Caspase_9_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k15b) Caspase_3_cleaved + Caspase_9_XIAP_complex
-Cleaved_Caspase_3_binding_with_Apaf_Xiap_Caspase_9: APAF_1_Caspase_9_XIAP_complex + Caspase_3_cleaved ->(a*cytosol*k15) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Cleaved_Caspase_3_binding_with_Apaf_Xiap_Caspase_9_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k15b) APAF_1_Caspase_9_XIAP_complex + Caspase_3_cleaved
-Cleaved_Caspase_3_binding_with_Cleaved_Xiap_Caspase_9: Caspase_3_cleaved + Caspase_9_cleaved_XIAP_complex ->(a*cytosol*k15) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Cleaved_Caspase_3_binding_with_Cleaved_Xiap_Caspase_9_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k15b) Caspase_3_cleaved + Caspase_9_cleaved_XIAP_complex
-Apaf_Xiap_cleaved_Caspase_9_binding_with_cleaved_Caspase_3: Apaf_1_Caspase_9_cleaved__XIAP_complex + Caspase_3_cleaved ->(a*cytosol*k15) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Apaf_Xiap_cleaved_Caspase_9_binding_with_cleaved_Caspase_3_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k15b) Apaf_1_Caspase_9_cleaved__XIAP_complex + Caspase_3_cleaved
-Binding_of_Caspase_9_to_cleaved_Caspase_3_Xiap: Caspase_3_cleaved___XIAP_complex + Caspase_9 ->(a*cytosol*k9) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_Caspase_9_to_cleaved_Caspase_3_Xiap_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k9b) Caspase_3_cleaved___XIAP_complex + Caspase_9
-Binding_of_Apaf_Caspase_9_to_cleaved_Caspase_3_Xiap: APAF_1_Caspase_9_complex + Caspase_3_cleaved___XIAP_complex ->(a*cytosol*k9) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_Apaf_Caspase_9_to_cleaved_Caspase_3_Xiap_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k9b) APAF_1_Caspase_9_complex + Caspase_3_cleaved___XIAP_complex
-Binding_of_cleaved_Caspase_9_to_cleaved_Caspase_3_Xiap: Caspase_3_cleaved___XIAP_complex + Caspase_9_cleaved ->(a*cytosol*k9) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_cleaved_Caspase_9_to_cleaved_Caspase_3_Xiap_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k9b) Caspase_3_cleaved___XIAP_complex + Caspase_9_cleaved
-Binding_of_cleaved_Caspase_9_Apaf_1_to_cleaved_Caspase_3_Xiap: APAF_1_Caspase_9_cleaved_complex + Caspase_3_cleaved___XIAP_complex ->(a*cytosol*k9) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_cleaved_Caspase_9_Apaf_1_to_cleaved_Caspase_3_Xiap_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*k9b) APAF_1_Caspase_9_cleaved_complex + Caspase_3_cleaved___XIAP_complex
-Binding_of_Caspase_9_Xiap_cleaved_Caspase_3_with_Apaf: APAF_1 + Apaf_1_Caspase_9_cleaved__XIAP_complex ->(a*cytosol*k1) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_Caspase_9_Xiap_cleaved_Caspase_3_with_Apaf_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*kb1) APAF_1 + Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_cleaved_Caspase_9_Xiap_cleaved_Caspase_3_with_Apaf: APAF_1 + Apaf_1_Caspase_9_cleaved__XIAP_complex ->(a*cytosol*k1) Apaf_1_Caspase_9_cleaved__XIAP_complex
-Binding_of_cleaved_Caspase_9_Xiap_cleaved_Caspase_3_with_Apaf_rev: Apaf_1_Caspase_9_cleaved__XIAP_complex ->(cytosol*d*kb1) APAF_1 + Apaf_1_Caspase_9_cleaved__XIAP_complex
+v1: A + C9 ->(cytosol*k1) AC9
+v1_rev: AC9 ->(cytosol*kb1) A + C9
+v2: C3 + C9 ->(cytosol*k2) C3_star + C9
+v3: AC9 + C3 ->(cytosol*k3) AC9 + C3_star
+v9: C9 + X ->(cytosol*k9) C9X
+v9_rev: C9X ->(cytosol*k9b) C9 + X
+v10: AC9 + X ->(cytosol*k10) AC9X
+v10_rev: AC9X ->(cytosol*k10b) AC9 + X
+v13: A + C9X ->(cytosol*k13) AC9X
+v13_rev: AC9X ->(cytosol*k13b) A + C9X
+v15: C3_star + X ->(cytosol*k15) C3_starX
+v15_rev: C3_starX ->(cytosol*k15b) C3_star + X
+v4: C3_star + C9 ->(cytosol*k4) C3_star + C9_star
+v5: AC9 + C3_star ->(cytosol*k5) AC9_star + C3_star
+v8: A + C9_star ->(cytosol*k8) AC9_star
+v8_rev: AC9_star ->(cytosol*k8b) A + C9_star
+v11: C9_star + X ->(cytosol*k11) C9_starX
+v11_rev: C9_starX ->(cytosol*k11b) C9_star + X
+v12: AC9_star + X ->(cytosol*k12) AC9_starX
+v12_rev: AC9_starX ->(cytosol*k12b) AC9_star + X
+v14: A + C9_starX ->(cytosol*k14) AC9_starX
+v14_rev: AC9_starX ->(cytosol*k14b) A + C9_starX
+v6: C3 + C9_star ->(cytosol*k6) C3_star + C9_star
+v7: AC9_star + C3 ->(cytosol*k7) AC9_star + C3_star
+v16:  ->(cytosol*(-A*k16 + k16prod)) A
+v17:  ->(cytosol*(-C9*k17 + k17prod)) C9
+v18:  ->(cytosol*(-X*k18 + k18prod)) X
+v19: C9X ->(cytosol*k19) 
+v20: AC9X ->(cytosol*k20) 
+v21: AC9 ->(cytosol*k21) 
+v22:  ->(cytosol*(-C3*k22 + k22prod)) C3
+v23: C3_star ->(cytosol*k23) 
+v24: C3_starX ->(cytosol*k24) 
+v25: C9_starX ->(cytosol*k25) 
+v26: C9_star ->(cytosol*k26) 
+v27: AC9_star ->(cytosol*k27) 
+v28: AC9_starX ->(cytosol*k28) 
+v29: C9X_C3_star ->(cytosol*k29) 
+v30: AC9_starX_C3_star ->(cytosol*k30) 
+v31: C9_starX_C3_star ->(cytosol*k31) 
+v32: AC9_starX_C3_star ->(cytosol*k32) 
+v33: C3_star + C9X ->(a*cytosol*k15) C9X_C3_star
+v33_rev: C9X_C3_star ->(cytosol*d*k15b) C3_star + C9X
+v34: AC9X + C3_star ->(a*cytosol*k15) AC9X_C3_star
+v34_rev: AC9X_C3_star ->(cytosol*d*k15b) AC9X + C3_star
+v35: C3_star + C9_starX ->(a*cytosol*k15) C9_starX_C3_star
+v35_rev: C9_starX_C3_star ->(cytosol*d*k15b) C3_star + C9_starX
+v36: AC9_starX + C3_star ->(a*cytosol*k15) AC9_starX_C3_star
+v36_rev: AC9_starX_C3_star ->(cytosol*d*k15b) AC9_starX + C3_star
+v37: C3_starX + C9 ->(a*cytosol*k9) C9X_C3_star
+v37_rev: C9X_C3_star ->(cytosol*d*k9b) C3_starX + C9
+v38: AC9 + C3_starX ->(a*cytosol*k9) AC9X_C3_star
+v38_rev: AC9X_C3_star ->(cytosol*d*k9b) AC9 + C3_starX
+v39: C3_starX + C9_star ->(a*cytosol*k9) C9_starX_C3_star
+v39_rev: C9_starX_C3_star ->(cytosol*d*k9b) C3_starX + C9_star
+v40: AC9_star + C3_starX ->(a*cytosol*k9) AC9_starX_C3_star
+v40_rev: AC9_starX_C3_star ->(cytosol*d*k9b) AC9_star + C3_starX
+v41: A + C9X_C3_star ->(a*cytosol*k1) AC9X_C3_star
+v41_rev: AC9X_C3_star ->(cytosol*d*kb1) A + C9X_C3_star
+v42: A + C9_starX_C3_star ->(a*cytosol*k1) AC9_starX_C3_star
+v42_rev: AC9_starX_C3_star ->(cytosol*d*kb1) A + C9_starX_C3_star

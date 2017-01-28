@@ -1,10 +1,10 @@
-Htot_synthesis:  ->(compartment_1*ksyn_H) Htot
-Htot_basal_degradation: Htot ->(compartment_1*kdeg_H) 
-Htot_induced_degradation: Htot ->(O2*Ptot*compartment_1*kcatPH/((O2 + 1)*(HP + KdPH + Ptot))) 
-H_synthesis:  ->(compartment_1*ksyn_H) H
-H_basal_degardation: H ->(compartment_1*kdeg_H) 
-H_induced_degradation: H ->(O2*Ptot*compartment_1*kcatPH/((O2 + 1)*(HP + KdPH + Ptot))) 
-H_hydroxylation: H ->(Ftot*O2*compartment_1*kcatFH/((O2 + alpha)*(Ftot + HF + KiFH))) 
-A_synthesis:  ->(compartment_1*ksyn_A) A
-A_degradation: A ->(compartment_1*kdeg_A) 
-A_hydroxylation: A ->(-Ftot*O2*compartment_1*kcatFH/((O2 + alpha)*(A*gamma - A - Atot*gamma - KiFA))) 
+reaction_1:  ->(compartment_1*parameter_18) species_1
+reaction_2: species_1 ->(compartment_1*parameter_17) 
+reaction_3: species_1 ->(compartment_1*parameter_8*species_11*species_8/((species_11 + 1.0)*(parameter_4 + species_10 + species_8))) 
+reaction_4:  ->(compartment_1*parameter_18) species_2
+reaction_5: species_2 ->(compartment_1*parameter_17) 
+reaction_6: species_2 ->(compartment_1*parameter_8*species_11*species_8/((species_11 + 1.0)*(parameter_4 + species_10 + species_8))) 
+reaction_7: species_2 ->(compartment_1*parameter_13*species_11*species_7/((parameter_1 + species_11)*(parameter_7 + species_7 + species_9))) 
+reaction_8:  ->(compartment_1*parameter_16) species_3
+reaction_9: species_3 ->(compartment_1*parameter_14) 
+reaction_10: species_3 ->(compartment_1*parameter_13*species_11*species_7/((parameter_1 + species_11)*(parameter_6*(-species_3 + species_5) + parameter_9 + species_3))) 

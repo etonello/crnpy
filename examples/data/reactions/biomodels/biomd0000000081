@@ -1,30 +1,30 @@
-PIP5kinase: 0ATP_C + PIP_M ->(1.0*ATPSat300*PIP5kinase_kPIP5Kinase*(0.8*MgSat20 + 0.2)) PIP2_M
-PIP5kinase_rev: PIP2_M -> 0ATP_C + PIP_M
-IP3Phosphatase: 0IP3_C ->(Cytoplasm*IP3Phosphatase_kIP3ase*IP3_C*NA_micro_) 
-IP3Phosphatase_rev:  -> 0IP3_C
+PIP5kinase: PIP_M ->(1.0*ATPSat300*PIP5kinase_kPIP5Kinase*(0.8*MgSat20 + 0.2)) PIP2_M
+PIP5kinase_rev: PIP2_M ->(k_PIP5kinase_rev) PIP_M
+IP3Phosphatase:  ->(Cytoplasm*IP3Phosphatase_kIP3ase*NA_micro*ip3_C) 
+IP3Phosphatase_rev:  ->(k_IP3Phosphatase_rev) 
 PIP2binding: KCNQsites_M + PIP2_M ->(M*PIP2binding_kPIP2on) PIP2xKCNQ_M
 PIP2binding_rev: PIP2xKCNQ_M ->(M*PIP2binding_kPIP2off) KCNQsites_M + PIP2_M
 MgonGGTPgS: GGTPgS_M ->(M*Mg2_C*MgonGGTPgS_kMg2onGTPgS) GGTPgSMg_M
-MgonGGTPgS_rev: GGTPgSMg_M -> GGTPgS_M
-GGTPase: GGTPMg_M ->(M*MgSat10*kGGTPase) GGDP_M
-GGTPase_rev: GGDP_M -> GGTPMg_M
+MgonGGTPgS_rev: GGTPgSMg_M ->(k_MgonGGTPgS_rev) GGTPgS_M
+GGTPase: GGTPMg_M ->(GGTPase_kGGTPase*M*MgSat10) GGDP_M
+GGTPase_rev: GGDP_M ->(k_GGTPase_rev) GGTPMg_M
 GTPon: G_M ->(GTP_C*GTPon_kGTPon*M) GGTP_M
 GTPon_rev: GGTP_M ->(GTPon_kGTPoff*M) G_M
-GTPgSon: 0GTPgS_C + G_M ->(GTPgS_C*GTPgSon_kGTPgSon*M) GGTPgS_M
-GTPgSon_rev: GGTPgS_M ->(GTPgSon_kGTPgSoff*M) 0GTPgS_C + G_M
-GDPbSon: 0GDPbS_C + G_M ->(GDPbS_C*GDPbSon_kGDPbSon*M) GGDPbS_M
-GDPbSon_rev: GGDPbS_M ->(GDPbSon_kGGDPbSoff*M*(20*OxoSat + 1)) 0GDPbS_C + G_M
+GTPgSon: G_M ->(GTPgS_C*GTPgSon_kGTPgSon*M) GGTPgS_M
+GTPgSon_rev: GGTPgS_M ->(GTPgSon_kGTPgSoff*M) G_M
+GDPbSon: G_M ->(GDPbS_C*GDPbSon_kGDPbSon*M) GGDPbS_M
+GDPbSon_rev: GGDPbS_M ->(1.0*GDPbSon_kGGDPbSoff*M*(20.0*OxoSat + 1.0)) G_M
 MgGTPon: GGTP_M ->(M*Mg2_C*MgGTPon_kMg2onGTP) GGTPMg_M
-MgGTPon_rev: GGTPMg_M -> GGTP_M
-GDPdissoc: GGDP_M ->(GDPdissoc_kGDPoff*M*(GDPdissoc_TonicAct + OxoSat)) 0GDP_C + G_M
-GDPdissoc_rev: 0GDP_C + G_M ->(GDP_C*GDPdissoc_kGDPon*M) GGDP_M
+MgGTPon_rev: GGTPMg_M ->(k_MgGTPon_rev) GGTP_M
+GDPdissoc: GGDP_M ->(GDPdissoc_kGDPoff*M*(GDPdissoc_TonicAct + OxoSat)) G_M
+GDPdissoc_rev: G_M ->(GDP_C*GDPdissoc_kGDPon*M) GGDP_M
 PIP2_5Pase: PIP2_M ->(M*MgSat20*PIP2_5Pase_kPIP2Pase) PIP_M
-PIP2_5Pase_rev: PIP_M -> PIP2_M
-PLC: PIP2_M ->(M*PLC_kPLC*(PLC_PLCspont + fGactive)) 0IP3_C
-PLC_rev: 0IP3_C -> PIP2_M
-AIF4on: 0AIF4_C + GGDP_M ->(AIF4_C*AlF4on_kAlF4on*M) GGDPAIF4_M
-AIF4on_rev: GGDPAIF4_M ->(AlF4on_kAlF4off*M) 0AIF4_C + GGDP_M
-PI4Kinase: 0ATP_C + PI_M ->(1.0*ATPSat1000*M*PI4Kinase_kPI4Kinase*(0.8*MgSat20 + 0.2)) PIP_M
-PI4Kinase_rev: PIP_M -> 0ATP_C + PI_M
-MgonGDPAIF4: GGDPAIF4_M ->(M*Mg2_C*MgonGDPAlF4_kMgonAlF4) GGDPAIF4Mg_M
-MgonGDPAIF4_rev: GGDPAIF4Mg_M -> GGDPAIF4_M
+PIP2_5Pase_rev: PIP_M ->(k_PIP2_5Pase_rev) PIP2_M
+PLC: PIP2_M ->(M*PLC_kPLC*(PLC_PLCspont + fGactive)) 
+PLC_rev:  ->(k_PLC_rev) PIP2_M
+AlF4on: GGDP_M ->(AlF4_C*AlF4on_kAlF4on*M) GGDPAlF4_M
+AlF4on_rev: GGDPAlF4_M ->(AlF4on_kAlF4off*M) GGDP_M
+PI4Kinase: PI_M ->(1.0*ATPSat1000*M*PI4Kinase_kPI4Kinase*(0.8*MgSat20 + 0.2)) PIP_M
+PI4Kinase_rev: PIP_M ->(k_PI4Kinase_rev) PI_M
+MgonGDPAlF4: GGDPAlF4_M ->(M*Mg2_C*MgonGDPAlF4_kMgonAlF4) GGDPAlF4Mg_M
+MgonGDPAlF4_rev: GGDPAlF4Mg_M ->(k_MgonGDPAlF4_rev) GGDPAlF4_M

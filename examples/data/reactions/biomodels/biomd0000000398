@@ -1,24 +1,24 @@
-re29: Notch ->(Gamma_secretase*kI_re29_s61*kM_re29_s60_s53*kM_re29_s60_s58*kV_re29_s60*sqrt(kG_s57*kM_re29_s60_s57/(kG_s53*kG_s58*kM_re29_s60_s53*kM_re29_s60_s58))/((DAPT + kI_re29_s61)*(NICD*Notch_TM*kM_re29_s60_s57 + NICD*kM_re29_s60_s57*kM_re29_s60_s58 + Notch*kM_re29_s60_s53*kM_re29_s60_s58 + Notch_TM*kM_re29_s60_s53*kM_re29_s60_s57 + kM_re29_s60_s53*kM_re29_s60_s57*kM_re29_s60_s58))) NICD + Notch_TM
-re29_rev: NICD + Notch_TM ->(Gamma_secretase*kI_re29_s61*kM_re29_s60_s57*kV_re29_s60*sqrt(kG_s53*kG_s58*kM_re29_s60_s53*kM_re29_s60_s58/(kG_s57*kM_re29_s60_s57))/((DAPT + kI_re29_s61)*(NICD*Notch_TM*kM_re29_s60_s57 + NICD*kM_re29_s60_s57*kM_re29_s60_s58 + Notch*kM_re29_s60_s53*kM_re29_s60_s58 + Notch_TM*kM_re29_s60_s53*kM_re29_s60_s57 + kM_re29_s60_s53*kM_re29_s60_s57*kM_re29_s60_s58))) Notch
-re31: NICD + RBP_jk ->(kass_re31) Complex_NICD_RBP
-re31_rev: Complex_NICD_RBP ->(kdiss_re31) NICD + RBP_jk
-re32: Complex_NICD_RBP ->(kass_re32) Hes_1
-re32_rev: Hes_1 ->(kdiss_re32) Complex_NICD_RBP
-re33: Ptch1 + Shh ->(kass_re33) Complex_Shh_Ptch1
-re33_rev: Complex_Shh_Ptch1 ->(kdiss_re33) Ptch1 + Shh
-re36: EGF + EGFR ->(kI_re36_s101*kass_re36/(Erlotinib + kI_re36_s101)) Complex_EGF_EGFR
-re36_rev: Complex_EGF_EGFR ->(kI_re36_s101*kdiss_re36/(Erlotinib + kI_re36_s101)) EGF + EGFR
-re37: Complex_EGF_EGFR ->(kass_re37) Hes_1
-re37_rev: Hes_1 ->(kdiss_re37) Complex_EGF_EGFR
-re38: Frzzl + Wnt ->(kass_re38) Complex_Wnt_Frzzl
-re38_rev: Complex_Wnt_Frzzl ->(kdiss_re38) Frzzl + Wnt
-re40: Dishevelled + FRAT_CK2 ->(Complex_Wnt_Frzzl*kcatp_re40/(Complex_Dishevelled_FRAT_CK2*ki_re40_s124 + Dishevelled*FRAT_CK2 + Dishevelled*kM_re40_s124 + FRAT_CK2*kM_re40_s124 + kM_re40_s124*ki_re40_s124)) Complex_Dishevelled_FRAT_CK2
-re40_rev: Complex_Dishevelled_FRAT_CK2 ->(Complex_Wnt_Frzzl*kcatn_re40*ki_re40_s124/(Complex_Dishevelled_FRAT_CK2*ki_re40_s124 + Dishevelled*FRAT_CK2 + Dishevelled*kM_re40_s124 + FRAT_CK2*kM_re40_s124 + kM_re40_s124*ki_re40_s124)) Dishevelled + FRAT_CK2
-re42: Beta_catenin + GSK3B ->(kI_re42_s135*kI_re42_s147*kass_re42/((Complex_Dishevelled_FRAT_CK2 + kI_re42_s135)*(_6_bromoindirubin_3_oxime + kI_re42_s147))) Complex_GSK3B_Bcatenin
-re42_rev: Complex_GSK3B_Bcatenin ->(kI_re42_s135*kI_re42_s147*kdiss_re42/((Complex_Dishevelled_FRAT_CK2 + kI_re42_s135)*(_6_bromoindirubin_3_oxime + kI_re42_s147))) Beta_catenin + GSK3B
-re43: Beta_catenin ->(kass_re43) Hes_1
-re43_rev: Hes_1 ->(kdiss_re43) Beta_catenin
-re34: smo ->(Complex_Shh_Ptch1*kass_re34_s85 + SAG*kass_re34_s89) smo
-re34_rev: smo ->(Complex_Shh_Ptch1*kdiss_re34_s85 + SAG*kdiss_re34_s89) smo
-re35: smo ->(SAG*kass_re35_s89) Hes_1
-re35_rev: Hes_1 ->(SAG*kdiss_re35_s89) smo
+re29: s57 ->(kI_re29_s61*kM_re29_s60_s53*kM_re29_s60_s58*kV_re29_s60*s60*root(2, kG_s57*kM_re29_s60_s57/(kG_s53*kG_s58*kM_re29_s60_s53*kM_re29_s60_s58))/((kI_re29_s61 + s61)*(kM_re29_s60_s53*kM_re29_s60_s57*kM_re29_s60_s58 + kM_re29_s60_s53*kM_re29_s60_s57*s58 + kM_re29_s60_s53*kM_re29_s60_s58*s57 + kM_re29_s60_s57*kM_re29_s60_s58*s53 + kM_re29_s60_s57*s53*s58))) s53 + s58
+re29_rev: s53 + s58 ->(kI_re29_s61*kM_re29_s60_s57*kV_re29_s60*s60*root(2, kG_s53*kG_s58*kM_re29_s60_s53*kM_re29_s60_s58/(kG_s57*kM_re29_s60_s57))/((kI_re29_s61 + s61)*(kM_re29_s60_s53*kM_re29_s60_s57*kM_re29_s60_s58 + kM_re29_s60_s53*kM_re29_s60_s57*s58 + kM_re29_s60_s53*kM_re29_s60_s58*s57 + kM_re29_s60_s57*kM_re29_s60_s58*s53 + kM_re29_s60_s57*s53*s58))) s57
+re31: s53 + s68 ->(kass_re31) s72
+re31_rev: s72 ->(kdiss_re31) s53 + s68
+re32: s72 ->(kass_re32) s73
+re32_rev: s73 ->(kdiss_re32) s72
+re33: s81 + s83 ->(kass_re33) s85
+re33_rev: s85 ->(kdiss_re33) s81 + s83
+re36: s96 + s98 ->(kI_re36_s101*kass_re36/(kI_re36_s101 + s101)) s100
+re36_rev: s100 ->(kI_re36_s101*kdiss_re36/(kI_re36_s101 + s101)) s96 + s98
+re37: s100 ->(kass_re37) s73
+re37_rev: s73 ->(kdiss_re37) s100
+re38: s107 + s109 ->(kass_re38) s111
+re38_rev: s111 ->(kdiss_re38) s107 + s109
+re40: s122 + s124 ->(kcatp_re40*s111/(kM_re40_s124*ki_re40_s124 + kM_re40_s124*s122 + kM_re40_s124*s124 + ki_re40_s124*s135 + s122*s124)) s135
+re40_rev: s135 ->(kcatn_re40*ki_re40_s124*s111/(kM_re40_s124*ki_re40_s124 + kM_re40_s124*s122 + kM_re40_s124*s124 + ki_re40_s124*s135 + s122*s124)) s122 + s124
+re42: s142 + s144 ->(kI_re42_s135*kI_re42_s147*kass_re42/((kI_re42_s135 + s135)*(kI_re42_s147 + s147))) s146
+re42_rev: s146 ->(kI_re42_s135*kI_re42_s147*kdiss_re42/((kI_re42_s135 + s135)*(kI_re42_s147 + s147))) s142 + s144
+re43: s144 ->(kass_re43) s73
+re43_rev: s73 ->(kdiss_re43) s144
+re34: s88 ->(kass_re34_s85*s85 + kass_re34_s89*s89) s88
+re34_rev: s88 ->(kdiss_re34_s85*s85 + kdiss_re34_s89*s89) s88
+re35: s88 ->(kass_re35_s89*s89) s73
+re35_rev: s73 ->(kdiss_re35_s89*s89) s88

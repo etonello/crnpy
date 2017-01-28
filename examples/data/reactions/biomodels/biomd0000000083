@@ -1,62 +1,62 @@
-Mb_synthesized:  ->(Kib**m*cell*vsb/(Kib**m + Rn**m)) Mb
-Mb_translated_into_protein:  ->(Mb*cell*ksb) Bc
-Mb_nonspecific_degradation: Mb ->(cell*kdmb) 
-Bc_phosphorylation: Bc ->(V1b*cell/(Bc + Kp)) Bcp
-Bc_transfered_from_cytosolic_to_nuclear: Bc ->(cell*k5) Bn
-Bc_transfered_from_cytosolic_to_nuclear_rev: Bn ->(cell*k6) Bc
-Mc_translated_into_protein:  ->(Mc*cell*ksc) Cc
-Mc_nonspecific_degradation: Mc ->(cell*kdmc) 
-Cc_phosphorylation: Cc ->(V1c*cell/(Cc + Kp)) Ccp
-Ccp_specific_degradation: Ccp ->(cell*vdcc/(Ccp + Kd)) 
-Mp_synthesis:  ->(Bn**reaction_9_n*cell*vsp/(Bn**reaction_9_n + Kap**reaction_9_n)) Mp
-Mp_translated_into_protein:  ->(Mp*cell*ksp) Pc
-Pcp_specific_degradation: Pcp ->(cell*vdpc/(Kd + Pcp)) 
-Pc_phospholation: Pc ->(V1p*cell/(Kp + Pc)) Pcp
-Cc_and_Pc_produce_PCc: Cc + Pc ->(cell*k3) PCc
-Cc_and_Pc_produce_PCc_rev: PCc ->(cell*k4) Cc + Pc
-PCc_phospholation: PCc ->(V1pc*cell/(Kp + PCc)) PCcp
-PCcp_specific_degradation: PCcp ->(cell*vdpcc/(Kd + PCcp)) 
-PCc_transfered_into_nuclear: PCc ->(cell*k1) PCn
-PCc_transfered_into_nuclear_rev: PCn ->(cell*k2) PCc
-PCnp_nonspecific_degradation: PCnp ->(cell*kdn) 
-Bcp_nonspecific_degradation: Bcp ->(cell*kdn) 
-Bnp_nonspecific_degradation: Bnp ->(cell*kdn) 
-Mc_synthesis:  ->(Bn**reaction_20_n*cell*vsc/(Bn**reaction_20_n + Kac**reaction_20_n)) Mc
-PCn_phospholation: PCn ->(V3pc*cell/(Kp + PCn)) PCnp
-Mp_nonspecific_degradation: Mp ->(cell*kdmp) 
-Per_Cry_and_Clock_Bmal_form_inactive_complex: Bn + PCn ->(cell*k7) In
-Per_Cry_and_Clock_Bmal_form_inactive_complex_rev: In ->(cell*k8) Bn + PCn
-Mb_specific_degradation: Mb ->(cell*vmb/(Kmb + Mb)) 
-Mc_specific_degradation: Mc ->(cell*vmc/(Kmc + Mc)) 
-Mp_specific_degradation: Mp ->(cell*vmp/(Kmp + Mp)) 
-Pc_nonspecific_degradation: Pc ->(cell*kdn) 
-Cc_nonspecific_degradation: Cc ->(cell*kdnc) 
-Pcp_nonspecific_degradation: Pcp ->(cell*kdn) 
-Ccp_nonspecific_degradation: Ccp ->(cell*kdn) 
-PCcp_nonspecific_degradation: PCcp ->(cell*kdn) 
-PCc_nonspecific_degradation: PCc ->(cell*kdn) 
-PCnp_specific_degradation: PCnp ->(cell*vdpcn/(Kd + PCnp)) 
-Bc_nonspecific_degradation: Bc ->(cell*kdn) 
-Bcp_specific_degradation: Bcp ->(cell*vdbc/(Bcp + Kd)) 
-Bn_phospholation: Bn ->(V3b*cell/(Bn + Kp)) Bnp
-Bnp_specific_degradation: Bnp ->(cell*vdbn/(Bnp + Kd)) 
-In_nonspecific_degration: In ->(cell*kdn) 
-In_specific_degradation: In ->(cell*vdin/(In + Kd)) 
-Bn_nonspecific_degradation: Bn ->(cell*kdn) 
-Bcp_dephospholation: Bcp ->(V2b*cell/(Bcp + Kdp)) Bc
-Bnp_dephospholation: Bnp ->(V4b*cell/(Bnp + Kdp)) Bn
-Ccp_dephospholation: Ccp ->(V2c*cell/(Ccp + Kdp)) Cc
-Pcp_dephospholation: Pcp ->(V2p*cell/(Kdp + Pcp)) Pc
-PCnp_dephospholation: PCnp ->(V4pc*cell/(Kdp + PCnp)) PCn
-PCn_nonspecific_degradation: PCn ->(cell*kdn) 
-PCcp_dephospholation: PCcp ->(V2pc*cell/(Kdp + PCcp)) PCc
-Mr_synthesized:  ->(Bn**reaction_48_n*cell*vsr/(Bn**reaction_48_n + Kar**reaction_48_n)) Mr
-Mr_nonspecific_degradation: Mr ->(cell*kdmr) 
-Mr_specific_degradation: Mr ->(cell*vmr/(Kmr + Mr)) 
-Mr_translated_into_protein:  ->(Mr*cell*ksr) Rc
-Rc_transfered_into_nuclear: Rc ->(cell*k9) Rn
-Rc_transfered_into_nuclear_rev: Rn ->(cell*k10) Rc
-Rc_specific_degradation: Rc ->(cell*vdrc/(Kd + Rc)) 
-Rc_nonspecific_degradation: Rc ->(cell*kdn) 
-Rn_specific_degradation: Rn ->(cell*vdrn/(Kd + Rn)) 
-Rn_nonspecific_degradation: Rn ->(cell*kdn) 
+reaction_0:  ->(cell*reaction_0_K**reaction_0_m*reaction_0_vsb/(Rn**reaction_0_m + reaction_0_K**reaction_0_m)) Mb
+reaction_1:  ->(Mb*cell*reaction_1_k) Bc
+reaction_2: Mb ->(cell*reaction_2_k1) 
+reaction_3: Bc ->(cell*reaction_3_V/(Bc + reaction_3_Km)) Bcp
+reaction_4: Bc ->(cell*reaction_4_k1) Bn
+reaction_4_rev: Bn ->(cell*reaction_4_k2) Bc
+reaction_5:  ->(Mc*cell*reaction_5_k) Cc
+reaction_6: Mc ->(cell*reaction_6_k1) 
+reaction_7: Cc ->(cell*reaction_7_V/(Cc + reaction_7_Km)) Ccp
+reaction_8: Ccp ->(cell*reaction_8_V/(Ccp + reaction_8_Km)) 
+reaction_9:  ->(Bn**reaction_9_n*cell*parameter_0000097/(Bn**reaction_9_n + reaction_9_K**reaction_9_n)) Mp
+reaction_10:  ->(Mp*cell*reaction_10_k) Pc
+reaction_11: Pcp ->(cell*reaction_11_V/(Pcp + reaction_11_Km)) 
+reaction_12: Pc ->(cell*reaction_12_V/(Pc + reaction_12_Km)) Pcp
+reaction_13: Cc + Pc ->(cell*reaction_13_k1) PCc
+reaction_13_rev: PCc ->(cell*reaction_13_k2) Cc + Pc
+reaction_14: PCc ->(cell*reaction_14_V/(PCc + reaction_14_Km)) PCcp
+reaction_15: PCcp ->(cell*reaction_15_V/(PCcp + reaction_15_Km)) 
+reaction_16: PCc ->(cell*reaction_16_k1) PCn
+reaction_16_rev: PCn ->(cell*reaction_16_k2) PCc
+reaction_17: PCnp ->(cell*reaction_17_k1) 
+reaction_18: Bcp ->(cell*reaction_18_k1) 
+reaction_19: Bnp ->(cell*reaction_19_k1) 
+reaction_20:  ->(Bn**reaction_20_n*cell*reaction_20_Vs/(Bn**reaction_20_n + reaction_20_K**reaction_20_n)) Mc
+reaction_21: PCn ->(cell*reaction_21_V/(PCn + reaction_21_Km)) PCnp
+reaction_22: Mp ->(cell*reaction_22_k1) 
+reaction_23: Bn + PCn ->(cell*reaction_23_k1) In
+reaction_23_rev: In ->(cell*reaction_23_k2) Bn + PCn
+reaction_24: Mb ->(cell*reaction_24_V/(Mb + reaction_24_Km)) 
+reaction_25: Mc ->(cell*reaction_25_V/(Mc + reaction_25_Km)) 
+reaction_26: Mp ->(cell*reaction_26_V/(Mp + reaction_26_Km)) 
+reaction_27: Pc ->(cell*reaction_27_k1) 
+reaction_28: Cc ->(cell*reaction_28_k1) 
+reaction_29: Pcp ->(cell*reaction_29_k1) 
+reaction_30: Ccp ->(cell*reaction_30_k1) 
+reaction_31: PCcp ->(cell*reaction_31_k1) 
+reaction_32: PCc ->(cell*reaction_32_k1) 
+reaction_33: PCnp ->(cell*reaction_33_V/(PCnp + reaction_33_Km)) 
+reaction_34: Bc ->(cell*reaction_34_k1) 
+reaction_35: Bcp ->(cell*reaction_35_V/(Bcp + reaction_35_Km)) 
+reaction_36: Bn ->(cell*reaction_36_V/(Bn + reaction_36_Km)) Bnp
+reaction_37: Bnp ->(cell*reaction_37_V/(Bnp + reaction_37_Km)) 
+reaction_38: In ->(cell*reaction_38_k1) 
+reaction_39: In ->(cell*reaction_39_V/(In + reaction_39_Km)) 
+reaction_40: Bn ->(cell*reaction_40_k1) 
+reaction_41: Bcp ->(cell*reaction_41_V/(Bcp + reaction_41_Km)) Bc
+reaction_42: Bnp ->(cell*reaction_42_V/(Bnp + reaction_42_Km)) Bn
+reaction_43: Ccp ->(cell*reaction_43_V/(Ccp + reaction_43_Km)) Cc
+reaction_44: Pcp ->(cell*reaction_44_V/(Pcp + reaction_44_Km)) Pc
+reaction_45: PCnp ->(cell*reaction_45_V/(PCnp + reaction_45_Km)) PCn
+reaction_46: PCn ->(cell*reaction_46_k1) 
+reaction_47: PCcp ->(cell*reaction_47_V/(PCcp + reaction_47_Km)) PCc
+reaction_48:  ->(Bn**reaction_48_n*cell*reaction_48_Vs/(Bn**reaction_48_n + reaction_48_K**reaction_48_n)) Mr
+reaction_49: Mr ->(cell*reaction_49_k1) 
+reaction_50: Mr ->(cell*reaction_50_V/(Mr + reaction_50_Km)) 
+reaction_51:  ->(Mr*cell*reaction_51_k) Rc
+reaction_52: Rc ->(cell*reaction_52_k1) Rn
+reaction_52_rev: Rn ->(cell*reaction_52_k2) Rc
+reaction_53: Rc ->(cell*reaction_53_V/(Rc + reaction_53_Km)) 
+reaction_54: Rc ->(cell*reaction_54_k1) 
+reaction_55: Rn ->(cell*reaction_55_V/(Rn + reaction_55_Km)) 
+reaction_56: Rn ->(cell*reaction_56_k1) 

@@ -1,5 +1,5 @@
-p53_production:  ->(beta_x*compartment*psi) p53
-Mdm2_independent_p53_degradation: p53 ->(alpha_x*compartment) 
-Mdm2_dependent_p53_degradation: p53 ->(Mdm2*alpha_xy*compartment) 
-p53_dependent_Mdm2_production:  ->(beta_y*compartment*psi*delay(p53, tau)) Mdm2
-Mdm2_degradation: Mdm2 ->(alpha_y*compartment) 
+R1:  ->(beta_x*compartment*psi) x
+R2: x ->(alpha_x*compartment) 
+R3: x ->(alpha_xy*compartment*y) 
+R4:  ->(beta_y*compartment*psi*delay(x, tau)) y
+R5: y ->(alpha_y*compartment) 

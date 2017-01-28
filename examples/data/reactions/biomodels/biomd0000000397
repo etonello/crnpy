@@ -1,55 +1,55 @@
-r68: Complex_br__Bcl9_Pygo____Smad4_ ->(kass_r68) Wnt_Target_Genes
-r1: Frizzled + Wnt ->(kass_r1) Complex_br__Wnt_Frizzled_
-r1_rev: Complex_br__Wnt_Frizzled_ ->(kdiss_r1) Frizzled + Wnt
-r5: Complex_br__Wnt_Frizzled_ + LRP5_6 ->(kass_r5) Complex_br__Frizzled_Wnt__br_LRP5_6_
-r5_rev: Complex_br__Frizzled_Wnt__br_LRP5_6_ ->(kdiss_r5) Complex_br__Wnt_Frizzled_ + LRP5_6
-r47: Complex_br__Axin_PP2A__br_Adenomatous_Polyposis_Coli_ + _Beta__Catenin ->(kass_r47) Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_
-r47_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_ ->(kdiss_r47) Complex_br__Axin_PP2A__br_Adenomatous_Polyposis_Coli_ + _Beta__Catenin
-r48: Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_ + Diversin ->(kass_r48) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin__Beta__Catenin__br_PP2A_
-r48_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin__Beta__Catenin__br_PP2A_ ->(kdiss_r48) Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_ + Diversin
-r54: Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_ + Complex_br__Ebi_Siah_1_ ->(kass_r54) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A__Beta__Catenin__br_Siah_1_Ebi_
-r54_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A__Beta__Catenin__br_Siah_1_Ebi_ ->(kdiss_r54) Complex_br__Adenomatous_Polyposis_Coli_Axin__br__Beta__Catenin_PP2A_ + Complex_br__Ebi_Siah_1_
-r58: _Beta__Catenin ->(kass_r58) _Beta__Catenin
-r58_rev: _Beta__Catenin ->(kdiss_r58) _Beta__Catenin
-r63: Complex_br__TCF_Smad4_ + _Beta__Catenin ->(kass_r63) Complex_br__TCF_Smad4__br__Beta__Catenin_
-r63_rev: Complex_br__TCF_Smad4__br__Beta__Catenin_ ->(kdiss_r63) Complex_br__TCF_Smad4_ + _Beta__Catenin
-r66: Complex_br__Bcl9__Beta__Catenin__br_TCF_Smad4__br_Pygo_ + SWI_SNF ->(kass_r66) Complex_br___Beta__Catenin_TCF__br_Smad4_Bcl9__br_Pygo_SWI__br_SNF_
-r66_rev: Complex_br___Beta__Catenin_TCF__br_Smad4_Bcl9__br_Pygo_SWI__br_SNF_ ->(kdiss_r66) Complex_br__Bcl9__Beta__Catenin__br_TCF_Smad4__br_Pygo_ + SWI_SNF
-r88: Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Glycogen_Synthase_Kinase_3_Beta__Axin__br_PP2A_Diversin__br_Casein_Kinase_1_ + _beta_TrCP ->(kass_r88) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__
-r88_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__ ->(kdiss_r88) Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Glycogen_Synthase_Kinase_3_Beta__Axin__br_PP2A_Diversin__br_Casein_Kinase_1_ + _beta_TrCP
-r90: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__ + Ubiquitin ->(kass_r90) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__
-r90_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__ ->(kdiss_r90) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__ + Ubiquitin
-r91: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__ ->(kass_r91) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin_Casein_Kinase_1__br_Glycogen_Synthase_Kinase_3_Beta__PP2A_ + Complex_br___beta_TrCP__Beta__Catenin_
-r91_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin_Casein_Kinase_1__br_Glycogen_Synthase_Kinase_3_Beta__PP2A_ + Complex_br___beta_TrCP__Beta__Catenin_ ->(kdiss_r91) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_Diversin__br_Casein_Kinase_1__Beta__Catenin__br__beta_TrCP_Glycogen_Synthase_Kinase_3_Beta__
-r92: Complex_br___beta_TrCP__Beta__Catenin_ ->(kass_r92) _Beta__Catenin + _beta_TrCP
-r92_rev: _Beta__Catenin + _beta_TrCP ->(kdiss_r92) Complex_br___beta_TrCP__Beta__Catenin_
-r96: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A__Beta__Catenin__br_Siah_1_Ebi_ + Ubiquitin ->(kass_r96) Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Siah_1_Ebi__br_Axin_PP2A_
-r96_rev: Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Siah_1_Ebi__br_Axin_PP2A_ ->(kdiss_r96) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A__Beta__Catenin__br_Siah_1_Ebi_ + Ubiquitin
-r98: Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Siah_1_Ebi__br_Axin_PP2A_ ->(kass_r98) Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A_ + Complex_br__Siah_1_Ebi_
-r98_rev: Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A_ + Complex_br__Siah_1_Ebi_ ->(kdiss_r98) Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Siah_1_Ebi__br_Axin_PP2A_
-r99: Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A_ ->(kass_r99) Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_ + _Beta__Catenin
-r99_rev: Complex_br__Adenomatous_Polyposis_Coli_Axin__br_PP2A_ + _Beta__Catenin ->(kdiss_r99) Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A_
-r102: Casein_Kinase_2 + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_ ->(kass_r102) Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_Casein_Kinase_2_
-r102_rev: Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_Casein_Kinase_2_ ->(kdiss_r102) Casein_Kinase_2 + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_
-r103: Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_Casein_Kinase_2_ + FRAT ->(kass_r103) Complex_br__Dishevelled_Casein_Kinase_2__br_Beta_Arrestin_Frodo__br_FRAT_
-r103_rev: Complex_br__Dishevelled_Casein_Kinase_2__br_Beta_Arrestin_Frodo__br_FRAT_ ->(kdiss_r103) Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_Casein_Kinase_2_ + FRAT
-r105: Complex_br__Dishevelled_Casein_Kinase_2__br_Beta_Arrestin_Frodo__br_FRAT_ ->(kass_r105) Glycogen_Synthase_Kinase_3_Beta_
-r105_rev: Glycogen_Synthase_Kinase_3_Beta_ ->(kdiss_r105) Complex_br__Dishevelled_Casein_Kinase_2__br_Beta_Arrestin_Frodo__br_FRAT_
-r106: Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_ ->(kass_r106) Casein_Kinase_1
-r106_rev: Casein_Kinase_1 ->(kdiss_r106) Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_
-r107: Wnt ->(kass_r107) Wnt
-r107_rev: Wnt ->(kdiss_r107) Wnt
-r104: ATP + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_ ->(Casein_Kinase_1*kass_r104_s30) ADP + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_
-r104_rev: ADP + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_ ->(Casein_Kinase_1*kdiss_r104_s30) ATP + Complex_br__Dishevelled_Beta_Arrestin__br_Frodo_
-r85: ATP + Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin__Beta__Catenin__br_PP2A_ ->(Casein_Kinase_1*kass_r85_s30) ADP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A__br_Diversin_Casein_Kinase_1_
-r85_rev: ADP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A__br_Diversin_Casein_Kinase_1_ ->(Casein_Kinase_1*kdiss_r85_s30) ATP + Complex_br__Adenomatous_Polyposis_Coli_Axin__br_Diversin__Beta__Catenin__br_PP2A_
-r65: Complex_br__TCF__Beta__Catenin__br_Smad4_Bcl9_ + Pygo ->(kass_r65) Complex_br__Bcl9__Beta__Catenin__br_TCF_Smad4__br_Pygo_
-r65_rev: Complex_br__Bcl9__Beta__Catenin__br_TCF_Smad4__br_Pygo_ ->(kdiss_r65) Complex_br__TCF__Beta__Catenin__br_Smad4_Bcl9_ + Pygo
-r64: Bcl9 + Complex_br__TCF_Smad4__br__Beta__Catenin_ ->(kass_r64) Complex_br__TCF__Beta__Catenin__br_Smad4_Bcl9_
-r64_rev: Complex_br__TCF__Beta__Catenin__br_Smad4_Bcl9_ ->(kdiss_r64) Bcl9 + Complex_br__TCF_Smad4__br__Beta__Catenin_
-re65: _Beta__Catenin ->(kass_re65) _Beta__Catenin
-re64: _Beta__Catenin ->(kass_re64) _Beta__Catenin
-r67: CBP + Complex_br___Beta__Catenin_TCF__br_Smad4_Bcl9__br_Pygo_SWI__br_SNF_ ->(kass_r67) Complex_br__Bcl9_Pygo____Smad4_
-r67_rev: Complex_br__Bcl9_Pygo____Smad4_ ->(kdiss_r67) CBP + Complex_br___Beta__Catenin_TCF__br_Smad4_Bcl9__br_Pygo_SWI__br_SNF_
-r86: ATP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A__br_Diversin_Casein_Kinase_1_ ->(ATP**2*Glycogen_Synthase_Kinase_3_Beta_*kI_r86_s304*kass_r86_s37/(_6_bromoindirubin_3_oxime + kI_r86_s304)) ADP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Glycogen_Synthase_Kinase_3_Beta__Axin__br_PP2A_Diversin__br_Casein_Kinase_1_
-r86_rev: ADP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Glycogen_Synthase_Kinase_3_Beta__Axin__br_PP2A_Diversin__br_Casein_Kinase_1_ ->(ADP**2*Glycogen_Synthase_Kinase_3_Beta_*kI_r86_s304*kdiss_r86_s37/(_6_bromoindirubin_3_oxime + kI_r86_s304)) ATP + Complex_br__Adenomatous_Polyposis_Coli__Beta__Catenin__br_Axin_PP2A__br_Diversin_Casein_Kinase_1_
+r68: s305 ->(kass_r68) s195
+r1: s1 + s5 ->(kass_r1) s16
+r1_rev: s16 ->(kdiss_r1) s1 + s5
+r5: s16 + s28 ->(kass_r5) s27
+r5_rev: s27 ->(kdiss_r5) s16 + s28
+r47: s121 + s36 ->(kass_r47) s123
+r47_rev: s123 ->(kdiss_r47) s121 + s36
+r48: s123 + s46 ->(kass_r48) s129
+r48_rev: s129 ->(kdiss_r48) s123 + s46
+r54: s123 + s75 ->(kass_r54) s159
+r54_rev: s159 ->(kdiss_r54) s123 + s75
+r58: s36 ->(kass_r58) s232
+r58_rev: s232 ->(kdiss_r58) s36
+r63: s174 + s232 ->(kass_r63) s176
+r63_rev: s176 ->(kdiss_r63) s174 + s232
+r66: s173 + s183 ->(kass_r66) s188
+r66_rev: s188 ->(kdiss_r66) s173 + s183
+r88: s252 + s61 ->(kass_r88) s259
+r88_rev: s259 ->(kdiss_r88) s252 + s61
+r90: s259 + s268 ->(kass_r90) s266
+r90_rev: s266 ->(kdiss_r90) s259 + s268
+r91: s266 ->(kass_r91) s155 + s267
+r91_rev: s155 + s267 ->(kdiss_r91) s266
+r92: s267 ->(kass_r92) s260 + s61
+r92_rev: s260 + s61 ->(kdiss_r92) s267
+r96: s159 + s268 ->(kass_r96) s275
+r96_rev: s275 ->(kdiss_r96) s159 + s268
+r98: s275 ->(kass_r98) s101 + s278
+r98_rev: s101 + s278 ->(kdiss_r98) s275
+r99: s278 ->(kass_r99) s164 + s270
+r99_rev: s164 + s270 ->(kdiss_r99) s278
+r102: s286 + s31 ->(kass_r102) s288
+r102_rev: s288 ->(kdiss_r102) s286 + s31
+r103: s102 + s288 ->(kass_r103) s292
+r103_rev: s292 ->(kdiss_r103) s102 + s288
+r105: s292 ->(kass_r105) s37
+r105_rev: s37 ->(kdiss_r105) s292
+r106: s286 ->(kass_r106) s30
+r106_rev: s30 ->(kdiss_r106) s286
+r107: s239 ->(kass_r107) s5
+r107_rev: s5 ->(kdiss_r107) s239
+r104: s107 + s32 ->(kass_r104_s30*s30) s286 + s33
+r104_rev: s286 + s33 ->(kdiss_r104_s30*s30) s107 + s32
+r85: s129 + s32 ->(kass_r85_s30*s30) s245 + s33
+r85_rev: s245 + s33 ->(kdiss_r85_s30*s30) s129 + s32
+r65: s171 + s179 ->(kass_r65) s183
+r65_rev: s183 ->(kdiss_r65) s171 + s179
+r64: s170 + s176 ->(kass_r64) s179
+r64_rev: s179 ->(kdiss_r64) s170 + s176
+re65: s260 ->(kass_re65) s232
+re64: s270 ->(kass_re64) s232
+r67: s172 + s188 ->(kass_r67) s305
+r67_rev: s305 ->(kdiss_r67) s172 + s188
+r86: s245 + s32 ->(kI_r86_s304*kass_r86_s37*s32**2*s37/(kI_r86_s304 + s304)) s252 + s33
+r86_rev: s252 + s33 ->(kI_r86_s304*kdiss_r86_s37*s33**2*s37/(kI_r86_s304 + s304)) s245 + s32

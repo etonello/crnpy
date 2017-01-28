@@ -1,17 +1,17 @@
-Vsyn: ADPi + Pii ->(IMS*Vsynmax/((ADPi + Kadp)*(Kpi + Pii))) ATPi
-Vsyn_rev: ATPi -> ADPi + Pii
-Vmick: ATPi + Cri ->(IMS*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2*MiCK_Vf_2/(ADPi*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kid_2 + ADPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2 + ADPi*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*PCri + ATPi*Cri*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + ATPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kic_2*MiCK_Kid_2 + MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*PCri)) ADPi + PCri
-Vmick_rev: ADPi + PCri ->(IMS*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*MiCK_Vb_2/(ADPi*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kid_2 + ADPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2 + ADPi*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*PCri + ATPi*Cri*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + ATPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kic_2*MiCK_Kid_2 + MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*PCri)) ATPi + Cri
-Vmmck: ATP + Cr ->(CYT*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3*MMCK_Vf_3/(ADP*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kid_3 + ADP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3 + ADP*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*PCr + ATP*Cr*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + ATP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kic_3*MMCK_Kid_3 + MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*PCr)) ADP + PCr
-Vmmck_rev: ADP + PCr ->(CYT*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*MMCK_Vb_3/(ADP*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kid_3 + ADP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3 + ADP*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*PCr + ATP*Cr*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + ATP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kic_3*MMCK_Kid_3 + MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*PCr)) ATP + Cr
-Vhyd: ATP ->(CYT*Vhyd) ADP + Pi
-Jpi: Pii ->(IMS*Rpi) Pi
-Jpi_rev: Pi ->(CYT*Rpi) Pii
-Jcr: Cri ->(IMS*Rcr) Cr
-Jcr_rev: Cr ->(CYT*Rcr) Cri
-Jadp: ADPi ->(IMS*Radp) ADP
-Jadp_rev: ADP ->(CYT*Radp) ADPi
-Jpcr: PCri ->(IMS*Jpcr) PCr
-Jpcr_rev: PCr ->(CYT*Jpcr) PCri
-Jatp: ATPi ->(IMS*Jatp) ATP
-Jatp_rev: ATP ->(CYT*Jatp) ATPi
+OxPhos: ADPi + Pi ->(IMS*OxPhos_V_1/((ADPi + OxPhos_Ka_1)*(OxPhos_Kb_1 + Pi))) ATPi
+OxPhos_rev: ATPi ->(k_OxPhos_rev) ADPi + Pi
+MiCK: ATPi + Cri ->(1.0*IMS*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2*MiCK_Vf_2/(1.0*ADPi*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kid_2 + 1.0*ADPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2 + 1.0*ADPi*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*PCri + 1.0*ATPi*Cri*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*ATPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*PCri)) ADPi + PCri
+MiCK_rev: ADPi + PCri ->(1.0*IMS*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*MiCK_Vb_2/(1.0*ADPi*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kid_2 + 1.0*ADPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2 + 1.0*ADPi*MiCK_Kb_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kid_2*PCri + 1.0*ATPi*Cri*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*ATPi*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*Cri*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*MiCK_Kid_2 + 1.0*MiCK_Kb_2*MiCK_Kd_2*MiCK_Kia_2*MiCK_Kib_2*MiCK_Kic_2*PCri)) ATPi + Cri
+MMCK: ATP + Cr ->(1.0*CYT*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3*MMCK_Vf_3/(1.0*ADP*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kid_3 + 1.0*ADP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3 + 1.0*ADP*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*PCr + 1.0*ATP*Cr*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*ATP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*PCr)) ADP + PCr
+MMCK_rev: ADP + PCr ->(1.0*CYT*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*MMCK_Vb_3/(1.0*ADP*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kid_3 + 1.0*ADP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3 + 1.0*ADP*MMCK_Kb_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kid_3*PCr + 1.0*ATP*Cr*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*ATP*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*Cr*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*MMCK_Kid_3 + 1.0*MMCK_Kb_3*MMCK_Kd_3*MMCK_Kia_3*MMCK_Kib_3*MMCK_Kic_3*PCr)) ATP + Cr
+ATPase: ATP ->(ATPase_v_4*CYT) ADP + P
+Pi_diffusion: Pi ->(IMS*Pi_diffusion_k2_5) P
+Pi_diffusion_rev: P ->(CYT*Pi_diffusion_k2_5) Pi
+Cr_diffusion: Cri ->(Cr_diffusion_k1_6*IMS) Cr
+Cr_diffusion_rev: Cr ->(CYT*Cr_diffusion_k1_6) Cri
+ADP_diffusion: ADPi ->(ADP_diffusion_k1_7*IMS) ADP
+ADP_diffusion_rev: ADP ->(ADP_diffusion_k1_7*CYT) ADPi
+PCr_diffusion: PCri ->(IMS*PCr_diffusion_k1_8) PCr
+PCr_diffusion_rev: PCr ->(CYT*PCr_diffusion_k1_8) PCri
+ATP_diffusion: ATPi ->(ATP_diffusion_k1_9*IMS) ATP
+ATP_diffusion_rev: ATP ->(ATP_diffusion_k1_9*CYT) ATPi

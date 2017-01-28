@@ -1,14 +1,14 @@
-v1: DFG ->(v1_k1) _E1
+v1: DFG ->(v1_k1) E1
 v2: DFG ->(v2_k2) E2
 v3: DFG ->(v3_k3) Cn + Gly
-v4: _E1 ->(v4_k4) Gly + _3DG
+v4: E1 ->(v4_k4) Gly + _3DG
 v5: _3DG ->(v5_k5) Cn
 v6: _3DG ->(v6_k6) FA
 v7: E2 ->(v7_k7) Gly + _1DG
 v8: _1DG ->(v8_k8) Cn
 v9: _1DG ->(v9_k9) AA
-v10: _E1 ->(v10_k10) Gly + Man
-v11: _E1 ->(v11_k11) Glu + Gly
+v10: E1 ->(v10_k10) Gly + Man
+v11: E1 ->(v11_k11) Glu + Gly
 v12: Man ->(v12_k12) Glu
 v13: Glu ->(v13_k13) _3DG
 v14: Cn + Gly ->(v14_k14) Mel

@@ -1,3 +1,3 @@
-vgk: GLC ->(Vgk*_comp*(GLC/Sgk)**hGK/(GLC*((GLC/Sgk)**hGK + 1))) G6P_F6P
-vpfk: G6P_F6P ->(Vpfk*_comp*(F6P/Spfk)**(-FBP*(-hact + hpfk)/(Sfba*(FBP/Sfba + 1)) + hpfk)*(alpha**hpfk*alpha**(FBP*hact/(FBP + Sfba))*alpha**(-FBP*hpfk/(FBP + Sfba))*(FBP/Xpfk)**hx + 1)/(G6P_F6P*(alpha**hpfk*alpha**(FBP*hact/(FBP + Sfba))*alpha**(-FBP*hpfk/(FBP + Sfba))*(F6P/Spfk)**hpfk*(F6P/Spfk)**(FBP*hact/(FBP + Sfba))*(F6P/Spfk)**(-FBP*hpfk/(FBP + Sfba))*(FBP/Xpfk)**hx + (F6P/Spfk)**hpfk*(F6P/Spfk)**(FBP*hact/(FBP + Sfba))*(F6P/Spfk)**(-FBP*hpfk/(FBP + Sfba)) + (FBP/Xpfk)**hx + 1))) FBP
-vfba: FBP ->(Vfba*_comp/(FBP + Sfba)) G3P
+vgk: GLC ->(Vgk*comp*(GLC/Sgk)**hGK/(GLC*((GLC/Sgk)**hGK + 1))) G6P_F6P
+vpfk: G6P_F6P ->(Vpfk*comp*(F6P/Spfk)**(-FBP*(-hact + hpfk)/(Sfba*(FBP/Sfba + 1)) + hpfk)/(G6P_F6P*((F6P/Spfk)**(-FBP*(-hact + hpfk)/(Sfba*(FBP/Sfba + 1)) + hpfk) + ((FBP/Xpfk)**hx + 1)/(alpha**(-FBP*(-hact + hpfk)/(Sfba*(FBP/Sfba + 1)) + hpfk)*(FBP/Xpfk)**hx + 1)))) FBP
+vfba: FBP ->(Vfba*comp/(Sfba*(FBP/Sfba + 1))) G3P

@@ -41,8 +41,8 @@ R40: r11x2 ->(Kend) 2iendIR + rendP
 R41: r1x22 ->(Kend) 2iendIR + rendP
 R42: r1x22d ->(Kend) 3iendIR + rendP
 R43: r11x22 ->(Kend) 3iendIR + rendP
-R44: rendP ->((Kcat*X_P + Kdp*Km + Kdp*X_P)/(Km + X_P)) rend
-R45: iendIR ->((Kcat*X_P + Kdp*Km + Kdp*X_P)/(Km + X_P)) iend
+R44: rendP ->(Kcat*X_P/(Km + X_P) + Kdp) rend
+R45: iendIR ->(Kcat*X_P/(Km + X_P) + Kdp) iend
 R46: r0 ->(kfbasal) rPbasal
 R47: rPbasal ->(krbasal) r0
 R48: rPbasal ->(Kend) rendP
@@ -60,5 +60,5 @@ v7f: PKB ->(PDK1_*k7f) PKB_P
 v7b: PKB_P ->(k7b) PKB
 v8f: mTOR ->(PKB_P*k8f) mTOR_
 v8b: mTOR_ ->(k8b) mTOR
-v9f: GLUT4_C ->(PKB_P*k92 + PKC_P*k91 + k5BasicWb) GLUT4_M
+v9f: GLUT4_C ->((GLUT4_C*PKB_P*k92 + GLUT4_C*PKC_P*k91 + GLUT4_C*k5BasicWb)/GLUT4_C) GLUT4_M
 v9b: GLUT4_M ->(k9b) GLUT4_C

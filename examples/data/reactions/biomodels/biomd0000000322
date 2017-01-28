@@ -1,9 +1,9 @@
-reaction1: x ->(compartment_1*k1) 
-reaction2: y ->(compartment_1*k1) 
-reaction3: u ->(compartment_1*k1) 
-reaction4: v ->(compartment_1*k1) 
-reaction5: u ->(alpha*compartment_1) u + x
-reaction6: v ->(beta*compartment_1) v + y
-reaction7: y ->(V*compartment_1/(y*(Shalve**n + y**n))) u + y
-reaction8: x ->(V*compartment_1*x**m/(x*(Shalve**m + x**m))) v + x
-reaction9: v ->(compartment_1*delta) v + x
+reaction_1: species_1 ->(compartment_1*reaction_1_k1) 
+reaction_2: species_2 ->(compartment_1*reaction_2_k1) 
+reaction_3: species_3 ->(compartment_1*reaction_3_k1) 
+reaction_4: species_4 ->(compartment_1*reaction_4_k1) 
+reaction_5: species_3 ->(compartment_1*parameter_1) species_1 + species_3
+reaction_6: species_4 ->(compartment_1*parameter_2) species_2 + species_4
+reaction_7: species_2 ->(compartment_1*reaction_7_V/(species_2*(reaction_7_Shalve**parameter_4 + species_2**parameter_4))) species_2 + species_3
+reaction_8: species_1 ->(compartment_1*reaction_8_V*species_1**parameter_5/(species_1*(reaction_8_Shalve**parameter_5 + species_1**parameter_5))) species_1 + species_4
+reaction_9: species_4 ->(compartment_1*parameter_6) species_1 + species_4

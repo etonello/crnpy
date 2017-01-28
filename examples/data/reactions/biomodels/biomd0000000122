@@ -1,34 +1,34 @@
-Calcineurin_dpdnt_NFAT_dephosphorylation: Active_Calcineurin_in_Nucleus + Phosphorylated_NFAT_in_nucleus ->(k1*nucleus/Active_Calcineurin_in_Nucleus) Active_Calcineurin_in_Nucleus + NFAT_nuc
-Calcineurin_dpdnt_NFAT_dephosphorylation_rev: Active_Calcineurin_in_Nucleus + NFAT_nuc ->(k2*nucleus/Active_Calcineurin_in_Nucleus) Active_Calcineurin_in_Nucleus + Phosphorylated_NFAT_in_nucleus
-NFAT_Calcineurin_complex_formation: Active_Calcineurin_in_Nucleus + NFAT_nuc ->(k16*nucleus) NFAT_Calcineurin_complex_in_nucleus
-NFAT_Calcineurin_complex_formation_rev: NFAT_Calcineurin_complex_in_nucleus ->(k15*nucleus) Active_Calcineurin_in_Nucleus + NFAT_nuc
-NFAT_transport: NFAT_nuc ->(k18*nucleus) NFAT_Cyt
-NFAT_transport_rev: NFAT_Cyt ->(cytosol*k17) NFAT_nuc
-Active_Calcineurin_transport: Active_Calcineurin_in_Nucleus ->(k6*nucleus) Active_Calcineurin_in_cytosol
-Active_Calcineurin_transport_rev: Active_Calcineurin_in_cytosol ->(cytosol*k5) Active_Calcineurin_in_Nucleus
-NFAT_Calcineurin_complex_phosphorylation: NFAT_Calcineurin_complex_in_nucleus ->(k14*nucleus) Phosphorylated_NFAT_Calcineurin_complex_in_nucleus
-NFAT_Calcineurin_complex_phosphorylation_rev: Phosphorylated_NFAT_Calcineurin_complex_in_nucleus ->(k13*nucleus) NFAT_Calcineurin_complex_in_nucleus
-Phosphorylated_NFAT_Calcineurin_complex_disassembly: Phosphorylated_NFAT_Calcineurin_complex_in_nucleus ->(k12*nucleus) Active_Calcineurin_in_Nucleus + Phosphorylated_NFAT_in_nucleus
-Phosphorylated_NFAT_Calcineurin_complex_disassembly_rev: Active_Calcineurin_in_Nucleus + Phosphorylated_NFAT_in_nucleus ->(k11*nucleus) Phosphorylated_NFAT_Calcineurin_complex_in_nucleus
-NFAT_Calcineurin_complex_transport: NFAT_Calcineurin_complex_in_nucleus ->(k10*nucleus) NFAT_Calcineurin_complex_in_cytosol
-NFAT_Calcineurin_complex_transport_rev: NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k9) NFAT_Calcineurin_complex_in_nucleus
-NFAT_Calcineurin_complex_phosphorylation: NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k14) Phosphorylated_NFAT_Calcineurin_complex_in_cytosol
-NFAT_Calcineurin_complex_phosphorylation_rev: Phosphorylated_NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k13) NFAT_Calcineurin_complex_in_cytosol
-Phosphorylated_NFAT_Calcineurin_complex_disassembly: Phosphorylated_NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k12) Active_Calcineurin_in_cytosol + Phosphorylated_NFAT_in_cytosol
-Phosphorylated_NFAT_Calcineurin_complex_disassembly_rev: Active_Calcineurin_in_cytosol + Phosphorylated_NFAT_in_cytosol ->(cytosol*k11) Phosphorylated_NFAT_Calcineurin_complex_in_cytosol
-Phosphorylated_NFAT_transport: Phosphorylated_NFAT_in_cytosol ->(cytosol*k3) Phosphorylated_NFAT_in_nucleus
-Phosphorylated_NFAT_transport_rev: Phosphorylated_NFAT_in_nucleus ->(k4*nucleus) Phosphorylated_NFAT_in_cytosol
-NFAT_Calcineurin_complex_disassembly: NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k15) Active_Calcineurin_in_cytosol + NFAT_Cyt
-NFAT_Calcineurin_complex_disassembly_rev: Active_Calcineurin_in_cytosol + NFAT_Cyt ->(cytosol*k16) NFAT_Calcineurin_complex_in_cytosol
-Phosphorylated_NFAT_Calcineurin_complex_transport: Phosphorylated_NFAT_Calcineurin_complex_in_cytosol ->(cytosol*k7) Phosphorylated_NFAT_Calcineurin_complex_in_nucleus
-Phosphorylated_NFAT_Calcineurin_complex_transport_rev: Phosphorylated_NFAT_Calcineurin_complex_in_nucleus ->(k8*nucleus) Phosphorylated_NFAT_Calcineurin_complex_in_cytosol
-Calcineurin_dpdnt_NFAT_dephosphorylation: Active_Calcineurin_in_cytosol + Phosphorylated_NFAT_in_cytosol ->(cytosol*k1/Active_Calcineurin_in_cytosol) Active_Calcineurin_in_cytosol + NFAT_Cyt
-Calcineurin_dpdnt_NFAT_dephosphorylation_rev: Active_Calcineurin_in_cytosol + NFAT_Cyt ->(cytosol*k2/Active_Calcineurin_in_cytosol) Active_Calcineurin_in_cytosol + Phosphorylated_NFAT_in_cytosol
-Calcineurin_activation: 3Calcium_in_Cytosol + Inactive_Calcineurin_in_cytosol ->(cytosol*k19) Active_Calcineurin_in_cytosol
-Calcineurin_activation_rev: Active_Calcineurin_in_cytosol ->(cytosol*k20) 3Calcium_in_Cytosol + Inactive_Calcineurin_in_cytosol
-Calcineurin_activation: 3Calcium_in_Nucleus + Inactive_Calcineurin_in_nucleus ->(k19*nucleus) Active_Calcineurin_in_Nucleus
-Calcineurin_activation_rev: Active_Calcineurin_in_Nucleus ->(k20*nucleus) 3Calcium_in_Nucleus + Inactive_Calcineurin_in_nucleus
-Inactive_Calcineurin_transport: Inactive_Calcineurin_in_cytosol ->(cytosol*k5) Inactive_Calcineurin_in_nucleus
-Inactive_Calcineurin_transport_rev: Inactive_Calcineurin_in_nucleus ->(k6*nucleus) Inactive_Calcineurin_in_cytosol
-Calcium_transport: Calcium_in_Cytosol ->(cytosol*k21) Calcium_in_Nucleus
-Calcium_transport_rev: Calcium_in_Nucleus ->(k22*nucleus) Calcium_in_Cytosol
+R1: Act_C_Nuc + NFAT_Pi_Nuc ->(k1*nucleus/Act_C_Nuc) Act_C_Nuc + NFAT_Nuc
+R1_rev: Act_C_Nuc + NFAT_Nuc ->(k2*nucleus/Act_C_Nuc) Act_C_Nuc + NFAT_Pi_Nuc
+R2: Act_C_Nuc + NFAT_Nuc ->(k16*nucleus) NFAT_Act_C_Nuc
+R2_rev: NFAT_Act_C_Nuc ->(k15*nucleus) Act_C_Nuc + NFAT_Nuc
+R3: NFAT_Nuc ->(k18*nucleus) NFAT_Cyt
+R3_rev: NFAT_Cyt ->(cytosol*k17) NFAT_Nuc
+R4: Act_C_Nuc ->(k6*nucleus) Act_C_Cyt
+R4_rev: Act_C_Cyt ->(cytosol*k5) Act_C_Nuc
+R5: NFAT_Act_C_Nuc ->(k14*nucleus) NFAT_Pi_Act_C_Nuc
+R5_rev: NFAT_Pi_Act_C_Nuc ->(k13*nucleus) NFAT_Act_C_Nuc
+R6: NFAT_Pi_Act_C_Nuc ->(k12*nucleus) Act_C_Nuc + NFAT_Pi_Nuc
+R6_rev: Act_C_Nuc + NFAT_Pi_Nuc ->(k11*nucleus) NFAT_Pi_Act_C_Nuc
+R7: NFAT_Act_C_Nuc ->(k10*nucleus) NFAT_Act_C_Cyt
+R7_rev: NFAT_Act_C_Cyt ->(cytosol*k9) NFAT_Act_C_Nuc
+R8: NFAT_Act_C_Cyt ->(cytosol*k14) NFAT_Pi_Act_C_Cyt
+R8_rev: NFAT_Pi_Act_C_Cyt ->(cytosol*k13) NFAT_Act_C_Cyt
+R9: NFAT_Pi_Act_C_Cyt ->(cytosol*k12) Act_C_Cyt + NFAT_Pi_Cyt
+R9_rev: Act_C_Cyt + NFAT_Pi_Cyt ->(cytosol*k11) NFAT_Pi_Act_C_Cyt
+R10: NFAT_Pi_Cyt ->(cytosol*k3) NFAT_Pi_Nuc
+R10_rev: NFAT_Pi_Nuc ->(k4*nucleus) NFAT_Pi_Cyt
+R11: NFAT_Act_C_Cyt ->(cytosol*k15) Act_C_Cyt + NFAT_Cyt
+R11_rev: Act_C_Cyt + NFAT_Cyt ->(cytosol*k16) NFAT_Act_C_Cyt
+R17: NFAT_Pi_Act_C_Cyt ->(cytosol*k7) NFAT_Pi_Act_C_Nuc
+R17_rev: NFAT_Pi_Act_C_Nuc ->(k8*nucleus) NFAT_Pi_Act_C_Cyt
+R12: Act_C_Cyt + NFAT_Pi_Cyt ->(cytosol*k1/Act_C_Cyt) Act_C_Cyt + NFAT_Cyt
+R12_rev: Act_C_Cyt + NFAT_Cyt ->(cytosol*k2/Act_C_Cyt) Act_C_Cyt + NFAT_Pi_Cyt
+R13: 3Ca_Cyt + Inact_C_Cyt ->(cytosol*k19) Act_C_Cyt
+R13_rev: Act_C_Cyt ->(cytosol*k20) 3Ca_Cyt + Inact_C_Cyt
+R14: 3Ca_Nuc + Inact_C_Nuc ->(k19*nucleus) Act_C_Nuc
+R14_rev: Act_C_Nuc ->(k20*nucleus) 3Ca_Nuc + Inact_C_Nuc
+R15: Inact_C_Cyt ->(cytosol*k5) Inact_C_Nuc
+R15_rev: Inact_C_Nuc ->(k6*nucleus) Inact_C_Cyt
+R16: Ca_Cyt ->(cytosol*k21) Ca_Nuc
+R16_rev: Ca_Nuc ->(k22*nucleus) Ca_Cyt

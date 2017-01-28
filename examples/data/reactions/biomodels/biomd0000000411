@@ -1,13 +1,13 @@
-C3_phos: C_3 ->(default*v*exp(EAlow/(R*T))*exp(-EAlow/(R*T2))) C_3_P
-C3_transk: C3_Gene ->(default*v*exp(EAhigh/(R*T))*exp(-EAhigh/(R*T2))/(C3_Gene*(C_3_P**h + k))) C3_mRNA
-C3_mRNADegr: C3_mRNA ->(default*v*exp(EAlow/(R*T))*exp(-EAlow/(R*T2))/(C3_mRNA + Km)) junk
-C3_degr: C_3 ->(default*v*exp(EAlow/(R*T))*exp(-EAlow/(R*T2))/(C_3 + Km)) junk
-C3_phos_degr: C_3_P ->(default*v*exp(EAlow/(R*T))*exp(-EAlow/(R*T2))/(C_3_P + Km)) junk
-C3_transl: C_3_pre ->(C3_mRNA*default*v*exp(EAhigh/(R*T))*exp(-EAhigh/(R*T2))/C_3_pre) C_3
-C1_transl: C1_mRNA ->(default*v*exp(E/(R*T))*exp(-E/(R*T2))) C1
-complexformation: C1_phos + C_3_P ->(C_3_P**a*default*v*exp(EAhigh/(R*T))*exp(-EAhigh/(R*T2))/C_3_P) c1c3complex
-C1_phos: C1 ->(default*v_phos*exp(Ephos/(R*T))*exp(-Ephos/(R*T2))) C1_phos
-C1_degr: C1 ->(default*v*exp(E/(R*T))*exp(-E/(R*T2))/(C1 + Km)) junk
-complexdegr: c1c3complex ->(default*v*exp(E/(R*T))*exp(-E/(R*T2))/(Km + c1c3complex)) junk
-C1_dephos: C1_phos ->(V_dephos*default*exp(Edephos/(R*T))*exp(-Edephos/(R*T2))) C1
-C1_phos_degr: C1_phos ->(default*vphosdegr*exp(E/(R*T))*exp(-E/(R*T2))/(C1_phos + Km)) junk
+re12: s10 ->(default*re12_v*exp(parameter_6*(-T + T2)/(T*T2*parameter_3))) s11
+re13: s2 ->(default*re13_v*exp(parameter_7*(-T + T2)/(T*T2*parameter_3))/(s2*(re13_k + s11**re13_h))) s9
+re14: s9 ->(default*re14_v*exp(parameter_6*(-T + T2)/(T*T2*parameter_3))/(re14_Km + s9)) species_12
+re15: s10 ->(default*re15_v*exp(parameter_6*(-T + T2)/(T*T2*parameter_3))/(re15_Km + s10)) species_12
+re16: s11 ->(default*re16_v*exp(parameter_6*(-T + T2)/(T*T2*parameter_3))/(re16_Km + s11)) species_12
+re18: s13 ->(default*re18_v*s9*exp(parameter_7*(-T + T2)/(T*T2*parameter_3))/s13) s10
+reaction_1: species_2 ->(default*reaction_1_v*exp(reaction_1_E*(-T + T2)/(T*T2*parameter_3))) species_1
+reaction_2: s11 + species_3 ->(default*reaction_2_v*s11**reaction_2_a*exp(parameter_7*(-T + T2)/(T*T2*parameter_3))/s11) species_4
+reaction_3: species_1 ->(default*parameter_1*exp(parameter_9*(-T + T2)/(T*T2*parameter_3))) species_3
+reaction_4: species_1 ->(default*reaction_4_v*exp(reaction_4_E*(-T + T2)/(T*T2*parameter_3))/(reaction_4_Km + species_1)) species_12
+reaction_5: species_4 ->(default*reaction_5_v*exp(reaction_5_E*(-T + T2)/(T*T2*parameter_3))/(reaction_5_Km + species_4)) species_12
+reaction_6: species_3 ->(default*parameter_2*exp(parameter_10*(-T + T2)/(T*T2*parameter_3))) species_1
+reaction_7: species_3 ->(default*parameter_8*exp(reaction_7_E*(-T + T2)/(T*T2*parameter_3))/(reaction_7_Km + species_3)) species_12

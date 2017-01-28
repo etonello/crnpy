@@ -1,4 +1,4 @@
-Reaction1: ES ->(A*X*default*k1*(X - 1)/(ES*V)) X
-Reaction2: X ->(default*k2*(X - 2)*(X - 1)/V**2) ES
+Reaction1: ES ->(A*X*default*k1*(X - 1.0)/(ES*V)) X
+Reaction2: X ->(1.0*V**(-2.0)*default*k2*(X - 2.0)*(X - 1.0)) ES
 Reaction6: ES ->(B*V*default*k3/ES) X
 Reaction7: X ->(default*k4) ES

@@ -1,23 +1,23 @@
-cyclin_synthesis:  ->(k1AA) cyclin
-cyclin_degradation: cyclin ->(k2) 
-cyclin_cdc2_dimer_formation: cyclin ->(cdc2*k3) cyclin_cdc2_dimer
-Thr161_dephosphorylation: Thr161_phosphorylated_dimer_active_MPF_ ->(kinh) cyclin_cdc2_dimer
-Tyr15_phosphorylation: cyclin_cdc2_dimer ->(kwee) Tyr15_phosphorylated_dimer
-Thr161_phosphorylation: cyclin_cdc2_dimer ->(kcak) Thr161_phosphorylated_dimer_active_MPF_
-cyclin_degradation: cyclin_cdc2_dimer ->(k2) 
-Tyr15_dephosphorylation: Tyr15_phosphorylated_dimer ->(k25) cyclin_cdc2_dimer
-Thr161_phosphorylation: Tyr15_phosphorylated_dimer ->(kcak) Thr161_Tyr15_phosphorylated_dimer
-cyclin_degradation: Tyr15_phosphorylated_dimer ->(k2) 
-Thr161_dephosphorylation: Thr161_Tyr15_phosphorylated_dimer ->(kinh) Tyr15_phosphorylated_dimer
-Tyr15_phosphorylation: Thr161_phosphorylated_dimer_active_MPF_ ->(kwee) Thr161_Tyr15_phosphorylated_dimer
-Tyr15_dephosphorylation: Thr161_Tyr15_phosphorylated_dimer ->(k25) Thr161_phosphorylated_dimer_active_MPF_
-cyclin_degradation: Thr161_Tyr15_phosphorylated_dimer ->(k2) 
-cyclin_degradation: Thr161_phosphorylated_dimer_active_MPF_ ->(k2) 
-cdc25_activation:  ->(-Thr161_phosphorylated_dimer_active_MPF_*ka*(phosphorylated_cdc25 - total_cdc25)/(K_a - phosphorylated_cdc25 + total_cdc25)) phosphorylated_cdc25
-cdc25_deactivation: phosphorylated_cdc25 ->(kbPPase/(K_b + phosphorylated_cdc25)) 
-wee1_deactivation:  ->(-Thr161_phosphorylated_dimer_active_MPF_*ke*(phosphorylated_wee1 - total_wee1)/(K_e - phosphorylated_wee1 + total_wee1)) phosphorylated_wee1
-wee1_activation: phosphorylated_wee1 ->(kfPPase/(K_f + phosphorylated_wee1)) 
-intermediary_enzyme_activation:  ->(-Thr161_phosphorylated_dimer_active_MPF_*kg*(phosphorylated_intermediary_enzyme - total_IE)/(K_g - phosphorylated_intermediary_enzyme + total_IE)) phosphorylated_intermediary_enzyme
-intermediary_enzyme_deactivation: phosphorylated_intermediary_enzyme ->(khPPAse/(K_h + phosphorylated_intermediary_enzyme)) 
-ubiquitin_conjugating_enzyme_activation:  ->(kc*phosphorylated_intermediary_enzyme*(total_UbE - ubiquitin_conjugating_enzyme)/(K_c + total_UbE - ubiquitin_conjugating_enzyme)) ubiquitin_conjugating_enzyme
-ubiquitin_conjugating_enzyme_deactivation: ubiquitin_conjugating_enzyme ->(kd_anti_IE/(K_d + ubiquitin_conjugating_enzyme)) 
+R1:  ->(k1AA) cyclin
+R2: cyclin ->(k2) 
+R3: cyclin ->(cdc2*k3) dimer
+R4: dimer_p ->(kinh) dimer
+R5: dimer ->(kwee) p_dimer
+R6: dimer ->(kcak) dimer_p
+R7: dimer ->(k2) 
+R8: p_dimer ->(k25) dimer
+R9: p_dimer ->(kcak) p_dimer_p
+R10: p_dimer ->(k2) 
+R11: p_dimer_p ->(kinh) p_dimer
+R12: dimer_p ->(kwee) p_dimer_p
+R13: p_dimer_p ->(k25) dimer_p
+R14: p_dimer_p ->(k2) 
+R15: dimer_p ->(k2) 
+R17:  ->(dimer_p*ka*(-cdc25_p + total_cdc25)/(K_a - cdc25_p + total_cdc25)) cdc25_p
+R18: cdc25_p ->(kbPPase/(K_b + cdc25_p)) 
+R19:  ->(dimer_p*ke*(total_wee1 - wee1_p)/(K_e + total_wee1 - wee1_p)) wee1_p
+R20: wee1_p ->(kfPPase/(K_f + wee1_p)) 
+R21:  ->(dimer_p*kg*(-IE_p + total_IE)/(-IE_p + K_g + total_IE)) IE_p
+R22: IE_p ->(khPPAse/(IE_p + K_h)) 
+R23:  ->(IE_p*kc*(-UbE_star + total_UbE)/(K_c - UbE_star + total_UbE)) UbE_star
+R24: UbE_star ->(kd_anti_IE/(K_d + UbE_star)) 

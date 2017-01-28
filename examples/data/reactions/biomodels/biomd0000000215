@@ -1,14 +1,14 @@
-Tbet_IFN_dependend_transcription:  ->(Ag*Ifn_Prot*compartment*vtrnldeg_a2/((Ag + vtrnldeg_K1)*(Ifn_Prot + vtrnldeg_K2))) Tbet_mRNA
-Tbet_Receptor_dependent_transcription:  ->(Rec_Prot*compartment*reaction_1_a3) Tbet_mRNA
-Tbet_basal_expression:  ->(compartment*reaction_2_a1) Tbet_mRNA
-Tbet_mRNA_degradation: Tbet_mRNA ->(compartment*reaction_3_gamma_Tbet) 
-Tbet_protein_degradation: Tbet_Prot ->(compartment*reaction_4_delta_Tbet) 
-Rec_mRNA_degradation: Rec_mRNA ->(compartment*reaction_5_gamma_Rec) 
-Rec_Prot_degradation: Rec_Prot ->(compartment*reaction_6_delta_Rec) 
-IFN_mRNA_degradation: Ifn_mRNA ->(compartment*reaction_7_gamma_IFN) 
-IFN_Prot_degradation: Ifn_Prot ->(compartment*reaction_8_delta_IFN) 
-Tbet_Translation:  ->(Tbet_mRNA*compartment*reaction_9_b) Tbet_Prot
-IFN_tranlation:  ->(Ifn_mRNA*compartment*reaction_10_b) Ifn_Prot
-Rec_translation:  ->(Rec_mRNA*compartment*reaction_11_b) Rec_Prot
-Rec_Transcription:  ->(Tbet_Prot*compartment*reaction_12_K4*reaction_12_a4/(Ag + reaction_12_K4)) Rec_mRNA
-IFN_transcription:  ->(Ag*Rec_Prot*Tbet_Prot*compartment*reaction_13_a5/((Ag + reaction_13_K7)*(Rec_Prot + reaction_13_K6)*(Tbet_Prot + reaction_13_K5))) Ifn_mRNA
+vtrnldeg:  ->(Ag*Ifn_Prot*compartment*vtrnldeg_a2/((Ag + vtrnldeg_K1)*(Ifn_Prot + vtrnldeg_K2))) Tbet_mRNA
+reaction_1:  ->(Rec_Prot*compartment*reaction_1_a3) Tbet_mRNA
+reaction_2:  ->(compartment*reaction_2_a1) Tbet_mRNA
+reaction_3: Tbet_mRNA ->(compartment*reaction_3_gamma_Tbet) 
+reaction_4: Tbet_Prot ->(compartment*reaction_4_delta_Tbet) 
+reaction_5: Rec_mRNA ->(compartment*reaction_5_gamma_Rec) 
+reaction_6: Rec_Prot ->(compartment*reaction_6_delta_Rec) 
+reaction_7: Ifn_mRNA ->(compartment*reaction_7_gamma_IFN) 
+reaction_8: Ifn_Prot ->(compartment*reaction_8_delta_IFN) 
+reaction_9:  ->(Tbet_mRNA*compartment*reaction_9_b) Tbet_Prot
+reaction_10:  ->(Ifn_mRNA*compartment*reaction_10_b) Ifn_Prot
+reaction_11:  ->(Rec_mRNA*compartment*reaction_11_b) Rec_Prot
+reaction_12:  ->(Tbet_Prot*compartment*reaction_12_K4*reaction_12_a4/(Ag + reaction_12_K4)) Rec_mRNA
+reaction_13:  ->(Ag*Rec_Prot*Tbet_Prot*compartment*reaction_13_a5/((Ag + reaction_13_K7)*(Rec_Prot + reaction_13_K6)*(Tbet_Prot + reaction_13_K5))) Ifn_mRNA

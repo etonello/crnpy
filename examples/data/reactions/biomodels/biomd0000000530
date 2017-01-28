@@ -1,17 +1,17 @@
-duplex_1_association: mRNA + miRNA_1 ->(compartment_1*k1) duplex_1
-duplex_2_association: mRNA + miRNA_2 ->(compartment_1*k1) duplex_2
-triplex_association: mRNA + miRNA_1 + miRNA_2 ->(compartment_1*k1) triplex
-mRNA_synthesis:  ->(TF_mRNA*compartment_1*k_syn_mRNA) mRNA
-miRNA_1_synthesis:  ->(TF_miRNA_1*compartment_1*k_syn_miRNA_1) miRNA_1
-miRNA_2_synthesis:  ->(TF_miRNA_2*compartment_1*k_syn_miRNA_2) miRNA_2
-mRNA_degradation: mRNA ->(compartment_1*k1) 
-miRNA_1_degradation: miRNA_1 ->(compartment_1*k1) 
-miRNA_2_degradation: miRNA_2 ->(compartment_1*k1) 
-duplex_1_dissociation: duplex_1 ->(compartment_1*k1) mRNA + miRNA_1
-duplex_2_dissociation: duplex_2 ->(compartment_1*k1) mRNA + miRNA_2
-triplex_dissociation: triplex ->(compartment_1*k1) mRNA + miRNA_1 + miRNA_2
-duplex_1_degradation: duplex_1 ->(compartment_1*k1) 
-duplex_2_degradation: duplex_2 ->(compartment_1*k1) 
-triplex_degradation: triplex ->(compartment_1*k1) 
-protein_synthesis:  ->(compartment_1*k_syn_prot*mRNA) protein
-protein_degradation: protein ->(compartment_1*k1) 
+reaction_1: species_1 + species_2 ->(compartment_1*reaction_1_k1) species_4
+reaction_2: species_1 + species_3 ->(compartment_1*reaction_2_k1) species_5
+reaction_3: species_1 + species_2 + species_3 ->(compartment_1*reaction_3_k1) species_6
+reaction_4:  ->(compartment_1*reaction_4_k_syn_mRNA*species_7) species_1
+reaction_5:  ->(compartment_1*reaction_5_k_syn_miRNA_1*species_8) species_2
+reaction_6:  ->(compartment_1*reaction_6_k_syn_miRNA_2*species_9) species_3
+reaction_7: species_1 ->(compartment_1*reaction_7_k1) 
+reaction_8: species_2 ->(compartment_1*reaction_8_k1) 
+reaction_9: species_3 ->(compartment_1*reaction_9_k1) 
+reaction_10: species_4 ->(compartment_1*reaction_10_k1) species_1 + species_2
+reaction_11: species_5 ->(compartment_1*reaction_11_k1) species_1 + species_3
+reaction_12: species_6 ->(compartment_1*reaction_12_k1) species_1 + species_2 + species_3
+reaction_13: species_4 ->(compartment_1*reaction_13_k1) 
+reaction_14: species_5 ->(compartment_1*reaction_14_k1) 
+reaction_15: species_6 ->(compartment_1*reaction_15_k1) 
+reaction_16:  ->(compartment_1*reaction_16_k_syn_prot*species_1) species_10
+reaction_17: species_10 ->(compartment_1*reaction_17_k1) 

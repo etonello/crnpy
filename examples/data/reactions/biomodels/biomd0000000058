@@ -1,11 +1,11 @@
-IP3R_mediated_Ca_release_Cell1:  ->(Jreceptor_Cell1_kf*Jreceptor_Cell1_p**4*Phi1_c1**4*Receptor_fraction_Cell1**4*compartment/(Jreceptor_Cell1_p*Phi1_c1 + Phi_minus1_c1)**4) Calcium_ion_Cell1
-ATPase_pump_mediated_Ca_efflux_Cell1: Calcium_ion_Cell1 ->(Calcium_ion_Cell1*Jpump_Cell1_Vp*compartment/(Calcium_ion_Cell1**2 + Jpump_Cell1_Kp**2)) 
-IP3R_independent_Ca_release_Cell1:  ->(Jleak_Cell1_Jleak*compartment) Calcium_ion_Cell1
-Inactivated_to_Shut_state_transition_Cell1:  ->(-Phi3_c1*compartment*(Receptor_fraction_Cell1 - 1)) Receptor_fraction_Cell1
-Open_to_Inactivated_state_transition_Cell1: Receptor_fraction_Cell1 ->(Open_to_Inactivated_Cell1_p*Phi1_c1*Phi2_c1*compartment/(Open_to_Inactivated_Cell1_p*Phi1_c1 + Phi_minus1_c1)) 
-IP3R_mediated_Ca_release_Cell2:  ->(Jreceptor_Cell2_kf*Jreceptor_Cell2_p**4*Phi1_c2**4*Receptor_fraction_Cell2**4*compartment/(Jreceptor_Cell2_p*Phi1_c2 + Phi_minus1_c2)**4) Calcium_ion_Cell2
-ATPase_pump_mediated_Ca_efflux_Cell2: Calcium_ion_Cell2 ->(Calcium_ion_Cell2*Jpump_Cell2_Vp*compartment/(Calcium_ion_Cell2**2 + Jpump_Cell2_Kp**2)) 
-IP3R_independent_Ca_release_Cell2:  ->(Jleak_Cell2_Jleak*compartment) Calcium_ion_Cell2
-Inactivated_to_Shut_state_transition_Cell2:  ->(-Phi3_c2*compartment*(Receptor_fraction_Cell2 - 1)) Receptor_fraction_Cell2
-Open_to_Inactivated_state_transition_Cell2: Receptor_fraction_Cell2 ->(Open_to_Inactivated_Cell2_p*Phi1_c2*Phi2_c2*compartment/(Open_to_Inactivated_Cell2_p*Phi1_c2 + Phi_minus1_c2)) 
-Diffusion_of_Ca_between_cells: Calcium_ion_Cell2 ->(-compartment*diffusion_D*(Calcium_ion_Cell1 - Calcium_ion_Cell2)/Calcium_ion_Cell2) Calcium_ion_Cell1
+Jreceptor_Cell1:  ->(Jreceptor_Cell1_kf*Jreceptor_Cell1_p**4*Phi1_c1**4*compartment*h1**4/(Jreceptor_Cell1_p*Phi1_c1 + Phi_minus1_c1)**4) c1
+Jpump_Cell1: c1 ->(Jpump_Cell1_Vp*c1*compartment/(Jpump_Cell1_Kp**2 + c1**2)) 
+Jleak_Cell1:  ->(Jleak_Cell1_Jleak*compartment) c1
+Inactivated_to_S_Cell1:  ->(Phi3_c1*compartment*(-h1 + 1)) h1
+Open_to_Inactivated_Cell1: h1 ->(Open_to_Inactivated_Cell1_p*Phi1_c1*Phi2_c1*compartment/(Open_to_Inactivated_Cell1_p*Phi1_c1 + Phi_minus1_c1)) 
+Jreceptor_Cell2:  ->(Jreceptor_Cell2_kf*Jreceptor_Cell2_p**4*Phi1_c2**4*compartment*h2**4/(Jreceptor_Cell2_p*Phi1_c2 + Phi_minus1_c2)**4) c2
+Jpump_Cell2: c2 ->(Jpump_Cell2_Vp*c2*compartment/(Jpump_Cell2_Kp**2 + c2**2)) 
+Jleak_Cell2:  ->(Jleak_Cell2_Jleak*compartment) c2
+Inactivated_to_S_Cell2:  ->(Phi3_c2*compartment*(-h2 + 1)) h2
+Open_to_Inactivated_Cell2: h2 ->(Open_to_Inactivated_Cell2_p*Phi1_c2*Phi2_c2*compartment/(Open_to_Inactivated_Cell2_p*Phi1_c2 + Phi_minus1_c2)) 
+diffusion: c2 ->(compartment*diffusion_D*(-c1 + c2)/c2) c1

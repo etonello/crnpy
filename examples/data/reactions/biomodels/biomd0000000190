@@ -1,13 +1,13 @@
-Ornithine_decarboxylase: L_Ornithine ->(ODC_Kipodc*Vmaxodc*cytosol/(L_Ornithine*ODC_Kipodc + ODC_Kipodc*ODC_Kmodc + ODC_Kmodc*Putrescine)) Putrescine
-S_adenosylmethionine_decarboxylase: S_adenosyl_L_methionine ->(Putrescine*SAMdc_Kiasamdc*SAMdc_Kissamdc*Vmaxsamdc*cytosol/((SAMdc_Kissamdc + Spermine)*(Putrescine*SAMdc_Kiasamdc*SAMdc_Kmsamdc + Putrescine*SAMdc_Kiasamdc*S_adenosyl_L_methionine + Putrescine*SAMdc_Kmsamdc*S_adenosylmethioninamine + SAMdc_Kapsamdc*SAMdc_Kiasamdc*SAMdc_Kmsamdc))) S_adenosylmethioninamine
-Spermidine_Spermine_N1_acetyltransferase_for_S: Acetyl_CoA + Spermine ->(SSAT_for_S_Kmcoassat*SSAT_for_S_Kmdssat*Vmaxssat*cytosol/(C*(Acetyl_CoA*SSAT_for_S_Kmcoassat + CoA*SSAT_for_S_Kmaccoassat + SSAT_for_S_Kmaccoassat*SSAT_for_S_Kmcoassat)*(SSAT_for_S_Kmdssat*SSAT_for_S_Kmsssat + SSAT_for_S_Kmdssat*Spermine + SSAT_for_S_Kmsssat*Spermidine))) CoA + N1_Acetylspermine
-Spermidine_spermine_N1_acetyltransferase_for_D: Acetyl_CoA + Spermidine ->(SSAT_for_D_Kmcoassat*SSAT_for_D_Kmsssat*Vmaxssat*cytosol/((Acetyl_CoA*SSAT_for_D_Kmcoassat + CoA*SSAT_for_D_Kmaccoassat + SSAT_for_D_Kmaccoassat*SSAT_for_D_Kmcoassat)*(SSAT_for_D_Kmdssat*SSAT_for_D_Kmsssat + SSAT_for_D_Kmdssat*Spermine + SSAT_for_D_Kmsssat*Spermidine))) CoA + N1_Acetylspermidine
-Polyamine_oxidase_for_aD: N1_Acetylspermidine ->(PAO_for_aD_Kmaspao*PAO_for_aD_Kmdpao*PAO_for_aD_Kmspao*PAO_for_aD_Vmpao*cytosol/(N1_Acetylspermidine*PAO_for_aD_Kmaspao*PAO_for_aD_Kmdpao*PAO_for_aD_Kmspao + N1_Acetylspermine*PAO_for_aD_Kmadpao*PAO_for_aD_Kmdpao*PAO_for_aD_Kmspao + PAO_for_aD_Kmadpao*PAO_for_aD_Kmaspao*PAO_for_aD_Kmdpao*PAO_for_aD_Kmspao + PAO_for_aD_Kmadpao*PAO_for_aD_Kmaspao*PAO_for_aD_Kmdpao*Spermine + PAO_for_aD_Kmadpao*PAO_for_aD_Kmaspao*PAO_for_aD_Kmspao*Spermidine)) Putrescine
-Polyamine_oxidase_for_aS: N1_Acetylspermine ->(PAO_for_aS_Kmadpao*PAO_for_aS_Kmdpao*PAO_for_aS_Kmspao*PAO_for_aS_Vmpao*cytosol/(N1_Acetylspermidine*PAO_for_aS_Kmaspao*PAO_for_aS_Kmdpao*PAO_for_aS_Kmspao + N1_Acetylspermine*PAO_for_aS_Kmadpao*PAO_for_aS_Kmdpao*PAO_for_aS_Kmspao + PAO_for_aS_Kmadpao*PAO_for_aS_Kmaspao*PAO_for_aS_Kmdpao*PAO_for_aS_Kmspao + PAO_for_aS_Kmadpao*PAO_for_aS_Kmaspao*PAO_for_aS_Kmdpao*Spermine + PAO_for_aS_Kmadpao*PAO_for_aS_Kmaspao*PAO_for_aS_Kmspao*Spermidine)) Spermidine
-Spermidine_synthase: Putrescine + S_adenosylmethioninamine ->(SpdS_Kidspds*SpdS_Vmspds*cytosol/(Putrescine*S_adenosylmethioninamine*SpdS_Kidspds + Putrescine*SpdS_KaSpds*SpdS_Kidspds + Putrescine*SpdS_KaSpds*Spermidine + S_adenosylmethioninamine*SpdS_Kidspds*SpdS_Kpspds + SpdS_Kiaspds*SpdS_Kidspds*SpdS_Kpspds + SpdS_Kiaspds*SpdS_Kpspds*Spermidine)) Spermidine
-Spermine_synthase: S_adenosylmethioninamine + Spermidine ->(SpmS_Kisspms*SpmS_Vmspms*cytosol/(S_adenosylmethioninamine*Spermidine*SpmS_Kisspms + S_adenosylmethioninamine*SpmS_Kdspms*SpmS_Kisspms + Spermidine*Spermine*SpmS_Kaspms + Spermidine*SpmS_Kaspms*SpmS_Kisspms + Spermine*SpmS_Kdspms*SpmS_Kiaspms + SpmS_Kdspms*SpmS_Kiaspms*SpmS_Kisspms)) Spermine
-Methionine_adenosyltransferase: Methionine ->(MAT_Kimetmat*MAT_Vmmat*cytosol/(MAT_Kimetmat*MAT_Kmmat + MAT_Kimetmat*Methionine + MAT_Kmmat*S_adenosyl_L_methionine)) S_adenosyl_L_methionine
-VCOA: Acetyl_CoA ->(Kcoa*cytosol) CoA
-VACCOA: CoA ->(Kaccoa*cytosol) Acetyl_CoA
-Putrescine_efflux: Putrescine ->(P_efflux_Kpefflux*cytosol) 
-aD_efflux: N1_Acetylspermidine ->(aD_efflux_Kadefflux*cytosol) 
+ODC: ORN ->(Vmaxodc*cytosol/(ODC_Kmodc*(1.0 + P/ODC_Kipodc) + ORN)) P
+SAMdc: SAM ->(Vmaxsamdc*cytosol/((SAM + SAMdc_Kmsamdc*(A/SAMdc_Kiasamdc + 1.0 + SAMdc_Kapsamdc/P))*(S/SAMdc_Kissamdc + 1.0))) A
+SSAT_for_S: AcCoA + S ->(1.0*Vmaxssat*cytosol/(C*(AcCoA*S + AcCoA*SSAT_for_S_Kmsssat*(D/SSAT_for_S_Kmdssat + 1.0) + S*SSAT_for_S_Kmaccoassat*(CoA/SSAT_for_S_Kmcoassat + 1.0) + SSAT_for_S_Kmaccoassat*SSAT_for_S_Kmsssat*(CoA/SSAT_for_S_Kmcoassat + 1.0)*(D/SSAT_for_S_Kmdssat + 1.0)))) CoA + aS
+SSAT_for_D: AcCoA + D ->(Vmaxssat*cytosol/(AcCoA*D + AcCoA*SSAT_for_D_Kmdssat*(S/SSAT_for_D_Kmsssat + 1.0) + D*SSAT_for_D_Kmaccoassat*(CoA/SSAT_for_D_Kmcoassat + 1.0) + SSAT_for_D_Kmaccoassat*SSAT_for_D_Kmdssat*(CoA/SSAT_for_D_Kmcoassat + 1.0)*(S/SSAT_for_D_Kmsssat + 1.0))) CoA + aD
+PAO_for_aD: aD ->(PAO_for_aD_Vmpao*cytosol/(PAO_for_aD_Kmadpao*(D/PAO_for_aD_Kmdpao + 1.0 + S/PAO_for_aD_Kmspao + aS/PAO_for_aD_Kmaspao + aD/PAO_for_aD_Kmadpao))) P
+PAO_for_aS: aS ->(PAO_for_aS_Vmpao*cytosol/(PAO_for_aS_Kmaspao*(D/PAO_for_aS_Kmdpao + 1.0 + S/PAO_for_aS_Kmspao + aS/PAO_for_aS_Kmaspao + aD/PAO_for_aS_Kmadpao))) D
+SpdS: A + P ->(SpdS_Vmspds*cytosol/(A*P + A*SpdS_Kpspds + P*SpdS_KaSpds*(D/SpdS_Kidspds + 1.0) + SpdS_Kiaspds*SpdS_Kpspds*(D/SpdS_Kidspds + 1.0))) D
+SpmS: A + D ->(SpmS_Vmspms*cytosol/(A*D + A*SpmS_Kdspms + D*SpmS_Kaspms*(S/SpmS_Kisspms + 1.0) + SpmS_Kdspms*SpmS_Kiaspms*(S/SpmS_Kisspms + 1.0))) S
+MAT: Met ->(MAT_Vmmat*cytosol/(Met*(MAT_Kmmat*(1.0 + SAM/MAT_Kimetmat)/Met + 1.0))) SAM
+VCoA: AcCoA ->(Kcoa*cytosol) CoA
+VacCoA: CoA ->(Kaccoa*cytosol) AcCoA
+P_efflux: P ->(P_efflux_Kpefflux*cytosol) 
+aD_efflux: aD ->(aD_efflux_Kadefflux*cytosol) 

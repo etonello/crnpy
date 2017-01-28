@@ -1,37 +1,37 @@
-Factor_II_lipid_binding: II_f + 100LIPID ->(compartment*(II_f*LIPID*konII - II_l*koffII*nva)/(II_f*LIPID**100*nva)) II_l
-Factor_mIIa_lipid_binding: 100LIPID + mIIa_f ->(compartment*(LIPID*konmIIa*mIIa_f - koffmIIa*mIIa_l*nva)/(LIPID**100*mIIa_f*nva)) mIIa_l
-Factor_V_lipid_binding: 100LIPID + V_f ->(compartment*(LIPID*V_f*konV - V_l*koffV*nva)/(LIPID**100*V_f*nva)) V_l
-Factor_Va_lipid_binding: 100LIPID + Va_f ->(compartment*(LIPID*Va_f*konVa - Va_l*koffVa*nva)/(LIPID**100*Va_f*nva)) Va_l
-Factor_VII_lipid_binding: 100LIPID + VII_f ->(compartment*(LIPID*VII_f*konVII - VII_l*koffVII*nva)/(LIPID**100*VII_f*nva)) VII_l
-Factor_VIIa_lipid_binding: 100LIPID + VIIa_f ->(compartment*(LIPID*VIIa_f*konVIIa - VIIa_l*koffVIIa*nva)/(LIPID**100*VIIa_f*nva)) VIIa_l
-Factor_VIII_lipid_binding: 100LIPID + VIII_f ->(compartment*(LIPID*VIII_f*konVIII - VIII_l*koffVIII*nva)/(LIPID**100*VIII_f*nva)) VIII_l
-Factor_VIIIa_lipid_binding: 100LIPID + VIIIa_f ->(compartment*(LIPID*VIIIa_f*konVIIIa - VIIIa_l*koffVIIIa*nva)/(LIPID**100*VIIIa_f*nva)) VIIIa_l
-Factor_IX_lipid_binding: IX_f + 100LIPID ->(compartment*(IX_f*LIPID*konIX - IX_l*koffIX*nva)/(IX_f*LIPID**100*nva)) IX_l
-Factor_IXa_lipid_binding: IXa_f + 100LIPID ->(compartment*(IXa_f*LIPID*konIXa - IXa_l*koffIXa*nva)/(IXa_f*LIPID**100*nva)) IXa_l
-Factor_X_lipid_binding: 100LIPID + X_f ->(compartment*(LIPID*X_f*konX - X_l*koffX*nva)/(LIPID**100*X_f*nva)) X_l
-Factor_Xa_lipid_binding: 100LIPID + Xa_f ->((LIPID*Xa_f*konXa - Xa_l*koffXa*nva)/(LIPID**100*Xa_f*nva)) Xa_l
-APC_lipid_binding: APC_f + 100LIPID ->(compartment*(APC_f*LIPID*konAPC - APC_l*koffAPC*nva)/(APC_f*LIPID**100*nva)) APC_l
-PS_lipid_binding: 100LIPID + PS_f ->(compartment*(LIPID*PS_f*konPS - PS_l*koffPS*nva)/(LIPID**100*PS_f*nva)) PS_l
-Factor_VIIIai_lipid_binding: 100LIPID + VIIIai_f ->(compartment*(LIPID*VIIIai_f*konVIIIai - VIIIai_l*koffVIIIai*nva)/(LIPID**100*VIIIai_f*nva)) VIIIai_l
-Factor_Vai_lipid_binding: 100LIPID + Vai_f ->(compartment*(LIPID*Vai_f*konVai - Vai_l*koffVai*nva)/(LIPID**100*Vai_f*nva)) Vai_l
-PC_lipid_binding: 100LIPID + PC_f ->(compartment*(LIPID*PC_f*konPC - PC_l*koffPC*nva)/(LIPID**100*PC_f*nva)) PC_l
-TF_VIIa_binding: TF_l + VIIa_l ->(compartment*(-TF_VIIa_l*k2 + TF_l*VIIa_l*k1)/(TF_l*VIIa_l)) TF_VIIa_l
-TF_VII_binding: TF_l + VII_l ->(compartment*(-TF_VII_l*k4 + TF_l*VII_l*k3)/(TF_l*VII_l)) TF_VII_l
-IX_TF_VIIa_binding: IX_l + TF_VIIa_l ->(compartment*(IX_l*TF_VIIa_l*k5 - TF_VIIa_IX_l*k6)/(IX_l*TF_VIIa_l)) TF_VIIa_IX_l
-Factor_IX_activation: TF_VIIa_IX_l ->(compartment*k7) IXa_l + TF_VIIa_l
-X_TF_VIIa_complex_formation: TF_VIIa_l + X_l ->(compartment*(-TF_VIIa_X_l*k9 + TF_VIIa_l*X_l*k8)/(TF_VIIa_l*X_l)) TF_VIIa_X_l
-Factor_X_activation: TF_VIIa_X_l ->(compartment*k10) TF_VIIa_Xa_l
-Factor_Xa_release: TF_VIIa_Xa_l ->(compartment*k75) TF_VIIa_l + Xa_l
-Xa_TF_VII_binding: TF_VII_l + Xa_l ->(compartment*(-TF_VII_Xa_l*k12 + TF_VII_l*Xa_l*k11)/(TF_VII_l*Xa_l)) TF_VII_Xa_l
-TF_VII_activation: TF_VII_Xa_l ->(compartment*k13) TF_VIIa_l + Xa_l
-VIIIa_IXa_binding: IXa_l + VIIIa_l ->(compartment*(-IXa_VIIIa_l*k15 + IXa_l*VIIIa_l*k14)/(IXa_l*VIIIa_l)) IXa_VIIIa_l
-Va_Xa_binding: Va_l + Xa_l ->(compartment*(Va_l*Xa_l*k16 - Xa_Va_l*k17)/(Va_l*Xa_l)) Xa_Va_l
-X_IXa_VIIIa_complex_formation: IXa_VIIIa_l + X_l ->(compartment*(-IXa_VIIIa_X_l*k19 + IXa_VIIIa_l*X_l*k18)/(IXa_VIIIa_l*X_l)) IXa_VIIIa_X_l
-Factor_X_activation: IXa_VIIIa_X_l ->(compartment*k20) IXa_VIIIa_l + Xa_l
-V_Xa_binding: V_l + Xa_l ->(compartment*(-V_Xa_l*k22 + V_l*Xa_l*k21)/(V_l*Xa_l)) V_Xa_l
-Factor_V_activation: V_Xa_l ->(compartment*k23) Va_l + Xa_l
-Xa_VIII_binding: VIII_l + Xa_l ->((-VIII_Xa_l*k25 + VIII_l*Xa_l*k24)/(VIII_l*Xa_l)) VIII_Xa_l
-Factor_VIII_activation: VIII_Xa_l ->(compartment*k26) VIIIa_l + Xa_l
+LB1: II_f + 100LIPID ->(compartment*(II_f*LIPID*konII/nva - II_l*koffII)/(II_f*LIPID**100)) II_l
+LB2: 100LIPID + mIIa_f ->(compartment*(LIPID*konmIIa*mIIa_f/nva - koffmIIa*mIIa_l)/(LIPID**100*mIIa_f)) mIIa_l
+LB3: 100LIPID + V_f ->(compartment*(LIPID*V_f*konV/nva - V_l*koffV)/(LIPID**100*V_f)) V_l
+LB4: 100LIPID + Va_f ->(compartment*(LIPID*Va_f*konVa/nva - Va_l*koffVa)/(LIPID**100*Va_f)) Va_l
+LB5: 100LIPID + VII_f ->(compartment*(LIPID*VII_f*konVII/nva - VII_l*koffVII)/(LIPID**100*VII_f)) VII_l
+LB6: 100LIPID + VIIa_f ->(compartment*(LIPID*VIIa_f*konVIIa/nva - VIIa_l*koffVIIa)/(LIPID**100*VIIa_f)) VIIa_l
+LB7: 100LIPID + VIII_f ->(compartment*(LIPID*VIII_f*konVIII/nva - VIII_l*koffVIII)/(LIPID**100*VIII_f)) VIII_l
+LB8: 100LIPID + VIIIa_f ->(compartment*(LIPID*VIIIa_f*konVIIIa/nva - VIIIa_l*koffVIIIa)/(LIPID**100*VIIIa_f)) VIIIa_l
+LB9: IX_f + 100LIPID ->(compartment*(IX_f*LIPID*konIX/nva - IX_l*koffIX)/(IX_f*LIPID**100)) IX_l
+LB10: IXa_f + 100LIPID ->(compartment*(IXa_f*LIPID*konIXa/nva - IXa_l*koffIXa)/(IXa_f*LIPID**100)) IXa_l
+LB11: 100LIPID + X_f ->(compartment*(LIPID*X_f*konX/nva - X_l*koffX)/(LIPID**100*X_f)) X_l
+LB12: 100LIPID + Xa_f ->((LIPID*Xa_f*konXa/nva - Xa_l*koffXa)/(LIPID**100*Xa_f)) Xa_l
+LB13: APC_f + 100LIPID ->(compartment*(APC_f*LIPID*konAPC/nva - APC_l*koffAPC)/(APC_f*LIPID**100)) APC_l
+LB14: 100LIPID + PS_f ->(compartment*(LIPID*PS_f*konPS/nva - PS_l*koffPS)/(LIPID**100*PS_f)) PS_l
+LB15: 100LIPID + VIIIai_f ->(compartment*(LIPID*VIIIai_f*konVIIIai/nva - VIIIai_l*koffVIIIai)/(LIPID**100*VIIIai_f)) VIIIai_l
+LB16: 100LIPID + Vai_f ->(compartment*(LIPID*Vai_f*konVai/nva - Vai_l*koffVai)/(LIPID**100*Vai_f)) Vai_l
+LB17: 100LIPID + PC_f ->(compartment*(LIPID*PC_f*konPC/nva - PC_l*koffPC)/(LIPID**100*PC_f)) PC_l
+R1: TF_l + VIIa_l ->(compartment*(-TF_VIIa_l*k2 + TF_l*VIIa_l*k1)/(TF_l*VIIa_l)) TF_VIIa_l
+R2: TF_l + VII_l ->(compartment*(-TF_VII_l*k4 + TF_l*VII_l*k3)/(TF_l*VII_l)) TF_VII_l
+R3: IX_l + TF_VIIa_l ->(compartment*(IX_l*TF_VIIa_l*k5 - TF_VIIa_IX_l*k6)/(IX_l*TF_VIIa_l)) TF_VIIa_IX_l
+R3b: TF_VIIa_IX_l ->(compartment*k7) IXa_l + TF_VIIa_l
+R4: TF_VIIa_l + X_l ->(compartment*(-TF_VIIa_X_l*k9 + TF_VIIa_l*X_l*k8)/(TF_VIIa_l*X_l)) TF_VIIa_X_l
+R4b: TF_VIIa_X_l ->(compartment*k10) TF_VIIa_Xa_l
+R4c: TF_VIIa_Xa_l ->(compartment*k75) TF_VIIa_l + Xa_l
+R5: TF_VII_l + Xa_l ->(compartment*(-TF_VII_Xa_l*k12 + TF_VII_l*Xa_l*k11)/(TF_VII_l*Xa_l)) TF_VII_Xa_l
+R5b: TF_VII_Xa_l ->(compartment*k13) TF_VIIa_l + Xa_l
+R6: IXa_l + VIIIa_l ->(compartment*(-IXa_VIIIa_l*k15 + IXa_l*VIIIa_l*k14)/(IXa_l*VIIIa_l)) IXa_VIIIa_l
+R7: Va_l + Xa_l ->(compartment*(Va_l*Xa_l*k16 - Xa_Va_l*k17)/(Va_l*Xa_l)) Xa_Va_l
+R8: IXa_VIIIa_l + X_l ->(compartment*(-IXa_VIIIa_X_l*k19 + IXa_VIIIa_l*X_l*k18)/(IXa_VIIIa_l*X_l)) IXa_VIIIa_X_l
+R8b: IXa_VIIIa_X_l ->(compartment*k20) IXa_VIIIa_l + Xa_l
+R9: V_l + Xa_l ->(compartment*(-V_Xa_l*k22 + V_l*Xa_l*k21)/(V_l*Xa_l)) V_Xa_l
+R9b: V_Xa_l ->(compartment*k23) Va_l + Xa_l
+R10: VIII_l + Xa_l ->((-VIII_Xa_l*k25 + VIII_l*Xa_l*k24)/(VIII_l*Xa_l)) VIII_Xa_l
+R10b: VIII_Xa_l ->(compartment*k26) VIIIa_l + Xa_l
 R11: IIa_f + V_l ->(compartment*(IIa_f*V_l*k27 - V_IIa_l*k28)/(IIa_f*V_l)) V_IIa_l
 R11b: V_IIa_l ->(compartment*k29) IIa_f + Va_l
 R12: IIa_f + VIII_l ->(compartment*(IIa_f*VIII_l*k30 - VIII_IIa_l*k31)/(IIa_f*VIII_l)) VIII_IIa_l

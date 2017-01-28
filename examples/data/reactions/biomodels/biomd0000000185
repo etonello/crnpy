@@ -1,20 +1,20 @@
-Transcription:  ->(K1**n*compartment*v_1/(K1**n + Transcriptional_repressor**n)) clock_gene_mRNA
-mRNA_degradation: clock_gene_mRNA ->(compartment*v_2/(K2 + clock_gene_mRNA)) 
-Neuropeptide_dependent_transcription_activation:  ->(F*K*compartment*vc/(F*K + Kc)) clock_gene_mRNA
-Light_dependent_transcription_activation:  ->(L*compartment) clock_gene_mRNA
-Translation:  ->(clock_gene_mRNA*compartment*k3) clock_protein
-Protein_degradation: clock_protein ->(compartment*v_4/(K4 + clock_protein)) 
-Transcriptional_repressor_synthesis:  ->(clock_protein*compartment*k5) Transcriptional_repressor
-Transcriptional_repressor_degradation: Transcriptional_repressor ->(compartment*v_6/(K6 + Transcriptional_repressor)) 
-Neuropeptide_synthesis:  ->(clock_gene_mRNA*compartment*k7) Neuropeptide
-Neuropeptide_degradation: Neuropeptide ->(compartment*v_8/(K8 + Neuropeptide)) 
-Transcription:  ->(K1**n*compartment*v_1/(K1**n + Transcriptional_repressor**n)) clock_gene_mRNA
-mRNA_degradation: clock_gene_mRNA ->(compartment*v_2/(K2 + clock_gene_mRNA)) 
-Neuropeptide_dependent_transcription_activation:  ->(F*K*compartment*vc/(F*K + Kc)) clock_gene_mRNA
-Light_dependent_transcription_activation:  ->(L*compartment) clock_gene_mRNA
-Translation:  ->(clock_gene_mRNA*compartment*k3) clock_protein
-Protein_degradation: clock_protein ->(compartment*v_4/(K4 + clock_protein)) 
-Transcriptional_repressor_synthesis:  ->(clock_protein*compartment*k5) Transcriptional_repressor
-Transcriptional_repressor_degradation: Transcriptional_repressor ->(compartment*v_6/(K6 + Transcriptional_repressor)) 
-Neuropeptide_synthesis:  ->(clock_gene_mRNA*compartment*k7) Neuropeptide
-Neuropeptide_degradation: Neuropeptide ->(compartment*v_8/(K8 + Neuropeptide)) 
+R1:  ->(K1**n*compartment*v_1/(K1**n + Z1**n)) X1
+R2: X1 ->(compartment*v_2/(K2 + X1)) 
+R3:  ->(F*K*compartment*vc/(F*K + Kc)) X1
+R4:  ->(L*compartment) X1
+R5:  ->(X1*compartment*k3) Y1
+R6: Y1 ->(compartment*v_4/(K4 + Y1)) 
+R7:  ->(Y1*compartment*k5) Z1
+R8: Z1 ->(compartment*v_6/(K6 + Z1)) 
+R9:  ->(X1*compartment*k7) V1
+R10: V1 ->(compartment*v_8/(K8 + V1)) 
+R11:  ->(K1**n*compartment*v_1/(K1**n + Z2**n)) X2
+R12: X2 ->(compartment*v_2/(K2 + X2)) 
+R13:  ->(F*K*compartment*vc/(F*K + Kc)) X2
+R14:  ->(L*compartment) X2
+R15:  ->(X2*compartment*k3) Y2
+R16: Y2 ->(compartment*v_4/(K4 + Y2)) 
+R17:  ->(Y2*compartment*k5) Z2
+R18: Z2 ->(compartment*v_6/(K6 + Z2)) 
+R19:  ->(X2*compartment*k7) V2
+R20: V2 ->(compartment*v_8/(K8 + V2)) 

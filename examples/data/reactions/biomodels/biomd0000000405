@@ -1,8 +1,8 @@
-binding1: E + x1 ->(Kp*compartment_1) _E1
-binding2: E + x2 ->(Kp*compartment_1) E2
-production1:  ->(compartment_1*lambda1) x1
-production2:  ->(compartment_1*lambda2) x2
-degradation1: _E1 ->(compartment_1*mu) E
-degradation2: E2 ->(compartment_1*mu) E
-dilution1: x1 ->(compartment_1*g) 
-dilution2: x2 ->(compartment_1*g) 
+reaction_1: species_1 + species_5 ->(compartment_1*parameter_4) species_3
+reaction_2: species_2 + species_5 ->(compartment_1*parameter_4) species_4
+reaction_3:  ->(compartment_1*parameter_1) species_1
+reaction_4:  ->(compartment_1*parameter_2) species_2
+reaction_5: species_3 ->(compartment_1*parameter_3) species_5
+reaction_6: species_4 ->(compartment_1*parameter_3) species_5
+reaction_7: species_1 ->(compartment_1*parameter_5) 
+reaction_8: species_2 ->(compartment_1*parameter_5) 

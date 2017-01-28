@@ -1,8 +1,8 @@
-Calcium_influx:  ->(cytosol*v0) Z
-InsP3_dependent_Ca_influx:  ->(cytosol*v1_beta) Z
-ATP_driven_pumping_of_Ca_into_store: Z ->(Vm2*Z**n*cytosol/(Z*(Kp**n + Z**n))) Y
-ATP_driven_pumping_into_cytosol: Y ->(Vm3*Y**m*Z**p*store/(Y*(K_A**p + Z**p)*(Kr**m + Y**m))) Z
-Calcium_leak: Y ->(kf*store) Z
-Ca_efflux: Z ->(cytosol*k) 
-Protein_Phosphorylation:  ->(cytosol*(K2*vk + Phosphorylated_protein**2*vp + Phosphorylated_protein*vk)/(Total_Protein*(K2 + Phosphorylated_protein)*(K1 - Phosphorylated_protein + 1))) Phosphorylated_protein
-Protein_Phosphorylation_rev: Phosphorylated_protein ->(cytosol*(K1*vp + K2*vk + Phosphorylated_protein*vk + vp)/(Total_Protein*(K2 + Phosphorylated_protein)*(K1 - Phosphorylated_protein + 1))) 
+R0:  ->(cytosol*v0) Z
+R1:  ->(cytosol*v1_beta) Z
+R2: Z ->(Vm2*Z**n*cytosol/(Z*(Kp**n + Z**n))) Y
+R3: Y ->(Vm3*Y**m*Z**p*store/(Y*(K_A**p + Z**p)*(Kr**m + Y**m))) Z
+Rf: Y ->(kf*store) Z
+R_eff: Z ->(cytosol*k) 
+Protein_Phosphorylation:  ->(cytosol*(K2*vk + W_star**2*vp + W_star*vk)/(Wt*(K2 + W_star)*(K1 - W_star + 1))) W_star
+Protein_Phosphorylation_rev: W_star ->(cytosol*(K1*vp + K2*vk + W_star*vk + vp)/(Wt*(K2 + W_star)*(K1 - W_star + 1))) 

@@ -1,20 +1,20 @@
-Myeloperoxidase_reaction: Ferric_peroxidase + H2O2 ->(phagosome*(Ferric_peroxidase*H2O2*k1 - compound_I*kminus1)/(Ferric_peroxidase*H2O2)) compound_I
-Melatonin_compound_I_reaction: Melatonin + compound_I ->(k2*phagosome) Melatonin_free_radical + compound_II
-Melatonin_compound_II_reaction: Melatonin + compound_II ->(k3*phagosome) Ferric_peroxidase + Melatonin_free_radical
-compound_III_formation: Ferric_peroxidase + Superoxide ->(k4*phagosome) compound_III
-H2O2_formation: 2Hydrogen + 2Superoxide ->(k5*phagosome/Hydrogen**2) H2O2 + Oxygen
-compound_III_superoxide_reaction: Superoxide + compound_III ->(k6*phagosome) Oxygen + compound_I
-NADPH_autooxidation: NADPH + Oxygen ->(cytoplasm*k7) H2O2 + NADP
-NADP_radical_Oxygen_reaction: NADP + Oxygen ->(cytoplasm*k8) NADP + Superoxide
-H2O2_formation: 2Hydrogen + 2Superoxide ->(cytoplasm*k9/Hydrogen**2) H2O2 + Oxygen
-NADP_free_radical_formation: Melatonin_free_radical + NADPH ->(cytoplasm*k10) Melatonin + NADP
-NADP_dimer_formation: 2NADP ->(cytoplasm*k11) NADP2
-NADPH_synthesis:  ->(cytoplasm*k12) NADPH
-Oxygen_diffusion:  ->(cytoplasm*k13) Oxygen
-Oxygen_diffusion: Oxygen ->(cytoplasm*kminus13) 
-Oxygen_diffusion__phagosome_cytoplasm: Oxygen -> Oxygen
-H2O2_diffusion_phagosome_cytoplasm: H2O2 -> H2O2
-Melatonin__diffusion_phagosome_cytoplasm: Melatonin -> Melatonin
-Melatonin_free_radical__diffusion_phagosome_cytoplasm: Melatonin_free_radical -> Melatonin_free_radical
-Superoxide__diffusion_phagosome_cytoplasm: Superoxide -> Superoxide
-NADPH_oxidase_activity: NADPH + 2Oxygen ->(V*phagosome*(Knadph + NADPH)/(Oxygen*(Ko + Oxygen)*(Knadph**2*L + Knadph**2 + 2*Knadph*NADPH + NADPH**2))) NADP + 2Superoxide
+R1: H2O2_p + per3_p ->(phagosome*(H2O2_p*k1*per3_p - coI_p*kminus1)/(H2O2_p*per3_p)) coI_p
+R2: MLTH_p + coI_p ->(k2*phagosome) MLT_p + coII_p
+R3: MLTH_p + coII_p ->(k3*phagosome) MLT_p + per3_p
+R4: O2minus_p + per3_p ->(k4*phagosome) coIII_p
+R5: 2H_p + 2O2minus_p ->(k5*phagosome/H_p**2) H2O2_p + O2_p
+R6: O2minus_p + coIII_p ->(k6*phagosome) O2_p + coI_p
+R7: NADPH_c + O2_c ->(cytoplasm*k7) H2O2_c + NADPplus_c
+R8: NADP_c + O2_c ->(cytoplasm*k8) NADPplus_c + O2minus_c
+R9: 2H_c + 2O2minus_c ->(cytoplasm*k9/H_c**2) H2O2_c + O2_c
+R10: MLT_c + NADPH_c ->(cytoplasm*k10) MLTH_c + NADP_c
+R11: 2NADP_c ->(cytoplasm*k11) NADP2_c
+R12:  ->(cytoplasm*k12) NADPH_c
+R13a:  ->(cytoplasm*k13) O2_c
+R13b: O2_c ->(cytoplasm*kminus13) 
+R14: O2_p ->(phagosome*(-O2_c*k14 + O2_p*k14)/O2_p) O2_c
+R15: H2O2_p ->(phagosome*(-H2O2_c*k15 + H2O2_p*k15)/H2O2_p) H2O2_c
+R16: MLTH_p ->(phagosome*(-MLTH_c*k16 + MLTH_p*k16)/MLTH_p) MLTH_c
+R17: MLT_p ->(phagosome*(-MLT_c*k17 + MLT_p*k17)/MLT_p) MLT_c
+R18: O2minus_p ->(phagosome*(-O2minus_c*k18 + O2minus_p*k18)/O2minus_p) O2minus_c
+R19: NADPH_c + 2O2_p ->(V*phagosome*(1 + NADPH_c/Knadph)/(Knadph*O2_p*(Ko + O2_p)*(L + (1 + NADPH_c/Knadph)**2))) NADPplus_c + 2O2minus_p

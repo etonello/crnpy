@@ -1,15 +1,15 @@
-reaction_1: VIIa_TF + X ->(compartment*k1) VIIa_TF_X
-reaction_1_rev: VIIa_TF_X ->(compartment*k2) VIIa_TF + X
-reaction_2: VIIa_TF_X ->(compartment*k1) VIIa_TF_Xa
-reaction_3: VIIa_TF_Xa ->(compartment*k1) VIIa_TF + Xa
-reaction_3_rev: VIIa_TF + Xa ->(compartment*k2) VIIa_TF_Xa
-reaction_4: TFPI + Xa ->(compartment*k1) Xa_TFPI
-reaction_4_rev: Xa_TFPI ->(compartment*k2) TFPI + Xa
-reaction_5: VIIa_TF + Xa_TFPI ->(compartment*k1) Xa_TFPI_VIIa_TF
-reaction_5_rev: Xa_TFPI_VIIa_TF ->(compartment*k2) VIIa_TF + Xa_TFPI
-reaction_6: TFPI + VIIa_TF_Xa ->(compartment*k1) VIIa_TF_Xa_TFPI
-reaction_6_rev: VIIa_TF_Xa_TFPI ->(compartment*k2) TFPI + VIIa_TF_Xa
-reaction_8: VIIa_TF_Xa_TFPI ->(compartment*k1) Xa_TFPI_VIIa_TF
-reaction_8_rev: Xa_TFPI_VIIa_TF ->(compartment*k2) VIIa_TF_Xa_TFPI
-reaction_9: VIIa_TF_X + Xa_TFPI ->(compartment*k1) VIIa_TF_Xa_TFPI + X
-reaction_9_rev: VIIa_TF_Xa_TFPI + X ->(compartment*k2) VIIa_TF_X + Xa_TFPI
+reaction_1: VIIa_TF + X ->(compartment*reaction_1_k1) VIIa_TF_X
+reaction_1_rev: VIIa_TF_X ->(compartment*reaction_1_k2) VIIa_TF + X
+reaction_2: VIIa_TF_X ->(compartment*reaction_2_k1) VIIa_TF_Xa
+reaction_3: VIIa_TF_Xa ->(compartment*reaction_3_k1) VIIa_TF + Xa
+reaction_3_rev: VIIa_TF + Xa ->(compartment*reaction_3_k2) VIIa_TF_Xa
+reaction_4: TFPI + Xa ->(compartment*reaction_4_k1) Xa_TFPI
+reaction_4_rev: Xa_TFPI ->(compartment*reaction_4_k2) TFPI + Xa
+reaction_5: VIIa_TF + Xa_TFPI ->(compartment*reaction_5_k1) Xa_TFPI_VIIa_TF
+reaction_5_rev: Xa_TFPI_VIIa_TF ->(compartment*reaction_5_k2) VIIa_TF + Xa_TFPI
+reaction_6: TFPI + VIIa_TF_Xa ->(compartment*reaction_6_k1) VIIa_TF_Xa_TFPI
+reaction_6_rev: VIIa_TF_Xa_TFPI ->(compartment*reaction_6_k2) TFPI + VIIa_TF_Xa
+reaction_9: VIIa_TF_Xa_TFPI ->(compartment*reaction_9_k1) Xa_TFPI_VIIa_TF
+reaction_9_rev: Xa_TFPI_VIIa_TF ->(compartment*reaction_9_k2) VIIa_TF_Xa_TFPI
+reaction_8: VIIa_TF_X + Xa_TFPI ->(compartment*reaction_8_k1) VIIa_TF_Xa_TFPI + X
+reaction_8_rev: VIIa_TF_Xa_TFPI + X ->(compartment*reaction_8_k2) VIIa_TF_X + Xa_TFPI

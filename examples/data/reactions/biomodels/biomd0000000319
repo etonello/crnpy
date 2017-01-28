@@ -1,4 +1,4 @@
 r1:  ->(r1_v_Km1) alpha
-r2: alpha ->(r2_sigma1*(alpha + 1)*(beta + 1)**2/(alpha**2*beta**2 + 2*alpha**2*beta + alpha**2 + 2*alpha*beta**2 + 4*alpha*beta + 2*alpha + beta**2 + 2*beta + r2_L1 + 1)) 50beta
-r3: beta ->(r3_sigma2*(gamma + 1)**2*(beta*r3_d + 1)/(beta**2*gamma**2*r3_d**2 + 2*beta**2*gamma*r3_d**2 + beta**2*r3_d**2 + 2*beta*gamma**2*r3_d + 4*beta*gamma*r3_d + 2*beta*r3_d + gamma**2 + 2*gamma + r3_L2 + 1)) 0gamma
+r2: alpha ->(r2_sigma1*(alpha + 1)*(beta + 1)**2/(r2_L1 + (alpha + 1)**2*(beta + 1)**2)) 50beta
+r3: beta ->(r3_sigma2*(gamma + 1)**2*(beta*r3_d + 1)/(r3_L2 + (gamma + 1)**2*(beta*r3_d + 1)**2)) 
 r4: gamma ->(r4_ks) 

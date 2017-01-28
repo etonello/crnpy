@@ -1,24 +1,24 @@
-re44: IKBA ->(NFkB*k26/IKBA) mRNAIKBA
-re45: mRNAIKBA ->(k27) sa12_degraded
-re46: IkB_alpha ->(k21) sa13_degraded
-re47: mRNAIKBA ->(k22) IkB_alpha + mRNAIKBA
-re48: A20 ->((NFkB*k20 + k19)/A20) mRNAA20
-re49: IKKn ->(k1) IKKa
-re52: NFkB_IkB_alpha ->(k12) NFkB
-re53: IKKn ->(k2) sa19_degraded
-re56: IKKa ->(k6) sa20_degraded
-re57: IKKa_IKBa ->(k8) IKKa
-re58: IKKa + NFkB_IkB_alpha ->(k9) NFkB_Ikb_alpha_IKKa
-re59: NFkB_Ikb_alpha_IKKa ->(k10) IKKa + NFkB
-re60: IKKi ->(k11) sa444_degraded
-re61: mRNAA20 ->(k16) A20 + mRNAA20
-re63: IKKa ->(A20*k4 + k5) IKKi
-re64: IKK ->(k3/IKK) IKKn
-re65: IkB_alpha + NFkB ->((IkB_alpha*NFkB*kf13 - NFkB_IkB_alpha*kr13)/(IkB_alpha*NFkB)) NFkB_IkB_alpha
-re66: IKKa + IkB_alpha ->(k7) IKKa_IKBa
-re67: NFkB ->(kf15 - kr15) 5NFkB
-re68: 5NFkB_IkB_alpha ->((kf28 - kr28)/NFkB_IkB_alpha**4) NFkB_IkB_alpha
-re69: IkB_alpha + NFkB ->((IkB_alpha*NFkB*kf14 - NFkB_IkB_alpha*kr14)/(IkB_alpha*NFkB)) NFkB_IkB_alpha
-re70: mRNAA20 ->(k17) sa96_degraded
-re71: A20 ->(k18) sa97_degraded
-re72: IkB_alpha ->(kf23 - kr23) 5IkB_alpha
+re44: s121 ->(k26*s164/s121) s125
+re45: s125 ->(k27) s124
+re46: s160 ->(k21) s122
+re47: s125 ->(k22) s125 + s160
+re48: s126 ->((k19 + k20*s164)/s126) s127
+re49: s133 ->(k1) s132
+re52: s135 ->(k12) s161
+re53: s133 ->(k2) s131
+re56: s132 ->(k6) s134
+re57: s139 ->(k8) s132
+re58: s132 + s135 ->(k9) s152
+re59: s152 ->(k10) s132 + s161
+re60: s130 ->(k11) s129
+re61: s127 ->(k16) s127 + s128
+re63: s132 ->((k4*s128*s132 + k5*s132)/s132) s130
+re64: s150 ->(k3/s150) s133
+re65: s160 + s161 ->((kf13*s160*s161 - kr13*s135)/(s160*s161)) s135
+re66: s132 + s160 ->(k7) s139
+re67: s161 ->((kf15*s161 - kr15*s164)/s161) 5s164
+re68: 5s159 ->((kf28*s159 - kr28*s135)/s159**5) s135
+re69: s164 + s167 ->((kf14*s164*s167 - kr14*s159)/(s164*s167)) s159
+re70: s127 ->(k17) s153
+re71: s128 ->(k18) s154
+re72: s160 ->((kf23*s160 - kr23*s167)/s160) 5s167

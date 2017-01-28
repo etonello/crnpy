@@ -1,82 +1,82 @@
-vo:  ->(1000*B_C**n_vo*cytoplasm*v_vo/(B_C**n_vo + K_vo)) 0Ca_in
-vo_rev: 0Ca_in -> 
-v_ca_out: 0Ca_in ->(1000*C_C**n_kk*Ca_in**n_kCa*cytoplasm*v_kk/(C_C**n_kk + K_kk)) 
-v_ca_out_rev:  -> 0Ca_in
-v1:  ->(1000*V_M1*beta_IP3*cytoplasm) 0Ca_in
-v1_rev: 0Ca_in -> 
-v2: 0Ca_in ->(1000*Ca_in**n_M2*V_M2*cytoplasm/(Ca_in**n_M2 + K_2**n_M2)) 0Ca_store
-v2_rev: 0Ca_store -> 0Ca_in
-v3: 0Ca_store ->(1000*Ca_in**p_A*Ca_store**n_M3*V_M3*store/((Ca_in**p_A + K_A**p_A)*(Ca_store**n_M3 + K_R_Ca**n_M3))) 0Ca_in
-v3_rev: 0Ca_in -> 0Ca_store
-v_Ca_leak: 0Ca_store ->(1000*Ca_store*k_f*store) 0Ca_in
-v_Ca_leak_rev: 0Ca_in -> 0Ca_store
+vo:  ->(1000*B_C**n_vo*cytoplasm*v_vo/(B_C**n_vo + K_vo)) 
+vo_rev:  ->(k_vo_rev) 
+v_ca_out:  ->(1000*C_C**n_kk*Ca_in**n_kCa*cytoplasm*v_kk/(C_C**n_kk + K_kk)) 
+v_ca_out_rev:  ->(k_v_ca_out_rev) 
+v1:  ->(1000*V_M1*beta_IP3*cytoplasm) 
+v1_rev:  ->(k_v1_rev) 
+v2:  ->(1000*Ca_in**n_M2*V_M2*cytoplasm/(Ca_in**n_M2 + K_2**n_M2)) 
+v2_rev:  ->(k_v2_rev) 
+v3:  ->(1000*Ca_in**p_A*Ca_store**n_M3*V_M3*store/((Ca_in**p_A + K_A**p_A)*(Ca_store**n_M3 + K_R_Ca**n_M3))) 
+v3_rev:  ->(k_v3_rev) 
+v_Ca_leak:  ->(1000*Ca_store*k_f*store) 
+v_Ca_leak_rev:  ->(k_v_Ca_leak_rev) 
 MP_transcription:  ->(B_N**n_BN*cytoplasm*(CB*C_T + CB*v_sP0 + K_C*v_sP0)/((B_N**n_BN + K_AP**n_BN)*(CB + K_C))) M_P
-MP_transcription_rev: M_P -> 
+MP_transcription_rev: M_P ->(k_MP_transcription_rev) 
 MP_decay: M_P ->(cytoplasm*(K_mP*kd_mP + M_P*kd_mP + v_mP)/(K_mP + M_P)) 
-MP_decay_rev:  -> M_P
+MP_decay_rev:  ->(k_MP_decay_rev) M_P
 MC_transcription:  ->(B_N**n_BN*cytoplasm*v_sC/(B_N**n_BN + K_sC**n_BN)) M_C
-MC_transcription_rev: M_C -> 
+MC_transcription_rev: M_C ->(k_MC_transcription_rev) 
 MC_decay: M_C ->(cytoplasm*(K_mC*kd_mC + M_C*kd_mC + v_mC)/(K_mC + M_C)) 
-MC_decay_rev:  -> M_C
+MC_decay_rev:  ->(k_MC_decay_rev) M_C
 MB_transcription:  ->(K_IB**m_BN*cytoplasm*v_sB/(B_N**m_BN + K_IB**m_BN)) M_B
-MB_transcription_rev: M_B -> 
+MB_transcription_rev: M_B ->(k_MB_transcription_rev) 
 MB_decay: M_B ->(cytoplasm*(K_mB*kd_mB + M_B*kd_mB + v_mB)/(K_mB + M_B)) 
-MB_decay_rev:  -> M_B
+MB_decay_rev:  ->(k_MB_decay_rev) M_B
 PC_translation:  ->(M_P*cytoplasm*ks_P) P_C
-PC_translation_rev: P_C -> 
+PC_translation_rev: P_C ->(k_PC_translation_rev) 
 PC_degradation: P_C ->(cytoplasm*kd_n) 
-PC_degradation_rev:  -> P_C
+PC_degradation_rev:  ->(k_PC_degradation_rev) P_C
 PC_phosphorylation: P_C ->(V1_P*cytoplasm/(K_p + P_C)) P_CP
 PC_phosphorylation_rev: P_CP ->(V2_P*cytoplasm/(K_dp + P_CP)) P_C
 PCC_formation: C_C + P_C ->(cytoplasm*k3) PC_C
 PCC_formation_rev: PC_C ->(cytoplasm*k4) C_C + P_C
 CC_translation:  ->(M_C*cytoplasm*ks_C) C_C
-CC_translation_rev: C_C -> 
+CC_translation_rev: C_C ->(k_CC_translation_rev) 
 CC_degradation: C_C ->(cytoplasm*kd_nc) 
-CC_degradation_rev:  -> C_C
+CC_degradation_rev:  ->(k_CC_degradation_rev) C_C
 CC_phosphorylation: C_C ->(V1_C*cytoplasm/(C_C + K_p)) C_CP
 CC_phosphorylation_rev: C_CP ->(V2_C*cytoplasm/(C_CP + K_dp)) C_C
 PCP_degradation: P_CP ->(cytoplasm*(Kd*kd_n + P_CP*kd_n + v_dPC)/(Kd + P_CP)) 
-PCP_degradation_rev:  -> P_CP
+PCP_degradation_rev:  ->(k_PCP_degradation_rev) P_CP
 CCP_degradation: C_CP ->(cytoplasm*(C_CP*kd_n + Kd*kd_n + v_dCC)/(C_CP + Kd)) 
-CCP_degradation_rev:  -> C_CP
+CCP_degradation_rev:  ->(k_CCP_degradation_rev) C_CP
 PCC_shuttling: PC_C ->(cytoplasm*k1) PC_N
 PCC_shuttling_rev: PC_N ->(k2*nucleus) PC_C
 PCC_phosphorylation: PC_C ->(V1_PC*cytoplasm/(K_p + PC_C)) PC_CP
 PCC_phosphorylation_rev: PC_CP ->(V2_PC*cytoplasm/(K_dp + PC_CP)) PC_C
 PCC_degradation: PC_C ->(cytoplasm*kd_n) 
-PCC_degradation_rev:  -> PC_C
+PCC_degradation_rev:  ->(k_PCC_degradation_rev) PC_C
 PCCP_degradation: PC_CP ->(cytoplasm*(Kd*kd_n + PC_CP*kd_n + vd_PCC)/(Kd + PC_CP)) 
-PCCP_degradation_rev:  -> PC_CP
+PCCP_degradation_rev:  ->(k_PCCP_degradation_rev) PC_CP
 PCN_phosphorylation: PC_N ->(V3_PC*nucleus/(K_p + PC_N)) PC_NP
 PCN_phosphorylation_rev: PC_NP ->(V4_PC*nucleus/(K_dp + PC_NP)) PC_N
 PCN_degradation: PC_N ->(kd_n*nucleus) 
-PCN_degradation_rev:  -> PC_N
+PCN_degradation_rev:  ->(k_PCN_degradation_rev) PC_N
 PCNP_degradation: PC_NP ->(nucleus*(Kd*kd_n + PC_NP*kd_n + vd_PCN)/(Kd + PC_NP)) 
-PCNP_degradation_rev:  -> PC_NP
+PCNP_degradation_rev:  ->(k_PCNP_degradation_rev) PC_NP
 IN_formation: B_N + PC_N ->(cytoplasm*k7) I_N
 IN_formation_rev: I_N ->(cytoplasm*k8) B_N + PC_N
 IN_degradation: I_N ->(nucleus*(I_N*kd_n + Kd*kd_n + vd_IN)/(I_N + Kd)) 
-IN_degradation_rev:  -> I_N
+IN_degradation_rev:  ->(k_IN_degradation_rev) I_N
 BC_translation:  ->(M_B*cytoplasm*ksB) B_C
-BC_translation_rev: B_C -> 
+BC_translation_rev: B_C ->(k_BC_translation_rev) 
 BC_phosphorylation: B_C ->(V1_B*cytoplasm/(B_C + K_p)) B_CP
 BC_phosphorylation_rev: B_CP ->(V2_B*cytoplasm/(B_CP + K_dp)) B_C
 BC_shuttling: B_C ->(cytoplasm*k5) B_N
 BC_shuttling_rev: B_N ->(k6*nucleus) B_C
 BC_degradation: B_C ->(cytoplasm*kd_n) 
-BC_degradation_rev:  -> B_C
+BC_degradation_rev:  ->(k_BC_degradation_rev) B_C
 BCP_degradation: B_CP ->(cytoplasm*(B_CP*kd_n + Kd*kd_n + vd_BC)/(B_CP + Kd)) 
-BCP_degradation_rev:  -> B_CP
+BCP_degradation_rev:  ->(k_BCP_degradation_rev) B_CP
 BN_phosphorylation: B_N ->(V3_B*nucleus/(B_N + K_p)) B_NP
 BN_phosphorylation_rev: B_NP ->(V4_B*nucleus/(B_NP + K_dp)) B_N
 BN_degradation: B_N ->(kd_n*nucleus) 
-BN_degradation_rev:  -> B_N
+BN_degradation_rev:  ->(k_BN_degradation_rev) B_N
 BNP_degradation: B_NP ->(nucleus*(B_NP*kd_n + Kd*kd_n + vd_BN)/(B_NP + Kd)) 
-BNP_degradation_rev:  -> B_NP
+BNP_degradation_rev:  ->(k_BNP_degradation_rev) B_NP
 CB_activation:  ->(-cytoplasm*(CB**2*vP + CB*v_K + K_2_CB*v_K)/(WT*(CB + K_2_CB)*(CB - K_1_CB - 1))) CB
 CB_activation_rev: CB ->(-cytoplasm*(CB*v_K + K_1_CB*vP + K_2_CB*v_K + vP)/(WT*(CB + K_2_CB)*(CB - K_1_CB - 1))) 
 VIP_accumulation:  ->(cytoplasm*f_r**n_VIP*v_VIP/(K_VIP + f_r**n_VIP)) VIP
-VIP_accumulation_rev: VIP -> 
+VIP_accumulation_rev: VIP ->(k_VIP_accumulation_rev) 
 VIP_depletion: VIP ->(VIP**n_dVIP*cytoplasm*k_dVIP/VIP) 
-VIP_depletion_rev:  -> VIP
+VIP_depletion_rev:  ->(k_VIP_depletion_rev) VIP

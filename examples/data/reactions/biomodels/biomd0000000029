@@ -1,7 +1,7 @@
-phosphorylation_of_ERK_on_Tyr: ERK ->(Km2*Km3*Km4*MEK*cell*kcat1/(ERK*Km1*Km2*Km4 + ERK*Km2*Km3*Km4 + ERK_PT*Km1*Km2*Km3 + ERK_PY*Km1*Km3*Km4 + Km1*Km2*Km3*Km4)) ERK_PY
-phosphorylation_of_ERK_PY_on_Thr: ERK_PY ->(Km1*Km3*Km4*MEK*cell*kcat2/(ERK*Km1*Km2*Km4 + ERK*Km2*Km3*Km4 + ERK_PT*Km1*Km2*Km3 + ERK_PY*Km1*Km3*Km4 + Km1*Km2*Km3*Km4)) ERK_PP
-phosphorylation_of_ERK_on_Thr: ERK ->(Km1*Km2*Km4*MEK*cell*kcat3/(ERK*Km1*Km2*Km4 + ERK*Km2*Km3*Km4 + ERK_PT*Km1*Km2*Km3 + ERK_PY*Km1*Km3*Km4 + Km1*Km2*Km3*Km4)) ERK_PT
-phosphorylation_of_ERK_PT_on_Tyr: ERK_PT ->(Km1*Km2*Km3*MEK*cell*kcat4/(ERK*Km1*Km2*Km4 + ERK*Km2*Km3*Km4 + ERK_PT*Km1*Km2*Km3 + ERK_PY*Km1*Km3*Km4 + Km1*Km2*Km3*Km4)) ERK_PP
-dephosphorylation_of_ERK_PP_on_Tyr: ERK_PP ->(Km6*Km7*Km8*MKP3*cell*kcat5/(ERK*Km5*Km6*Km7 + ERK_PP*Km6*Km7*Km8 + ERK_PT*Km5*Km7*Km8 + ERK_PY*Km5*Km6*Km8 + Km5*Km6*Km7*Km8)) ERK_PT
-dephosphorylation_of_ERK_PT: ERK_PT ->(Km5*Km7*Km8*MKP3*cell*kcat6/(ERK*Km5*Km6*Km7 + ERK_PP*Km6*Km7*Km8 + ERK_PT*Km5*Km7*Km8 + ERK_PY*Km5*Km6*Km8 + Km5*Km6*Km7*Km8)) ERK
-dephosphorylation_of_ERK_PY: ERK_PY ->(Km5*Km6*Km8*MKP3*cell*kcat7/(ERK*Km5*Km6*Km7 + ERK_PP*Km6*Km7*Km8 + ERK_PT*Km5*Km7*Km8 + ERK_PY*Km5*Km6*Km8 + Km5*Km6*Km7*Km8)) ERK
+v1: M ->(MEK*cell*kcat1/(Km1*(1.0 + MpT/Km4 + MpY/Km2 + M*(Km1 + Km3)/(Km1*Km3)))) MpY
+v2: MpY ->(MEK*cell*kcat2/(Km2*(1.0 + MpT/Km4 + MpY/Km2 + M*(Km1 + Km3)/(Km1*Km3)))) Mpp
+v3: M ->(MEK*cell*kcat3/(Km3*(1.0 + MpT/Km4 + MpY/Km2 + M*(Km1 + Km3)/(Km1*Km3)))) MpT
+v4: MpT ->(MEK*cell*kcat4/(Km4*(1.0 + MpT/Km4 + MpY/Km2 + M*(Km1 + Km3)/(Km1*Km3)))) Mpp
+v5: Mpp ->(MKP3*cell*kcat5/(Km5*(1.0 + M/Km8 + MpY/Km7 + MpT/Km6 + Mpp/Km5))) MpT
+v6: MpT ->(MKP3*cell*kcat6/(Km6*(1.0 + M/Km8 + MpY/Km7 + MpT/Km6 + Mpp/Km5))) M
+v7: MpY ->(MKP3*cell*kcat7/(Km7*(1.0 + M/Km8 + MpY/Km7 + MpT/Km6 + Mpp/Km5))) M

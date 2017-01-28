@@ -1,34 +1,34 @@
-Per_transcription: _EmptySet ->(compartment_0000003*(C1*Reaction1_B1 + C1*(Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a + C1*(Per_Tim_nuc/R1)**Reaction1_r + C1 + Reaction1_B1*S1 + S1*(Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a)/(_EmptySet*(Reaction1_B1 + (Clk_Cyc_nuc/Reaction1_A1)**Reaction1_a + (Per_Tim_nuc/R1)**Reaction1_r + 1))) Per_mRNA
-non_specific_Per_mRNA_degradation: Per_mRNA ->(Reaction2_D0*compartment_0000003) _EmptySet
-Tim_transcription: _EmptySet ->(compartment_0000003*(C2*Reaction3_B2 + C2*(Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a + C2*(Per_Tim_nuc/R2)**Reaction3_r + C2 + Reaction3_B2*S3 + S3*(Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a)/(_EmptySet*(Reaction3_B2 + (Clk_Cyc_nuc/Reaction3_A2)**Reaction3_a + (Per_Tim_nuc/R2)**Reaction3_r + 1))) Tim_mRNA
-non_specific_Tim_mRNA_degradation: Tim_mRNA ->(Drosophilia*Reaction4_D0) _EmptySet
-Clk_transcription: _EmptySet ->(compartment_0000003*(C3*Reaction5_B3 + C3*(Clk_Cyc_nuc/R3)**Reaction5_r + C3*(Per_Tim_nuc/Reaction5_A3)**Reaction5_a + C3 + Reaction5_B3*S5 + S5*(Per_Tim_nuc/Reaction5_A3)**Reaction5_a)/(_EmptySet*(Reaction5_B3 + (Clk_Cyc_nuc/R3)**Reaction5_r + (Per_Tim_nuc/Reaction5_A3)**Reaction5_a + 1))) Clk_mRNA
-non_specific_Clk_mRNA_degradation: Clk_mRNA ->(Drosophilia*Reaction6_D0) _EmptySet
-Clk_Cyc_nuclear_import: Clk_Cyc_cyt ->(Reaction7_T3*compartment_0000003/(Clk_Cyc_cyt + K3)) Clk_Cyc_nuc
-Clk_Cyc_nuclear_export: Clk_Cyc_nuc ->(Reaction8_T4*compartment_0000002/(Clk_Cyc_nuc + Reaction8_k4)) Clk_Cyc_cyt
-Per_Tim_nuclear_export: Per_Tim_nuc ->(Reaction9_T2*compartment_0000002/(K2 + Per_Tim_nuc)) Per_Tim_cyt
-Per_Tim_nuclear_import: Per_Tim_cyt ->(Reaction10_T1*compartment_0000003/(K1 + Per_Tim_cyt)) Per_Tim_nuc
-Clk_Cyc_equilibrium: Clk_cyt + Cyc_cyt ->(V3*compartment_0000003) Clk_Cyc_cyt
-Clk_Cyc_equilibrium_rev: Clk_Cyc_cyt ->(V4*compartment_0000003) Clk_cyt + Cyc_cyt
-Per_Tim_equilibrium: Per_cyt + Tim_cyt ->(V1*compartment_0000003) Per_Tim_cyt
-Per_Tim_equilibrium_rev: Per_Tim_cyt ->(V2*compartment_0000003) Per_cyt + Tim_cyt
-Tim_translation: _EmptySet ->(S4*Tim_mRNA*compartment_0000003/_EmptySet) Tim_cyt
-Clk_translation: _EmptySet ->(Clk_mRNA*S6*compartment_0000003/_EmptySet) Clk_cyt
-Per_translation: _EmptySet ->(Per_mRNA*S2*compartment_0000003/_EmptySet) Per_cyt
-non_specific_Per_cyt_degradation: Per_cyt ->(Drosophilia*Reaction20_D0) _EmptySet
-non_specific_Per_Tim_cyt_degradation: Per_Tim_cyt ->(Reaction21_D0*compartment_0000003) _EmptySet
-non_specific_Per_Tim_nuc_degradation: Per_Tim_nuc ->(Reaction23_D0*compartment_0000002) _EmptySet
-non_specific_Clk_Cyc_cyt_degradation: Clk_Cyc_cyt ->(Reaction24_D0*compartment_0000003) _EmptySet
-non_specific_Clk_cyt_degradation: Clk_cyt ->(Reaction25_D0*compartment_0000003) _EmptySet
-non_specific_Clk_Cyc_nuc_degradation: Clk_Cyc_nuc ->(Reaction26_D0*compartment_0000002) _EmptySet
-non_specific_Tim_cyt_degradation: Tim_cyt ->(Reaction27_D0*compartment_0000003) _EmptySet
-Per_mRNA_degradation: Per_mRNA ->(Reaction28_D1*compartment_0000003/(Per_mRNA + Reaction28_L1)) _EmptySet
-Dbt_regulated_Per_cyt_degradation: Per_cyt ->(Dbt_cyt*Reaction29_D2*compartment_0000003/(Per_cyt + Reaction29_L2)) _EmptySet
-Tim_mRNA_degradation: Tim_mRNA ->(Reaction30_D3*compartment_0000003/(Reaction30_L3 + Tim_mRNA)) _EmptySet
-Tim_cyt_degradation: Tim_cyt ->(Reaction31_D4*compartment_0000003/(Reaction31_L4 + Tim_cyt)) _EmptySet
-Per_Tim_cyt_degradation: Per_Tim_cyt ->(Reaction32_D5*compartment_0000003/(Per_Tim_cyt + Reaction32_L5)) _EmptySet
-Per_Tim_nuc_degradation: Per_Tim_nuc ->(Reaction33_D6*compartment_0000002/(Per_Tim_nuc + Reaction33_L6)) _EmptySet
-Clk_mRNA_degradation: Clk_mRNA ->(Reaction34_D7*compartment_0000003/(Clk_mRNA + Reaction34_L7)) _EmptySet
-Clk_cyt_degradation: Clk_cyt ->(Reaction35_D8*compartment_0000003/(Clk_cyt + Reaction35_L8)) _EmptySet
-Clk_Cyc_cyt_degradation: Clk_Cyc_cyt ->(Reaction36_D9*compartment_0000003/(Clk_Cyc_cyt + Reaction36_L9)) _EmptySet
-Reaction37: Clk_Cyc_nuc ->(Reaction37_D10*compartment_0000002/(Clk_Cyc_nuc + Reaction37_L10)) _EmptySet
+Reaction1: EmptySet ->(compartment_0000003*(Reaction1_c1 + Reaction1_s1*(Reaction1_B1 + (CCn/Reaction1_A1)**Reaction1_a)/(Reaction1_B1 + (CCn/Reaction1_A1)**Reaction1_a + (PTn/Reaction1_r1)**Reaction1_r + 1))/EmptySet) Perm
+Reaction2: Perm ->(Reaction2_D0*compartment_0000003) EmptySet
+Reaction3: EmptySet ->(compartment_0000003*(Reaction3_c2 + Reaction3_s3*(Reaction3_B2 + (CCn/Reaction3_A2)**Reaction3_a)/(Reaction3_B2 + (CCn/Reaction3_A2)**Reaction3_a + (PTn/Reaction3_r2)**Reaction3_r + 1))/EmptySet) Timm
+Reaction4: Timm ->(Drosophilia*Reaction4_D0) EmptySet
+Reaction5: EmptySet ->(compartment_0000003*(Reaction5_c3 + Reaction5_s5*(Reaction5_B3 + (PTn/Reaction5_A3)**Reaction5_a)/(Reaction5_B3 + (CCn/Reaction5_r3)**Reaction5_r + (PTn/Reaction5_A3)**Reaction5_a + 1))/EmptySet) Clkm
+Reaction6: Clkm ->(Drosophilia*Reaction6_D0) EmptySet
+Reaction7: CCc ->(Reaction7_T3*compartment_0000003/(CCc + Reaction7_k3)) CCn
+Reaction8: CCn ->(Reaction8_T4*compartment_0000002/(CCn + Reaction8_k4)) CCc
+Reaction9: PTn ->(Reaction9_T2*compartment_0000002/(PTn + Reaction9_k2)) PTc
+Reaction10: PTc ->(Reaction10_T1*compartment_0000003/(PTc + Reaction10_k1)) PTn
+Reaction11: Clkc + species_0000012 ->(Reaction11_v3*compartment_0000003) CCc
+Reaction11_rev: CCc ->(Reaction11_parameter_0000073*compartment_0000003) Clkc + species_0000012
+Reaction12: Perc + Timc ->(Reaction12_v1*compartment_0000003) PTc
+Reaction12_rev: PTc ->(Reaction12_parameter_0000072*compartment_0000003) Perc + Timc
+Reaction16: EmptySet ->(Reaction16_s4*Timm*compartment_0000003/EmptySet) Timc
+Reaction18: EmptySet ->(Clkm*Reaction18_s6*compartment_0000003/EmptySet) Clkc
+Reaction19: EmptySet ->(Perm*Reaction19_s2*compartment_0000003/EmptySet) Perc
+Reaction20: Perc ->(Drosophilia*Reaction20_D0) EmptySet
+Reaction21: PTc ->(Reaction21_D0*compartment_0000003) EmptySet
+Reaction23: PTn ->(Reaction23_D0*compartment_0000002) EmptySet
+Reaction24: CCc ->(Reaction24_D0*compartment_0000003) EmptySet
+Reaction25: Clkc ->(Reaction25_D0*compartment_0000003) EmptySet
+Reaction26: CCn ->(Reaction26_D0*compartment_0000002) EmptySet
+Reaction27: Timc ->(Reaction27_D0*compartment_0000003) EmptySet
+Reaction28: Perm ->(Reaction28_D1*compartment_0000003/(Perm + Reaction28_L1)) EmptySet
+Reaction29: Perc ->(Reaction29_D2*compartment_0000003*species_0000013/(Perc + Reaction29_L2)) EmptySet
+Reaction30: Timm ->(Reaction30_D3*compartment_0000003/(Reaction30_L3 + Timm)) EmptySet
+Reaction31: Timc ->(Reaction31_D4*compartment_0000003/(Reaction31_L4 + Timc)) EmptySet
+Reaction32: PTc ->(Reaction32_D5*compartment_0000003/(PTc + Reaction32_L5)) EmptySet
+Reaction33: PTn ->(Reaction33_D6*compartment_0000002/(PTn + Reaction33_L6)) EmptySet
+Reaction34: Clkm ->(Reaction34_D7*compartment_0000003/(Clkm + Reaction34_L7)) EmptySet
+Reaction35: Clkc ->(Reaction35_D8*compartment_0000003/(Clkc + Reaction35_L8)) EmptySet
+Reaction36: CCc ->(Reaction36_D9*compartment_0000003/(CCc + Reaction36_L9)) EmptySet
+Reaction37: CCn ->(Reaction37_D10*compartment_0000002/(CCn + Reaction37_L10)) EmptySet

@@ -1,32 +1,32 @@
-re30: F6P_proxy ->(F2_6BP*K_PFKL_akg*K_PFKL_cit*K_PFKL_icit*K_PFKL_mal*K_PFKL_pep*Vf_PFKL*pPFKL/((Citrate + K_PFKL_cit)*(F2_6BP + K_PFKL_f26bp)*(F6P_proxy + K_PFKL_f6p)*(Isocitrate + K_PFKL_icit)*(K_PFKL_PHOS_S775 + pPFKL)*(K_PFKL_akg + _2_oxoglutarate)*(K_PFKL_mal + Malate)*(K_PFKL_pep + PEP))) F1_6BP
-re31: F1_6BP ->(Citrate*K_FBPase_f26bp*Vf_FBPase/((Citrate + K_FBPase_cit)*(F1_6BP + K_FBPase_f16bp)*(F2_6BP + K_FBPase_f26bp))) F6P_proxy
-re32: F1_6BP ->(k_ALDO) sa4_degraded
-re33: Malate ->(-k_mal/Malate) sa8_degraded
-re34: _2_oxoglutarate ->(-k_akg/_2_oxoglutarate) sa7_degraded
-re35: PEP ->(-k_pep/PEP) sa5_degraded
-re36: Isocitrate ->(-k_icit/Isocitrate) sa6_degraded
-re37: F2_6BP ->(-k_f26bp/F2_6BP) sa9_degraded
-re38: Citrate ->(-k_cit/Citrate) sa10_degraded
-re39: F6P ->(-k_f6p/F6P) sa3_degraded
-re40: pro_IR_complex ->(-k1*(IR_complex - pro_IR_complex)/pro_IR_complex) IR_complex
-re41: IR_complex ->(insulin*k1) p1IR_complex
-re41_rev: p1IR_complex ->(k2) IR_complex
-re42: IR_complex ->(k1*pmTOR) p2IR_complex
-re43: p2IR_complex ->(insulin*k1) p1p2IRcomplex
-re43_rev: p1p2IRcomplex ->(k2) p2IR_complex
-re44: p1IR_complex ->(k1*pmTOR) p1p2IRcomplex
-re45: p1p2IRcomplex ->(k1) p1IR_complex
-re46: p2IR_complex ->(k1) IR_complex
-re47: p1p2IRcomplex ->(k1) sa28_degraded
-re48: AKT ->(k1*p1IR_complex*(AKT - pAKT)/AKT) pAKT
-re49: pAKT ->(k1) AKT
-re50: p2IR_complex ->(k1) sa27_degraded
-re51: p1IR_complex ->(k1) sa26_degraded
-re52: mTOR ->(k1*pAKT*(mTOR - pmTOR)/mTOR) pmTOR
-re53: pmTOR ->(k1) mTOR
-re54: S6K ->(k1*pmTOR*(S6K - pS6K)/S6K) pS6K
-re55: pS6K ->(k1*pX) S6K
-re56: X ->(k1*pmTOR*(X - pX)/X) pX
-re57: pX ->(k1) X
-re58: PFKL ->(k1*pS6K*(PFKL - pPFKL)/PFKL) pPFKL
-re59: pPFKL ->(k1) PFKL
+re30: s22 ->(K_PFKL_akg*K_PFKL_cit*K_PFKL_icit*K_PFKL_mal*K_PFKL_pep*Vf_PFKL*s13*s9/((K_PFKL_PHOS_S775 + s13)*(K_PFKL_akg + s7)*(K_PFKL_cit + s10)*(K_PFKL_f26bp + s9)*(K_PFKL_f6p + s22)*(K_PFKL_icit + s6)*(K_PFKL_mal + s8)*(K_PFKL_pep + s5))) s4
+re31: s4 ->(K_FBPase_f26bp*Vf_FBPase*s10/((K_FBPase_cit + s10)*(K_FBPase_f16bp + s4)*(K_FBPase_f26bp + s9))) s22
+re32: s4 ->(k_ALDO) s11
+re33: s8 ->(-k_mal/s8) s14
+re34: s7 ->(-k_akg/s7) s15
+re35: s5 ->(-k_pep/s5) s16
+re36: s6 ->(-k_icit/s6) s17
+re37: s9 ->(-k_f26bp/s9) s18
+re38: s10 ->(-k_cit/s10) s19
+re39: s3 ->(-k_f6p/s3) s21
+re40: s24 ->(re40_k1*(-s23 + s24)/s24) s23
+re41: s23 ->(insulin*re41_k1) s25
+re41_rev: s25 ->(re41_k2) s23
+re42: s23 ->(re42_k1*s31) s26
+re43: s26 ->(insulin*re43_k1) s27
+re43_rev: s27 ->(re43_k2) s26
+re44: s25 ->(re44_k1*s31) s27
+re45: s27 ->(re45_k1) s25
+re46: s26 ->(re46_k1) s23
+re47: s27 ->(re47_k1) s36
+re48: s28 ->(re48_k1*s25*(s28 - s29)/s28) s29
+re49: s29 ->(re49_k1) s28
+re50: s26 ->(re50_k1) s37
+re51: s25 ->(re51_k1) s38
+re52: s30 ->(re52_k1*s29*(s30 - s31)/s30) s31
+re53: s31 ->(re53_k1) s30
+re54: s32 ->(re54_k1*s31*(s32 - s33)/s32) s33
+re55: s33 ->(re55_k1*s35) s32
+re56: s34 ->(re56_k1*s31*(s34 - s35)/s34) s35
+re57: s35 ->(re57_k1) s34
+re58: s1 ->(re58_k1*s33*(s1 - s13)/s1) s13
+re59: s13 ->(re59_k1) s1

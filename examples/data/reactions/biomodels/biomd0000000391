@@ -1,32 +1,32 @@
-RuBisCo: RuBP ->(KR1*KR2*KR3*KR4*KR5*Vm*chloroplast/(FBP*K*KR1*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*KR5 + K*KR1*KR2*KR3*KR4*NADPH + K*KR1*KR2*KR3*KR5*R4 + K*KR1*KR2*KR4*KR5*SBP + K*KR2*KR3*KR4*KR5*PGA + KR1*KR2*KR3*KR4*KR5*RuBP)) 2PGA
-PGA_kinase: ATP + PGA ->(chloroplast*k1) ADP + DPGA
-PGA_kinase_rev: ADP + DPGA ->(chloroplast*k2) ATP + PGA
-GAP_dehydrogenase: DPGA + H + NADPH ->(chloroplast*k1) GAP + NADP + Pi
-GAP_dehydrogenase_rev: GAP + NADP + Pi ->(chloroplast*k2) DPGA + H + NADPH
-TP_isomerase: GAP ->(chloroplast*k1) DHAP
-TP_isomerase_rev: DHAP ->(chloroplast*k2) GAP
-FBP_aldolase: DHAP + GAP ->(chloroplast*k1) FBP
-FBP_aldolase_rev: FBP ->(chloroplast*k2) DHAP + GAP
-FBP_ase: FBP ->(KR1*KR2*Vm*chloroplast/(F6P*K*KR2 + FBP*KR1*KR2 + K*KR1*KR2 + K*KR1*R2)) F6P + Pi
-F6P_transketolase: F6P + GAP ->(chloroplast*k1) E4P + X5P
-F6P_transketolase_rev: E4P + X5P ->(chloroplast*k2) F6P + GAP
-SBP_aldolase: DHAP + E4P ->(chloroplast*k1) SBP
-SBP_aldolase_rev: SBP ->(chloroplast*k2) DHAP + E4P
-SBP_ase: SBP ->(KR1*Vm*chloroplast/(K*KR1 + K*R1 + KR1*SBP)) Pi + S7P
-S7P_transketolase: GAP + S7P ->(chloroplast*k1) R5P + X5P
-S7P_transketolase_rev: R5P + X5P ->(chloroplast*k2) GAP + S7P
-R5P_isomerase: R5P ->(chloroplast*k1) Ru5P
-R5P_isomerase_rev: Ru5P ->(chloroplast*k2) R5P
-Ru5P_epimerase: X5P ->(chloroplast*k1) Ru5P
-Ru5P_epimerase_rev: Ru5P ->(chloroplast*k2) X5P
-Ru5P_kinase: ATP + Ru5P ->(KR1*KR2*KR3*KR41*KR42*Vm*chloroplast/((ADP*ATP*KR42 + ADP*K2*KR41 + ATP*KR41*KR42 + K2*KR41*KR42)*(K1*KR1*KR2*KR3 + K1*KR1*KR2*R3 + K1*KR1*KR3*RuBP + K1*KR2*KR3*PGA + KR1*KR2*KR3*Ru5P))) ADP + RuBP
-PG_isomerase: F6P ->(chloroplast*k1) G6P
-PG_isomerase_rev: G6P ->(chloroplast*k2) F6P
-PG_mutase: G6P ->(chloroplast*k1) G1P
-PG_mutase_rev: G1P ->(chloroplast*k2) G6P
-starch_synthase: ATP + G1P ->(KR1*Vm*chloroplast*(F6P*KA2 + FBP*KA3 + KA1*PGA)/((ADP + KR1)*(G1P + K1)*(ATP*F6P*KA2 + ATP*FBP*KA3 + ATP*KA1*PGA + F6P*K2*KA2 + FBP*K2*KA3 + K2**2*R2 + K2*KA1*PGA))) 
-starch_phosphorylase: Pi ->(KR1*S*Vm*chloroplast/(Pi*(G1P*K + K*KR1 + KR1*S))) G1P
-ATP_synthetase: ADP + Pi ->(Vm*chloroplast*s2/(Pi*(ADP + K1)*(K2 + s2))) ATP
-TPT___PGA: PGA ->(KR1*KR2*KR3*Pext*Vm*chloroplast/(DHAP*K*KA*KR1*KR2 + DHAP*K*KR1*KR2*Pext + GAP*K*KA*KR1*KR3 + GAP*K*KR1*KR3*Pext + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pext + K*KR2*KR3*Pext*R1 + KA*KR1*KR2*KR3*PGA + KR1*KR2*KR3*PGA*Pext)) 
-TPT___GAP: GAP ->(KR1*KR2*KR3*Pext*Vm*chloroplast/(DHAP*K*KA*KR1*KR2 + DHAP*K*KR1*KR2*Pext + GAP*KA*KR1*KR2*KR3 + GAP*KR1*KR2*KR3*Pext + K*KA*KR1*KR3*PGA + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pext + K*KR1*KR3*PGA*Pext + K*KR2*KR3*Pext*R1)) 
-TPT___DHAP: DHAP ->(KR1*KR2*KR3*Pext*Vm*chloroplast/(DHAP*KA*KR1*KR2*KR3 + DHAP*KR1*KR2*KR3*Pext + GAP*K*KA*KR1*KR2 + GAP*K*KR1*KR2*Pext + K*KA*KR1*KR3*PGA + K*KA*KR2*KR3*R1 + K*KR1*KR2*KR3*Pext + K*KR1*KR3*PGA*Pext + K*KR2*KR3*Pext*R1)) 
+RuBisCO: RuBP ->(RuBisCO_Vm*chloroplast/(RuBP + RuBisCO_K*(FBP/RuBisCO_KR2 + NADPH/RuBisCO_KR5 + PGA/RuBisCO_KR1 + Pi/RuBisCO_KR4 + 1.0 + SBP/RuBisCO_KR3))) 2PGA
+PGA_K: ATP + PGA ->(PGA_K_k1*chloroplast) ADP + DPGA
+PGA_K_rev: ADP + DPGA ->(PGA_K_k2*chloroplast) ATP + PGA
+GAP_DH: DPGA + H + NADPH ->(GAP_DH_k1*chloroplast) GAP + NADP + Pi
+GAP_DH_rev: GAP + NADP + Pi ->(GAP_DH_k2*chloroplast) DPGA + H + NADPH
+TP_I: GAP ->(TP_I_k1*chloroplast) DHAP
+TP_I_rev: DHAP ->(TP_I_k2*chloroplast) GAP
+FBP_A: DHAP + GAP ->(FBP_A_k1*chloroplast) FBP
+FBP_A_rev: FBP ->(FBP_A_k2*chloroplast) DHAP + GAP
+FBPase: FBP ->(FBPase_Vm*chloroplast/(FBP + FBPase_K*(F6P/FBPase_KR1 + 1.0 + Pi/FBPase_KR2))) F6P + Pi
+F6P_TK: F6P + GAP ->(F6P_TK_k1*chloroplast) E4P + X5P
+F6P_TK_rev: E4P + X5P ->(F6P_TK_k2*chloroplast) F6P + GAP
+SBP_A: DHAP + E4P ->(SBP_A_k1*chloroplast) SBP
+SBP_A_rev: SBP ->(SBP_A_k2*chloroplast) DHAP + E4P
+SBPase: SBP ->(SBPase_Vm*chloroplast/(SBP + SBPase_K*(Pi/SBPase_KR1 + 1.0))) Pi + S7P
+S7P_TK: GAP + S7P ->(S7P_TK_k1*chloroplast) R5P + X5P
+S7P_TK_rev: R5P + X5P ->(S7P_TK_k2*chloroplast) GAP + S7P
+R5P_I: R5P ->(R5P_I_k1*chloroplast) Ru5P
+R5P_I_rev: Ru5P ->(R5P_I_k2*chloroplast) R5P
+Ru5P_E: X5P ->(Ru5P_E_k1*chloroplast) Ru5P
+Ru5P_E_rev: Ru5P ->(Ru5P_E_k2*chloroplast) X5P
+Ru5P_K: ATP + Ru5P ->(Ru5P_K_Vm*chloroplast/((Ru5P + Ru5P_K_K1*(PGA/Ru5P_K_KR1 + Pi/Ru5P_K_KR3 + 1.0 + RuBP/Ru5P_K_KR2))*(ATP*(ADP/Ru5P_K_KR41 + 1.0) + Ru5P_K_K2*(ADP/Ru5P_K_KR42 + 1.0)))) ADP + RuBP
+PG_I: F6P ->(PG_I_k1*chloroplast) G6P
+PG_I_rev: G6P ->(PG_I_k2*chloroplast) F6P
+PG_M: G6P ->(PG_M_k1*chloroplast) G1P
+PG_M_rev: G1P ->(PG_M_k2*chloroplast) G6P
+Starch_S: ATP + G1P ->(Starch_S_Vm*chloroplast/((ATP + Starch_S_K2*(Pi*Starch_S_K2/(F6P*Starch_S_KA2 + FBP*Starch_S_KA3 + PGA*Starch_S_KA1) + 1.0))*(G1P + Starch_S_K1)*(ADP/Starch_S_KR1 + 1.0))) 
+Starch_P: Pi ->(Starch_P_Vm*chloroplast/(Pi + Starch_P_K*(G1P/Starch_P_KR1 + 1.0))) G1P
+ATP_S: ADP + Pi ->(ATP_S_Vm*chloroplast/((ADP + ATP_S_K1)*(ATP_S_K2 + Pi))) ATP
+TPT_PGA: PGA ->(TPT_PGA_Vm*chloroplast/(PGA*(1.0 + TPT_PGA_KA/Pext) + TPT_PGA_K*((1.0 + TPT_PGA_KA/Pext)*(DHAP/TPT_PGA_KR3 + GAP/TPT_PGA_KR2 + Pi/TPT_PGA_KR1) + 1.0))) 
+TPT_GAP: GAP ->(TPT_GAP_Vm*chloroplast/(GAP*(1.0 + TPT_GAP_KA/Pext) + TPT_GAP_K*((1.0 + TPT_GAP_KA/Pext)*(DHAP/TPT_GAP_KR3 + PGA/TPT_GAP_KR2 + Pi/TPT_GAP_KR1) + 1.0))) 
+TPT_DHAP: DHAP ->(TPT_DHAP_Vm*chloroplast/(DHAP*(1.0 + TPT_DHAP_KA/Pext) + TPT_DHAP_K*((1.0 + TPT_DHAP_KA/Pext)*(GAP/TPT_DHAP_KR3 + PGA/TPT_DHAP_KR2 + Pi/TPT_DHAP_KR1) + 1.0))) 

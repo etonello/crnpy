@@ -1,10 +1,10 @@
-resource_production:  ->(v) S
-resource_production_rev: S -> 
-resource_consumption_and_cell_growth_1: S ->(N1/(S + 1)) 10N1
-resource_consumption_and_cell_growth_1_rev: 10N1 -> S
-resource_consumption_and_cell_growth_2: S ->(20*N2/(S + 1)) N2
-resource_consumption_and_cell_growth_2_rev: N2 -> S
-cell_death_1: N1 ->(d) 
-cell_death_1_rev:  -> N1
-cell_death_2: N2 ->(d) 
-cell_death_2_rev:  -> N2
+r1:  ->(v) S
+r1_rev: S ->(k_r1_rev) 
+r2: S ->(N1/(S + 1)) 10N1
+r2_rev: 10N1 ->(k_r2_rev) S
+r3: S ->(20*N2/(S + 1)) N2
+r3_rev: N2 ->(k_r3_rev) S
+r4: N1 ->(d) 
+r4_rev:  ->(k_r4_rev) N1
+r5: N2 ->(d) 
+r5_rev:  ->(k_r5_rev) N2

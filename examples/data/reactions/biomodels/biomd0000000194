@@ -1,4 +1,4 @@
-R6: Mad1_C_Mad2 + O_Mad2 ->(Cytoplasm*alpha_T*u) Mad1_C_Mad2_O_Mad2_
-R6_rev: Mad1_C_Mad2_O_Mad2_ ->(Cytoplasm*beta_T) Mad1_C_Mad2 + O_Mad2
-R7: Cdc20 + Mad1_C_Mad2_O_Mad2_ ->(Cytoplasm*gamma_T*u) Cdc20_C_Mad2 + Mad1_C_Mad2
-R8: Cdc20_C_Mad2 ->(Cytoplasm*eta_T) Cdc20 + O_Mad2
+R6: Mad1_CMad2 + OMad2 ->(Cytoplasm*alpha_T*u) Mad1_CMad2_OMad2
+R6_rev: Mad1_CMad2_OMad2 ->(Cytoplasm*beta_T) Mad1_CMad2 + OMad2
+R7: Cdc20 + Mad1_CMad2_OMad2 ->(Cytoplasm*gamma_T*u) Cdc20_CMad2 + Mad1_CMad2
+R8: Cdc20_CMad2 ->(Cytoplasm*eta_T) Cdc20 + OMad2

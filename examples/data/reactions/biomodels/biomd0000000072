@@ -1,8 +1,8 @@
-Ligand_Receptor_Association: Ligand + Receptor ->(cell*reaction_0_k1) Receptor_Ligand
-Ligand_Receptor_Association_rev: Receptor_Ligand ->(cell*reaction_0_k2) Ligand + Receptor
-Receptor_Synthesis:  ->(cell*reaction_1_v) Receptor
-Receptor_Degradation: Receptor ->(cell*reaction_2_k1) 
-Heterotrimeric_G_Protein_Formation: Free_levels_of_G_beta_gamma + G_alpha_GDP ->(cell*reaction_3_k1) Inactive_heterotrimeric_G_protein
-G_protein_Activation: Inactive_heterotrimeric_G_protein ->(Receptor_Ligand*cell*reaction_4_k1) Free_levels_of_G_beta_gamma + G_alpha_GTP
-Receptor_Ligand_Degradation: Receptor_Ligand ->(cell*reaction_5_k1) 
-G_protein_Inactivation_: G_alpha_GTP ->(cell*reaction_6_k1) G_alpha_GDP
+reaction_0: L + R ->(cell*reaction_0_k1) RL
+reaction_0_rev: RL ->(cell*reaction_0_k2) L + R
+reaction_1:  ->(cell*reaction_1_v) R
+reaction_2: R ->(cell*reaction_2_k1) 
+reaction_3: Gbg + Gd ->(cell*reaction_3_k1) G
+reaction_4: G ->(RL*cell*reaction_4_k1) Ga + Gbg
+reaction_5: RL ->(cell*reaction_5_k1) 
+reaction_6: Ga ->(cell*reaction_6_k1) Gd

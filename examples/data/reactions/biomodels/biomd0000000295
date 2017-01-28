@@ -1,4 +1,4 @@
-MFtrn:  ->(-ki**n*(amp*tanh(-2*dawn + 2*time - 48*floor(time/24))*tanh(-2*dusk + 2*time - 48*floor(time/24)) - amp*tanh(-2*dawn + 2*time - 48*floor(time/24)) + amp*tanh(-2*dusk + 2*time - 48*floor(time/24)) - amp - 4*vs)/(4*(ki**n + (FN + FNp)**n))) MF
+MFtrn:  ->(ki**n*(amp*(tanh(-2*dawn + 2*time - 48*floor(time/24)) + 1)*(-tanh(-2*dusk + 2*time - 48*floor(time/24)) + 1)/4 + vs)/(ki**n + (FN + FNp)**n)) MF
 MFdeg: MF ->(vm/(MF + km)) 
 FCtrl:  ->(MF*ks) FC
 FCdeg: FC ->(vd) 

@@ -1,25 +1,25 @@
-r01: L + PCNA ->(compartment_1*k1) PCNAon
-r02: 2Rad18 ->(compartment_1*k1) Rad18_Rad18
-r03: Rad18_Rad18 ->(compartment_1*k1) 2Rad18
-r04: Rad6 + U ->(compartment_1*k1) Rad6U
-r05: PCNAon + Rad18_Rad18 ->(compartment_1*k1) Rad18_Rad18_PCNAon
-r06: Rad18_Rad18_PCNAon ->(compartment_1*k1) PCNAon + Rad18_Rad18
-r07: Rad18_Rad18_PCNAon + Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAon_Rad6U
-r08: Rad18_Rad18_PCNAon_Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAon + Rad6U
-r09: Rad18_Rad18_PCNAon_Rad6U ->(compartment_1*k1) Rad18_Rad18_PCNAonU + Rad6
-r10: Rad18_Rad18_PCNAonU ->(compartment_1*k1) PCNAonU + Rad18_Rad18
-r11: U + Ubc13_Mms2 ->(compartment_1*k1) Ubc13U_Mms2
-r12: PCNAonU + Rad5 ->(compartment_1*k1) Rad5_PCNAonU
-r13: Rad5_PCNAonU ->(compartment_1*k1) PCNAonU + Rad5
-r14: Rad5_PCNAonU + Ubc13U_Mms2 ->(compartment_1*k1) Ubc13U_Mms2_Rad5_PCNAonU
-r15: Ubc13U_Mms2_Rad5_PCNAonU ->(compartment_1*k1) Rad5_PCNAonU + Ubc13U_Mms2
-r16: Ubc13U_Mms2_Rad5_PCNAonU ->(compartment_1*k1) Rad5_PCNAonU_U + Ubc13_Mms2
-r17: Rad5_PCNAonU_U ->(compartment_1*k1) PCNAonU_U + Rad5
-r18: PCNAonU_U + Rad5 ->(compartment_1*k1) Rad5_PCNAonU_U
-r19: Rad5_PCNAonU_U + Ubc13U_Mms2 ->(compartment_1*k1) Ubc13U_Mms2_Rad5_PCNAonU_U
-r20: Ubc13U_Mms2_Rad5_PCNAonU_U ->(compartment_1*k1) Rad5_PCNAonU_U + Ubc13U_Mms2
-r21: Ubc13U_Mms2_Rad5_PCNAonU_U ->(compartment_1*k1) Rad5_PCNAonU_U_U + Ubc13_Mms2
-r22: Rad5_PCNAonU_U_U ->(compartment_1*k1) PCNAonU_U_U + Rad5
-r23: PCNAonU ->(compartment_1*k1) PCNAoff + U
-r24: PCNAonU_U ->(compartment_1*k1) PCNAoff + 2U
-r25: PCNAonU_U_U ->(compartment_1*k1) PCNAoff + 3U
+reaction_1: species_1 + species_2 ->(compartment_1*reaction_1_k1) species_3
+reaction_2: 2species_5 ->(compartment_1*reaction_2_k1) species_4
+reaction_3: species_4 ->(compartment_1*reaction_3_k1) 2species_5
+reaction_4: species_6 + species_8 ->(compartment_1*reaction_4_k1) species_7
+reaction_5: species_3 + species_4 ->(compartment_1*reaction_5_k1) species_9
+reaction_6: species_9 ->(compartment_1*reaction_6_k1) species_3 + species_4
+reaction_7: species_7 + species_9 ->(compartment_1*reaction_7_k1) species_10
+reaction_8: species_10 ->(compartment_1*reaction_8_k1) species_7 + species_9
+reaction_9: species_10 ->(compartment_1*reaction_9_k1) species_11 + species_6
+reaction_10: species_11 ->(compartment_1*reaction_10_k1) species_12 + species_4
+reaction_11: species_18 + species_8 ->(compartment_1*reaction_11_k1) species_15
+reaction_12: species_12 + species_13 ->(compartment_1*reaction_12_k1) species_14
+reaction_13: species_14 ->(compartment_1*reaction_13_k1) species_12 + species_13
+reaction_14: species_14 + species_15 ->(compartment_1*reaction_14_k1) species_16
+reaction_15: species_16 ->(compartment_1*reaction_15_k1) species_14 + species_15
+reaction_16: species_16 ->(compartment_1*reaction_16_k1) species_17 + species_18
+reaction_17: species_17 ->(compartment_1*reaction_17_k1) species_13 + species_19
+reaction_18: species_13 + species_19 ->(compartment_1*reaction_18_k1) species_17
+reaction_19: species_15 + species_17 ->(compartment_1*reaction_19_k1) species_20
+reaction_20: species_20 ->(compartment_1*reaction_20_k1) species_15 + species_17
+reaction_21: species_20 ->(compartment_1*reaction_21_k1) species_18 + species_21
+reaction_22: species_21 ->(compartment_1*reaction_22_k1) species_13 + species_22
+reaction_23: species_12 ->(compartment_1*reaction_23_k1) species_23 + species_8
+reaction_24: species_19 ->(compartment_1*reaction_24_k1) species_23 + 2species_8
+reaction_25: species_22 ->(compartment_1*reaction_25_k1) species_23 + 3species_8

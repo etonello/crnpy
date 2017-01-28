@@ -1,46 +1,46 @@
-Receptor_JAK_Binding: JAK + Receptor ->(cytoplasm*(JAK*Receptor*v1_kf - Receptor_JAK_complex*v1_kb)/(JAK*Receptor)) Receptor_JAK_complex
-Interferon_Receptor_Binding: IFN + Receptor_JAK_complex ->(cytoplasm*(IFN*Receptor_JAK_complex*v2_kf - Interferon_Receptor_JAK_complex*v2_kb)/(IFN*Receptor_JAK_complex)) Interferon_Receptor_JAK_complex
-IFN_Receptor_complex_dimerization: 2Interferon_Receptor_JAK_complex ->(-cytoplasm*(IFNRJ_dimer*v3_kb - Interferon_Receptor_JAK_complex**2*v3_kf)/Interferon_Receptor_JAK_complex**2) IFNRJ_dimer
-INF_Receptor_complex_activation: IFNRJ_dimer ->(cytoplasm*v4_kf) Activated_IFNRJ_complex
-Activated_INFRJ2_STAT1c_binding: Activated_IFNRJ_complex + STAT1c ->(cytoplasm*(Activated_IFNRJ_complex*STAT1c*v5_kf - IFNRJ2_star_STAT1c*v5_kb)/(Activated_IFNRJ_complex*STAT1c)) IFNRJ2_star_STAT1c
-STAT1c_activation: IFNRJ2_star_STAT1c ->(cytoplasm*v6_kf) Activated_IFNRJ_complex + STAT1c_star
-Activated_IFNRJ2_STAT1c_binding: Activated_IFNRJ_complex + STAT1c_star ->(cytoplasm*(Activated_IFNRJ_complex*STAT1c_star*v7_kf - IFNRJ2_star_STAT1c_star*v7_kb)/(Activated_IFNRJ_complex*STAT1c_star)) IFNRJ2_star_STAT1c_star
-Activated_STAT1c_dimerization: 2STAT1c_star ->(cytoplasm*(STAT1c_star**2*v8_kf - STAT1c_star_STAT1c_star*v8_kb)/STAT1c_star**2) STAT1c_star_STAT1c_star
-SHP2_binding: Activated_IFNRJ_complex + SHP2 ->(cytoplasm*(Activated_IFNRJ_complex*SHP2*v9_kf - IFNRJ2_star_SHP2*v9_kb)/(Activated_IFNRJ_complex*SHP2)) IFNRJ2_star_SHP2
-IFNJR2_dephosphorylation: IFNRJ2_star_SHP2 ->(cytoplasm*v10_kf) IFNRJ_dimer + SHP2
-Phosphorylated_STAT1c_PPX_binding: PPX + STAT1c_star ->(cytoplasm*(PPX*STAT1c_star*v11_kf - STAT1c_star_PPX*v11_kb)/(PPX*STAT1c_star)) STAT1c_star_PPX
-STAT1c_dephosphorylation: STAT1c_star_PPX ->(cytoplasm*v12_kf) PPX + STAT1c
-PPX_binding: PPX + STAT1c_star_STAT1c_star ->(cytoplasm*(PPX*STAT1c_star_STAT1c_star*v13_kf - STAT1c_star_STAT1c_star_PPX*v13_kb)/(PPX*STAT1c_star_STAT1c_star)) STAT1c_star_STAT1c_star_PPX
-STAT1c_dimer_dephosphorylation: STAT1c_star_STAT1c_star_PPX ->(cytoplasm*v14_kf) PPX + STAT1c_STAT1c_star
-STAT1c_phosphorylated_STAT1c_binding: STAT1c + STAT1c_star ->(cytoplasm*(STAT1c*STAT1c_star*v15_kf - STAT1c_STAT1c_star*v15_kb)/(STAT1c*STAT1c_star)) STAT1c_STAT1c_star
-STAT1c_nuclear_transport: STAT1c_star_STAT1c_star ->(cytoplasm*v16_kf) STAT1n_star_STAT1n_star
-Phosphorylated_STAT1n_dimerization: 2STAT1n_star ->(nucleus*(STAT1n_star**2*v17_kf - STAT1n_star_STAT1n_star*v17_kb)/STAT1n_star**2) STAT1n_star_STAT1n_star
-PPN_binding: PPN + STAT1n_star ->(nucleus*(PPN*STAT1n_star*v18_kf - STAT1n_star_PPN*v18_kb)/(PPN*STAT1n_star)) STAT1n_star_PPN
-STAT1n_dephosphorylation: STAT1n_star_PPN ->(nucleus*v19_kf) PPN + STAT1n
-PPN_binding: PPN + STAT1n_star_STAT1n_star ->(nucleus*(PPN*STAT1n_star_STAT1n_star*v20_kf - STAT1n_star_STAT1n_star_PPN*v20_kb)/(PPN*STAT1n_star_STAT1n_star)) STAT1n_star_STAT1n_star_PPN
-STAT1n_dephosphorylation: STAT1n_star_STAT1n_star_PPN ->(nucleus*v21_kf) PPN + STAT1n_STAT1n_star
-STAT1n_phosphorylated_STAT1n_dimerization: STAT1n + STAT1n_star ->(nucleus*(STAT1n*STAT1n_star*v22_kf - STAT1n_STAT1n_star*v22_kb)/(STAT1n*STAT1n_star)) STAT1n_STAT1n_star
-STAT1n_transport_to_cytoplasm: STAT1n ->(nucleus*v23_kf) STAT1c
-Transcription:  ->(STAT1n_star_STAT1n_star*nucleus*v24_ka/(STAT1n_star_STAT1n_star + v24_kb)) mRNAn
-mRNA_transport_to_cytoplasm: mRNAn ->(nucleus*v25_kf) mRNAc
-SOCS1_synthesis:  ->(cytoplasm*mRNAc*v26_kf) SOCS1
-mRNAc_degradation: mRNAc ->(cytoplasm*v27_kf) 
-SOCS1_degradation: SOCS1 ->(cytoplasm*v28_kf) 
-phosphorylated_IFNRJ2_SOCS1_binding: Activated_IFNRJ_complex + SOCS1 ->(cytoplasm*(Activated_IFNRJ_complex*SOCS1*v29_kf - IFNRJ2_star_SOCS1*v29_kb)/(Activated_IFNRJ_complex*SOCS1)) IFNRJ2_star_SOCS1
-STAT1c_binding: IFNRJ2_star_SOCS1 + STAT1c ->(cytoplasm*(IFNRJ2_star_SOCS1*STAT1c*v30_kf - IFNRJ2_star_SOCS1_STAT1c*v30_kb)/(IFNRJ2_star_SOCS1*STAT1c)) IFNRJ2_star_SOCS1_STAT1c
-SHP2_binding: IFNRJ2_star_SOCS1_STAT1c + SHP2 ->(-cytoplasm*(IFNRJ2_star_SHP2_SOCS1_STAT1c*v31_kb - IFNRJ2_star_SOCS1_STAT1c*SHP2*v31_kf)/(IFNRJ2_star_SOCS1_STAT1c*SHP2)) IFNRJ2_star_SHP2_SOCS1_STAT1c
-IFNRJ2_dephosphorylation: IFNRJ2_star_SHP2_SOCS1_STAT1c ->(cytoplasm*v32_kf) IFNRJ_dimer + SHP2 + SOCS1 + STAT1c
-SOCS1_unbinding: IFNRJ2_star_SHP2_SOCS1_STAT1c ->(cytoplasm*v33_kf) IFNRJ2_star_SHP2_STAT1c
-SHP2_binding: IFNRJ2_star_SOCS1 + SHP2 ->(-cytoplasm*(IFNRJ2_star_SHP2_SOCS1*v34_kb - IFNRJ2_star_SOCS1*SHP2*v34_kf)/(IFNRJ2_star_SOCS1*SHP2)) IFNRJ2_star_SHP2_SOCS1
-STAT1c_binding: IFNRJ2_star_SHP2_SOCS1 + STAT1c ->(cytoplasm*(IFNRJ2_star_SHP2_SOCS1*STAT1c*v35_kf - IFNRJ2_star_SHP2_SOCS1_STAT1c*v35_kb)/(IFNRJ2_star_SHP2_SOCS1*STAT1c)) IFNRJ2_star_SHP2_SOCS1_STAT1c
-SHP2_binding: IFNRJ2_star_STAT1c + SHP2 ->(-cytoplasm*(IFNRJ2_star_SHP2_STAT1c*v36_kb - IFNRJ2_star_STAT1c*SHP2*v36_kf)/(IFNRJ2_star_STAT1c*SHP2)) IFNRJ2_star_SHP2_STAT1c
-v37: IFNRJ2_star_SHP2_STAT1c ->(cytoplasm*v37_kf) IFNRJ_dimer + SHP2 + STAT1c
-SOCS1_unbinding: IFNRJ2_star_SOCS1_STAT1c ->(cytoplasm*v38_kf) IFNRJ2_star_STAT1c
-SOCS1_unbinding: IFNRJ2_star_SHP2_SOCS1 ->(cytoplasm*v39_kf) IFNRJ2_star_SHP2
-IFNRJ2_dephosphorylation: IFNRJ2_star_SHP2_SOCS1 ->(cytoplasm*v40_kf) IFNRJ_dimer + SHP2 + SOCS1
-SOCS1_unbinding: IFNRJ2_star_SOCS1 ->(cytoplasm*v41_kf) Activated_IFNRJ_complex
-SOCS1_binding: IFNRJ2_star_STAT1c + SOCS1 ->(-cytoplasm*(IFNRJ2_star_SOCS1_STAT1c*v42_kb - IFNRJ2_star_STAT1c*SOCS1*v42_kf)/(IFNRJ2_star_STAT1c*SOCS1)) IFNRJ2_star_SOCS1_STAT1c
-SOCS1_binding: IFNRJ2_star_SHP2 + SOCS1 ->(cytoplasm*(IFNRJ2_star_SHP2*SOCS1*v43_kf - IFNRJ2_star_SHP2_SOCS1*v43_kb)/(IFNRJ2_star_SHP2*SOCS1)) IFNRJ2_star_SHP2_SOCS1
-SOCS1_binding: IFNRJ2_star_SHP2_STAT1c + SOCS1 ->(-cytoplasm*(IFNRJ2_star_SHP2_SOCS1_STAT1c*v44_kb - IFNRJ2_star_SHP2_STAT1c*SOCS1*v44_kf)/(IFNRJ2_star_SHP2_STAT1c*SOCS1)) IFNRJ2_star_SHP2_SOCS1_STAT1c
-Interferon_receptor_binding: IFN + Receptor ->(cytoplasm*(IFN*Receptor*v45_kf - IFNR*v45_kb)/(IFN*Receptor)) IFNR
-IFNR_JAK_binding: IFNR + JAK ->(cytoplasm*(IFNR*JAK*v46_kf - Interferon_Receptor_JAK_complex*v46_kb)/(IFNR*JAK)) Interferon_Receptor_JAK_complex
+v1: JAK + R ->(cytoplasm*(JAK*R*v1_kf - RJ*v1_kb)/(JAK*R)) RJ
+v2: IFN + RJ ->(cytoplasm*(IFN*RJ*v2_kf - IFNRJ*v2_kb)/(IFN*RJ)) IFNRJ
+v3: 2IFNRJ ->(cytoplasm*(IFNRJ**2*v3_kf - IFNRJ2*v3_kb)/IFNRJ**2) IFNRJ2
+v4: IFNRJ2 ->(cytoplasm*v4_kf) IFNRJ2_star
+v5: IFNRJ2_star + STAT1c ->(cytoplasm*(IFNRJ2_star*STAT1c*v5_kf - IFNRJ2_star_STAT1c*v5_kb)/(IFNRJ2_star*STAT1c)) IFNRJ2_star_STAT1c
+v6: IFNRJ2_star_STAT1c ->(cytoplasm*v6_kf) IFNRJ2_star + STAT1c_star
+v7: IFNRJ2_star + STAT1c_star ->(cytoplasm*(IFNRJ2_star*STAT1c_star*v7_kf - IFNRJ2_star_STAT1c_star*v7_kb)/(IFNRJ2_star*STAT1c_star)) IFNRJ2_star_STAT1c_star
+v8: 2STAT1c_star ->(cytoplasm*(STAT1c_star**2*v8_kf - STAT1c_star_STAT1c_star*v8_kb)/STAT1c_star**2) STAT1c_star_STAT1c_star
+v9: IFNRJ2_star + SHP2 ->(cytoplasm*(IFNRJ2_star*SHP2*v9_kf - IFNRJ2_star_SHP2*v9_kb)/(IFNRJ2_star*SHP2)) IFNRJ2_star_SHP2
+v10: IFNRJ2_star_SHP2 ->(cytoplasm*v10_kf) IFNRJ2 + SHP2
+v11: PPX + STAT1c_star ->(cytoplasm*(PPX*STAT1c_star*v11_kf - STAT1c_star_PPX*v11_kb)/(PPX*STAT1c_star)) STAT1c_star_PPX
+v12: STAT1c_star_PPX ->(cytoplasm*v12_kf) PPX + STAT1c
+v13: PPX + STAT1c_star_STAT1c_star ->(cytoplasm*(PPX*STAT1c_star_STAT1c_star*v13_kf - STAT1c_star_STAT1c_star_PPX*v13_kb)/(PPX*STAT1c_star_STAT1c_star)) STAT1c_star_STAT1c_star_PPX
+v14: STAT1c_star_STAT1c_star_PPX ->(cytoplasm*v14_kf) PPX + STAT1c_STAT1c_star
+v15: STAT1c + STAT1c_star ->(cytoplasm*(STAT1c*STAT1c_star*v15_kf - STAT1c_STAT1c_star*v15_kb)/(STAT1c*STAT1c_star)) STAT1c_STAT1c_star
+v16: STAT1c_star_STAT1c_star ->(cytoplasm*v16_kf) STAT1n_star_STAT1n_star
+v17: 2STAT1n_star ->(nucleus*(STAT1n_star**2*v17_kf - STAT1n_star_STAT1n_star*v17_kb)/STAT1n_star**2) STAT1n_star_STAT1n_star
+v18: PPN + STAT1n_star ->(nucleus*(PPN*STAT1n_star*v18_kf - STAT1n_star_PPN*v18_kb)/(PPN*STAT1n_star)) STAT1n_star_PPN
+v19: STAT1n_star_PPN ->(nucleus*v19_kf) PPN + STAT1n
+v20: PPN + STAT1n_star_STAT1n_star ->(nucleus*(PPN*STAT1n_star_STAT1n_star*v20_kf - STAT1n_star_STAT1n_star_PPN*v20_kb)/(PPN*STAT1n_star_STAT1n_star)) STAT1n_star_STAT1n_star_PPN
+v21: STAT1n_star_STAT1n_star_PPN ->(nucleus*v21_kf) PPN + STAT1n_STAT1n_star
+v22: STAT1n + STAT1n_star ->(nucleus*(STAT1n*STAT1n_star*v22_kf - STAT1n_STAT1n_star*v22_kb)/(STAT1n*STAT1n_star)) STAT1n_STAT1n_star
+v23: STAT1n ->(nucleus*v23_kf) STAT1c
+v24:  ->(STAT1n_star_STAT1n_star*nucleus*v24_ka/(STAT1n_star_STAT1n_star + v24_kb)) mRNAn
+v25: mRNAn ->(nucleus*v25_kf) mRNAc
+v26:  ->(cytoplasm*mRNAc*v26_kf) SOCS1
+v27: mRNAc ->(cytoplasm*v27_kf) 
+v28: SOCS1 ->(cytoplasm*v28_kf) 
+v29: IFNRJ2_star + SOCS1 ->(cytoplasm*(IFNRJ2_star*SOCS1*v29_kf - IFNRJ2_star_SOCS1*v29_kb)/(IFNRJ2_star*SOCS1)) IFNRJ2_star_SOCS1
+v30: IFNRJ2_star_SOCS1 + STAT1c ->(cytoplasm*(IFNRJ2_star_SOCS1*STAT1c*v30_kf - IFNRJ2_star_SOCS1_STAT1c*v30_kb)/(IFNRJ2_star_SOCS1*STAT1c)) IFNRJ2_star_SOCS1_STAT1c
+v31: IFNRJ2_star_SOCS1_STAT1c + SHP2 ->(cytoplasm*(-IFNRJ2_star_SHP2_SOCS1_STAT1c*v31_kb + IFNRJ2_star_SOCS1_STAT1c*SHP2*v31_kf)/(IFNRJ2_star_SOCS1_STAT1c*SHP2)) IFNRJ2_star_SHP2_SOCS1_STAT1c
+v32: IFNRJ2_star_SHP2_SOCS1_STAT1c ->(cytoplasm*v32_kf) IFNRJ2 + SHP2 + SOCS1 + STAT1c
+v33: IFNRJ2_star_SHP2_SOCS1_STAT1c ->(cytoplasm*v33_kf) IFNRJ2_star_SHP2_STAT1c
+v34: IFNRJ2_star_SOCS1 + SHP2 ->(cytoplasm*(-IFNRJ2_star_SHP2_SOCS1*v34_kb + IFNRJ2_star_SOCS1*SHP2*v34_kf)/(IFNRJ2_star_SOCS1*SHP2)) IFNRJ2_star_SHP2_SOCS1
+v35: IFNRJ2_star_SHP2_SOCS1 + STAT1c ->(cytoplasm*(IFNRJ2_star_SHP2_SOCS1*STAT1c*v35_kf - IFNRJ2_star_SHP2_SOCS1_STAT1c*v35_kb)/(IFNRJ2_star_SHP2_SOCS1*STAT1c)) IFNRJ2_star_SHP2_SOCS1_STAT1c
+v36: IFNRJ2_star_STAT1c + SHP2 ->(cytoplasm*(-IFNRJ2_star_SHP2_STAT1c*v36_kb + IFNRJ2_star_STAT1c*SHP2*v36_kf)/(IFNRJ2_star_STAT1c*SHP2)) IFNRJ2_star_SHP2_STAT1c
+v37: IFNRJ2_star_SHP2_STAT1c ->(cytoplasm*v37_kf) IFNRJ2 + SHP2 + STAT1c
+v38: IFNRJ2_star_SOCS1_STAT1c ->(cytoplasm*v38_kf) IFNRJ2_star_STAT1c
+v39: IFNRJ2_star_SHP2_SOCS1 ->(cytoplasm*v39_kf) IFNRJ2_star_SHP2
+v40: IFNRJ2_star_SHP2_SOCS1 ->(cytoplasm*v40_kf) IFNRJ2 + SHP2 + SOCS1
+v41: IFNRJ2_star_SOCS1 ->(cytoplasm*v41_kf) IFNRJ2_star
+v42: IFNRJ2_star_STAT1c + SOCS1 ->(cytoplasm*(-IFNRJ2_star_SOCS1_STAT1c*v42_kb + IFNRJ2_star_STAT1c*SOCS1*v42_kf)/(IFNRJ2_star_STAT1c*SOCS1)) IFNRJ2_star_SOCS1_STAT1c
+v43: IFNRJ2_star_SHP2 + SOCS1 ->(cytoplasm*(IFNRJ2_star_SHP2*SOCS1*v43_kf - IFNRJ2_star_SHP2_SOCS1*v43_kb)/(IFNRJ2_star_SHP2*SOCS1)) IFNRJ2_star_SHP2_SOCS1
+v44: IFNRJ2_star_SHP2_STAT1c + SOCS1 ->(cytoplasm*(-IFNRJ2_star_SHP2_SOCS1_STAT1c*v44_kb + IFNRJ2_star_SHP2_STAT1c*SOCS1*v44_kf)/(IFNRJ2_star_SHP2_STAT1c*SOCS1)) IFNRJ2_star_SHP2_SOCS1_STAT1c
+v45: IFN + R ->(cytoplasm*(IFN*R*v45_kf - IFNR*v45_kb)/(IFN*R)) IFNR
+v46: IFNR + JAK ->(cytoplasm*(IFNR*JAK*v46_kf - IFNRJ*v46_kb)/(IFNR*JAK)) IFNRJ
