@@ -10,11 +10,12 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 import sympy as sp
+from sympy.solvers.solveset import linsolve
 import warnings
 
 from .conslaw import ConsLaw
 from .createmodel import model_from_reacts, model_from_sbml, replace_reacts
-from .matrixfunctions import negative, sdiag, print_matrix, _pos_dependent, _pos_generators, dependent
+from .matrixfunctions import negative, sdiag, print_matrix, _pos_dependent, _pos_generators
 from .crncomplex import Complex
 from .parsereaction import parse_reaction_file, parse_complex, parse_reactions, ast_to_sympy_expr, flux_value
 from .reaction import Reaction, _split_reaction_monom, merge_reactions, _same_denom
@@ -1899,7 +1900,8 @@ class CRN(object):
         acr_c = self.acr_complexes(as_vectors = True, subnets = subnets)
         if acr_c:
             for i in range(self.n_species):
-                if dependent(acr_c, [0 if j != i else 1 for j in range(self.n_species)]):
+                system = sp.Matrix(acr_c).T, sp.Matrix([0 if j != i else 1 for j in range(self.n_species)])
+                if linsolve(system, sp.symbols("x0:" + str(len(acr_c)))):
                     acr_s.append(self.species[i])
         return acr_s
 
@@ -1995,7 +1997,6 @@ class CRN(object):
         tinvs = self.t_invariants
 
         if tinvs.rows == 0:
-            print("No elementary modes.")
             return [self.reactions], []
 
         # case of reactions not taking part in any em
