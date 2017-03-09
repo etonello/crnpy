@@ -239,6 +239,8 @@ class TestCrn(unittest.TestCase):
         self.assertTrue(crn.is_ma)
         crn = from_react_strings(['s ->(k1/(s+1)) p'])
         self.assertFalse(crn.is_ma)
+        crn = from_react_strings(['s ->(1) p'])
+        self.assertTrue(crn.is_ma)
 
 
     def test_intermediates(self):
@@ -401,6 +403,16 @@ class TestCrn(unittest.TestCase):
         crn = from_react_file(path.join(input_reactions, "acr/neigenfind_ex2"))
         self.assertEqual(['C', 'U'], crn.acr_species(subnets = True))
 
+        crn = from_react_strings(["A + B -> A + C", "A + B -> A + D", "C -> A", "D -> A", "A -> B"])
+        self.assertEqual([], crn.acr_species())
+        self.assertEqual([], crn.acr_species(subnets = True))
+        self.assertEqual([], crn.acr_complexes())
+        self.assertEqual([], crn.acr_complexes(subnets = True))
+        self.assertEqual([], crn.acr_species(subnets = True, same_ems = True))
+        self.assertTrue(sp.sympify("A*B/D") in crn.acr_complexes(subnets = True, same_ems = True))
+        self.assertTrue([1, 1, -1, 0] in crn.acr_same_ems(as_vectors = True) or
+                        [-1, -1, 1, 0] in crn.acr_same_ems(as_vectors = True))
+
 
     def test_tree_constants(self):
         crn = from_react_strings(['A1 (k2)<->(k1) A2', 'A2 (k4+k1*k5/k2)<->(k3) A3'])
@@ -440,6 +452,15 @@ class TestCrn(unittest.TestCase):
                          [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
         rss, rf = crn.split_by_ems(same_react = True)
         self.assertEqual([['r0', 'r1', 'r2', 'r2_rev', 'r3', 'r3_rev', 'r4', 'r6', 'r7', 'r8'], ['r5', 'r5_rev'], ['r9']],
+                         [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
+        reacts = ["a -> b", "b + c -> d", "d -> a + c", "a <-> e", "e -> f", "f + g -> d",
+                  "d -> e + g", "g <-> h", "e + g -> b", "h + i -> k", "k -> l", "l -> g + i", "a -> l"]
+        crn = from_react_strings(reacts)
+        rss, rf = crn.split_by_ems()
+        self.assertEqual([['r0', 'r1', 'r2'], ['r3', 'r3_rev'], ['r4', 'r5', 'r6'], ['r7', 'r7_rev', 'r9', 'r10', 'r11'], ['r8', 'r12']],
+                         [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
+        rss, rf = crn.split_by_ems(same_react = True)
+        self.assertEqual([['r0', 'r1', 'r2', 'r3', 'r3_rev', 'r4', 'r5', 'r6', 'r12'], ['r7', 'r7_rev', 'r9', 'r10', 'r11'], ['r8']],
                          [[r.reactionid for r in rs] for rs in rss] + [[r.reactionid for r in rf]])
 
 

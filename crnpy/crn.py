@@ -667,7 +667,7 @@ class CRN(object):
         Requires pycddlib."""
         pinv = self.p_invariants
         if len(pinv) > 0:
-            return (pinv * sp.Matrix(list(map(sp.Symbol, self.species)))).tolist()
+            return list(pinv * sp.Matrix(list(map(sp.Symbol, self.species))))
         else:
             return []
 
@@ -685,7 +685,7 @@ class CRN(object):
         Requires pycddlib."""
         tinv = self.t_invariants
         if len(tinv) > 0:
-            return (tinv * sp.Matrix(list(map(sp.Symbol, self.reactionids)))).tolist()
+            return list(tinv * sp.Matrix(list(map(sp.Symbol, self.reactionids))))
         else:
             return []
 
@@ -1877,18 +1877,20 @@ class CRN(object):
 
     ### Robustness ###
 
-    def acr_species(self, subnets = False):
-        """Return some of the species with absolute concentration robustness.
+    def acr_species(self, subnets = False, same_ems = False):
+        """Return some of the species with absolute concentration robustness,
+        using the methods for deficiency 0 and deficiency 1 networks.
 
         * subnets -- if True, look for a decomposition in subnetworks using split_by_ems,
                    and use the decomposition to look for robust ratios and species.
+        * same_ems -- if True and subnets = True, use acr_same_ems.
 
         :Example:
 
         >>> net = from_react_strings(["A + B -> 2B", "B -> A", "2A <-> C", "A + C <-> D"])
         >>> net.acr_species()
         ['A']
-        >>> net.acr_species(subnets = True)
+        >>> net.acr_species(subnets=True)
         ['A', 'C', 'D']
 
         References:
@@ -1897,21 +1899,25 @@ class CRN(object):
 
         """
         acr_s = []
-        acr_c = self.acr_complexes(as_vectors = True, subnets = subnets)
+        acr_c = self.acr_complexes(as_vectors = True, subnets = subnets, same_ems = same_ems)
+        rank = sp.Matrix(acr_c).rank()
         if acr_c:
             for i in range(self.n_species):
-                system = sp.Matrix(acr_c).T, sp.Matrix([0 if j != i else 1 for j in range(self.n_species)])
-                if linsolve(system, sp.symbols("x0:" + str(len(acr_c)))):
+                v = sp.Matrix([0 if j != i else 1 for j in range(self.n_species)]).T
+                if sp.Matrix(acr_c).col_join(v).rank() == rank:
                     acr_s.append(self.species[i])
         return acr_s
 
 
-    def acr_complexes(self, as_vectors = False, subnets = False):
-        """Return complex ratios that are robust.
+    def acr_complexes(self, as_vectors = False, subnets = False, same_ems = False):
+        """Return ratios of monomials that are robust,
+        i.e. ratios that take the same value at each positive steady state,
+        using the methods for deficiency 0 and deficiency 1 networks.
 
-        * as_vectors -- if True, return vectors of length = n_species corresponding to the ratios.
+        * as_vectors -- if True, return a list of vectors of length = n_species, defining the ratios.
         * subnets -- if True, look for a decomposition in subnetworks using split_by_ems,
                      and use the decomposition to look for robust ratios.
+        * same_ems -- if True and subnets = True, use acr_same_ems.
 
         :Example:
 
@@ -1919,7 +1925,7 @@ class CRN(object):
         >>> net.acr_complexes()
         [A]
         >>> net.acr_complexes(as_vectors=True)
-        [(1, 0, 0, 0)]
+        [[1, 0, 0, 0]]
         >>> net.acr_complexes(subnets=True)
         [A**2/C, A*C/D, A]
 
@@ -1930,35 +1936,69 @@ class CRN(object):
         """
         if self.is_ma:
             if subnets:
+                acr_cs = self.acr_same_ems(as_vectors = True) if same_ems else []
                 nets = self.subnets()
-                acr_cs = []
                 for net in nets:
-                    if as_vectors:
-                        def convert(v, ss):
-                            # converts vector in subnetwork to vector in crn
-                            return [v[ss.index(self.species[i])] if self.species[i] in ss else 0 for i in range(len(self.species))]
-                        acr_cs = acr_cs + list(map(lambda v: convert(v, net.species), net.acr_complexes(as_vectors = as_vectors)))
-                    else:
-                        acr_cs = acr_cs + net.acr_complexes(as_vectors = as_vectors)
-                return acr_cs
+                    convert = lambda v: [v[net.species.index(self.species[i])]
+                                           if self.species[i] in net.species else 0
+                                           for i in range(len(self.species))]
+                    acr_cs = acr_cs + list(map(convert, net.acr_complexes(as_vectors = True)))
+                acr_cs = list(map(list, sp.Matrix(acr_cs).T.columnspace()))
+                if as_vectors:
+                    return acr_cs
+                else:
+                    return list(map(self._vect_to_monom, acr_cs))
             else:
-                if self.deficiency == 1:
-                    ntcs_inds = self._non_terminal_complexes()
+                deficiency = self.deficiency
+                wr = self.is_weakly_rev
+                if (deficiency == 0 and wr) or deficiency == 1:
+                    if deficiency == 1:
+                        indgroups = [self._non_terminal_complexes()]
+
+                    if deficiency == 0 and wr:
+                        nlc, lc = self.weak_conn_components()
+                        indgroups = [[i for i in range(self.n_complexes) if lc[i] == l] for l in range(nlc)]
+
+                    m = list(map(list, sp.Matrix([list(self.complexes[i].to_vector(self.species) -
+                                                       self.complexes[j].to_vector(self.species))
+                                                  for inds in indgroups
+                                                  for i, j in itertools.combinations(inds, 2)]).T.columnspace()))
+
                     if as_vectors:
-                        return list(set([tuple(self.complexes[i].to_vector(self.species) -
-                                               self.complexes[j].to_vector(self.species)) for i in ntcs_inds for j in ntcs_inds if j > i]))
-                    return list(set([self.complexes[i].ma()/self.complexes[j].ma() for i in ntcs_inds for j in ntcs_inds if j > i]))
-                if self.deficiency == 0 and self.is_weakly_rev:
-                    nlc, lc = self.weak_conn_components()
-                    ms = []
-                    for l in range(nlc):
-                        inds = [i for i in range(self.n_complexes) if lc[i] == l]
-                        if as_vectors:
-                            ms = ms + [tuple(self.complexes[i].to_vector(self.species) -
-                                             self.complexes[j].to_vector(self.species)) for i in inds for j in inds if j > i]
-                        else:
-                            ms = ms + [self.complexes[i].ma()/self.complexes[j].ma() for i in inds for j in inds if j > i]
-                    return list(set(ms))
+                        return m
+                    else:
+                        return list(map(self._vect_to_monom, m))
+        return []
+
+
+    def _vect_to_monom(self, v):
+        return sp.Mul(*(sp.Symbol(self.species[i])**v[i] for i in range(self.n_species)))
+
+
+    def acr_same_ems(self, as_vectors = False):
+        """Return ratios of monomials that are robust,
+        i.e. ratios that take the same value at each positive steady state,
+        by identifying reactions that take part in the same elementary modes.
+
+        * as_vectors -- if True, return a list of vectors of length = n_species, defining the ratios.
+        """
+        if self.is_ma:
+            tinvs = self.t_invariants
+            if tinvs:
+                # reaction index -> indices of tinvariants it participates in
+                tinvs_inds = dict((r, [t for t in range(tinvs.rows) if tinvs[t, r] != 0]) for r in range(self.n_reactions))
+                # indices of tinvariants -> participating reactions
+                rinds = defaultdict(list)
+                for r in tinvs_inds:
+                    rinds[tuple(tinvs_inds[r])].append(r)
+                cgroups = [[self.reactions[r].reactant for r in rinds[t]] for t in rinds if len(rinds[t]) > 1]
+                m = list(map(list, sp.Matrix([list(cs[i].to_vector(self.species) - cs[j].to_vector(self.species))
+                                              for cs in cgroups
+                                              for i, j in itertools.combinations(range(len(cs)), 2)]).T.columnspace()))
+                if as_vectors:
+                    return m
+                else:
+                    return list(map(self._vect_to_monom, m))
         return []
 
 
