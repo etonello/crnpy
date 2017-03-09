@@ -221,7 +221,7 @@ def ast_to_sympy_expr(math, debug = False):
         print("Node of type {}, {}".format(dtypes[t], math.getName()))
     if t == libsbml.AST_NAME:
         if debug:
-            print("None name: {}".format(math.getName()))
+            print("Node name: {}".format(math.getName()))
         return sp.Symbol(math.getName())
 
     if t == libsbml.AST_NAME_TIME:
@@ -234,11 +234,11 @@ def ast_to_sympy_expr(math, debug = False):
         return sp.E
 
     if math.isInteger():
-        return math.getInteger()
+        return sp.Integer(math.getInteger())
     if math.isRational():
-        return math.getNumerator() / math.getDenominator()
+        return sp.Rational(math.getNumerator(), math.getDenominator())
     if math.isReal():
-        return math.getReal()
+        return sp.Float(math.getReal())
 
     nc = math.getNumChildren()
     children = [ast_to_sympy_expr(math.getChild(c)) for c in range(nc)]
