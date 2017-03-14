@@ -10,7 +10,6 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 import sympy as sp
-from sympy.solvers.solveset import linsolve
 import warnings
 
 from .conslaw import ConsLaw
@@ -770,7 +769,7 @@ class CRN(object):
         else:
             kinetic_matrix = self.kinetic_matrix
 
-        return (-1)**(self.n_complexes - 1)*kinetic_matrix.extract(inds, inds).det()
+        return (-1)**len(inds)*kinetic_matrix.extract(inds, inds).det()
 
 
     def tree_constants(self, gma = None):
@@ -803,7 +802,7 @@ class CRN(object):
             l = lcs[index]
             if l in slcs:
                 inds = [i for i in range(self.n_complexes) if lcs[i] == l and i != index]
-                tree_consts.append((-1)**(self.n_complexes - 1)*kinetic_matrix.extract(inds, inds).det())
+                tree_consts.append((-1)**len(inds)*kinetic_matrix.extract(inds, inds).det())
             else:
                 tree_consts.append(None)
         return tree_consts

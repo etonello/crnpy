@@ -427,8 +427,16 @@ class TestCrn(unittest.TestCase):
     def test_tree_constants2(self):
         crn = from_react_strings(['A ->(k1) B', 'B (k3)<->(k2) C', 'A ->(k4) D', 'D (k6)<->(k5) E'])
         k1, k2, k3, k4, k5, k6 = crn.kinetic_params
-        self.assertEqual(crn.tree_constant(1), -k3)
-        self.assertEqual(crn.tree_constants(), [None, -k3, -k2, -k6, -k5])
+        self.assertEqual(crn.tree_constant(1), k3)
+        self.assertEqual(crn.tree_constants(), [None, k3, k2, k6, k5])
+
+
+    def test_tree_constants3(self):
+        crn = from_react_strings(["2c1 (k21)<->(k12) c1+c2", "c1+c2 (k32)<->(k23) 2c2", "2c1 (k31)<->(k13) 2c2"])
+        k12, k21, k23, k32, k13, k31 = crn.kinetic_params
+        self.assertEqual(crn.tree_constants(), [k21*k31 + k23*k31 + k21*k32,
+                                                k12*k32 + k12*k31 + k13*k32,
+                                                k13*k21 + k13*k23 + k12*k23])
 
 
     def test_ems(self):
