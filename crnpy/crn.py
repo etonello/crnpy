@@ -1977,20 +1977,19 @@ class CRN(object):
     def acr_same_ems(self, as_vectors = False):
         """Return ratios of monomials that are robust,
         i.e. ratios that take the same value at each positive steady state,
-        by identifying reactions that take part in the same elementary modes.
+        by identifying reactions that take part in the same elementary modes,
+        with the same coefficients.
 
         * as_vectors -- if True, return a list of vectors of length = n_species, defining the ratios.
         """
         if self.is_ma:
-            tinvs = self.t_invariants
+            tinvs = self.t_invariants.T
             if tinvs:
-                # reaction index -> indices of tinvariants it participates in
-                tinvs_inds = dict((r, [t for t in range(tinvs.rows) if tinvs[t, r] != 0]) for r in range(self.n_reactions))
-                # indices of tinvariants -> participating reactions
+                # group rows
                 rinds = defaultdict(list)
-                for r in tinvs_inds:
-                    rinds[tuple(tinvs_inds[r])].append(r)
-                cgroups = [[self.reactions[r].reactant for r in rinds[t]] for t in rinds if len(rinds[t]) > 1]
+                for r in range(tinvs.rows):
+                    rinds[tuple(tinvs.row(r))].append(r)
+                cgroups = [[self.reactions[r].reactant for r in v] for v in rinds.values() if len(v) > 1]
                 m = list(map(list, sp.Matrix([list(cs[i].to_vector(self.species) - cs[j].to_vector(self.species))
                                               for cs in cgroups
                                               for i, j in itertools.combinations(range(len(cs)), 2)]).T.columnspace()))

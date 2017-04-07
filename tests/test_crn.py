@@ -413,6 +413,9 @@ class TestCrn(unittest.TestCase):
         self.assertTrue([1, 1, -1, 0] in crn.acr_same_ems(as_vectors = True) or
                         [-1, -1, 1, 0] in crn.acr_same_ems(as_vectors = True))
 
+        crn = from_react_strings(["A -> 2B", "B -> C", "2C -> A", "B + C -> A"])
+        self.assertEqual([], crn.acr_complexes(subnets = True, same_ems = True))
+
 
     def test_tree_constants(self):
         crn = from_react_strings(['A1 (k2)<->(k1) A2', 'A2 (k4+k1*k5/k2)<->(k3) A3'])
