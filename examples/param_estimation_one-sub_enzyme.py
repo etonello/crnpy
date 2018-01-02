@@ -26,8 +26,11 @@ def create_plot(ni, position, t, data, filename, add_times = None, add_data = No
     ax.xaxis.set_ticks_position('bottom')
     if ylabel: ax.set_ylabel(ylabel, fontsize = 6)
     plt.tick_params(axis = 'both', which = 'major', labelsize = 4)
-    map(lambda species: plt.plot(t, data[species], color = colors[species]), data.keys())
-    if add_times is not None: map(lambda species: plt.plot(add_times, add_data[species], 'D', markersize = 2, color = colors[species]), data.keys())
+    for species in data.keys():
+        plt.plot(t, data[species], color = colors[species])
+    if add_times is not None:
+        for species in data.keys():
+            plt.plot(add_times, add_data[species], 'D', markersize = 2, color = colors[species])
     plt.legend(data.keys(), loc = 'upper right', prop = {'size': 6})
     if title: plt.title(title, fontsize = 6)
     plt.savefig(filename)
@@ -40,7 +43,7 @@ def plot_comparison():
     qss_scores = [score_distance(qss_sols[i], sols[i], indices) for i in range(ni)]
     estimated_scores = [score_distance(estimate_sols[i], sols[i], indices) for i in range(ni)]
     print("Qss scores: {}".format(qss_scores))
-    print("Qss form, estimated parameters scores:".format(estimated_scores))
+    print("Qss form, estimated parameters scores: {}".format(estimated_scores))
 
     for i in range(ni):
         ylabel = '$s_0 = %s$, $e_0 = %s$'%(initials[i]['s'], initials[i]['e'])
@@ -81,7 +84,7 @@ if __name__ == "__main__":
     # times for sampling
     sample_times = np.arange(0, 1, 0.2)
     times = np.arange(start_t, end_t, incr)
-    indices = map(lambda x: np.where(times >= x)[0][0], sample_times)
+    indices = [np.where(times >= x)[0][0] for x in sample_times]
 
     # simulate the original dynamics
     sols = [simulate(crn, params, initial, start_t, end_t, incr)[0] for initial in initials]

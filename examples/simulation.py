@@ -20,7 +20,8 @@ def plot_simulation(filename, data, t, colors, title):
     ax.yaxis.set_ticks_position('left')
     ax.xaxis.set_ticks_position('bottom')
     plt.tick_params(axis = 'both', which = 'major', labelsize = 8)
-    map(lambda species: plt.plot(t, data[species], color = colors[species]), data.keys())
+    for species in data.keys():
+        plt.plot(t, data[species], color = colors[species])
     plt.legend(data.keys(), loc = 'upper right', prop = {'size': 9})
     plt.title(title, fontsize = 12)
     plt.savefig(filename)
@@ -43,10 +44,10 @@ def simulate(crn, par, initial_cond, start_t, end_t, incr):
     times = np.arange(start_t, end_t, incr)
 
     # derivatives
-    eqs = map(lambda e: e.subs(par.items()), crn.equations())
+    eqs = [e.subs(par.items()) for e in crn.equations()]
 
     # integration
-    sol = integrate.odeint(lambda x, t: odes(x, t, map(sp.Symbol, crn.species), eqs),
+    sol = integrate.odeint(lambda x, t: odes(x, t, [sp.Symbol(s) for s in crn.species], eqs),
                            [initial_cond[s] for s in crn.species],
                            times)
     return dict(zip(crn.species, np.transpose(sol))), times

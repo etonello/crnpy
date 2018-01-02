@@ -12,7 +12,7 @@ __version__ = "0.0.1"
 
 # Cooperative binding
 
-print "Creating model..."
+print("Creating model...")
 crn = from_react_file("data/reactions/cooperative_binding")
 crn.inspect(True)
 

@@ -24,9 +24,9 @@ def estimate_params(crn, start_t, end_t, incr, sample_times, data, start_params,
     to the points at sample_times. Use fmin from scipy."""
     # find indices for comparison
     t = np.arange(start_t, end_t, incr)
-    indices = map(lambda x: np.where(t >= x)[0][0], sample_times)
-    param_names = start_params.keys()
-    param_values = start_params.values()
+    indices = [np.where(t >= x)[0][0] for x in sample_times]
+    param_names = list(start_params.keys())
+    param_values = list(start_params.values())
 
     # function to minimize
     def score(par):
