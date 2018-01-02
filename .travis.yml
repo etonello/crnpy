@@ -19,4 +19,4 @@ install:
 script:
   - python -m nose
   - cd examples
-  - for x in *.py; do python $x; done
+  - for x in *.py; do python $x || exit 1; done
