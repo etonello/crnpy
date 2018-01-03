@@ -24,7 +24,7 @@ def plot_simulation(filename, data, t, colors, title):
     plt.tick_params(axis = 'both', which = 'major', labelsize = 8)
     for species in data.keys():
         plt.plot(t, data[species], color = colors[species])
-    plt.legend(data.keys(), loc = 'upper right', prop = {'size': 9})
+    plt.legend(list(data.keys()), loc = 'upper right', prop = {'size': 9})
     plt.title(title, fontsize = 12)
     plt.savefig(filename)
     plt.close()
