@@ -8,6 +8,8 @@ from crnpy.crn import CRN, from_react_strings
 from simulation import simulate
 from param_estimation import score_distance, estimate_params
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
