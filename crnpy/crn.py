@@ -558,6 +558,9 @@ class CRN(object):
                 # evaluate derivative in state
                 deriv = deriv.subs(state)
 
+                if deriv == sp.zoo:
+                    raise ValueError("Derivative undefined for {} = {}.".format(tuple(state.keys()), tuple(state.values())))
+
                 if deriv != 0:
                     if deriv > 0:
                         im[i, j] = sp.Symbol(var + str(i + 1) + "_" + str(j + 1))
@@ -1707,9 +1710,9 @@ class CRN(object):
             warnings.warn("Species {} not valid.".format(const_species))
         else:
             if const_species in self._species and self.derivative(const_species) != 0:
-                warnings.warn("Species {} not constant.".format(const_species))
+                warnings.warn("Concentration of {} not constant.".format(const_species))
 
-        self.logger.info("Removing constants: {}".format(', '.join(const_species)))
+        self.logger.info("Removing: {}".format(', '.join(const_species)))
 
         # remove species from reactants and products
         # and replace species with expression in rates

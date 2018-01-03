@@ -294,9 +294,9 @@ def two_subs_one_prod_compulsory_irr():
     # Irreversible
     crn = from_react_file(os.path.join(input_reactions, "two_subs_one_prod_compul_irr"))
     crn.qss(cons_law = ('e' , ConsLaw('e + ea + eab', 'et')))
-    rateab = parse_expr("k3*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia))").subs(parse_expr("kia"), "k_1/k1") \
-                                                                                  .subs(parse_expr("Kma"), "k3/k1") \
-                                                                                  .subs(parse_expr("Kmb"), "(k_2+k3)/k2")
+    rateab = parse_expr("k3*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia))").subs("kia", parse_expr("k_1/k1")) \
+                                                                                  .subs("Kma", parse_expr("k3/k1")) \
+                                                                                  .subs("Kmb", parse_expr("(k_2+k3)/k2"))
     indab = crn.complexes.index(parse_complex('a + b'))
     fail_if_not_equal((rateab - crn.laplacian[indab,indab]).factor(), 0)
 
@@ -308,13 +308,13 @@ def two_subs_one_prod_compulsory_rev():
     crn = from_react_file(os.path.join(input_reactions, "two_subs_one_prod_compul_rev"))
     crn.qss(cons_law = ('e' , ConsLaw('e + ea + eab', 'et')))
 
-    constants = dict(kpluscat = "k3",
-                     kminuscat = "k_1*k_2/(k_1+k_2)",
-                     kia = "k_1/k1",
-                     kip = "k3/k_3",
-                     Kma = "k3/k1",
-                     Kmb = "(k_2+k3)/k2",
-                     Kmp = "k_1*(k_2+k3)/(k_3*(k_1+k_2))")
+    constants = dict(kpluscat = parse_expr("k3"),
+                     kminuscat = parse_expr("k_1*k_2/(k_1+k_2)"),
+                     kia = parse_expr("k_1/k1"),
+                     kip = parse_expr("k3/k_3"),
+                     Kma = parse_expr("k3/k1"),
+                     Kmb = parse_expr("(k_2+k3)/k2"),
+                     Kmp = parse_expr("k_1*(k_2+k3)/(k_3*(k_1+k_2))"))
 
     rateab = parse_expr("kpluscat*et/(kia*Kmb)/(1+a/kia+Kma*b/(kia*Kmb)+a*b/(Kmb*kia)+Kma*b*p/(kia*Kmb*kip)+p/Kmp)").subs(constants)
     indab = crn.complexes.index(parse_complex('a + b'))

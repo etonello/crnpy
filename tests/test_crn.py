@@ -358,8 +358,8 @@ class TestCrn(unittest.TestCase):
         a1_1, a2_2, a2_3, a3_3, a3_4 = sp.symbols('a1_1 a2_2 a2_3 a3_3 a3_4')
         I = sp.Matrix([[a1_1, 0, 0, 0], [0, a2_2, a2_3, 0], [0, 0, 0, a3_4]])
         self.assertEqual(I, crn.influence_matrix(var = "a", check = True, params = {'K': 7, 'k1': 3}))
-        crn = from_react_strings(["x ->(k/(1-x))"])
-        self.assertRaises(ValueError, crn.influence_matrix, check = True)
+        crn = from_react_strings(["x ->(k/(2-x))"])
+        self.assertRaises(ValueError, crn.influence_matrix, check = True, state = {sp.Symbol('x'): 2})
 
 
     def test_fix_ma(self):
@@ -437,9 +437,10 @@ class TestCrn(unittest.TestCase):
     def test_tree_constants3(self):
         crn = from_react_strings(["2c1 (k21)<->(k12) c1+c2", "c1+c2 (k32)<->(k23) 2c2", "2c1 (k31)<->(k13) 2c2"])
         k12, k21, k23, k32, k13, k31 = crn.kinetic_params
-        self.assertEqual(crn.tree_constants(), [k21*k31 + k23*k31 + k21*k32,
-                                                k12*k32 + k12*k31 + k13*k32,
-                                                k13*k21 + k13*k23 + k12*k23])
+        tcs = crn.tree_constants()
+        self.assertEqual((tcs[0]-(k21*k31 + k23*k31 + k21*k32)).simplify(), 0)
+        self.assertEqual((tcs[1]-(k12*k32 + k12*k31 + k13*k32)).simplify(), 0)
+        self.assertEqual((tcs[2]-(k13*k21 + k13*k23 + k12*k23)).simplify(), 0)
 
 
     def test_ems(self):
@@ -478,7 +479,8 @@ class TestCrn(unittest.TestCase):
     def test_set_params(self):
         reacts = ["r1: a ->(k1) b", "r2: b + c ->(k2) d", "d (k_3)<->(k3) a + c"]
         crn = from_react_strings(reacts)
-        crn.set_params({'k1': 0.001, 'k2': 1, 'k_3': 'k3**2/d'})
+        k3,d = sp.symbols('k3,d')
+        crn.set_params({'k1': 0.001, 'k2': 1, 'k_3': k3**2/d})
         self.assertEqual(str(crn.reactions[0]), "r1: a ->(1.000e-3) b")
         self.assertEqual(str(crn.reactions[1]), "r2: b + c ->(1) d")
         self.assertEqual(str(crn.reactions[2]), "r0: d ->(k3) a + c")
