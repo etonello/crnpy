@@ -7,7 +7,7 @@ import numpy as np
 from scipy import integrate
 import sympy as sp
 
-__author__ = "Elisa Tonello"
+__author__ = "Elisa Tonello, Eitan Lees"
 __copyright__ = "Copyright (c) 2016, Elisa Tonello"
 __license__ = "BSD"
 __version__ = "0.0.1"
@@ -30,26 +30,19 @@ def plot_simulation(filename, data, t, colors, title):
     plt.close()
 
 
-def odes(x, t, species, eqs):
-    """System of differential equations of the CRN."""
-    vals = dict()
-    for index, s in enumerate(species):
-        vals[s] = x[index]
-    vals[t] = t
-
-    return [eq.evalf(subs = vals) for eq in eqs]
-
-
 def simulate(crn, par, initial_cond, start_t, end_t, incr):
     """Simulate the deterministic dynamics."""
     # time
     times = np.arange(start_t, end_t, incr)
 
-    # derivatives
+    # inserting rate constants in derivatives
     eqs = [e.subs(par.items()) for e in crn.equations()]
 
+    # turning sympy equations into lambda functions
+    lam_funcs = list(map(lambda eq: sp.lambdify(crn.species, eq), eqs))
+
     # integration
-    sol = integrate.odeint(lambda x, t: odes(x, t, [sp.Symbol(s) for s in crn.species], eqs),
+    sol = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)),
                            [initial_cond[s] for s in crn.species],
                            times)
     return dict(zip(crn.species, np.transpose(sol))), times
