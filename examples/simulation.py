@@ -53,3 +53,21 @@ def simulate(crn, par, initial_cond, start_t, end_t, incr):
                            [initial_cond[s] for s in crn.species],
                            times)
     return dict(zip(crn.species, np.transpose(sol))), times
+
+
+def lambda_simulate(crn, par, initial_cond, start_t, end_t, incr):
+    """Simulate the deterministic dynamics using lambda functions"""
+    # time
+    times = np.arange(start_t, end_t, incr)
+
+    # inserting rate constants in derivatives
+    eqs = [e.subs(par.items()) for e in crn.equations()]
+    
+    # turning sympy equations into lambda functions
+    lam_funcs = list(map(lambda eq: sp.lambdify(crn.species, eq), eqs))
+
+    # integration
+    sol = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)),
+                           [initial_cond[s] for s in crn.species],
+                           times)
+    return dict(zip(crn.species, np.transpose(sol))), times
