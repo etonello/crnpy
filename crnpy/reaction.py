@@ -25,7 +25,8 @@ class Reaction(object):
 
     >>> from crnpy.reaction import Reaction
     >>> from crnpy.crncomplex import Complex
-    >>> r = Reaction("r1", Complex(A = 1, B = 2), Complex(C = 1), "k1*A*B**2")
+    >>> from crnpy.parsereaction import parse_expr
+    >>> r = Reaction("r1", Complex(A = 1, B = 2), Complex(C = 1), parse_expr("k1*A*B**2"))
     >>> r
     r1: A + 2B ->(k1) C
     >>> r.reactionid, r.reactant, r.product, r.rate, r.kinetic_param

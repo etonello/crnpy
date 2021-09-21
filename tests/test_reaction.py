@@ -28,6 +28,7 @@ class TestReaction(unittest.TestCase):
         self.assertEqual(r_.reactant, Complex({'c': 3}))
         self.assertEqual(r_.product, Complex({'a': 1, 'b': 2}))
         self.assertEqual(r.rate, parse_expr('k1*a*b**2/(k2+a)'))
+        Reaction('r1', Complex(A = 1, B = 2), Complex(C = 1), parse_expr('k1*A*B**2'))
 
         r, r_ = parse_reactions(["a + 2b <->(k1/(k2+a)) 3c"])
         self.assertEqual(r.reactant, Complex({'a': 1, 'b': 2}))
