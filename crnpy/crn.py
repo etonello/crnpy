@@ -11,6 +11,8 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 import sympy as sp
 import warnings
+import sympy as sp
+from scipy import integrate
 
 from .conslaw import ConsLaw
 from .createmodel import model_from_reacts, model_from_sbml, replace_reacts
@@ -2315,3 +2317,18 @@ def from_reacts(reacts):
 def from_react_strings(reacts, rate = False):
     """Create a CRN from a list of reaction strings."""
     return from_reacts(parse_reactions(reacts, rate))
+
+
+def simulate_crn(rates, initials, end_time=4, crn=None, incr=0.001):
+    """Simulate the deterministic dynamics."""
+    times = np.arange(0, end_time, incr)
+    par = dict(zip(crn.kinetic_params, rates))
+    # inserting rate constants in derivatives
+    eqs = [e.subs(par.items()) for e in crn.equations()]
+    # turning sympy equations into lambda functions
+    lam_funcs = list(map(lambda eq: sp.lambdify(crn.species, eq), eqs))
+    # integration
+    sol = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)),
+                           initials,
+                           times)
+    return times, sol
