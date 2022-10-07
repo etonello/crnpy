@@ -60,7 +60,8 @@ def plot_samples(trajs, t, ref_traj=None, lower_q_bound=1/3, upper_q_bound=2/3, 
             ax.plot(t, ref_traj[:, i], '--',
                     color=f'C{i}', label=crn.species[i])
     ax.set_xlabel('Time (s)')
-    ax.set_ylabel('Species concentration')
+    ax.set_ylabel('Species mass fraction')
+    ax.set_ylim([0,1])
     handles, labels = ax.get_legend_handles_labels()
     unique = [(h, l) for i, (h, l) in enumerate(
         zip(handles, labels)) if l not in labels[:i]]
@@ -68,3 +69,4 @@ def plot_samples(trajs, t, ref_traj=None, lower_q_bound=1/3, upper_q_bound=2/3, 
     if restraints is not None:
         for r in restraints:
             ax.plot(r[2]*sim_incr, r[0], marker='o', color='k')
+
