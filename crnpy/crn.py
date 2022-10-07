@@ -2319,16 +2319,25 @@ def from_react_strings(reacts, rate = False):
     return from_reacts(parse_reactions(reacts, rate))
 
 
-def simulate_crn(rates, initials, end_time=4, crn=None, incr=0.001):
+def simulate_crn(rates, initials, molecular_weights, end_time=4, crn=None, incr=0.001, v=1):
     """Simulate the deterministic dynamics."""
+    # checking the conservation of mass in all reactions
+    assert_cons_law(crn, molecular_weights)
     times = np.arange(0, end_time, incr)
     par = dict(zip(crn.kinetic_params, rates))
     # inserting rate constants in derivatives
     eqs = [e.subs(par.items()) for e in crn.equations()]
     # turning sympy equations into lambda functions
     lam_funcs = list(map(lambda eq: sp.lambdify(crn.species, eq), eqs))
-    # integration
-    sol = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)),
-                           initials,
-                           times)
-    return times, sol
+    # integrate and multiply by v to get moles
+    moles = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)), initials, times) * v
+    # convert to mass
+    masses = moles * np.array(molecular_weights)[np.newaxis,...]
+    mass_fractions = masses / np.sum(masses, axis=1, keepdims=True)
+    return times, mass_fractions
+
+
+def assert_cons_law(crn, molecular_weights):
+    net_masses = np.array(molecular_weights)[np.newaxis, ...] @ crn.stoich_matrix
+    for i, rxn_net_mass in enumerate(net_masses):
+        assert rxn_net_mass == 0, f'Mass is not conserved in rxn {i+1}! Check your input crn and species molecular weights.'
