@@ -2319,7 +2319,7 @@ def from_react_strings(reacts, rate = False):
     return from_reacts(parse_reactions(reacts, rate))
 
 
-def simulate_crn(rates, initials, molecular_weights, end_time=4, crn=None, incr=0.001, v=1):
+def simulate_crn(rates, initials, molecular_weights, end_time=4, crn=None, incr=0.001, v=1, return_mass_fraction=True):
     """Simulate the deterministic dynamics."""
     # checking the conservation of mass in all reactions
     assert_cons_law(crn, molecular_weights)
@@ -2331,10 +2331,14 @@ def simulate_crn(rates, initials, molecular_weights, end_time=4, crn=None, incr=
     lam_funcs = list(map(lambda eq: sp.lambdify(crn.species, eq), eqs))
     # integrate and multiply by v to get moles
     moles = integrate.odeint(lambda x, t: list(map(lambda func: func(*x), lam_funcs)), initials, times) * v
-    # convert to mass
-    masses = moles * np.array(molecular_weights)[np.newaxis,...]
-    mass_fractions = masses / np.sum(masses, axis=1, keepdims=True)
-    return times, mass_fractions
+    if return_mass_fraction:
+        # convert to mass
+        masses = moles * np.array(molecular_weights)[np.newaxis,...]
+        mass_fractions = masses / np.sum(masses, axis=1, keepdims=True)
+        return times, mass_fractions
+    else:
+        mol_fractions = moles / np.sum(moles, axis=1, keepdims=True)
+        return times, mol_fractions
 
 
 def assert_cons_law(crn, molecular_weights):
