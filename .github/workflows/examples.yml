@@ -30,26 +30,25 @@ jobs:
       run: |
         pip install .
     - name: Run examples
-      working-directory: ./examples
       run: |
         cd examples
     - name: Run param estimation one-sub enzyme
-      run: python examples/param_estimation_one-sub_enzyme.py
+      run: python param_estimation_one-sub_enzyme.py
     - name: Run simulation
-      run: python examples/simulation.py
+      run: python simulation.py
     - name: Runsparse dense realiz
-      run: python examples/sparse_dense_realiz.py
+      run: python sparse_dense_realiz.py
     - name: Run param simulation one-sub enzyme
-      run: python examples/simulation_one-sub_enzyme.py
+      run: python simulation_one-sub_enzyme.py
     - name: Run param estimation
-      run: python examples/param_estimation.py
+      run: python param_estimation.py
     - name: Run kinetic rates
-      run: python examples/kinetic_rates.py
+      run: python kinetic_rates.py
     - name: Run gprotein
-      run: python examples/gprotein.py
+      run: python gprotein.py
     - name: Run cooperative binding
-      run: python examples/cooperative_binding.py
+      run: python cooperative_binding.py
     - name: Run concerted coop
-      run: python examples/concerted_coop.py
+      run: python concerted_coop.py
     - name: Run acr
-      run: python examples/acr.py
+      run: python acr.py
