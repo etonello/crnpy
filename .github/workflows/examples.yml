@@ -6,6 +6,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  defaults:
+    run:
+      working-directory: ./examples
 
 jobs:
   build:
@@ -31,7 +34,7 @@ jobs:
         pip install .
     - name: Run examples
       run: |
-        cd examples
+
       - name: Run param estimation one-sub enzyme
       run: python param_estimation_one-sub_enzyme.py
       - name: Run simulation
