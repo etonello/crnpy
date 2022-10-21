@@ -27,8 +27,8 @@ jobs:
         pip install flake8 pytest pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         sudo apt-get update
-        sudo apt-get install python-glpk
-        sudo apt-get install glpk-utils
+        sudo apt-get update
+        sudo apt-get install glpk
     - name: Install
       run: |
         pip install .
