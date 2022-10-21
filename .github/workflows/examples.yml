@@ -31,24 +31,24 @@ jobs:
         pip install .
     - name: Run examples
       run: |
-         cd examples
-        - name: Run param estimation one-sub enzyme
-        run: python param_estimation_one-sub_enzyme.py
-        - name: Run simulation
-        run: python simulation.py
-        - name: Runsparse dense realiz
-        run: python sparse_dense_realiz.py
-        - name: Run param simulation one-sub enzyme
-        run: python simulation_one-sub_enzyme.py
-        - name: Run param estimation
-        run: python param_estimation.py
-        - name: Run kinetic rates
-        run: python kinetic_rates.py
-        - name: Run gprotein
-        run: python gprotein.py
-        - name: Run cooperative binding
-        run: python cooperative_binding.py
-        - name: Run concerted coop
-        run: python concerted_coop.py
-        - name: Run acr
-        run: python acr.py
+        cd examples
+      - name: Run param estimation one-sub enzyme
+      run: python param_estimation_one-sub_enzyme.py
+      - name: Run simulation
+      run: python simulation.py
+      - name: Runsparse dense realiz
+      run: python sparse_dense_realiz.py
+      - name: Run param simulation one-sub enzyme
+      run: python simulation_one-sub_enzyme.py
+      - name: Run param estimation
+      run: python param_estimation.py
+      - name: Run kinetic rates
+      run: python kinetic_rates.py
+      - name: Run gprotein
+      run: python gprotein.py
+      - name: Run cooperative binding
+      run: python cooperative_binding.py
+      - name: Run concerted coop
+      run: python concerted_coop.py
+      - name: Run acr
+      run: python acr.py
