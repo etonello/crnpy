@@ -2,9 +2,9 @@ name: examples
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -32,6 +32,5 @@ jobs:
         pip install .
     - name: Run examples
       run: |
-         pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
          cd examples
          for f in *.py; do python "$f"; done
