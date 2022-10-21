@@ -34,8 +34,8 @@ def create_plot(ni, position, t, data, filename, add_times = None, add_data = No
         for species in data.keys():
             plt.plot(add_times, add_data[species], 'D', markersize = 2, color = colors[species])
     plt.legend(list(data.keys()), loc = 'upper right', prop = {'size': 6})
-    if title: plt.title(title, fontsize = 6)
-    plt.savefig(filename)
+    # if title: plt.title(title, fontsize = 6)
+    # plt.savefig(filename)
 
 
 def plot_comparison():
