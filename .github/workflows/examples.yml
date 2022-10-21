@@ -32,7 +32,7 @@ jobs:
     - name: Run examples
       working-directory: ./examples
       run: |
-
+        cd examples
     - name: Run param estimation one-sub enzyme
       run: python param_estimation_one-sub_enzyme.py
     - name: Run simulation
