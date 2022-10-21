@@ -1,3 +1,4 @@
+
 name: examples
 
 on:
@@ -25,8 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Check pre-commit
-      run: pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
     - name: Install
       run: |
         pip install .
