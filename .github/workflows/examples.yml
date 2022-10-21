@@ -32,23 +32,23 @@ jobs:
     - name: Run examples
       run: |
 
-      - name: Run param estimation one-sub enzyme
-        run: cd examples & python param_estimation_one_sub_enzyme.py
-      - name: Run simulation
-        run: cd examples & python simulation.py
-      - name: Runsparse dense realiz
-        run: cd examples & python sparse_dense_realiz.py
-      - name: Run param simulation one-sub enzyme
-        run: cd examples & python simulation_one_sub_enzyme.py
-      - name: Run param estimation
-        run: cd examples & python param_estimation.py
-      - name: Run kinetic rates
-        run: cd examples & python kinetic_rates.py
-      - name: Run gprotein
-        run: cd examples & python gprotein.py
-      - name: Run cooperative binding
-        run: cd examples & python cooperative_binding.py
-      - name: Run concerted coop
-        run: cd examples & python concerted_coop.py
-      - name: Run acr
-        run: cd examples & python acr.py
+    - name: Run param estimation one-sub enzyme
+      run: cd examples && python param_estimation_one_sub_enzyme.py
+    - name: Run simulation
+      run: cd examples && python simulation.py
+    - name: Runsparse dense realiz
+      run: cd examples && python sparse_dense_realiz.py
+    - name: Run param simulation one-sub enzyme
+      run: cd examples && python simulation_one_sub_enzyme.py
+    - name: Run param estimation
+      run: cd examples && python param_estimation.py
+    - name: Run kinetic rates
+      run: cd examples && python kinetic_rates.py
+    - name: Run gprotein
+      run: cd examples && python gprotein.py
+    - name: Run cooperative binding
+      run: cd examples && python cooperative_binding.py
+    - name: Run concerted coop
+      run: cd examples && python concerted_coop.py
+    - name: Run acr
+      run: cd examples && python acr.py
