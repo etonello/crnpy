@@ -37,6 +37,7 @@ setup(
     packages=find_packages(exclude=['tests']),
 
     # run-time dependencies that will be installed by pip
-    install_requires=['python-libsbml', 'numpy', 'scipy', 'sympy'],
+    install_requires=['python-libsbml', 'numpy', 'scipy',
+                      'sympy', 'pycddlib', 'pulp', 'matplotlib'],
 )
 
